@@ -282,9 +282,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -296,10 +294,18 @@ where
 impl From<crate::operation::create_o_auth2_token::CreateOAuth2TokenError> for Error {
     fn from(err: crate::operation::create_o_auth2_token::CreateOAuth2TokenError) -> Self {
         match err {
-            crate::operation::create_o_auth2_token::CreateOAuth2TokenError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
-            crate::operation::create_o_auth2_token::CreateOAuth2TokenError::InternalServerException(inner) => Error::InternalServerException(inner),
-            crate::operation::create_o_auth2_token::CreateOAuth2TokenError::TooManyRequestsError(inner) => Error::TooManyRequestsError(inner),
-            crate::operation::create_o_auth2_token::CreateOAuth2TokenError::ValidationException(inner) => Error::ValidationException(inner),
+            crate::operation::create_o_auth2_token::CreateOAuth2TokenError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::create_o_auth2_token::CreateOAuth2TokenError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::create_o_auth2_token::CreateOAuth2TokenError::TooManyRequestsError(inner) => {
+                Error::TooManyRequestsError(inner)
+            }
+            crate::operation::create_o_auth2_token::CreateOAuth2TokenError::ValidationException(inner) => {
+                Error::ValidationException(inner)
+            }
             crate::operation::create_o_auth2_token::CreateOAuth2TokenError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -322,9 +328,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -333,26 +337,24 @@ where
     }
 }
 #[cfg(feature = "op_create_o_auth2_token_with_iam")]
-impl From<crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError>
-    for Error
-{
-    fn from(
-        err: crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError,
-    ) -> Self {
+impl From<crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError> for Error {
+    fn from(err: crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError) -> Self {
         match err {
-            crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError::AccessDeniedException(inner) => {
-                Error::AccessDeniedException(inner)
+            crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError::AccessDeniedException(
+                inner,
+            ) => Error::AccessDeniedException(inner),
+            crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError::InternalServerException(
+                inner,
+            ) => Error::InternalServerException(inner),
+            crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError::TooManyRequestsError(
+                inner,
+            ) => Error::TooManyRequestsError(inner),
+            crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError::ValidationException(
+                inner,
+            ) => Error::ValidationException(inner),
+            crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError::InternalServerException(inner) => {
-                Error::InternalServerException(inner)
-            }
-            crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError::TooManyRequestsError(inner) => {
-                Error::TooManyRequestsError(inner)
-            }
-            crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError::ValidationException(inner) => {
-                Error::ValidationException(inner)
-            }
-            crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAMError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -383,8 +385,12 @@ where
     }
 }
 #[cfg(feature = "op_delete_console_authorization_configuration")]
-impl From<crate::operation::delete_console_authorization_configuration::DeleteConsoleAuthorizationConfigurationError> for Error {
-    fn from(err: crate::operation::delete_console_authorization_configuration::DeleteConsoleAuthorizationConfigurationError) -> Self {
+impl From<crate::operation::delete_console_authorization_configuration::DeleteConsoleAuthorizationConfigurationError>
+    for Error
+{
+    fn from(
+        err: crate::operation::delete_console_authorization_configuration::DeleteConsoleAuthorizationConfigurationError,
+    ) -> Self {
         match err {
             crate::operation::delete_console_authorization_configuration::DeleteConsoleAuthorizationConfigurationError::AccessDeniedException(
                 inner,
@@ -435,7 +441,9 @@ where
 }
 #[cfg(feature = "op_delete_resource_permission_statement")]
 impl From<crate::operation::delete_resource_permission_statement::DeleteResourcePermissionStatementError> for Error {
-    fn from(err: crate::operation::delete_resource_permission_statement::DeleteResourcePermissionStatementError) -> Self {
+    fn from(
+        err: crate::operation::delete_resource_permission_statement::DeleteResourcePermissionStatementError,
+    ) -> Self {
         match err {
             crate::operation::delete_resource_permission_statement::DeleteResourcePermissionStatementError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -485,8 +493,12 @@ where
     }
 }
 #[cfg(feature = "op_get_console_authorization_configuration")]
-impl From<crate::operation::get_console_authorization_configuration::GetConsoleAuthorizationConfigurationError> for Error {
-    fn from(err: crate::operation::get_console_authorization_configuration::GetConsoleAuthorizationConfigurationError) -> Self {
+impl From<crate::operation::get_console_authorization_configuration::GetConsoleAuthorizationConfigurationError>
+    for Error
+{
+    fn from(
+        err: crate::operation::get_console_authorization_configuration::GetConsoleAuthorizationConfigurationError,
+    ) -> Self {
         match err {
             crate::operation::get_console_authorization_configuration::GetConsoleAuthorizationConfigurationError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -527,9 +539,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -541,12 +551,18 @@ where
 impl From<crate::operation::get_resource_policy::GetResourcePolicyError> for Error {
     fn from(err: crate::operation::get_resource_policy::GetResourcePolicyError) -> Self {
         match err {
-            crate::operation::get_resource_policy::GetResourcePolicyError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
-            crate::operation::get_resource_policy::GetResourcePolicyError::InternalServerException(inner) => Error::InternalServerException(inner),
+            crate::operation::get_resource_policy::GetResourcePolicyError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
+            crate::operation::get_resource_policy::GetResourcePolicyError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
             crate::operation::get_resource_policy::GetResourcePolicyError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
-            crate::operation::get_resource_policy::GetResourcePolicyError::TooManyRequestsError(inner) => Error::TooManyRequestsError(inner),
+            crate::operation::get_resource_policy::GetResourcePolicyError::TooManyRequestsError(inner) => {
+                Error::TooManyRequestsError(inner)
+            }
             crate::operation::get_resource_policy::GetResourcePolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -569,9 +585,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -580,12 +594,8 @@ where
     }
 }
 #[cfg(feature = "op_introspect_o_auth2_token_with_iam")]
-impl From<crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAMError>
-    for Error
-{
-    fn from(
-        err: crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAMError,
-    ) -> Self {
+impl From<crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAMError> for Error {
+    fn from(err: crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAMError) -> Self {
         match err {
             crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAMError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -679,8 +689,12 @@ where
     }
 }
 #[cfg(feature = "op_put_console_authorization_configuration")]
-impl From<crate::operation::put_console_authorization_configuration::PutConsoleAuthorizationConfigurationError> for Error {
-    fn from(err: crate::operation::put_console_authorization_configuration::PutConsoleAuthorizationConfigurationError) -> Self {
+impl From<crate::operation::put_console_authorization_configuration::PutConsoleAuthorizationConfigurationError>
+    for Error
+{
+    fn from(
+        err: crate::operation::put_console_authorization_configuration::PutConsoleAuthorizationConfigurationError,
+    ) -> Self {
         match err {
             crate::operation::put_console_authorization_configuration::PutConsoleAuthorizationConfigurationError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -733,12 +747,8 @@ where
     }
 }
 #[cfg(feature = "op_put_resource_permission_statement")]
-impl From<crate::operation::put_resource_permission_statement::PutResourcePermissionStatementError>
-    for Error
-{
-    fn from(
-        err: crate::operation::put_resource_permission_statement::PutResourcePermissionStatementError,
-    ) -> Self {
+impl From<crate::operation::put_resource_permission_statement::PutResourcePermissionStatementError> for Error {
+    fn from(err: crate::operation::put_resource_permission_statement::PutResourcePermissionStatementError) -> Self {
         match err {
             crate::operation::put_resource_permission_statement::PutResourcePermissionStatementError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
@@ -780,9 +790,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -791,26 +799,24 @@ where
     }
 }
 #[cfg(feature = "op_revoke_o_auth2_token_with_iam")]
-impl From<crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError>
-    for Error
-{
-    fn from(
-        err: crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError,
-    ) -> Self {
+impl From<crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError> for Error {
+    fn from(err: crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError) -> Self {
         match err {
-            crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError::AccessDeniedException(inner) => {
-                Error::AccessDeniedException(inner)
+            crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError::AccessDeniedException(
+                inner,
+            ) => Error::AccessDeniedException(inner),
+            crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError::InternalServerException(
+                inner,
+            ) => Error::InternalServerException(inner),
+            crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError::TooManyRequestsError(
+                inner,
+            ) => Error::TooManyRequestsError(inner),
+            crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError::ValidationException(
+                inner,
+            ) => Error::ValidationException(inner),
+            crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError::InternalServerException(inner) => {
-                Error::InternalServerException(inner)
-            }
-            crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError::TooManyRequestsError(inner) => {
-                Error::TooManyRequestsError(inner)
-            }
-            crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError::ValidationException(inner) => {
-                Error::ValidationException(inner)
-            }
-            crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAMError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }

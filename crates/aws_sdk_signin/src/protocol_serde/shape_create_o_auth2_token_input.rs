@@ -11,13 +11,13 @@ pub fn ser_token_input_http_payload(
 
 pub fn ser_token_input_payload(
     input: &crate::types::CreateOAuth2TokenRequestBody,
-) -> std::result::Result<
-    ::std::vec::Vec<u8>,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_create_o_auth2_token_request_body::ser_create_o_auth2_token_request_body(&mut object, input)?;
+    crate::protocol_serde::shape_create_o_auth2_token_request_body::ser_create_o_auth2_token_request_body(
+        &mut object,
+        input,
+    )?;
     object.finish();
     Ok(out.into_bytes())
 }

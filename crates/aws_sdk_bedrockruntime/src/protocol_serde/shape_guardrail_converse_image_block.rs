@@ -9,7 +9,10 @@ pub fn ser_guardrail_converse_image_block(
     if let Some(var_1) = &input.source {
         #[allow(unused_mut)]
         let mut object_2 = object.key("source").start_object();
-        crate::protocol_serde::shape_guardrail_converse_image_source::ser_guardrail_converse_image_source(&mut object_2, var_1)?;
+        crate::protocol_serde::shape_guardrail_converse_image_source::ser_guardrail_converse_image_source(
+            &mut object_2,
+            var_1,
+        )?;
         object_2.finish();
     }
     Ok(())
@@ -32,11 +35,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -46,40 +47,34 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key
-                        .to_unescaped()?
-                        .as_ref()
-                    {
-                        "format" => {
-                            builder = builder.set_format(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                    tokens.next(),
-                                )?
-                                .map(|s| {
-                                    s.to_unescaped().map(|u| {
-                                        crate::types::GuardrailConverseImageFormat::from(u.as_ref())
-                                    })
-                                })
-                                .transpose()?,
-                            );
-                        }
-                        "source" => {
-                            builder = builder.set_source(
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "format" => {
+                                builder = builder.set_format(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| {
+                                            s.to_unescaped()
+                                                .map(|u| crate::types::GuardrailConverseImageFormat::from(u.as_ref()))
+                                        })
+                                        .transpose()?,
+                                );
+                            }
+                            "source" => {
+                                builder = builder.set_source(
                                 crate::protocol_serde::shape_guardrail_converse_image_source::de_guardrail_converse_image_source(
                                     tokens,
                                     _value,
                                     depth + 1,
                                 )?,
                             );
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
@@ -94,10 +89,8 @@ where
                     })?,
             ))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

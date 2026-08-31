@@ -33,9 +33,7 @@ impl OwnershipControlsRule {
 }
 
 /// A builder for [`OwnershipControlsRule`](crate::types::OwnershipControlsRule).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct OwnershipControlsRuleBuilder {
     pub(crate) object_ownership: ::std::option::Option<crate::types::ObjectOwnership>,
@@ -60,10 +58,7 @@ impl OwnershipControlsRuleBuilder {
     /// <p>By default, <code>ObjectOwnership</code> is set to <code>BucketOwnerEnforced</code> and ACLs are disabled. We recommend keeping ACLs disabled, except in uncommon use cases where you must control access for each object individually. For more information about S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling ownership of objects and disabling ACLs for your bucket</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets. Directory buckets use the bucket owner enforced setting for S3 Object Ownership.</p>
     /// </note>
-    pub fn set_object_ownership(
-        mut self,
-        input: ::std::option::Option<crate::types::ObjectOwnership>,
-    ) -> Self {
+    pub fn set_object_ownership(mut self, input: ::std::option::Option<crate::types::ObjectOwnership>) -> Self {
         self.object_ownership = input;
         self
     }
@@ -82,10 +77,8 @@ impl OwnershipControlsRuleBuilder {
     /// - [`object_ownership`](crate::types::builders::OwnershipControlsRuleBuilder::object_ownership)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::OwnershipControlsRule,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::OwnershipControlsRule, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::OwnershipControlsRule {
             object_ownership: self.object_ownership.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

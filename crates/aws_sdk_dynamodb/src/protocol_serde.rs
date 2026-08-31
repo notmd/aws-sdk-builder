@@ -72,12 +72,8 @@ where
     E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
 {
     result
-        .map(|output| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output)
-        })
-        .map_err(|error| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error)
-        })
+        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))
+        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))
         .map_err(::std::convert::Into::into)
 }
 
@@ -523,10 +519,7 @@ pub(crate) mod shape_global_table_already_exists_exception;
 ))]
 pub(crate) mod shape_global_table_not_found_exception;
 
-#[cfg(any(
-    feature = "op_execute_transaction",
-    feature = "op_transact_write_items"
-))]
+#[cfg(any(feature = "op_execute_transaction", feature = "op_transact_write_items"))]
 pub(crate) mod shape_idempotent_parameter_mismatch_exception;
 
 #[cfg(feature = "op_import_table")]
@@ -749,10 +742,7 @@ pub(crate) mod shape_query_input;
 #[cfg(feature = "op_update_global_table")]
 pub(crate) mod shape_replica_already_exists_exception;
 
-#[cfg(any(
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings"
-))]
+#[cfg(any(feature = "op_update_global_table", feature = "op_update_global_table_settings"))]
 pub(crate) mod shape_replica_not_found_exception;
 
 #[cfg(any(
@@ -914,10 +904,7 @@ pub(crate) mod shape_transaction_canceled_exception;
 ))]
 pub(crate) mod shape_transaction_conflict_exception;
 
-#[cfg(any(
-    feature = "op_execute_transaction",
-    feature = "op_transact_write_items"
-))]
+#[cfg(any(feature = "op_execute_transaction", feature = "op_transact_write_items"))]
 pub(crate) mod shape_transaction_in_progress_exception;
 
 #[cfg(feature = "op_untag_resource")]
@@ -1069,10 +1056,7 @@ pub(crate) mod shape_consumed_capacity;
 ))]
 pub(crate) mod shape_consumed_capacity_multiple;
 
-#[cfg(any(
-    feature = "op_describe_continuous_backups",
-    feature = "op_update_continuous_backups"
-))]
+#[cfg(any(feature = "op_describe_continuous_backups", feature = "op_update_continuous_backups"))]
 pub(crate) mod shape_continuous_backups_description;
 
 #[cfg(feature = "op_describe_contributor_insights")]
@@ -1090,17 +1074,10 @@ pub(crate) mod shape_enable_kinesis_streaming_configuration;
 #[cfg(feature = "op_describe_endpoints")]
 pub(crate) mod shape_endpoints;
 
-#[cfg(any(
-    feature = "op_delete_item",
-    feature = "op_put_item",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_delete_item", feature = "op_put_item", feature = "op_update_item"))]
 pub(crate) mod shape_expected_attribute_value;
 
-#[cfg(any(
-    feature = "op_describe_export",
-    feature = "op_export_table_to_point_in_time"
-))]
+#[cfg(any(feature = "op_describe_export", feature = "op_export_table_to_point_in_time"))]
 pub(crate) mod shape_export_description;
 
 #[cfg(feature = "op_list_exports")]
@@ -1146,10 +1123,7 @@ pub(crate) mod shape_import_summary_list;
 #[cfg(any(feature = "op_describe_import", feature = "op_import_table"))]
 pub(crate) mod shape_import_table_description;
 
-#[cfg(any(
-    feature = "op_describe_export",
-    feature = "op_export_table_to_point_in_time"
-))]
+#[cfg(any(feature = "op_describe_export", feature = "op_export_table_to_point_in_time"))]
 pub(crate) mod shape_incremental_export_specification;
 
 #[cfg(any(feature = "op_describe_import", feature = "op_import_table"))]
@@ -1640,10 +1614,7 @@ pub(crate) mod shape_kinesis_data_stream_destination;
 ))]
 pub(crate) mod shape_local_secondary_index_description_list;
 
-#[cfg(any(
-    feature = "op_describe_continuous_backups",
-    feature = "op_update_continuous_backups"
-))]
+#[cfg(any(feature = "op_describe_continuous_backups", feature = "op_update_continuous_backups"))]
 pub(crate) mod shape_point_in_time_recovery_description;
 
 #[cfg(any(

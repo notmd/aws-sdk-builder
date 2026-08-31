@@ -9,8 +9,6 @@ impl super::Client {
     pub fn create_account_alias(
         &self,
     ) -> crate::operation::create_account_alias::builders::CreateAccountAliasFluentBuilder {
-        crate::operation::create_account_alias::builders::CreateAccountAliasFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::create_account_alias::builders::CreateAccountAliasFluentBuilder::new(self.handle.clone())
     }
 }

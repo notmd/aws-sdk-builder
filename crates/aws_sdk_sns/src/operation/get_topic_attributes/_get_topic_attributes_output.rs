@@ -60,9 +60,7 @@ pub struct GetTopicAttributesOutput {
     /// <li>
     /// <p><code>FifoTopic</code> – When this is set to <code>true</code>, a FIFO topic is created.</p></li>
     /// </ul>
-    pub attributes: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     _request_id: Option<String>,
 }
 impl GetTopicAttributesOutput {
@@ -124,9 +122,7 @@ impl GetTopicAttributesOutput {
     /// </ul>
     pub fn attributes(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.attributes.as_ref()
     }
 }
@@ -137,21 +133,17 @@ impl ::aws_types::request_id::RequestId for GetTopicAttributesOutput {
 }
 impl GetTopicAttributesOutput {
     /// Creates a new builder-style object to manufacture [`GetTopicAttributesOutput`](crate::operation::get_topic_attributes::GetTopicAttributesOutput).
-    pub fn builder(
-    ) -> crate::operation::get_topic_attributes::builders::GetTopicAttributesOutputBuilder {
+    pub fn builder() -> crate::operation::get_topic_attributes::builders::GetTopicAttributesOutputBuilder {
         crate::operation::get_topic_attributes::builders::GetTopicAttributesOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetTopicAttributesOutput`](crate::operation::get_topic_attributes::GetTopicAttributesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetTopicAttributesOutputBuilder {
-    pub(crate) attributes: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) attributes:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     _request_id: Option<String>,
 }
 impl GetTopicAttributesOutputBuilder {
@@ -283,9 +275,7 @@ impl GetTopicAttributesOutputBuilder {
     /// </ul>
     pub fn set_attributes(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.attributes = input;
         self
@@ -348,9 +338,7 @@ impl GetTopicAttributesOutputBuilder {
     /// </ul>
     pub fn get_attributes(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.attributes
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

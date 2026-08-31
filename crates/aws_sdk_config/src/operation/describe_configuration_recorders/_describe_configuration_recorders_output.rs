@@ -5,8 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeConfigurationRecordersOutput {
     /// <p>A list that contains the descriptions of the specified configuration recorders.</p>
-    pub configuration_recorders:
-        ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorder>>,
+    pub configuration_recorders: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorder>>,
     _request_id: Option<String>,
 }
 impl DescribeConfigurationRecordersOutput {
@@ -24,19 +23,17 @@ impl ::aws_types::request_id::RequestId for DescribeConfigurationRecordersOutput
 }
 impl DescribeConfigurationRecordersOutput {
     /// Creates a new builder-style object to manufacture [`DescribeConfigurationRecordersOutput`](crate::operation::describe_configuration_recorders::DescribeConfigurationRecordersOutput).
-    pub fn builder() -> crate::operation::describe_configuration_recorders::builders::DescribeConfigurationRecordersOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::describe_configuration_recorders::builders::DescribeConfigurationRecordersOutputBuilder {
         crate::operation::describe_configuration_recorders::builders::DescribeConfigurationRecordersOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeConfigurationRecordersOutput`](crate::operation::describe_configuration_recorders::DescribeConfigurationRecordersOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeConfigurationRecordersOutputBuilder {
-    pub(crate) configuration_recorders:
-        ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorder>>,
+    pub(crate) configuration_recorders: ::std::option::Option<::std::vec::Vec<crate::types::ConfigurationRecorder>>,
     _request_id: Option<String>,
 }
 impl DescribeConfigurationRecordersOutputBuilder {
@@ -75,10 +72,7 @@ impl DescribeConfigurationRecordersOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeConfigurationRecordersOutput`](crate::operation::describe_configuration_recorders::DescribeConfigurationRecordersOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::describe_configuration_recorders::DescribeConfigurationRecordersOutput
-    {
+    pub fn build(self) -> crate::operation::describe_configuration_recorders::DescribeConfigurationRecordersOutput {
         crate::operation::describe_configuration_recorders::DescribeConfigurationRecordersOutput {
             configuration_recorders: self.configuration_recorders,
             _request_id: self._request_id,

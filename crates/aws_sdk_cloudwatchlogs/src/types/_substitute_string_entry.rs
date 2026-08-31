@@ -36,9 +36,7 @@ impl SubstituteStringEntry {
 }
 
 /// A builder for [`SubstituteStringEntry`](crate::types::SubstituteStringEntry).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SubstituteStringEntryBuilder {
     pub(crate) source: ::std::option::Option<::std::string::String>,
@@ -98,10 +96,8 @@ impl SubstituteStringEntryBuilder {
     /// - [`to`](crate::types::builders::SubstituteStringEntryBuilder::to)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::SubstituteStringEntry,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::SubstituteStringEntry, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::SubstituteStringEntry {
             source: self.source.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

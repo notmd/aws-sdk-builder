@@ -9,19 +9,14 @@ pub fn de_untag_resource_http_error(
     crate::operation::untag_resource::UntagResourceError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::untag_resource::UntagResourceError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::untag_resource::UntagResourceError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(crate::operation::untag_resource::UntagResourceError::unhandled(generic))
-        }
+        None => return Err(crate::operation::untag_resource::UntagResourceError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -31,7 +26,7 @@ pub fn de_untag_resource_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::InvalidParameterValueExceptionBuilder::default();
                     output = crate::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
                     _response_body,
                     output,
@@ -51,8 +46,7 @@ pub fn de_untag_resource_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ResourceConflictExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::ResourceConflictExceptionBuilder::default();
                     output = crate::protocol_serde::shape_resource_conflict_exception::de_resource_conflict_exception_json_err(_response_body, output)
                     .map_err(crate::operation::untag_resource::UntagResourceError::unhandled)?;
                     let output = output.meta(generic);
@@ -69,8 +63,7 @@ pub fn de_untag_resource_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                     output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(crate::operation::untag_resource::UntagResourceError::unhandled)?;
                     let output = output.meta(generic);
@@ -82,38 +75,42 @@ pub fn de_untag_resource_http_error(
                 tmp
             })
         }
-        "ServiceException" => {
-            crate::operation::untag_resource::UntagResourceError::ServiceException({
+        "ServiceException" => crate::operation::untag_resource::UntagResourceError::ServiceException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ServiceExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::untag_resource::UntagResourceError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::ServiceExceptionBuilder::default();
+                output = crate::protocol_serde::shape_service_exception::de_service_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::untag_resource::UntagResourceError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "TooManyRequestsException" => {
             crate::operation::untag_resource::UntagResourceError::TooManyRequestsException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
                     output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(crate::operation::untag_resource::UntagResourceError::unhandled)?;
                     output = output.set_retry_after_seconds(
-                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
-                        crate::operation::untag_resource::UntagResourceError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
-                    })?,
-                );
+                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(
+                            _response_headers,
+                        )
+                        .map_err(|_| {
+                            crate::operation::untag_resource::UntagResourceError::unhandled(
+                                "Failed to parse retryAfterSeconds from header `Retry-After",
+                            )
+                        })?,
+                    );
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -138,11 +135,8 @@ pub fn de_untag_resource_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::untag_resource::builders::UntagResourceOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::untag_resource::builders::UntagResourceOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }

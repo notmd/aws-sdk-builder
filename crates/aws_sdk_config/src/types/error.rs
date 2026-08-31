@@ -364,10 +364,7 @@ pub use crate::types::error::_oversized_configuration_item_exception::OversizedC
 ))]
 pub use crate::types::error::_resource_not_discovered_exception::ResourceNotDiscoveredException;
 
-#[cfg(any(
-    feature = "op_get_resource_config_history",
-    feature = "op_list_resource_evaluations"
-))]
+#[cfg(any(feature = "op_get_resource_config_history", feature = "op_list_resource_evaluations"))]
 pub use crate::types::error::_invalid_time_range_exception::InvalidTimeRangeException;
 
 #[cfg(feature = "op_put_config_rule")]
@@ -660,10 +657,7 @@ mod _invalid_s3_kms_key_arn_exception;
 #[cfg(feature = "op_put_delivery_channel")]
 mod _invalid_sns_topic_arn_exception;
 
-#[cfg(any(
-    feature = "op_get_resource_config_history",
-    feature = "op_list_resource_evaluations"
-))]
+#[cfg(any(feature = "op_get_resource_config_history", feature = "op_list_resource_evaluations"))]
 mod _invalid_time_range_exception;
 
 #[cfg(feature = "op_delete_delivery_channel")]

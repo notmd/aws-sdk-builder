@@ -10,7 +10,11 @@ impl super::Client {
     ///   - [`enabled(bool)`](crate::operation::update_log_anomaly_detector::builders::UpdateLogAnomalyDetectorFluentBuilder::enabled) / [`set_enabled(Option<bool>)`](crate::operation::update_log_anomaly_detector::builders::UpdateLogAnomalyDetectorFluentBuilder::set_enabled):<br>required: **true**<br><p>Use this parameter to pause or restart the anomaly detector.</p><br>
     /// - On success, responds with [`UpdateLogAnomalyDetectorOutput`](crate::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorOutput)
     /// - On failure, responds with [`SdkError<UpdateLogAnomalyDetectorError>`](crate::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorError)
-    pub fn update_log_anomaly_detector(&self) -> crate::operation::update_log_anomaly_detector::builders::UpdateLogAnomalyDetectorFluentBuilder{
-        crate::operation::update_log_anomaly_detector::builders::UpdateLogAnomalyDetectorFluentBuilder::new(self.handle.clone())
+    pub fn update_log_anomaly_detector(
+        &self,
+    ) -> crate::operation::update_log_anomaly_detector::builders::UpdateLogAnomalyDetectorFluentBuilder {
+        crate::operation::update_log_anomaly_detector::builders::UpdateLogAnomalyDetectorFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

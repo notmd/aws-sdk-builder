@@ -14,11 +14,7 @@ impl super::Client {
     ///   - [`quota_share_name(Option<String>)`](crate::operation::create_quota_share::CreateQuotaShareOutput::quota_share_name): <p>The name of the quota share.</p>
     ///   - [`quota_share_arn(Option<String>)`](crate::operation::create_quota_share::CreateQuotaShareOutput::quota_share_arn): <p>The Amazon Resource Name (ARN) of the quota share.</p>
     /// - On failure, responds with [`SdkError<CreateQuotaShareError>`](crate::operation::create_quota_share::CreateQuotaShareError)
-    pub fn create_quota_share(
-        &self,
-    ) -> crate::operation::create_quota_share::builders::CreateQuotaShareFluentBuilder {
-        crate::operation::create_quota_share::builders::CreateQuotaShareFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn create_quota_share(&self) -> crate::operation::create_quota_share::builders::CreateQuotaShareFluentBuilder {
+        crate::operation::create_quota_share::builders::CreateQuotaShareFluentBuilder::new(self.handle.clone())
     }
 }

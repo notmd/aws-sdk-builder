@@ -13,8 +13,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeQueryDefinitionsError>`](crate::operation::describe_query_definitions::DescribeQueryDefinitionsError)
     pub fn describe_query_definitions(
         &self,
-    ) -> crate::operation::describe_query_definitions::builders::DescribeQueryDefinitionsFluentBuilder
-    {
-        crate::operation::describe_query_definitions::builders::DescribeQueryDefinitionsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::describe_query_definitions::builders::DescribeQueryDefinitionsFluentBuilder {
+        crate::operation::describe_query_definitions::builders::DescribeQueryDefinitionsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -9,23 +9,16 @@ pub fn de_admin_update_device_status_http_error(
     crate::operation::admin_update_device_status::AdminUpdateDeviceStatusError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(
-        crate::operation::admin_update_device_status::AdminUpdateDeviceStatusError::unhandled,
-    )?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::admin_update_device_status::AdminUpdateDeviceStatusError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(
-            crate::operation::admin_update_device_status::AdminUpdateDeviceStatusError::unhandled(
-                generic,
-            ),
-        ),
+        None => {
+            return Err(crate::operation::admin_update_device_status::AdminUpdateDeviceStatusError::unhandled(generic))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -167,23 +160,23 @@ pub fn de_admin_update_device_status_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output =
+            crate::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_admin_update_device_status_input(
     input: &crate::operation::admin_update_device_status::AdminUpdateDeviceStatusInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_admin_update_device_status_input::ser_admin_update_device_status_input_input(&mut object, input)?;
+    crate::protocol_serde::shape_admin_update_device_status_input::ser_admin_update_device_status_input_input(
+        &mut object,
+        input,
+    )?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

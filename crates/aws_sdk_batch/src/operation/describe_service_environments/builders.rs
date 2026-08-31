@@ -57,7 +57,9 @@ impl DescribeServiceEnvironmentsFluentBuilder {
         }
     }
     /// Access the DescribeServiceEnvironments as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_service_environments::builders::DescribeServiceEnvironmentsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_service_environments::builders::DescribeServiceEnvironmentsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,11 +83,12 @@ impl DescribeServiceEnvironmentsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::describe_service_environments::DescribeServiceEnvironments::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::describe_service_environments::DescribeServiceEnvironments::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::describe_service_environments::DescribeServiceEnvironments::orchestrate(
             &runtime_plugins,
             input,
@@ -121,8 +124,13 @@ impl DescribeServiceEnvironmentsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_service_environments::paginator::DescribeServiceEnvironmentsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::describe_service_environments::paginator::DescribeServiceEnvironmentsPaginator{
-        crate::operation::describe_service_environments::paginator::DescribeServiceEnvironmentsPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::describe_service_environments::paginator::DescribeServiceEnvironmentsPaginator {
+        crate::operation::describe_service_environments::paginator::DescribeServiceEnvironmentsPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     ///
     /// Appends an item to `serviceEnvironments`.
@@ -130,10 +138,7 @@ impl DescribeServiceEnvironmentsFluentBuilder {
     /// To override the contents of this collection use [`set_service_environments`](Self::set_service_environments).
     ///
     /// <p>An array of service environment names or ARN entries.</p>
-    pub fn service_environments(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_environments(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.service_environments(input.into());
         self
     }
@@ -146,9 +151,7 @@ impl DescribeServiceEnvironmentsFluentBuilder {
         self
     }
     /// <p>An array of service environment names or ARN entries.</p>
-    pub fn get_service_environments(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_service_environments(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_service_environments()
     }
     /// <p>The maximum number of results returned by <code>DescribeServiceEnvironments</code> in paginated output. When this parameter is used, <code>DescribeServiceEnvironments</code> only returns <code>maxResults</code> results in a single page and a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribeServiceEnvironments</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>DescribeServiceEnvironments</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>

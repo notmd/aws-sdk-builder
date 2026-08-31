@@ -9,9 +9,7 @@ pub struct SuppressionConfidenceThreshold {
 }
 impl SuppressionConfidenceThreshold {
     /// <p>The confidence level threshold for suppression decisions.</p>
-    pub fn confidence_verdict_threshold(
-        &self,
-    ) -> &crate::types::SuppressionConfidenceVerdictThreshold {
+    pub fn confidence_verdict_threshold(&self) -> &crate::types::SuppressionConfidenceVerdictThreshold {
         &self.confidence_verdict_threshold
     }
 }
@@ -23,21 +21,15 @@ impl SuppressionConfidenceThreshold {
 }
 
 /// A builder for [`SuppressionConfidenceThreshold`](crate::types::SuppressionConfidenceThreshold).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SuppressionConfidenceThresholdBuilder {
-    pub(crate) confidence_verdict_threshold:
-        ::std::option::Option<crate::types::SuppressionConfidenceVerdictThreshold>,
+    pub(crate) confidence_verdict_threshold: ::std::option::Option<crate::types::SuppressionConfidenceVerdictThreshold>,
 }
 impl SuppressionConfidenceThresholdBuilder {
     /// <p>The confidence level threshold for suppression decisions.</p>
     /// This field is required.
-    pub fn confidence_verdict_threshold(
-        mut self,
-        input: crate::types::SuppressionConfidenceVerdictThreshold,
-    ) -> Self {
+    pub fn confidence_verdict_threshold(mut self, input: crate::types::SuppressionConfidenceVerdictThreshold) -> Self {
         self.confidence_verdict_threshold = ::std::option::Option::Some(input);
         self
     }

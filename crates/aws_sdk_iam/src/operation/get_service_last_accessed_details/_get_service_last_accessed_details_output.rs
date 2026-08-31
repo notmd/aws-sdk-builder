@@ -28,9 +28,7 @@ impl GetServiceLastAccessedDetailsOutput {
         &self.job_status
     }
     /// <p>The type of job. Service jobs return information about when each service was last accessed. Action jobs also include information about when tracked actions within the service were last accessed.</p>
-    pub fn job_type(
-        &self,
-    ) -> ::std::option::Option<&crate::types::AccessAdvisorUsageGranularityType> {
+    pub fn job_type(&self) -> ::std::option::Option<&crate::types::AccessAdvisorUsageGranularityType> {
         self.job_type.as_ref()
     }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the report job was created.</p>
@@ -67,22 +65,20 @@ impl ::aws_types::request_id::RequestId for GetServiceLastAccessedDetailsOutput 
 }
 impl GetServiceLastAccessedDetailsOutput {
     /// Creates a new builder-style object to manufacture [`GetServiceLastAccessedDetailsOutput`](crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput).
-    pub fn builder() -> crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder {
         crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetServiceLastAccessedDetailsOutput`](crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetServiceLastAccessedDetailsOutputBuilder {
     pub(crate) job_status: ::std::option::Option<crate::types::JobStatusType>,
     pub(crate) job_type: ::std::option::Option<crate::types::AccessAdvisorUsageGranularityType>,
     pub(crate) job_creation_date: ::std::option::Option<::aws_smithy_types::DateTime>,
-    pub(crate) services_last_accessed:
-        ::std::option::Option<::std::vec::Vec<crate::types::ServiceLastAccessed>>,
+    pub(crate) services_last_accessed: ::std::option::Option<::std::vec::Vec<crate::types::ServiceLastAccessed>>,
     pub(crate) job_completion_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
@@ -97,10 +93,7 @@ impl GetServiceLastAccessedDetailsOutputBuilder {
         self
     }
     /// <p>The status of the job.</p>
-    pub fn set_job_status(
-        mut self,
-        input: ::std::option::Option<crate::types::JobStatusType>,
-    ) -> Self {
+    pub fn set_job_status(mut self, input: ::std::option::Option<crate::types::JobStatusType>) -> Self {
         self.job_status = input;
         self
     }
@@ -122,9 +115,7 @@ impl GetServiceLastAccessedDetailsOutputBuilder {
         self
     }
     /// <p>The type of job. Service jobs return information about when each service was last accessed. Action jobs also include information about when tracked actions within the service were last accessed.</p>
-    pub fn get_job_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::AccessAdvisorUsageGranularityType> {
+    pub fn get_job_type(&self) -> &::std::option::Option<crate::types::AccessAdvisorUsageGranularityType> {
         &self.job_type
     }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the report job was created.</p>
@@ -134,10 +125,7 @@ impl GetServiceLastAccessedDetailsOutputBuilder {
         self
     }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the report job was created.</p>
-    pub fn set_job_creation_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_job_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.job_creation_date = input;
         self
     }
@@ -179,10 +167,7 @@ impl GetServiceLastAccessedDetailsOutputBuilder {
     }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the generated report job was completed or failed.</p>
     /// <p>This field is null if the job is still in progress, as indicated by a job status value of <code>IN_PROGRESS</code>.</p>
-    pub fn set_job_completion_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_job_completion_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.job_completion_date = input;
         self
     }

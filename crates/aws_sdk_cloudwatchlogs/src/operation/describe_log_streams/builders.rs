@@ -60,9 +60,7 @@ impl DescribeLogStreamsFluentBuilder {
         }
     }
     /// Access the DescribeLogStreams as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::describe_log_streams::builders::DescribeLogStreamsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::describe_log_streams::builders::DescribeLogStreamsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,17 +84,12 @@ impl DescribeLogStreamsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::describe_log_streams::DescribeLogStreams::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::describe_log_streams::DescribeLogStreams::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::describe_log_streams::DescribeLogStreams::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::describe_log_streams::DescribeLogStreams::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -127,31 +120,20 @@ impl DescribeLogStreamsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_log_streams::paginator::DescribeLogStreamsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::describe_log_streams::paginator::DescribeLogStreamsPaginator {
-        crate::operation::describe_log_streams::paginator::DescribeLogStreamsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::describe_log_streams::paginator::DescribeLogStreamsPaginator {
+        crate::operation::describe_log_streams::paginator::DescribeLogStreamsPaginator::new(self.handle, self.inner)
     }
     /// <p>The name of the log group.</p><note>
     /// <p>You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both.</p>
     /// </note>
-    pub fn log_group_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_group_name(input.into());
         self
     }
     /// <p>The name of the log group.</p><note>
     /// <p>You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both.</p>
     /// </note>
-    pub fn set_log_group_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_log_group_name(input);
         self
     }
@@ -164,20 +146,14 @@ impl DescribeLogStreamsFluentBuilder {
     /// <p>Specify either the name or ARN of the log group to view. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p><note>
     /// <p>You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both.</p>
     /// </note>
-    pub fn log_group_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_group_identifier(input.into());
         self
     }
     /// <p>Specify either the name or ARN of the log group to view. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p><note>
     /// <p>You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>, but not both.</p>
     /// </note>
-    pub fn set_log_group_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_log_group_identifier(input);
         self
     }
@@ -189,19 +165,13 @@ impl DescribeLogStreamsFluentBuilder {
     }
     /// <p>The prefix to match.</p>
     /// <p>If <code>orderBy</code> is <code>LastEventTime</code>, you cannot specify this parameter.</p>
-    pub fn log_stream_name_prefix(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_stream_name_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_stream_name_prefix(input.into());
         self
     }
     /// <p>The prefix to match.</p>
     /// <p>If <code>orderBy</code> is <code>LastEventTime</code>, you cannot specify this parameter.</p>
-    pub fn set_log_stream_name_prefix(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_stream_name_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_log_stream_name_prefix(input);
         self
     }

@@ -66,9 +66,7 @@ impl ListUsersInGroupFluentBuilder {
         }
     }
     /// Access the ListUsersInGroup as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_users_in_group::builders::ListUsersInGroupInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_users_in_group::builders::ListUsersInGroupInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -92,17 +90,12 @@ impl ListUsersInGroupFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_users_in_group::ListUsersInGroup::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::list_users_in_group::ListUsersInGroup::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::list_users_in_group::ListUsersInGroup::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::list_users_in_group::ListUsersInGroup::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -133,13 +126,8 @@ impl ListUsersInGroupFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_users_in_group::paginator::ListUsersInGroupPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_users_in_group::paginator::ListUsersInGroupPaginator {
-        crate::operation::list_users_in_group::paginator::ListUsersInGroupPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_users_in_group::paginator::ListUsersInGroupPaginator {
+        crate::operation::list_users_in_group::paginator::ListUsersInGroupPaginator::new(self.handle, self.inner)
     }
     /// <p>The ID of the user pool where you want to view the membership of the requested group.</p>
     pub fn user_pool_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

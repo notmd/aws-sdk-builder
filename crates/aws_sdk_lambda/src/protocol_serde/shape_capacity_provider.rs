@@ -16,11 +16,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -34,24 +32,19 @@ where
                         match key.to_unescaped()?.as_ref() {
                             "CapacityProviderArn" => {
                                 builder = builder.set_capacity_provider_arn(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "State" => {
                                 builder = builder.set_state(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| {
-                                        s.to_unescaped().map(|u| {
-                                            crate::types::CapacityProviderState::from(u.as_ref())
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| {
+                                            s.to_unescaped()
+                                                .map(|u| crate::types::CapacityProviderState::from(u.as_ref()))
                                         })
-                                    })
-                                    .transpose()?,
+                                        .transpose()?,
                                 );
                             }
                             "VpcConfig" => {
@@ -74,8 +67,12 @@ where
                             }
                             "InstanceRequirements" => {
                                 builder = builder.set_instance_requirements(
-                                crate::protocol_serde::shape_instance_requirements::de_instance_requirements(tokens, _value, depth + 1)?,
-                            );
+                                    crate::protocol_serde::shape_instance_requirements::de_instance_requirements(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "CapacityProviderScalingConfig" => {
                                 builder = builder.set_capacity_provider_scaling_config(
@@ -88,20 +85,16 @@ where
                             }
                             "KmsKeyArn" => {
                                 builder = builder.set_kms_key_arn(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "LastModified" => {
                                 builder = builder.set_last_modified(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "PropagateTags" => {
@@ -126,11 +119,9 @@ where
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
@@ -145,10 +136,8 @@ where
                     })?,
             ))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

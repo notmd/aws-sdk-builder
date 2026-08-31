@@ -12,7 +12,8 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetBucketAccelerateConfigurationError>`](crate::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationError)
     pub fn get_bucket_accelerate_configuration(
         &self,
-    ) -> crate::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationFluentBuilder{
+    ) -> crate::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationFluentBuilder
+    {
         crate::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

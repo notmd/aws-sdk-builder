@@ -11,9 +11,7 @@ use crate::profile::profile_file::ProfileFiles;
 use crate::profile::ProfileSet;
 use crate::provider_config::ProviderConfig;
 use crate::sso::SsoTokenProvider;
-use aws_credential_types::provider::{
-    error::TokenError, future, token::ProvideToken, token::Result as TokenResult,
-};
+use aws_credential_types::provider::{error::TokenError, future, token::ProvideToken, token::Result as TokenResult};
 use aws_types::{region::Region, SdkConfig};
 
 async fn load_profile_set(provider_config: &ProviderConfig) -> Result<&ProfileSet, TokenError> {
@@ -28,8 +26,8 @@ fn create_token_provider(
     provider_config: &ProviderConfig,
     profile_set: &ProfileSet,
 ) -> Result<SsoTokenProvider, TokenError> {
-    let repr = crate::profile::credentials::repr::resolve_chain(profile_set)
-        .map_err(TokenError::invalid_configuration)?;
+    let repr =
+        crate::profile::credentials::repr::resolve_chain(profile_set).map_err(TokenError::invalid_configuration)?;
     match repr.base {
         crate::profile::credentials::repr::BaseProvider::Sso {
             sso_session_name,
@@ -44,9 +42,7 @@ fn create_token_provider(
                 .start_url(sso_start_url)
                 .build_with(provider_config.env(), provider_config.fs()))
         }
-        _ => Err(TokenError::not_loaded(
-            "no sso-session configured in profile file",
-        )),
+        _ => Err(TokenError::not_loaded("no sso-session configured in profile file")),
     }
 }
 
@@ -100,9 +96,7 @@ impl ProfileFileTokenProvider {
                         create_token_provider(&sdk_config, &provider_config, profile_set)
                     }
                 },
-                TokenError::unhandled(
-                    "profile file token provider initialization error already taken",
-                ),
+                TokenError::unhandled("profile file token provider initialization error already taken"),
             )
             .await?;
 

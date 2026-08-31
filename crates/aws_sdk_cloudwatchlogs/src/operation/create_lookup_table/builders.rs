@@ -58,9 +58,7 @@ impl CreateLookupTableFluentBuilder {
         }
     }
     /// Access the CreateLookupTable as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::create_lookup_table::builders::CreateLookupTableInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::create_lookup_table::builders::CreateLookupTableInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,17 +82,12 @@ impl CreateLookupTableFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::create_lookup_table::CreateLookupTable::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::create_lookup_table::CreateLookupTable::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::create_lookup_table::CreateLookupTable::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::create_lookup_table::CreateLookupTable::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -123,18 +116,12 @@ impl CreateLookupTableFluentBuilder {
         self
     }
     /// <p>The name of the lookup table. The name must be unique within your account and Region. The name can contain only alphanumeric characters and underscores, and can be up to 256 characters long.</p>
-    pub fn lookup_table_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn lookup_table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.lookup_table_name(input.into());
         self
     }
     /// <p>The name of the lookup table. The name must be unique within your account and Region. The name can contain only alphanumeric characters and underscores, and can be up to 256 characters long.</p>
-    pub fn set_lookup_table_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_lookup_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_lookup_table_name(input);
         self
     }
@@ -221,9 +208,7 @@ impl CreateLookupTableFluentBuilder {
     /// <p>A list of key-value pairs to associate with the lookup table. You can associate as many as 50 tags with a lookup table. Tags can help you organize and categorize your resources.</p>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_tags(input);
         self
@@ -231,9 +216,7 @@ impl CreateLookupTableFluentBuilder {
     /// <p>A list of key-value pairs to associate with the lookup table. You can associate as many as 50 tags with a lookup table. Tags can help you organize and categorize your resources.</p>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_tags()
     }
 }

@@ -48,9 +48,7 @@ impl ApplyGuardrailInput {
 }
 
 /// A builder for [`ApplyGuardrailInput`](crate::operation::apply_guardrail::ApplyGuardrailInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ApplyGuardrailInputBuilder {
     pub(crate) guardrail_identifier: ::std::option::Option<::std::string::String>,
@@ -62,18 +60,12 @@ pub struct ApplyGuardrailInputBuilder {
 impl ApplyGuardrailInputBuilder {
     /// <p>The guardrail identifier used in the request to apply the guardrail.</p>
     /// This field is required.
-    pub fn guardrail_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn guardrail_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.guardrail_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The guardrail identifier used in the request to apply the guardrail.</p>
-    pub fn set_guardrail_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_guardrail_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.guardrail_identifier = input;
         self
     }
@@ -83,18 +75,12 @@ impl ApplyGuardrailInputBuilder {
     }
     /// <p>The guardrail version used in the request to apply the guardrail.</p>
     /// This field is required.
-    pub fn guardrail_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn guardrail_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.guardrail_version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The guardrail version used in the request to apply the guardrail.</p>
-    pub fn set_guardrail_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_guardrail_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.guardrail_version = input;
         self
     }
@@ -109,10 +95,7 @@ impl ApplyGuardrailInputBuilder {
         self
     }
     /// <p>The source of data used in the request to apply the guardrail.</p>
-    pub fn set_source(
-        mut self,
-        input: ::std::option::Option<crate::types::GuardrailContentSource>,
-    ) -> Self {
+    pub fn set_source(mut self, input: ::std::option::Option<crate::types::GuardrailContentSource>) -> Self {
         self.source = input;
         self
     }
@@ -140,9 +123,7 @@ impl ApplyGuardrailInputBuilder {
         self
     }
     /// <p>The content details used in the request to apply the guardrail.</p>
-    pub fn get_content(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentBlock>> {
+    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentBlock>> {
         &self.content
     }
     /// <p>Specifies the scope of the output that you get in the response. Set to <code>FULL</code> to return the entire output, including any detected and non-detected entries in the response for enhanced debugging.</p>
@@ -153,10 +134,7 @@ impl ApplyGuardrailInputBuilder {
     }
     /// <p>Specifies the scope of the output that you get in the response. Set to <code>FULL</code> to return the entire output, including any detected and non-detected entries in the response for enhanced debugging.</p>
     /// <p>Note that the full output scope doesn't apply to word filters or regex in sensitive information filters. It does apply to all other filtering policies, including sensitive information with filters that can detect personally identifiable information (PII).</p>
-    pub fn set_output_scope(
-        mut self,
-        input: ::std::option::Option<crate::types::GuardrailOutputScope>,
-    ) -> Self {
+    pub fn set_output_scope(mut self, input: ::std::option::Option<crate::types::GuardrailOutputScope>) -> Self {
         self.output_scope = input;
         self
     }

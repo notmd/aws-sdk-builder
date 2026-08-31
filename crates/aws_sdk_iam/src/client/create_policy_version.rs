@@ -12,8 +12,6 @@ impl super::Client {
     pub fn create_policy_version(
         &self,
     ) -> crate::operation::create_policy_version::builders::CreatePolicyVersionFluentBuilder {
-        crate::operation::create_policy_version::builders::CreatePolicyVersionFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::create_policy_version::builders::CreatePolicyVersionFluentBuilder::new(self.handle.clone())
     }
 }

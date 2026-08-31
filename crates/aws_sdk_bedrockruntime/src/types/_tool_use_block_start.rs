@@ -35,9 +35,7 @@ impl ToolUseBlockStart {
 }
 
 /// A builder for [`ToolUseBlockStart`](crate::types::ToolUseBlockStart).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ToolUseBlockStartBuilder {
     pub(crate) tool_use_id: ::std::option::Option<::std::string::String>,
@@ -95,10 +93,7 @@ impl ToolUseBlockStartBuilder {
     /// - [`name`](crate::types::builders::ToolUseBlockStartBuilder::name)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::ToolUseBlockStart,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::ToolUseBlockStart, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ToolUseBlockStart {
             tool_use_id: self.tool_use_id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

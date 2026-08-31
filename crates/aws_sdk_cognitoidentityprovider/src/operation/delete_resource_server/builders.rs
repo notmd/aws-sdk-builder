@@ -67,9 +67,7 @@ impl DeleteResourceServerFluentBuilder {
         }
     }
     /// Access the DeleteResourceServer as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::delete_resource_server::builders::DeleteResourceServerInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::delete_resource_server::builders::DeleteResourceServerInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -98,11 +96,7 @@ impl DeleteResourceServerFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_resource_server::DeleteResourceServer::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::delete_resource_server::DeleteResourceServer::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

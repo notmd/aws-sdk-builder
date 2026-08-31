@@ -12,16 +12,13 @@ impl ::aws_types::request_id::RequestId for DeleteLookupTableOutput {
 }
 impl DeleteLookupTableOutput {
     /// Creates a new builder-style object to manufacture [`DeleteLookupTableOutput`](crate::operation::delete_lookup_table::DeleteLookupTableOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_lookup_table::builders::DeleteLookupTableOutputBuilder {
+    pub fn builder() -> crate::operation::delete_lookup_table::builders::DeleteLookupTableOutputBuilder {
         crate::operation::delete_lookup_table::builders::DeleteLookupTableOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteLookupTableOutput`](crate::operation::delete_lookup_table::DeleteLookupTableOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteLookupTableOutputBuilder {
     _request_id: Option<String>,

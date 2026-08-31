@@ -7,8 +7,7 @@ pub struct InstanceLaunchTemplate {
     /// <p>The Amazon Resource Name (ARN) of the Amazon EC2 instance profile for the managed instances. The instance profile must use the <code>AmazonECSInstanceRolePolicyForManagedInstances</code> managed policy with a trust policy for <code>ec2.amazonaws.com</code>.</p>
     pub ec2_instance_profile_arn: ::std::option::Option<::std::string::String>,
     /// <p>The network configuration for the managed instances. Specifies the VPC subnets and security groups where instances are launched.</p>
-    pub network_configuration:
-        ::std::option::Option<crate::types::ManagedInstancesNetworkConfiguration>,
+    pub network_configuration: ::std::option::Option<crate::types::ManagedInstancesNetworkConfiguration>,
     /// <p>The instance type requirements for the capacity provider. Use this to constrain which Amazon EC2 instance types Amazon ECS can launch. If not specified, all available instance types are eligible.</p>
     pub instance_requirements: ::std::option::Option<crate::types::InstanceRequirementsRequest>,
     /// <p>The capacity pricing model for the managed instances. Valid values:</p>
@@ -20,8 +19,7 @@ pub struct InstanceLaunchTemplate {
     /// </ul>
     pub capacity_option_type: ::std::option::Option<::std::string::String>,
     /// <p>The storage configuration for the managed instances. Configures the root EBS volume size. If not specified, the service uses the default EBS volume size for the instance type.</p>
-    pub storage_configuration:
-        ::std::option::Option<crate::types::ManagedInstancesStorageConfiguration>,
+    pub storage_configuration: ::std::option::Option<crate::types::ManagedInstancesStorageConfiguration>,
     /// <p>The level of CloudWatch monitoring for the managed instances. Valid values are <code>BASIC</code> and <code>DETAILED</code>.</p>
     pub monitoring: ::std::option::Option<::std::string::String>,
     /// <p>Specifies whether FIPS 140-2 validated cryptographic modules are enabled on the managed instances. Not available in all Regions.</p>
@@ -31,8 +29,7 @@ pub struct InstanceLaunchTemplate {
     /// <p>Specifies whether instance tags are accessible from the instance metadata service (IMDS). If not specified, instance tags are not accessible from IMDS.</p>
     pub instance_metadata_tags_propagation: ::std::option::Option<bool>,
     /// <p>The local storage configuration for the managed instances. If not specified, instance store volumes are not available to containers.</p>
-    pub local_storage_configuration:
-        ::std::option::Option<crate::types::ManagedInstancesLocalStorageConfiguration>,
+    pub local_storage_configuration: ::std::option::Option<crate::types::ManagedInstancesLocalStorageConfiguration>,
 }
 impl InstanceLaunchTemplate {
     /// <p>The Amazon Resource Name (ARN) of the Amazon EC2 instance profile for the managed instances. The instance profile must use the <code>AmazonECSInstanceRolePolicyForManagedInstances</code> managed policy with a trust policy for <code>ec2.amazonaws.com</code>.</p>
@@ -40,15 +37,11 @@ impl InstanceLaunchTemplate {
         self.ec2_instance_profile_arn.as_deref()
     }
     /// <p>The network configuration for the managed instances. Specifies the VPC subnets and security groups where instances are launched.</p>
-    pub fn network_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ManagedInstancesNetworkConfiguration> {
+    pub fn network_configuration(&self) -> ::std::option::Option<&crate::types::ManagedInstancesNetworkConfiguration> {
         self.network_configuration.as_ref()
     }
     /// <p>The instance type requirements for the capacity provider. Use this to constrain which Amazon EC2 instance types Amazon ECS can launch. If not specified, all available instance types are eligible.</p>
-    pub fn instance_requirements(
-        &self,
-    ) -> ::std::option::Option<&crate::types::InstanceRequirementsRequest> {
+    pub fn instance_requirements(&self) -> ::std::option::Option<&crate::types::InstanceRequirementsRequest> {
         self.instance_requirements.as_ref()
     }
     /// <p>The capacity pricing model for the managed instances. Valid values:</p>
@@ -62,9 +55,7 @@ impl InstanceLaunchTemplate {
         self.capacity_option_type.as_deref()
     }
     /// <p>The storage configuration for the managed instances. Configures the root EBS volume size. If not specified, the service uses the default EBS volume size for the instance type.</p>
-    pub fn storage_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ManagedInstancesStorageConfiguration> {
+    pub fn storage_configuration(&self) -> ::std::option::Option<&crate::types::ManagedInstancesStorageConfiguration> {
         self.storage_configuration.as_ref()
     }
     /// <p>The level of CloudWatch monitoring for the managed instances. Valid values are <code>BASIC</code> and <code>DETAILED</code>.</p>
@@ -76,9 +67,7 @@ impl InstanceLaunchTemplate {
         self.fips_enabled
     }
     /// <p>The capacity reservation configuration for the managed instances. Use this to target On-Demand Capacity Reservations or Reserved Instances for predictable capacity and cost optimization.</p>
-    pub fn capacity_reservations(
-        &self,
-    ) -> ::std::option::Option<&crate::types::CapacityReservationRequest> {
+    pub fn capacity_reservations(&self) -> ::std::option::Option<&crate::types::CapacityReservationRequest> {
         self.capacity_reservations.as_ref()
     }
     /// <p>Specifies whether instance tags are accessible from the instance metadata service (IMDS). If not specified, instance tags are not accessible from IMDS.</p>
@@ -100,23 +89,17 @@ impl InstanceLaunchTemplate {
 }
 
 /// A builder for [`InstanceLaunchTemplate`](crate::types::InstanceLaunchTemplate).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InstanceLaunchTemplateBuilder {
     pub(crate) ec2_instance_profile_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) network_configuration:
-        ::std::option::Option<crate::types::ManagedInstancesNetworkConfiguration>,
-    pub(crate) instance_requirements:
-        ::std::option::Option<crate::types::InstanceRequirementsRequest>,
+    pub(crate) network_configuration: ::std::option::Option<crate::types::ManagedInstancesNetworkConfiguration>,
+    pub(crate) instance_requirements: ::std::option::Option<crate::types::InstanceRequirementsRequest>,
     pub(crate) capacity_option_type: ::std::option::Option<::std::string::String>,
-    pub(crate) storage_configuration:
-        ::std::option::Option<crate::types::ManagedInstancesStorageConfiguration>,
+    pub(crate) storage_configuration: ::std::option::Option<crate::types::ManagedInstancesStorageConfiguration>,
     pub(crate) monitoring: ::std::option::Option<::std::string::String>,
     pub(crate) fips_enabled: ::std::option::Option<bool>,
-    pub(crate) capacity_reservations:
-        ::std::option::Option<crate::types::CapacityReservationRequest>,
+    pub(crate) capacity_reservations: ::std::option::Option<crate::types::CapacityReservationRequest>,
     pub(crate) instance_metadata_tags_propagation: ::std::option::Option<bool>,
     pub(crate) local_storage_configuration:
         ::std::option::Option<crate::types::ManagedInstancesLocalStorageConfiguration>,
@@ -124,18 +107,12 @@ pub struct InstanceLaunchTemplateBuilder {
 impl InstanceLaunchTemplateBuilder {
     /// <p>The Amazon Resource Name (ARN) of the Amazon EC2 instance profile for the managed instances. The instance profile must use the <code>AmazonECSInstanceRolePolicyForManagedInstances</code> managed policy with a trust policy for <code>ec2.amazonaws.com</code>.</p>
     /// This field is required.
-    pub fn ec2_instance_profile_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn ec2_instance_profile_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.ec2_instance_profile_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the Amazon EC2 instance profile for the managed instances. The instance profile must use the <code>AmazonECSInstanceRolePolicyForManagedInstances</code> managed policy with a trust policy for <code>ec2.amazonaws.com</code>.</p>
-    pub fn set_ec2_instance_profile_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_ec2_instance_profile_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.ec2_instance_profile_arn = input;
         self
     }
@@ -145,10 +122,7 @@ impl InstanceLaunchTemplateBuilder {
     }
     /// <p>The network configuration for the managed instances. Specifies the VPC subnets and security groups where instances are launched.</p>
     /// This field is required.
-    pub fn network_configuration(
-        mut self,
-        input: crate::types::ManagedInstancesNetworkConfiguration,
-    ) -> Self {
+    pub fn network_configuration(mut self, input: crate::types::ManagedInstancesNetworkConfiguration) -> Self {
         self.network_configuration = ::std::option::Option::Some(input);
         self
     }
@@ -167,10 +141,7 @@ impl InstanceLaunchTemplateBuilder {
         &self.network_configuration
     }
     /// <p>The instance type requirements for the capacity provider. Use this to constrain which Amazon EC2 instance types Amazon ECS can launch. If not specified, all available instance types are eligible.</p>
-    pub fn instance_requirements(
-        mut self,
-        input: crate::types::InstanceRequirementsRequest,
-    ) -> Self {
+    pub fn instance_requirements(mut self, input: crate::types::InstanceRequirementsRequest) -> Self {
         self.instance_requirements = ::std::option::Option::Some(input);
         self
     }
@@ -183,9 +154,7 @@ impl InstanceLaunchTemplateBuilder {
         self
     }
     /// <p>The instance type requirements for the capacity provider. Use this to constrain which Amazon EC2 instance types Amazon ECS can launch. If not specified, all available instance types are eligible.</p>
-    pub fn get_instance_requirements(
-        &self,
-    ) -> &::std::option::Option<crate::types::InstanceRequirementsRequest> {
+    pub fn get_instance_requirements(&self) -> &::std::option::Option<crate::types::InstanceRequirementsRequest> {
         &self.instance_requirements
     }
     /// <p>The capacity pricing model for the managed instances. Valid values:</p>
@@ -195,10 +164,7 @@ impl InstanceLaunchTemplateBuilder {
     /// <li>
     /// <p><code>SPOT</code> — Spot Instances, which can provide significant cost savings for fault-tolerant workloads.</p></li>
     /// </ul>
-    pub fn capacity_option_type(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn capacity_option_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.capacity_option_type = ::std::option::Option::Some(input.into());
         self
     }
@@ -209,10 +175,7 @@ impl InstanceLaunchTemplateBuilder {
     /// <li>
     /// <p><code>SPOT</code> — Spot Instances, which can provide significant cost savings for fault-tolerant workloads.</p></li>
     /// </ul>
-    pub fn set_capacity_option_type(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_capacity_option_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.capacity_option_type = input;
         self
     }
@@ -227,10 +190,7 @@ impl InstanceLaunchTemplateBuilder {
         &self.capacity_option_type
     }
     /// <p>The storage configuration for the managed instances. Configures the root EBS volume size. If not specified, the service uses the default EBS volume size for the instance type.</p>
-    pub fn storage_configuration(
-        mut self,
-        input: crate::types::ManagedInstancesStorageConfiguration,
-    ) -> Self {
+    pub fn storage_configuration(mut self, input: crate::types::ManagedInstancesStorageConfiguration) -> Self {
         self.storage_configuration = ::std::option::Option::Some(input);
         self
     }
@@ -277,10 +237,7 @@ impl InstanceLaunchTemplateBuilder {
         &self.fips_enabled
     }
     /// <p>The capacity reservation configuration for the managed instances. Use this to target On-Demand Capacity Reservations or Reserved Instances for predictable capacity and cost optimization.</p>
-    pub fn capacity_reservations(
-        mut self,
-        input: crate::types::CapacityReservationRequest,
-    ) -> Self {
+    pub fn capacity_reservations(mut self, input: crate::types::CapacityReservationRequest) -> Self {
         self.capacity_reservations = ::std::option::Option::Some(input);
         self
     }
@@ -293,9 +250,7 @@ impl InstanceLaunchTemplateBuilder {
         self
     }
     /// <p>The capacity reservation configuration for the managed instances. Use this to target On-Demand Capacity Reservations or Reserved Instances for predictable capacity and cost optimization.</p>
-    pub fn get_capacity_reservations(
-        &self,
-    ) -> &::std::option::Option<crate::types::CapacityReservationRequest> {
+    pub fn get_capacity_reservations(&self) -> &::std::option::Option<crate::types::CapacityReservationRequest> {
         &self.capacity_reservations
     }
     /// <p>Specifies whether instance tags are accessible from the instance metadata service (IMDS). If not specified, instance tags are not accessible from IMDS.</p>
@@ -304,10 +259,7 @@ impl InstanceLaunchTemplateBuilder {
         self
     }
     /// <p>Specifies whether instance tags are accessible from the instance metadata service (IMDS). If not specified, instance tags are not accessible from IMDS.</p>
-    pub fn set_instance_metadata_tags_propagation(
-        mut self,
-        input: ::std::option::Option<bool>,
-    ) -> Self {
+    pub fn set_instance_metadata_tags_propagation(mut self, input: ::std::option::Option<bool>) -> Self {
         self.instance_metadata_tags_propagation = input;
         self
     }

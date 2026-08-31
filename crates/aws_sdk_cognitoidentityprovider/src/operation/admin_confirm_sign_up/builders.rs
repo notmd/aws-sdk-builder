@@ -68,9 +68,7 @@ impl AdminConfirmSignUpFluentBuilder {
         }
     }
     /// Access the AdminConfirmSignUp as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -94,17 +92,12 @@ impl AdminConfirmSignUpFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::admin_confirm_sign_up::AdminConfirmSignUp::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::admin_confirm_sign_up::AdminConfirmSignUp::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::admin_confirm_sign_up::AdminConfirmSignUp::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::admin_confirm_sign_up::AdminConfirmSignUp::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -201,9 +194,7 @@ impl AdminConfirmSignUpFluentBuilder {
     /// </note>
     pub fn set_client_metadata(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_client_metadata(input);
         self
@@ -223,9 +214,7 @@ impl AdminConfirmSignUpFluentBuilder {
     /// </note>
     pub fn get_client_metadata(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_client_metadata()
     }
 }

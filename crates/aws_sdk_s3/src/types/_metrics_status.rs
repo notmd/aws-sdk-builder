@@ -63,9 +63,9 @@ impl ::std::convert::From<&str> for MetricsStatus {
         match s {
             "Disabled" => MetricsStatus::Disabled,
             "Enabled" => MetricsStatus::Enabled,
-            other => MetricsStatus::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => MetricsStatus::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -99,14 +99,10 @@ impl MetricsStatus {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }

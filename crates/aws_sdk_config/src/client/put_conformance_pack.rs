@@ -17,8 +17,6 @@ impl super::Client {
     pub fn put_conformance_pack(
         &self,
     ) -> crate::operation::put_conformance_pack::builders::PutConformancePackFluentBuilder {
-        crate::operation::put_conformance_pack::builders::PutConformancePackFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::put_conformance_pack::builders::PutConformancePackFluentBuilder::new(self.handle.clone())
     }
 }

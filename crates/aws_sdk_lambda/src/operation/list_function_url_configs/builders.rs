@@ -26,8 +26,7 @@ impl crate::operation::list_function_url_configs::builders::ListFunctionUrlConfi
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListFunctionUrlConfigsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::list_function_url_configs::builders::ListFunctionUrlConfigsInputBuilder,
+    inner: crate::operation::list_function_url_configs::builders::ListFunctionUrlConfigsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -60,8 +59,7 @@ impl ListFunctionUrlConfigsFluentBuilder {
     /// Access the ListFunctionUrlConfigs as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::list_function_url_configs::builders::ListFunctionUrlConfigsInputBuilder
-    {
+    ) -> &crate::operation::list_function_url_configs::builders::ListFunctionUrlConfigsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,16 +83,13 @@ impl ListFunctionUrlConfigsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_function_url_configs::ListFunctionUrlConfigs::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_function_url_configs::ListFunctionUrlConfigs::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::list_function_url_configs::ListFunctionUrlConfigs::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_function_url_configs::ListFunctionUrlConfigs::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -127,8 +122,7 @@ impl ListFunctionUrlConfigsFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::list_function_url_configs::paginator::ListFunctionUrlConfigsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::list_function_url_configs::paginator::ListFunctionUrlConfigsPaginator
-    {
+    ) -> crate::operation::list_function_url_configs::paginator::ListFunctionUrlConfigsPaginator {
         crate::operation::list_function_url_configs::paginator::ListFunctionUrlConfigsPaginator::new(
             self.handle,
             self.inner,
@@ -145,10 +139,7 @@ impl ListFunctionUrlConfigsFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -163,10 +154,7 @@ impl ListFunctionUrlConfigsFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }

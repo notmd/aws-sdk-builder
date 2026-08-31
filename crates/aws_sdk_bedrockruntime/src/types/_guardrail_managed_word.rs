@@ -40,9 +40,7 @@ impl GuardrailManagedWord {
 }
 
 /// A builder for [`GuardrailManagedWord`](crate::types::GuardrailManagedWord).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailManagedWordBuilder {
     pub(crate) r#match: ::std::option::Option<::std::string::String>,
@@ -73,10 +71,7 @@ impl GuardrailManagedWordBuilder {
         self
     }
     /// <p>The type for the managed word.</p>
-    pub fn set_type(
-        mut self,
-        input: ::std::option::Option<crate::types::GuardrailManagedWordType>,
-    ) -> Self {
+    pub fn set_type(mut self, input: ::std::option::Option<crate::types::GuardrailManagedWordType>) -> Self {
         self.r#type = input;
         self
     }
@@ -91,10 +86,7 @@ impl GuardrailManagedWordBuilder {
         self
     }
     /// <p>The action for the managed word.</p>
-    pub fn set_action(
-        mut self,
-        input: ::std::option::Option<crate::types::GuardrailWordPolicyAction>,
-    ) -> Self {
+    pub fn set_action(mut self, input: ::std::option::Option<crate::types::GuardrailWordPolicyAction>) -> Self {
         self.action = input;
         self
     }
@@ -123,10 +115,8 @@ impl GuardrailManagedWordBuilder {
     /// - [`action`](crate::types::builders::GuardrailManagedWordBuilder::action)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::GuardrailManagedWord,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::GuardrailManagedWord, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::GuardrailManagedWord {
             r#match: self.r#match.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -29,9 +29,7 @@ impl ::std::fmt::Debug for DescribeUserPoolClientInput {
 }
 impl DescribeUserPoolClientInput {
     /// Creates a new builder-style object to manufacture [`DescribeUserPoolClientInput`](crate::operation::describe_user_pool_client::DescribeUserPoolClientInput).
-    pub fn builder(
-    ) -> crate::operation::describe_user_pool_client::builders::DescribeUserPoolClientInputBuilder
-    {
+    pub fn builder() -> crate::operation::describe_user_pool_client::builders::DescribeUserPoolClientInputBuilder {
         crate::operation::describe_user_pool_client::builders::DescribeUserPoolClientInputBuilder::default()
     }
 }

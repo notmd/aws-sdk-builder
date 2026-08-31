@@ -9,7 +9,8 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetDomainDeliverabilityCampaignError>`](crate::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError)
     pub fn get_domain_deliverability_campaign(
         &self,
-    ) -> crate::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignFluentBuilder{
+    ) -> crate::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignFluentBuilder
+    {
         crate::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignFluentBuilder::new(self.handle.clone())
     }
 }

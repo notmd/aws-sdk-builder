@@ -58,9 +58,7 @@ impl ListTenantResourcesFluentBuilder {
         }
     }
     /// Access the ListTenantResources as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_tenant_resources::builders::ListTenantResourcesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_tenant_resources::builders::ListTenantResourcesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,17 +82,12 @@ impl ListTenantResourcesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_tenant_resources::ListTenantResources::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::list_tenant_resources::ListTenantResources::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::list_tenant_resources::ListTenantResources::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::list_tenant_resources::ListTenantResources::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -125,13 +118,8 @@ impl ListTenantResourcesFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_tenant_resources::paginator::ListTenantResourcesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_tenant_resources::paginator::ListTenantResourcesPaginator {
-        crate::operation::list_tenant_resources::paginator::ListTenantResourcesPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_tenant_resources::paginator::ListTenantResourcesPaginator {
+        crate::operation::list_tenant_resources::paginator::ListTenantResourcesPaginator::new(self.handle, self.inner)
     }
     /// <p>The name of the tenant to list resources for.</p>
     pub fn tenant_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -165,10 +153,7 @@ impl ListTenantResourcesFluentBuilder {
     pub fn set_filter(
         mut self,
         input: ::std::option::Option<
-            ::std::collections::HashMap<
-                crate::types::ListTenantResourcesFilterKey,
-                ::std::string::String,
-            >,
+            ::std::collections::HashMap<crate::types::ListTenantResourcesFilterKey, ::std::string::String>,
         >,
     ) -> Self {
         self.inner = self.inner.set_filter(input);
@@ -178,10 +163,7 @@ impl ListTenantResourcesFluentBuilder {
     pub fn get_filter(
         &self,
     ) -> &::std::option::Option<
-        ::std::collections::HashMap<
-            crate::types::ListTenantResourcesFilterKey,
-            ::std::string::String,
-        >,
+        ::std::collections::HashMap<crate::types::ListTenantResourcesFilterKey, ::std::string::String>,
     > {
         self.inner.get_filter()
     }

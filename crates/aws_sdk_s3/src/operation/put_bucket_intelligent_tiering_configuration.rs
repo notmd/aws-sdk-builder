@@ -85,29 +85,22 @@ impl PutBucketIntelligentTieringConfiguration {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(
-                crate::config::ConfigOverrideRuntimePlugin::new(
-                    config_override,
-                    client_config.config.clone(),
-                    &client_config.runtime_components,
-                ),
-            );
+            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+                config_override,
+                client_config.config.clone(),
+                &client_config.runtime_components,
+            ));
         }
         runtime_plugins
     }
 }
-impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
-    for PutBucketIntelligentTieringConfiguration
-{
+impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutBucketIntelligentTieringConfiguration {
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
-        let mut cfg =
-            ::aws_smithy_types::config_bag::Layer::new("PutBucketIntelligentTieringConfiguration");
+        let mut cfg = ::aws_smithy_types::config_bag::Layer::new("PutBucketIntelligentTieringConfiguration");
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                PutBucketIntelligentTieringConfigurationRequestSerializer,
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+            PutBucketIntelligentTieringConfigurationRequestSerializer,
+        ));
         cfg.store_put(
             ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
                 PutBucketIntelligentTieringConfigurationResponseDeserializer,
@@ -123,12 +116,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
             ),
         );
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-                "PutBucketIntelligentTieringConfiguration",
-                "S3",
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+            "PutBucketIntelligentTieringConfiguration",
+            "S3",
+        ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = false;
         signing_options.content_sha256_header = true;
@@ -146,10 +137,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<
-        '_,
-        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    > {
+    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("PutBucketIntelligentTieringConfiguration")
             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -214,8 +202,8 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
 
         let ::std::option::Option::Some(input) = context
             .input()
-            .downcast_ref::<PutBucketIntelligentTieringConfigurationInput>(
-        ) else {
+            .downcast_ref::<PutBucketIntelligentTieringConfigurationInput>()
+        else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
@@ -257,10 +245,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
         #[allow(unused_mut)]
         let mut force_error = false;
         ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
-        if matches!(
-            crate::rest_xml_unwrapped_errors::body_is_error(body),
-            Ok(true)
-        ) {
+        if matches!(crate::rest_xml_unwrapped_errors::body_is_error(body), Ok(true)) {
             force_error = true;
         }
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
@@ -307,8 +292,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_base(
                 _input: &crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
                 ::std::write!(output, "/").expect("formatting should succeed");
                 ::std::result::Result::Ok(())
@@ -316,16 +300,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_query(
                 _input: &crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationInput,
                 mut output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 query.push_v("intelligent-tiering");
                 let inner_1 = &_input.id;
                 let inner_1 = inner_1.as_ref().ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "id",
-                        "cannot be empty or unset",
-                    )
+                    ::aws_smithy_types::error::operation::BuildError::missing_field("id", "cannot be empty or unset")
                 })?;
                 if inner_1.is_empty() {
                     return ::std::result::Result::Err(
@@ -342,10 +322,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn update_http_builder(
                 input: &crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<
-                ::http_1x::request::Builder,
-                ::aws_smithy_types::error::operation::BuildError,
-            > {
+            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
@@ -373,13 +351,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
                 &content_length,
             );
         }
-        ::std::result::Result::Ok(
-            request_builder
-                .body(body)
-                .expect("valid request")
-                .try_into()
-                .unwrap(),
-        )
+        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
 #[derive(Debug)]
@@ -409,18 +381,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             .ok_or("failed to downcast to PutBucketIntelligentTieringConfigurationInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(
-                cfg.load::<::aws_types::region::Region>()
-                    .map(|r| r.as_ref().to_owned()),
-            )
-            .set_use_fips(
-                cfg.load::<::aws_types::endpoint_config::UseFips>()
-                    .map(|ty| ty.0),
-            )
-            .set_use_dual_stack(
-                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
-                    .map(|ty| ty.0),
-            )
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_endpoint(
                 cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
                     .map(|ty| ty.0.clone()),
@@ -433,8 +396,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             )
             .set_accelerate(cfg.load::<crate::config::Accelerate>().map(|ty| ty.0))
             .set_disable_s3_express_session_auth(
-                cfg.load::<crate::config::DisableS3ExpressSessionAuth>()
-                    .map(|ty| ty.0),
+                cfg.load::<crate::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0),
             )
             .set_use_s3_express_control_endpoint(Some(true))
             .set_bucket(Some(
@@ -456,9 +418,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
                     err,
                 )
             })?;
-        cfg.interceptor_state().store_put(
-            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
-        );
+        cfg.interceptor_state()
+            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(
+                params,
+            ));
         ::std::result::Result::Ok(())
     }
 }
@@ -485,9 +448,7 @@ impl PutBucketIntelligentTieringConfigurationError {
     /// Creates the `PutBucketIntelligentTieringConfigurationError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -543,22 +504,16 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for PutBucketIntelligentTiering
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
-    for PutBucketIntelligentTieringConfigurationError
-{
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for PutBucketIntelligentTieringConfigurationError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::Unhandled(_inner) => &_inner.meta,
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
-    for PutBucketIntelligentTieringConfigurationError
-{
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for PutBucketIntelligentTieringConfigurationError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {

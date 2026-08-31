@@ -15,7 +15,9 @@ pub fn de_eval_decision_details_type(
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("entry") => {
-                crate::protocol_serde::shape_eval_decision_details_type::de_eval_decision_details_type_entry(&mut tag, &mut out, depth)?;
+                crate::protocol_serde::shape_eval_decision_details_type::de_eval_decision_details_type_entry(
+                    &mut tag, &mut out, depth,
+                )?;
             }
             _ => {}
         }
@@ -25,10 +27,7 @@ pub fn de_eval_decision_details_type(
 
 pub fn de_eval_decision_details_type_entry(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
-    out: &mut ::std::collections::HashMap<
-        ::std::string::String,
-        crate::types::PolicyEvaluationDecisionType,
-    >,
+    out: &mut ::std::collections::HashMap<::std::string::String, crate::types::PolicyEvaluationDecisionType>,
     depth: u32,
 ) -> ::std::result::Result<(), ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
@@ -64,11 +63,8 @@ pub fn de_eval_decision_details_type_entry(
             _ => {}
         }
     }
-    let k =
-        k.ok_or_else(|| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing key map entry"))?;
-    let v = v.ok_or_else(|| {
-        ::aws_smithy_xml::decode::XmlDecodeError::custom("missing value map entry")
-    })?;
+    let k = k.ok_or_else(|| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing key map entry"))?;
+    let v = v.ok_or_else(|| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing value map entry"))?;
     out.insert(k, v);
     Ok(())
 }

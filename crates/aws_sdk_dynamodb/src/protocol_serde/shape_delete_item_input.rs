@@ -13,10 +13,7 @@ pub fn ser_delete_item_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_6 = object_3.key(key_4.as_str()).start_object();
-                crate::protocol_serde::shape_attribute_value::ser_attribute_value(
-                    &mut object_6,
-                    value_5,
-                )?;
+                crate::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_6, value_5)?;
                 object_6.finish();
             }
         }
@@ -29,7 +26,10 @@ pub fn ser_delete_item_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_11 = object_8.key(key_9.as_str()).start_object();
-                crate::protocol_serde::shape_expected_attribute_value::ser_expected_attribute_value(&mut object_11, value_10)?;
+                crate::protocol_serde::shape_expected_attribute_value::ser_expected_attribute_value(
+                    &mut object_11,
+                    value_10,
+                )?;
                 object_11.finish();
             }
         }
@@ -45,9 +45,7 @@ pub fn ser_delete_item_input_input(
         object.key("ReturnConsumedCapacity").string(var_14.as_str());
     }
     if let Some(var_15) = &input.return_item_collection_metrics {
-        object
-            .key("ReturnItemCollectionMetrics")
-            .string(var_15.as_str());
+        object.key("ReturnItemCollectionMetrics").string(var_15.as_str());
     }
     if let Some(var_16) = &input.condition_expression {
         object.key("ConditionExpression").string(var_16.as_str());
@@ -69,10 +67,7 @@ pub fn ser_delete_item_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_25 = object_22.key(key_23.as_str()).start_object();
-                crate::protocol_serde::shape_attribute_value::ser_attribute_value(
-                    &mut object_25,
-                    value_24,
-                )?;
+                crate::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_25, value_24)?;
                 object_25.finish();
             }
         }

@@ -44,7 +44,7 @@ impl
             crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutOutput,
             crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -58,7 +58,9 @@ impl CheckIfPhoneNumberIsOptedOutFluentBuilder {
         }
     }
     /// Access the CheckIfPhoneNumberIsOptedOut as a reference.
-    pub fn as_input(&self) -> &crate::operation::check_if_phone_number_is_opted_out::builders::CheckIfPhoneNumberIsOptedOutInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::check_if_phone_number_is_opted_out::builders::CheckIfPhoneNumberIsOptedOutInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,7 +89,11 @@ impl CheckIfPhoneNumberIsOptedOutFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOut::orchestrate(&runtime_plugins, input).await
+        crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOut::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

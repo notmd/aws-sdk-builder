@@ -79,7 +79,7 @@ impl UpdatePackageGroupOriginConfigurationFluentBuilder {
             crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -90,7 +90,11 @@ impl UpdatePackageGroupOriginConfigurationFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfiguration::orchestrate(&runtime_plugins, input).await
+        crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfiguration::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -100,7 +104,7 @@ impl UpdatePackageGroupOriginConfigurationFluentBuilder {
         crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationOutput,
         crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -147,18 +151,12 @@ impl UpdatePackageGroupOriginConfigurationFluentBuilder {
         self.inner.get_domain_owner()
     }
     /// <p>The pattern of the package group for which to update the origin configuration.</p>
-    pub fn package_group(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_group(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.package_group(input.into());
         self
     }
     /// <p>The pattern of the package group for which to update the origin configuration.</p>
-    pub fn set_package_group(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_group(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_package_group(input);
         self
     }
@@ -210,10 +208,7 @@ impl UpdatePackageGroupOriginConfigurationFluentBuilder {
     /// To override the contents of this collection use [`set_add_allowed_repositories`](Self::set_add_allowed_repositories).
     ///
     /// <p>The repository name and restrictions to add to the allowed repository list of the specified package group.</p>
-    pub fn add_allowed_repositories(
-        mut self,
-        input: crate::types::PackageGroupAllowedRepository,
-    ) -> Self {
+    pub fn add_allowed_repositories(mut self, input: crate::types::PackageGroupAllowedRepository) -> Self {
         self.inner = self.inner.add_allowed_repositories(input);
         self
     }
@@ -237,10 +232,7 @@ impl UpdatePackageGroupOriginConfigurationFluentBuilder {
     /// To override the contents of this collection use [`set_remove_allowed_repositories`](Self::set_remove_allowed_repositories).
     ///
     /// <p>The repository name and restrictions to remove from the allowed repository list of the specified package group.</p>
-    pub fn remove_allowed_repositories(
-        mut self,
-        input: crate::types::PackageGroupAllowedRepository,
-    ) -> Self {
+    pub fn remove_allowed_repositories(mut self, input: crate::types::PackageGroupAllowedRepository) -> Self {
         self.inner = self.inner.remove_allowed_repositories(input);
         self
     }

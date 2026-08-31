@@ -55,21 +55,12 @@ mod test {
 
     #[test]
     fn no_region() {
-        assert_eq!(
-            test_provider(&[])
-                .region()
-                .now_or_never()
-                .expect("no polling"),
-            None
-        );
+        assert_eq!(test_provider(&[]).region().now_or_never().expect("no polling"), None);
     }
 
     #[test]
     fn prioritize_aws_region() {
-        let provider = test_provider(&[
-            ("AWS_REGION", "us-east-1"),
-            ("AWS_DEFAULT_REGION", "us-east-2"),
-        ]);
+        let provider = test_provider(&[("AWS_REGION", "us-east-1"), ("AWS_DEFAULT_REGION", "us-east-2")]);
         assert_eq!(
             provider.region().now_or_never().expect("no polling"),
             Some(Region::new("us-east-1"))

@@ -9,59 +9,59 @@ pub fn de_delete_conformance_pack_http_error(
     crate::operation::delete_conformance_pack::DeleteConformancePackError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::delete_conformance_pack::DeleteConformancePackError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::delete_conformance_pack::DeleteConformancePackError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    let error_code =
-        match generic.code() {
-            Some(code) => code,
-            None => return Err(
-                crate::operation::delete_conformance_pack::DeleteConformancePackError::unhandled(
-                    generic,
-                ),
-            ),
-        };
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(crate::operation::delete_conformance_pack::DeleteConformancePackError::unhandled(generic)),
+    };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "NoSuchConformancePackException" => crate::operation::delete_conformance_pack::DeleteConformancePackError::NoSuchConformancePackException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "NoSuchConformancePackException" => {
+            crate::operation::delete_conformance_pack::DeleteConformancePackError::NoSuchConformancePackException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::NoSuchConformancePackExceptionBuilder::default();
-                output = crate::protocol_serde::shape_no_such_conformance_pack_exception::de_no_such_conformance_pack_exception_json_err(
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::NoSuchConformancePackExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_no_such_conformance_pack_exception::de_no_such_conformance_pack_exception_json_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::delete_conformance_pack::DeleteConformancePackError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ResourceInUseException" => crate::operation::delete_conformance_pack::DeleteConformancePackError::ResourceInUseException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ResourceInUseException" => {
+            crate::operation::delete_conformance_pack::DeleteConformancePackError::ResourceInUseException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ResourceInUseExceptionBuilder::default();
-                output = crate::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::delete_conformance_pack::DeleteConformancePackError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::ResourceInUseExceptionBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(crate::operation::delete_conformance_pack::DeleteConformancePackError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => crate::operation::delete_conformance_pack::DeleteConformancePackError::generic(generic),
     })
 }
@@ -77,23 +77,23 @@ pub fn de_delete_conformance_pack_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::delete_conformance_pack::builders::DeleteConformancePackOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output =
+            crate::operation::delete_conformance_pack::builders::DeleteConformancePackOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_delete_conformance_pack_input(
     input: &crate::operation::delete_conformance_pack::DeleteConformancePackInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_delete_conformance_pack_input::ser_delete_conformance_pack_input_input(&mut object, input)?;
+    crate::protocol_serde::shape_delete_conformance_pack_input::ser_delete_conformance_pack_input_input(
+        &mut object,
+        input,
+    )?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

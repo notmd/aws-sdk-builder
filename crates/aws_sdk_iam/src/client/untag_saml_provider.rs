@@ -10,8 +10,6 @@ impl super::Client {
     pub fn untag_saml_provider(
         &self,
     ) -> crate::operation::untag_saml_provider::builders::UntagSAMLProviderFluentBuilder {
-        crate::operation::untag_saml_provider::builders::UntagSAMLProviderFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::untag_saml_provider::builders::UntagSAMLProviderFluentBuilder::new(self.handle.clone())
     }
 }

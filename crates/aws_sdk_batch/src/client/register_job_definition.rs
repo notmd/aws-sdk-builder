@@ -24,8 +24,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<RegisterJobDefinitionError>`](crate::operation::register_job_definition::RegisterJobDefinitionError)
     pub fn register_job_definition(
         &self,
-    ) -> crate::operation::register_job_definition::builders::RegisterJobDefinitionFluentBuilder
-    {
+    ) -> crate::operation::register_job_definition::builders::RegisterJobDefinitionFluentBuilder {
         crate::operation::register_job_definition::builders::RegisterJobDefinitionFluentBuilder::new(
             self.handle.clone(),
         )

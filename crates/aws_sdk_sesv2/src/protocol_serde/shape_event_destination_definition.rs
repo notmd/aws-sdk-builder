@@ -18,16 +18,16 @@ pub fn ser_event_destination_definition(
     if let Some(var_4) = &input.kinesis_firehose_destination {
         #[allow(unused_mut)]
         let mut object_5 = object.key("KinesisFirehoseDestination").start_object();
-        crate::protocol_serde::shape_kinesis_firehose_destination::ser_kinesis_firehose_destination(&mut object_5, var_4)?;
+        crate::protocol_serde::shape_kinesis_firehose_destination::ser_kinesis_firehose_destination(
+            &mut object_5,
+            var_4,
+        )?;
         object_5.finish();
     }
     if let Some(var_6) = &input.cloud_watch_destination {
         #[allow(unused_mut)]
         let mut object_7 = object.key("CloudWatchDestination").start_object();
-        crate::protocol_serde::shape_cloud_watch_destination::ser_cloud_watch_destination(
-            &mut object_7,
-            var_6,
-        )?;
+        crate::protocol_serde::shape_cloud_watch_destination::ser_cloud_watch_destination(&mut object_7, var_6)?;
         object_7.finish();
     }
     if let Some(var_8) = &input.sns_destination {
@@ -39,19 +39,13 @@ pub fn ser_event_destination_definition(
     if let Some(var_10) = &input.event_bridge_destination {
         #[allow(unused_mut)]
         let mut object_11 = object.key("EventBridgeDestination").start_object();
-        crate::protocol_serde::shape_event_bridge_destination::ser_event_bridge_destination(
-            &mut object_11,
-            var_10,
-        )?;
+        crate::protocol_serde::shape_event_bridge_destination::ser_event_bridge_destination(&mut object_11, var_10)?;
         object_11.finish();
     }
     if let Some(var_12) = &input.pinpoint_destination {
         #[allow(unused_mut)]
         let mut object_13 = object.key("PinpointDestination").start_object();
-        crate::protocol_serde::shape_pinpoint_destination::ser_pinpoint_destination(
-            &mut object_13,
-            var_12,
-        )?;
+        crate::protocol_serde::shape_pinpoint_destination::ser_pinpoint_destination(&mut object_13, var_12)?;
         object_13.finish();
     }
     Ok(())

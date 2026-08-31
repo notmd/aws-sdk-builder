@@ -9,8 +9,6 @@ impl super::Client {
     pub fn opt_in_phone_number(
         &self,
     ) -> crate::operation::opt_in_phone_number::builders::OptInPhoneNumberFluentBuilder {
-        crate::operation::opt_in_phone_number::builders::OptInPhoneNumberFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::opt_in_phone_number::builders::OptInPhoneNumberFluentBuilder::new(self.handle.clone())
     }
 }

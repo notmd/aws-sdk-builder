@@ -4,17 +4,14 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListConfigurationRecordersOutput {
     /// <p>A list of <code>ConfigurationRecorderSummary</code> objects that includes.</p>
-    pub configuration_recorder_summaries:
-        ::std::vec::Vec<crate::types::ConfigurationRecorderSummary>,
+    pub configuration_recorder_summaries: ::std::vec::Vec<crate::types::ConfigurationRecorderSummary>,
     /// <p>The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl ListConfigurationRecordersOutput {
     /// <p>A list of <code>ConfigurationRecorderSummary</code> objects that includes.</p>
-    pub fn configuration_recorder_summaries(
-        &self,
-    ) -> &[crate::types::ConfigurationRecorderSummary] {
+    pub fn configuration_recorder_summaries(&self) -> &[crate::types::ConfigurationRecorderSummary] {
         use std::ops::Deref;
         self.configuration_recorder_summaries.deref()
     }
@@ -30,15 +27,14 @@ impl ::aws_types::request_id::RequestId for ListConfigurationRecordersOutput {
 }
 impl ListConfigurationRecordersOutput {
     /// Creates a new builder-style object to manufacture [`ListConfigurationRecordersOutput`](crate::operation::list_configuration_recorders::ListConfigurationRecordersOutput).
-    pub fn builder() -> crate::operation::list_configuration_recorders::builders::ListConfigurationRecordersOutputBuilder{
+    pub fn builder() -> crate::operation::list_configuration_recorders::builders::ListConfigurationRecordersOutputBuilder
+    {
         crate::operation::list_configuration_recorders::builders::ListConfigurationRecordersOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListConfigurationRecordersOutput`](crate::operation::list_configuration_recorders::ListConfigurationRecordersOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListConfigurationRecordersOutputBuilder {
     pub(crate) configuration_recorder_summaries:
@@ -52,10 +48,7 @@ impl ListConfigurationRecordersOutputBuilder {
     /// To override the contents of this collection use [`set_configuration_recorder_summaries`](Self::set_configuration_recorder_summaries).
     ///
     /// <p>A list of <code>ConfigurationRecorderSummary</code> objects that includes.</p>
-    pub fn configuration_recorder_summaries(
-        mut self,
-        input: crate::types::ConfigurationRecorderSummary,
-    ) -> Self {
+    pub fn configuration_recorder_summaries(mut self, input: crate::types::ConfigurationRecorderSummary) -> Self {
         let mut v = self.configuration_recorder_summaries.unwrap_or_default();
         v.push(input);
         self.configuration_recorder_summaries = ::std::option::Option::Some(v);

@@ -10,8 +10,6 @@ impl super::Client {
     pub fn delete_resource_server(
         &self,
     ) -> crate::operation::delete_resource_server::builders::DeleteResourceServerFluentBuilder {
-        crate::operation::delete_resource_server::builders::DeleteResourceServerFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_resource_server::builders::DeleteResourceServerFluentBuilder::new(self.handle.clone())
     }
 }

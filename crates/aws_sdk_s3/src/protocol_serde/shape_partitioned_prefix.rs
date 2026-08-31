@@ -3,8 +3,7 @@
 pub fn de_partitioned_prefix(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::PartitionedPrefix, ::aws_smithy_xml::decode::XmlDecodeError>
-{
+) -> ::std::result::Result<crate::types::PartitionedPrefix, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
             "maximum nesting depth exceeded",

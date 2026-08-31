@@ -28,9 +28,7 @@ impl PutEmailIdentityConfigurationSetAttributesInput {
 }
 
 /// A builder for [`PutEmailIdentityConfigurationSetAttributesInput`](crate::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutEmailIdentityConfigurationSetAttributesInputBuilder {
     pub(crate) email_identity: ::std::option::Option<::std::string::String>,
@@ -39,18 +37,12 @@ pub struct PutEmailIdentityConfigurationSetAttributesInputBuilder {
 impl PutEmailIdentityConfigurationSetAttributesInputBuilder {
     /// <p>The email address or domain to associate with a configuration set.</p>
     /// This field is required.
-    pub fn email_identity(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_identity(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.email_identity = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The email address or domain to associate with a configuration set.</p>
-    pub fn set_email_identity(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_identity(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.email_identity = input;
         self
     }
@@ -59,18 +51,12 @@ impl PutEmailIdentityConfigurationSetAttributesInputBuilder {
         &self.email_identity
     }
     /// <p>The configuration set to associate with an email identity.</p>
-    pub fn configuration_set_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.configuration_set_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The configuration set to associate with an email identity.</p>
-    pub fn set_configuration_set_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.configuration_set_name = input;
         self
     }

@@ -23,9 +23,7 @@ impl ConfigurationTemplateDeliveryConfigValues {
         self.field_delimiter.as_deref()
     }
     /// <p>The delivery parameters that are used when you create a delivery to a delivery destination that is an S3 Bucket.</p>
-    pub fn s3_delivery_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::S3DeliveryConfiguration> {
+    pub fn s3_delivery_configuration(&self) -> ::std::option::Option<&crate::types::S3DeliveryConfiguration> {
         self.s3_delivery_configuration.as_ref()
     }
 }
@@ -37,15 +35,12 @@ impl ConfigurationTemplateDeliveryConfigValues {
 }
 
 /// A builder for [`ConfigurationTemplateDeliveryConfigValues`](crate::types::ConfigurationTemplateDeliveryConfigValues).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ConfigurationTemplateDeliveryConfigValuesBuilder {
     pub(crate) record_fields: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) field_delimiter: ::std::option::Option<::std::string::String>,
-    pub(crate) s3_delivery_configuration:
-        ::std::option::Option<crate::types::S3DeliveryConfiguration>,
+    pub(crate) s3_delivery_configuration: ::std::option::Option<crate::types::S3DeliveryConfiguration>,
 }
 impl ConfigurationTemplateDeliveryConfigValuesBuilder {
     /// Appends an item to `record_fields`.
@@ -53,42 +48,28 @@ impl ConfigurationTemplateDeliveryConfigValuesBuilder {
     /// To override the contents of this collection use [`set_record_fields`](Self::set_record_fields).
     ///
     /// <p>The default record fields that will be delivered when a list of record fields is not provided in a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a> operation.</p>
-    pub fn record_fields(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn record_fields(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.record_fields.unwrap_or_default();
         v.push(input.into());
         self.record_fields = ::std::option::Option::Some(v);
         self
     }
     /// <p>The default record fields that will be delivered when a list of record fields is not provided in a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a> operation.</p>
-    pub fn set_record_fields(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_record_fields(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.record_fields = input;
         self
     }
     /// <p>The default record fields that will be delivered when a list of record fields is not provided in a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a> operation.</p>
-    pub fn get_record_fields(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_record_fields(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.record_fields
     }
     /// <p>The default field delimiter that is used in a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a> operation when the field delimiter is not specified in that operation. The field delimiter is used only when the final output delivery is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
-    pub fn field_delimiter(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn field_delimiter(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.field_delimiter = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The default field delimiter that is used in a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a> operation when the field delimiter is not specified in that operation. The field delimiter is used only when the final output delivery is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
-    pub fn set_field_delimiter(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_field_delimiter(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.field_delimiter = input;
         self
     }
@@ -97,10 +78,7 @@ impl ConfigurationTemplateDeliveryConfigValuesBuilder {
         &self.field_delimiter
     }
     /// <p>The delivery parameters that are used when you create a delivery to a delivery destination that is an S3 Bucket.</p>
-    pub fn s3_delivery_configuration(
-        mut self,
-        input: crate::types::S3DeliveryConfiguration,
-    ) -> Self {
+    pub fn s3_delivery_configuration(mut self, input: crate::types::S3DeliveryConfiguration) -> Self {
         self.s3_delivery_configuration = ::std::option::Option::Some(input);
         self
     }
@@ -113,9 +91,7 @@ impl ConfigurationTemplateDeliveryConfigValuesBuilder {
         self
     }
     /// <p>The delivery parameters that are used when you create a delivery to a delivery destination that is an S3 Bucket.</p>
-    pub fn get_s3_delivery_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::S3DeliveryConfiguration> {
+    pub fn get_s3_delivery_configuration(&self) -> &::std::option::Option<crate::types::S3DeliveryConfiguration> {
         &self.s3_delivery_configuration
     }
     /// Consumes the builder and constructs a [`ConfigurationTemplateDeliveryConfigValues`](crate::types::ConfigurationTemplateDeliveryConfigValues).

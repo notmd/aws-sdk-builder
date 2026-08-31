@@ -284,9 +284,7 @@ pub enum Error {
         feature = "op_update_user_pool"
     ))]
     /// <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.</p>
-    InvalidEmailRoleAccessPolicyException(
-        crate::types::error::InvalidEmailRoleAccessPolicyException,
-    ),
+    InvalidEmailRoleAccessPolicyException(crate::types::error::InvalidEmailRoleAccessPolicyException),
     #[cfg(any(
         feature = "op_admin_confirm_sign_up",
         feature = "op_admin_create_user",
@@ -308,10 +306,7 @@ pub enum Error {
     ))]
     /// <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
     InvalidLambdaResponseException(crate::types::error::InvalidLambdaResponseException),
-    #[cfg(any(
-        feature = "op_create_user_pool_client",
-        feature = "op_update_user_pool_client"
-    ))]
+    #[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
     /// <p>This exception is thrown when the specified OAuth flow is not valid.</p>
     InvalidOAuthFlowException(crate::types::error::InvalidOAuthFlowException),
     #[cfg(any(
@@ -496,9 +491,7 @@ pub enum Error {
         feature = "op_update_user_pool"
     ))]
     /// <p>This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.</p>
-    InvalidSmsRoleTrustRelationshipException(
-        crate::types::error::InvalidSmsRoleTrustRelationshipException,
-    ),
+    InvalidSmsRoleTrustRelationshipException(crate::types::error::InvalidSmsRoleTrustRelationshipException),
     #[cfg(any(
         feature = "op_admin_forget_device",
         feature = "op_admin_get_device",
@@ -516,9 +509,7 @@ pub enum Error {
         feature = "op_verify_software_token"
     ))]
     /// <p>This exception is thrown when the user pool configuration is not valid.</p>
-    InvalidUserPoolConfigurationException(
-        crate::types::error::InvalidUserPoolConfigurationException,
-    ),
+    InvalidUserPoolConfigurationException(crate::types::error::InvalidUserPoolConfigurationException),
     #[cfg(any(
         feature = "op_add_user_pool_client_secret",
         feature = "op_admin_confirm_sign_up",
@@ -814,9 +805,7 @@ pub enum Error {
         feature = "op_respond_to_auth_challenge"
     ))]
     /// <p>The message returned when a user's new password matches a previous password and doesn't comply with the password-history policy.</p>
-    PasswordHistoryPolicyViolationException(
-        crate::types::error::PasswordHistoryPolicyViolationException,
-    ),
+    PasswordHistoryPolicyViolationException(crate::types::error::PasswordHistoryPolicyViolationException),
     #[cfg(any(
         feature = "op_admin_initiate_auth",
         feature = "op_admin_respond_to_auth_challenge",
@@ -985,10 +974,7 @@ pub enum Error {
     ))]
     /// <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
     ResourceNotFoundException(crate::types::error::ResourceNotFoundException),
-    #[cfg(any(
-        feature = "op_create_user_pool_client",
-        feature = "op_update_user_pool_client"
-    ))]
+    #[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
     /// <p>This exception is thrown when the specified scope doesn't exist.</p>
     ScopeDoesNotExistException(crate::types::error::ScopeDoesNotExistException),
     #[cfg(feature = "op_update_provisioned_limit")]
@@ -1162,10 +1148,7 @@ pub enum Error {
     ))]
     /// <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.</p>
     UnexpectedLambdaException(crate::types::error::UnexpectedLambdaException),
-    #[cfg(any(
-        feature = "op_delete_identity_provider",
-        feature = "op_update_identity_provider"
-    ))]
+    #[cfg(any(feature = "op_delete_identity_provider", feature = "op_update_identity_provider"))]
     /// <p>This exception is thrown when the specified identifier isn't supported.</p>
     UnsupportedIdentityProviderException(crate::types::error::UnsupportedIdentityProviderException),
     #[cfg(any(
@@ -1320,14 +1303,10 @@ pub enum Error {
     WebAuthnClientMismatchException(crate::types::error::WebAuthnClientMismatchException),
     #[cfg(feature = "op_start_web_authn_registration")]
     /// <p>This exception is thrown when a user pool doesn't have a configured relying party id or a user pool domain.</p>
-    WebAuthnConfigurationMissingException(
-        crate::types::error::WebAuthnConfigurationMissingException,
-    ),
+    WebAuthnConfigurationMissingException(crate::types::error::WebAuthnConfigurationMissingException),
     #[cfg(feature = "op_complete_web_authn_registration")]
     /// <p>This exception is thrown when a user presents passkey credentials from an unsupported device or provider.</p>
-    WebAuthnCredentialNotSupportedException(
-        crate::types::error::WebAuthnCredentialNotSupportedException,
-    ),
+    WebAuthnCredentialNotSupportedException(crate::types::error::WebAuthnCredentialNotSupportedException),
     #[cfg(any(
         feature = "op_complete_web_authn_registration",
         feature = "op_start_web_authn_registration"
@@ -1339,9 +1318,7 @@ pub enum Error {
     WebAuthnOriginNotAllowedException(crate::types::error::WebAuthnOriginNotAllowedException),
     #[cfg(feature = "op_complete_web_authn_registration")]
     /// <p>This exception is thrown when the given passkey credential is associated with a different relying party ID than the user pool relying party ID.</p>
-    WebAuthnRelyingPartyMismatchException(
-        crate::types::error::WebAuthnRelyingPartyMismatchException,
-    ),
+    WebAuthnRelyingPartyMismatchException(crate::types::error::WebAuthnRelyingPartyMismatchException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(
         note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
@@ -1643,10 +1620,7 @@ impl ::std::fmt::Display for Error {
                 feature = "op_update_user_attributes"
             ))]
             Error::InvalidLambdaResponseException(inner) => inner.fmt(f),
-            #[cfg(any(
-                feature = "op_create_user_pool_client",
-                feature = "op_update_user_pool_client"
-            ))]
+            #[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
             Error::InvalidOAuthFlowException(inner) => inner.fmt(f),
             #[cfg(any(
                 feature = "op_add_custom_attributes",
@@ -2298,10 +2272,7 @@ impl ::std::fmt::Display for Error {
                 feature = "op_verify_user_attribute"
             ))]
             Error::ResourceNotFoundException(inner) => inner.fmt(f),
-            #[cfg(any(
-                feature = "op_create_user_pool_client",
-                feature = "op_update_user_pool_client"
-            ))]
+            #[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
             Error::ScopeDoesNotExistException(inner) => inner.fmt(f),
             #[cfg(feature = "op_update_provisioned_limit")]
             Error::ServiceQuotaExceededException(inner) => inner.fmt(f),
@@ -2466,10 +2437,7 @@ impl ::std::fmt::Display for Error {
                 feature = "op_update_user_attributes"
             ))]
             Error::UnexpectedLambdaException(inner) => inner.fmt(f),
-            #[cfg(any(
-                feature = "op_delete_identity_provider",
-                feature = "op_update_identity_provider"
-            ))]
+            #[cfg(any(feature = "op_delete_identity_provider", feature = "op_update_identity_provider"))]
             Error::UnsupportedIdentityProviderException(inner) => inner.fmt(f),
             #[cfg(any(
                 feature = "op_admin_initiate_auth",
@@ -2932,10 +2900,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
                 feature = "op_update_user_attributes"
             ))]
             Self::InvalidLambdaResponseException(inner) => inner.meta(),
-            #[cfg(any(
-                feature = "op_create_user_pool_client",
-                feature = "op_update_user_pool_client"
-            ))]
+            #[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
             Self::InvalidOAuthFlowException(inner) => inner.meta(),
             #[cfg(any(
                 feature = "op_add_custom_attributes",
@@ -3587,10 +3552,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
                 feature = "op_verify_user_attribute"
             ))]
             Self::ResourceNotFoundException(inner) => inner.meta(),
-            #[cfg(any(
-                feature = "op_create_user_pool_client",
-                feature = "op_update_user_pool_client"
-            ))]
+            #[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
             Self::ScopeDoesNotExistException(inner) => inner.meta(),
             #[cfg(feature = "op_update_provisioned_limit")]
             Self::ServiceQuotaExceededException(inner) => inner.meta(),
@@ -3755,10 +3717,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
                 feature = "op_update_user_attributes"
             ))]
             Self::UnexpectedLambdaException(inner) => inner.meta(),
-            #[cfg(any(
-                feature = "op_delete_identity_provider",
-                feature = "op_update_identity_provider"
-            ))]
+            #[cfg(any(feature = "op_delete_identity_provider", feature = "op_update_identity_provider"))]
             Self::UnsupportedIdentityProviderException(inner) => inner.meta(),
             #[cfg(any(
                 feature = "op_admin_initiate_auth",
@@ -3933,9 +3892,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3947,11 +3904,15 @@ where
 impl From<crate::operation::add_custom_attributes::AddCustomAttributesError> for Error {
     fn from(err: crate::operation::add_custom_attributes::AddCustomAttributesError) -> Self {
         match err {
-            crate::operation::add_custom_attributes::AddCustomAttributesError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::add_custom_attributes::AddCustomAttributesError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::add_custom_attributes::AddCustomAttributesError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::add_custom_attributes::AddCustomAttributesError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::add_custom_attributes::AddCustomAttributesError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::add_custom_attributes::AddCustomAttributesError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
@@ -3964,7 +3925,9 @@ impl From<crate::operation::add_custom_attributes::AddCustomAttributesError> for
             crate::operation::add_custom_attributes::AddCustomAttributesError::UserImportInProgressException(inner) => {
                 Error::UserImportInProgressException(inner)
             }
-            crate::operation::add_custom_attributes::AddCustomAttributesError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::add_custom_attributes::AddCustomAttributesError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -3986,9 +3949,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3998,29 +3959,29 @@ where
 }
 #[cfg(feature = "op_add_user_pool_client_secret")]
 impl From<crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError> for Error {
-    fn from(
-        err: crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError,
-    ) -> Self {
+    fn from(err: crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError) -> Self {
         match err {
-            crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::AccessDeniedException(inner) => {
-                Error::AccessDeniedException(inner)
+            crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::AccessDeniedException(
+                inner,
+            ) => Error::AccessDeniedException(inner),
+            crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::InternalServerException(
+                inner,
+            ) => Error::InternalServerException(inner),
+            crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::InvalidParameterException(
+                inner,
+            ) => Error::InvalidParameterException(inner),
+            crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::LimitExceededException(
+                inner,
+            ) => Error::LimitExceededException(inner),
+            crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::TooManyRequestsException(
+                inner,
+            ) => Error::TooManyRequestsException(inner),
+            crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::InternalServerException(inner) => {
-                Error::InternalServerException(inner)
-            }
-            crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::InvalidParameterException(inner) => {
-                Error::InvalidParameterException(inner)
-            }
-            crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
-            crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -4042,9 +4003,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4065,17 +4024,21 @@ impl From<crate::operation::admin_add_user_to_group::AdminAddUserToGroupError> f
             crate::operation::admin_add_user_to_group::AdminAddUserToGroupError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::admin_add_user_to_group::AdminAddUserToGroupError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
-            }
+            crate::operation::admin_add_user_to_group::AdminAddUserToGroupError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
             crate::operation::admin_add_user_to_group::AdminAddUserToGroupError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
             crate::operation::admin_add_user_to_group::AdminAddUserToGroupError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::admin_add_user_to_group::AdminAddUserToGroupError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
-            crate::operation::admin_add_user_to_group::AdminAddUserToGroupError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::admin_add_user_to_group::AdminAddUserToGroupError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
+            crate::operation::admin_add_user_to_group::AdminAddUserToGroupError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -4097,9 +4060,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4111,15 +4072,21 @@ where
 impl From<crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError> for Error {
     fn from(err: crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError) -> Self {
         match err {
-            crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::InvalidLambdaResponseException(inner) => {
                 Error::InvalidLambdaResponseException(inner)
             }
             crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
@@ -4138,8 +4105,12 @@ impl From<crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError> for 
             crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::UserLambdaValidationException(inner) => {
                 Error::UserLambdaValidationException(inner)
             }
-            crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
-            crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
+            crate::operation::admin_confirm_sign_up::AdminConfirmSignUpError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -4161,9 +4132,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4178,36 +4147,54 @@ impl From<crate::operation::admin_create_user::AdminCreateUserError> for Error {
             crate::operation::admin_create_user::AdminCreateUserError::CodeDeliveryFailureException(inner) => {
                 Error::CodeDeliveryFailureException(inner)
             }
-            crate::operation::admin_create_user::AdminCreateUserError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::admin_create_user::AdminCreateUserError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::admin_create_user::AdminCreateUserError::InvalidLambdaResponseException(inner) => {
                 Error::InvalidLambdaResponseException(inner)
             }
-            crate::operation::admin_create_user::AdminCreateUserError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::admin_create_user::AdminCreateUserError::InvalidPasswordException(inner) => Error::InvalidPasswordException(inner),
+            crate::operation::admin_create_user::AdminCreateUserError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::admin_create_user::AdminCreateUserError::InvalidPasswordException(inner) => {
+                Error::InvalidPasswordException(inner)
+            }
             crate::operation::admin_create_user::AdminCreateUserError::InvalidSmsRoleAccessPolicyException(inner) => {
                 Error::InvalidSmsRoleAccessPolicyException(inner)
             }
-            crate::operation::admin_create_user::AdminCreateUserError::InvalidSmsRoleTrustRelationshipException(inner) => {
-                Error::InvalidSmsRoleTrustRelationshipException(inner)
+            crate::operation::admin_create_user::AdminCreateUserError::InvalidSmsRoleTrustRelationshipException(
+                inner,
+            ) => Error::InvalidSmsRoleTrustRelationshipException(inner),
+            crate::operation::admin_create_user::AdminCreateUserError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
             }
-            crate::operation::admin_create_user::AdminCreateUserError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
             crate::operation::admin_create_user::AdminCreateUserError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
             crate::operation::admin_create_user::AdminCreateUserError::PreconditionNotMetException(inner) => {
                 Error::PreconditionNotMetException(inner)
             }
-            crate::operation::admin_create_user::AdminCreateUserError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::admin_create_user::AdminCreateUserError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::admin_create_user::AdminCreateUserError::UnexpectedLambdaException(inner) => Error::UnexpectedLambdaException(inner),
+            crate::operation::admin_create_user::AdminCreateUserError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::admin_create_user::AdminCreateUserError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::admin_create_user::AdminCreateUserError::UnexpectedLambdaException(inner) => {
+                Error::UnexpectedLambdaException(inner)
+            }
             crate::operation::admin_create_user::AdminCreateUserError::UnsupportedUserStateException(inner) => {
                 Error::UnsupportedUserStateException(inner)
             }
             crate::operation::admin_create_user::AdminCreateUserError::UserLambdaValidationException(inner) => {
                 Error::UserLambdaValidationException(inner)
             }
-            crate::operation::admin_create_user::AdminCreateUserError::UsernameExistsException(inner) => Error::UsernameExistsException(inner),
-            crate::operation::admin_create_user::AdminCreateUserError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
+            crate::operation::admin_create_user::AdminCreateUserError::UsernameExistsException(inner) => {
+                Error::UsernameExistsException(inner)
+            }
+            crate::operation::admin_create_user::AdminCreateUserError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
             crate::operation::admin_create_user::AdminCreateUserError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -4230,9 +4217,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4244,15 +4229,27 @@ where
 impl From<crate::operation::admin_delete_user::AdminDeleteUserError> for Error {
     fn from(err: crate::operation::admin_delete_user::AdminDeleteUserError) -> Self {
         match err {
-            crate::operation::admin_delete_user::AdminDeleteUserError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::admin_delete_user::AdminDeleteUserError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::admin_delete_user::AdminDeleteUserError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::admin_delete_user::AdminDeleteUserError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::admin_delete_user::AdminDeleteUserError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::admin_delete_user::AdminDeleteUserError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::admin_delete_user::AdminDeleteUserError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
-            crate::operation::admin_delete_user::AdminDeleteUserError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::admin_delete_user::AdminDeleteUserError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::admin_delete_user::AdminDeleteUserError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
+            crate::operation::admin_delete_user::AdminDeleteUserError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::admin_delete_user::AdminDeleteUserError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::admin_delete_user::AdminDeleteUserError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
             crate::operation::admin_delete_user::AdminDeleteUserError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -4275,9 +4272,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4286,12 +4281,8 @@ where
     }
 }
 #[cfg(feature = "op_admin_delete_user_attributes")]
-impl From<crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributesError>
-    for Error
-{
-    fn from(
-        err: crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributesError,
-    ) -> Self {
+impl From<crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributesError> for Error {
+    fn from(err: crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributesError) -> Self {
         match err {
             crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributesError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -4336,9 +4327,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4347,12 +4336,8 @@ where
     }
 }
 #[cfg(feature = "op_admin_disable_provider_for_user")]
-impl From<crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserError>
-    for Error
-{
-    fn from(
-        err: crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserError,
-    ) -> Self {
+impl From<crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserError> for Error {
+    fn from(err: crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserError) -> Self {
         match err {
             crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserError::AliasExistsException(inner) => {
                 Error::AliasExistsException(inner)
@@ -4400,9 +4385,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4414,15 +4397,27 @@ where
 impl From<crate::operation::admin_disable_user::AdminDisableUserError> for Error {
     fn from(err: crate::operation::admin_disable_user::AdminDisableUserError) -> Self {
         match err {
-            crate::operation::admin_disable_user::AdminDisableUserError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::admin_disable_user::AdminDisableUserError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::admin_disable_user::AdminDisableUserError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::admin_disable_user::AdminDisableUserError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::admin_disable_user::AdminDisableUserError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::admin_disable_user::AdminDisableUserError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::admin_disable_user::AdminDisableUserError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
-            crate::operation::admin_disable_user::AdminDisableUserError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::admin_disable_user::AdminDisableUserError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::admin_disable_user::AdminDisableUserError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
+            crate::operation::admin_disable_user::AdminDisableUserError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::admin_disable_user::AdminDisableUserError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::admin_disable_user::AdminDisableUserError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
             crate::operation::admin_disable_user::AdminDisableUserError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -4445,9 +4440,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4459,15 +4452,27 @@ where
 impl From<crate::operation::admin_enable_user::AdminEnableUserError> for Error {
     fn from(err: crate::operation::admin_enable_user::AdminEnableUserError) -> Self {
         match err {
-            crate::operation::admin_enable_user::AdminEnableUserError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::admin_enable_user::AdminEnableUserError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::admin_enable_user::AdminEnableUserError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::admin_enable_user::AdminEnableUserError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::admin_enable_user::AdminEnableUserError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::admin_enable_user::AdminEnableUserError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::admin_enable_user::AdminEnableUserError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
-            crate::operation::admin_enable_user::AdminEnableUserError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::admin_enable_user::AdminEnableUserError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::admin_enable_user::AdminEnableUserError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
+            crate::operation::admin_enable_user::AdminEnableUserError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::admin_enable_user::AdminEnableUserError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::admin_enable_user::AdminEnableUserError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
             crate::operation::admin_enable_user::AdminEnableUserError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -4490,9 +4495,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4504,34 +4507,38 @@ where
 impl From<crate::operation::admin_forget_device::AdminForgetDeviceError> for Error {
     fn from(err: crate::operation::admin_forget_device::AdminForgetDeviceError) -> Self {
         match err {
-            crate::operation::admin_forget_device::AdminForgetDeviceError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::admin_forget_device::AdminForgetDeviceError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::admin_forget_device::AdminForgetDeviceError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::admin_forget_device::AdminForgetDeviceError::InvalidUserPoolConfigurationException(inner) => {
-                Error::InvalidUserPoolConfigurationException(inner)
+            crate::operation::admin_forget_device::AdminForgetDeviceError::InvalidUserPoolConfigurationException(
+                inner,
+            ) => Error::InvalidUserPoolConfigurationException(inner),
+            crate::operation::admin_forget_device::AdminForgetDeviceError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
             }
-            crate::operation::admin_forget_device::AdminForgetDeviceError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
             crate::operation::admin_forget_device::AdminForgetDeviceError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
             crate::operation::admin_forget_device::AdminForgetDeviceError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
-            crate::operation::admin_forget_device::AdminForgetDeviceError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::admin_forget_device::AdminForgetDeviceError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
+            crate::operation::admin_forget_device::AdminForgetDeviceError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::admin_forget_device::AdminForgetDeviceError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
             crate::operation::admin_forget_device::AdminForgetDeviceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_admin_get_device")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::admin_get_device::AdminGetDeviceError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_get_device::AdminGetDeviceError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -4542,9 +4549,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4556,42 +4561,42 @@ where
 impl From<crate::operation::admin_get_device::AdminGetDeviceError> for Error {
     fn from(err: crate::operation::admin_get_device::AdminGetDeviceError) -> Self {
         match err {
-            crate::operation::admin_get_device::AdminGetDeviceError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::admin_get_device::AdminGetDeviceError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::admin_get_device::AdminGetDeviceError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::admin_get_device::AdminGetDeviceError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
             crate::operation::admin_get_device::AdminGetDeviceError::InvalidUserPoolConfigurationException(inner) => {
                 Error::InvalidUserPoolConfigurationException(inner)
             }
-            crate::operation::admin_get_device::AdminGetDeviceError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::admin_get_device::AdminGetDeviceError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::admin_get_device::AdminGetDeviceError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
-            crate::operation::admin_get_device::AdminGetDeviceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::admin_get_device::AdminGetDeviceError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::admin_get_device::AdminGetDeviceError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::admin_get_device::AdminGetDeviceError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
             crate::operation::admin_get_device::AdminGetDeviceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_admin_get_user")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::admin_get_user::AdminGetUserError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_get_user::AdminGetUserError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::admin_get_user::AdminGetUserError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::admin_get_user::AdminGetUserError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4606,27 +4611,25 @@ impl From<crate::operation::admin_get_user::AdminGetUserError> for Error {
             crate::operation::admin_get_user::AdminGetUserError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::admin_get_user::AdminGetUserError::InvalidParameterException(
-                inner,
-            ) => Error::InvalidParameterException(inner),
+            crate::operation::admin_get_user::AdminGetUserError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
             crate::operation::admin_get_user::AdminGetUserError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::admin_get_user::AdminGetUserError::OperationNotEnabledException(
-                inner,
-            ) => Error::OperationNotEnabledException(inner),
-            crate::operation::admin_get_user::AdminGetUserError::ResourceNotFoundException(
-                inner,
-            ) => Error::ResourceNotFoundException(inner),
-            crate::operation::admin_get_user::AdminGetUserError::TooManyRequestsException(
-                inner,
-            ) => Error::TooManyRequestsException(inner),
+            crate::operation::admin_get_user::AdminGetUserError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
+            crate::operation::admin_get_user::AdminGetUserError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::admin_get_user::AdminGetUserError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
             crate::operation::admin_get_user::AdminGetUserError::UserNotFoundException(inner) => {
                 Error::UserNotFoundException(inner)
             }
-            crate::operation::admin_get_user::AdminGetUserError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::admin_get_user::AdminGetUserError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -4648,9 +4651,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4660,9 +4661,7 @@ where
 }
 #[cfg(feature = "op_admin_get_user_auth_factors")]
 impl From<crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError> for Error {
-    fn from(
-        err: crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError,
-    ) -> Self {
+    fn from(err: crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError) -> Self {
         match err {
             crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -4707,9 +4706,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4721,29 +4718,33 @@ where
 impl From<crate::operation::admin_initiate_auth::AdminInitiateAuthError> for Error {
     fn from(err: crate::operation::admin_initiate_auth::AdminInitiateAuthError) -> Self {
         match err {
-            crate::operation::admin_initiate_auth::AdminInitiateAuthError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::admin_initiate_auth::AdminInitiateAuthError::InvalidEmailRoleAccessPolicyException(inner) => {
-                Error::InvalidEmailRoleAccessPolicyException(inner)
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
             }
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError::InvalidEmailRoleAccessPolicyException(
+                inner,
+            ) => Error::InvalidEmailRoleAccessPolicyException(inner),
             crate::operation::admin_initiate_auth::AdminInitiateAuthError::InvalidLambdaResponseException(inner) => {
                 Error::InvalidLambdaResponseException(inner)
             }
             crate::operation::admin_initiate_auth::AdminInitiateAuthError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::admin_initiate_auth::AdminInitiateAuthError::InvalidSmsRoleAccessPolicyException(inner) => {
-                Error::InvalidSmsRoleAccessPolicyException(inner)
-            }
-            crate::operation::admin_initiate_auth::AdminInitiateAuthError::InvalidSmsRoleTrustRelationshipException(inner) => {
-                Error::InvalidSmsRoleTrustRelationshipException(inner)
-            }
-            crate::operation::admin_initiate_auth::AdminInitiateAuthError::InvalidUserPoolConfigurationException(inner) => {
-                Error::InvalidUserPoolConfigurationException(inner)
-            }
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError::InvalidSmsRoleAccessPolicyException(
+                inner,
+            ) => Error::InvalidSmsRoleAccessPolicyException(inner),
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError::InvalidSmsRoleTrustRelationshipException(
+                inner,
+            ) => Error::InvalidSmsRoleTrustRelationshipException(inner),
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError::InvalidUserPoolConfigurationException(
+                inner,
+            ) => Error::InvalidUserPoolConfigurationException(inner),
             crate::operation::admin_initiate_auth::AdminInitiateAuthError::MfaMethodNotFoundException(inner) => {
                 Error::MfaMethodNotFoundException(inner)
             }
-            crate::operation::admin_initiate_auth::AdminInitiateAuthError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::admin_initiate_auth::AdminInitiateAuthError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
@@ -4753,7 +4754,9 @@ impl From<crate::operation::admin_initiate_auth::AdminInitiateAuthError> for Err
             crate::operation::admin_initiate_auth::AdminInitiateAuthError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
-            crate::operation::admin_initiate_auth::AdminInitiateAuthError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
             crate::operation::admin_initiate_auth::AdminInitiateAuthError::UnexpectedLambdaException(inner) => {
                 Error::UnexpectedLambdaException(inner)
             }
@@ -4766,7 +4769,9 @@ impl From<crate::operation::admin_initiate_auth::AdminInitiateAuthError> for Err
             crate::operation::admin_initiate_auth::AdminInitiateAuthError::UserNotConfirmedException(inner) => {
                 Error::UserNotConfirmedException(inner)
             }
-            crate::operation::admin_initiate_auth::AdminInitiateAuthError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
             crate::operation::admin_initiate_auth::AdminInitiateAuthError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -4789,9 +4794,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4801,9 +4804,7 @@ where
 }
 #[cfg(feature = "op_admin_link_provider_for_user")]
 impl From<crate::operation::admin_link_provider_for_user::AdminLinkProviderForUserError> for Error {
-    fn from(
-        err: crate::operation::admin_link_provider_for_user::AdminLinkProviderForUserError,
-    ) -> Self {
+    fn from(err: crate::operation::admin_link_provider_for_user::AdminLinkProviderForUserError) -> Self {
         match err {
             crate::operation::admin_link_provider_for_user::AdminLinkProviderForUserError::AliasExistsException(inner) => {
                 Error::AliasExistsException(inner)
@@ -4854,9 +4855,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4868,17 +4867,27 @@ where
 impl From<crate::operation::admin_list_devices::AdminListDevicesError> for Error {
     fn from(err: crate::operation::admin_list_devices::AdminListDevicesError) -> Self {
         match err {
-            crate::operation::admin_list_devices::AdminListDevicesError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::admin_list_devices::AdminListDevicesError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::admin_list_devices::AdminListDevicesError::InvalidUserPoolConfigurationException(inner) => {
-                Error::InvalidUserPoolConfigurationException(inner)
+            crate::operation::admin_list_devices::AdminListDevicesError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
             }
-            crate::operation::admin_list_devices::AdminListDevicesError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::admin_list_devices::AdminListDevicesError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::admin_list_devices::AdminListDevicesError::InvalidUserPoolConfigurationException(
+                inner,
+            ) => Error::InvalidUserPoolConfigurationException(inner),
+            crate::operation::admin_list_devices::AdminListDevicesError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::admin_list_devices::AdminListDevicesError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
-            crate::operation::admin_list_devices::AdminListDevicesError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::admin_list_devices::AdminListDevicesError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::admin_list_devices::AdminListDevicesError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::admin_list_devices::AdminListDevicesError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
             crate::operation::admin_list_devices::AdminListDevicesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -4901,9 +4910,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4913,32 +4920,32 @@ where
 }
 #[cfg(feature = "op_admin_list_groups_for_user")]
 impl From<crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError> for Error {
-    fn from(
-        err: crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError,
-    ) -> Self {
+    fn from(err: crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError) -> Self {
         match err {
-            crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError::InternalErrorException(inner) => {
-                Error::InternalErrorException(inner)
-            }
-            crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError::InvalidParameterException(inner) => {
-                Error::InvalidParameterException(inner)
-            }
-            crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError::NotAuthorizedException(inner) => {
-                Error::NotAuthorizedException(inner)
-            }
-            crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
-            }
-            crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
+            crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError::InternalErrorException(
+                inner,
+            ) => Error::InternalErrorException(inner),
+            crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError::InvalidParameterException(
+                inner,
+            ) => Error::InvalidParameterException(inner),
+            crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError::NotAuthorizedException(
+                inner,
+            ) => Error::NotAuthorizedException(inner),
+            crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError::TooManyRequestsException(
+                inner,
+            ) => Error::TooManyRequestsException(inner),
             crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError::UserNotFoundException(inner) => {
                 Error::UserNotFoundException(inner)
             }
-            crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -4960,9 +4967,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4972,9 +4977,7 @@ where
 }
 #[cfg(feature = "op_admin_list_user_auth_events")]
 impl From<crate::operation::admin_list_user_auth_events::AdminListUserAuthEventsError> for Error {
-    fn from(
-        err: crate::operation::admin_list_user_auth_events::AdminListUserAuthEventsError,
-    ) -> Self {
+    fn from(err: crate::operation::admin_list_user_auth_events::AdminListUserAuthEventsError) -> Self {
         match err {
             crate::operation::admin_list_user_auth_events::AdminListUserAuthEventsError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -5022,9 +5025,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5034,9 +5035,7 @@ where
 }
 #[cfg(feature = "op_admin_remove_user_from_group")]
 impl From<crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupError> for Error {
-    fn from(
-        err: crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupError,
-    ) -> Self {
+    fn from(err: crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupError) -> Self {
         match err {
             crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -5081,9 +5080,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5159,9 +5156,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5170,12 +5165,8 @@ where
     }
 }
 #[cfg(feature = "op_admin_respond_to_auth_challenge")]
-impl From<crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError>
-    for Error
-{
-    fn from(
-        err: crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError,
-    ) -> Self {
+impl From<crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError> for Error {
+    fn from(err: crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError) -> Self {
         match err {
             crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError::AliasExistsException(inner) => {
                 Error::AliasExistsException(inner)
@@ -5268,9 +5259,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5279,12 +5268,8 @@ where
     }
 }
 #[cfg(feature = "op_admin_set_user_mfa_preference")]
-impl From<crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError>
-    for Error
-{
-    fn from(
-        err: crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError,
-    ) -> Self {
+impl From<crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError> for Error {
+    fn from(err: crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError) -> Self {
         match err {
             crate::operation::admin_set_user_mfa_preference::AdminSetUserMFAPreferenceError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -5332,9 +5317,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5393,9 +5376,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5416,14 +5397,18 @@ impl From<crate::operation::admin_set_user_settings::AdminSetUserSettingsError> 
             crate::operation::admin_set_user_settings::AdminSetUserSettingsError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::admin_set_user_settings::AdminSetUserSettingsError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
-            }
+            crate::operation::admin_set_user_settings::AdminSetUserSettingsError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
             crate::operation::admin_set_user_settings::AdminSetUserSettingsError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
-            crate::operation::admin_set_user_settings::AdminSetUserSettingsError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
-            crate::operation::admin_set_user_settings::AdminSetUserSettingsError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::admin_set_user_settings::AdminSetUserSettingsError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
+            crate::operation::admin_set_user_settings::AdminSetUserSettingsError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -5445,9 +5430,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5456,12 +5439,8 @@ where
     }
 }
 #[cfg(feature = "op_admin_update_auth_event_feedback")]
-impl From<crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError>
-    for Error
-{
-    fn from(
-        err: crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError,
-    ) -> Self {
+impl From<crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError> for Error {
+    fn from(err: crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError) -> Self {
         match err {
             crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -5509,9 +5488,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5521,9 +5498,7 @@ where
 }
 #[cfg(feature = "op_admin_update_device_status")]
 impl From<crate::operation::admin_update_device_status::AdminUpdateDeviceStatusError> for Error {
-    fn from(
-        err: crate::operation::admin_update_device_status::AdminUpdateDeviceStatusError,
-    ) -> Self {
+    fn from(err: crate::operation::admin_update_device_status::AdminUpdateDeviceStatusError) -> Self {
         match err {
             crate::operation::admin_update_device_status::AdminUpdateDeviceStatusError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -5571,9 +5546,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5582,12 +5555,8 @@ where
     }
 }
 #[cfg(feature = "op_admin_update_user_attributes")]
-impl From<crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError>
-    for Error
-{
-    fn from(
-        err: crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError,
-    ) -> Self {
+impl From<crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError> for Error {
+    fn from(err: crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError) -> Self {
         match err {
             crate::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::AliasExistsException(inner) => {
                 Error::AliasExistsException(inner)
@@ -5653,9 +5622,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5665,32 +5632,32 @@ where
 }
 #[cfg(feature = "op_admin_user_global_sign_out")]
 impl From<crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError> for Error {
-    fn from(
-        err: crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError,
-    ) -> Self {
+    fn from(err: crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError) -> Self {
         match err {
-            crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError::InternalErrorException(inner) => {
-                Error::InternalErrorException(inner)
-            }
-            crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError::InvalidParameterException(inner) => {
-                Error::InvalidParameterException(inner)
-            }
-            crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError::NotAuthorizedException(inner) => {
-                Error::NotAuthorizedException(inner)
-            }
-            crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
-            }
-            crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
+            crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError::InternalErrorException(
+                inner,
+            ) => Error::InternalErrorException(inner),
+            crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError::InvalidParameterException(
+                inner,
+            ) => Error::InvalidParameterException(inner),
+            crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError::NotAuthorizedException(
+                inner,
+            ) => Error::NotAuthorizedException(inner),
+            crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError::TooManyRequestsException(
+                inner,
+            ) => Error::TooManyRequestsException(inner),
             crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError::UserNotFoundException(inner) => {
                 Error::UserNotFoundException(inner)
             }
-            crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -5712,9 +5679,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5754,12 +5719,8 @@ impl From<crate::operation::associate_software_token::AssociateSoftwareTokenErro
 }
 #[cfg(feature = "op_change_password")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::change_password::ChangePasswordError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::change_password::ChangePasswordError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -5770,9 +5731,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5784,23 +5743,45 @@ where
 impl From<crate::operation::change_password::ChangePasswordError> for Error {
     fn from(err: crate::operation::change_password::ChangePasswordError) -> Self {
         match err {
-            crate::operation::change_password::ChangePasswordError::ForbiddenException(inner) => Error::ForbiddenException(inner),
-            crate::operation::change_password::ChangePasswordError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::change_password::ChangePasswordError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::change_password::ChangePasswordError::InvalidPasswordException(inner) => Error::InvalidPasswordException(inner),
-            crate::operation::change_password::ChangePasswordError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::change_password::ChangePasswordError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::change_password::ChangePasswordError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
+            crate::operation::change_password::ChangePasswordError::ForbiddenException(inner) => {
+                Error::ForbiddenException(inner)
+            }
+            crate::operation::change_password::ChangePasswordError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::change_password::ChangePasswordError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::change_password::ChangePasswordError::InvalidPasswordException(inner) => {
+                Error::InvalidPasswordException(inner)
+            }
+            crate::operation::change_password::ChangePasswordError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::change_password::ChangePasswordError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::change_password::ChangePasswordError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
             crate::operation::change_password::ChangePasswordError::PasswordHistoryPolicyViolationException(inner) => {
                 Error::PasswordHistoryPolicyViolationException(inner)
             }
             crate::operation::change_password::ChangePasswordError::PasswordResetRequiredException(inner) => {
                 Error::PasswordResetRequiredException(inner)
             }
-            crate::operation::change_password::ChangePasswordError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::change_password::ChangePasswordError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::change_password::ChangePasswordError::UserNotConfirmedException(inner) => Error::UserNotConfirmedException(inner),
-            crate::operation::change_password::ChangePasswordError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
+            crate::operation::change_password::ChangePasswordError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::change_password::ChangePasswordError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::change_password::ChangePasswordError::UserNotConfirmedException(inner) => {
+                Error::UserNotConfirmedException(inner)
+            }
+            crate::operation::change_password::ChangePasswordError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
             crate::operation::change_password::ChangePasswordError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -5823,9 +5804,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5834,12 +5813,8 @@ where
     }
 }
 #[cfg(feature = "op_complete_web_authn_registration")]
-impl From<crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError>
-    for Error
-{
-    fn from(
-        err: crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError,
-    ) -> Self {
+impl From<crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError> for Error {
+    fn from(err: crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError) -> Self {
         match err {
             crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::ForbiddenException(inner) => {
                 Error::ForbiddenException(inner)
@@ -5889,12 +5864,8 @@ impl From<crate::operation::complete_web_authn_registration::CompleteWebAuthnReg
 }
 #[cfg(feature = "op_confirm_device")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::confirm_device::ConfirmDeviceError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::confirm_device::ConfirmDeviceError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -5905,9 +5876,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5919,27 +5888,51 @@ where
 impl From<crate::operation::confirm_device::ConfirmDeviceError> for Error {
     fn from(err: crate::operation::confirm_device::ConfirmDeviceError) -> Self {
         match err {
-            crate::operation::confirm_device::ConfirmDeviceError::DeviceKeyExistsException(inner) => Error::DeviceKeyExistsException(inner),
-            crate::operation::confirm_device::ConfirmDeviceError::ForbiddenException(inner) => Error::ForbiddenException(inner),
-            crate::operation::confirm_device::ConfirmDeviceError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::confirm_device::ConfirmDeviceError::DeviceKeyExistsException(inner) => {
+                Error::DeviceKeyExistsException(inner)
+            }
+            crate::operation::confirm_device::ConfirmDeviceError::ForbiddenException(inner) => {
+                Error::ForbiddenException(inner)
+            }
+            crate::operation::confirm_device::ConfirmDeviceError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::confirm_device::ConfirmDeviceError::InvalidLambdaResponseException(inner) => {
                 Error::InvalidLambdaResponseException(inner)
             }
-            crate::operation::confirm_device::ConfirmDeviceError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::confirm_device::ConfirmDeviceError::InvalidPasswordException(inner) => Error::InvalidPasswordException(inner),
+            crate::operation::confirm_device::ConfirmDeviceError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::confirm_device::ConfirmDeviceError::InvalidPasswordException(inner) => {
+                Error::InvalidPasswordException(inner)
+            }
             crate::operation::confirm_device::ConfirmDeviceError::InvalidUserPoolConfigurationException(inner) => {
                 Error::InvalidUserPoolConfigurationException(inner)
             }
-            crate::operation::confirm_device::ConfirmDeviceError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::confirm_device::ConfirmDeviceError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
+            crate::operation::confirm_device::ConfirmDeviceError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::confirm_device::ConfirmDeviceError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
             crate::operation::confirm_device::ConfirmDeviceError::PasswordResetRequiredException(inner) => {
                 Error::PasswordResetRequiredException(inner)
             }
-            crate::operation::confirm_device::ConfirmDeviceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::confirm_device::ConfirmDeviceError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::confirm_device::ConfirmDeviceError::UsernameExistsException(inner) => Error::UsernameExistsException(inner),
-            crate::operation::confirm_device::ConfirmDeviceError::UserNotConfirmedException(inner) => Error::UserNotConfirmedException(inner),
-            crate::operation::confirm_device::ConfirmDeviceError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
+            crate::operation::confirm_device::ConfirmDeviceError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::confirm_device::ConfirmDeviceError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::confirm_device::ConfirmDeviceError::UsernameExistsException(inner) => {
+                Error::UsernameExistsException(inner)
+            }
+            crate::operation::confirm_device::ConfirmDeviceError::UserNotConfirmedException(inner) => {
+                Error::UserNotConfirmedException(inner)
+            }
+            crate::operation::confirm_device::ConfirmDeviceError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
             crate::operation::confirm_device::ConfirmDeviceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -5962,9 +5955,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6032,12 +6023,8 @@ impl From<crate::operation::confirm_forgot_password::ConfirmForgotPasswordError>
 }
 #[cfg(feature = "op_confirm_sign_up")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::confirm_sign_up::ConfirmSignUpError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::confirm_sign_up::ConfirmSignUpError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -6048,9 +6035,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6062,53 +6047,69 @@ where
 impl From<crate::operation::confirm_sign_up::ConfirmSignUpError> for Error {
     fn from(err: crate::operation::confirm_sign_up::ConfirmSignUpError) -> Self {
         match err {
-            crate::operation::confirm_sign_up::ConfirmSignUpError::AliasExistsException(inner) => Error::AliasExistsException(inner),
-            crate::operation::confirm_sign_up::ConfirmSignUpError::CodeMismatchException(inner) => Error::CodeMismatchException(inner),
-            crate::operation::confirm_sign_up::ConfirmSignUpError::ExpiredCodeException(inner) => Error::ExpiredCodeException(inner),
-            crate::operation::confirm_sign_up::ConfirmSignUpError::ForbiddenException(inner) => Error::ForbiddenException(inner),
-            crate::operation::confirm_sign_up::ConfirmSignUpError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::confirm_sign_up::ConfirmSignUpError::AliasExistsException(inner) => {
+                Error::AliasExistsException(inner)
+            }
+            crate::operation::confirm_sign_up::ConfirmSignUpError::CodeMismatchException(inner) => {
+                Error::CodeMismatchException(inner)
+            }
+            crate::operation::confirm_sign_up::ConfirmSignUpError::ExpiredCodeException(inner) => {
+                Error::ExpiredCodeException(inner)
+            }
+            crate::operation::confirm_sign_up::ConfirmSignUpError::ForbiddenException(inner) => {
+                Error::ForbiddenException(inner)
+            }
+            crate::operation::confirm_sign_up::ConfirmSignUpError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::confirm_sign_up::ConfirmSignUpError::InvalidLambdaResponseException(inner) => {
                 Error::InvalidLambdaResponseException(inner)
             }
-            crate::operation::confirm_sign_up::ConfirmSignUpError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::confirm_sign_up::ConfirmSignUpError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::confirm_sign_up::ConfirmSignUpError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::confirm_sign_up::ConfirmSignUpError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::confirm_sign_up::ConfirmSignUpError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::confirm_sign_up::ConfirmSignUpError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::confirm_sign_up::ConfirmSignUpError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::confirm_sign_up::ConfirmSignUpError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::confirm_sign_up::ConfirmSignUpError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
+            crate::operation::confirm_sign_up::ConfirmSignUpError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
             crate::operation::confirm_sign_up::ConfirmSignUpError::TooManyFailedAttemptsException(inner) => {
                 Error::TooManyFailedAttemptsException(inner)
             }
-            crate::operation::confirm_sign_up::ConfirmSignUpError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::confirm_sign_up::ConfirmSignUpError::UnexpectedLambdaException(inner) => Error::UnexpectedLambdaException(inner),
+            crate::operation::confirm_sign_up::ConfirmSignUpError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::confirm_sign_up::ConfirmSignUpError::UnexpectedLambdaException(inner) => {
+                Error::UnexpectedLambdaException(inner)
+            }
             crate::operation::confirm_sign_up::ConfirmSignUpError::UserLambdaValidationException(inner) => {
                 Error::UserLambdaValidationException(inner)
             }
-            crate::operation::confirm_sign_up::ConfirmSignUpError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
+            crate::operation::confirm_sign_up::ConfirmSignUpError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
             crate::operation::confirm_sign_up::ConfirmSignUpError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_create_group")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_group::CreateGroupError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_group::CreateGroupError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_group::CreateGroupError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_group::CreateGroupError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6135,18 +6136,16 @@ impl From<crate::operation::create_group::CreateGroupError> for Error {
             crate::operation::create_group::CreateGroupError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::create_group::CreateGroupError::OperationNotEnabledException(
-                inner,
-            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::create_group::CreateGroupError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
             crate::operation::create_group::CreateGroupError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
             crate::operation::create_group::CreateGroupError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::create_group::CreateGroupError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::create_group::CreateGroupError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -6168,9 +6167,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6182,28 +6179,30 @@ where
 impl From<crate::operation::create_identity_provider::CreateIdentityProviderError> for Error {
     fn from(err: crate::operation::create_identity_provider::CreateIdentityProviderError) -> Self {
         match err {
-            crate::operation::create_identity_provider::CreateIdentityProviderError::DuplicateProviderException(inner) => {
-                Error::DuplicateProviderException(inner)
-            }
+            crate::operation::create_identity_provider::CreateIdentityProviderError::DuplicateProviderException(
+                inner,
+            ) => Error::DuplicateProviderException(inner),
             crate::operation::create_identity_provider::CreateIdentityProviderError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::create_identity_provider::CreateIdentityProviderError::InvalidParameterException(inner) => {
-                Error::InvalidParameterException(inner)
-            }
+            crate::operation::create_identity_provider::CreateIdentityProviderError::InvalidParameterException(
+                inner,
+            ) => Error::InvalidParameterException(inner),
             crate::operation::create_identity_provider::CreateIdentityProviderError::LimitExceededException(inner) => {
                 Error::LimitExceededException(inner)
             }
             crate::operation::create_identity_provider::CreateIdentityProviderError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::create_identity_provider::CreateIdentityProviderError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
+            crate::operation::create_identity_provider::CreateIdentityProviderError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::create_identity_provider::CreateIdentityProviderError::TooManyRequestsException(
+                inner,
+            ) => Error::TooManyRequestsException(inner),
+            crate::operation::create_identity_provider::CreateIdentityProviderError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::create_identity_provider::CreateIdentityProviderError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::create_identity_provider::CreateIdentityProviderError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -6225,9 +6224,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6236,12 +6233,8 @@ where
     }
 }
 #[cfg(feature = "op_create_managed_login_branding")]
-impl From<crate::operation::create_managed_login_branding::CreateManagedLoginBrandingError>
-    for Error
-{
-    fn from(
-        err: crate::operation::create_managed_login_branding::CreateManagedLoginBrandingError,
-    ) -> Self {
+impl From<crate::operation::create_managed_login_branding::CreateManagedLoginBrandingError> for Error {
+    fn from(err: crate::operation::create_managed_login_branding::CreateManagedLoginBrandingError) -> Self {
         match err {
             crate::operation::create_managed_login_branding::CreateManagedLoginBrandingError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -6292,9 +6285,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6318,40 +6309,32 @@ impl From<crate::operation::create_resource_server::CreateResourceServerError> f
             crate::operation::create_resource_server::CreateResourceServerError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::create_resource_server::CreateResourceServerError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
-            }
+            crate::operation::create_resource_server::CreateResourceServerError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
             crate::operation::create_resource_server::CreateResourceServerError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
             crate::operation::create_resource_server::CreateResourceServerError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::create_resource_server::CreateResourceServerError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::create_resource_server::CreateResourceServerError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_create_terms")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_terms::CreateTermsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_terms::CreateTermsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_terms::CreateTermsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_terms::CreateTermsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6363,9 +6346,9 @@ where
 impl From<crate::operation::create_terms::CreateTermsError> for Error {
     fn from(err: crate::operation::create_terms::CreateTermsError) -> Self {
         match err {
-            crate::operation::create_terms::CreateTermsError::ConcurrentModificationException(
-                inner,
-            ) => Error::ConcurrentModificationException(inner),
+            crate::operation::create_terms::CreateTermsError::ConcurrentModificationException(inner) => {
+                Error::ConcurrentModificationException(inner)
+            }
             crate::operation::create_terms::CreateTermsError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
@@ -6378,9 +6361,9 @@ impl From<crate::operation::create_terms::CreateTermsError> for Error {
             crate::operation::create_terms::CreateTermsError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::create_terms::CreateTermsError::OperationNotEnabledException(
-                inner,
-            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::create_terms::CreateTermsError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
             crate::operation::create_terms::CreateTermsError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
@@ -6390,9 +6373,7 @@ impl From<crate::operation::create_terms::CreateTermsError> for Error {
             crate::operation::create_terms::CreateTermsError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::create_terms::CreateTermsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::create_terms::CreateTermsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -6414,9 +6395,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6428,12 +6407,18 @@ where
 impl From<crate::operation::create_user_import_job::CreateUserImportJobError> for Error {
     fn from(err: crate::operation::create_user_import_job::CreateUserImportJobError) -> Self {
         match err {
-            crate::operation::create_user_import_job::CreateUserImportJobError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::create_user_import_job::CreateUserImportJobError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::create_user_import_job::CreateUserImportJobError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::create_user_import_job::CreateUserImportJobError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::create_user_import_job::CreateUserImportJobError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::create_user_import_job::CreateUserImportJobError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::create_user_import_job::CreateUserImportJobError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::create_user_import_job::CreateUserImportJobError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
@@ -6446,18 +6431,16 @@ impl From<crate::operation::create_user_import_job::CreateUserImportJobError> fo
             crate::operation::create_user_import_job::CreateUserImportJobError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::create_user_import_job::CreateUserImportJobError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::create_user_import_job::CreateUserImportJobError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_create_user_pool")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_user_pool::CreateUserPoolError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_user_pool::CreateUserPoolError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -6468,9 +6451,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6485,24 +6466,36 @@ impl From<crate::operation::create_user_pool::CreateUserPoolError> for Error {
             crate::operation::create_user_pool::CreateUserPoolError::FeatureUnavailableInTierException(inner) => {
                 Error::FeatureUnavailableInTierException(inner)
             }
-            crate::operation::create_user_pool::CreateUserPoolError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::create_user_pool::CreateUserPoolError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::create_user_pool::CreateUserPoolError::InvalidEmailRoleAccessPolicyException(inner) => {
                 Error::InvalidEmailRoleAccessPolicyException(inner)
             }
-            crate::operation::create_user_pool::CreateUserPoolError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::create_user_pool::CreateUserPoolError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
             crate::operation::create_user_pool::CreateUserPoolError::InvalidSmsRoleAccessPolicyException(inner) => {
                 Error::InvalidSmsRoleAccessPolicyException(inner)
             }
-            crate::operation::create_user_pool::CreateUserPoolError::InvalidSmsRoleTrustRelationshipException(inner) => {
-                Error::InvalidSmsRoleTrustRelationshipException(inner)
+            crate::operation::create_user_pool::CreateUserPoolError::InvalidSmsRoleTrustRelationshipException(
+                inner,
+            ) => Error::InvalidSmsRoleTrustRelationshipException(inner),
+            crate::operation::create_user_pool::CreateUserPoolError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
             }
-            crate::operation::create_user_pool::CreateUserPoolError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::create_user_pool::CreateUserPoolError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::create_user_pool::CreateUserPoolError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::create_user_pool::CreateUserPoolError::TierChangeNotAllowedException(inner) => {
                 Error::TierChangeNotAllowedException(inner)
             }
-            crate::operation::create_user_pool::CreateUserPoolError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::create_user_pool::CreateUserPoolError::UserPoolTaggingException(inner) => Error::UserPoolTaggingException(inner),
+            crate::operation::create_user_pool::CreateUserPoolError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::create_user_pool::CreateUserPoolError::UserPoolTaggingException(inner) => {
+                Error::UserPoolTaggingException(inner)
+            }
             crate::operation::create_user_pool::CreateUserPoolError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -6525,9 +6518,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6539,9 +6530,9 @@ where
 impl From<crate::operation::create_user_pool_client::CreateUserPoolClientError> for Error {
     fn from(err: crate::operation::create_user_pool_client::CreateUserPoolClientError) -> Self {
         match err {
-            crate::operation::create_user_pool_client::CreateUserPoolClientError::FeatureUnavailableInTierException(inner) => {
-                Error::FeatureUnavailableInTierException(inner)
-            }
+            crate::operation::create_user_pool_client::CreateUserPoolClientError::FeatureUnavailableInTierException(
+                inner,
+            ) => Error::FeatureUnavailableInTierException(inner),
             crate::operation::create_user_pool_client::CreateUserPoolClientError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
@@ -6557,9 +6548,9 @@ impl From<crate::operation::create_user_pool_client::CreateUserPoolClientError> 
             crate::operation::create_user_pool_client::CreateUserPoolClientError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::create_user_pool_client::CreateUserPoolClientError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
-            }
+            crate::operation::create_user_pool_client::CreateUserPoolClientError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
             crate::operation::create_user_pool_client::CreateUserPoolClientError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
@@ -6569,7 +6560,9 @@ impl From<crate::operation::create_user_pool_client::CreateUserPoolClientError> 
             crate::operation::create_user_pool_client::CreateUserPoolClientError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::create_user_pool_client::CreateUserPoolClientError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::create_user_pool_client::CreateUserPoolClientError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -6591,9 +6584,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6605,12 +6596,12 @@ where
 impl From<crate::operation::create_user_pool_domain::CreateUserPoolDomainError> for Error {
     fn from(err: crate::operation::create_user_pool_domain::CreateUserPoolDomainError) -> Self {
         match err {
-            crate::operation::create_user_pool_domain::CreateUserPoolDomainError::ConcurrentModificationException(inner) => {
-                Error::ConcurrentModificationException(inner)
-            }
-            crate::operation::create_user_pool_domain::CreateUserPoolDomainError::FeatureUnavailableInTierException(inner) => {
-                Error::FeatureUnavailableInTierException(inner)
-            }
+            crate::operation::create_user_pool_domain::CreateUserPoolDomainError::ConcurrentModificationException(
+                inner,
+            ) => Error::ConcurrentModificationException(inner),
+            crate::operation::create_user_pool_domain::CreateUserPoolDomainError::FeatureUnavailableInTierException(
+                inner,
+            ) => Error::FeatureUnavailableInTierException(inner),
             crate::operation::create_user_pool_domain::CreateUserPoolDomainError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
@@ -6623,13 +6614,15 @@ impl From<crate::operation::create_user_pool_domain::CreateUserPoolDomainError> 
             crate::operation::create_user_pool_domain::CreateUserPoolDomainError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::create_user_pool_domain::CreateUserPoolDomainError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
-            }
+            crate::operation::create_user_pool_domain::CreateUserPoolDomainError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
             crate::operation::create_user_pool_domain::CreateUserPoolDomainError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
-            crate::operation::create_user_pool_domain::CreateUserPoolDomainError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::create_user_pool_domain::CreateUserPoolDomainError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -6651,9 +6644,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6697,26 +6688,16 @@ impl From<crate::operation::create_user_pool_replica::CreateUserPoolReplicaError
     }
 }
 #[cfg(feature = "op_delete_group")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_group::DeleteGroupError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_group::DeleteGroupError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_group::DeleteGroupError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_group::DeleteGroupError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6737,18 +6718,16 @@ impl From<crate::operation::delete_group::DeleteGroupError> for Error {
             crate::operation::delete_group::DeleteGroupError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::delete_group::DeleteGroupError::OperationNotEnabledException(
-                inner,
-            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::delete_group::DeleteGroupError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
             crate::operation::delete_group::DeleteGroupError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
             crate::operation::delete_group::DeleteGroupError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::delete_group::DeleteGroupError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_group::DeleteGroupError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -6770,9 +6749,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6827,9 +6804,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6838,12 +6813,8 @@ where
     }
 }
 #[cfg(feature = "op_delete_managed_login_branding")]
-impl From<crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError>
-    for Error
-{
-    fn from(
-        err: crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError,
-    ) -> Self {
+impl From<crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError> for Error {
+    fn from(err: crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError) -> Self {
         match err {
             crate::operation::delete_managed_login_branding::DeleteManagedLoginBrandingError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -6888,9 +6859,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6911,40 +6880,32 @@ impl From<crate::operation::delete_resource_server::DeleteResourceServerError> f
             crate::operation::delete_resource_server::DeleteResourceServerError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::delete_resource_server::DeleteResourceServerError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
-            }
+            crate::operation::delete_resource_server::DeleteResourceServerError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
             crate::operation::delete_resource_server::DeleteResourceServerError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
             crate::operation::delete_resource_server::DeleteResourceServerError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::delete_resource_server::DeleteResourceServerError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::delete_resource_server::DeleteResourceServerError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_delete_terms")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_terms::DeleteTermsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_terms::DeleteTermsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_terms::DeleteTermsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_terms::DeleteTermsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6956,9 +6917,9 @@ where
 impl From<crate::operation::delete_terms::DeleteTermsError> for Error {
     fn from(err: crate::operation::delete_terms::DeleteTermsError) -> Self {
         match err {
-            crate::operation::delete_terms::DeleteTermsError::ConcurrentModificationException(
-                inner,
-            ) => Error::ConcurrentModificationException(inner),
+            crate::operation::delete_terms::DeleteTermsError::ConcurrentModificationException(inner) => {
+                Error::ConcurrentModificationException(inner)
+            }
             crate::operation::delete_terms::DeleteTermsError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
@@ -6968,42 +6929,30 @@ impl From<crate::operation::delete_terms::DeleteTermsError> for Error {
             crate::operation::delete_terms::DeleteTermsError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::delete_terms::DeleteTermsError::OperationNotEnabledException(
-                inner,
-            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::delete_terms::DeleteTermsError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
             crate::operation::delete_terms::DeleteTermsError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
             crate::operation::delete_terms::DeleteTermsError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::delete_terms::DeleteTermsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_terms::DeleteTermsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_delete_user")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_user::DeleteUserError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user::DeleteUserError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_user::DeleteUserError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user::DeleteUserError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7030,9 +6979,9 @@ impl From<crate::operation::delete_user::DeleteUserError> for Error {
             crate::operation::delete_user::DeleteUserError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
-            crate::operation::delete_user::DeleteUserError::PasswordResetRequiredException(
-                inner,
-            ) => Error::PasswordResetRequiredException(inner),
+            crate::operation::delete_user::DeleteUserError::PasswordResetRequiredException(inner) => {
+                Error::PasswordResetRequiredException(inner)
+            }
             crate::operation::delete_user::DeleteUserError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
@@ -7045,9 +6994,7 @@ impl From<crate::operation::delete_user::DeleteUserError> for Error {
             crate::operation::delete_user::DeleteUserError::UserNotFoundException(inner) => {
                 Error::UserNotFoundException(inner)
             }
-            crate::operation::delete_user::DeleteUserError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_user::DeleteUserError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -7069,9 +7016,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7083,7 +7028,9 @@ where
 impl From<crate::operation::delete_user_attributes::DeleteUserAttributesError> for Error {
     fn from(err: crate::operation::delete_user_attributes::DeleteUserAttributesError) -> Self {
         match err {
-            crate::operation::delete_user_attributes::DeleteUserAttributesError::ForbiddenException(inner) => Error::ForbiddenException(inner),
+            crate::operation::delete_user_attributes::DeleteUserAttributesError::ForbiddenException(inner) => {
+                Error::ForbiddenException(inner)
+            }
             crate::operation::delete_user_attributes::DeleteUserAttributesError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
@@ -7093,12 +7040,12 @@ impl From<crate::operation::delete_user_attributes::DeleteUserAttributesError> f
             crate::operation::delete_user_attributes::DeleteUserAttributesError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::delete_user_attributes::DeleteUserAttributesError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
-            }
-            crate::operation::delete_user_attributes::DeleteUserAttributesError::PasswordResetRequiredException(inner) => {
-                Error::PasswordResetRequiredException(inner)
-            }
+            crate::operation::delete_user_attributes::DeleteUserAttributesError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::delete_user_attributes::DeleteUserAttributesError::PasswordResetRequiredException(
+                inner,
+            ) => Error::PasswordResetRequiredException(inner),
             crate::operation::delete_user_attributes::DeleteUserAttributesError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
@@ -7108,19 +7055,19 @@ impl From<crate::operation::delete_user_attributes::DeleteUserAttributesError> f
             crate::operation::delete_user_attributes::DeleteUserAttributesError::UserNotConfirmedException(inner) => {
                 Error::UserNotConfirmedException(inner)
             }
-            crate::operation::delete_user_attributes::DeleteUserAttributesError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
-            crate::operation::delete_user_attributes::DeleteUserAttributesError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::delete_user_attributes::DeleteUserAttributesError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
+            crate::operation::delete_user_attributes::DeleteUserAttributesError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_delete_user_pool")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_user_pool::DeleteUserPoolError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user_pool::DeleteUserPoolError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -7131,9 +7078,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7145,14 +7090,24 @@ where
 impl From<crate::operation::delete_user_pool::DeleteUserPoolError> for Error {
     fn from(err: crate::operation::delete_user_pool::DeleteUserPoolError) -> Self {
         match err {
-            crate::operation::delete_user_pool::DeleteUserPoolError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::delete_user_pool::DeleteUserPoolError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::delete_user_pool::DeleteUserPoolError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::delete_user_pool::DeleteUserPoolError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::delete_user_pool::DeleteUserPoolError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::delete_user_pool::DeleteUserPoolError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::delete_user_pool::DeleteUserPoolError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
-            crate::operation::delete_user_pool::DeleteUserPoolError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::delete_user_pool::DeleteUserPoolError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::delete_user_pool::DeleteUserPoolError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::delete_user_pool::DeleteUserPoolError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
             crate::operation::delete_user_pool::DeleteUserPoolError::UserImportInProgressException(inner) => {
                 Error::UserImportInProgressException(inner)
             }
@@ -7178,9 +7133,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7192,9 +7145,9 @@ where
 impl From<crate::operation::delete_user_pool_client::DeleteUserPoolClientError> for Error {
     fn from(err: crate::operation::delete_user_pool_client::DeleteUserPoolClientError) -> Self {
         match err {
-            crate::operation::delete_user_pool_client::DeleteUserPoolClientError::ConcurrentModificationException(inner) => {
-                Error::ConcurrentModificationException(inner)
-            }
+            crate::operation::delete_user_pool_client::DeleteUserPoolClientError::ConcurrentModificationException(
+                inner,
+            ) => Error::ConcurrentModificationException(inner),
             crate::operation::delete_user_pool_client::DeleteUserPoolClientError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
@@ -7204,16 +7157,18 @@ impl From<crate::operation::delete_user_pool_client::DeleteUserPoolClientError> 
             crate::operation::delete_user_pool_client::DeleteUserPoolClientError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::delete_user_pool_client::DeleteUserPoolClientError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
-            }
+            crate::operation::delete_user_pool_client::DeleteUserPoolClientError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
             crate::operation::delete_user_pool_client::DeleteUserPoolClientError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
             crate::operation::delete_user_pool_client::DeleteUserPoolClientError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::delete_user_pool_client::DeleteUserPoolClientError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::delete_user_pool_client::DeleteUserPoolClientError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -7235,9 +7190,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7246,12 +7199,8 @@ where
     }
 }
 #[cfg(feature = "op_delete_user_pool_client_secret")]
-impl From<crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError>
-    for Error
-{
-    fn from(
-        err: crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError,
-    ) -> Self {
+impl From<crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError> for Error {
+    fn from(err: crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError) -> Self {
         match err {
             crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError::InternalServerException(inner) => {
                 Error::InternalServerException(inner)
@@ -7290,9 +7239,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7304,9 +7251,9 @@ where
 impl From<crate::operation::delete_user_pool_domain::DeleteUserPoolDomainError> for Error {
     fn from(err: crate::operation::delete_user_pool_domain::DeleteUserPoolDomainError) -> Self {
         match err {
-            crate::operation::delete_user_pool_domain::DeleteUserPoolDomainError::ConcurrentModificationException(inner) => {
-                Error::ConcurrentModificationException(inner)
-            }
+            crate::operation::delete_user_pool_domain::DeleteUserPoolDomainError::ConcurrentModificationException(
+                inner,
+            ) => Error::ConcurrentModificationException(inner),
             crate::operation::delete_user_pool_domain::DeleteUserPoolDomainError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
@@ -7316,13 +7263,15 @@ impl From<crate::operation::delete_user_pool_domain::DeleteUserPoolDomainError> 
             crate::operation::delete_user_pool_domain::DeleteUserPoolDomainError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::delete_user_pool_domain::DeleteUserPoolDomainError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
-            }
+            crate::operation::delete_user_pool_domain::DeleteUserPoolDomainError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
             crate::operation::delete_user_pool_domain::DeleteUserPoolDomainError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
-            crate::operation::delete_user_pool_domain::DeleteUserPoolDomainError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::delete_user_pool_domain::DeleteUserPoolDomainError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -7344,9 +7293,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7361,22 +7308,24 @@ impl From<crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaError
             crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaError::InvalidParameterException(inner) => {
-                Error::InvalidParameterException(inner)
-            }
+            crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaError::InvalidParameterException(
+                inner,
+            ) => Error::InvalidParameterException(inner),
             crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
-            }
-            crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
+            crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
             crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -7398,9 +7347,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7410,9 +7357,7 @@ where
 }
 #[cfg(feature = "op_delete_web_authn_credential")]
 impl From<crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError> for Error {
-    fn from(
-        err: crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError,
-    ) -> Self {
+    fn from(err: crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError) -> Self {
         match err {
             crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError::ForbiddenException(inner) => {
                 Error::ForbiddenException(inner)
@@ -7463,9 +7408,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7475,26 +7418,26 @@ where
 }
 #[cfg(feature = "op_describe_identity_provider")]
 impl From<crate::operation::describe_identity_provider::DescribeIdentityProviderError> for Error {
-    fn from(
-        err: crate::operation::describe_identity_provider::DescribeIdentityProviderError,
-    ) -> Self {
+    fn from(err: crate::operation::describe_identity_provider::DescribeIdentityProviderError) -> Self {
         match err {
-            crate::operation::describe_identity_provider::DescribeIdentityProviderError::InternalErrorException(inner) => {
-                Error::InternalErrorException(inner)
+            crate::operation::describe_identity_provider::DescribeIdentityProviderError::InternalErrorException(
+                inner,
+            ) => Error::InternalErrorException(inner),
+            crate::operation::describe_identity_provider::DescribeIdentityProviderError::InvalidParameterException(
+                inner,
+            ) => Error::InvalidParameterException(inner),
+            crate::operation::describe_identity_provider::DescribeIdentityProviderError::NotAuthorizedException(
+                inner,
+            ) => Error::NotAuthorizedException(inner),
+            crate::operation::describe_identity_provider::DescribeIdentityProviderError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::describe_identity_provider::DescribeIdentityProviderError::TooManyRequestsException(
+                inner,
+            ) => Error::TooManyRequestsException(inner),
+            crate::operation::describe_identity_provider::DescribeIdentityProviderError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::describe_identity_provider::DescribeIdentityProviderError::InvalidParameterException(inner) => {
-                Error::InvalidParameterException(inner)
-            }
-            crate::operation::describe_identity_provider::DescribeIdentityProviderError::NotAuthorizedException(inner) => {
-                Error::NotAuthorizedException(inner)
-            }
-            crate::operation::describe_identity_provider::DescribeIdentityProviderError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::describe_identity_provider::DescribeIdentityProviderError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::describe_identity_provider::DescribeIdentityProviderError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -7516,9 +7459,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7527,12 +7468,8 @@ where
     }
 }
 #[cfg(feature = "op_describe_managed_login_branding")]
-impl From<crate::operation::describe_managed_login_branding::DescribeManagedLoginBrandingError>
-    for Error
-{
-    fn from(
-        err: crate::operation::describe_managed_login_branding::DescribeManagedLoginBrandingError,
-    ) -> Self {
+impl From<crate::operation::describe_managed_login_branding::DescribeManagedLoginBrandingError> for Error {
+    fn from(err: crate::operation::describe_managed_login_branding::DescribeManagedLoginBrandingError) -> Self {
         match err {
             crate::operation::describe_managed_login_branding::DescribeManagedLoginBrandingError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -7583,8 +7520,12 @@ where
     }
 }
 #[cfg(feature = "op_describe_managed_login_branding_by_client")]
-impl From<crate::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError> for Error {
-    fn from(err: crate::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError) -> Self {
+impl From<crate::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError>
+    for Error
+{
+    fn from(
+        err: crate::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError,
+    ) -> Self {
         match err {
             crate::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -7628,9 +7569,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7645,22 +7584,24 @@ impl From<crate::operation::describe_resource_server::DescribeResourceServerErro
             crate::operation::describe_resource_server::DescribeResourceServerError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::describe_resource_server::DescribeResourceServerError::InvalidParameterException(inner) => {
-                Error::InvalidParameterException(inner)
-            }
+            crate::operation::describe_resource_server::DescribeResourceServerError::InvalidParameterException(
+                inner,
+            ) => Error::InvalidParameterException(inner),
             crate::operation::describe_resource_server::DescribeResourceServerError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::describe_resource_server::DescribeResourceServerError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
+            crate::operation::describe_resource_server::DescribeResourceServerError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::describe_resource_server::DescribeResourceServerError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::describe_resource_server::DescribeResourceServerError::TooManyRequestsException(
+                inner,
+            ) => Error::TooManyRequestsException(inner),
+            crate::operation::describe_resource_server::DescribeResourceServerError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::describe_resource_server::DescribeResourceServerError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::describe_resource_server::DescribeResourceServerError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::describe_resource_server::DescribeResourceServerError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -7682,9 +7623,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7694,9 +7633,7 @@ where
 }
 #[cfg(feature = "op_describe_risk_configuration")]
 impl From<crate::operation::describe_risk_configuration::DescribeRiskConfigurationError> for Error {
-    fn from(
-        err: crate::operation::describe_risk_configuration::DescribeRiskConfigurationError,
-    ) -> Self {
+    fn from(err: crate::operation::describe_risk_configuration::DescribeRiskConfigurationError) -> Self {
         match err {
             crate::operation::describe_risk_configuration::DescribeRiskConfigurationError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -7725,12 +7662,8 @@ impl From<crate::operation::describe_risk_configuration::DescribeRiskConfigurati
 }
 #[cfg(feature = "op_describe_terms")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::describe_terms::DescribeTermsError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::describe_terms::DescribeTermsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -7741,9 +7674,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7758,24 +7689,22 @@ impl From<crate::operation::describe_terms::DescribeTermsError> for Error {
             crate::operation::describe_terms::DescribeTermsError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::describe_terms::DescribeTermsError::InvalidParameterException(
-                inner,
-            ) => Error::InvalidParameterException(inner),
+            crate::operation::describe_terms::DescribeTermsError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
             crate::operation::describe_terms::DescribeTermsError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::describe_terms::DescribeTermsError::OperationNotEnabledException(
-                inner,
-            ) => Error::OperationNotEnabledException(inner),
-            crate::operation::describe_terms::DescribeTermsError::ResourceNotFoundException(
-                inner,
-            ) => Error::ResourceNotFoundException(inner),
-            crate::operation::describe_terms::DescribeTermsError::TooManyRequestsException(
-                inner,
-            ) => Error::TooManyRequestsException(inner),
-            crate::operation::describe_terms::DescribeTermsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
+            crate::operation::describe_terms::DescribeTermsError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
             }
+            crate::operation::describe_terms::DescribeTermsError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::describe_terms::DescribeTermsError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::describe_terms::DescribeTermsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -7797,9 +7726,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7814,22 +7741,24 @@ impl From<crate::operation::describe_user_import_job::DescribeUserImportJobError
             crate::operation::describe_user_import_job::DescribeUserImportJobError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::describe_user_import_job::DescribeUserImportJobError::InvalidParameterException(inner) => {
-                Error::InvalidParameterException(inner)
-            }
+            crate::operation::describe_user_import_job::DescribeUserImportJobError::InvalidParameterException(
+                inner,
+            ) => Error::InvalidParameterException(inner),
             crate::operation::describe_user_import_job::DescribeUserImportJobError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::describe_user_import_job::DescribeUserImportJobError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
-            }
-            crate::operation::describe_user_import_job::DescribeUserImportJobError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
+            crate::operation::describe_user_import_job::DescribeUserImportJobError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::describe_user_import_job::DescribeUserImportJobError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
             crate::operation::describe_user_import_job::DescribeUserImportJobError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::describe_user_import_job::DescribeUserImportJobError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::describe_user_import_job::DescribeUserImportJobError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -7851,9 +7780,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7865,15 +7792,27 @@ where
 impl From<crate::operation::describe_user_pool::DescribeUserPoolError> for Error {
     fn from(err: crate::operation::describe_user_pool::DescribeUserPoolError) -> Self {
         match err {
-            crate::operation::describe_user_pool::DescribeUserPoolError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::describe_user_pool::DescribeUserPoolError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::describe_user_pool::DescribeUserPoolError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::describe_user_pool::DescribeUserPoolError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::describe_user_pool::DescribeUserPoolError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::describe_user_pool::DescribeUserPoolError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::describe_user_pool::DescribeUserPoolError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
-            crate::operation::describe_user_pool::DescribeUserPoolError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::describe_user_pool::DescribeUserPoolError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::describe_user_pool::DescribeUserPoolError::UserPoolTaggingException(inner) => Error::UserPoolTaggingException(inner),
+            crate::operation::describe_user_pool::DescribeUserPoolError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::describe_user_pool::DescribeUserPoolError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::describe_user_pool::DescribeUserPoolError::UserPoolTaggingException(inner) => {
+                Error::UserPoolTaggingException(inner)
+            }
             crate::operation::describe_user_pool::DescribeUserPoolError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -7896,9 +7835,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7913,22 +7850,24 @@ impl From<crate::operation::describe_user_pool_client::DescribeUserPoolClientErr
             crate::operation::describe_user_pool_client::DescribeUserPoolClientError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::describe_user_pool_client::DescribeUserPoolClientError::InvalidParameterException(inner) => {
-                Error::InvalidParameterException(inner)
-            }
+            crate::operation::describe_user_pool_client::DescribeUserPoolClientError::InvalidParameterException(
+                inner,
+            ) => Error::InvalidParameterException(inner),
             crate::operation::describe_user_pool_client::DescribeUserPoolClientError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::describe_user_pool_client::DescribeUserPoolClientError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
+            crate::operation::describe_user_pool_client::DescribeUserPoolClientError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::describe_user_pool_client::DescribeUserPoolClientError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::describe_user_pool_client::DescribeUserPoolClientError::TooManyRequestsException(
+                inner,
+            ) => Error::TooManyRequestsException(inner),
+            crate::operation::describe_user_pool_client::DescribeUserPoolClientError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::describe_user_pool_client::DescribeUserPoolClientError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::describe_user_pool_client::DescribeUserPoolClientError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::describe_user_pool_client::DescribeUserPoolClientError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -7950,9 +7889,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7967,43 +7904,35 @@ impl From<crate::operation::describe_user_pool_domain::DescribeUserPoolDomainErr
             crate::operation::describe_user_pool_domain::DescribeUserPoolDomainError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::describe_user_pool_domain::DescribeUserPoolDomainError::InvalidParameterException(inner) => {
-                Error::InvalidParameterException(inner)
-            }
+            crate::operation::describe_user_pool_domain::DescribeUserPoolDomainError::InvalidParameterException(
+                inner,
+            ) => Error::InvalidParameterException(inner),
             crate::operation::describe_user_pool_domain::DescribeUserPoolDomainError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::describe_user_pool_domain::DescribeUserPoolDomainError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
+            crate::operation::describe_user_pool_domain::DescribeUserPoolDomainError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::describe_user_pool_domain::DescribeUserPoolDomainError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::describe_user_pool_domain::DescribeUserPoolDomainError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::describe_user_pool_domain::DescribeUserPoolDomainError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
-            crate::operation::describe_user_pool_domain::DescribeUserPoolDomainError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_forget_device")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::forget_device::ForgetDeviceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::forget_device::ForgetDeviceError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::forget_device::ForgetDeviceError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::forget_device::ForgetDeviceError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8015,31 +7944,47 @@ where
 impl From<crate::operation::forget_device::ForgetDeviceError> for Error {
     fn from(err: crate::operation::forget_device::ForgetDeviceError) -> Self {
         match err {
-            crate::operation::forget_device::ForgetDeviceError::ForbiddenException(inner) => Error::ForbiddenException(inner),
-            crate::operation::forget_device::ForgetDeviceError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::forget_device::ForgetDeviceError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::forget_device::ForgetDeviceError::ForbiddenException(inner) => {
+                Error::ForbiddenException(inner)
+            }
+            crate::operation::forget_device::ForgetDeviceError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::forget_device::ForgetDeviceError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
             crate::operation::forget_device::ForgetDeviceError::InvalidUserPoolConfigurationException(inner) => {
                 Error::InvalidUserPoolConfigurationException(inner)
             }
-            crate::operation::forget_device::ForgetDeviceError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::forget_device::ForgetDeviceError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::forget_device::ForgetDeviceError::PasswordResetRequiredException(inner) => Error::PasswordResetRequiredException(inner),
-            crate::operation::forget_device::ForgetDeviceError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::forget_device::ForgetDeviceError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::forget_device::ForgetDeviceError::UserNotConfirmedException(inner) => Error::UserNotConfirmedException(inner),
-            crate::operation::forget_device::ForgetDeviceError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
+            crate::operation::forget_device::ForgetDeviceError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::forget_device::ForgetDeviceError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
+            crate::operation::forget_device::ForgetDeviceError::PasswordResetRequiredException(inner) => {
+                Error::PasswordResetRequiredException(inner)
+            }
+            crate::operation::forget_device::ForgetDeviceError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::forget_device::ForgetDeviceError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::forget_device::ForgetDeviceError::UserNotConfirmedException(inner) => {
+                Error::UserNotConfirmedException(inner)
+            }
+            crate::operation::forget_device::ForgetDeviceError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
             crate::operation::forget_device::ForgetDeviceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_forgot_password")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::forgot_password::ForgotPasswordError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::forgot_password::ForgotPasswordError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -8050,9 +7995,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8064,57 +8007,69 @@ where
 impl From<crate::operation::forgot_password::ForgotPasswordError> for Error {
     fn from(err: crate::operation::forgot_password::ForgotPasswordError) -> Self {
         match err {
-            crate::operation::forgot_password::ForgotPasswordError::CodeDeliveryFailureException(inner) => Error::CodeDeliveryFailureException(inner),
-            crate::operation::forgot_password::ForgotPasswordError::ForbiddenException(inner) => Error::ForbiddenException(inner),
-            crate::operation::forgot_password::ForgotPasswordError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::forgot_password::ForgotPasswordError::CodeDeliveryFailureException(inner) => {
+                Error::CodeDeliveryFailureException(inner)
+            }
+            crate::operation::forgot_password::ForgotPasswordError::ForbiddenException(inner) => {
+                Error::ForbiddenException(inner)
+            }
+            crate::operation::forgot_password::ForgotPasswordError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::forgot_password::ForgotPasswordError::InvalidEmailRoleAccessPolicyException(inner) => {
                 Error::InvalidEmailRoleAccessPolicyException(inner)
             }
             crate::operation::forgot_password::ForgotPasswordError::InvalidLambdaResponseException(inner) => {
                 Error::InvalidLambdaResponseException(inner)
             }
-            crate::operation::forgot_password::ForgotPasswordError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::forgot_password::ForgotPasswordError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
             crate::operation::forgot_password::ForgotPasswordError::InvalidSmsRoleAccessPolicyException(inner) => {
                 Error::InvalidSmsRoleAccessPolicyException(inner)
             }
             crate::operation::forgot_password::ForgotPasswordError::InvalidSmsRoleTrustRelationshipException(inner) => {
                 Error::InvalidSmsRoleTrustRelationshipException(inner)
             }
-            crate::operation::forgot_password::ForgotPasswordError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::forgot_password::ForgotPasswordError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::forgot_password::ForgotPasswordError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::forgot_password::ForgotPasswordError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::forgot_password::ForgotPasswordError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::forgot_password::ForgotPasswordError::UnexpectedLambdaException(inner) => Error::UnexpectedLambdaException(inner),
+            crate::operation::forgot_password::ForgotPasswordError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::forgot_password::ForgotPasswordError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::forgot_password::ForgotPasswordError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
+            crate::operation::forgot_password::ForgotPasswordError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::forgot_password::ForgotPasswordError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::forgot_password::ForgotPasswordError::UnexpectedLambdaException(inner) => {
+                Error::UnexpectedLambdaException(inner)
+            }
             crate::operation::forgot_password::ForgotPasswordError::UserLambdaValidationException(inner) => {
                 Error::UserLambdaValidationException(inner)
             }
-            crate::operation::forgot_password::ForgotPasswordError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
+            crate::operation::forgot_password::ForgotPasswordError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
             crate::operation::forgot_password::ForgotPasswordError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_csv_header")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_csv_header::GetCSVHeaderError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_csv_header::GetCSVHeaderError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_csv_header::GetCSVHeaderError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_csv_header::GetCSVHeaderError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8129,48 +8084,36 @@ impl From<crate::operation::get_csv_header::GetCSVHeaderError> for Error {
             crate::operation::get_csv_header::GetCSVHeaderError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::get_csv_header::GetCSVHeaderError::InvalidParameterException(
-                inner,
-            ) => Error::InvalidParameterException(inner),
+            crate::operation::get_csv_header::GetCSVHeaderError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
             crate::operation::get_csv_header::GetCSVHeaderError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::get_csv_header::GetCSVHeaderError::OperationNotEnabledException(
-                inner,
-            ) => Error::OperationNotEnabledException(inner),
-            crate::operation::get_csv_header::GetCSVHeaderError::ResourceNotFoundException(
-                inner,
-            ) => Error::ResourceNotFoundException(inner),
-            crate::operation::get_csv_header::GetCSVHeaderError::TooManyRequestsException(
-                inner,
-            ) => Error::TooManyRequestsException(inner),
-            crate::operation::get_csv_header::GetCSVHeaderError::Unhandled(inner) => {
-                Error::Unhandled(inner)
+            crate::operation::get_csv_header::GetCSVHeaderError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
             }
+            crate::operation::get_csv_header::GetCSVHeaderError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::get_csv_header::GetCSVHeaderError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::get_csv_header::GetCSVHeaderError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_device")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_device::GetDeviceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_device::GetDeviceError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_device::GetDeviceError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_device::GetDeviceError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8182,18 +8125,16 @@ where
 impl From<crate::operation::get_device::GetDeviceError> for Error {
     fn from(err: crate::operation::get_device::GetDeviceError) -> Self {
         match err {
-            crate::operation::get_device::GetDeviceError::ForbiddenException(inner) => {
-                Error::ForbiddenException(inner)
-            }
+            crate::operation::get_device::GetDeviceError::ForbiddenException(inner) => Error::ForbiddenException(inner),
             crate::operation::get_device::GetDeviceError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
             crate::operation::get_device::GetDeviceError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::get_device::GetDeviceError::InvalidUserPoolConfigurationException(
-                inner,
-            ) => Error::InvalidUserPoolConfigurationException(inner),
+            crate::operation::get_device::GetDeviceError::InvalidUserPoolConfigurationException(inner) => {
+                Error::InvalidUserPoolConfigurationException(inner)
+            }
             crate::operation::get_device::GetDeviceError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
@@ -8215,33 +8156,21 @@ impl From<crate::operation::get_device::GetDeviceError> for Error {
             crate::operation::get_device::GetDeviceError::UserNotFoundException(inner) => {
                 Error::UserNotFoundException(inner)
             }
-            crate::operation::get_device::GetDeviceError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_device::GetDeviceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_group")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_group::GetGroupError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_group::GetGroupError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_group::GetGroupError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_group::GetGroupError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8302,14 +8231,8 @@ where
     }
 }
 #[cfg(feature = "op_get_identity_provider_by_identifier")]
-impl
-    From<
-        crate::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError,
-    > for Error
-{
-    fn from(
-        err: crate::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError,
-    ) -> Self {
+impl From<crate::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError> for Error {
+    fn from(err: crate::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError) -> Self {
         match err {
             crate::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -8348,9 +8271,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8359,12 +8280,8 @@ where
     }
 }
 #[cfg(feature = "op_get_log_delivery_configuration")]
-impl From<crate::operation::get_log_delivery_configuration::GetLogDeliveryConfigurationError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_log_delivery_configuration::GetLogDeliveryConfigurationError,
-    ) -> Self {
+impl From<crate::operation::get_log_delivery_configuration::GetLogDeliveryConfigurationError> for Error {
+    fn from(err: crate::operation::get_log_delivery_configuration::GetLogDeliveryConfigurationError) -> Self {
         match err {
             crate::operation::get_log_delivery_configuration::GetLogDeliveryConfigurationError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -8403,9 +8320,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8417,18 +8332,24 @@ where
 impl From<crate::operation::get_provisioned_limit::GetProvisionedLimitError> for Error {
     fn from(err: crate::operation::get_provisioned_limit::GetProvisionedLimitError) -> Self {
         match err {
-            crate::operation::get_provisioned_limit::GetProvisionedLimitError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::get_provisioned_limit::GetProvisionedLimitError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::get_provisioned_limit::GetProvisionedLimitError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::get_provisioned_limit::GetProvisionedLimitError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::get_provisioned_limit::GetProvisionedLimitError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::get_provisioned_limit::GetProvisionedLimitError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
             crate::operation::get_provisioned_limit::GetProvisionedLimitError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::get_provisioned_limit::GetProvisionedLimitError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::get_provisioned_limit::GetProvisionedLimitError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -8450,9 +8371,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8470,13 +8389,15 @@ impl From<crate::operation::get_signing_certificate::GetSigningCertificateError>
             crate::operation::get_signing_certificate::GetSigningCertificateError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::get_signing_certificate::GetSigningCertificateError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
-            }
+            crate::operation::get_signing_certificate::GetSigningCertificateError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
             crate::operation::get_signing_certificate::GetSigningCertificateError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
-            crate::operation::get_signing_certificate::GetSigningCertificateError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::get_signing_certificate::GetSigningCertificateError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -8498,9 +8419,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8509,12 +8428,8 @@ where
     }
 }
 #[cfg(feature = "op_get_tokens_from_refresh_token")]
-impl From<crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError,
-    ) -> Self {
+impl From<crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError> for Error {
+    fn from(err: crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError) -> Self {
         match err {
             crate::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::ForbiddenException(inner) => {
                 Error::ForbiddenException(inner)
@@ -8574,9 +8489,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8588,11 +8501,15 @@ where
 impl From<crate::operation::get_ui_customization::GetUICustomizationError> for Error {
     fn from(err: crate::operation::get_ui_customization::GetUICustomizationError) -> Self {
         match err {
-            crate::operation::get_ui_customization::GetUICustomizationError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::get_ui_customization::GetUICustomizationError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::get_ui_customization::GetUICustomizationError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::get_ui_customization::GetUICustomizationError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::get_ui_customization::GetUICustomizationError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::get_ui_customization::GetUICustomizationError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
@@ -8602,31 +8519,22 @@ impl From<crate::operation::get_ui_customization::GetUICustomizationError> for E
             crate::operation::get_ui_customization::GetUICustomizationError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::get_ui_customization::GetUICustomizationError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::get_ui_customization::GetUICustomizationError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_get_user")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_user::GetUserError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_user::GetUserError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_user::GetUserError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_user::GetUserError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8638,9 +8546,7 @@ where
 impl From<crate::operation::get_user::GetUserError> for Error {
     fn from(err: crate::operation::get_user::GetUserError) -> Self {
         match err {
-            crate::operation::get_user::GetUserError::ForbiddenException(inner) => {
-                Error::ForbiddenException(inner)
-            }
+            crate::operation::get_user::GetUserError::ForbiddenException(inner) => Error::ForbiddenException(inner),
             crate::operation::get_user::GetUserError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
@@ -8700,7 +8606,9 @@ where
 }
 #[cfg(feature = "op_get_user_attribute_verification_code")]
 impl From<crate::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError> for Error {
-    fn from(err: crate::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError) -> Self {
+    fn from(
+        err: crate::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError,
+    ) -> Self {
         match err {
             crate::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::CodeDeliveryFailureException(inner) => Error::CodeDeliveryFailureException(inner),
             crate::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::ForbiddenException(inner) => Error::ForbiddenException(inner),
@@ -8742,9 +8650,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8756,12 +8662,18 @@ where
 impl From<crate::operation::get_user_auth_factors::GetUserAuthFactorsError> for Error {
     fn from(err: crate::operation::get_user_auth_factors::GetUserAuthFactorsError) -> Self {
         match err {
-            crate::operation::get_user_auth_factors::GetUserAuthFactorsError::ForbiddenException(inner) => Error::ForbiddenException(inner),
-            crate::operation::get_user_auth_factors::GetUserAuthFactorsError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::get_user_auth_factors::GetUserAuthFactorsError::ForbiddenException(inner) => {
+                Error::ForbiddenException(inner)
+            }
+            crate::operation::get_user_auth_factors::GetUserAuthFactorsError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::get_user_auth_factors::GetUserAuthFactorsError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::get_user_auth_factors::GetUserAuthFactorsError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::get_user_auth_factors::GetUserAuthFactorsError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::get_user_auth_factors::GetUserAuthFactorsError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
@@ -8777,8 +8689,12 @@ impl From<crate::operation::get_user_auth_factors::GetUserAuthFactorsError> for 
             crate::operation::get_user_auth_factors::GetUserAuthFactorsError::UserNotConfirmedException(inner) => {
                 Error::UserNotConfirmedException(inner)
             }
-            crate::operation::get_user_auth_factors::GetUserAuthFactorsError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
-            crate::operation::get_user_auth_factors::GetUserAuthFactorsError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::get_user_auth_factors::GetUserAuthFactorsError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
+            crate::operation::get_user_auth_factors::GetUserAuthFactorsError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -8800,9 +8716,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8829,18 +8743,16 @@ impl From<crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigError>
             crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_global_sign_out")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::global_sign_out::GlobalSignOutError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::global_sign_out::GlobalSignOutError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -8851,9 +8763,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8865,42 +8775,48 @@ where
 impl From<crate::operation::global_sign_out::GlobalSignOutError> for Error {
     fn from(err: crate::operation::global_sign_out::GlobalSignOutError) -> Self {
         match err {
-            crate::operation::global_sign_out::GlobalSignOutError::ForbiddenException(inner) => Error::ForbiddenException(inner),
-            crate::operation::global_sign_out::GlobalSignOutError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::global_sign_out::GlobalSignOutError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::global_sign_out::GlobalSignOutError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::global_sign_out::GlobalSignOutError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
+            crate::operation::global_sign_out::GlobalSignOutError::ForbiddenException(inner) => {
+                Error::ForbiddenException(inner)
+            }
+            crate::operation::global_sign_out::GlobalSignOutError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::global_sign_out::GlobalSignOutError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::global_sign_out::GlobalSignOutError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::global_sign_out::GlobalSignOutError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
             crate::operation::global_sign_out::GlobalSignOutError::PasswordResetRequiredException(inner) => {
                 Error::PasswordResetRequiredException(inner)
             }
-            crate::operation::global_sign_out::GlobalSignOutError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::global_sign_out::GlobalSignOutError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::global_sign_out::GlobalSignOutError::UserNotConfirmedException(inner) => Error::UserNotConfirmedException(inner),
+            crate::operation::global_sign_out::GlobalSignOutError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::global_sign_out::GlobalSignOutError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::global_sign_out::GlobalSignOutError::UserNotConfirmedException(inner) => {
+                Error::UserNotConfirmedException(inner)
+            }
             crate::operation::global_sign_out::GlobalSignOutError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_initiate_auth")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::initiate_auth::InitiateAuthError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::initiate_auth::InitiateAuthError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::initiate_auth::InitiateAuthError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::initiate_auth::InitiateAuthError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8912,13 +8828,21 @@ where
 impl From<crate::operation::initiate_auth::InitiateAuthError> for Error {
     fn from(err: crate::operation::initiate_auth::InitiateAuthError) -> Self {
         match err {
-            crate::operation::initiate_auth::InitiateAuthError::ForbiddenException(inner) => Error::ForbiddenException(inner),
-            crate::operation::initiate_auth::InitiateAuthError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::initiate_auth::InitiateAuthError::ForbiddenException(inner) => {
+                Error::ForbiddenException(inner)
+            }
+            crate::operation::initiate_auth::InitiateAuthError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::initiate_auth::InitiateAuthError::InvalidEmailRoleAccessPolicyException(inner) => {
                 Error::InvalidEmailRoleAccessPolicyException(inner)
             }
-            crate::operation::initiate_auth::InitiateAuthError::InvalidLambdaResponseException(inner) => Error::InvalidLambdaResponseException(inner),
-            crate::operation::initiate_auth::InitiateAuthError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::initiate_auth::InitiateAuthError::InvalidLambdaResponseException(inner) => {
+                Error::InvalidLambdaResponseException(inner)
+            }
+            crate::operation::initiate_auth::InitiateAuthError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
             crate::operation::initiate_auth::InitiateAuthError::InvalidSmsRoleAccessPolicyException(inner) => {
                 Error::InvalidSmsRoleAccessPolicyException(inner)
             }
@@ -8928,41 +8852,51 @@ impl From<crate::operation::initiate_auth::InitiateAuthError> for Error {
             crate::operation::initiate_auth::InitiateAuthError::InvalidUserPoolConfigurationException(inner) => {
                 Error::InvalidUserPoolConfigurationException(inner)
             }
-            crate::operation::initiate_auth::InitiateAuthError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::initiate_auth::InitiateAuthError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::initiate_auth::InitiateAuthError::PasswordResetRequiredException(inner) => Error::PasswordResetRequiredException(inner),
-            crate::operation::initiate_auth::InitiateAuthError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::initiate_auth::InitiateAuthError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::initiate_auth::InitiateAuthError::UnexpectedLambdaException(inner) => Error::UnexpectedLambdaException(inner),
-            crate::operation::initiate_auth::InitiateAuthError::UnsupportedOperationException(inner) => Error::UnsupportedOperationException(inner),
-            crate::operation::initiate_auth::InitiateAuthError::UserLambdaValidationException(inner) => Error::UserLambdaValidationException(inner),
-            crate::operation::initiate_auth::InitiateAuthError::UserNotConfirmedException(inner) => Error::UserNotConfirmedException(inner),
-            crate::operation::initiate_auth::InitiateAuthError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
+            crate::operation::initiate_auth::InitiateAuthError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::initiate_auth::InitiateAuthError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
+            crate::operation::initiate_auth::InitiateAuthError::PasswordResetRequiredException(inner) => {
+                Error::PasswordResetRequiredException(inner)
+            }
+            crate::operation::initiate_auth::InitiateAuthError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::initiate_auth::InitiateAuthError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::initiate_auth::InitiateAuthError::UnexpectedLambdaException(inner) => {
+                Error::UnexpectedLambdaException(inner)
+            }
+            crate::operation::initiate_auth::InitiateAuthError::UnsupportedOperationException(inner) => {
+                Error::UnsupportedOperationException(inner)
+            }
+            crate::operation::initiate_auth::InitiateAuthError::UserLambdaValidationException(inner) => {
+                Error::UserLambdaValidationException(inner)
+            }
+            crate::operation::initiate_auth::InitiateAuthError::UserNotConfirmedException(inner) => {
+                Error::UserNotConfirmedException(inner)
+            }
+            crate::operation::initiate_auth::InitiateAuthError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
             crate::operation::initiate_auth::InitiateAuthError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_devices")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_devices::ListDevicesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_devices::ListDevicesError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_devices::ListDevicesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_devices::ListDevicesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8974,44 +8908,54 @@ where
 impl From<crate::operation::list_devices::ListDevicesError> for Error {
     fn from(err: crate::operation::list_devices::ListDevicesError) -> Self {
         match err {
-            crate::operation::list_devices::ListDevicesError::ForbiddenException(inner) => Error::ForbiddenException(inner),
-            crate::operation::list_devices::ListDevicesError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::list_devices::ListDevicesError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::list_devices::ListDevicesError::ForbiddenException(inner) => {
+                Error::ForbiddenException(inner)
+            }
+            crate::operation::list_devices::ListDevicesError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::list_devices::ListDevicesError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
             crate::operation::list_devices::ListDevicesError::InvalidUserPoolConfigurationException(inner) => {
                 Error::InvalidUserPoolConfigurationException(inner)
             }
-            crate::operation::list_devices::ListDevicesError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
-            crate::operation::list_devices::ListDevicesError::OperationNotEnabledException(inner) => Error::OperationNotEnabledException(inner),
-            crate::operation::list_devices::ListDevicesError::PasswordResetRequiredException(inner) => Error::PasswordResetRequiredException(inner),
-            crate::operation::list_devices::ListDevicesError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::list_devices::ListDevicesError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::list_devices::ListDevicesError::UserNotConfirmedException(inner) => Error::UserNotConfirmedException(inner),
-            crate::operation::list_devices::ListDevicesError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
+            crate::operation::list_devices::ListDevicesError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::list_devices::ListDevicesError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
+            crate::operation::list_devices::ListDevicesError::PasswordResetRequiredException(inner) => {
+                Error::PasswordResetRequiredException(inner)
+            }
+            crate::operation::list_devices::ListDevicesError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::list_devices::ListDevicesError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::list_devices::ListDevicesError::UserNotConfirmedException(inner) => {
+                Error::UserNotConfirmedException(inner)
+            }
+            crate::operation::list_devices::ListDevicesError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
             crate::operation::list_devices::ListDevicesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_groups")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_groups::ListGroupsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_groups::ListGroupsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_groups::ListGroupsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_groups::ListGroupsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9041,9 +8985,7 @@ impl From<crate::operation::list_groups::ListGroupsError> for Error {
             crate::operation::list_groups::ListGroupsError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::list_groups::ListGroupsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_groups::ListGroupsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -9065,9 +9007,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9094,7 +9034,9 @@ impl From<crate::operation::list_identity_providers::ListIdentityProvidersError>
             crate::operation::list_identity_providers::ListIdentityProvidersError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::list_identity_providers::ListIdentityProvidersError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_identity_providers::ListIdentityProvidersError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -9116,9 +9058,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9130,11 +9070,15 @@ where
 impl From<crate::operation::list_resource_servers::ListResourceServersError> for Error {
     fn from(err: crate::operation::list_resource_servers::ListResourceServersError) -> Self {
         match err {
-            crate::operation::list_resource_servers::ListResourceServersError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::list_resource_servers::ListResourceServersError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::list_resource_servers::ListResourceServersError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::list_resource_servers::ListResourceServersError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::list_resource_servers::ListResourceServersError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::list_resource_servers::ListResourceServersError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
@@ -9144,7 +9088,9 @@ impl From<crate::operation::list_resource_servers::ListResourceServersError> for
             crate::operation::list_resource_servers::ListResourceServersError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::list_resource_servers::ListResourceServersError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_resource_servers::ListResourceServersError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -9166,9 +9112,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9180,11 +9124,15 @@ where
 impl From<crate::operation::list_tags_for_resource::ListTagsForResourceError> for Error {
     fn from(err: crate::operation::list_tags_for_resource::ListTagsForResourceError) -> Self {
         match err {
-            crate::operation::list_tags_for_resource::ListTagsForResourceError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::list_tags_for_resource::ListTagsForResourceError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::list_tags_for_resource::ListTagsForResourceError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::list_tags_for_resource::ListTagsForResourceError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::list_tags_for_resource::ListTagsForResourceError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::list_tags_for_resource::ListTagsForResourceError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
@@ -9194,31 +9142,23 @@ impl From<crate::operation::list_tags_for_resource::ListTagsForResourceError> fo
             crate::operation::list_tags_for_resource::ListTagsForResourceError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::list_tags_for_resource::ListTagsForResourceError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_tags_for_resource::ListTagsForResourceError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_list_terms")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_terms::ListTermsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_terms::ListTermsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_terms::ListTermsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_terms::ListTermsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9248,9 +9188,7 @@ impl From<crate::operation::list_terms::ListTermsError> for Error {
             crate::operation::list_terms::ListTermsError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::list_terms::ListTermsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_terms::ListTermsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -9272,9 +9210,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9286,11 +9222,15 @@ where
 impl From<crate::operation::list_user_import_jobs::ListUserImportJobsError> for Error {
     fn from(err: crate::operation::list_user_import_jobs::ListUserImportJobsError) -> Self {
         match err {
-            crate::operation::list_user_import_jobs::ListUserImportJobsError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::list_user_import_jobs::ListUserImportJobsError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::list_user_import_jobs::ListUserImportJobsError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::list_user_import_jobs::ListUserImportJobsError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::list_user_import_jobs::ListUserImportJobsError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::list_user_import_jobs::ListUserImportJobsError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
@@ -9300,7 +9240,9 @@ impl From<crate::operation::list_user_import_jobs::ListUserImportJobsError> for 
             crate::operation::list_user_import_jobs::ListUserImportJobsError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::list_user_import_jobs::ListUserImportJobsError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_user_import_jobs::ListUserImportJobsError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -9322,9 +9264,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9336,11 +9276,15 @@ where
 impl From<crate::operation::list_user_pool_clients::ListUserPoolClientsError> for Error {
     fn from(err: crate::operation::list_user_pool_clients::ListUserPoolClientsError) -> Self {
         match err {
-            crate::operation::list_user_pool_clients::ListUserPoolClientsError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::list_user_pool_clients::ListUserPoolClientsError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::list_user_pool_clients::ListUserPoolClientsError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::list_user_pool_clients::ListUserPoolClientsError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::list_user_pool_clients::ListUserPoolClientsError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::list_user_pool_clients::ListUserPoolClientsError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
@@ -9350,7 +9294,9 @@ impl From<crate::operation::list_user_pool_clients::ListUserPoolClientsError> fo
             crate::operation::list_user_pool_clients::ListUserPoolClientsError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::list_user_pool_clients::ListUserPoolClientsError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_user_pool_clients::ListUserPoolClientsError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -9372,9 +9318,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9383,12 +9327,8 @@ where
     }
 }
 #[cfg(feature = "op_list_user_pool_client_secrets")]
-impl From<crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsError>
-    for Error
-{
-    fn from(
-        err: crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsError,
-    ) -> Self {
+impl From<crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsError> for Error {
+    fn from(err: crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsError) -> Self {
         match err {
             crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsError::InternalServerException(inner) => {
                 Error::InternalServerException(inner)
@@ -9427,9 +9367,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9450,27 +9388,25 @@ impl From<crate::operation::list_user_pool_replicas::ListUserPoolReplicasError> 
             crate::operation::list_user_pool_replicas::ListUserPoolReplicasError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::list_user_pool_replicas::ListUserPoolReplicasError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
-            }
+            crate::operation::list_user_pool_replicas::ListUserPoolReplicasError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
             crate::operation::list_user_pool_replicas::ListUserPoolReplicasError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
             crate::operation::list_user_pool_replicas::ListUserPoolReplicasError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::list_user_pool_replicas::ListUserPoolReplicasError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_user_pool_replicas::ListUserPoolReplicasError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_list_user_pools")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_user_pools::ListUserPoolsError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_user_pools::ListUserPoolsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -9481,9 +9417,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9495,45 +9429,33 @@ where
 impl From<crate::operation::list_user_pools::ListUserPoolsError> for Error {
     fn from(err: crate::operation::list_user_pools::ListUserPoolsError) -> Self {
         match err {
-            crate::operation::list_user_pools::ListUserPoolsError::InternalErrorException(
-                inner,
-            ) => Error::InternalErrorException(inner),
-            crate::operation::list_user_pools::ListUserPoolsError::InvalidParameterException(
-                inner,
-            ) => Error::InvalidParameterException(inner),
-            crate::operation::list_user_pools::ListUserPoolsError::NotAuthorizedException(
-                inner,
-            ) => Error::NotAuthorizedException(inner),
-            crate::operation::list_user_pools::ListUserPoolsError::TooManyRequestsException(
-                inner,
-            ) => Error::TooManyRequestsException(inner),
-            crate::operation::list_user_pools::ListUserPoolsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
+            crate::operation::list_user_pools::ListUserPoolsError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
             }
+            crate::operation::list_user_pools::ListUserPoolsError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::list_user_pools::ListUserPoolsError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
+            crate::operation::list_user_pools::ListUserPoolsError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::list_user_pools::ListUserPoolsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_users")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_users::ListUsersError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_users::ListUsersError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_users::ListUsersError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_users::ListUsersError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9563,9 +9485,7 @@ impl From<crate::operation::list_users::ListUsersError> for Error {
             crate::operation::list_users::ListUsersError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::list_users::ListUsersError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_users::ListUsersError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -9587,9 +9507,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9601,14 +9519,24 @@ where
 impl From<crate::operation::list_users_in_group::ListUsersInGroupError> for Error {
     fn from(err: crate::operation::list_users_in_group::ListUsersInGroupError) -> Self {
         match err {
-            crate::operation::list_users_in_group::ListUsersInGroupError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::list_users_in_group::ListUsersInGroupError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::list_users_in_group::ListUsersInGroupError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::list_users_in_group::ListUsersInGroupError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::list_users_in_group::ListUsersInGroupError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::list_users_in_group::ListUsersInGroupError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::list_users_in_group::ListUsersInGroupError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
-            crate::operation::list_users_in_group::ListUsersInGroupError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::list_users_in_group::ListUsersInGroupError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::list_users_in_group::ListUsersInGroupError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::list_users_in_group::ListUsersInGroupError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
             crate::operation::list_users_in_group::ListUsersInGroupError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -9631,9 +9559,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9643,9 +9569,7 @@ where
 }
 #[cfg(feature = "op_list_web_authn_credentials")]
 impl From<crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsError> for Error {
-    fn from(
-        err: crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsError,
-    ) -> Self {
+    fn from(err: crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsError) -> Self {
         match err {
             crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsError::ForbiddenException(inner) => Error::ForbiddenException(inner),
             crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsError::InternalErrorException(inner) => {
@@ -9691,9 +9615,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9773,9 +9695,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9862,26 +9782,16 @@ impl From<crate::operation::respond_to_auth_challenge::RespondToAuthChallengeErr
     }
 }
 #[cfg(feature = "op_revoke_token")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::revoke_token::RevokeTokenError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::revoke_token::RevokeTokenError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::revoke_token::RevokeTokenError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::revoke_token::RevokeTokenError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9902,24 +9812,22 @@ impl From<crate::operation::revoke_token::RevokeTokenError> for Error {
             crate::operation::revoke_token::RevokeTokenError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::revoke_token::RevokeTokenError::OperationNotEnabledException(
-                inner,
-            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::revoke_token::RevokeTokenError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
             crate::operation::revoke_token::RevokeTokenError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
             crate::operation::revoke_token::RevokeTokenError::UnauthorizedException(inner) => {
                 Error::UnauthorizedException(inner)
             }
-            crate::operation::revoke_token::RevokeTokenError::UnsupportedOperationException(
-                inner,
-            ) => Error::UnsupportedOperationException(inner),
-            crate::operation::revoke_token::RevokeTokenError::UnsupportedTokenTypeException(
-                inner,
-            ) => Error::UnsupportedTokenTypeException(inner),
-            crate::operation::revoke_token::RevokeTokenError::Unhandled(inner) => {
-                Error::Unhandled(inner)
+            crate::operation::revoke_token::RevokeTokenError::UnsupportedOperationException(inner) => {
+                Error::UnsupportedOperationException(inner)
             }
+            crate::operation::revoke_token::RevokeTokenError::UnsupportedTokenTypeException(inner) => {
+                Error::UnsupportedTokenTypeException(inner)
+            }
+            crate::operation::revoke_token::RevokeTokenError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -9941,9 +9849,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9952,12 +9858,8 @@ where
     }
 }
 #[cfg(feature = "op_set_log_delivery_configuration")]
-impl From<crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationError>
-    for Error
-{
-    fn from(
-        err: crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationError,
-    ) -> Self {
+impl From<crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationError> for Error {
+    fn from(err: crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationError) -> Self {
         match err {
             crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationError::FeatureUnavailableInTierException(inner) => {
                 Error::FeatureUnavailableInTierException(inner)
@@ -9999,9 +9901,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -10062,9 +9962,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -10076,11 +9974,15 @@ where
 impl From<crate::operation::set_ui_customization::SetUICustomizationError> for Error {
     fn from(err: crate::operation::set_ui_customization::SetUICustomizationError) -> Self {
         match err {
-            crate::operation::set_ui_customization::SetUICustomizationError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::set_ui_customization::SetUICustomizationError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::set_ui_customization::SetUICustomizationError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::set_ui_customization::SetUICustomizationError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::set_ui_customization::SetUICustomizationError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::set_ui_customization::SetUICustomizationError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
@@ -10090,7 +9992,9 @@ impl From<crate::operation::set_ui_customization::SetUICustomizationError> for E
             crate::operation::set_ui_customization::SetUICustomizationError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::set_ui_customization::SetUICustomizationError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::set_ui_customization::SetUICustomizationError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -10112,9 +10016,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -10126,7 +10028,9 @@ where
 impl From<crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError> for Error {
     fn from(err: crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError) -> Self {
         match err {
-            crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError::ForbiddenException(inner) => Error::ForbiddenException(inner),
+            crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError::ForbiddenException(inner) => {
+                Error::ForbiddenException(inner)
+            }
             crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
@@ -10136,20 +10040,24 @@ impl From<crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError> 
             crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
-            }
-            crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError::PasswordResetRequiredException(inner) => {
-                Error::PasswordResetRequiredException(inner)
-            }
+            crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError::PasswordResetRequiredException(
+                inner,
+            ) => Error::PasswordResetRequiredException(inner),
             crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
             crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError::UserNotConfirmedException(inner) => {
                 Error::UserNotConfirmedException(inner)
             }
-            crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
-            crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
+            crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -10171,9 +10079,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -10237,9 +10143,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -10251,44 +10155,47 @@ where
 impl From<crate::operation::set_user_settings::SetUserSettingsError> for Error {
     fn from(err: crate::operation::set_user_settings::SetUserSettingsError) -> Self {
         match err {
-            crate::operation::set_user_settings::SetUserSettingsError::ForbiddenException(inner) => Error::ForbiddenException(inner),
-            crate::operation::set_user_settings::SetUserSettingsError::InternalErrorException(inner) => Error::InternalErrorException(inner),
-            crate::operation::set_user_settings::SetUserSettingsError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
-            crate::operation::set_user_settings::SetUserSettingsError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::set_user_settings::SetUserSettingsError::ForbiddenException(inner) => {
+                Error::ForbiddenException(inner)
+            }
+            crate::operation::set_user_settings::SetUserSettingsError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
+            crate::operation::set_user_settings::SetUserSettingsError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
+            crate::operation::set_user_settings::SetUserSettingsError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::set_user_settings::SetUserSettingsError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
             crate::operation::set_user_settings::SetUserSettingsError::PasswordResetRequiredException(inner) => {
                 Error::PasswordResetRequiredException(inner)
             }
-            crate::operation::set_user_settings::SetUserSettingsError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::set_user_settings::SetUserSettingsError::UserNotConfirmedException(inner) => Error::UserNotConfirmedException(inner),
-            crate::operation::set_user_settings::SetUserSettingsError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
+            crate::operation::set_user_settings::SetUserSettingsError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::set_user_settings::SetUserSettingsError::UserNotConfirmedException(inner) => {
+                Error::UserNotConfirmedException(inner)
+            }
+            crate::operation::set_user_settings::SetUserSettingsError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
             crate::operation::set_user_settings::SetUserSettingsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_sign_up")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::sign_up::SignUpError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::sign_up::SignUpError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::sign_up::SignUpError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::sign_up::SignUpError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -10303,15 +10210,13 @@ impl From<crate::operation::sign_up::SignUpError> for Error {
             crate::operation::sign_up::SignUpError::CodeDeliveryFailureException(inner) => {
                 Error::CodeDeliveryFailureException(inner)
             }
-            crate::operation::sign_up::SignUpError::ForbiddenException(inner) => {
-                Error::ForbiddenException(inner)
-            }
+            crate::operation::sign_up::SignUpError::ForbiddenException(inner) => Error::ForbiddenException(inner),
             crate::operation::sign_up::SignUpError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::sign_up::SignUpError::InvalidEmailRoleAccessPolicyException(
-                inner,
-            ) => Error::InvalidEmailRoleAccessPolicyException(inner),
+            crate::operation::sign_up::SignUpError::InvalidEmailRoleAccessPolicyException(inner) => {
+                Error::InvalidEmailRoleAccessPolicyException(inner)
+            }
             crate::operation::sign_up::SignUpError::InvalidLambdaResponseException(inner) => {
                 Error::InvalidLambdaResponseException(inner)
             }
@@ -10324,9 +10229,9 @@ impl From<crate::operation::sign_up::SignUpError> for Error {
             crate::operation::sign_up::SignUpError::InvalidSmsRoleAccessPolicyException(inner) => {
                 Error::InvalidSmsRoleAccessPolicyException(inner)
             }
-            crate::operation::sign_up::SignUpError::InvalidSmsRoleTrustRelationshipException(
-                inner,
-            ) => Error::InvalidSmsRoleTrustRelationshipException(inner),
+            crate::operation::sign_up::SignUpError::InvalidSmsRoleTrustRelationshipException(inner) => {
+                Error::InvalidSmsRoleTrustRelationshipException(inner)
+            }
             crate::operation::sign_up::SignUpError::LimitExceededException(inner) => {
                 Error::LimitExceededException(inner)
             }
@@ -10373,9 +10278,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -10387,11 +10290,15 @@ where
 impl From<crate::operation::start_user_import_job::StartUserImportJobError> for Error {
     fn from(err: crate::operation::start_user_import_job::StartUserImportJobError) -> Self {
         match err {
-            crate::operation::start_user_import_job::StartUserImportJobError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::start_user_import_job::StartUserImportJobError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::start_user_import_job::StartUserImportJobError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::start_user_import_job::StartUserImportJobError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::start_user_import_job::StartUserImportJobError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::start_user_import_job::StartUserImportJobError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
@@ -10404,7 +10311,9 @@ impl From<crate::operation::start_user_import_job::StartUserImportJobError> for 
             crate::operation::start_user_import_job::StartUserImportJobError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::start_user_import_job::StartUserImportJobError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::start_user_import_job::StartUserImportJobError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -10426,9 +10335,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -10437,12 +10344,8 @@ where
     }
 }
 #[cfg(feature = "op_start_web_authn_registration")]
-impl From<crate::operation::start_web_authn_registration::StartWebAuthnRegistrationError>
-    for Error
-{
-    fn from(
-        err: crate::operation::start_web_authn_registration::StartWebAuthnRegistrationError,
-    ) -> Self {
+impl From<crate::operation::start_web_authn_registration::StartWebAuthnRegistrationError> for Error {
+    fn from(err: crate::operation::start_web_authn_registration::StartWebAuthnRegistrationError) -> Self {
         match err {
             crate::operation::start_web_authn_registration::StartWebAuthnRegistrationError::ForbiddenException(inner) => {
                 Error::ForbiddenException(inner)
@@ -10496,9 +10399,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -10510,11 +10411,15 @@ where
 impl From<crate::operation::stop_user_import_job::StopUserImportJobError> for Error {
     fn from(err: crate::operation::stop_user_import_job::StopUserImportJobError) -> Self {
         match err {
-            crate::operation::stop_user_import_job::StopUserImportJobError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::stop_user_import_job::StopUserImportJobError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::stop_user_import_job::StopUserImportJobError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::stop_user_import_job::StopUserImportJobError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::stop_user_import_job::StopUserImportJobError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::stop_user_import_job::StopUserImportJobError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
@@ -10524,32 +10429,24 @@ impl From<crate::operation::stop_user_import_job::StopUserImportJobError> for Er
             crate::operation::stop_user_import_job::StopUserImportJobError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
-            crate::operation::stop_user_import_job::StopUserImportJobError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::stop_user_import_job::StopUserImportJobError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
             crate::operation::stop_user_import_job::StopUserImportJobError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_tag_resource")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_resource::TagResourceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_resource::TagResourceError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_resource::TagResourceError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -10570,29 +10467,23 @@ impl From<crate::operation::tag_resource::TagResourceError> for Error {
             crate::operation::tag_resource::TagResourceError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::tag_resource::TagResourceError::OperationNotEnabledException(
-                inner,
-            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::tag_resource::TagResourceError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
             crate::operation::tag_resource::TagResourceError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
             crate::operation::tag_resource::TagResourceError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::tag_resource::TagResourceError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::tag_resource::TagResourceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_untag_resource")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_resource::UntagResourceError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_resource::UntagResourceError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -10603,9 +10494,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -10620,24 +10509,22 @@ impl From<crate::operation::untag_resource::UntagResourceError> for Error {
             crate::operation::untag_resource::UntagResourceError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::untag_resource::UntagResourceError::InvalidParameterException(
-                inner,
-            ) => Error::InvalidParameterException(inner),
+            crate::operation::untag_resource::UntagResourceError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
             crate::operation::untag_resource::UntagResourceError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::untag_resource::UntagResourceError::OperationNotEnabledException(
-                inner,
-            ) => Error::OperationNotEnabledException(inner),
-            crate::operation::untag_resource::UntagResourceError::ResourceNotFoundException(
-                inner,
-            ) => Error::ResourceNotFoundException(inner),
-            crate::operation::untag_resource::UntagResourceError::TooManyRequestsException(
-                inner,
-            ) => Error::TooManyRequestsException(inner),
-            crate::operation::untag_resource::UntagResourceError::Unhandled(inner) => {
-                Error::Unhandled(inner)
+            crate::operation::untag_resource::UntagResourceError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
             }
+            crate::operation::untag_resource::UntagResourceError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::untag_resource::UntagResourceError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::untag_resource::UntagResourceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -10659,9 +10546,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -10671,9 +10556,7 @@ where
 }
 #[cfg(feature = "op_update_auth_event_feedback")]
 impl From<crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError> for Error {
-    fn from(
-        err: crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError,
-    ) -> Self {
+    fn from(err: crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError) -> Self {
         match err {
             crate::operation::update_auth_event_feedback::UpdateAuthEventFeedbackError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
@@ -10721,9 +10604,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -10735,15 +10616,21 @@ where
 impl From<crate::operation::update_device_status::UpdateDeviceStatusError> for Error {
     fn from(err: crate::operation::update_device_status::UpdateDeviceStatusError) -> Self {
         match err {
-            crate::operation::update_device_status::UpdateDeviceStatusError::ForbiddenException(inner) => Error::ForbiddenException(inner),
-            crate::operation::update_device_status::UpdateDeviceStatusError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::update_device_status::UpdateDeviceStatusError::ForbiddenException(inner) => {
+                Error::ForbiddenException(inner)
+            }
+            crate::operation::update_device_status::UpdateDeviceStatusError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::update_device_status::UpdateDeviceStatusError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::update_device_status::UpdateDeviceStatusError::InvalidUserPoolConfigurationException(inner) => {
-                Error::InvalidUserPoolConfigurationException(inner)
+            crate::operation::update_device_status::UpdateDeviceStatusError::InvalidUserPoolConfigurationException(
+                inner,
+            ) => Error::InvalidUserPoolConfigurationException(inner),
+            crate::operation::update_device_status::UpdateDeviceStatusError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
             }
-            crate::operation::update_device_status::UpdateDeviceStatusError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
             crate::operation::update_device_status::UpdateDeviceStatusError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
@@ -10759,32 +10646,26 @@ impl From<crate::operation::update_device_status::UpdateDeviceStatusError> for E
             crate::operation::update_device_status::UpdateDeviceStatusError::UserNotConfirmedException(inner) => {
                 Error::UserNotConfirmedException(inner)
             }
-            crate::operation::update_device_status::UpdateDeviceStatusError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
-            crate::operation::update_device_status::UpdateDeviceStatusError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::update_device_status::UpdateDeviceStatusError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
+            crate::operation::update_device_status::UpdateDeviceStatusError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_update_group")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_group::UpdateGroupError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_group::UpdateGroupError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_group::UpdateGroupError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_group::UpdateGroupError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -10805,18 +10686,16 @@ impl From<crate::operation::update_group::UpdateGroupError> for Error {
             crate::operation::update_group::UpdateGroupError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::update_group::UpdateGroupError::OperationNotEnabledException(
-                inner,
-            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::update_group::UpdateGroupError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
             crate::operation::update_group::UpdateGroupError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
             crate::operation::update_group::UpdateGroupError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::update_group::UpdateGroupError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::update_group::UpdateGroupError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -10838,9 +10717,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -10895,9 +10772,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -10906,12 +10781,8 @@ where
     }
 }
 #[cfg(feature = "op_update_managed_login_branding")]
-impl From<crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingError>
-    for Error
-{
-    fn from(
-        err: crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingError,
-    ) -> Self {
+impl From<crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingError> for Error {
+    fn from(err: crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingError) -> Self {
         match err {
             crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -10956,9 +10827,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -10973,22 +10842,24 @@ impl From<crate::operation::update_provisioned_limit::UpdateProvisionedLimitErro
             crate::operation::update_provisioned_limit::UpdateProvisionedLimitError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::update_provisioned_limit::UpdateProvisionedLimitError::InvalidParameterException(inner) => {
-                Error::InvalidParameterException(inner)
-            }
+            crate::operation::update_provisioned_limit::UpdateProvisionedLimitError::InvalidParameterException(
+                inner,
+            ) => Error::InvalidParameterException(inner),
             crate::operation::update_provisioned_limit::UpdateProvisionedLimitError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::update_provisioned_limit::UpdateProvisionedLimitError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
+            crate::operation::update_provisioned_limit::UpdateProvisionedLimitError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::update_provisioned_limit::UpdateProvisionedLimitError::ServiceQuotaExceededException(
+                inner,
+            ) => Error::ServiceQuotaExceededException(inner),
+            crate::operation::update_provisioned_limit::UpdateProvisionedLimitError::TooManyRequestsException(
+                inner,
+            ) => Error::TooManyRequestsException(inner),
+            crate::operation::update_provisioned_limit::UpdateProvisionedLimitError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::update_provisioned_limit::UpdateProvisionedLimitError::ServiceQuotaExceededException(inner) => {
-                Error::ServiceQuotaExceededException(inner)
-            }
-            crate::operation::update_provisioned_limit::UpdateProvisionedLimitError::TooManyRequestsException(inner) => {
-                Error::TooManyRequestsException(inner)
-            }
-            crate::operation::update_provisioned_limit::UpdateProvisionedLimitError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -11010,9 +10881,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -11033,40 +10902,32 @@ impl From<crate::operation::update_resource_server::UpdateResourceServerError> f
             crate::operation::update_resource_server::UpdateResourceServerError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::update_resource_server::UpdateResourceServerError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
-            }
+            crate::operation::update_resource_server::UpdateResourceServerError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
             crate::operation::update_resource_server::UpdateResourceServerError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
             crate::operation::update_resource_server::UpdateResourceServerError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::update_resource_server::UpdateResourceServerError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::update_resource_server::UpdateResourceServerError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_update_terms")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_terms::UpdateTermsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_terms::UpdateTermsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_terms::UpdateTermsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_terms::UpdateTermsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -11078,9 +10939,9 @@ where
 impl From<crate::operation::update_terms::UpdateTermsError> for Error {
     fn from(err: crate::operation::update_terms::UpdateTermsError) -> Self {
         match err {
-            crate::operation::update_terms::UpdateTermsError::ConcurrentModificationException(
-                inner,
-            ) => Error::ConcurrentModificationException(inner),
+            crate::operation::update_terms::UpdateTermsError::ConcurrentModificationException(inner) => {
+                Error::ConcurrentModificationException(inner)
+            }
             crate::operation::update_terms::UpdateTermsError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
@@ -11090,9 +10951,9 @@ impl From<crate::operation::update_terms::UpdateTermsError> for Error {
             crate::operation::update_terms::UpdateTermsError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::update_terms::UpdateTermsError::OperationNotEnabledException(
-                inner,
-            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::update_terms::UpdateTermsError::OperationNotEnabledException(inner) => {
+                Error::OperationNotEnabledException(inner)
+            }
             crate::operation::update_terms::UpdateTermsError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
@@ -11102,9 +10963,7 @@ impl From<crate::operation::update_terms::UpdateTermsError> for Error {
             crate::operation::update_terms::UpdateTermsError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::update_terms::UpdateTermsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::update_terms::UpdateTermsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -11126,9 +10985,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -11196,12 +11053,8 @@ impl From<crate::operation::update_user_attributes::UpdateUserAttributesError> f
 }
 #[cfg(feature = "op_update_user_pool")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_user_pool::UpdateUserPoolError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_user_pool::UpdateUserPoolError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -11212,9 +11065,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -11232,30 +11083,42 @@ impl From<crate::operation::update_user_pool::UpdateUserPoolError> for Error {
             crate::operation::update_user_pool::UpdateUserPoolError::FeatureUnavailableInTierException(inner) => {
                 Error::FeatureUnavailableInTierException(inner)
             }
-            crate::operation::update_user_pool::UpdateUserPoolError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::update_user_pool::UpdateUserPoolError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::update_user_pool::UpdateUserPoolError::InvalidEmailRoleAccessPolicyException(inner) => {
                 Error::InvalidEmailRoleAccessPolicyException(inner)
             }
-            crate::operation::update_user_pool::UpdateUserPoolError::InvalidParameterException(inner) => Error::InvalidParameterException(inner),
+            crate::operation::update_user_pool::UpdateUserPoolError::InvalidParameterException(inner) => {
+                Error::InvalidParameterException(inner)
+            }
             crate::operation::update_user_pool::UpdateUserPoolError::InvalidSmsRoleAccessPolicyException(inner) => {
                 Error::InvalidSmsRoleAccessPolicyException(inner)
             }
-            crate::operation::update_user_pool::UpdateUserPoolError::InvalidSmsRoleTrustRelationshipException(inner) => {
-                Error::InvalidSmsRoleTrustRelationshipException(inner)
+            crate::operation::update_user_pool::UpdateUserPoolError::InvalidSmsRoleTrustRelationshipException(
+                inner,
+            ) => Error::InvalidSmsRoleTrustRelationshipException(inner),
+            crate::operation::update_user_pool::UpdateUserPoolError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
             }
-            crate::operation::update_user_pool::UpdateUserPoolError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
             crate::operation::update_user_pool::UpdateUserPoolError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
-            crate::operation::update_user_pool::UpdateUserPoolError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
+            crate::operation::update_user_pool::UpdateUserPoolError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
             crate::operation::update_user_pool::UpdateUserPoolError::TierChangeNotAllowedException(inner) => {
                 Error::TierChangeNotAllowedException(inner)
             }
-            crate::operation::update_user_pool::UpdateUserPoolError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
+            crate::operation::update_user_pool::UpdateUserPoolError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
             crate::operation::update_user_pool::UpdateUserPoolError::UserImportInProgressException(inner) => {
                 Error::UserImportInProgressException(inner)
             }
-            crate::operation::update_user_pool::UpdateUserPoolError::UserPoolTaggingException(inner) => Error::UserPoolTaggingException(inner),
+            crate::operation::update_user_pool::UpdateUserPoolError::UserPoolTaggingException(inner) => {
+                Error::UserPoolTaggingException(inner)
+            }
             crate::operation::update_user_pool::UpdateUserPoolError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -11278,9 +11141,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -11292,12 +11153,12 @@ where
 impl From<crate::operation::update_user_pool_client::UpdateUserPoolClientError> for Error {
     fn from(err: crate::operation::update_user_pool_client::UpdateUserPoolClientError) -> Self {
         match err {
-            crate::operation::update_user_pool_client::UpdateUserPoolClientError::ConcurrentModificationException(inner) => {
-                Error::ConcurrentModificationException(inner)
-            }
-            crate::operation::update_user_pool_client::UpdateUserPoolClientError::FeatureUnavailableInTierException(inner) => {
-                Error::FeatureUnavailableInTierException(inner)
-            }
+            crate::operation::update_user_pool_client::UpdateUserPoolClientError::ConcurrentModificationException(
+                inner,
+            ) => Error::ConcurrentModificationException(inner),
+            crate::operation::update_user_pool_client::UpdateUserPoolClientError::FeatureUnavailableInTierException(
+                inner,
+            ) => Error::FeatureUnavailableInTierException(inner),
             crate::operation::update_user_pool_client::UpdateUserPoolClientError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
@@ -11310,9 +11171,9 @@ impl From<crate::operation::update_user_pool_client::UpdateUserPoolClientError> 
             crate::operation::update_user_pool_client::UpdateUserPoolClientError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::update_user_pool_client::UpdateUserPoolClientError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
-            }
+            crate::operation::update_user_pool_client::UpdateUserPoolClientError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
             crate::operation::update_user_pool_client::UpdateUserPoolClientError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
@@ -11322,7 +11183,9 @@ impl From<crate::operation::update_user_pool_client::UpdateUserPoolClientError> 
             crate::operation::update_user_pool_client::UpdateUserPoolClientError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::update_user_pool_client::UpdateUserPoolClientError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::update_user_pool_client::UpdateUserPoolClientError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -11344,9 +11207,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -11358,12 +11219,12 @@ where
 impl From<crate::operation::update_user_pool_domain::UpdateUserPoolDomainError> for Error {
     fn from(err: crate::operation::update_user_pool_domain::UpdateUserPoolDomainError) -> Self {
         match err {
-            crate::operation::update_user_pool_domain::UpdateUserPoolDomainError::ConcurrentModificationException(inner) => {
-                Error::ConcurrentModificationException(inner)
-            }
-            crate::operation::update_user_pool_domain::UpdateUserPoolDomainError::FeatureUnavailableInTierException(inner) => {
-                Error::FeatureUnavailableInTierException(inner)
-            }
+            crate::operation::update_user_pool_domain::UpdateUserPoolDomainError::ConcurrentModificationException(
+                inner,
+            ) => Error::ConcurrentModificationException(inner),
+            crate::operation::update_user_pool_domain::UpdateUserPoolDomainError::FeatureUnavailableInTierException(
+                inner,
+            ) => Error::FeatureUnavailableInTierException(inner),
             crate::operation::update_user_pool_domain::UpdateUserPoolDomainError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
@@ -11373,16 +11234,18 @@ impl From<crate::operation::update_user_pool_domain::UpdateUserPoolDomainError> 
             crate::operation::update_user_pool_domain::UpdateUserPoolDomainError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::update_user_pool_domain::UpdateUserPoolDomainError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
-            }
+            crate::operation::update_user_pool_domain::UpdateUserPoolDomainError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
             crate::operation::update_user_pool_domain::UpdateUserPoolDomainError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
             crate::operation::update_user_pool_domain::UpdateUserPoolDomainError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::update_user_pool_domain::UpdateUserPoolDomainError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::update_user_pool_domain::UpdateUserPoolDomainError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -11404,9 +11267,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -11421,22 +11282,24 @@ impl From<crate::operation::update_user_pool_replica::UpdateUserPoolReplicaError
             crate::operation::update_user_pool_replica::UpdateUserPoolReplicaError::InternalErrorException(inner) => {
                 Error::InternalErrorException(inner)
             }
-            crate::operation::update_user_pool_replica::UpdateUserPoolReplicaError::InvalidParameterException(inner) => {
-                Error::InvalidParameterException(inner)
-            }
+            crate::operation::update_user_pool_replica::UpdateUserPoolReplicaError::InvalidParameterException(
+                inner,
+            ) => Error::InvalidParameterException(inner),
             crate::operation::update_user_pool_replica::UpdateUserPoolReplicaError::NotAuthorizedException(inner) => {
                 Error::NotAuthorizedException(inner)
             }
-            crate::operation::update_user_pool_replica::UpdateUserPoolReplicaError::OperationNotEnabledException(inner) => {
-                Error::OperationNotEnabledException(inner)
-            }
-            crate::operation::update_user_pool_replica::UpdateUserPoolReplicaError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
-            }
+            crate::operation::update_user_pool_replica::UpdateUserPoolReplicaError::OperationNotEnabledException(
+                inner,
+            ) => Error::OperationNotEnabledException(inner),
+            crate::operation::update_user_pool_replica::UpdateUserPoolReplicaError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
             crate::operation::update_user_pool_replica::UpdateUserPoolReplicaError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::update_user_pool_replica::UpdateUserPoolReplicaError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::update_user_pool_replica::UpdateUserPoolReplicaError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -11458,9 +11321,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -11526,9 +11387,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -11540,22 +11399,36 @@ where
 impl From<crate::operation::verify_user_attribute::VerifyUserAttributeError> for Error {
     fn from(err: crate::operation::verify_user_attribute::VerifyUserAttributeError) -> Self {
         match err {
-            crate::operation::verify_user_attribute::VerifyUserAttributeError::AliasExistsException(inner) => Error::AliasExistsException(inner),
-            crate::operation::verify_user_attribute::VerifyUserAttributeError::CodeMismatchException(inner) => Error::CodeMismatchException(inner),
-            crate::operation::verify_user_attribute::VerifyUserAttributeError::ExpiredCodeException(inner) => Error::ExpiredCodeException(inner),
-            crate::operation::verify_user_attribute::VerifyUserAttributeError::ForbiddenException(inner) => Error::ForbiddenException(inner),
-            crate::operation::verify_user_attribute::VerifyUserAttributeError::InternalErrorException(inner) => Error::InternalErrorException(inner),
+            crate::operation::verify_user_attribute::VerifyUserAttributeError::AliasExistsException(inner) => {
+                Error::AliasExistsException(inner)
+            }
+            crate::operation::verify_user_attribute::VerifyUserAttributeError::CodeMismatchException(inner) => {
+                Error::CodeMismatchException(inner)
+            }
+            crate::operation::verify_user_attribute::VerifyUserAttributeError::ExpiredCodeException(inner) => {
+                Error::ExpiredCodeException(inner)
+            }
+            crate::operation::verify_user_attribute::VerifyUserAttributeError::ForbiddenException(inner) => {
+                Error::ForbiddenException(inner)
+            }
+            crate::operation::verify_user_attribute::VerifyUserAttributeError::InternalErrorException(inner) => {
+                Error::InternalErrorException(inner)
+            }
             crate::operation::verify_user_attribute::VerifyUserAttributeError::InvalidParameterException(inner) => {
                 Error::InvalidParameterException(inner)
             }
-            crate::operation::verify_user_attribute::VerifyUserAttributeError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::verify_user_attribute::VerifyUserAttributeError::NotAuthorizedException(inner) => Error::NotAuthorizedException(inner),
+            crate::operation::verify_user_attribute::VerifyUserAttributeError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::verify_user_attribute::VerifyUserAttributeError::NotAuthorizedException(inner) => {
+                Error::NotAuthorizedException(inner)
+            }
             crate::operation::verify_user_attribute::VerifyUserAttributeError::OperationNotEnabledException(inner) => {
                 Error::OperationNotEnabledException(inner)
             }
-            crate::operation::verify_user_attribute::VerifyUserAttributeError::PasswordResetRequiredException(inner) => {
-                Error::PasswordResetRequiredException(inner)
-            }
+            crate::operation::verify_user_attribute::VerifyUserAttributeError::PasswordResetRequiredException(
+                inner,
+            ) => Error::PasswordResetRequiredException(inner),
             crate::operation::verify_user_attribute::VerifyUserAttributeError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
@@ -11565,8 +11438,12 @@ impl From<crate::operation::verify_user_attribute::VerifyUserAttributeError> for
             crate::operation::verify_user_attribute::VerifyUserAttributeError::UserNotConfirmedException(inner) => {
                 Error::UserNotConfirmedException(inner)
             }
-            crate::operation::verify_user_attribute::VerifyUserAttributeError::UserNotFoundException(inner) => Error::UserNotFoundException(inner),
-            crate::operation::verify_user_attribute::VerifyUserAttributeError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::verify_user_attribute::VerifyUserAttributeError::UserNotFoundException(inner) => {
+                Error::UserNotFoundException(inner)
+            }
+            crate::operation::verify_user_attribute::VerifyUserAttributeError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -11860,10 +11737,7 @@ impl ::std::error::Error for Error {
                 feature = "op_update_user_attributes"
             ))]
             Error::InvalidLambdaResponseException(inner) => inner.source(),
-            #[cfg(any(
-                feature = "op_create_user_pool_client",
-                feature = "op_update_user_pool_client"
-            ))]
+            #[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
             Error::InvalidOAuthFlowException(inner) => inner.source(),
             #[cfg(any(
                 feature = "op_add_custom_attributes",
@@ -12515,10 +12389,7 @@ impl ::std::error::Error for Error {
                 feature = "op_verify_user_attribute"
             ))]
             Error::ResourceNotFoundException(inner) => inner.source(),
-            #[cfg(any(
-                feature = "op_create_user_pool_client",
-                feature = "op_update_user_pool_client"
-            ))]
+            #[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
             Error::ScopeDoesNotExistException(inner) => inner.source(),
             #[cfg(feature = "op_update_provisioned_limit")]
             Error::ServiceQuotaExceededException(inner) => inner.source(),
@@ -12683,10 +12554,7 @@ impl ::std::error::Error for Error {
                 feature = "op_update_user_attributes"
             ))]
             Error::UnexpectedLambdaException(inner) => inner.source(),
-            #[cfg(any(
-                feature = "op_delete_identity_provider",
-                feature = "op_update_identity_provider"
-            ))]
+            #[cfg(any(feature = "op_delete_identity_provider", feature = "op_update_identity_provider"))]
             Error::UnsupportedIdentityProviderException(inner) => inner.source(),
             #[cfg(any(
                 feature = "op_admin_initiate_auth",
@@ -13133,10 +13001,7 @@ impl ::aws_types::request_id::RequestId for Error {
                 feature = "op_update_user_attributes"
             ))]
             Self::InvalidLambdaResponseException(e) => e.request_id(),
-            #[cfg(any(
-                feature = "op_create_user_pool_client",
-                feature = "op_update_user_pool_client"
-            ))]
+            #[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
             Self::InvalidOAuthFlowException(e) => e.request_id(),
             #[cfg(any(
                 feature = "op_add_custom_attributes",
@@ -13788,10 +13653,7 @@ impl ::aws_types::request_id::RequestId for Error {
                 feature = "op_verify_user_attribute"
             ))]
             Self::ResourceNotFoundException(e) => e.request_id(),
-            #[cfg(any(
-                feature = "op_create_user_pool_client",
-                feature = "op_update_user_pool_client"
-            ))]
+            #[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
             Self::ScopeDoesNotExistException(e) => e.request_id(),
             #[cfg(feature = "op_update_provisioned_limit")]
             Self::ServiceQuotaExceededException(e) => e.request_id(),
@@ -13956,10 +13818,7 @@ impl ::aws_types::request_id::RequestId for Error {
                 feature = "op_update_user_attributes"
             ))]
             Self::UnexpectedLambdaException(e) => e.request_id(),
-            #[cfg(any(
-                feature = "op_delete_identity_provider",
-                feature = "op_update_identity_provider"
-            ))]
+            #[cfg(any(feature = "op_delete_identity_provider", feature = "op_update_identity_provider"))]
             Self::UnsupportedIdentityProviderException(e) => e.request_id(),
             #[cfg(any(
                 feature = "op_admin_initiate_auth",

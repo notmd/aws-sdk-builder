@@ -3,9 +3,7 @@ pub use crate::operation::admin_remove_user_from_group::_admin_remove_user_from_
 
 pub use crate::operation::admin_remove_user_from_group::_admin_remove_user_from_group_output::AdminRemoveUserFromGroupOutputBuilder;
 
-impl
-    crate::operation::admin_remove_user_from_group::builders::AdminRemoveUserFromGroupInputBuilder
-{
+impl crate::operation::admin_remove_user_from_group::builders::AdminRemoveUserFromGroupInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -68,7 +66,9 @@ impl AdminRemoveUserFromGroupFluentBuilder {
         }
     }
     /// Access the AdminRemoveUserFromGroup as a reference.
-    pub fn as_input(&self) -> &crate::operation::admin_remove_user_from_group::builders::AdminRemoveUserFromGroupInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::admin_remove_user_from_group::builders::AdminRemoveUserFromGroupInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -92,16 +92,14 @@ impl AdminRemoveUserFromGroupFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroup::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroup::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroup::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroup::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

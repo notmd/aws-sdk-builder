@@ -103,9 +103,9 @@ impl ::std::convert::From<&str> for ContextKeyTypeEnum {
             "numericList" => ContextKeyTypeEnum::NumericList,
             "string" => ContextKeyTypeEnum::String,
             "stringList" => ContextKeyTypeEnum::StringList,
-            other => ContextKeyTypeEnum::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => ContextKeyTypeEnum::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -162,14 +162,10 @@ impl ContextKeyTypeEnum {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }

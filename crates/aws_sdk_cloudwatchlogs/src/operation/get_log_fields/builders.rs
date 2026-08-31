@@ -57,9 +57,7 @@ impl GetLogFieldsFluentBuilder {
         }
     }
     /// Access the GetLogFields as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_log_fields::builders::GetLogFieldsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_log_fields::builders::GetLogFieldsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,12 +81,11 @@ impl GetLogFieldsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::get_log_fields::GetLogFields::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::get_log_fields::GetLogFields::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::get_log_fields::GetLogFields::orchestrate(&runtime_plugins, input).await
     }
 
@@ -118,18 +115,12 @@ impl GetLogFieldsFluentBuilder {
         self
     }
     /// <p>The name of the data source to retrieve log fields for.</p>
-    pub fn data_source_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn data_source_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.data_source_name(input.into());
         self
     }
     /// <p>The name of the data source to retrieve log fields for.</p>
-    pub fn set_data_source_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_data_source_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_data_source_name(input);
         self
     }
@@ -138,18 +129,12 @@ impl GetLogFieldsFluentBuilder {
         self.inner.get_data_source_name()
     }
     /// <p>The type of the data source to retrieve log fields for.</p>
-    pub fn data_source_type(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn data_source_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.data_source_type(input.into());
         self
     }
     /// <p>The type of the data source to retrieve log fields for.</p>
-    pub fn set_data_source_type(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_data_source_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_data_source_type(input);
         self
     }

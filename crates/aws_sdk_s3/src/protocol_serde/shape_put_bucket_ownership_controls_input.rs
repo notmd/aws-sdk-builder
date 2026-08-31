@@ -11,8 +11,7 @@ pub fn ser_ownership_controls_http_payload(
 
 pub fn ser_ownership_controls_payload(
     input: &crate::types::OwnershipControls,
-) -> std::result::Result<std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError>
-{
+) -> std::result::Result<std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     {
         let mut writer = ::aws_smithy_xml::encode::XmlWriter::new(&mut out);

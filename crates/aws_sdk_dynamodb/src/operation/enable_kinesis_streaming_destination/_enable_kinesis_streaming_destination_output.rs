@@ -41,15 +41,15 @@ impl ::aws_types::request_id::RequestId for EnableKinesisStreamingDestinationOut
 }
 impl EnableKinesisStreamingDestinationOutput {
     /// Creates a new builder-style object to manufacture [`EnableKinesisStreamingDestinationOutput`](crate::operation::enable_kinesis_streaming_destination::EnableKinesisStreamingDestinationOutput).
-    pub fn builder() -> crate::operation::enable_kinesis_streaming_destination::builders::EnableKinesisStreamingDestinationOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::enable_kinesis_streaming_destination::builders::EnableKinesisStreamingDestinationOutputBuilder
+    {
         crate::operation::enable_kinesis_streaming_destination::builders::EnableKinesisStreamingDestinationOutputBuilder::default()
     }
 }
 
 /// A builder for [`EnableKinesisStreamingDestinationOutput`](crate::operation::enable_kinesis_streaming_destination::EnableKinesisStreamingDestinationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EnableKinesisStreamingDestinationOutputBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
@@ -94,17 +94,12 @@ impl EnableKinesisStreamingDestinationOutputBuilder {
         self
     }
     /// <p>The current status of the replication.</p>
-    pub fn set_destination_status(
-        mut self,
-        input: ::std::option::Option<crate::types::DestinationStatus>,
-    ) -> Self {
+    pub fn set_destination_status(mut self, input: ::std::option::Option<crate::types::DestinationStatus>) -> Self {
         self.destination_status = input;
         self
     }
     /// <p>The current status of the replication.</p>
-    pub fn get_destination_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::DestinationStatus> {
+    pub fn get_destination_status(&self) -> &::std::option::Option<crate::types::DestinationStatus> {
         &self.destination_status
     }
     /// <p>The destination for the Kinesis streaming information that is being enabled.</p>
@@ -139,7 +134,9 @@ impl EnableKinesisStreamingDestinationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`EnableKinesisStreamingDestinationOutput`](crate::operation::enable_kinesis_streaming_destination::EnableKinesisStreamingDestinationOutput).
-    pub fn build(self) -> crate::operation::enable_kinesis_streaming_destination::EnableKinesisStreamingDestinationOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::enable_kinesis_streaming_destination::EnableKinesisStreamingDestinationOutput {
         crate::operation::enable_kinesis_streaming_destination::EnableKinesisStreamingDestinationOutput {
             table_name: self.table_name,
             stream_arn: self.stream_arn,

@@ -6,8 +6,7 @@ pub struct GetUserPoolMfaConfigOutput {
     /// <p>Shows user pool configuration for SMS message MFA. Includes the message template and the SMS message sending configuration for Amazon SNS.</p>
     pub sms_mfa_configuration: ::std::option::Option<crate::types::SmsMfaConfigType>,
     /// <p>Shows user pool configuration for time-based one-time password (TOTP) MFA. Includes TOTP enabled or disabled state.</p>
-    pub software_token_mfa_configuration:
-        ::std::option::Option<crate::types::SoftwareTokenMfaConfigType>,
+    pub software_token_mfa_configuration: ::std::option::Option<crate::types::SoftwareTokenMfaConfigType>,
     /// <p>Shows configuration for user pool email message MFA and sign-in with one-time passwords (OTPs). Includes the subject and body of the email message template for sign-in and MFA messages. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html"> Essentials tier</a> or higher.</p>
     pub email_mfa_configuration: ::std::option::Option<crate::types::EmailMfaConfigType>,
     /// <p>Displays the state of multi-factor authentication (MFA) as on, off, or optional. When <code>ON</code>, all users must set up MFA before they can sign in. When <code>OPTIONAL</code>, your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose <code>OPTIONAL</code>.</p>
@@ -23,15 +22,11 @@ impl GetUserPoolMfaConfigOutput {
         self.sms_mfa_configuration.as_ref()
     }
     /// <p>Shows user pool configuration for time-based one-time password (TOTP) MFA. Includes TOTP enabled or disabled state.</p>
-    pub fn software_token_mfa_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::SoftwareTokenMfaConfigType> {
+    pub fn software_token_mfa_configuration(&self) -> ::std::option::Option<&crate::types::SoftwareTokenMfaConfigType> {
         self.software_token_mfa_configuration.as_ref()
     }
     /// <p>Shows configuration for user pool email message MFA and sign-in with one-time passwords (OTPs). Includes the subject and body of the email message template for sign-in and MFA messages. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html"> Essentials tier</a> or higher.</p>
-    pub fn email_mfa_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::EmailMfaConfigType> {
+    pub fn email_mfa_configuration(&self) -> ::std::option::Option<&crate::types::EmailMfaConfigType> {
         self.email_mfa_configuration.as_ref()
     }
     /// <p>Displays the state of multi-factor authentication (MFA) as on, off, or optional. When <code>ON</code>, all users must set up MFA before they can sign in. When <code>OPTIONAL</code>, your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose <code>OPTIONAL</code>.</p>
@@ -40,9 +35,7 @@ impl GetUserPoolMfaConfigOutput {
         self.mfa_configuration.as_ref()
     }
     /// <p>Shows user pool configuration for sign-in with passkey authenticators such as biometric devices and security keys. Includes relying-party configuration, user-verification requirements, and whether passkeys can satisfy MFA requirements.</p>
-    pub fn web_authn_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::WebAuthnConfigurationType> {
+    pub fn web_authn_configuration(&self) -> ::std::option::Option<&crate::types::WebAuthnConfigurationType> {
         self.web_authn_configuration.as_ref()
     }
 }
@@ -53,26 +46,20 @@ impl ::aws_types::request_id::RequestId for GetUserPoolMfaConfigOutput {
 }
 impl GetUserPoolMfaConfigOutput {
     /// Creates a new builder-style object to manufacture [`GetUserPoolMfaConfigOutput`](crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigOutput).
-    pub fn builder(
-    ) -> crate::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigOutputBuilder
-    {
+    pub fn builder() -> crate::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigOutputBuilder {
         crate::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetUserPoolMfaConfigOutput`](crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetUserPoolMfaConfigOutputBuilder {
     pub(crate) sms_mfa_configuration: ::std::option::Option<crate::types::SmsMfaConfigType>,
-    pub(crate) software_token_mfa_configuration:
-        ::std::option::Option<crate::types::SoftwareTokenMfaConfigType>,
+    pub(crate) software_token_mfa_configuration: ::std::option::Option<crate::types::SoftwareTokenMfaConfigType>,
     pub(crate) email_mfa_configuration: ::std::option::Option<crate::types::EmailMfaConfigType>,
     pub(crate) mfa_configuration: ::std::option::Option<crate::types::UserPoolMfaType>,
-    pub(crate) web_authn_configuration:
-        ::std::option::Option<crate::types::WebAuthnConfigurationType>,
+    pub(crate) web_authn_configuration: ::std::option::Option<crate::types::WebAuthnConfigurationType>,
     _request_id: Option<String>,
 }
 impl GetUserPoolMfaConfigOutputBuilder {
@@ -82,24 +69,16 @@ impl GetUserPoolMfaConfigOutputBuilder {
         self
     }
     /// <p>Shows user pool configuration for SMS message MFA. Includes the message template and the SMS message sending configuration for Amazon SNS.</p>
-    pub fn set_sms_mfa_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::SmsMfaConfigType>,
-    ) -> Self {
+    pub fn set_sms_mfa_configuration(mut self, input: ::std::option::Option<crate::types::SmsMfaConfigType>) -> Self {
         self.sms_mfa_configuration = input;
         self
     }
     /// <p>Shows user pool configuration for SMS message MFA. Includes the message template and the SMS message sending configuration for Amazon SNS.</p>
-    pub fn get_sms_mfa_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::SmsMfaConfigType> {
+    pub fn get_sms_mfa_configuration(&self) -> &::std::option::Option<crate::types::SmsMfaConfigType> {
         &self.sms_mfa_configuration
     }
     /// <p>Shows user pool configuration for time-based one-time password (TOTP) MFA. Includes TOTP enabled or disabled state.</p>
-    pub fn software_token_mfa_configuration(
-        mut self,
-        input: crate::types::SoftwareTokenMfaConfigType,
-    ) -> Self {
+    pub fn software_token_mfa_configuration(mut self, input: crate::types::SoftwareTokenMfaConfigType) -> Self {
         self.software_token_mfa_configuration = ::std::option::Option::Some(input);
         self
     }
@@ -131,9 +110,7 @@ impl GetUserPoolMfaConfigOutputBuilder {
         self
     }
     /// <p>Shows configuration for user pool email message MFA and sign-in with one-time passwords (OTPs). Includes the subject and body of the email message template for sign-in and MFA messages. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html"> Essentials tier</a> or higher.</p>
-    pub fn get_email_mfa_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::EmailMfaConfigType> {
+    pub fn get_email_mfa_configuration(&self) -> &::std::option::Option<crate::types::EmailMfaConfigType> {
         &self.email_mfa_configuration
     }
     /// <p>Displays the state of multi-factor authentication (MFA) as on, off, or optional. When <code>ON</code>, all users must set up MFA before they can sign in. When <code>OPTIONAL</code>, your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose <code>OPTIONAL</code>.</p>
@@ -144,10 +121,7 @@ impl GetUserPoolMfaConfigOutputBuilder {
     }
     /// <p>Displays the state of multi-factor authentication (MFA) as on, off, or optional. When <code>ON</code>, all users must set up MFA before they can sign in. When <code>OPTIONAL</code>, your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose <code>OPTIONAL</code>.</p>
     /// <p>When <code>MfaConfiguration</code> is <code>OPTIONAL</code>, managed login doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses and in managed login for users who have chosen and configured a preferred MFA factor.</p>
-    pub fn set_mfa_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::UserPoolMfaType>,
-    ) -> Self {
+    pub fn set_mfa_configuration(mut self, input: ::std::option::Option<crate::types::UserPoolMfaType>) -> Self {
         self.mfa_configuration = input;
         self
     }
@@ -157,10 +131,7 @@ impl GetUserPoolMfaConfigOutputBuilder {
         &self.mfa_configuration
     }
     /// <p>Shows user pool configuration for sign-in with passkey authenticators such as biometric devices and security keys. Includes relying-party configuration, user-verification requirements, and whether passkeys can satisfy MFA requirements.</p>
-    pub fn web_authn_configuration(
-        mut self,
-        input: crate::types::WebAuthnConfigurationType,
-    ) -> Self {
+    pub fn web_authn_configuration(mut self, input: crate::types::WebAuthnConfigurationType) -> Self {
         self.web_authn_configuration = ::std::option::Option::Some(input);
         self
     }
@@ -173,9 +144,7 @@ impl GetUserPoolMfaConfigOutputBuilder {
         self
     }
     /// <p>Shows user pool configuration for sign-in with passkey authenticators such as biometric devices and security keys. Includes relying-party configuration, user-verification requirements, and whether passkeys can satisfy MFA requirements.</p>
-    pub fn get_web_authn_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::WebAuthnConfigurationType> {
+    pub fn get_web_authn_configuration(&self) -> &::std::option::Option<crate::types::WebAuthnConfigurationType> {
         &self.web_authn_configuration
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

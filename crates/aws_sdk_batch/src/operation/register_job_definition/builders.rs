@@ -57,10 +57,7 @@ impl RegisterJobDefinitionFluentBuilder {
         }
     }
     /// Access the RegisterJobDefinition as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::register_job_definition::builders::RegisterJobDefinitionInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::register_job_definition::builders::RegisterJobDefinitionInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +81,13 @@ impl RegisterJobDefinitionFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::register_job_definition::RegisterJobDefinition::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::register_job_definition::RegisterJobDefinition::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::register_job_definition::RegisterJobDefinition::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::register_job_definition::RegisterJobDefinition::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -122,18 +116,12 @@ impl RegisterJobDefinitionFluentBuilder {
         self
     }
     /// <p>The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
-    pub fn job_definition_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn job_definition_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.job_definition_name(input.into());
         self
     }
     /// <p>The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
-    pub fn set_job_definition_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_job_definition_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_job_definition_name(input);
         self
     }
@@ -163,10 +151,7 @@ impl RegisterJobDefinitionFluentBuilder {
     /// </ul><note>
     /// <p>If the job is run on Fargate resources, then <code>multinode</code> isn't supported.</p>
     /// </note>
-    pub fn set_type(
-        mut self,
-        input: ::std::option::Option<crate::types::JobDefinitionType>,
-    ) -> Self {
+    pub fn set_type(mut self, input: ::std::option::Option<crate::types::JobDefinitionType>) -> Self {
         self.inner = self.inner.set_type(input);
         self
     }
@@ -199,9 +184,7 @@ impl RegisterJobDefinitionFluentBuilder {
     /// <p>Default parameter substitution placeholders to set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a <code>SubmitJob</code> request override any corresponding parameter defaults from the job definition.</p>
     pub fn set_parameters(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_parameters(input);
         self
@@ -209,9 +192,7 @@ impl RegisterJobDefinitionFluentBuilder {
     /// <p>Default parameter substitution placeholders to set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a <code>SubmitJob</code> request override any corresponding parameter defaults from the job definition.</p>
     pub fn get_parameters(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_parameters()
     }
     /// <p>The scheduling priority for jobs that are submitted with this job definition. This only affects jobs in job queues with a fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.</p>
@@ -241,19 +222,14 @@ impl RegisterJobDefinitionFluentBuilder {
     /// <p>An object with properties specific to Amazon ECS-based single-node container-based jobs. If the job definition's <code>type</code> parameter is <code>container</code>, then you must specify either <code>containerProperties</code> or <code>nodeProperties</code>. This must not be specified for Amazon EKS-based job definitions.</p><note>
     /// <p>If the job runs on Fargate resources, then you must not specify <code>nodeProperties</code>; use only <code>containerProperties</code>.</p>
     /// </note>
-    pub fn set_container_properties(
-        mut self,
-        input: ::std::option::Option<crate::types::ContainerProperties>,
-    ) -> Self {
+    pub fn set_container_properties(mut self, input: ::std::option::Option<crate::types::ContainerProperties>) -> Self {
         self.inner = self.inner.set_container_properties(input);
         self
     }
     /// <p>An object with properties specific to Amazon ECS-based single-node container-based jobs. If the job definition's <code>type</code> parameter is <code>container</code>, then you must specify either <code>containerProperties</code> or <code>nodeProperties</code>. This must not be specified for Amazon EKS-based job definitions.</p><note>
     /// <p>If the job runs on Fargate resources, then you must not specify <code>nodeProperties</code>; use only <code>containerProperties</code>.</p>
     /// </note>
-    pub fn get_container_properties(
-        &self,
-    ) -> &::std::option::Option<crate::types::ContainerProperties> {
+    pub fn get_container_properties(&self) -> &::std::option::Option<crate::types::ContainerProperties> {
         self.inner.get_container_properties()
     }
     /// <p>An object with properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html">Multi-node Parallel Jobs</a> in the <i>Batch User Guide</i>.</p><note>
@@ -270,10 +246,7 @@ impl RegisterJobDefinitionFluentBuilder {
     /// </note> <note>
     /// <p>If the job runs on Amazon EKS resources, then you must not specify <code>nodeProperties</code>.</p>
     /// </note>
-    pub fn set_node_properties(
-        mut self,
-        input: ::std::option::Option<crate::types::NodeProperties>,
-    ) -> Self {
+    pub fn set_node_properties(mut self, input: ::std::option::Option<crate::types::NodeProperties>) -> Self {
         self.inner = self.inner.set_node_properties(input);
         self
     }
@@ -291,10 +264,7 @@ impl RegisterJobDefinitionFluentBuilder {
         self
     }
     /// <p>The retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that's specified during a <code>SubmitJob</code> operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn't retried.</p>
-    pub fn set_retry_strategy(
-        mut self,
-        input: ::std::option::Option<crate::types::RetryStrategy>,
-    ) -> Self {
+    pub fn set_retry_strategy(mut self, input: ::std::option::Option<crate::types::RetryStrategy>) -> Self {
         self.inner = self.inner.set_retry_strategy(input);
         self
     }
@@ -353,9 +323,7 @@ impl RegisterJobDefinitionFluentBuilder {
     /// <p>The tags that you apply to the job definition to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging Amazon Web Services Resources</a> in <i>Batch User Guide</i>.</p>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_tags(input);
         self
@@ -363,9 +331,7 @@ impl RegisterJobDefinitionFluentBuilder {
     /// <p>The tags that you apply to the job definition to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging Amazon Web Services Resources</a> in <i>Batch User Guide</i>.</p>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_tags()
     }
     ///
@@ -407,10 +373,7 @@ impl RegisterJobDefinitionFluentBuilder {
         self
     }
     /// <p>An object with properties that are specific to Amazon EKS-based jobs. This must not be specified for Amazon ECS based job definitions.</p>
-    pub fn set_eks_properties(
-        mut self,
-        input: ::std::option::Option<crate::types::EksProperties>,
-    ) -> Self {
+    pub fn set_eks_properties(mut self, input: ::std::option::Option<crate::types::EksProperties>) -> Self {
         self.inner = self.inner.set_eks_properties(input);
         self
     }
@@ -424,10 +387,7 @@ impl RegisterJobDefinitionFluentBuilder {
         self
     }
     /// <p>An object with properties that are specific to Amazon ECS-based jobs. This must not be specified for Amazon EKS-based job definitions.</p>
-    pub fn set_ecs_properties(
-        mut self,
-        input: ::std::option::Option<crate::types::EcsProperties>,
-    ) -> Self {
+    pub fn set_ecs_properties(mut self, input: ::std::option::Option<crate::types::EcsProperties>) -> Self {
         self.inner = self.inner.set_ecs_properties(input);
         self
     }
@@ -436,10 +396,7 @@ impl RegisterJobDefinitionFluentBuilder {
         self.inner.get_ecs_properties()
     }
     /// <p>Contains a list of consumable resources required by the job.</p>
-    pub fn consumable_resource_properties(
-        mut self,
-        input: crate::types::ConsumableResourceProperties,
-    ) -> Self {
+    pub fn consumable_resource_properties(mut self, input: crate::types::ConsumableResourceProperties) -> Self {
         self.inner = self.inner.consumable_resource_properties(input);
         self
     }

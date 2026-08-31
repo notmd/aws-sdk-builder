@@ -76,7 +76,7 @@ impl DeleteProvisionedConcurrencyConfigFluentBuilder {
             crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +86,11 @@ impl DeleteProvisionedConcurrencyConfigFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfig::orchestrate(&runtime_plugins, input).await
+        crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfig::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +100,7 @@ impl DeleteProvisionedConcurrencyConfigFluentBuilder {
         crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigOutput,
         crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -125,10 +129,7 @@ impl DeleteProvisionedConcurrencyConfigFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -143,10 +144,7 @@ impl DeleteProvisionedConcurrencyConfigFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }

@@ -186,9 +186,7 @@ impl Clone for PresignedRequest {
             http_request: match self.http_request.try_clone() {
                 Some(body) => body,
                 None => {
-                    unreachable!(
-                        "during construction, we replaced the body with `SdkBody::empty()`"
-                    )
+                    unreachable!("during construction, we replaced the body with `SdkBody::empty()`")
                 }
             },
         }

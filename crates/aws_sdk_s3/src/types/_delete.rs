@@ -32,9 +32,7 @@ impl Delete {
 }
 
 /// A builder for [`Delete`](crate::types::Delete).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteBuilder {
     pub(crate) objects: ::std::option::Option<::std::vec::Vec<crate::types::ObjectIdentifier>>,
@@ -67,9 +65,7 @@ impl DeleteBuilder {
     /// <p>The object to delete.</p><note>
     /// <p><b>Directory buckets</b> - For directory buckets, an object that's composed entirely of whitespace characters is not supported by the <code>DeleteObjects</code> API operation. The request will receive a <code>400 Bad Request</code> error and none of the objects in the request will be deleted.</p>
     /// </note>
-    pub fn get_objects(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ObjectIdentifier>> {
+    pub fn get_objects(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ObjectIdentifier>> {
         &self.objects
     }
     /// <p>Element to enable quiet mode for the request. When you add this element, you must set its value to <code>true</code>.</p>
@@ -91,8 +87,7 @@ impl DeleteBuilder {
     /// - [`objects`](crate::types::builders::DeleteBuilder::objects)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::types::Delete, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<crate::types::Delete, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Delete {
             objects: self.objects.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -58,9 +58,7 @@ impl GetSMSAttributesFluentBuilder {
         }
     }
     /// Access the GetSMSAttributes as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_sms_attributes::builders::GetSmsAttributesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_sms_attributes::builders::GetSmsAttributesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,14 +82,12 @@ impl GetSMSAttributesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::get_sms_attributes::GetSMSAttributes::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::get_sms_attributes::GetSMSAttributes::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::get_sms_attributes::GetSMSAttributes::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::get_sms_attributes::GetSMSAttributes::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -134,10 +130,7 @@ impl GetSMSAttributesFluentBuilder {
     /// <p>A list of the individual attribute names, such as <code>MonthlySpendLimit</code>, for which you want values.</p>
     /// <p>For all attribute names, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html">SetSMSAttributes</a>.</p>
     /// <p>If you don't use this parameter, Amazon SNS returns all SMS attributes.</p>
-    pub fn set_attributes(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_attributes(input);
         self
     }

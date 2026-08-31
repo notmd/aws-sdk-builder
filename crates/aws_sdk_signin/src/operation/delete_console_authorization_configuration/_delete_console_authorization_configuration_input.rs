@@ -21,9 +21,7 @@ impl DeleteConsoleAuthorizationConfigurationInput {
 }
 
 /// A builder for [`DeleteConsoleAuthorizationConfigurationInput`](crate::operation::delete_console_authorization_configuration::DeleteConsoleAuthorizationConfigurationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteConsoleAuthorizationConfigurationInputBuilder {
     pub(crate) target_id: ::std::option::Option<::std::string::String>,
@@ -49,7 +47,7 @@ impl DeleteConsoleAuthorizationConfigurationInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::delete_console_authorization_configuration::DeleteConsoleAuthorizationConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::delete_console_authorization_configuration::DeleteConsoleAuthorizationConfigurationInput { target_id: self.target_id },
         )

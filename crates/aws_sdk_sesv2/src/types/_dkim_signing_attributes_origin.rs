@@ -179,9 +179,9 @@ impl ::std::convert::From<&str> for DkimSigningAttributesOrigin {
             "AWS_SES_US_WEST_1" => DkimSigningAttributesOrigin::AwsSesUsWest1,
             "AWS_SES_US_WEST_2" => DkimSigningAttributesOrigin::AwsSesUsWest2,
             "EXTERNAL" => DkimSigningAttributesOrigin::External,
-            other => DkimSigningAttributesOrigin::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => DkimSigningAttributesOrigin::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -276,14 +276,10 @@ impl DkimSigningAttributesOrigin {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }

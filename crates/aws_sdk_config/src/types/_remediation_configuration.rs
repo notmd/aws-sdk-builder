@@ -60,10 +60,7 @@ impl RemediationConfiguration {
     pub fn parameters(
         &self,
     ) -> ::std::option::Option<
-        &::std::collections::HashMap<
-            ::std::string::String,
-            crate::types::RemediationParameterValue,
-        >,
+        &::std::collections::HashMap<::std::string::String, crate::types::RemediationParameterValue>,
     > {
         self.parameters.as_ref()
     }
@@ -106,9 +103,7 @@ impl RemediationConfiguration {
 }
 
 /// A builder for [`RemediationConfiguration`](crate::types::RemediationConfiguration).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RemediationConfigurationBuilder {
     pub(crate) config_rule_name: ::std::option::Option<::std::string::String>,
@@ -129,18 +124,12 @@ pub struct RemediationConfigurationBuilder {
 impl RemediationConfigurationBuilder {
     /// <p>The name of the Config rule.</p>
     /// This field is required.
-    pub fn config_rule_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.config_rule_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the Config rule.</p>
-    pub fn set_config_rule_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_config_rule_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.config_rule_name = input;
         self
     }
@@ -155,10 +144,7 @@ impl RemediationConfigurationBuilder {
         self
     }
     /// <p>The type of the target. Target executes remediation. For example, SSM document.</p>
-    pub fn set_target_type(
-        mut self,
-        input: ::std::option::Option<crate::types::RemediationTargetType>,
-    ) -> Self {
+    pub fn set_target_type(mut self, input: ::std::option::Option<crate::types::RemediationTargetType>) -> Self {
         self.target_type = input;
         self
     }
@@ -184,20 +170,14 @@ impl RemediationConfigurationBuilder {
     /// <p>Version of the target. For example, version of the SSM document.</p><note>
     /// <p>If you make backward incompatible changes to the SSM document, you must call PutRemediationConfiguration API again to ensure the remediations can run.</p>
     /// </note>
-    pub fn target_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn target_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.target_version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Version of the target. For example, version of the SSM document.</p><note>
     /// <p>If you make backward incompatible changes to the SSM document, you must call PutRemediationConfiguration API again to ensure the remediations can run.</p>
     /// </note>
-    pub fn set_target_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_target_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.target_version = input;
         self
     }
@@ -226,10 +206,7 @@ impl RemediationConfigurationBuilder {
     pub fn set_parameters(
         mut self,
         input: ::std::option::Option<
-            ::std::collections::HashMap<
-                ::std::string::String,
-                crate::types::RemediationParameterValue,
-            >,
+            ::std::collections::HashMap<::std::string::String, crate::types::RemediationParameterValue>,
         >,
     ) -> Self {
         self.parameters = input;
@@ -244,18 +221,12 @@ impl RemediationConfigurationBuilder {
         &self.parameters
     }
     /// <p>The type of a resource.</p>
-    pub fn resource_type(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.resource_type = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The type of a resource.</p>
-    pub fn set_resource_type(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_resource_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.resource_type = input;
         self
     }
@@ -283,17 +254,12 @@ impl RemediationConfigurationBuilder {
         self
     }
     /// <p>An ExecutionControls object.</p>
-    pub fn set_execution_controls(
-        mut self,
-        input: ::std::option::Option<crate::types::ExecutionControls>,
-    ) -> Self {
+    pub fn set_execution_controls(mut self, input: ::std::option::Option<crate::types::ExecutionControls>) -> Self {
         self.execution_controls = input;
         self
     }
     /// <p>An ExecutionControls object.</p>
-    pub fn get_execution_controls(
-        &self,
-    ) -> &::std::option::Option<crate::types::ExecutionControls> {
+    pub fn get_execution_controls(&self) -> &::std::option::Option<crate::types::ExecutionControls> {
         &self.execution_controls
     }
     /// <p>The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.</p>
@@ -345,18 +311,12 @@ impl RemediationConfigurationBuilder {
         &self.arn
     }
     /// <p>Name of the service that owns the service-linked rule, if applicable.</p>
-    pub fn created_by_service(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn created_by_service(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.created_by_service = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Name of the service that owns the service-linked rule, if applicable.</p>
-    pub fn set_created_by_service(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_created_by_service(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.created_by_service = input;
         self
     }
@@ -371,10 +331,8 @@ impl RemediationConfigurationBuilder {
     /// - [`target_id`](crate::types::builders::RemediationConfigurationBuilder::target_id)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::RemediationConfiguration,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::RemediationConfiguration, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::RemediationConfiguration {
             config_rule_name: self.config_rule_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

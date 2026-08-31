@@ -9,10 +9,7 @@ pub fn ser_create_table_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_4 = array_2.value().start_object();
-                crate::protocol_serde::shape_attribute_definition::ser_attribute_definition(
-                    &mut object_4,
-                    item_3,
-                )?;
+                crate::protocol_serde::shape_attribute_definition::ser_attribute_definition(&mut object_4, item_3)?;
                 object_4.finish();
             }
         }
@@ -27,10 +24,7 @@ pub fn ser_create_table_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_9 = array_7.value().start_object();
-                crate::protocol_serde::shape_key_schema_element::ser_key_schema_element(
-                    &mut object_9,
-                    item_8,
-                )?;
+                crate::protocol_serde::shape_key_schema_element::ser_key_schema_element(&mut object_9, item_8)?;
                 object_9.finish();
             }
         }
@@ -42,10 +36,7 @@ pub fn ser_create_table_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_13 = array_11.value().start_object();
-                crate::protocol_serde::shape_local_secondary_index::ser_local_secondary_index(
-                    &mut object_13,
-                    item_12,
-                )?;
+                crate::protocol_serde::shape_local_secondary_index::ser_local_secondary_index(&mut object_13, item_12)?;
                 object_13.finish();
             }
         }
@@ -72,28 +63,19 @@ pub fn ser_create_table_input_input(
     if let Some(var_19) = &input.provisioned_throughput {
         #[allow(unused_mut)]
         let mut object_20 = object.key("ProvisionedThroughput").start_object();
-        crate::protocol_serde::shape_provisioned_throughput::ser_provisioned_throughput(
-            &mut object_20,
-            var_19,
-        )?;
+        crate::protocol_serde::shape_provisioned_throughput::ser_provisioned_throughput(&mut object_20, var_19)?;
         object_20.finish();
     }
     if let Some(var_21) = &input.stream_specification {
         #[allow(unused_mut)]
         let mut object_22 = object.key("StreamSpecification").start_object();
-        crate::protocol_serde::shape_stream_specification::ser_stream_specification(
-            &mut object_22,
-            var_21,
-        )?;
+        crate::protocol_serde::shape_stream_specification::ser_stream_specification(&mut object_22, var_21)?;
         object_22.finish();
     }
     if let Some(var_23) = &input.sse_specification {
         #[allow(unused_mut)]
         let mut object_24 = object.key("SSESpecification").start_object();
-        crate::protocol_serde::shape_sse_specification::ser_sse_specification(
-            &mut object_24,
-            var_23,
-        )?;
+        crate::protocol_serde::shape_sse_specification::ser_sse_specification(&mut object_24, var_23)?;
         object_24.finish();
     }
     if let Some(var_25) = &input.tags {
@@ -126,19 +108,14 @@ pub fn ser_create_table_input_input(
     if let Some(var_34) = &input.on_demand_throughput {
         #[allow(unused_mut)]
         let mut object_35 = object.key("OnDemandThroughput").start_object();
-        crate::protocol_serde::shape_on_demand_throughput::ser_on_demand_throughput(
-            &mut object_35,
-            var_34,
-        )?;
+        crate::protocol_serde::shape_on_demand_throughput::ser_on_demand_throughput(&mut object_35, var_34)?;
         object_35.finish();
     }
     if let Some(var_36) = &input.global_table_source_arn {
         object.key("GlobalTableSourceArn").string(var_36.as_str());
     }
     if let Some(var_37) = &input.global_table_settings_replication_mode {
-        object
-            .key("GlobalTableSettingsReplicationMode")
-            .string(var_37.as_str());
+        object.key("GlobalTableSettingsReplicationMode").string(var_37.as_str());
     }
     if let Some(var_38) = &input.vector_indexes {
         let mut array_39 = object.key("VectorIndexes").start_array();
@@ -146,10 +123,7 @@ pub fn ser_create_table_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_41 = array_39.value().start_object();
-                crate::protocol_serde::shape_vector_index::ser_vector_index(
-                    &mut object_41,
-                    item_40,
-                )?;
+                crate::protocol_serde::shape_vector_index::ser_vector_index(&mut object_41, item_40)?;
                 object_41.finish();
             }
         }

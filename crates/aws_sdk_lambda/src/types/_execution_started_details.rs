@@ -27,9 +27,7 @@ impl ExecutionStartedDetails {
 }
 
 /// A builder for [`ExecutionStartedDetails`](crate::types::ExecutionStartedDetails).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ExecutionStartedDetailsBuilder {
     pub(crate) input: ::std::option::Option<crate::types::EventInput>,
@@ -71,10 +69,8 @@ impl ExecutionStartedDetailsBuilder {
     /// - [`execution_timeout`](crate::types::builders::ExecutionStartedDetailsBuilder::execution_timeout)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::ExecutionStartedDetails,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::ExecutionStartedDetails, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::ExecutionStartedDetails {
             input: self.input,
             execution_timeout: self.execution_timeout.ok_or_else(|| {

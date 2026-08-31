@@ -3,7 +3,9 @@ pub use crate::operation::enable_outbound_web_identity_federation::_enable_outbo
 
 pub use crate::operation::enable_outbound_web_identity_federation::_enable_outbound_web_identity_federation_output::EnableOutboundWebIdentityFederationOutputBuilder;
 
-impl crate::operation::enable_outbound_web_identity_federation::builders::EnableOutboundWebIdentityFederationInputBuilder {
+impl
+    crate::operation::enable_outbound_web_identity_federation::builders::EnableOutboundWebIdentityFederationInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -76,7 +78,7 @@ impl EnableOutboundWebIdentityFederationFluentBuilder {
             crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -87,7 +89,11 @@ impl EnableOutboundWebIdentityFederationFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederation::orchestrate(&runtime_plugins, input).await
+        crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederation::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -97,7 +103,7 @@ impl EnableOutboundWebIdentityFederationFluentBuilder {
         crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationOutput,
         crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(

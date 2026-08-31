@@ -33,9 +33,7 @@ impl Stats {
 }
 
 /// A builder for [`Stats`](crate::types::Stats).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct StatsBuilder {
     pub(crate) bytes_scanned: ::std::option::Option<i64>,

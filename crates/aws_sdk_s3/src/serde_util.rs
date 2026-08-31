@@ -188,9 +188,7 @@ pub(crate) fn lifecycle_rule_correct_errors(
     mut builder: crate::types::builders::LifecycleRuleBuilder,
 ) -> crate::types::builders::LifecycleRuleBuilder {
     if builder.status.is_none() {
-        builder.status = "no value was set"
-            .parse::<crate::types::ExpirationStatus>()
-            .ok()
+        builder.status = "no value was set".parse::<crate::types::ExpirationStatus>().ok()
     }
     builder
 }
@@ -299,12 +297,8 @@ pub(crate) fn get_bucket_metadata_table_configuration_result_correct_errors(
 ) -> crate::types::builders::GetBucketMetadataTableConfigurationResultBuilder {
     if builder.metadata_table_configuration_result.is_none() {
         builder.metadata_table_configuration_result = {
-            let builder =
-                crate::types::builders::MetadataTableConfigurationResultBuilder::default();
-            Some(
-                crate::serde_util::metadata_table_configuration_result_correct_errors(builder)
-                    .build(),
-            )
+            let builder = crate::types::builders::MetadataTableConfigurationResultBuilder::default();
+            Some(crate::serde_util::metadata_table_configuration_result_correct_errors(builder).build())
         }
     }
     if builder.status.is_none() {
@@ -355,9 +349,7 @@ pub(crate) fn inventory_schedule_correct_errors(
     mut builder: crate::types::builders::InventoryScheduleBuilder,
 ) -> crate::types::builders::InventoryScheduleBuilder {
     if builder.frequency.is_none() {
-        builder.frequency = "no value was set"
-            .parse::<crate::types::InventoryFrequency>()
-            .ok()
+        builder.frequency = "no value was set".parse::<crate::types::InventoryFrequency>().ok()
     }
     builder
 }
@@ -375,10 +367,7 @@ pub(crate) fn ownership_controls_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) fn replication_configuration_correct_errors(
     mut builder: crate::types::builders::ReplicationConfigurationBuilder,
 ) -> crate::types::builders::ReplicationConfigurationBuilder {
@@ -404,10 +393,7 @@ pub(crate) fn routing_rule_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_get_bucket_encryption",
-    feature = "op_put_bucket_encryption"
-))]
+#[cfg(any(feature = "op_get_bucket_encryption", feature = "op_put_bucket_encryption"))]
 pub(crate) fn server_side_encryption_configuration_correct_errors(
     mut builder: crate::types::builders::ServerSideEncryptionConfigurationBuilder,
 ) -> crate::types::builders::ServerSideEncryptionConfigurationBuilder {
@@ -499,9 +485,7 @@ pub(crate) fn inventory_s3_bucket_destination_correct_errors(
         builder.bucket = Some(Default::default())
     }
     if builder.format.is_none() {
-        builder.format = "no value was set"
-            .parse::<crate::types::InventoryFormat>()
-            .ok()
+        builder.format = "no value was set".parse::<crate::types::InventoryFormat>().ok()
     }
     builder
 }
@@ -542,31 +526,22 @@ pub(crate) fn ownership_controls_rule_correct_errors(
     mut builder: crate::types::builders::OwnershipControlsRuleBuilder,
 ) -> crate::types::builders::OwnershipControlsRuleBuilder {
     if builder.object_ownership.is_none() {
-        builder.object_ownership = "no value was set"
-            .parse::<crate::types::ObjectOwnership>()
-            .ok()
+        builder.object_ownership = "no value was set".parse::<crate::types::ObjectOwnership>().ok()
     }
     builder
 }
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) fn replication_rule_correct_errors(
     mut builder: crate::types::builders::ReplicationRuleBuilder,
 ) -> crate::types::builders::ReplicationRuleBuilder {
     if builder.status.is_none() {
-        builder.status = "no value was set"
-            .parse::<crate::types::ReplicationRuleStatus>()
-            .ok()
+        builder.status = "no value was set".parse::<crate::types::ReplicationRuleStatus>().ok()
     }
     if builder.destination.is_none() {
         builder.destination = {
             let builder = crate::types::builders::DestinationBuilder::default();
-            crate::serde_util::destination_correct_errors(builder)
-                .build()
-                .ok()
+            crate::serde_util::destination_correct_errors(builder).build().ok()
         }
     }
     builder
@@ -625,10 +600,7 @@ pub(crate) fn annotation_table_configuration_result_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) fn destination_correct_errors(
     mut builder: crate::types::builders::DestinationBuilder,
 ) -> crate::types::builders::DestinationBuilder {
@@ -638,10 +610,7 @@ pub(crate) fn destination_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) fn existing_object_replication_correct_errors(
     mut builder: crate::types::builders::ExistingObjectReplicationBuilder,
 ) -> crate::types::builders::ExistingObjectReplicationBuilder {
@@ -705,32 +674,22 @@ pub(crate) fn s3_tables_destination_result_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_get_bucket_encryption",
-    feature = "op_put_bucket_encryption"
-))]
+#[cfg(any(feature = "op_get_bucket_encryption", feature = "op_put_bucket_encryption"))]
 pub(crate) fn server_side_encryption_by_default_correct_errors(
     mut builder: crate::types::builders::ServerSideEncryptionByDefaultBuilder,
 ) -> crate::types::builders::ServerSideEncryptionByDefaultBuilder {
     if builder.sse_algorithm.is_none() {
-        builder.sse_algorithm = "no value was set"
-            .parse::<crate::types::ServerSideEncryption>()
-            .ok()
+        builder.sse_algorithm = "no value was set".parse::<crate::types::ServerSideEncryption>().ok()
     }
     builder
 }
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) fn access_control_translation_correct_errors(
     mut builder: crate::types::builders::AccessControlTranslationBuilder,
 ) -> crate::types::builders::AccessControlTranslationBuilder {
     if builder.owner.is_none() {
-        builder.owner = "no value was set"
-            .parse::<crate::types::OwnerOverride>()
-            .ok()
+        builder.owner = "no value was set".parse::<crate::types::OwnerOverride>().ok()
     }
     builder
 }
@@ -754,17 +713,12 @@ pub(crate) fn analytics_s3_bucket_destination_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) fn metrics_correct_errors(
     mut builder: crate::types::builders::MetricsBuilder,
 ) -> crate::types::builders::MetricsBuilder {
     if builder.status.is_none() {
-        builder.status = "no value was set"
-            .parse::<crate::types::MetricsStatus>()
-            .ok()
+        builder.status = "no value was set".parse::<crate::types::MetricsStatus>().ok()
     }
     builder
 }
@@ -778,17 +732,12 @@ pub(crate) fn record_expiration_correct_errors(
     mut builder: crate::types::builders::RecordExpirationBuilder,
 ) -> crate::types::builders::RecordExpirationBuilder {
     if builder.expiration.is_none() {
-        builder.expiration = "no value was set"
-            .parse::<crate::types::ExpirationState>()
-            .ok()
+        builder.expiration = "no value was set".parse::<crate::types::ExpirationState>().ok()
     }
     builder
 }
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) fn replica_modifications_correct_errors(
     mut builder: crate::types::builders::ReplicaModificationsBuilder,
 ) -> crate::types::builders::ReplicaModificationsBuilder {
@@ -800,17 +749,12 @@ pub(crate) fn replica_modifications_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) fn replication_time_correct_errors(
     mut builder: crate::types::builders::ReplicationTimeBuilder,
 ) -> crate::types::builders::ReplicationTimeBuilder {
     if builder.status.is_none() {
-        builder.status = "no value was set"
-            .parse::<crate::types::ReplicationTimeStatus>()
-            .ok()
+        builder.status = "no value was set".parse::<crate::types::ReplicationTimeStatus>().ok()
     }
     if builder.time.is_none() {
         builder.time = {
@@ -821,10 +765,7 @@ pub(crate) fn replication_time_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) fn sse_kms_encrypted_objects_correct_errors(
     mut builder: crate::types::builders::SseKmsEncryptedObjectsBuilder,
 ) -> crate::types::builders::SseKmsEncryptedObjectsBuilder {

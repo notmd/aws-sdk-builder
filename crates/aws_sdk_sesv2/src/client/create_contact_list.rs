@@ -12,8 +12,6 @@ impl super::Client {
     pub fn create_contact_list(
         &self,
     ) -> crate::operation::create_contact_list::builders::CreateContactListFluentBuilder {
-        crate::operation::create_contact_list::builders::CreateContactListFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::create_contact_list::builders::CreateContactListFluentBuilder::new(self.handle.clone())
     }
 }

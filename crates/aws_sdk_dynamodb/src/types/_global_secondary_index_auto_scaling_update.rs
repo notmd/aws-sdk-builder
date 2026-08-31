@@ -7,8 +7,7 @@ pub struct GlobalSecondaryIndexAutoScalingUpdate {
     /// <p>The name of the global secondary index.</p>
     pub index_name: ::std::option::Option<::std::string::String>,
     /// <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
-    pub provisioned_write_capacity_auto_scaling_update:
-        ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
+    pub provisioned_write_capacity_auto_scaling_update: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
 }
 impl GlobalSecondaryIndexAutoScalingUpdate {
     /// <p>The name of the global secondary index.</p>
@@ -30,9 +29,7 @@ impl GlobalSecondaryIndexAutoScalingUpdate {
 }
 
 /// A builder for [`GlobalSecondaryIndexAutoScalingUpdate`](crate::types::GlobalSecondaryIndexAutoScalingUpdate).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GlobalSecondaryIndexAutoScalingUpdateBuilder {
     pub(crate) index_name: ::std::option::Option<::std::string::String>,
@@ -80,8 +77,7 @@ impl GlobalSecondaryIndexAutoScalingUpdateBuilder {
     pub fn build(self) -> crate::types::GlobalSecondaryIndexAutoScalingUpdate {
         crate::types::GlobalSecondaryIndexAutoScalingUpdate {
             index_name: self.index_name,
-            provisioned_write_capacity_auto_scaling_update: self
-                .provisioned_write_capacity_auto_scaling_update,
+            provisioned_write_capacity_auto_scaling_update: self.provisioned_write_capacity_auto_scaling_update,
         }
     }
 }

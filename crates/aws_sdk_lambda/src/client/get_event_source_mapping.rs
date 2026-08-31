@@ -41,8 +41,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetEventSourceMappingError>`](crate::operation::get_event_source_mapping::GetEventSourceMappingError)
     pub fn get_event_source_mapping(
         &self,
-    ) -> crate::operation::get_event_source_mapping::builders::GetEventSourceMappingFluentBuilder
-    {
-        crate::operation::get_event_source_mapping::builders::GetEventSourceMappingFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::get_event_source_mapping::builders::GetEventSourceMappingFluentBuilder {
+        crate::operation::get_event_source_mapping::builders::GetEventSourceMappingFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

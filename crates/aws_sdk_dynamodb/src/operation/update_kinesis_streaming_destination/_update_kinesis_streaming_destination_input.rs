@@ -29,15 +29,15 @@ impl UpdateKinesisStreamingDestinationInput {
 }
 impl UpdateKinesisStreamingDestinationInput {
     /// Creates a new builder-style object to manufacture [`UpdateKinesisStreamingDestinationInput`](crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationInput).
-    pub fn builder() -> crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationInputBuilder
+    {
         crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateKinesisStreamingDestinationInput`](crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateKinesisStreamingDestinationInputBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
@@ -104,7 +104,7 @@ impl UpdateKinesisStreamingDestinationInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationInput {
                 table_name: self.table_name,

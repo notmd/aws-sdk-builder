@@ -26,8 +26,7 @@ impl crate::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetec
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListLogAnomalyDetectorsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsInputBuilder,
+    inner: crate::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -60,8 +59,7 @@ impl ListLogAnomalyDetectorsFluentBuilder {
     /// Access the ListLogAnomalyDetectors as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsInputBuilder
-    {
+    ) -> &crate::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,16 +83,14 @@ impl ListLogAnomalyDetectorsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_log_anomaly_detectors::ListLogAnomalyDetectors::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_log_anomaly_detectors::ListLogAnomalyDetectors::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::list_log_anomaly_detectors::ListLogAnomalyDetectors::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_log_anomaly_detectors::ListLogAnomalyDetectors::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -127,23 +123,19 @@ impl ListLogAnomalyDetectorsFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::list_log_anomaly_detectors::paginator::ListLogAnomalyDetectorsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::list_log_anomaly_detectors::paginator::ListLogAnomalyDetectorsPaginator
-    {
-        crate::operation::list_log_anomaly_detectors::paginator::ListLogAnomalyDetectorsPaginator::new(self.handle, self.inner)
+    ) -> crate::operation::list_log_anomaly_detectors::paginator::ListLogAnomalyDetectorsPaginator {
+        crate::operation::list_log_anomaly_detectors::paginator::ListLogAnomalyDetectorsPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>Use this to optionally filter the results to only include anomaly detectors that are associated with the specified log group.</p>
-    pub fn filter_log_group_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn filter_log_group_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.filter_log_group_arn(input.into());
         self
     }
     /// <p>Use this to optionally filter the results to only include anomaly detectors that are associated with the specified log group.</p>
-    pub fn set_filter_log_group_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_filter_log_group_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_filter_log_group_arn(input);
         self
     }

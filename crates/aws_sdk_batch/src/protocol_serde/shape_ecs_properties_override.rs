@@ -9,7 +9,10 @@ pub fn ser_ecs_properties_override(
             {
                 #[allow(unused_mut)]
                 let mut object_4 = array_2.value().start_object();
-                crate::protocol_serde::shape_task_properties_override::ser_task_properties_override(&mut object_4, item_3)?;
+                crate::protocol_serde::shape_task_properties_override::ser_task_properties_override(
+                    &mut object_4,
+                    item_3,
+                )?;
                 object_4.finish();
             }
         }

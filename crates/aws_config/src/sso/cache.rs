@@ -83,10 +83,9 @@ impl fmt::Display for CachedSsoTokenError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
             Self::FailedToFormatDateTime { .. } => write!(f, "failed to format date time"),
-            Self::InvalidField { field, .. } => write!(
-                f,
-                "invalid value for the `{field}` field in the cached SSO token file"
-            ),
+            Self::InvalidField { field, .. } => {
+                write!(f, "invalid value for the `{field}` field in the cached SSO token file")
+            }
             Self::IoError { what, path, .. } => write!(f, "failed to {what} `{}`", path.display()),
             Self::JsonError(_) => write!(f, "invalid JSON in cached SSO token file"),
             Self::MissingField(field) => {
@@ -126,9 +125,7 @@ impl From<aws_smithy_json::deserialize::error::DeserializeError> for CachedSsoTo
 
 impl From<DateTimeFormatError> for CachedSsoTokenError {
     fn from(value: DateTimeFormatError) -> Self {
-        Self::FailedToFormatDateTime {
-            source: value.into(),
-        }
+        Self::FailedToFormatDateTime { source: value.into() }
     }
 }
 
@@ -155,20 +152,20 @@ pub(super) async fn load_cached_token(
 ) -> Result<CachedSsoToken, CachedSsoTokenError> {
     let home = home_dir(env, Os::real()).ok_or(CachedSsoTokenError::NoHomeDirectory)?;
     let path = cached_token_path(identifier, &home);
-    let data = Zeroizing::new(fs.read_to_end(&path).await.map_err(|source| {
-        CachedSsoTokenError::IoError {
-            what: "read",
-            path,
-            source,
-        }
-    })?);
+    let data = Zeroizing::new(
+        fs.read_to_end(&path)
+            .await
+            .map_err(|source| CachedSsoTokenError::IoError {
+                what: "read",
+                path,
+                source,
+            })?,
+    );
     parse_cached_token(&data)
 }
 
 /// Parse SSO token JSON from input
-fn parse_cached_token(
-    cached_token_file_contents: &[u8],
-) -> Result<CachedSsoToken, CachedSsoTokenError> {
+fn parse_cached_token(cached_token_file_contents: &[u8]) -> Result<CachedSsoToken, CachedSsoTokenError> {
     use CachedSsoTokenError as Error;
 
     let mut access_token = None;
@@ -212,9 +209,7 @@ fn parse_cached_token(
             (key, Token::ValueString { value, .. }) if key.eq_ignore_ascii_case("region") => {
                 region = Some(value.to_unescaped()?.into_owned());
             }
-            (key, Token::ValueString { value, .. })
-                if key.eq_ignore_ascii_case("registrationExpiresAt") =>
-            {
+            (key, Token::ValueString { value, .. }) if key.eq_ignore_ascii_case("registrationExpiresAt") => {
                 registration_expires_at = Some(value.to_unescaped()?);
             }
             (key, Token::ValueString { value, .. }) if key.eq_ignore_ascii_case("startUrl") => {
@@ -231,13 +226,13 @@ fn parse_cached_token(
             .ok_or(Error::MissingField("expiresAt"))
             .and_then(|expires_at| {
                 DateTime::from_str(expires_at.as_ref(), Format::DateTime)
-                    .map_err(|err| Error::InvalidField { field: "expiresAt", source: err.into() })
+                    .map_err(|err| Error::InvalidField {
+                        field: "expiresAt",
+                        source: err.into(),
+                    })
                     .and_then(|date_time| {
                         SystemTime::try_from(date_time).map_err(|_| {
-                            Error::Other(
-                                "SSO token expiration time cannot be represented by a SystemTime"
-                                    .into(),
-                            )
+                            Error::Other("SSO token expiration time cannot be represented by a SystemTime".into())
                         })
                     })
             })?,
@@ -249,12 +244,14 @@ fn parse_cached_token(
             if let Some(expires_at) = maybe_expires_at {
                 Some(
                     DateTime::from_str(expires_at.as_ref(), Format::DateTime)
-                        .map_err(|err| Error::InvalidField { field: "registrationExpiresAt", source: err.into()})
+                        .map_err(|err| Error::InvalidField {
+                            field: "registrationExpiresAt",
+                            source: err.into(),
+                        })
                         .and_then(|date_time| {
                             SystemTime::try_from(date_time).map_err(|_| {
                                 Error::Other(
-                                    "SSO registration expiration time cannot be represented by a SystemTime"
-                                        .into(),
+                                    "SSO registration expiration time cannot be represented by a SystemTime".into(),
                                 )
                             })
                         }),
@@ -275,9 +272,7 @@ fn json_parse_loop<'a>(
     use CachedSsoTokenError as Error;
     let mut tokens = json_token_iter(input).peekable();
     if !matches!(tokens.next().transpose()?, Some(Token::StartObject { .. })) {
-        return Err(Error::Other(
-            "expected a JSON document starting with `{`".into(),
-        ));
+        return Err(Error::Other("expected a JSON document starting with `{`".into()));
     }
     loop {
         match tokens.next().transpose()? {
@@ -290,16 +285,12 @@ fn json_parse_loop<'a>(
                 skip_value(&mut tokens)?;
             }
             other => {
-                return Err(Error::Other(
-                    format!("expected object key, found: {other:?}").into(),
-                ));
+                return Err(Error::Other(format!("expected object key, found: {other:?}").into()));
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(Error::Other(
-            "found more JSON tokens after completing parsing".into(),
-        ));
+        return Err(Error::Other("found more JSON tokens after completing parsing".into()));
     }
     Ok(())
 }
@@ -330,9 +321,7 @@ pub(super) async fn save_cached_token(
         writer.key("clientSecret").string(client_secret);
     }
     if let Some(registration_expires_at) = registration_expires_at {
-        writer
-            .key("registrationExpiresAt")
-            .string(&registration_expires_at);
+        writer.key("registrationExpiresAt").string(&registration_expires_at);
     }
     if let Some(region) = &token.region {
         writer.key("region").string(region);
@@ -373,7 +362,10 @@ mod tests {
             start_url: Some("starturl".into()),
         };
         let debug_str = format!("{:?}", token);
-        assert!(!debug_str.contains("!!SENSITIVE!!"), "The `Debug` impl for `CachedSsoToken` isn't properly redacting sensitive fields: {debug_str}");
+        assert!(
+            !debug_str.contains("!!SENSITIVE!!"),
+            "The `Debug` impl for `CachedSsoToken` isn't properly redacting sensitive fields: {debug_str}"
+        );
     }
 
     // Valid token with all fields
@@ -400,17 +392,11 @@ mod tests {
         assert_eq!("clientid", cached.client_id.expect("client id is present"));
         assert_eq!(
             "YSBzZWNyZXQ=",
-            cached
-                .client_secret
-                .expect("client secret is present")
-                .as_str()
+            cached.client_secret.expect("client secret is present").as_str()
         );
         assert_eq!(
             "cachedrefreshtoken",
-            cached
-                .refresh_token
-                .expect("refresh token is present")
-                .as_str()
+            cached.refresh_token.expect("refresh token is present").as_str()
         );
         assert_eq!(
             SystemTime::UNIX_EPOCH + Duration::from_secs(1671975000),
@@ -497,13 +483,9 @@ mod tests {
 
     #[tokio::test]
     async fn gracefully_handle_missing_files() {
-        let err = load_cached_token(
-            &Env::from_slice(&[("HOME", "/home")]),
-            &Fs::from_slice(&[]),
-            "asdf",
-        )
-        .await
-        .expect_err("should fail, file is missing");
+        let err = load_cached_token(&Env::from_slice(&[("HOME", "/home")]), &Fs::from_slice(&[]), "asdf")
+            .await
+            .expect_err("should fail, file is missing");
         assert!(
             matches!(err, CachedSsoTokenError::IoError { .. }),
             "should be io error, got {}",
@@ -585,9 +567,7 @@ mod tests {
         let env = Env::from_slice(&[("HOME", "/home/user")]);
         let fs = Fs::from_map(HashMap::<_, Vec<u8>>::new());
 
-        super::save_cached_token(&env, &fs, "test", &original)
-            .await
-            .unwrap();
+        super::save_cached_token(&env, &fs, "test", &original).await.unwrap();
 
         let roundtripped = load_cached_token(&env, &fs, "test").await.unwrap();
         assert_eq!(original, roundtripped)

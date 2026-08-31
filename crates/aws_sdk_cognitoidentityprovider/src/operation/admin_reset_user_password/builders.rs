@@ -39,8 +39,7 @@ impl crate::operation::admin_reset_user_password::builders::AdminResetUserPasswo
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct AdminResetUserPasswordFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::admin_reset_user_password::builders::AdminResetUserPasswordInputBuilder,
+    inner: crate::operation::admin_reset_user_password::builders::AdminResetUserPasswordInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -73,8 +72,7 @@ impl AdminResetUserPasswordFluentBuilder {
     /// Access the AdminResetUserPassword as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::admin_reset_user_password::builders::AdminResetUserPasswordInputBuilder
-    {
+    ) -> &crate::operation::admin_reset_user_password::builders::AdminResetUserPasswordInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -98,16 +96,13 @@ impl AdminResetUserPasswordFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::admin_reset_user_password::AdminResetUserPassword::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::admin_reset_user_password::AdminResetUserPassword::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::admin_reset_user_password::AdminResetUserPassword::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::admin_reset_user_password::AdminResetUserPassword::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -204,9 +199,7 @@ impl AdminResetUserPasswordFluentBuilder {
     /// </note>
     pub fn set_client_metadata(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_client_metadata(input);
         self
@@ -226,9 +219,7 @@ impl AdminResetUserPasswordFluentBuilder {
     /// </note>
     pub fn get_client_metadata(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_client_metadata()
     }
 }

@@ -3,8 +3,7 @@
 pub fn de_source_role_template(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::SourceRoleTemplate, ::aws_smithy_xml::decode::XmlDecodeError>
-{
+) -> ::std::result::Result<crate::types::SourceRoleTemplate, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
             "maximum nesting depth exceeded",
@@ -45,9 +44,7 @@ pub fn de_source_role_template(
             _ => {}
         }
     }
-    Ok(
-        crate::serde_util::source_role_template_correct_errors(builder)
-            .build()
-            .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?,
-    )
+    Ok(crate::serde_util::source_role_template_correct_errors(builder)
+        .build()
+        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
 }

@@ -58,9 +58,7 @@ impl ListPolicyVersionsFluentBuilder {
         }
     }
     /// Access the ListPolicyVersions as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_policy_versions::builders::ListPolicyVersionsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_policy_versions::builders::ListPolicyVersionsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,17 +82,12 @@ impl ListPolicyVersionsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_policy_versions::ListPolicyVersions::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::list_policy_versions::ListPolicyVersions::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::list_policy_versions::ListPolicyVersions::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::list_policy_versions::ListPolicyVersions::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -125,13 +118,8 @@ impl ListPolicyVersionsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_policy_versions::paginator::ListPolicyVersionsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_policy_versions::paginator::ListPolicyVersionsPaginator {
-        crate::operation::list_policy_versions::paginator::ListPolicyVersionsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_policy_versions::paginator::ListPolicyVersionsPaginator {
+        crate::operation::list_policy_versions::paginator::ListPolicyVersionsPaginator::new(self.handle, self.inner)
     }
     /// <p>The Amazon Resource Name (ARN) of the IAM policy for which you want the versions.</p>
     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>

@@ -30,15 +30,15 @@ impl GetBucketAccelerateConfigurationInput {
 }
 impl GetBucketAccelerateConfigurationInput {
     /// Creates a new builder-style object to manufacture [`GetBucketAccelerateConfigurationInput`](crate::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationInput).
-    pub fn builder() -> crate::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationInputBuilder
+    {
         crate::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationInputBuilder::default()
     }
 }
 
 /// A builder for [`GetBucketAccelerateConfigurationInput`](crate::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketAccelerateConfigurationInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -62,18 +62,12 @@ impl GetBucketAccelerateConfigurationInputBuilder {
         &self.bucket
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -91,10 +85,7 @@ impl GetBucketAccelerateConfigurationInputBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(
-        mut self,
-        input: ::std::option::Option<crate::types::RequestPayer>,
-    ) -> Self {
+    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
         self.request_payer = input;
         self
     }
@@ -110,7 +101,7 @@ impl GetBucketAccelerateConfigurationInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationInput {
                 bucket: self.bucket,

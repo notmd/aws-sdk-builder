@@ -12,8 +12,6 @@ impl super::Client {
     pub fn confirm_subscription(
         &self,
     ) -> crate::operation::confirm_subscription::builders::ConfirmSubscriptionFluentBuilder {
-        crate::operation::confirm_subscription::builders::ConfirmSubscriptionFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::confirm_subscription::builders::ConfirmSubscriptionFluentBuilder::new(self.handle.clone())
     }
 }

@@ -9,8 +9,6 @@ impl super::Client {
     pub fn put_account_properties(
         &self,
     ) -> crate::operation::put_account_properties::builders::PutAccountPropertiesFluentBuilder {
-        crate::operation::put_account_properties::builders::PutAccountPropertiesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::put_account_properties::builders::PutAccountPropertiesFluentBuilder::new(self.handle.clone())
     }
 }

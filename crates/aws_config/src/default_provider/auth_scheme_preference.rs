@@ -29,9 +29,7 @@ mod profile_key {
 /// Whitespace (spaces or tabs), including leading, trailing, and between names, is ignored.
 ///
 /// Returns `None` if a parsed string component is empty when creating an `AuthSchemeId`.
-pub(crate) async fn auth_scheme_preference_provider(
-    provider_config: &ProviderConfig,
-) -> Option<AuthSchemePreference> {
+pub(crate) async fn auth_scheme_preference_provider(provider_config: &ProviderConfig) -> Option<AuthSchemePreference> {
     let env = provider_config.env();
     let profiles = provider_config.profile().await;
 
@@ -66,11 +64,7 @@ pub(crate) struct InvalidAuthSchemeNamesCsv {
 
 impl fmt::Display for InvalidAuthSchemeNamesCsv {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(
-            f,
-            "Not a valid comma-separated auth scheme names: {}",
-            self.value
-        )
+        write!(f, "Not a valid comma-separated auth scheme names: {}", self.value)
     }
 }
 
@@ -80,8 +74,7 @@ impl std::error::Error for InvalidAuthSchemeNamesCsv {}
 mod test {
     use super::env;
     use crate::{
-        default_provider::auth_scheme_preference::auth_scheme_preference_provider,
-        provider_config::ProviderConfig,
+        default_provider::auth_scheme_preference::auth_scheme_preference_provider, provider_config::ProviderConfig,
     };
     use aws_types::os_shim_internal::Env;
     use tracing_test::traced_test;
@@ -105,8 +98,7 @@ mod test {
         #[allow(deprecated)]
         use crate::profile::profile_file::{ProfileFileKind, ProfileFiles};
         use crate::{
-            default_provider::auth_scheme_preference::auth_scheme_preference_provider,
-            provider_config::ProviderConfig,
+            default_provider::auth_scheme_preference::auth_scheme_preference_provider, provider_config::ProviderConfig,
         };
         use aws_smithy_runtime_api::client::auth::AuthSchemePreference;
         use aws_types::os_shim_internal::{Env, Fs};

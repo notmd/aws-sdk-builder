@@ -28,14 +28,11 @@ impl GuardrailChecksSensitiveInformationResult {
 }
 
 /// A builder for [`GuardrailChecksSensitiveInformationResult`](crate::types::GuardrailChecksSensitiveInformationResult).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailChecksSensitiveInformationResultBuilder {
-    pub(crate) results: ::std::option::Option<
-        ::std::vec::Vec<crate::types::GuardrailChecksSensitiveInformationResultEntry>,
-    >,
+    pub(crate) results:
+        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksSensitiveInformationResultEntry>>,
     pub(crate) truncated: ::std::option::Option<bool>,
 }
 impl GuardrailChecksSensitiveInformationResultBuilder {
@@ -44,10 +41,7 @@ impl GuardrailChecksSensitiveInformationResultBuilder {
     /// To override the contents of this collection use [`set_results`](Self::set_results).
     ///
     /// <p>The detected sensitive information entities.</p>
-    pub fn results(
-        mut self,
-        input: crate::types::GuardrailChecksSensitiveInformationResultEntry,
-    ) -> Self {
+    pub fn results(mut self, input: crate::types::GuardrailChecksSensitiveInformationResultEntry) -> Self {
         let mut v = self.results.unwrap_or_default();
         v.push(input);
         self.results = ::std::option::Option::Some(v);
@@ -56,9 +50,7 @@ impl GuardrailChecksSensitiveInformationResultBuilder {
     /// <p>The detected sensitive information entities.</p>
     pub fn set_results(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GuardrailChecksSensitiveInformationResultEntry>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksSensitiveInformationResultEntry>>,
     ) -> Self {
         self.results = input;
         self
@@ -66,9 +58,7 @@ impl GuardrailChecksSensitiveInformationResultBuilder {
     /// <p>The detected sensitive information entities.</p>
     pub fn get_results(
         &self,
-    ) -> &::std::option::Option<
-        ::std::vec::Vec<crate::types::GuardrailChecksSensitiveInformationResultEntry>,
-    > {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksSensitiveInformationResultEntry>> {
         &self.results
     }
     /// <p>Specifies whether the results were truncated because the number of detected entities exceeded the maximum limit.</p>

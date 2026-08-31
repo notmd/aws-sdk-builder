@@ -27,9 +27,7 @@ impl AdminCreateUserConfigType {
     }
     /// <p>The template for the welcome message to new users. This template must include the <code>{####}</code> temporary password placeholder if you are creating users with passwords. If your users don't have passwords, you can omit the placeholder.</p>
     /// <p>See also <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization">Customizing User Invitation Messages</a>.</p>
-    pub fn invite_message_template(
-        &self,
-    ) -> ::std::option::Option<&crate::types::MessageTemplateType> {
+    pub fn invite_message_template(&self) -> ::std::option::Option<&crate::types::MessageTemplateType> {
         self.invite_message_template.as_ref()
     }
 }
@@ -41,9 +39,7 @@ impl AdminCreateUserConfigType {
 }
 
 /// A builder for [`AdminCreateUserConfigType`](crate::types::AdminCreateUserConfigType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AdminCreateUserConfigTypeBuilder {
     pub(crate) allow_admin_create_user_only: ::std::option::Option<bool>,
@@ -102,9 +98,7 @@ impl AdminCreateUserConfigTypeBuilder {
     }
     /// <p>The template for the welcome message to new users. This template must include the <code>{####}</code> temporary password placeholder if you are creating users with passwords. If your users don't have passwords, you can omit the placeholder.</p>
     /// <p>See also <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization">Customizing User Invitation Messages</a>.</p>
-    pub fn get_invite_message_template(
-        &self,
-    ) -> &::std::option::Option<crate::types::MessageTemplateType> {
+    pub fn get_invite_message_template(&self) -> &::std::option::Option<crate::types::MessageTemplateType> {
         &self.invite_message_template
     }
     /// Consumes the builder and constructs a [`AdminCreateUserConfigType`](crate::types::AdminCreateUserConfigType).

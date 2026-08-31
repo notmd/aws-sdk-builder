@@ -57,9 +57,7 @@ impl DeleteConnectorFluentBuilder {
         }
     }
     /// Access the DeleteConnector as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::delete_connector::builders::DeleteConnectorInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::delete_connector::builders::DeleteConnectorInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,14 +81,12 @@ impl DeleteConnectorFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::delete_connector::DeleteConnector::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::delete_connector::DeleteConnector::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::delete_connector::DeleteConnector::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::delete_connector::DeleteConnector::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

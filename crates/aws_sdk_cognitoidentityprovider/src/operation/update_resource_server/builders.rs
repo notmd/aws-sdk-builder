@@ -68,9 +68,7 @@ impl UpdateResourceServerFluentBuilder {
         }
     }
     /// Access the UpdateResourceServer as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::update_resource_server::builders::UpdateResourceServerInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::update_resource_server::builders::UpdateResourceServerInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -99,11 +97,7 @@ impl UpdateResourceServerFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::update_resource_server::UpdateResourceServer::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::update_resource_server::UpdateResourceServer::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -195,9 +189,7 @@ impl UpdateResourceServerFluentBuilder {
         self
     }
     /// <p>An array of updated custom scope names and descriptions that you want to associate with your resource server.</p>
-    pub fn get_scopes(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceServerScopeType>> {
+    pub fn get_scopes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceServerScopeType>> {
         self.inner.get_scopes()
     }
 }

@@ -68,8 +68,7 @@ impl AdminListUserAuthEventsFluentBuilder {
     /// Access the AdminListUserAuthEvents as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::admin_list_user_auth_events::builders::AdminListUserAuthEventsInputBuilder
-    {
+    ) -> &crate::operation::admin_list_user_auth_events::builders::AdminListUserAuthEventsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -93,16 +92,14 @@ impl AdminListUserAuthEventsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::admin_list_user_auth_events::AdminListUserAuthEvents::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::admin_list_user_auth_events::AdminListUserAuthEvents::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::admin_list_user_auth_events::AdminListUserAuthEvents::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::admin_list_user_auth_events::AdminListUserAuthEvents::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -135,9 +132,11 @@ impl AdminListUserAuthEventsFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::admin_list_user_auth_events::paginator::AdminListUserAuthEventsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::admin_list_user_auth_events::paginator::AdminListUserAuthEventsPaginator
-    {
-        crate::operation::admin_list_user_auth_events::paginator::AdminListUserAuthEventsPaginator::new(self.handle, self.inner)
+    ) -> crate::operation::admin_list_user_auth_events::paginator::AdminListUserAuthEventsPaginator {
+        crate::operation::admin_list_user_auth_events::paginator::AdminListUserAuthEventsPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The Id of the user pool that contains the user profile with the logged events.</p>
     pub fn user_pool_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

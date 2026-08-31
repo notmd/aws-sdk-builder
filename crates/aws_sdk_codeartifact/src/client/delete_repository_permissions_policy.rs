@@ -12,7 +12,8 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteRepositoryPermissionsPolicyError>`](crate::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError)
     pub fn delete_repository_permissions_policy(
         &self,
-    ) -> crate::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyFluentBuilder{
+    ) -> crate::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyFluentBuilder
+    {
         crate::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyFluentBuilder::new(self.handle.clone())
     }
 }

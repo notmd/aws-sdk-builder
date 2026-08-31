@@ -82,10 +82,7 @@ pub use crate::types::_service_specific_credential::ServiceSpecificCredential;
 ))]
 pub use crate::types::_user::User;
 
-#[cfg(any(
-    feature = "op_create_virtual_mfa_device",
-    feature = "op_list_virtual_mfa_devices"
-))]
+#[cfg(any(feature = "op_create_virtual_mfa_device", feature = "op_list_virtual_mfa_devices"))]
 pub use crate::types::_virtual_mfa_device::VirtualMfaDevice;
 
 #[cfg(feature = "op_generate_credential_report")]
@@ -106,10 +103,7 @@ pub use crate::types::_password_policy::PasswordPolicy;
 #[cfg(feature = "op_get_credential_report")]
 pub use crate::types::_report_format_type::ReportFormatType;
 
-#[cfg(any(
-    feature = "op_get_delegation_request",
-    feature = "op_list_delegation_requests"
-))]
+#[cfg(any(feature = "op_get_delegation_request", feature = "op_list_delegation_requests"))]
 pub use crate::types::_delegation_request::DelegationRequest;
 
 #[cfg(feature = "op_get_delegation_request")]
@@ -153,10 +147,7 @@ pub use crate::types::_deletion_task_failure_reason_type::DeletionTaskFailureRea
 #[cfg(feature = "op_get_ssh_public_key")]
 pub use crate::types::_encoding_type::EncodingType;
 
-#[cfg(any(
-    feature = "op_get_ssh_public_key",
-    feature = "op_upload_ssh_public_key"
-))]
+#[cfg(any(feature = "op_get_ssh_public_key", feature = "op_upload_ssh_public_key"))]
 pub use crate::types::_ssh_public_key::SshPublicKey;
 
 #[cfg(any(
@@ -202,10 +193,7 @@ pub use crate::types::_status_type::StatusType;
 ))]
 pub use crate::types::_server_certificate_metadata::ServerCertificateMetadata;
 
-#[cfg(any(
-    feature = "op_list_signing_certificates",
-    feature = "op_upload_signing_certificate"
-))]
+#[cfg(any(feature = "op_list_signing_certificates", feature = "op_upload_signing_certificate"))]
 pub use crate::types::_signing_certificate::SigningCertificate;
 
 #[cfg(feature = "op_acquire_role")]
@@ -332,10 +320,7 @@ pub use crate::types::_managed_policy_detail::ManagedPolicyDetail;
 #[cfg(feature = "op_get_account_summary")]
 pub use crate::types::_summary_key_type::SummaryKeyType;
 
-#[cfg(any(
-    feature = "op_get_delegation_request",
-    feature = "op_list_delegation_requests"
-))]
+#[cfg(any(feature = "op_get_delegation_request", feature = "op_list_delegation_requests"))]
 pub use crate::types::_state_type::StateType;
 
 #[cfg(feature = "op_get_organizations_access_report")]
@@ -394,16 +379,10 @@ pub use crate::types::_ssh_public_key_metadata::SshPublicKeyMetadata;
 #[cfg(feature = "op_simulate_custom_policy")]
 pub use crate::types::_ordered_organization_policy_type::OrderedOrganizationPolicyType;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub use crate::types::_context_entry::ContextEntry;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub use crate::types::_evaluation_result::EvaluationResult;
 
 #[cfg(feature = "op_simulate_principal_policy")]
@@ -452,28 +431,16 @@ pub use crate::types::_entity_info::EntityInfo;
 #[cfg(feature = "op_get_service_linked_role_deletion_status")]
 pub use crate::types::_role_usage_type::RoleUsageType;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub use crate::types::_context_key_type_enum::ContextKeyTypeEnum;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub use crate::types::_policy_evaluation_decision_type::PolicyEvaluationDecisionType;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub use crate::types::_organizations_decision_detail::OrganizationsDecisionDetail;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub use crate::types::_permissions_boundary_decision_detail::PermissionsBoundaryDecisionDetail;
 
 #[cfg(feature = "op_simulate_principal_policy")]
@@ -507,16 +474,10 @@ pub use crate::types::_policy_owner_entity_type::PolicyOwnerEntityType;
 #[cfg(feature = "op_list_policies_granting_service_access")]
 pub use crate::types::_policy_granting_service_access::PolicyGrantingServiceAccess;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub use crate::types::_statement::Statement;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub use crate::types::_resource_specific_result::ResourceSpecificResult;
 
 #[cfg(feature = "op_simulate_principal_policy")]
@@ -525,16 +486,10 @@ pub use crate::types::_attachment_type::AttachmentType;
 #[cfg(feature = "op_list_policies_granting_service_access")]
 pub use crate::types::_policy_type::PolicyType;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub use crate::types::_policy_source_type::PolicySourceType;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub use crate::types::_position::Position;
 
 #[cfg(any(
@@ -597,16 +552,10 @@ mod _attached_policy;
 #[cfg(feature = "op_simulate_principal_policy")]
 mod _attachment_type;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 mod _context_entry;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 mod _context_key_type_enum;
 
 #[cfg(any(
@@ -616,10 +565,7 @@ mod _context_key_type_enum;
 ))]
 mod _delegation_permission;
 
-#[cfg(any(
-    feature = "op_get_delegation_request",
-    feature = "op_list_delegation_requests"
-))]
+#[cfg(any(feature = "op_get_delegation_request", feature = "op_list_delegation_requests"))]
 mod _delegation_request;
 
 #[cfg(feature = "op_get_service_linked_role_deletion_status")]
@@ -650,10 +596,7 @@ mod _entity_type;
 ))]
 mod _error_details;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 mod _evaluation_result;
 
 #[cfg(any(
@@ -722,10 +665,7 @@ mod _open_id_connect_provider_list_entry;
 #[cfg(feature = "op_simulate_custom_policy")]
 mod _ordered_organization_policy_type;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 mod _organizations_decision_detail;
 
 #[cfg(feature = "op_get_role_template_version")]
@@ -764,10 +704,7 @@ mod _permission_check_status_type;
 ))]
 mod _permissions_boundary_attachment_type;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 mod _permissions_boundary_decision_detail;
 
 #[cfg(any(
@@ -780,10 +717,7 @@ mod _policy;
 #[cfg(feature = "op_get_account_authorization_details")]
 mod _policy_detail;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 mod _policy_evaluation_decision_type;
 
 #[cfg(feature = "op_list_policies_granting_service_access")]
@@ -824,10 +758,7 @@ mod _policy_role;
 #[cfg(feature = "op_list_policies")]
 mod _policy_scope_type;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 mod _policy_source_type;
 
 #[cfg(feature = "op_list_policies_granting_service_access")]
@@ -847,10 +778,7 @@ mod _policy_user;
 ))]
 mod _policy_version;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 mod _position;
 
 #[cfg(feature = "op_acquire_role")]
@@ -862,10 +790,7 @@ mod _report_format_type;
 #[cfg(feature = "op_generate_credential_report")]
 mod _report_state_type;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 mod _resource_specific_result;
 
 #[cfg(any(
@@ -935,10 +860,7 @@ mod _service_specific_credential;
 #[cfg(feature = "op_list_service_specific_credentials")]
 mod _service_specific_credential_metadata;
 
-#[cfg(any(
-    feature = "op_list_signing_certificates",
-    feature = "op_upload_signing_certificate"
-))]
+#[cfg(any(feature = "op_list_signing_certificates", feature = "op_upload_signing_certificate"))]
 mod _signing_certificate;
 
 #[cfg(feature = "op_get_organizations_access_report")]
@@ -959,25 +881,16 @@ mod _sort_key_type;
 ))]
 mod _source_role_template;
 
-#[cfg(any(
-    feature = "op_get_ssh_public_key",
-    feature = "op_upload_ssh_public_key"
-))]
+#[cfg(any(feature = "op_get_ssh_public_key", feature = "op_upload_ssh_public_key"))]
 mod _ssh_public_key;
 
 #[cfg(feature = "op_list_ssh_public_keys")]
 mod _ssh_public_key_metadata;
 
-#[cfg(any(
-    feature = "op_get_delegation_request",
-    feature = "op_list_delegation_requests"
-))]
+#[cfg(any(feature = "op_get_delegation_request", feature = "op_list_delegation_requests"))]
 mod _state_type;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 mod _statement;
 
 #[cfg(any(
@@ -1069,10 +982,7 @@ mod _user;
 #[cfg(feature = "op_get_account_authorization_details")]
 mod _user_detail;
 
-#[cfg(any(
-    feature = "op_create_virtual_mfa_device",
-    feature = "op_list_virtual_mfa_devices"
-))]
+#[cfg(any(feature = "op_create_virtual_mfa_device", feature = "op_list_virtual_mfa_devices"))]
 mod _virtual_mfa_device;
 
 /// Builders

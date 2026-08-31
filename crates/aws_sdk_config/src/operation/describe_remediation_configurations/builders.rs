@@ -26,7 +26,8 @@ impl crate::operation::describe_remediation_configurations::builders::DescribeRe
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DescribeRemediationConfigurationsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::describe_remediation_configurations::builders::DescribeRemediationConfigurationsInputBuilder,
+    inner:
+        crate::operation::describe_remediation_configurations::builders::DescribeRemediationConfigurationsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -57,7 +58,10 @@ impl DescribeRemediationConfigurationsFluentBuilder {
         }
     }
     /// Access the DescribeRemediationConfigurations as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_remediation_configurations::builders::DescribeRemediationConfigurationsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_remediation_configurations::builders::DescribeRemediationConfigurationsInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +80,7 @@ impl DescribeRemediationConfigurationsFluentBuilder {
             crate::operation::describe_remediation_configurations::DescribeRemediationConfigurationsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +90,11 @@ impl DescribeRemediationConfigurationsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::describe_remediation_configurations::DescribeRemediationConfigurations::orchestrate(&runtime_plugins, input).await
+        crate::operation::describe_remediation_configurations::DescribeRemediationConfigurations::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +104,7 @@ impl DescribeRemediationConfigurationsFluentBuilder {
         crate::operation::describe_remediation_configurations::DescribeRemediationConfigurationsOutput,
         crate::operation::describe_remediation_configurations::DescribeRemediationConfigurationsError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -120,10 +128,7 @@ impl DescribeRemediationConfigurationsFluentBuilder {
     /// To override the contents of this collection use [`set_config_rule_names`](Self::set_config_rule_names).
     ///
     /// <p>A list of Config rule names of remediation configurations for which you want details.</p>
-    pub fn config_rule_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn config_rule_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.config_rule_names(input.into());
         self
     }
@@ -136,9 +141,7 @@ impl DescribeRemediationConfigurationsFluentBuilder {
         self
     }
     /// <p>A list of Config rule names of remediation configurations for which you want details.</p>
-    pub fn get_config_rule_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_config_rule_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_config_rule_names()
     }
 }

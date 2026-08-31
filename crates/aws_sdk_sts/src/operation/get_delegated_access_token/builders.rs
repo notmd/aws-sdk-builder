@@ -26,8 +26,7 @@ impl crate::operation::get_delegated_access_token::builders::GetDelegatedAccessT
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GetDelegatedAccessTokenFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenInputBuilder,
+    inner: crate::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -60,8 +59,7 @@ impl GetDelegatedAccessTokenFluentBuilder {
     /// Access the GetDelegatedAccessToken as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenInputBuilder
-    {
+    ) -> &crate::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,16 +83,14 @@ impl GetDelegatedAccessTokenFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_delegated_access_token::GetDelegatedAccessToken::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::get_delegated_access_token::GetDelegatedAccessToken::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::get_delegated_access_token::GetDelegatedAccessToken::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::get_delegated_access_token::GetDelegatedAccessToken::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -123,18 +119,12 @@ impl GetDelegatedAccessTokenFluentBuilder {
         self
     }
     /// <p>The token to exchange for temporary Amazon Web Services credentials. This token must be valid and unexpired at the time of the request.</p>
-    pub fn trade_in_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn trade_in_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.trade_in_token(input.into());
         self
     }
     /// <p>The token to exchange for temporary Amazon Web Services credentials. This token must be valid and unexpired at the time of the request.</p>
-    pub fn set_trade_in_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_trade_in_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_trade_in_token(input);
         self
     }

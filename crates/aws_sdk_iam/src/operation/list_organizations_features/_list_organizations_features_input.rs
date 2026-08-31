@@ -5,15 +5,13 @@
 pub struct ListOrganizationsFeaturesInput {}
 impl ListOrganizationsFeaturesInput {
     /// Creates a new builder-style object to manufacture [`ListOrganizationsFeaturesInput`](crate::operation::list_organizations_features::ListOrganizationsFeaturesInput).
-    pub fn builder() -> crate::operation::list_organizations_features::builders::ListOrganizationsFeaturesInputBuilder{
+    pub fn builder() -> crate::operation::list_organizations_features::builders::ListOrganizationsFeaturesInputBuilder {
         crate::operation::list_organizations_features::builders::ListOrganizationsFeaturesInputBuilder::default()
     }
 }
 
 /// A builder for [`ListOrganizationsFeaturesInput`](crate::operation::list_organizations_features::ListOrganizationsFeaturesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListOrganizationsFeaturesInputBuilder {}
 impl ListOrganizationsFeaturesInputBuilder {
@@ -24,8 +22,6 @@ impl ListOrganizationsFeaturesInputBuilder {
         crate::operation::list_organizations_features::ListOrganizationsFeaturesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::list_organizations_features::ListOrganizationsFeaturesInput {},
-        )
+        ::std::result::Result::Ok(crate::operation::list_organizations_features::ListOrganizationsFeaturesInput {})
     }
 }

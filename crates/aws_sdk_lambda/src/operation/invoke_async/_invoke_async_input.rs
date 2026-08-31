@@ -66,10 +66,7 @@ impl InvokeAsyncInputBuilder {
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     /// This field is required.
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
@@ -84,10 +81,7 @@ impl InvokeAsyncInputBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
     }
@@ -120,9 +114,7 @@ impl InvokeAsyncInputBuilder {
         self
     }
     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
-    pub fn get_invoke_args(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
+    pub fn get_invoke_args(&self) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
         &self.invoke_args
     }
     /// Consumes the builder and constructs a [`InvokeAsyncInput`](crate::operation::invoke_async::InvokeAsyncInput).

@@ -57,9 +57,7 @@ impl GetJobQueueSnapshotFluentBuilder {
         }
     }
     /// Access the GetJobQueueSnapshot as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_job_queue_snapshot::builders::GetJobQueueSnapshotInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_job_queue_snapshot::builders::GetJobQueueSnapshotInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,11 +86,7 @@ impl GetJobQueueSnapshotFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_job_queue_snapshot::GetJobQueueSnapshot::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::get_job_queue_snapshot::GetJobQueueSnapshot::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

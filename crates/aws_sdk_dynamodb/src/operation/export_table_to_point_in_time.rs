@@ -80,26 +80,24 @@ impl ExportTableToPointInTime {
         config_override: ::std::option::Option<crate::config::Builder>,
     ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {
         let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());
-        runtime_plugins = runtime_plugins.with_operation_plugin(crate::client_idempotency_token::IdempotencyTokenRuntimePlugin::new(
-            |token_provider, input| {
+        runtime_plugins = runtime_plugins.with_operation_plugin(
+            crate::client_idempotency_token::IdempotencyTokenRuntimePlugin::new(|token_provider, input| {
                 let input: &mut crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeInput =
                     input.downcast_mut().expect("correct type");
                 if input.client_token.is_none() {
                     input.client_token = ::std::option::Option::Some(token_provider.make_idempotency_token());
                 }
-            },
-        ));
+            }),
+        );
         if let ::std::option::Option::Some(config_override) = config_override {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(
-                crate::config::ConfigOverrideRuntimePlugin::new(
-                    config_override,
-                    client_config.config.clone(),
-                    &client_config.runtime_components,
-                ),
-            );
+            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+                config_override,
+                client_config.config.clone(),
+                &client_config.runtime_components,
+            ));
         }
         runtime_plugins
     }
@@ -108,11 +106,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ExportT
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("ExportTableToPointInTime");
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                ExportTableToPointInTimeRequestSerializer,
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+            ExportTableToPointInTimeRequestSerializer,
+        ));
         cfg.store_put(
             ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
                 ExportTableToPointInTimeResponseDeserializer,
@@ -128,12 +124,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ExportT
             ),
         );
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-                "ExportTableToPointInTime",
-                "DynamoDB",
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+            "ExportTableToPointInTime",
+            "DynamoDB",
+        ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = true;
         signing_options.content_sha256_header = false;
@@ -151,30 +145,39 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ExportT
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<
-        '_,
-        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    > {
+    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
-        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ExportTableToPointInTime")
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new(
+            "ExportTableToPointInTime",
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 ExportTableToPointInTimeTelemetryInputCaptureInterceptor,
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 ExportTableToPointInTimeEndpointParamsInterceptor,
-            ))
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+            ),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                 crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeError,
-            >::new())
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+            >::new(),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                 crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeError,
-            >::new())
-            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeError,
-            >::new());
+            >::new(),
+        )
+        .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+            crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeError,
+        >::new());
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -209,10 +212,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) = context
-            .input()
-            .downcast_ref::<ExportTableToPointInTimeInput>()
-        else {
+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<ExportTableToPointInTimeInput>() else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
@@ -255,9 +255,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
 }
 #[derive(Debug)]
 struct ExportTableToPointInTimeResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
-    for ExportTableToPointInTimeResponseDeserializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for ExportTableToPointInTimeResponseDeserializer {
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -270,18 +268,20 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_export_table_to_point_in_time::de_export_table_to_point_in_time_http_error(status, headers, body)
+            crate::protocol_serde::shape_export_table_to_point_in_time::de_export_table_to_point_in_time_http_error(
+                status, headers, body,
+            )
         } else {
-            crate::protocol_serde::shape_export_table_to_point_in_time::de_export_table_to_point_in_time_http_response(status, headers, body)
+            crate::protocol_serde::shape_export_table_to_point_in_time::de_export_table_to_point_in_time_http_response(
+                status, headers, body,
+            )
         };
         crate::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
 struct ExportTableToPointInTimeRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
-    for ExportTableToPointInTimeRequestSerializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ExportTableToPointInTimeRequestSerializer {
     #[allow(
         unused_mut,
         clippy::let_and_return,
@@ -308,8 +308,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_base(
                 _input: &crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
                 ::std::write!(output, "/").expect("formatting should succeed");
                 ::std::result::Result::Ok(())
@@ -318,10 +317,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn update_http_builder(
                 input: &crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<
-                ::http_1x::request::Builder,
-                ::aws_smithy_types::error::operation::BuildError,
-            > {
+            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
@@ -340,7 +337,9 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            crate::protocol_serde::shape_export_table_to_point_in_time::ser_export_table_to_point_in_time_input(&input)?,
+            crate::protocol_serde::shape_export_table_to_point_in_time::ser_export_table_to_point_in_time_input(
+                &input,
+            )?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
@@ -350,22 +349,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
                 &content_length,
             );
         }
-        ::std::result::Result::Ok(
-            request_builder
-                .body(body)
-                .expect("valid request")
-                .try_into()
-                .unwrap(),
-        )
+        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
 #[derive(Debug)]
 struct ExportTableToPointInTimeEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for ExportTableToPointInTimeEndpointParamsInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ExportTableToPointInTimeEndpointParamsInterceptor {
     fn name(&self) -> &'static str {
         "ExportTableToPointInTimeEndpointParamsInterceptor"
     }
@@ -386,18 +377,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             .ok_or("failed to downcast to ExportTableToPointInTimeInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(
-                cfg.load::<::aws_types::region::Region>()
-                    .map(|r| r.as_ref().to_owned()),
-            )
-            .set_use_dual_stack(
-                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
-                    .map(|ty| ty.0),
-            )
-            .set_use_fips(
-                cfg.load::<::aws_types::endpoint_config::UseFips>()
-                    .map(|ty| ty.0),
-            )
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_endpoint(
                 cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
                     .map(|ty| ty.0.clone()),
@@ -427,9 +409,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
                     err,
                 )
             })?;
-        cfg.interceptor_state().store_put(
-            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
-        );
+        cfg.interceptor_state()
+            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(
+                params,
+            ));
         ::std::result::Result::Ok(())
     }
 }
@@ -456,9 +439,7 @@ pub enum ExportTableToPointInTimeError {
     /// <p>More than 2 processes are reading from the same streams shard at the same time. Exceeding this limit may result in request throttling.</p>
     LimitExceededException(crate::types::error::LimitExceededException),
     /// <p>Point in time recovery has not yet been enabled for this source table.</p>
-    PointInTimeRecoveryUnavailableException(
-        crate::types::error::PointInTimeRecoveryUnavailableException,
-    ),
+    PointInTimeRecoveryUnavailableException(crate::types::error::PointInTimeRecoveryUnavailableException),
     /// <p>A source table with the name <code>TableName</code> does not currently exist within the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.</p>
     TableNotFoundException(crate::types::error::TableNotFoundException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
@@ -476,9 +457,7 @@ impl ExportTableToPointInTimeError {
     /// Creates the `ExportTableToPointInTimeError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -500,24 +479,14 @@ impl ExportTableToPointInTimeError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::ExportConflictException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::InternalServerError(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::InvalidExportTimeException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::LimitExceededException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::ExportConflictException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InternalServerError(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidExportTimeException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::LimitExceededException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::PointInTimeRecoveryUnavailableException(e) => {
                 ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
             }
-            Self::TableNotFoundException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::TableNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -553,9 +522,7 @@ impl ::std::error::Error for ExportTableToPointInTimeError {
             Self::InternalServerError(_inner) => ::std::option::Option::Some(_inner),
             Self::InvalidExportTimeException(_inner) => ::std::option::Option::Some(_inner),
             Self::LimitExceededException(_inner) => ::std::option::Option::Some(_inner),
-            Self::PointInTimeRecoveryUnavailableException(_inner) => {
-                ::std::option::Option::Some(_inner)
-            }
+            Self::PointInTimeRecoveryUnavailableException(_inner) => ::std::option::Option::Some(_inner),
             Self::TableNotFoundException(_inner) => ::std::option::Option::Some(_inner),
             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
         }
@@ -615,13 +582,9 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ExportTableTo
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
-    for ExportTableToPointInTimeError
-{
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ExportTableToPointInTimeError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {

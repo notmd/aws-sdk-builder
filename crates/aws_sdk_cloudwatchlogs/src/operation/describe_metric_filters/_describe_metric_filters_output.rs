@@ -28,17 +28,13 @@ impl ::aws_types::request_id::RequestId for DescribeMetricFiltersOutput {
 }
 impl DescribeMetricFiltersOutput {
     /// Creates a new builder-style object to manufacture [`DescribeMetricFiltersOutput`](crate::operation::describe_metric_filters::DescribeMetricFiltersOutput).
-    pub fn builder(
-    ) -> crate::operation::describe_metric_filters::builders::DescribeMetricFiltersOutputBuilder
-    {
+    pub fn builder() -> crate::operation::describe_metric_filters::builders::DescribeMetricFiltersOutputBuilder {
         crate::operation::describe_metric_filters::builders::DescribeMetricFiltersOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeMetricFiltersOutput`](crate::operation::describe_metric_filters::DescribeMetricFiltersOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeMetricFiltersOutputBuilder {
     pub(crate) metric_filters: ::std::option::Option<::std::vec::Vec<crate::types::MetricFilter>>,
@@ -66,9 +62,7 @@ impl DescribeMetricFiltersOutputBuilder {
         self
     }
     /// <p>The metric filters.</p>
-    pub fn get_metric_filters(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::MetricFilter>> {
+    pub fn get_metric_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MetricFilter>> {
         &self.metric_filters
     }
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>

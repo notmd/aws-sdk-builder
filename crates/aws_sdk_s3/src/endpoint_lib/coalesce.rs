@@ -201,52 +201,18 @@ mod test {
         );
 
         assert_eq!(
-            coalesce!(
-                None,
-                None,
-                None,
-                Some("a"),
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                "b"
-            ),
+            coalesce!(None, None, None, Some("a"), None, None, None, None, None, None, "b"),
             "a"
         );
         assert_eq!(
-            coalesce!(
-                Some("a"),
-                None,
-                None,
-                Some("b"),
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-            ),
+            coalesce!(Some("a"), None, None, Some("b"), None, None, None, None, None, None,),
             Some("a")
         );
 
         assert_eq!(coalesce!("a", "b", "c", "d", "e", "f", "g",), "a");
 
         assert_eq!(
-            coalesce!(
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None::<&str>,
-            ),
+            coalesce!(None, None, None, None, None, None, None, None, None, None::<&str>,),
             None
         );
     }

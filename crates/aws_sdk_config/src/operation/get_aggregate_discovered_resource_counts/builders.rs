@@ -79,7 +79,7 @@ impl GetAggregateDiscoveredResourceCountsFluentBuilder {
             crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -90,7 +90,11 @@ impl GetAggregateDiscoveredResourceCountsFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCounts::orchestrate(&runtime_plugins, input).await
+        crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCounts::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -100,7 +104,7 @@ impl GetAggregateDiscoveredResourceCountsFluentBuilder {
         crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsOutput,
         crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -130,25 +134,17 @@ impl GetAggregateDiscoveredResourceCountsFluentBuilder {
         )
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn configuration_aggregator_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_aggregator_name(input.into());
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn set_configuration_aggregator_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_aggregator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_aggregator_name(input);
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn get_configuration_aggregator_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_configuration_aggregator_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_configuration_aggregator_name()
     }
     /// <p>Filters the results based on the <code>ResourceCountFilters</code> object.</p>
@@ -157,10 +153,7 @@ impl GetAggregateDiscoveredResourceCountsFluentBuilder {
         self
     }
     /// <p>Filters the results based on the <code>ResourceCountFilters</code> object.</p>
-    pub fn set_filters(
-        mut self,
-        input: ::std::option::Option<crate::types::ResourceCountFilters>,
-    ) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<crate::types::ResourceCountFilters>) -> Self {
         self.inner = self.inner.set_filters(input);
         self
     }
@@ -174,10 +167,7 @@ impl GetAggregateDiscoveredResourceCountsFluentBuilder {
         self
     }
     /// <p>The key to group the resource counts.</p>
-    pub fn set_group_by_key(
-        mut self,
-        input: ::std::option::Option<crate::types::ResourceCountGroupKey>,
-    ) -> Self {
+    pub fn set_group_by_key(mut self, input: ::std::option::Option<crate::types::ResourceCountGroupKey>) -> Self {
         self.inner = self.inner.set_group_by_key(input);
         self
     }

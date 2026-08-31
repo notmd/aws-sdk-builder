@@ -10,8 +10,6 @@ impl super::Client {
     pub fn create_o_auth2_token(
         &self,
     ) -> crate::operation::create_o_auth2_token::builders::CreateOAuth2TokenFluentBuilder {
-        crate::operation::create_o_auth2_token::builders::CreateOAuth2TokenFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::create_o_auth2_token::builders::CreateOAuth2TokenFluentBuilder::new(self.handle.clone())
     }
 }

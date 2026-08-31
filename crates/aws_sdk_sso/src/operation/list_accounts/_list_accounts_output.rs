@@ -34,9 +34,7 @@ impl ListAccountsOutput {
 }
 
 /// A builder for [`ListAccountsOutput`](crate::operation::list_accounts::ListAccountsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListAccountsOutputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
@@ -78,9 +76,7 @@ impl ListAccountsOutputBuilder {
         self
     }
     /// <p>A paginated response with the list of account information and the next token if more results are available.</p>
-    pub fn get_account_list(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AccountInfo>> {
+    pub fn get_account_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AccountInfo>> {
         &self.account_list
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

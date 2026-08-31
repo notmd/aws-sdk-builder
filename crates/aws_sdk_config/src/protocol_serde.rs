@@ -116,12 +116,8 @@ where
     E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
 {
     result
-        .map(|output| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output)
-        })
-        .map_err(|error| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error)
-        })
+        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))
+        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))
         .map_err(::std::convert::Into::into)
 }
 
@@ -1041,10 +1037,7 @@ pub(crate) mod shape_invalid_s3_kms_key_arn_exception;
 #[cfg(feature = "op_put_delivery_channel")]
 pub(crate) mod shape_invalid_sns_topic_arn_exception;
 
-#[cfg(any(
-    feature = "op_get_resource_config_history",
-    feature = "op_list_resource_evaluations"
-))]
+#[cfg(any(feature = "op_get_resource_config_history", feature = "op_list_resource_evaluations"))]
 pub(crate) mod shape_invalid_time_range_exception;
 
 #[cfg(feature = "op_delete_delivery_channel")]
@@ -1611,10 +1604,7 @@ pub(crate) mod shape_connector_filter;
 #[cfg(feature = "op_list_connectors")]
 pub(crate) mod shape_connector_summaries;
 
-#[cfg(any(
-    feature = "op_describe_delivery_channels",
-    feature = "op_put_delivery_channel"
-))]
+#[cfg(any(feature = "op_describe_delivery_channels", feature = "op_put_delivery_channel"))]
 pub(crate) mod shape_delivery_channel;
 
 #[cfg(feature = "op_describe_delivery_channels")]
@@ -1775,10 +1765,7 @@ pub(crate) mod shape_resource_identifier_list;
 ))]
 pub(crate) mod shape_resource_key;
 
-#[cfg(any(
-    feature = "op_batch_get_resource_config",
-    feature = "op_start_remediation_execution"
-))]
+#[cfg(any(feature = "op_batch_get_resource_config", feature = "op_start_remediation_execution"))]
 pub(crate) mod shape_resource_keys;
 
 #[cfg(any(
@@ -1834,10 +1821,7 @@ pub(crate) mod shape_tag;
 #[cfg(feature = "op_list_tags_for_resource")]
 pub(crate) mod shape_tag_list;
 
-#[cfg(any(
-    feature = "op_describe_conformance_packs",
-    feature = "op_put_conformance_pack"
-))]
+#[cfg(any(feature = "op_describe_conformance_packs", feature = "op_put_conformance_pack"))]
 pub(crate) mod shape_template_ssm_document_details;
 
 #[cfg(feature = "op_batch_get_aggregate_resource_config")]
@@ -1910,10 +1894,7 @@ pub(crate) mod shape_compliance_summary_by_resource_type;
 #[cfg(feature = "op_describe_config_rule_evaluation_status")]
 pub(crate) mod shape_config_rule_evaluation_status;
 
-#[cfg(any(
-    feature = "op_describe_delivery_channels",
-    feature = "op_put_delivery_channel"
-))]
+#[cfg(any(feature = "op_describe_delivery_channels", feature = "op_put_delivery_channel"))]
 pub(crate) mod shape_config_snapshot_delivery_properties;
 
 #[cfg(feature = "op_describe_configuration_recorder_status")]

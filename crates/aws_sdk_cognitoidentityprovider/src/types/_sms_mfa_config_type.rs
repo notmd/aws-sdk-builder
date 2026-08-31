@@ -29,9 +29,7 @@ impl SmsMfaConfigType {
 }
 
 /// A builder for [`SmsMfaConfigType`](crate::types::SmsMfaConfigType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SmsMfaConfigTypeBuilder {
     pub(crate) sms_authentication_message: ::std::option::Option<::std::string::String>,
@@ -39,18 +37,12 @@ pub struct SmsMfaConfigTypeBuilder {
 }
 impl SmsMfaConfigTypeBuilder {
     /// <p>The SMS authentication message that will be sent to users with the code they must sign in with. The message must contain the <code>{####}</code> placeholder. Your user pool replaces the placeholder with the MFA code. If this parameter isn't provided, your user pool sends a default message.</p>
-    pub fn sms_authentication_message(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn sms_authentication_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.sms_authentication_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The SMS authentication message that will be sent to users with the code they must sign in with. The message must contain the <code>{####}</code> placeholder. Your user pool replaces the placeholder with the MFA code. If this parameter isn't provided, your user pool sends a default message.</p>
-    pub fn set_sms_authentication_message(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_sms_authentication_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.sms_authentication_message = input;
         self
     }
@@ -66,18 +58,13 @@ impl SmsMfaConfigTypeBuilder {
     }
     /// <p>User pool configuration for delivery of SMS messages with Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the Amazon Web Services Region that you want, the Amazon Cognito user pool uses an Identity and Access Management (IAM) role in your Amazon Web Services account.</p>
     /// <p>You can set <code>SmsConfiguration</code> in <code>CreateUserPool</code> and <code> UpdateUserPool</code>, or in <code>SetUserPoolMfaConfig</code>.</p>
-    pub fn set_sms_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::SmsConfigurationType>,
-    ) -> Self {
+    pub fn set_sms_configuration(mut self, input: ::std::option::Option<crate::types::SmsConfigurationType>) -> Self {
         self.sms_configuration = input;
         self
     }
     /// <p>User pool configuration for delivery of SMS messages with Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the Amazon Web Services Region that you want, the Amazon Cognito user pool uses an Identity and Access Management (IAM) role in your Amazon Web Services account.</p>
     /// <p>You can set <code>SmsConfiguration</code> in <code>CreateUserPool</code> and <code> UpdateUserPool</code>, or in <code>SetUserPoolMfaConfig</code>.</p>
-    pub fn get_sms_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::SmsConfigurationType> {
+    pub fn get_sms_configuration(&self) -> &::std::option::Option<crate::types::SmsConfigurationType> {
         &self.sms_configuration
     }
     /// Consumes the builder and constructs a [`SmsMfaConfigType`](crate::types::SmsMfaConfigType).

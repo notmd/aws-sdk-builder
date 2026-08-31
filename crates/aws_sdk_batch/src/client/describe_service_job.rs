@@ -33,8 +33,6 @@ impl super::Client {
     pub fn describe_service_job(
         &self,
     ) -> crate::operation::describe_service_job::builders::DescribeServiceJobFluentBuilder {
-        crate::operation::describe_service_job::builders::DescribeServiceJobFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::describe_service_job::builders::DescribeServiceJobFluentBuilder::new(self.handle.clone())
     }
 }

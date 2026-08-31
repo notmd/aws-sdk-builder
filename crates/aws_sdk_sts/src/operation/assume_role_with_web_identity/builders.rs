@@ -3,9 +3,7 @@ pub use crate::operation::assume_role_with_web_identity::_assume_role_with_web_i
 
 pub use crate::operation::assume_role_with_web_identity::_assume_role_with_web_identity_output::AssumeRoleWithWebIdentityOutputBuilder;
 
-impl
-    crate::operation::assume_role_with_web_identity::builders::AssumeRoleWithWebIdentityInputBuilder
-{
+impl crate::operation::assume_role_with_web_identity::builders::AssumeRoleWithWebIdentityInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -88,7 +86,9 @@ impl AssumeRoleWithWebIdentityFluentBuilder {
         }
     }
     /// Access the AssumeRoleWithWebIdentity as a reference.
-    pub fn as_input(&self) -> &crate::operation::assume_role_with_web_identity::builders::AssumeRoleWithWebIdentityInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::assume_role_with_web_identity::builders::AssumeRoleWithWebIdentityInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -112,16 +112,14 @@ impl AssumeRoleWithWebIdentityFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentity::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentity::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentity::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentity::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -172,20 +170,14 @@ impl AssumeRoleWithWebIdentityFluentBuilder {
     /// <p>An identifier for the assumed role session. Typically, you pass the name or identifier that is associated with the user who is using your application. That way, the temporary security credentials that your application will use are associated with that user. This session name is included as part of the ARN and assumed role ID in the <code>AssumedRoleUser</code> response element.</p>
     /// <p>For security purposes, administrators can view this field in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html#cloudtrail-integration_signin-tempcreds">CloudTrail logs</a> to help identify who performed an action in Amazon Web Services. Your administrator might require that you specify your user name as the session name when you assume the role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_rolesessionname"> <code>sts:RoleSessionName</code> </a>.</p>
     /// <p>The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-</p>
-    pub fn role_session_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn role_session_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.role_session_name(input.into());
         self
     }
     /// <p>An identifier for the assumed role session. Typically, you pass the name or identifier that is associated with the user who is using your application. That way, the temporary security credentials that your application will use are associated with that user. This session name is included as part of the ARN and assumed role ID in the <code>AssumedRoleUser</code> response element.</p>
     /// <p>For security purposes, administrators can view this field in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html#cloudtrail-integration_signin-tempcreds">CloudTrail logs</a> to help identify who performed an action in Amazon Web Services. Your administrator might require that you specify your user name as the session name when you assume the role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_rolesessionname"> <code>sts:RoleSessionName</code> </a>.</p>
     /// <p>The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-</p>
-    pub fn set_role_session_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_role_session_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_role_session_name(input);
         self
     }
@@ -196,18 +188,12 @@ impl AssumeRoleWithWebIdentityFluentBuilder {
         self.inner.get_role_session_name()
     }
     /// <p>The OAuth 2.0 access token or OpenID Connect ID token that is provided by the identity provider. Your application must get this token by authenticating the user who is using your application with a web identity provider before the application makes an <code>AssumeRoleWithWebIdentity</code> call. Timestamps in the token must be formatted as either an integer or a long integer. Tokens must be signed using either RSA keys (RS256, RS384, or RS512) or ECDSA keys (ES256, ES384, or ES512).</p>
-    pub fn web_identity_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn web_identity_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.web_identity_token(input.into());
         self
     }
     /// <p>The OAuth 2.0 access token or OpenID Connect ID token that is provided by the identity provider. Your application must get this token by authenticating the user who is using your application with a web identity provider before the application makes an <code>AssumeRoleWithWebIdentity</code> call. Timestamps in the token must be formatted as either an integer or a long integer. Tokens must be signed using either RSA keys (RS256, RS384, or RS512) or ECDSA keys (ES256, ES384, or ES512).</p>
-    pub fn set_web_identity_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_web_identity_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_web_identity_token(input);
         self
     }
@@ -266,9 +252,7 @@ impl AssumeRoleWithWebIdentityFluentBuilder {
     /// <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs, and session tags into a packed binary format that has a separate limit. Your request can fail for this limit even if your plaintext meets the other requirements. The <code>PackedPolicySize</code> response element indicates by percentage how close the policies and tags for your request are to the upper size limit.</p>
     /// </note>
     /// <p>Passing policies to this operation returns new temporary credentials. The resulting session's permissions are the intersection of the role's identity-based policy and the session policies. You can use the role's temporary credentials in subsequent Amazon Web Services API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy of the role that is being assumed. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session Policies</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_policy_arns(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyDescriptorType>> {
+    pub fn get_policy_arns(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyDescriptorType>> {
         self.inner.get_policy_arns()
     }
     /// <p>An IAM policy in JSON format that you want to use as an inline session policy.</p>

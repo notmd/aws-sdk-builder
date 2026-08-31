@@ -2,10 +2,7 @@
 pub fn de_policy_document_version_list_type(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<
-    ::std::vec::Vec<crate::types::PolicyVersion>,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<::std::vec::Vec<crate::types::PolicyVersion>, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
             "maximum nesting depth exceeded",

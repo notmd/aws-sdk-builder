@@ -57,7 +57,9 @@ impl GetFunctionScalingConfigFluentBuilder {
         }
     }
     /// Access the GetFunctionScalingConfig as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_function_scaling_config::builders::GetFunctionScalingConfigInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_function_scaling_config::builders::GetFunctionScalingConfigInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,16 +83,14 @@ impl GetFunctionScalingConfigFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_function_scaling_config::GetFunctionScalingConfig::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::get_function_scaling_config::GetFunctionScalingConfig::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::get_function_scaling_config::GetFunctionScalingConfig::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::get_function_scaling_config::GetFunctionScalingConfig::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -119,18 +119,12 @@ impl GetFunctionScalingConfigFluentBuilder {
         self
     }
     /// <p>The name or ARN of the Lambda function.</p>
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
     /// <p>The name or ARN of the Lambda function.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }

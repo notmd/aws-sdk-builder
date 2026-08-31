@@ -50,9 +50,7 @@ impl UpdatePackageGroupOriginConfigurationOutput {
 }
 
 /// A builder for [`UpdatePackageGroupOriginConfigurationOutput`](crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdatePackageGroupOriginConfigurationOutputBuilder {
     pub(crate) package_group: ::std::option::Option<crate::types::PackageGroupDescription>,
@@ -74,17 +72,12 @@ impl UpdatePackageGroupOriginConfigurationOutputBuilder {
         self
     }
     /// <p>The package group and information about it after processing the request.</p>
-    pub fn set_package_group(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageGroupDescription>,
-    ) -> Self {
+    pub fn set_package_group(mut self, input: ::std::option::Option<crate::types::PackageGroupDescription>) -> Self {
         self.package_group = input;
         self
     }
     /// <p>The package group and information about it after processing the request.</p>
-    pub fn get_package_group(
-        &self,
-    ) -> &::std::option::Option<crate::types::PackageGroupDescription> {
+    pub fn get_package_group(&self) -> &::std::option::Option<crate::types::PackageGroupDescription> {
         &self.package_group
     }
     /// Adds a key-value pair to `allowed_repository_updates`.
@@ -145,7 +138,9 @@ impl UpdatePackageGroupOriginConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdatePackageGroupOriginConfigurationOutput`](crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationOutput).
-    pub fn build(self) -> crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationOutput {
         crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationOutput {
             package_group: self.package_group,
             allowed_repository_updates: self.allowed_repository_updates,

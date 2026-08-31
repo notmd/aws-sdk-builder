@@ -143,10 +143,7 @@ pub fn ser_lifecycle_rule(
     let mut scope = writer.finish();
     if let Some(var_12) = &input.expiration {
         let inner_writer = scope.start_el("Expiration");
-        crate::protocol_serde::shape_lifecycle_expiration::ser_lifecycle_expiration(
-            var_12,
-            inner_writer,
-        )?
+        crate::protocol_serde::shape_lifecycle_expiration::ser_lifecycle_expiration(var_12, inner_writer)?
     }
     if let Some(var_13) = &input.id {
         let mut inner_writer = scope.start_el("ID").finish();
@@ -158,10 +155,7 @@ pub fn ser_lifecycle_rule(
     }
     if let Some(var_15) = &input.filter {
         let inner_writer = scope.start_el("Filter");
-        crate::protocol_serde::shape_lifecycle_rule_filter::ser_lifecycle_rule_filter(
-            var_15,
-            inner_writer,
-        )?
+        crate::protocol_serde::shape_lifecycle_rule_filter::ser_lifecycle_rule_filter(var_15, inner_writer)?
     }
     {
         let mut inner_writer = scope.start_el("Status").finish();
@@ -179,17 +173,26 @@ pub fn ser_lifecycle_rule(
         for list_item_19 in var_18 {
             {
                 let inner_writer = scope.start_el("NoncurrentVersionTransition");
-                crate::protocol_serde::shape_noncurrent_version_transition::ser_noncurrent_version_transition(list_item_19, inner_writer)?
+                crate::protocol_serde::shape_noncurrent_version_transition::ser_noncurrent_version_transition(
+                    list_item_19,
+                    inner_writer,
+                )?
             }
         }
     }
     if let Some(var_20) = &input.noncurrent_version_expiration {
         let inner_writer = scope.start_el("NoncurrentVersionExpiration");
-        crate::protocol_serde::shape_noncurrent_version_expiration::ser_noncurrent_version_expiration(var_20, inner_writer)?
+        crate::protocol_serde::shape_noncurrent_version_expiration::ser_noncurrent_version_expiration(
+            var_20,
+            inner_writer,
+        )?
     }
     if let Some(var_21) = &input.abort_incomplete_multipart_upload {
         let inner_writer = scope.start_el("AbortIncompleteMultipartUpload");
-        crate::protocol_serde::shape_abort_incomplete_multipart_upload::ser_abort_incomplete_multipart_upload(var_21, inner_writer)?
+        crate::protocol_serde::shape_abort_incomplete_multipart_upload::ser_abort_incomplete_multipart_upload(
+            var_21,
+            inner_writer,
+        )?
     }
     scope.finish();
     Ok(())

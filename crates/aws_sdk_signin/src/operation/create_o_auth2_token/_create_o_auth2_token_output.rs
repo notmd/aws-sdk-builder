@@ -10,9 +10,7 @@ pub struct CreateOAuth2TokenOutput {
 }
 impl CreateOAuth2TokenOutput {
     /// Flattened token operation outputs The specific response fields depend on the grant_type used in the request
-    pub fn token_output(
-        &self,
-    ) -> ::std::option::Option<&crate::types::CreateOAuth2TokenResponseBody> {
+    pub fn token_output(&self) -> ::std::option::Option<&crate::types::CreateOAuth2TokenResponseBody> {
         self.token_output.as_ref()
     }
 }
@@ -23,16 +21,13 @@ impl ::aws_types::request_id::RequestId for CreateOAuth2TokenOutput {
 }
 impl CreateOAuth2TokenOutput {
     /// Creates a new builder-style object to manufacture [`CreateOAuth2TokenOutput`](crate::operation::create_o_auth2_token::CreateOAuth2TokenOutput).
-    pub fn builder(
-    ) -> crate::operation::create_o_auth2_token::builders::CreateOAuth2TokenOutputBuilder {
+    pub fn builder() -> crate::operation::create_o_auth2_token::builders::CreateOAuth2TokenOutputBuilder {
         crate::operation::create_o_auth2_token::builders::CreateOAuth2TokenOutputBuilder::default()
     }
 }
 
 /// A builder for [`CreateOAuth2TokenOutput`](crate::operation::create_o_auth2_token::CreateOAuth2TokenOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateOAuth2TokenOutputBuilder {
     pub(crate) token_output: ::std::option::Option<crate::types::CreateOAuth2TokenResponseBody>,
@@ -54,9 +49,7 @@ impl CreateOAuth2TokenOutputBuilder {
         self
     }
     /// Flattened token operation outputs The specific response fields depend on the grant_type used in the request
-    pub fn get_token_output(
-        &self,
-    ) -> &::std::option::Option<crate::types::CreateOAuth2TokenResponseBody> {
+    pub fn get_token_output(&self) -> &::std::option::Option<crate::types::CreateOAuth2TokenResponseBody> {
         &self.token_output
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

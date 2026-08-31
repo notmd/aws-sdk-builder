@@ -13,8 +13,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeAccountPoliciesError>`](crate::operation::describe_account_policies::DescribeAccountPoliciesError)
     pub fn describe_account_policies(
         &self,
-    ) -> crate::operation::describe_account_policies::builders::DescribeAccountPoliciesFluentBuilder
-    {
-        crate::operation::describe_account_policies::builders::DescribeAccountPoliciesFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::describe_account_policies::builders::DescribeAccountPoliciesFluentBuilder {
+        crate::operation::describe_account_policies::builders::DescribeAccountPoliciesFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

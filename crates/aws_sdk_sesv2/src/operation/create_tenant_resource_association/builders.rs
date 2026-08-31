@@ -45,7 +45,7 @@ impl
             crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationOutput,
             crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -59,7 +59,10 @@ impl CreateTenantResourceAssociationFluentBuilder {
         }
     }
     /// Access the CreateTenantResourceAssociation as a reference.
-    pub fn as_input(&self) -> &crate::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -78,7 +81,7 @@ impl CreateTenantResourceAssociationFluentBuilder {
             crate::operation::create_tenant_resource_association::CreateTenantResourceAssociationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -88,7 +91,11 @@ impl CreateTenantResourceAssociationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::create_tenant_resource_association::CreateTenantResourceAssociation::orchestrate(&runtime_plugins, input).await
+        crate::operation::create_tenant_resource_association::CreateTenantResourceAssociation::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

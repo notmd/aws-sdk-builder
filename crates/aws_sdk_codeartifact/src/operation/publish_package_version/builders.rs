@@ -60,10 +60,7 @@ impl PublishPackageVersionFluentBuilder {
         }
     }
     /// Access the PublishPackageVersion as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::publish_package_version::builders::PublishPackageVersionInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::publish_package_version::builders::PublishPackageVersionInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,16 +84,13 @@ impl PublishPackageVersionFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::publish_package_version::PublishPackageVersion::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::publish_package_version::PublishPackageVersion::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::publish_package_version::PublishPackageVersion::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::publish_package_version::PublishPackageVersion::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -212,18 +206,12 @@ impl PublishPackageVersionFluentBuilder {
         self.inner.get_package()
     }
     /// <p>The package version to publish (for example, <code>3.5.2</code>).</p>
-    pub fn package_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.package_version(input.into());
         self
     }
     /// <p>The package version to publish (for example, <code>3.5.2</code>).</p>
-    pub fn set_package_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_package_version(input);
         self
     }
@@ -245,9 +233,7 @@ impl PublishPackageVersionFluentBuilder {
         self
     }
     /// <p>The content of the asset to publish.</p>
-    pub fn get_asset_content(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
+    pub fn get_asset_content(&self) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
         self.inner.get_asset_content()
     }
     /// <p>The name of the asset to publish. Asset names can include Unicode letters and numbers, and the following special characters: <code>~ ! @ ^ &amp; ( ) - ` _ + \[ \] { } ; , . `</code></p>

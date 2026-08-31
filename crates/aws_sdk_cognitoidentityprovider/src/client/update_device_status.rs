@@ -11,8 +11,6 @@ impl super::Client {
     pub fn update_device_status(
         &self,
     ) -> crate::operation::update_device_status::builders::UpdateDeviceStatusFluentBuilder {
-        crate::operation::update_device_status::builders::UpdateDeviceStatusFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::update_device_status::builders::UpdateDeviceStatusFluentBuilder::new(self.handle.clone())
     }
 }

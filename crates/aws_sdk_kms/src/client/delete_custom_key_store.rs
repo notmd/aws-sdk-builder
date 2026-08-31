@@ -8,10 +8,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteCustomKeyStoreError>`](crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError)
     pub fn delete_custom_key_store(
         &self,
-    ) -> crate::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreFluentBuilder
-    {
-        crate::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreFluentBuilder::new(
-            self.handle.clone(),
-        )
+    ) -> crate::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreFluentBuilder {
+        crate::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreFluentBuilder::new(self.handle.clone())
     }
 }

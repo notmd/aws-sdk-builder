@@ -48,19 +48,13 @@ fn parse_error_body(bytes: &[u8]) -> Result<ErrorBody<'_>, DeserializeError> {
                         match key.as_escaped_str() {
                             "code" => code = Some(value.to_unescaped()?),
                             "__type" => typ = Some(value.to_unescaped()?),
-                            "message" | "Message" | "errorMessage" => {
-                                message = Some(value.to_unescaped()?)
-                            }
+                            "message" | "Message" | "errorMessage" => message = Some(value.to_unescaped()?),
                             _ => {}
                         }
                     }
                     skip_value(&mut tokens)?;
                 }
-                _ => {
-                    return Err(DeserializeError::custom(
-                        "expected object key or end object",
-                    ))
-                }
+                _ => return Err(DeserializeError::custom("expected object key or end object")),
             }
         }
         if tokens.next().is_some() {
@@ -75,10 +69,7 @@ fn parse_error_body(bytes: &[u8]) -> Result<ErrorBody<'_>, DeserializeError> {
     })
 }
 
-pub fn parse_error_metadata(
-    payload: &[u8],
-    headers: &Headers,
-) -> Result<ErrorMetadataBuilder, DeserializeError> {
+pub fn parse_error_metadata(payload: &[u8], headers: &Headers) -> Result<ErrorMetadataBuilder, DeserializeError> {
     let ErrorBody { code, message } = parse_error_body(payload)?;
 
     let mut err_builder = ErrorMetadata::builder();
@@ -106,9 +97,7 @@ mod test {
     fn error_metadata() {
         let response = HttpResponse::try_from(
             http_1x::Response::builder()
-                .body(SdkBody::from(
-                    r#"{ "__type": "FooError", "message": "Go to foo" }"#,
-                ))
+                .body(SdkBody::from(r#"{ "__type": "FooError", "message": "Go to foo" }"#))
                 .unwrap(),
         )
         .unwrap();
@@ -116,10 +105,7 @@ mod test {
             parse_error_metadata(response.body().bytes().unwrap(), response.headers())
                 .unwrap()
                 .build(),
-            ErrorMetadata::builder()
-                .code("FooError")
-                .message("Go to foo")
-                .build()
+            ErrorMetadata::builder().code("FooError").message("Go to foo").build()
         )
     }
 
@@ -127,9 +113,7 @@ mod test {
     fn error_type() {
         assert_eq!(
             Some(Cow::Borrowed("FooError")),
-            parse_error_body(br#"{ "__type": "FooError" }"#)
-                .unwrap()
-                .code
+            parse_error_body(br#"{ "__type": "FooError" }"#).unwrap().code
         );
     }
 
@@ -156,7 +140,9 @@ mod test {
     #[test]
     fn sanitize_namespace_and_url() {
         assert_eq!(
-            sanitize_error_code("aws.protocoltests.restjson#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"),
+            sanitize_error_code(
+                "aws.protocoltests.restjson#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
+            ),
             "FooError"
         );
     }
@@ -169,19 +155,14 @@ mod test {
     #[test]
     fn sanitize_url() {
         assert_eq!(
-            sanitize_error_code(
-                "FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
-            ),
+            sanitize_error_code("FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"),
             "FooError"
         );
     }
 
     #[test]
     fn sanitize_namespace() {
-        assert_eq!(
-            sanitize_error_code("aws.protocoltests.restjson#FooError"),
-            "FooError"
-        );
+        assert_eq!(sanitize_error_code("aws.protocoltests.restjson#FooError"), "FooError");
     }
 
     // services like lambda use an alternate `Message` instead of `message`

@@ -20,17 +20,13 @@ impl ::aws_types::request_id::RequestId for GetRepositoryEndpointOutput {
 }
 impl GetRepositoryEndpointOutput {
     /// Creates a new builder-style object to manufacture [`GetRepositoryEndpointOutput`](crate::operation::get_repository_endpoint::GetRepositoryEndpointOutput).
-    pub fn builder(
-    ) -> crate::operation::get_repository_endpoint::builders::GetRepositoryEndpointOutputBuilder
-    {
+    pub fn builder() -> crate::operation::get_repository_endpoint::builders::GetRepositoryEndpointOutputBuilder {
         crate::operation::get_repository_endpoint::builders::GetRepositoryEndpointOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetRepositoryEndpointOutput`](crate::operation::get_repository_endpoint::GetRepositoryEndpointOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetRepositoryEndpointOutputBuilder {
     pub(crate) repository_endpoint: ::std::option::Option<::std::string::String>,
@@ -38,18 +34,12 @@ pub struct GetRepositoryEndpointOutputBuilder {
 }
 impl GetRepositoryEndpointOutputBuilder {
     /// <p>A string that specifies the URL of the returned endpoint.</p>
-    pub fn repository_endpoint(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn repository_endpoint(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.repository_endpoint = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A string that specifies the URL of the returned endpoint.</p>
-    pub fn set_repository_endpoint(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_repository_endpoint(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.repository_endpoint = input;
         self
     }

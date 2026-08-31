@@ -10,7 +10,10 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ResetServiceSpecificCredentialError>`](crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialError)
     pub fn reset_service_specific_credential(
         &self,
-    ) -> crate::operation::reset_service_specific_credential::builders::ResetServiceSpecificCredentialFluentBuilder{
-        crate::operation::reset_service_specific_credential::builders::ResetServiceSpecificCredentialFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::reset_service_specific_credential::builders::ResetServiceSpecificCredentialFluentBuilder
+    {
+        crate::operation::reset_service_specific_credential::builders::ResetServiceSpecificCredentialFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -57,7 +57,9 @@ impl DeleteRetentionConfigurationFluentBuilder {
         }
     }
     /// Access the DeleteRetentionConfiguration as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_retention_configuration::builders::DeleteRetentionConfigurationInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::delete_retention_configuration::builders::DeleteRetentionConfigurationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,11 +83,12 @@ impl DeleteRetentionConfigurationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::delete_retention_configuration::DeleteRetentionConfiguration::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::delete_retention_configuration::DeleteRetentionConfiguration::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::delete_retention_configuration::DeleteRetentionConfiguration::orchestrate(
             &runtime_plugins,
             input,
@@ -119,25 +122,17 @@ impl DeleteRetentionConfigurationFluentBuilder {
         self
     }
     /// <p>The name of the retention configuration to delete.</p>
-    pub fn retention_configuration_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn retention_configuration_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.retention_configuration_name(input.into());
         self
     }
     /// <p>The name of the retention configuration to delete.</p>
-    pub fn set_retention_configuration_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_retention_configuration_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_retention_configuration_name(input);
         self
     }
     /// <p>The name of the retention configuration to delete.</p>
-    pub fn get_retention_configuration_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_retention_configuration_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_retention_configuration_name()
     }
 }

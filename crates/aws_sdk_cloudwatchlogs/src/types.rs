@@ -5,10 +5,7 @@
 ))]
 pub use crate::types::_data_source::DataSource;
 
-#[cfg(any(
-    feature = "op_cancel_import_task",
-    feature = "op_describe_import_tasks"
-))]
+#[cfg(any(feature = "op_cancel_import_task", feature = "op_describe_import_tasks"))]
 pub use crate::types::_import_statistics::ImportStatistics;
 
 #[cfg(any(
@@ -34,10 +31,7 @@ pub use crate::types::_s3_delivery_configuration::S3DeliveryConfiguration;
 ))]
 pub use crate::types::_delivery::Delivery;
 
-#[cfg(any(
-    feature = "op_create_import_task",
-    feature = "op_describe_import_tasks"
-))]
+#[cfg(any(feature = "op_create_import_task", feature = "op_describe_import_tasks"))]
 pub use crate::types::_import_filter::ImportFilter;
 
 #[cfg(any(
@@ -100,10 +94,7 @@ pub use crate::types::_order_by::OrderBy;
 #[cfg(any(feature = "op_describe_queries", feature = "op_get_query_results"))]
 pub use crate::types::_query_status::QueryStatus;
 
-#[cfg(any(
-    feature = "op_describe_resource_policies",
-    feature = "op_put_resource_policy"
-))]
+#[cfg(any(feature = "op_describe_resource_policies", feature = "op_put_resource_policy"))]
 pub use crate::types::_policy_scope::PolicyScope;
 
 #[cfg(any(
@@ -143,10 +134,7 @@ pub use crate::types::_integration_status::IntegrationStatus;
 #[cfg(feature = "op_get_integration")]
 pub use crate::types::_integration_details::IntegrationDetails;
 
-#[cfg(any(
-    feature = "op_get_log_anomaly_detector",
-    feature = "op_list_log_anomaly_detectors"
-))]
+#[cfg(any(feature = "op_get_log_anomaly_detector", feature = "op_list_log_anomaly_detectors"))]
 pub use crate::types::_anomaly_detector_status::AnomalyDetectorStatus;
 
 #[cfg(feature = "op_get_log_object")]
@@ -170,10 +158,7 @@ pub use crate::types::_schedule_type::ScheduleType;
 ))]
 pub use crate::types::_execution_status::ExecutionStatus;
 
-#[cfg(any(
-    feature = "op_get_storage_tier_policy",
-    feature = "op_put_storage_tier_policy"
-))]
+#[cfg(any(feature = "op_get_storage_tier_policy", feature = "op_put_storage_tier_policy"))]
 pub use crate::types::_storage_tier::StorageTier;
 
 #[cfg(feature = "op_list_aggregate_log_group_summaries")]
@@ -182,16 +167,10 @@ pub use crate::types::_list_aggregate_log_group_summaries_group_by::ListAggregat
 #[cfg(feature = "op_list_anomalies")]
 pub use crate::types::_suppression_state::SuppressionState;
 
-#[cfg(any(
-    feature = "op_describe_account_policies",
-    feature = "op_put_account_policy"
-))]
+#[cfg(any(feature = "op_describe_account_policies", feature = "op_put_account_policy"))]
 pub use crate::types::_scope::Scope;
 
-#[cfg(any(
-    feature = "op_describe_account_policies",
-    feature = "op_put_account_policy"
-))]
+#[cfg(any(feature = "op_describe_account_policies", feature = "op_put_account_policy"))]
 pub use crate::types::_account_policy::AccountPolicy;
 
 #[cfg(any(
@@ -223,10 +202,7 @@ pub use crate::types::_delivery_destination_type::DeliveryDestinationType;
 #[cfg(any(feature = "op_describe_destinations", feature = "op_put_destination"))]
 pub use crate::types::_destination::Destination;
 
-#[cfg(any(
-    feature = "op_describe_index_policies",
-    feature = "op_put_index_policy"
-))]
+#[cfg(any(feature = "op_describe_index_policies", feature = "op_put_index_policy"))]
 pub use crate::types::_index_policy::IndexPolicy;
 
 #[cfg(feature = "op_put_integration")]
@@ -241,16 +217,10 @@ pub use crate::types::_rejected_log_events_info::RejectedLogEventsInfo;
 #[cfg(feature = "op_put_log_events")]
 pub use crate::types::_rejected_entity_info::RejectedEntityInfo;
 
-#[cfg(any(
-    feature = "op_describe_resource_policies",
-    feature = "op_put_resource_policy"
-))]
+#[cfg(any(feature = "op_describe_resource_policies", feature = "op_put_resource_policy"))]
 pub use crate::types::_resource_policy::ResourcePolicy;
 
-#[cfg(any(
-    feature = "op_describe_subscription_filters",
-    feature = "op_put_subscription_filter"
-))]
+#[cfg(any(feature = "op_describe_subscription_filters", feature = "op_put_subscription_filter"))]
 pub use crate::types::_distribution::Distribution;
 
 #[cfg(feature = "op_start_live_tail")]
@@ -365,10 +335,7 @@ pub use crate::types::_trigger_history_record::TriggerHistoryRecord;
 ))]
 pub use crate::types::_processor::Processor;
 
-#[cfg(any(
-    feature = "op_list_aggregate_log_group_summaries",
-    feature = "op_list_log_groups"
-))]
+#[cfg(any(feature = "op_list_aggregate_log_group_summaries", feature = "op_list_log_groups"))]
 pub use crate::types::_data_source_filter::DataSourceFilter;
 
 #[cfg(feature = "op_list_aggregate_log_group_summaries")]
@@ -398,10 +365,7 @@ pub use crate::types::_s3_table_integration_source::S3TableIntegrationSource;
 #[cfg(feature = "op_list_syslog_configurations")]
 pub use crate::types::_syslog_configuration::SyslogConfiguration;
 
-#[cfg(any(
-    feature = "op_describe_index_policies",
-    feature = "op_put_index_policy"
-))]
+#[cfg(any(feature = "op_describe_index_policies", feature = "op_put_index_policy"))]
 pub use crate::types::_index_source::IndexSource;
 
 #[cfg(feature = "op_put_integration")]
@@ -413,16 +377,10 @@ pub use crate::types::_input_log_event::InputLogEvent;
 #[cfg(feature = "op_put_log_events")]
 pub use crate::types::_entity_rejection_error_type::EntityRejectionErrorType;
 
-#[cfg(any(
-    feature = "op_describe_metric_filters",
-    feature = "op_put_metric_filter"
-))]
+#[cfg(any(feature = "op_describe_metric_filters", feature = "op_put_metric_filter"))]
 pub use crate::types::_metric_transformation::MetricTransformation;
 
-#[cfg(any(
-    feature = "op_describe_query_definitions",
-    feature = "op_put_query_definition"
-))]
+#[cfg(any(feature = "op_describe_query_definitions", feature = "op_put_query_definition"))]
 pub use crate::types::_query_parameter::QueryParameter;
 
 #[cfg(feature = "op_start_live_tail")]
@@ -661,10 +619,7 @@ pub use crate::types::_s3_table_integration_source_status::S3TableIntegrationSou
 #[cfg(feature = "op_list_syslog_configurations")]
 pub use crate::types::_syslog_source_type::SyslogSourceType;
 
-#[cfg(any(
-    feature = "op_describe_metric_filters",
-    feature = "op_put_metric_filter"
-))]
+#[cfg(any(feature = "op_describe_metric_filters", feature = "op_put_metric_filter"))]
 pub use crate::types::_standard_unit::StandardUnit;
 
 #[cfg(feature = "op_start_live_tail")]
@@ -786,10 +741,7 @@ pub use crate::types::_type_converter_entry::TypeConverterEntry;
 ))]
 pub use crate::types::_type_::Type;
 
-#[cfg(any(
-    feature = "op_describe_account_policies",
-    feature = "op_put_account_policy"
-))]
+#[cfg(any(feature = "op_describe_account_policies", feature = "op_put_account_policy"))]
 mod _account_policy;
 
 #[cfg(feature = "op_get_scheduled_query_history")]
@@ -818,10 +770,7 @@ mod _anomaly;
 #[cfg(feature = "op_list_log_anomaly_detectors")]
 mod _anomaly_detector;
 
-#[cfg(any(
-    feature = "op_get_log_anomaly_detector",
-    feature = "op_list_log_anomaly_detectors"
-))]
+#[cfg(any(feature = "op_get_log_anomaly_detector", feature = "op_list_log_anomaly_detectors"))]
 mod _anomaly_detector_status;
 
 #[cfg(feature = "op_describe_configuration_templates")]
@@ -860,10 +809,7 @@ mod _data_protection_status;
 ))]
 mod _data_source;
 
-#[cfg(any(
-    feature = "op_list_aggregate_log_group_summaries",
-    feature = "op_list_log_groups"
-))]
+#[cfg(any(feature = "op_list_aggregate_log_group_summaries", feature = "op_list_log_groups"))]
 mod _data_source_filter;
 
 #[cfg(any(
@@ -950,10 +896,7 @@ mod _destination;
 ))]
 mod _destination_configuration;
 
-#[cfg(any(
-    feature = "op_describe_subscription_filters",
-    feature = "op_put_subscription_filter"
-))]
+#[cfg(any(feature = "op_describe_subscription_filters", feature = "op_put_subscription_filter"))]
 mod _distribution;
 
 #[cfg(feature = "op_put_log_events")]
@@ -1032,16 +975,10 @@ mod _import;
 #[cfg(feature = "op_describe_import_task_batches")]
 mod _import_batch;
 
-#[cfg(any(
-    feature = "op_create_import_task",
-    feature = "op_describe_import_tasks"
-))]
+#[cfg(any(feature = "op_create_import_task", feature = "op_describe_import_tasks"))]
 mod _import_filter;
 
-#[cfg(any(
-    feature = "op_cancel_import_task",
-    feature = "op_describe_import_tasks"
-))]
+#[cfg(any(feature = "op_cancel_import_task", feature = "op_describe_import_tasks"))]
 mod _import_statistics;
 
 #[cfg(any(
@@ -1054,16 +991,10 @@ mod _import_status;
 #[cfg(feature = "op_describe_field_indexes")]
 mod _index_category;
 
-#[cfg(any(
-    feature = "op_describe_index_policies",
-    feature = "op_put_index_policy"
-))]
+#[cfg(any(feature = "op_describe_index_policies", feature = "op_put_index_policy"))]
 mod _index_policy;
 
-#[cfg(any(
-    feature = "op_describe_index_policies",
-    feature = "op_put_index_policy"
-))]
+#[cfg(any(feature = "op_describe_index_policies", feature = "op_put_index_policy"))]
 mod _index_source;
 
 #[cfg(feature = "op_describe_field_indexes")]
@@ -1170,10 +1101,7 @@ mod _metric_filter;
 #[cfg(feature = "op_test_metric_filter")]
 mod _metric_filter_match_record;
 
-#[cfg(any(
-    feature = "op_describe_metric_filters",
-    feature = "op_put_metric_filter"
-))]
+#[cfg(any(feature = "op_describe_metric_filters", feature = "op_put_metric_filter"))]
 mod _metric_transformation;
 
 #[cfg(any(
@@ -1312,10 +1240,7 @@ mod _pattern_token;
 ))]
 mod _policy;
 
-#[cfg(any(
-    feature = "op_describe_resource_policies",
-    feature = "op_put_resource_policy"
-))]
+#[cfg(any(feature = "op_describe_resource_policies", feature = "op_put_resource_policy"))]
 mod _policy_scope;
 
 #[cfg(any(
@@ -1356,10 +1281,7 @@ mod _query_info;
 ))]
 mod _query_language;
 
-#[cfg(any(
-    feature = "op_describe_query_definitions",
-    feature = "op_put_query_definition"
-))]
+#[cfg(any(feature = "op_describe_query_definitions", feature = "op_put_query_definition"))]
 mod _query_parameter;
 
 #[cfg(feature = "op_get_query_results")]
@@ -1394,10 +1316,7 @@ mod _rename_keys;
 #[cfg(feature = "op_put_integration")]
 mod _resource_config;
 
-#[cfg(any(
-    feature = "op_describe_resource_policies",
-    feature = "op_put_resource_policy"
-))]
+#[cfg(any(feature = "op_describe_resource_policies", feature = "op_put_resource_policy"))]
 mod _resource_policy;
 
 #[cfg(feature = "op_get_query_results")]
@@ -1453,10 +1372,7 @@ mod _scheduled_query_state;
 #[cfg(feature = "op_list_scheduled_queries")]
 mod _scheduled_query_summary;
 
-#[cfg(any(
-    feature = "op_describe_account_policies",
-    feature = "op_put_account_policy"
-))]
+#[cfg(any(feature = "op_describe_account_policies", feature = "op_put_account_policy"))]
 mod _scope;
 
 #[cfg(feature = "op_filter_log_events")]
@@ -1476,10 +1392,7 @@ mod _split_string;
 ))]
 mod _split_string_entry;
 
-#[cfg(any(
-    feature = "op_describe_metric_filters",
-    feature = "op_put_metric_filter"
-))]
+#[cfg(any(feature = "op_describe_metric_filters", feature = "op_put_metric_filter"))]
 mod _standard_unit;
 
 #[cfg(feature = "op_start_live_tail")]
@@ -1488,10 +1401,7 @@ mod _start_live_tail_response_stream;
 #[cfg(feature = "op_list_anomalies")]
 mod _state;
 
-#[cfg(any(
-    feature = "op_get_storage_tier_policy",
-    feature = "op_put_storage_tier_policy"
-))]
+#[cfg(any(feature = "op_get_storage_tier_policy", feature = "op_put_storage_tier_policy"))]
 mod _storage_tier;
 
 #[cfg(feature = "op_describe_subscription_filters")]

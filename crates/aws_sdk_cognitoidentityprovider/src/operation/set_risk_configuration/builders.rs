@@ -69,9 +69,7 @@ impl SetRiskConfigurationFluentBuilder {
         }
     }
     /// Access the SetRiskConfiguration as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::set_risk_configuration::builders::SetRiskConfigurationInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::set_risk_configuration::builders::SetRiskConfigurationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -100,11 +98,7 @@ impl SetRiskConfigurationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::set_risk_configuration::SetRiskConfiguration::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::set_risk_configuration::SetRiskConfiguration::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -176,9 +170,7 @@ impl SetRiskConfigurationFluentBuilder {
         mut self,
         input: ::std::option::Option<crate::types::CompromisedCredentialsRiskConfigurationType>,
     ) -> Self {
-        self.inner = self
-            .inner
-            .set_compromised_credentials_risk_configuration(input);
+        self.inner = self.inner.set_compromised_credentials_risk_configuration(input);
         self
     }
     /// <p>The configuration of automated reactions to detected compromised credentials. Includes settings for blocking future sign-in requests and for the types of password-submission events you want to monitor.</p>
@@ -210,10 +202,7 @@ impl SetRiskConfigurationFluentBuilder {
         self.inner.get_account_takeover_risk_configuration()
     }
     /// <p>A set of IP-address overrides to threat protection. You can set up IP-address always-block and always-allow lists.</p>
-    pub fn risk_exception_configuration(
-        mut self,
-        input: crate::types::RiskExceptionConfigurationType,
-    ) -> Self {
+    pub fn risk_exception_configuration(mut self, input: crate::types::RiskExceptionConfigurationType) -> Self {
         self.inner = self.inner.risk_exception_configuration(input);
         self
     }

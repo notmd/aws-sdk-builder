@@ -30,15 +30,9 @@ pub struct ServiceManifest {
 #[derive(Debug, Error)]
 pub enum ManifestError {
     #[error("{path}: {source}")]
-    Read {
-        path: PathBuf,
-        source: std::io::Error,
-    },
+    Read { path: PathBuf, source: std::io::Error },
     #[error("{path}: invalid JSON: {source}")]
-    Parse {
-        path: PathBuf,
-        source: serde_json::Error,
-    },
+    Parse { path: PathBuf, source: serde_json::Error },
     #[error("invalid services manifest: {0}")]
     Invalid(String),
 }
@@ -49,11 +43,10 @@ impl Manifest {
             path: path.to_owned(),
             source,
         })?;
-        let manifest =
-            serde_json::from_slice::<Self>(&bytes).map_err(|source| ManifestError::Parse {
-                path: path.to_owned(),
-                source,
-            })?;
+        let manifest = serde_json::from_slice::<Self>(&bytes).map_err(|source| ManifestError::Parse {
+            path: path.to_owned(),
+            source,
+        })?;
         manifest.validate()?;
         Ok(manifest)
     }
@@ -66,9 +59,7 @@ impl Manifest {
         }
         validate_revision(&self.revision)?;
         if self.services.is_empty() {
-            return Err(ManifestError::Invalid(
-                "services must not be empty".to_owned(),
-            ));
+            return Err(ManifestError::Invalid("services must not be empty".to_owned()));
         }
         let mut keys = BTreeSet::new();
         let mut outputs = BTreeSet::new();
@@ -100,14 +91,8 @@ impl Manifest {
                 )));
             }
         }
-        if self
-            .services
-            .windows(2)
-            .any(|pair| pair[0].key >= pair[1].key)
-        {
-            return Err(ManifestError::Invalid(
-                "services must be sorted by key".to_owned(),
-            ));
+        if self.services.windows(2).any(|pair| pair[0].key >= pair[1].key) {
+            return Err(ManifestError::Invalid("services must be sorted by key".to_owned()));
         }
         Ok(())
     }
@@ -132,9 +117,7 @@ pub fn validate_revision(revision: &str) -> Result<(), ManifestError> {
 
 fn validate_key(key: &str) -> Result<(), ManifestError> {
     if key.is_empty() || key == "." || key == ".." || key.contains('/') || key.contains('\\') {
-        return Err(ManifestError::Invalid(format!(
-            "invalid service key: {key:?}"
-        )));
+        return Err(ManifestError::Invalid(format!("invalid service key: {key:?}")));
     }
     Ok(())
 }
@@ -143,12 +126,9 @@ fn validate_relative_path(label: &str, value: &str) -> Result<(), ManifestError>
     let path = Path::new(value);
     if value.is_empty()
         || path.is_absolute()
-        || path.components().any(|component| {
-            matches!(
-                component,
-                Component::ParentDir | Component::CurDir | Component::RootDir
-            )
-        })
+        || path
+            .components()
+            .any(|component| matches!(component, Component::ParentDir | Component::CurDir | Component::RootDir))
     {
         return Err(ManifestError::Invalid(format!(
             "{label} must be a safe relative path: {value:?}"

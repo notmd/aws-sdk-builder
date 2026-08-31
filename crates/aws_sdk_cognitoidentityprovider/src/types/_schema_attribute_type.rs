@@ -20,11 +20,9 @@ pub struct SchemaAttributeType {
     /// <p>Specifies whether a user pool attribute is required. If the attribute is required and the user doesn't provide a value, registration or sign-in will fail.</p>
     pub required: ::std::option::Option<bool>,
     /// <p>Specifies the constraints for an attribute of the number type.</p>
-    pub number_attribute_constraints:
-        ::std::option::Option<crate::types::NumberAttributeConstraintsType>,
+    pub number_attribute_constraints: ::std::option::Option<crate::types::NumberAttributeConstraintsType>,
     /// <p>Specifies the constraints for an attribute of the string type.</p>
-    pub string_attribute_constraints:
-        ::std::option::Option<crate::types::StringAttributeConstraintsType>,
+    pub string_attribute_constraints: ::std::option::Option<crate::types::StringAttributeConstraintsType>,
 }
 impl SchemaAttributeType {
     /// <p>The name of your user pool attribute. When you create or update a user pool, adding a schema attribute creates a custom or developer-only attribute. When you add an attribute with a <code>Name</code> value of <code>MyAttribute</code>, Amazon Cognito creates the custom attribute <code>custom:MyAttribute</code>. When <code>DeveloperOnlyAttribute</code> is <code>true</code>, Amazon Cognito creates your attribute as <code>dev:MyAttribute</code>. In an operation that describes a user pool, Amazon Cognito returns this value as <code>value</code> for standard attributes, <code>custom:value</code> for custom attributes, and <code>dev:value</code> for developer-only attributes..</p>
@@ -52,15 +50,11 @@ impl SchemaAttributeType {
         self.required
     }
     /// <p>Specifies the constraints for an attribute of the number type.</p>
-    pub fn number_attribute_constraints(
-        &self,
-    ) -> ::std::option::Option<&crate::types::NumberAttributeConstraintsType> {
+    pub fn number_attribute_constraints(&self) -> ::std::option::Option<&crate::types::NumberAttributeConstraintsType> {
         self.number_attribute_constraints.as_ref()
     }
     /// <p>Specifies the constraints for an attribute of the string type.</p>
-    pub fn string_attribute_constraints(
-        &self,
-    ) -> ::std::option::Option<&crate::types::StringAttributeConstraintsType> {
+    pub fn string_attribute_constraints(&self) -> ::std::option::Option<&crate::types::StringAttributeConstraintsType> {
         self.string_attribute_constraints.as_ref()
     }
 }
@@ -72,9 +66,7 @@ impl SchemaAttributeType {
 }
 
 /// A builder for [`SchemaAttributeType`](crate::types::SchemaAttributeType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SchemaAttributeTypeBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
@@ -82,10 +74,8 @@ pub struct SchemaAttributeTypeBuilder {
     pub(crate) developer_only_attribute: ::std::option::Option<bool>,
     pub(crate) mutable: ::std::option::Option<bool>,
     pub(crate) required: ::std::option::Option<bool>,
-    pub(crate) number_attribute_constraints:
-        ::std::option::Option<crate::types::NumberAttributeConstraintsType>,
-    pub(crate) string_attribute_constraints:
-        ::std::option::Option<crate::types::StringAttributeConstraintsType>,
+    pub(crate) number_attribute_constraints: ::std::option::Option<crate::types::NumberAttributeConstraintsType>,
+    pub(crate) string_attribute_constraints: ::std::option::Option<crate::types::StringAttributeConstraintsType>,
 }
 impl SchemaAttributeTypeBuilder {
     /// <p>The name of your user pool attribute. When you create or update a user pool, adding a schema attribute creates a custom or developer-only attribute. When you add an attribute with a <code>Name</code> value of <code>MyAttribute</code>, Amazon Cognito creates the custom attribute <code>custom:MyAttribute</code>. When <code>DeveloperOnlyAttribute</code> is <code>true</code>, Amazon Cognito creates your attribute as <code>dev:MyAttribute</code>. In an operation that describes a user pool, Amazon Cognito returns this value as <code>value</code> for standard attributes, <code>custom:value</code> for custom attributes, and <code>dev:value</code> for developer-only attributes..</p>
@@ -108,17 +98,12 @@ impl SchemaAttributeTypeBuilder {
         self
     }
     /// <p>The data format of the values for your attribute. When you choose an <code>AttributeDataType</code>, Amazon Cognito validates the input against the data type. A custom attribute value in your user's ID token is always a string, for example <code>"custom:isMember" : "true"</code> or <code>"custom:YearsAsMember" : "12"</code>.</p>
-    pub fn set_attribute_data_type(
-        mut self,
-        input: ::std::option::Option<crate::types::AttributeDataType>,
-    ) -> Self {
+    pub fn set_attribute_data_type(mut self, input: ::std::option::Option<crate::types::AttributeDataType>) -> Self {
         self.attribute_data_type = input;
         self
     }
     /// <p>The data format of the values for your attribute. When you choose an <code>AttributeDataType</code>, Amazon Cognito validates the input against the data type. A custom attribute value in your user's ID token is always a string, for example <code>"custom:isMember" : "true"</code> or <code>"custom:YearsAsMember" : "12"</code>.</p>
-    pub fn get_attribute_data_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::AttributeDataType> {
+    pub fn get_attribute_data_type(&self) -> &::std::option::Option<crate::types::AttributeDataType> {
         &self.attribute_data_type
     }
     /// <note>
@@ -176,10 +161,7 @@ impl SchemaAttributeTypeBuilder {
         &self.required
     }
     /// <p>Specifies the constraints for an attribute of the number type.</p>
-    pub fn number_attribute_constraints(
-        mut self,
-        input: crate::types::NumberAttributeConstraintsType,
-    ) -> Self {
+    pub fn number_attribute_constraints(mut self, input: crate::types::NumberAttributeConstraintsType) -> Self {
         self.number_attribute_constraints = ::std::option::Option::Some(input);
         self
     }
@@ -198,10 +180,7 @@ impl SchemaAttributeTypeBuilder {
         &self.number_attribute_constraints
     }
     /// <p>Specifies the constraints for an attribute of the string type.</p>
-    pub fn string_attribute_constraints(
-        mut self,
-        input: crate::types::StringAttributeConstraintsType,
-    ) -> Self {
+    pub fn string_attribute_constraints(mut self, input: crate::types::StringAttributeConstraintsType) -> Self {
         self.string_attribute_constraints = ::std::option::Option::Some(input);
         self
     }

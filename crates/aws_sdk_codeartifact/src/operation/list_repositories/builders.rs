@@ -57,9 +57,7 @@ impl ListRepositoriesFluentBuilder {
         }
     }
     /// Access the ListRepositories as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_repositories::builders::ListRepositoriesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_repositories::builders::ListRepositoriesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,14 +81,12 @@ impl ListRepositoriesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_repositories::ListRepositories::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::list_repositories::ListRepositories::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::list_repositories::ListRepositories::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::list_repositories::ListRepositories::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -121,27 +117,16 @@ impl ListRepositoriesFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_repositories::paginator::ListRepositoriesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_repositories::paginator::ListRepositoriesPaginator {
-        crate::operation::list_repositories::paginator::ListRepositoriesPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_repositories::paginator::ListRepositoriesPaginator {
+        crate::operation::list_repositories::paginator::ListRepositoriesPaginator::new(self.handle, self.inner)
     }
     /// <p>A prefix used to filter returned repositories. Only repositories with names that start with <code>repositoryPrefix</code> are returned.</p>
-    pub fn repository_prefix(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn repository_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.repository_prefix(input.into());
         self
     }
     /// <p>A prefix used to filter returned repositories. Only repositories with names that start with <code>repositoryPrefix</code> are returned.</p>
-    pub fn set_repository_prefix(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_repository_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_repository_prefix(input);
         self
     }

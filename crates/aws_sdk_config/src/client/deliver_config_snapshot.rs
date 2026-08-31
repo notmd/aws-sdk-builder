@@ -9,8 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeliverConfigSnapshotError>`](crate::operation::deliver_config_snapshot::DeliverConfigSnapshotError)
     pub fn deliver_config_snapshot(
         &self,
-    ) -> crate::operation::deliver_config_snapshot::builders::DeliverConfigSnapshotFluentBuilder
-    {
+    ) -> crate::operation::deliver_config_snapshot::builders::DeliverConfigSnapshotFluentBuilder {
         crate::operation::deliver_config_snapshot::builders::DeliverConfigSnapshotFluentBuilder::new(
             self.handle.clone(),
         )

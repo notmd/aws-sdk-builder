@@ -15,8 +15,6 @@ impl super::Client {
     pub fn list_instance_profiles(
         &self,
     ) -> crate::operation::list_instance_profiles::builders::ListInstanceProfilesFluentBuilder {
-        crate::operation::list_instance_profiles::builders::ListInstanceProfilesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::list_instance_profiles::builders::ListInstanceProfilesFluentBuilder::new(self.handle.clone())
     }
 }

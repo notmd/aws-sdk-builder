@@ -15,8 +15,6 @@ impl super::Client {
     pub fn list_mfa_device_tags(
         &self,
     ) -> crate::operation::list_mfa_device_tags::builders::ListMFADeviceTagsFluentBuilder {
-        crate::operation::list_mfa_device_tags::builders::ListMFADeviceTagsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::list_mfa_device_tags::builders::ListMFADeviceTagsFluentBuilder::new(self.handle.clone())
     }
 }

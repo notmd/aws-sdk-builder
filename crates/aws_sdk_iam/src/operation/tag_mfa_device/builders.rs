@@ -71,9 +71,7 @@ impl TagMFADeviceFluentBuilder {
         }
     }
     /// Access the TagMFADevice as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::tag_mfa_device::builders::TagMfaDeviceInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::tag_mfa_device::builders::TagMfaDeviceInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -97,12 +95,11 @@ impl TagMFADeviceFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::tag_mfa_device::TagMFADevice::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::tag_mfa_device::TagMFADevice::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::tag_mfa_device::TagMFADevice::orchestrate(&runtime_plugins, input).await
     }
 
@@ -133,19 +130,13 @@ impl TagMFADeviceFluentBuilder {
     }
     /// <p>The unique identifier for the IAM virtual MFA device to which you want to add tags. For virtual MFA devices, the serial number is the same as the ARN.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn serial_number(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn serial_number(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.serial_number(input.into());
         self
     }
     /// <p>The unique identifier for the IAM virtual MFA device to which you want to add tags. For virtual MFA devices, the serial number is the same as the ARN.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn set_serial_number(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_serial_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_serial_number(input);
         self
     }
@@ -165,10 +156,7 @@ impl TagMFADeviceFluentBuilder {
         self
     }
     /// <p>The list of tags that you want to attach to the IAM virtual MFA device. Each tag consists of a key name and an associated value.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }

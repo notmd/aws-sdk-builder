@@ -15,8 +15,6 @@ impl super::Client {
     pub fn list_users_in_group(
         &self,
     ) -> crate::operation::list_users_in_group::builders::ListUsersInGroupFluentBuilder {
-        crate::operation::list_users_in_group::builders::ListUsersInGroupFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::list_users_in_group::builders::ListUsersInGroupFluentBuilder::new(self.handle.clone())
     }
 }

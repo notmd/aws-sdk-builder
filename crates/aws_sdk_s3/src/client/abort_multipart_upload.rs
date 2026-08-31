@@ -15,8 +15,6 @@ impl super::Client {
     pub fn abort_multipart_upload(
         &self,
     ) -> crate::operation::abort_multipart_upload::builders::AbortMultipartUploadFluentBuilder {
-        crate::operation::abort_multipart_upload::builders::AbortMultipartUploadFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::abort_multipart_upload::builders::AbortMultipartUploadFluentBuilder::new(self.handle.clone())
     }
 }

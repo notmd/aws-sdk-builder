@@ -58,9 +58,7 @@ impl CreateExportJobFluentBuilder {
         }
     }
     /// Access the CreateExportJob as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::create_export_job::builders::CreateExportJobInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::create_export_job::builders::CreateExportJobInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,14 +82,12 @@ impl CreateExportJobFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::create_export_job::CreateExportJob::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::create_export_job::CreateExportJob::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::create_export_job::CreateExportJob::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::create_export_job::CreateExportJob::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -125,10 +121,7 @@ impl CreateExportJobFluentBuilder {
         self
     }
     /// <p>The data source for the export job.</p>
-    pub fn set_export_data_source(
-        mut self,
-        input: ::std::option::Option<crate::types::ExportDataSource>,
-    ) -> Self {
+    pub fn set_export_data_source(mut self, input: ::std::option::Option<crate::types::ExportDataSource>) -> Self {
         self.inner = self.inner.set_export_data_source(input);
         self
     }
@@ -142,17 +135,12 @@ impl CreateExportJobFluentBuilder {
         self
     }
     /// <p>The destination for the export job.</p>
-    pub fn set_export_destination(
-        mut self,
-        input: ::std::option::Option<crate::types::ExportDestination>,
-    ) -> Self {
+    pub fn set_export_destination(mut self, input: ::std::option::Option<crate::types::ExportDestination>) -> Self {
         self.inner = self.inner.set_export_destination(input);
         self
     }
     /// <p>The destination for the export job.</p>
-    pub fn get_export_destination(
-        &self,
-    ) -> &::std::option::Option<crate::types::ExportDestination> {
+    pub fn get_export_destination(&self) -> &::std::option::Option<crate::types::ExportDestination> {
         self.inner.get_export_destination()
     }
 }

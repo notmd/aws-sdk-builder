@@ -13,8 +13,6 @@ impl super::Client {
     pub fn list_directory_buckets(
         &self,
     ) -> crate::operation::list_directory_buckets::builders::ListDirectoryBucketsFluentBuilder {
-        crate::operation::list_directory_buckets::builders::ListDirectoryBucketsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::list_directory_buckets::builders::ListDirectoryBucketsFluentBuilder::new(self.handle.clone())
     }
 }

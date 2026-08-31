@@ -59,8 +59,7 @@ impl DescribePackageVersionFluentBuilder {
     /// Access the DescribePackageVersion as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::describe_package_version::builders::DescribePackageVersionInputBuilder
-    {
+    ) -> &crate::operation::describe_package_version::builders::DescribePackageVersionInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +83,13 @@ impl DescribePackageVersionFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::describe_package_version::DescribePackageVersion::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::describe_package_version::DescribePackageVersion::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::describe_package_version::DescribePackageVersion::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::describe_package_version::DescribePackageVersion::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -266,18 +262,12 @@ impl DescribePackageVersionFluentBuilder {
         self.inner.get_package()
     }
     /// <p>A string that contains the package version (for example, <code>3.5.2</code>).</p>
-    pub fn package_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.package_version(input.into());
         self
     }
     /// <p>A string that contains the package version (for example, <code>3.5.2</code>).</p>
-    pub fn set_package_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_package_version(input);
         self
     }

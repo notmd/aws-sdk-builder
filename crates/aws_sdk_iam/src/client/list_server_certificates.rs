@@ -14,8 +14,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListServerCertificatesError>`](crate::operation::list_server_certificates::ListServerCertificatesError)
     pub fn list_server_certificates(
         &self,
-    ) -> crate::operation::list_server_certificates::builders::ListServerCertificatesFluentBuilder
-    {
-        crate::operation::list_server_certificates::builders::ListServerCertificatesFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::list_server_certificates::builders::ListServerCertificatesFluentBuilder {
+        crate::operation::list_server_certificates::builders::ListServerCertificatesFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -16,11 +16,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -34,45 +32,35 @@ where
                         match key.to_unescaped()?.as_ref() {
                             "TableName" => {
                                 builder = builder.set_table_name(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "CapacityUnits" => {
                                 builder = builder.set_capacity_units(
-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|v| v.to_f64_lossy()),
+                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                        .map(|v| v.to_f64_lossy()),
                                 );
                             }
                             "ReadCapacityUnits" => {
                                 builder = builder.set_read_capacity_units(
-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|v| v.to_f64_lossy()),
+                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                        .map(|v| v.to_f64_lossy()),
                                 );
                             }
                             "WriteCapacityUnits" => {
                                 builder = builder.set_write_capacity_units(
-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|v| v.to_f64_lossy()),
+                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                        .map(|v| v.to_f64_lossy()),
                                 );
                             }
                             "Table" => {
-                                builder = builder.set_table(
-                                    crate::protocol_serde::shape_capacity::de_capacity(
-                                        tokens,
-                                        _value,
-                                        depth + 1,
-                                    )?,
-                                );
+                                builder = builder.set_table(crate::protocol_serde::shape_capacity::de_capacity(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
                             }
                             "LocalSecondaryIndexes" => {
                                 builder = builder.set_local_secondary_indexes(
@@ -101,20 +89,16 @@ where
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
             Ok(Some(builder.build()))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

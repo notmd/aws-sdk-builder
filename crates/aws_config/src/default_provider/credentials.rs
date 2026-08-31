@@ -137,9 +137,7 @@ impl Builder {
         name: impl Into<Cow<'static, str>>,
         provider: impl ProvideCredentials + 'static,
     ) -> Self {
-        self.profile_file_builder = self
-            .profile_file_builder
-            .with_custom_provider(name, provider);
+        self.profile_file_builder = self.profile_file_builder.with_custom_provider(name, provider);
         self
     }
 
@@ -367,14 +365,8 @@ mod test {
             .with_http_client(NeverTcpConnector::new().into_client())
             .with_time_source(StaticTimeSource::new(UNIX_EPOCH))
             .with_sleep_impl(TokioSleep::new());
-        let provider = DefaultCredentialsChain::builder()
-            .configure(conf)
-            .build()
-            .await;
-        let creds = provider
-            .provide_credentials()
-            .await
-            .expect_err("no providers enabled");
+        let provider = DefaultCredentialsChain::builder().configure(conf).build().await;
+        let creds = provider.provide_credentials().await.expect_err("no providers enabled");
         assert!(
             matches!(creds, CredentialsError::CredentialsNotLoaded { .. }),
             "should be NotLoaded: {:?}",

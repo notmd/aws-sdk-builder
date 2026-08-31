@@ -23,8 +23,9 @@ impl DeleteRemediationConfiguration {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::delete_remediation_configuration::DeleteRemediationConfigurationError>()
-                    .expect("correct error type")
+                err.downcast::<crate::operation::delete_remediation_configuration::DeleteRemediationConfigurationError>(
+                )
+                .expect("correct error type")
             })
         };
         let context = Self::orchestrate_with_stop_point(
@@ -85,28 +86,22 @@ impl DeleteRemediationConfiguration {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(
-                crate::config::ConfigOverrideRuntimePlugin::new(
-                    config_override,
-                    client_config.config.clone(),
-                    &client_config.runtime_components,
-                ),
-            );
+            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+                config_override,
+                client_config.config.clone(),
+                &client_config.runtime_components,
+            ));
         }
         runtime_plugins
     }
 }
-impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
-    for DeleteRemediationConfiguration
-{
+impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for DeleteRemediationConfiguration {
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("DeleteRemediationConfiguration");
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                DeleteRemediationConfigurationRequestSerializer,
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+            DeleteRemediationConfigurationRequestSerializer,
+        ));
         cfg.store_put(
             ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
                 DeleteRemediationConfigurationResponseDeserializer,
@@ -122,12 +117,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
             ),
         );
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-                "DeleteRemediationConfiguration",
-                "Config Service",
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+            "DeleteRemediationConfiguration",
+            "Config Service",
+        ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = true;
         signing_options.content_sha256_header = false;
@@ -145,30 +138,39 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<
-        '_,
-        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    > {
+    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
-        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteRemediationConfiguration")
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new(
+            "DeleteRemediationConfiguration",
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 DeleteRemediationConfigurationTelemetryInputCaptureInterceptor,
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 DeleteRemediationConfigurationEndpointParamsInterceptor,
-            ))
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+            ),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                 crate::operation::delete_remediation_configuration::DeleteRemediationConfigurationError,
-            >::new())
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+            >::new(),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                 crate::operation::delete_remediation_configuration::DeleteRemediationConfigurationError,
-            >::new())
-            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::delete_remediation_configuration::DeleteRemediationConfigurationError,
-            >::new());
+            >::new(),
+        )
+        .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+            crate::operation::delete_remediation_configuration::DeleteRemediationConfigurationError,
+        >::new());
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -203,9 +205,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) = context
-            .input()
-            .downcast_ref::<DeleteRemediationConfigurationInput>()
+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<DeleteRemediationConfigurationInput>()
         else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
@@ -253,9 +253,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
 }
 #[derive(Debug)]
 struct DeleteRemediationConfigurationRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
-    for DeleteRemediationConfigurationRequestSerializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteRemediationConfigurationRequestSerializer {
     #[allow(
         unused_mut,
         clippy::let_and_return,
@@ -282,8 +280,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_base(
                 _input: &crate::operation::delete_remediation_configuration::DeleteRemediationConfigurationInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
                 ::std::write!(output, "/").expect("formatting should succeed");
                 ::std::result::Result::Ok(())
@@ -292,10 +289,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn update_http_builder(
                 input: &crate::operation::delete_remediation_configuration::DeleteRemediationConfigurationInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<
-                ::http_1x::request::Builder,
-                ::aws_smithy_types::error::operation::BuildError,
-            > {
+            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
@@ -314,7 +309,9 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            crate::protocol_serde::shape_delete_remediation_configuration::ser_delete_remediation_configuration_input(&input)?,
+            crate::protocol_serde::shape_delete_remediation_configuration::ser_delete_remediation_configuration_input(
+                &input,
+            )?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
@@ -324,13 +321,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
                 &content_length,
             );
         }
-        ::std::result::Result::Ok(
-            request_builder
-                .body(body)
-                .expect("valid request")
-                .try_into()
-                .unwrap(),
-        )
+        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
 #[derive(Debug)]
@@ -360,18 +351,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             .ok_or("failed to downcast to DeleteRemediationConfigurationInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(
-                cfg.load::<::aws_types::region::Region>()
-                    .map(|r| r.as_ref().to_owned()),
-            )
-            .set_use_dual_stack(
-                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
-                    .map(|ty| ty.0),
-            )
-            .set_use_fips(
-                cfg.load::<::aws_types::endpoint_config::UseFips>()
-                    .map(|ty| ty.0),
-            )
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_endpoint(
                 cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
                     .map(|ty| ty.0.clone()),
@@ -383,9 +365,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
                     err,
                 )
             })?;
-        cfg.interceptor_state().store_put(
-            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
-        );
+        cfg.interceptor_state()
+            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(
+                params,
+            ));
         ::std::result::Result::Ok(())
     }
 }
@@ -422,9 +405,7 @@ pub enum DeleteRemediationConfigurationError {
     /// <p>One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.</p>
     InvalidParameterValueException(crate::types::error::InvalidParameterValueException),
     /// <p>You specified an Config rule without a remediation configuration.</p>
-    NoSuchRemediationConfigurationException(
-        crate::types::error::NoSuchRemediationConfigurationException,
-    ),
+    NoSuchRemediationConfigurationException(crate::types::error::NoSuchRemediationConfigurationException),
     /// <p>Remediation action is in progress. You can either cancel execution in Amazon Web Services Systems Manager or wait and try again later.</p>
     RemediationInProgressException(crate::types::error::RemediationInProgressException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
@@ -442,9 +423,7 @@ impl DeleteRemediationConfigurationError {
     /// Creates the `DeleteRemediationConfigurationError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -503,9 +482,7 @@ impl ::std::error::Error for DeleteRemediationConfigurationError {
         match self {
             Self::InsufficientPermissionsException(_inner) => ::std::option::Option::Some(_inner),
             Self::InvalidParameterValueException(_inner) => ::std::option::Option::Some(_inner),
-            Self::NoSuchRemediationConfigurationException(_inner) => {
-                ::std::option::Option::Some(_inner)
-            }
+            Self::NoSuchRemediationConfigurationException(_inner) => ::std::option::Option::Some(_inner),
             Self::RemediationInProgressException(_inner) => ::std::option::Option::Some(_inner),
             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
         }
@@ -538,9 +515,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for DeleteRemediationConfigurat
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
-    for DeleteRemediationConfigurationError
-{
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DeleteRemediationConfigurationError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::InsufficientPermissionsException(_inner) => {
@@ -559,13 +534,9 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
-    for DeleteRemediationConfigurationError
-{
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for DeleteRemediationConfigurationError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {

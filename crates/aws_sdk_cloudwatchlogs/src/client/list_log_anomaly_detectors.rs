@@ -13,8 +13,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListLogAnomalyDetectorsError>`](crate::operation::list_log_anomaly_detectors::ListLogAnomalyDetectorsError)
     pub fn list_log_anomaly_detectors(
         &self,
-    ) -> crate::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsFluentBuilder
-    {
-        crate::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsFluentBuilder {
+        crate::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

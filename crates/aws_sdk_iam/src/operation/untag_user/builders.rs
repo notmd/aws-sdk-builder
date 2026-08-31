@@ -142,10 +142,7 @@ impl UntagUserFluentBuilder {
         self
     }
     /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified user.</p>
-    pub fn set_tag_keys(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_tag_keys(input);
         self
     }

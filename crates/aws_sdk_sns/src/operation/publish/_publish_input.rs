@@ -60,9 +60,8 @@ pub struct PublishInput {
     /// <p>Valid value: <code>json</code></p>
     pub message_structure: ::std::option::Option<::std::string::String>,
     /// <p>Message attributes for Publish action.</p>
-    pub message_attributes: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>,
-    >,
+    pub message_attributes:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>,
     /// <ul>
     /// <li>
     /// <p>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p></li>
@@ -166,9 +165,8 @@ impl PublishInput {
     /// <p>Message attributes for Publish action.</p>
     pub fn message_attributes(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>
+    {
         self.message_attributes.as_ref()
     }
     /// <ul>
@@ -239,9 +237,8 @@ pub struct PublishInputBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
     pub(crate) subject: ::std::option::Option<::std::string::String>,
     pub(crate) message_structure: ::std::option::Option<::std::string::String>,
-    pub(crate) message_attributes: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>,
-    >,
+    pub(crate) message_attributes:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>,
     pub(crate) message_deduplication_id: ::std::option::Option<::std::string::String>,
     pub(crate) message_group_id: ::std::option::Option<::std::string::String>,
 }
@@ -431,10 +428,7 @@ impl PublishInputBuilder {
     /// </ul>
     /// <p>You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., "http").</p>
     /// <p>Valid value: <code>json</code></p>
-    pub fn message_structure(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn message_structure(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.message_structure = ::std::option::Option::Some(input.into());
         self
     }
@@ -447,10 +441,7 @@ impl PublishInputBuilder {
     /// </ul>
     /// <p>You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., "http").</p>
     /// <p>Valid value: <code>json</code></p>
-    pub fn set_message_structure(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_message_structure(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message_structure = input;
         self
     }
@@ -494,9 +485,8 @@ impl PublishInputBuilder {
     /// <p>Message attributes for Publish action.</p>
     pub fn get_message_attributes(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>
+    {
         &self.message_attributes
     }
     /// <ul>
@@ -525,10 +515,7 @@ impl PublishInputBuilder {
     /// <li>
     /// <p>If you send one message with <code>ContentBasedDeduplication</code> enabled, and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates, within the deduplication scope and interval, and only one copy of the message is delivered.</p></li>
     /// </ul>
-    pub fn message_deduplication_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn message_deduplication_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.message_deduplication_id = ::std::option::Option::Some(input.into());
         self
     }
@@ -558,10 +545,7 @@ impl PublishInputBuilder {
     /// <li>
     /// <p>If you send one message with <code>ContentBasedDeduplication</code> enabled, and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates, within the deduplication scope and interval, and only one copy of the message is delivered.</p></li>
     /// </ul>
-    pub fn set_message_deduplication_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_message_deduplication_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message_deduplication_id = input;
         self
     }
@@ -597,20 +581,14 @@ impl PublishInputBuilder {
     /// <p>The <code>MessageGroupId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p>
     /// <p>For FIFO topics: The <code>MessageGroupId</code> is a tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). Every message must include a <code>MessageGroupId</code>.</p>
     /// <p>For standard topics: The <code>MessageGroupId</code> is optional and is forwarded only to Amazon SQS standard subscriptions to activate <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fair-queues.html">fair queues</a>. The <code>MessageGroupId</code> is not used for, or sent to, any other endpoint types. When provided, the same validation rules apply as for FIFO topics.</p>
-    pub fn message_group_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn message_group_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.message_group_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The <code>MessageGroupId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p>
     /// <p>For FIFO topics: The <code>MessageGroupId</code> is a tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). Every message must include a <code>MessageGroupId</code>.</p>
     /// <p>For standard topics: The <code>MessageGroupId</code> is optional and is forwarded only to Amazon SQS standard subscriptions to activate <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fair-queues.html">fair queues</a>. The <code>MessageGroupId</code> is not used for, or sent to, any other endpoint types. When provided, the same validation rules apply as for FIFO topics.</p>
-    pub fn set_message_group_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_message_group_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message_group_id = input;
         self
     }
@@ -623,10 +601,8 @@ impl PublishInputBuilder {
     /// Consumes the builder and constructs a [`PublishInput`](crate::operation::publish::PublishInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::publish::PublishInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::publish::PublishInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::operation::publish::PublishInput {
             topic_arn: self.topic_arn,
             target_arn: self.target_arn,

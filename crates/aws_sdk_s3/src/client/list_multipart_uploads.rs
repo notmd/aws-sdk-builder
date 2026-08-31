@@ -30,8 +30,6 @@ impl super::Client {
     pub fn list_multipart_uploads(
         &self,
     ) -> crate::operation::list_multipart_uploads::builders::ListMultipartUploadsFluentBuilder {
-        crate::operation::list_multipart_uploads::builders::ListMultipartUploadsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::list_multipart_uploads::builders::ListMultipartUploadsFluentBuilder::new(self.handle.clone())
     }
 }

@@ -45,9 +45,7 @@ impl S3TablesDestinationResult {
 }
 
 /// A builder for [`S3TablesDestinationResult`](crate::types::S3TablesDestinationResult).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct S3TablesDestinationResultBuilder {
     pub(crate) table_bucket_arn: ::std::option::Option<::std::string::String>,
@@ -58,18 +56,12 @@ pub struct S3TablesDestinationResultBuilder {
 impl S3TablesDestinationResultBuilder {
     /// <p>The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and Amazon Web Services account as the general purpose bucket.</p>
     /// This field is required.
-    pub fn table_bucket_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn table_bucket_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.table_bucket_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and Amazon Web Services account as the general purpose bucket.</p>
-    pub fn set_table_bucket_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_table_bucket_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_bucket_arn = input;
         self
     }
@@ -109,18 +101,12 @@ impl S3TablesDestinationResultBuilder {
     }
     /// <p>The table bucket namespace for the metadata table in your metadata table configuration. This value is always <code>aws_s3_metadata</code>.</p>
     /// This field is required.
-    pub fn table_namespace(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn table_namespace(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.table_namespace = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The table bucket namespace for the metadata table in your metadata table configuration. This value is always <code>aws_s3_metadata</code>.</p>
-    pub fn set_table_namespace(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_table_namespace(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_namespace = input;
         self
     }
@@ -136,10 +122,8 @@ impl S3TablesDestinationResultBuilder {
     /// - [`table_namespace`](crate::types::builders::S3TablesDestinationResultBuilder::table_namespace)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::S3TablesDestinationResult,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::S3TablesDestinationResult, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::S3TablesDestinationResult {
             table_bucket_arn: self.table_bucket_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -28,15 +28,13 @@ impl ::aws_types::request_id::RequestId for GetDurableExecutionStateOutput {
 }
 impl GetDurableExecutionStateOutput {
     /// Creates a new builder-style object to manufacture [`GetDurableExecutionStateOutput`](crate::operation::get_durable_execution_state::GetDurableExecutionStateOutput).
-    pub fn builder() -> crate::operation::get_durable_execution_state::builders::GetDurableExecutionStateOutputBuilder{
+    pub fn builder() -> crate::operation::get_durable_execution_state::builders::GetDurableExecutionStateOutputBuilder {
         crate::operation::get_durable_execution_state::builders::GetDurableExecutionStateOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetDurableExecutionStateOutput`](crate::operation::get_durable_execution_state::GetDurableExecutionStateOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetDurableExecutionStateOutputBuilder {
     pub(crate) operations: ::std::option::Option<::std::vec::Vec<crate::types::Operation>>,
@@ -56,17 +54,12 @@ impl GetDurableExecutionStateOutputBuilder {
         self
     }
     /// <p>An array of operations that represent the current state of the durable execution. Operations are ordered by their start sequence number in ascending order and include information needed for replay processing.</p>
-    pub fn set_operations(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Operation>>,
-    ) -> Self {
+    pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Operation>>) -> Self {
         self.operations = input;
         self
     }
     /// <p>An array of operations that represent the current state of the durable execution. Operations are ordered by their start sequence number in ascending order and include information needed for replay processing.</p>
-    pub fn get_operations(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Operation>> {
+    pub fn get_operations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Operation>> {
         &self.operations
     }
     /// <p>If present, indicates that more operations are available. Use this value as the <code>Marker</code> parameter in a subsequent request to retrieve the next page of results.</p>
@@ -101,15 +94,17 @@ impl GetDurableExecutionStateOutputBuilder {
         crate::operation::get_durable_execution_state::GetDurableExecutionStateOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_durable_execution_state::GetDurableExecutionStateOutput {
-            operations: self.operations.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "operations",
-                    "operations was not specified but it is required when building GetDurableExecutionStateOutput",
-                )
-            })?,
-            next_marker: self.next_marker,
-            _request_id: self._request_id,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::get_durable_execution_state::GetDurableExecutionStateOutput {
+                operations: self.operations.ok_or_else(|| {
+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
+                        "operations",
+                        "operations was not specified but it is required when building GetDurableExecutionStateOutput",
+                    )
+                })?,
+                next_marker: self.next_marker,
+                _request_id: self._request_id,
+            },
+        )
     }
 }

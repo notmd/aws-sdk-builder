@@ -54,8 +54,7 @@ pub(crate) fn create_service_environment_output_output_correct_errors(
 #[cfg(feature = "op_describe_consumable_resource")]
 pub(crate) fn describe_consumable_resource_output_output_correct_errors(
     mut builder: crate::operation::describe_consumable_resource::builders::DescribeConsumableResourceOutputBuilder,
-) -> crate::operation::describe_consumable_resource::builders::DescribeConsumableResourceOutputBuilder
-{
+) -> crate::operation::describe_consumable_resource::builders::DescribeConsumableResourceOutputBuilder {
     if builder.consumable_resource_name.is_none() {
         builder.consumable_resource_name = Some(Default::default())
     }
@@ -79,17 +78,13 @@ pub(crate) fn describe_service_job_output_output_correct_errors(
         builder.job_queue = Some(Default::default())
     }
     if builder.service_job_type.is_none() {
-        builder.service_job_type = "no value was set"
-            .parse::<crate::types::ServiceJobType>()
-            .ok()
+        builder.service_job_type = "no value was set".parse::<crate::types::ServiceJobType>().ok()
     }
     if builder.started_at.is_none() {
         builder.started_at = Some(Default::default())
     }
     if builder.status.is_none() {
-        builder.status = "no value was set"
-            .parse::<crate::types::ServiceJobStatus>()
-            .ok()
+        builder.status = "no value was set".parse::<crate::types::ServiceJobStatus>().ok()
     }
     builder
 }
@@ -117,7 +112,7 @@ pub(crate) fn list_jobs_output_output_correct_errors(
 #[cfg(feature = "op_list_jobs_by_consumable_resource")]
 pub(crate) fn list_jobs_by_consumable_resource_output_output_correct_errors(
     mut builder: crate::operation::list_jobs_by_consumable_resource::builders::ListJobsByConsumableResourceOutputBuilder,
-) -> crate::operation::list_jobs_by_consumable_resource::builders::ListJobsByConsumableResourceOutputBuilder{
+) -> crate::operation::list_jobs_by_consumable_resource::builders::ListJobsByConsumableResourceOutputBuilder {
     if builder.jobs.is_none() {
         builder.jobs = Some(Default::default())
     }
@@ -434,9 +429,7 @@ pub(crate) fn service_environment_detail_correct_errors(
         builder.service_environment_arn = Some(Default::default())
     }
     if builder.service_environment_type.is_none() {
-        builder.service_environment_type = "no value was set"
-            .parse::<crate::types::ServiceEnvironmentType>()
-            .ok()
+        builder.service_environment_type = "no value was set".parse::<crate::types::ServiceEnvironmentType>().ok()
     }
     if builder.capacity_limits.is_none() {
         builder.capacity_limits = Some(Default::default())
@@ -455,9 +448,7 @@ pub(crate) fn service_job_summary_correct_errors(
         builder.job_name = Some(Default::default())
     }
     if builder.service_job_type.is_none() {
-        builder.service_job_type = "no value was set"
-            .parse::<crate::types::ServiceJobType>()
-            .ok()
+        builder.service_job_type = "no value was set".parse::<crate::types::ServiceJobType>().ok()
     }
     builder
 }
@@ -467,9 +458,7 @@ pub(crate) fn service_resource_id_correct_errors(
     mut builder: crate::types::builders::ServiceResourceIdBuilder,
 ) -> crate::types::builders::ServiceResourceIdBuilder {
     if builder.name.is_none() {
-        builder.name = "no value was set"
-            .parse::<crate::types::ServiceResourceIdName>()
-            .ok()
+        builder.name = "no value was set".parse::<crate::types::ServiceResourceIdName>().ok()
     }
     if builder.value.is_none() {
         builder.value = Some(Default::default())
@@ -736,12 +725,8 @@ pub(crate) fn instance_launch_template_correct_errors(
     }
     if builder.network_configuration.is_none() {
         builder.network_configuration = {
-            let builder =
-                crate::types::builders::ManagedInstancesNetworkConfigurationBuilder::default();
-            Some(
-                crate::serde_util::managed_instances_network_configuration_correct_errors(builder)
-                    .build(),
-            )
+            let builder = crate::types::builders::ManagedInstancesNetworkConfigurationBuilder::default();
+            Some(crate::serde_util::managed_instances_network_configuration_correct_errors(builder).build())
         }
     }
     builder
@@ -774,9 +759,7 @@ pub(crate) fn resource_requirement_correct_errors(
         builder.value = Some(Default::default())
     }
     if builder.r#type.is_none() {
-        builder.r#type = "no value was set"
-            .parse::<crate::types::ResourceType>()
-            .ok()
+        builder.r#type = "no value was set".parse::<crate::types::ResourceType>().ok()
     }
     builder
 }

@@ -15,8 +15,6 @@ impl super::Client {
     pub fn list_group_policies(
         &self,
     ) -> crate::operation::list_group_policies::builders::ListGroupPoliciesFluentBuilder {
-        crate::operation::list_group_policies::builders::ListGroupPoliciesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::list_group_policies::builders::ListGroupPoliciesFluentBuilder::new(self.handle.clone())
     }
 }

@@ -44,11 +44,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -71,27 +69,25 @@ where
                             }
                             "AllAwsRegions" => {
                                 builder = builder.set_all_aws_regions(
-                                    ::aws_smithy_json::deserialize::token::expect_bool_or_null(
-                                        tokens.next(),
-                                    )?,
+                                    ::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?,
                                 );
                             }
                             "AwsRegions" => {
-                                builder = builder.set_aws_regions(crate::protocol_serde::shape_aggregator_region_list::de_aggregator_region_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                                builder = builder.set_aws_regions(
+                                    crate::protocol_serde::shape_aggregator_region_list::de_aggregator_region_list(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
@@ -106,10 +102,8 @@ where
                     })?,
             ))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

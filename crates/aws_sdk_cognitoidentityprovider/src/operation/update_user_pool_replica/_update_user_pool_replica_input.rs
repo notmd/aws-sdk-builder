@@ -26,17 +26,13 @@ impl UpdateUserPoolReplicaInput {
 }
 impl UpdateUserPoolReplicaInput {
     /// Creates a new builder-style object to manufacture [`UpdateUserPoolReplicaInput`](crate::operation::update_user_pool_replica::UpdateUserPoolReplicaInput).
-    pub fn builder(
-    ) -> crate::operation::update_user_pool_replica::builders::UpdateUserPoolReplicaInputBuilder
-    {
+    pub fn builder() -> crate::operation::update_user_pool_replica::builders::UpdateUserPoolReplicaInputBuilder {
         crate::operation::update_user_pool_replica::builders::UpdateUserPoolReplicaInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateUserPoolReplicaInput`](crate::operation::update_user_pool_replica::UpdateUserPoolReplicaInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateUserPoolReplicaInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
@@ -81,10 +77,7 @@ impl UpdateUserPoolReplicaInputBuilder {
         self
     }
     /// <p>The status to set for the replica. Valid values are ACTIVE and INACTIVE.</p>
-    pub fn set_status(
-        mut self,
-        input: ::std::option::Option<crate::types::UpdateReplicaStatusType>,
-    ) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::UpdateReplicaStatusType>) -> Self {
         self.status = input;
         self
     }
@@ -99,12 +92,10 @@ impl UpdateUserPoolReplicaInputBuilder {
         crate::operation::update_user_pool_replica::UpdateUserPoolReplicaInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::update_user_pool_replica::UpdateUserPoolReplicaInput {
-                user_pool_id: self.user_pool_id,
-                region_name: self.region_name,
-                status: self.status,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::update_user_pool_replica::UpdateUserPoolReplicaInput {
+            user_pool_id: self.user_pool_id,
+            region_name: self.region_name,
+            status: self.status,
+        })
     }
 }

@@ -12,14 +12,12 @@ pub fn ser_policy_identifier(
             writer.string(inner);
         }
         crate::types::PolicyIdentifier::InlinePolicyIdentifier(inner) => {
-            crate::protocol_serde::shape_inline_policy_identifier_type::ser_inline_policy_identifier_type(writer, inner)?;
+            crate::protocol_serde::shape_inline_policy_identifier_type::ser_inline_policy_identifier_type(
+                writer, inner,
+            )?;
         }
         crate::types::PolicyIdentifier::Unknown => {
-            return Err(
-                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                    "PolicyIdentifier",
-                ),
-            )
+            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("PolicyIdentifier"))
         }
     }
     Ok(())

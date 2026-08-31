@@ -28,9 +28,7 @@ impl PutConfigRuleInput {
 }
 
 /// A builder for [`PutConfigRuleInput`](crate::operation::put_config_rule::PutConfigRuleInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutConfigRuleInputBuilder {
     pub(crate) config_rule: ::std::option::Option<crate::types::ConfigRule>,
@@ -44,10 +42,7 @@ impl PutConfigRuleInputBuilder {
         self
     }
     /// <p>The rule that you want to add to your account.</p>
-    pub fn set_config_rule(
-        mut self,
-        input: ::std::option::Option<crate::types::ConfigRule>,
-    ) -> Self {
+    pub fn set_config_rule(mut self, input: ::std::option::Option<crate::types::ConfigRule>) -> Self {
         self.config_rule = input;
         self
     }
@@ -67,10 +62,7 @@ impl PutConfigRuleInputBuilder {
         self
     }
     /// <p>An array of tag object.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self
     }

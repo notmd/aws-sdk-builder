@@ -12,8 +12,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListOriginationNumbersError>`](crate::operation::list_origination_numbers::ListOriginationNumbersError)
     pub fn list_origination_numbers(
         &self,
-    ) -> crate::operation::list_origination_numbers::builders::ListOriginationNumbersFluentBuilder
-    {
-        crate::operation::list_origination_numbers::builders::ListOriginationNumbersFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::list_origination_numbers::builders::ListOriginationNumbersFluentBuilder {
+        crate::operation::list_origination_numbers::builders::ListOriginationNumbersFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

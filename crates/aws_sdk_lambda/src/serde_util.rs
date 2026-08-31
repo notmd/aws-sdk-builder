@@ -2,8 +2,7 @@
 #[cfg(feature = "op_checkpoint_durable_execution")]
 pub(crate) fn checkpoint_durable_execution_output_output_correct_errors(
     mut builder: crate::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionOutputBuilder,
-) -> crate::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionOutputBuilder
-{
+) -> crate::operation::checkpoint_durable_execution::builders::CheckpointDurableExecutionOutputBuilder {
     if builder.new_execution_state.is_none() {
         builder.new_execution_state = {
             let builder = crate::types::builders::CheckpointUpdatedExecutionStateBuilder::default();
@@ -39,9 +38,7 @@ pub(crate) fn create_function_url_config_output_output_correct_errors(
         builder.function_arn = Some(Default::default())
     }
     if builder.auth_type.is_none() {
-        builder.auth_type = "no value was set"
-            .parse::<crate::types::FunctionUrlAuthType>()
-            .ok()
+        builder.auth_type = "no value was set".parse::<crate::types::FunctionUrlAuthType>().ok()
     }
     if builder.creation_time.is_none() {
         builder.creation_time = Some(Default::default())
@@ -111,9 +108,7 @@ pub(crate) fn get_durable_execution_output_output_correct_errors(
         builder.start_timestamp = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     if builder.status.is_none() {
-        builder.status = "no value was set"
-            .parse::<crate::types::ExecutionStatus>()
-            .ok()
+        builder.status = "no value was set".parse::<crate::types::ExecutionStatus>().ok()
     }
     builder
 }
@@ -121,7 +116,7 @@ pub(crate) fn get_durable_execution_output_output_correct_errors(
 #[cfg(feature = "op_get_durable_execution_history")]
 pub(crate) fn get_durable_execution_history_output_output_correct_errors(
     mut builder: crate::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder,
-) -> crate::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder{
+) -> crate::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder {
     if builder.events.is_none() {
         builder.events = Some(Default::default())
     }
@@ -131,8 +126,7 @@ pub(crate) fn get_durable_execution_history_output_output_correct_errors(
 #[cfg(feature = "op_get_durable_execution_state")]
 pub(crate) fn get_durable_execution_state_output_output_correct_errors(
     mut builder: crate::operation::get_durable_execution_state::builders::GetDurableExecutionStateOutputBuilder,
-) -> crate::operation::get_durable_execution_state::builders::GetDurableExecutionStateOutputBuilder
-{
+) -> crate::operation::get_durable_execution_state::builders::GetDurableExecutionStateOutputBuilder {
     if builder.operations.is_none() {
         builder.operations = Some(Default::default())
     }
@@ -142,7 +136,7 @@ pub(crate) fn get_durable_execution_state_output_output_correct_errors(
 #[cfg(feature = "op_get_function_code_signing_config")]
 pub(crate) fn get_function_code_signing_config_output_output_correct_errors(
     mut builder: crate::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigOutputBuilder,
-) -> crate::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigOutputBuilder{
+) -> crate::operation::get_function_code_signing_config::builders::GetFunctionCodeSigningConfigOutputBuilder {
     if builder.code_signing_config_arn.is_none() {
         builder.code_signing_config_arn = Some(Default::default())
     }
@@ -163,9 +157,7 @@ pub(crate) fn get_function_url_config_output_output_correct_errors(
         builder.function_arn = Some(Default::default())
     }
     if builder.auth_type.is_none() {
-        builder.auth_type = "no value was set"
-            .parse::<crate::types::FunctionUrlAuthType>()
-            .ok()
+        builder.auth_type = "no value was set".parse::<crate::types::FunctionUrlAuthType>().ok()
     }
     if builder.creation_time.is_none() {
         builder.creation_time = Some(Default::default())
@@ -212,7 +204,7 @@ pub(crate) fn list_function_versions_by_capacity_provider_output_output_correct_
 #[cfg(feature = "op_put_function_code_signing_config")]
 pub(crate) fn put_function_code_signing_config_output_output_correct_errors(
     mut builder: crate::operation::put_function_code_signing_config::builders::PutFunctionCodeSigningConfigOutputBuilder,
-) -> crate::operation::put_function_code_signing_config::builders::PutFunctionCodeSigningConfigOutputBuilder{
+) -> crate::operation::put_function_code_signing_config::builders::PutFunctionCodeSigningConfigOutputBuilder {
     if builder.code_signing_config_arn.is_none() {
         builder.code_signing_config_arn = Some(Default::default())
     }
@@ -225,11 +217,9 @@ pub(crate) fn put_function_code_signing_config_output_output_correct_errors(
 #[cfg(feature = "op_put_runtime_management_config")]
 pub(crate) fn put_runtime_management_config_output_output_correct_errors(
     mut builder: crate::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigOutputBuilder,
-) -> crate::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigOutputBuilder{
+) -> crate::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigOutputBuilder {
     if builder.update_runtime_on.is_none() {
-        builder.update_runtime_on = "no value was set"
-            .parse::<crate::types::UpdateRuntimeOn>()
-            .ok()
+        builder.update_runtime_on = "no value was set".parse::<crate::types::UpdateRuntimeOn>().ok()
     }
     if builder.function_arn.is_none() {
         builder.function_arn = Some(Default::default())
@@ -288,9 +278,7 @@ pub(crate) fn update_function_url_config_output_output_correct_errors(
         builder.function_arn = Some(Default::default())
     }
     if builder.auth_type.is_none() {
-        builder.auth_type = "no value was set"
-            .parse::<crate::types::FunctionUrlAuthType>()
-            .ok()
+        builder.auth_type = "no value was set".parse::<crate::types::FunctionUrlAuthType>().ok()
     }
     if builder.creation_time.is_none() {
         builder.creation_time = Some(Default::default())
@@ -315,9 +303,7 @@ pub(crate) fn capacity_provider_correct_errors(
         builder.capacity_provider_arn = Some(Default::default())
     }
     if builder.state.is_none() {
-        builder.state = "no value was set"
-            .parse::<crate::types::CapacityProviderState>()
-            .ok()
+        builder.state = "no value was set".parse::<crate::types::CapacityProviderState>().ok()
     }
     if builder.vpc_config.is_none() {
         builder.vpc_config = {
@@ -329,8 +315,7 @@ pub(crate) fn capacity_provider_correct_errors(
     }
     if builder.permissions_config.is_none() {
         builder.permissions_config = {
-            let builder =
-                crate::types::builders::CapacityProviderPermissionsConfigBuilder::default();
+            let builder = crate::types::builders::CapacityProviderPermissionsConfigBuilder::default();
             crate::serde_util::capacity_provider_permissions_config_correct_errors(builder)
                 .build()
                 .ok()
@@ -385,17 +370,12 @@ pub(crate) fn code_signing_config_correct_errors(
 pub(crate) fn capacity_provider_config_correct_errors(
     mut builder: crate::types::builders::CapacityProviderConfigBuilder,
 ) -> crate::types::builders::CapacityProviderConfigBuilder {
-    if builder
-        .lambda_managed_instances_capacity_provider_config
-        .is_none()
-    {
+    if builder.lambda_managed_instances_capacity_provider_config.is_none() {
         builder.lambda_managed_instances_capacity_provider_config = {
             let builder = crate::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder::default();
-            crate::serde_util::lambda_managed_instances_capacity_provider_config_correct_errors(
-                builder,
-            )
-            .build()
-            .ok()
+            crate::serde_util::lambda_managed_instances_capacity_provider_config_correct_errors(builder)
+                .build()
+                .ok()
         }
     }
     builder
@@ -445,9 +425,7 @@ pub(crate) fn tenancy_config_correct_errors(
     mut builder: crate::types::builders::TenancyConfigBuilder,
 ) -> crate::types::builders::TenancyConfigBuilder {
     if builder.tenant_isolation_mode.is_none() {
-        builder.tenant_isolation_mode = "no value was set"
-            .parse::<crate::types::TenantIsolationMode>()
-            .ok()
+        builder.tenant_isolation_mode = "no value was set".parse::<crate::types::TenantIsolationMode>().ok()
     }
     builder
 }
@@ -515,9 +493,7 @@ pub(crate) fn execution_correct_errors(
         builder.function_arn = Some(Default::default())
     }
     if builder.status.is_none() {
-        builder.status = "no value was set"
-            .parse::<crate::types::ExecutionStatus>()
-            .ok()
+        builder.status = "no value was set".parse::<crate::types::ExecutionStatus>().ok()
     }
     if builder.start_timestamp.is_none() {
         builder.start_timestamp = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
@@ -563,9 +539,7 @@ pub(crate) fn function_url_config_correct_errors(
         builder.last_modified_time = Some(Default::default())
     }
     if builder.auth_type.is_none() {
-        builder.auth_type = "no value was set"
-            .parse::<crate::types::FunctionUrlAuthType>()
-            .ok()
+        builder.auth_type = "no value was set".parse::<crate::types::FunctionUrlAuthType>().ok()
     }
     builder
 }
@@ -612,17 +586,13 @@ pub(crate) fn operation_correct_errors(
         builder.id = Some(Default::default())
     }
     if builder.r#type.is_none() {
-        builder.r#type = "no value was set"
-            .parse::<crate::types::OperationType>()
-            .ok()
+        builder.r#type = "no value was set".parse::<crate::types::OperationType>().ok()
     }
     if builder.start_timestamp.is_none() {
         builder.start_timestamp = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     if builder.status.is_none() {
-        builder.status = "no value was set"
-            .parse::<crate::types::OperationStatus>()
-            .ok()
+        builder.status = "no value was set".parse::<crate::types::OperationStatus>().ok()
     }
     builder
 }
@@ -881,8 +851,7 @@ pub(crate) fn wait_started_details_correct_errors(
         builder.duration = Some(Default::default())
     }
     if builder.scheduled_end_timestamp.is_none() {
-        builder.scheduled_end_timestamp =
-            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.scheduled_end_timestamp = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }

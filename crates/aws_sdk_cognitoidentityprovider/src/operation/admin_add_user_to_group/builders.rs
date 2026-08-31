@@ -66,9 +66,7 @@ impl AdminAddUserToGroupFluentBuilder {
         }
     }
     /// Access the AdminAddUserToGroup as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::admin_add_user_to_group::builders::AdminAddUserToGroupInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::admin_add_user_to_group::builders::AdminAddUserToGroupInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -97,11 +95,7 @@ impl AdminAddUserToGroupFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::admin_add_user_to_group::AdminAddUserToGroup::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::admin_add_user_to_group::AdminAddUserToGroup::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

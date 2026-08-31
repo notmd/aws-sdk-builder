@@ -10,10 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListMessageMoveTasksError>`](crate::operation::list_message_move_tasks::ListMessageMoveTasksError)
     pub fn list_message_move_tasks(
         &self,
-    ) -> crate::operation::list_message_move_tasks::builders::ListMessageMoveTasksFluentBuilder
-    {
-        crate::operation::list_message_move_tasks::builders::ListMessageMoveTasksFluentBuilder::new(
-            self.handle.clone(),
-        )
+    ) -> crate::operation::list_message_move_tasks::builders::ListMessageMoveTasksFluentBuilder {
+        crate::operation::list_message_move_tasks::builders::ListMessageMoveTasksFluentBuilder::new(self.handle.clone())
     }
 }

@@ -15,9 +15,7 @@ pub struct CreateTermsInput {
     pub enforcement: ::std::option::Option<crate::types::TermsEnforcementType>,
     /// <p>A map of URLs to languages. For each localized language that will view the requested <code>TermsName</code>, assign a URL. A selection of <code>cognito:default</code> displays for all languages that don't have a language-specific URL.</p>
     /// <p>For example, <code>"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"</code>.</p>
-    pub links: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub links: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl CreateTermsInput {
     /// <p>The ID of the user pool where you want to create terms documents.</p>
@@ -44,9 +42,7 @@ impl CreateTermsInput {
     /// <p>For example, <code>"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"</code>.</p>
     pub fn links(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.links.as_ref()
     }
 }
@@ -78,9 +74,7 @@ pub struct CreateTermsInputBuilder {
     pub(crate) terms_name: ::std::option::Option<::std::string::String>,
     pub(crate) terms_source: ::std::option::Option<crate::types::TermsSourceType>,
     pub(crate) enforcement: ::std::option::Option<crate::types::TermsEnforcementType>,
-    pub(crate) links: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) links: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl CreateTermsInputBuilder {
     /// <p>The ID of the user pool where you want to create terms documents.</p>
@@ -135,10 +129,7 @@ impl CreateTermsInputBuilder {
         self
     }
     /// <p>This parameter is reserved for future use and currently accepts only one value.</p>
-    pub fn set_terms_source(
-        mut self,
-        input: ::std::option::Option<crate::types::TermsSourceType>,
-    ) -> Self {
+    pub fn set_terms_source(mut self, input: ::std::option::Option<crate::types::TermsSourceType>) -> Self {
         self.terms_source = input;
         self
     }
@@ -153,10 +144,7 @@ impl CreateTermsInputBuilder {
         self
     }
     /// <p>This parameter is reserved for future use and currently accepts only one value.</p>
-    pub fn set_enforcement(
-        mut self,
-        input: ::std::option::Option<crate::types::TermsEnforcementType>,
-    ) -> Self {
+    pub fn set_enforcement(mut self, input: ::std::option::Option<crate::types::TermsEnforcementType>) -> Self {
         self.enforcement = input;
         self
     }
@@ -184,9 +172,7 @@ impl CreateTermsInputBuilder {
     /// <p>For example, <code>"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"</code>.</p>
     pub fn set_links(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.links = input;
         self
@@ -195,9 +181,7 @@ impl CreateTermsInputBuilder {
     /// <p>For example, <code>"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"</code>.</p>
     pub fn get_links(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.links
     }
     /// Consumes the builder and constructs a [`CreateTermsInput`](crate::operation::create_terms::CreateTermsInput).

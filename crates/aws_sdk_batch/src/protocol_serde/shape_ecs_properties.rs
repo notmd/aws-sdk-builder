@@ -9,10 +9,7 @@ pub fn ser_ecs_properties(
             {
                 #[allow(unused_mut)]
                 let mut object_4 = array_2.value().start_object();
-                crate::protocol_serde::shape_ecs_task_properties::ser_ecs_task_properties(
-                    &mut object_4,
-                    item_3,
-                )?;
+                crate::protocol_serde::shape_ecs_task_properties::ser_ecs_task_properties(&mut object_4, item_3)?;
                 object_4.finish();
             }
         }
@@ -25,10 +22,7 @@ pub(crate) fn de_ecs_properties<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<
-    Option<crate::types::EcsProperties>,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
->
+) -> ::std::result::Result<Option<crate::types::EcsProperties>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<
         Item = Result<
@@ -38,11 +32,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -56,29 +48,27 @@ where
                         match key.to_unescaped()?.as_ref() {
                             "taskProperties" => {
                                 builder = builder.set_task_properties(
-                                crate::protocol_serde::shape_list_ecs_task_properties::de_list_ecs_task_properties(tokens, _value, depth + 1)?,
-                            );
+                                    crate::protocol_serde::shape_list_ecs_task_properties::de_list_ecs_task_properties(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
-            Ok(Some(
-                crate::serde_util::ecs_properties_correct_errors(builder).build(),
-            ))
+            Ok(Some(crate::serde_util::ecs_properties_correct_errors(builder).build()))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

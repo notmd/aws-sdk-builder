@@ -12,8 +12,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListConfigurationSetsError>`](crate::operation::list_configuration_sets::ListConfigurationSetsError)
     pub fn list_configuration_sets(
         &self,
-    ) -> crate::operation::list_configuration_sets::builders::ListConfigurationSetsFluentBuilder
-    {
+    ) -> crate::operation::list_configuration_sets::builders::ListConfigurationSetsFluentBuilder {
         crate::operation::list_configuration_sets::builders::ListConfigurationSetsFluentBuilder::new(
             self.handle.clone(),
         )

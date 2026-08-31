@@ -12,7 +12,8 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListResourcePermissionStatementsError>`](crate::operation::list_resource_permission_statements::ListResourcePermissionStatementsError)
     pub fn list_resource_permission_statements(
         &self,
-    ) -> crate::operation::list_resource_permission_statements::builders::ListResourcePermissionStatementsFluentBuilder{
+    ) -> crate::operation::list_resource_permission_statements::builders::ListResourcePermissionStatementsFluentBuilder
+    {
         crate::operation::list_resource_permission_statements::builders::ListResourcePermissionStatementsFluentBuilder::new(self.handle.clone())
     }
 }

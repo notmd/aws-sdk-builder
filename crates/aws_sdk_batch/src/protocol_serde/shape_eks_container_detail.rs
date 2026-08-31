@@ -16,11 +16,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -34,48 +32,39 @@ where
                         match key.to_unescaped()?.as_ref() {
                             "name" => {
                                 builder = builder.set_name(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "image" => {
                                 builder = builder.set_image(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "imagePullPolicy" => {
                                 builder = builder.set_image_pull_policy(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "command" => {
-                                builder = builder.set_command(
-                                    crate::protocol_serde::shape_string_list::de_string_list(
+                                builder =
+                                    builder.set_command(crate::protocol_serde::shape_string_list::de_string_list(
                                         tokens,
                                         _value,
                                         depth + 1,
-                                    )?,
-                                );
+                                    )?);
                             }
                             "args" => {
-                                builder = builder.set_args(
-                                    crate::protocol_serde::shape_string_list::de_string_list(
-                                        tokens,
-                                        _value,
-                                        depth + 1,
-                                    )?,
-                                );
+                                builder = builder.set_args(crate::protocol_serde::shape_string_list::de_string_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
                             }
                             "env" => {
                                 builder = builder.set_env(
@@ -97,20 +86,16 @@ where
                             }
                             "exitCode" => {
                                 builder = builder.set_exit_code(
-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(i32::try_from)
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                        .map(i32::try_from)
+                                        .transpose()?,
                                 );
                             }
                             "reason" => {
                                 builder = builder.set_reason(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "volumeMounts" => {
@@ -131,20 +116,16 @@ where
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
             Ok(Some(builder.build()))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

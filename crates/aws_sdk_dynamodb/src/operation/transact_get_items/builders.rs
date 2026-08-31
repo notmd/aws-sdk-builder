@@ -68,9 +68,7 @@ impl TransactGetItemsFluentBuilder {
         }
     }
     /// Access the TransactGetItems as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::transact_get_items::builders::TransactGetItemsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::transact_get_items::builders::TransactGetItemsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -94,14 +92,12 @@ impl TransactGetItemsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::transact_get_items::TransactGetItems::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::transact_get_items::TransactGetItems::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::transact_get_items::TransactGetItems::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::transact_get_items::TransactGetItems::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -148,9 +144,7 @@ impl TransactGetItemsFluentBuilder {
         self
     }
     /// <p>An ordered array of up to 100 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure.</p>
-    pub fn get_transact_items(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::TransactGetItem>> {
+    pub fn get_transact_items(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TransactGetItem>> {
         self.inner.get_transact_items()
     }
     /// <p>A value of <code>TOTAL</code> causes consumed capacity information to be returned, and a value of <code>NONE</code> prevents that information from being returned. No other value is valid.</p>
@@ -167,9 +161,7 @@ impl TransactGetItemsFluentBuilder {
         self
     }
     /// <p>A value of <code>TOTAL</code> causes consumed capacity information to be returned, and a value of <code>NONE</code> prevents that information from being returned. No other value is valid.</p>
-    pub fn get_return_consumed_capacity(
-        &self,
-    ) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
+    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
         self.inner.get_return_consumed_capacity()
     }
 }

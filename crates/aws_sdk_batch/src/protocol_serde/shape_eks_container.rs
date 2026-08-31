@@ -45,7 +45,10 @@ pub fn ser_eks_container(
     if let Some(var_14) = &input.resources {
         #[allow(unused_mut)]
         let mut object_15 = object.key("resources").start_object();
-        crate::protocol_serde::shape_eks_container_resource_requirements::ser_eks_container_resource_requirements(&mut object_15, var_14)?;
+        crate::protocol_serde::shape_eks_container_resource_requirements::ser_eks_container_resource_requirements(
+            &mut object_15,
+            var_14,
+        )?;
         object_15.finish();
     }
     if let Some(var_16) = &input.volume_mounts {
@@ -54,7 +57,10 @@ pub fn ser_eks_container(
             {
                 #[allow(unused_mut)]
                 let mut object_19 = array_17.value().start_object();
-                crate::protocol_serde::shape_eks_container_volume_mount::ser_eks_container_volume_mount(&mut object_19, item_18)?;
+                crate::protocol_serde::shape_eks_container_volume_mount::ser_eks_container_volume_mount(
+                    &mut object_19,
+                    item_18,
+                )?;
                 object_19.finish();
             }
         }
@@ -63,7 +69,10 @@ pub fn ser_eks_container(
     if let Some(var_20) = &input.security_context {
         #[allow(unused_mut)]
         let mut object_21 = object.key("securityContext").start_object();
-        crate::protocol_serde::shape_eks_container_security_context::ser_eks_container_security_context(&mut object_21, var_20)?;
+        crate::protocol_serde::shape_eks_container_security_context::ser_eks_container_security_context(
+            &mut object_21,
+            var_20,
+        )?;
         object_21.finish();
     }
     Ok(())
@@ -73,10 +82,7 @@ pub(crate) fn de_eks_container<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<
-    Option<crate::types::EksContainer>,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
->
+) -> ::std::result::Result<Option<crate::types::EksContainer>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<
         Item = Result<
@@ -86,11 +92,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -104,48 +108,39 @@ where
                         match key.to_unescaped()?.as_ref() {
                             "name" => {
                                 builder = builder.set_name(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "image" => {
                                 builder = builder.set_image(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "imagePullPolicy" => {
                                 builder = builder.set_image_pull_policy(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "command" => {
-                                builder = builder.set_command(
-                                    crate::protocol_serde::shape_string_list::de_string_list(
+                                builder =
+                                    builder.set_command(crate::protocol_serde::shape_string_list::de_string_list(
                                         tokens,
                                         _value,
                                         depth + 1,
-                                    )?,
-                                );
+                                    )?);
                             }
                             "args" => {
-                                builder = builder.set_args(
-                                    crate::protocol_serde::shape_string_list::de_string_list(
-                                        tokens,
-                                        _value,
-                                        depth + 1,
-                                    )?,
-                                );
+                                builder = builder.set_args(crate::protocol_serde::shape_string_list::de_string_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
                             }
                             "env" => {
                                 builder = builder.set_env(
@@ -183,22 +178,16 @@ where
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
-            Ok(Some(
-                crate::serde_util::eks_container_correct_errors(builder).build(),
-            ))
+            Ok(Some(crate::serde_util::eks_container_correct_errors(builder).build()))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

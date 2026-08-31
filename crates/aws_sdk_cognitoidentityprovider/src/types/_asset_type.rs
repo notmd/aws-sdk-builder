@@ -45,9 +45,7 @@ impl AssetType {
 }
 
 /// A builder for [`AssetType`](crate::types::AssetType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AssetTypeBuilder {
     pub(crate) category: ::std::option::Option<crate::types::AssetCategoryType>,
@@ -64,10 +62,7 @@ impl AssetTypeBuilder {
         self
     }
     /// <p>The category that the image corresponds to in your managed login configuration. Managed login has asset categories for different types of logos, backgrounds, and icons.</p>
-    pub fn set_category(
-        mut self,
-        input: ::std::option::Option<crate::types::AssetCategoryType>,
-    ) -> Self {
+    pub fn set_category(mut self, input: ::std::option::Option<crate::types::AssetCategoryType>) -> Self {
         self.category = input;
         self
     }
@@ -82,10 +77,7 @@ impl AssetTypeBuilder {
         self
     }
     /// <p>The display-mode target of the asset: light, dark, or browser-adaptive. For example, Amazon Cognito displays a dark-mode image only when the browser or application is in dark mode, but displays a browser-adaptive file in all contexts.</p>
-    pub fn set_color_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::ColorSchemeModeType>,
-    ) -> Self {
+    pub fn set_color_mode(mut self, input: ::std::option::Option<crate::types::ColorSchemeModeType>) -> Self {
         self.color_mode = input;
         self
     }
@@ -100,10 +92,7 @@ impl AssetTypeBuilder {
         self
     }
     /// <p>The file type of the image file.</p>
-    pub fn set_extension(
-        mut self,
-        input: ::std::option::Option<crate::types::AssetExtensionType>,
-    ) -> Self {
+    pub fn set_extension(mut self, input: ::std::option::Option<crate::types::AssetExtensionType>) -> Self {
         self.extension = input;
         self
     }
@@ -146,10 +135,7 @@ impl AssetTypeBuilder {
     /// - [`extension`](crate::types::builders::AssetTypeBuilder::extension)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::AssetType,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::AssetType, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AssetType {
             category: self.category.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

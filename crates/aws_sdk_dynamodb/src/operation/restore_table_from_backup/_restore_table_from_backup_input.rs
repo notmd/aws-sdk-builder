@@ -10,11 +10,9 @@ pub struct RestoreTableFromBackupInput {
     /// <p>The billing mode of the restored table.</p>
     pub billing_mode_override: ::std::option::Option<crate::types::BillingMode>,
     /// <p>List of global secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
-    pub global_secondary_index_override:
-        ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>,
+    pub global_secondary_index_override: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>,
     /// <p>List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
-    pub local_secondary_index_override:
-        ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndex>>,
+    pub local_secondary_index_override: ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndex>>,
     /// <p>Provisioned throughput settings for the restored table.</p>
     pub provisioned_throughput_override: ::std::option::Option<crate::types::ProvisionedThroughput>,
     /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
@@ -41,34 +39,24 @@ impl RestoreTableFromBackupInput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.global_secondary_index_override.is_none()`.
     pub fn global_secondary_index_override(&self) -> &[crate::types::GlobalSecondaryIndex] {
-        self.global_secondary_index_override
-            .as_deref()
-            .unwrap_or_default()
+        self.global_secondary_index_override.as_deref().unwrap_or_default()
     }
     /// <p>List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.local_secondary_index_override.is_none()`.
     pub fn local_secondary_index_override(&self) -> &[crate::types::LocalSecondaryIndex] {
-        self.local_secondary_index_override
-            .as_deref()
-            .unwrap_or_default()
+        self.local_secondary_index_override.as_deref().unwrap_or_default()
     }
     /// <p>Provisioned throughput settings for the restored table.</p>
-    pub fn provisioned_throughput_override(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ProvisionedThroughput> {
+    pub fn provisioned_throughput_override(&self) -> ::std::option::Option<&crate::types::ProvisionedThroughput> {
         self.provisioned_throughput_override.as_ref()
     }
     /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn on_demand_throughput_override(
-        &self,
-    ) -> ::std::option::Option<&crate::types::OnDemandThroughput> {
+    pub fn on_demand_throughput_override(&self) -> ::std::option::Option<&crate::types::OnDemandThroughput> {
         self.on_demand_throughput_override.as_ref()
     }
     /// <p>The new server-side encryption settings for the restored table.</p>
-    pub fn sse_specification_override(
-        &self,
-    ) -> ::std::option::Option<&crate::types::SseSpecification> {
+    pub fn sse_specification_override(&self) -> ::std::option::Option<&crate::types::SseSpecification> {
         self.sse_specification_override.as_ref()
     }
     /// <p>The vector indexes for the restored table. If not specified, all vector indexes from the backup are restored. The indexes provided must match existing vector indexes from the backup. You can choose to exclude some or all of the vector indexes at the time of restore.</p>
@@ -80,17 +68,13 @@ impl RestoreTableFromBackupInput {
 }
 impl RestoreTableFromBackupInput {
     /// Creates a new builder-style object to manufacture [`RestoreTableFromBackupInput`](crate::operation::restore_table_from_backup::RestoreTableFromBackupInput).
-    pub fn builder(
-    ) -> crate::operation::restore_table_from_backup::builders::RestoreTableFromBackupInputBuilder
-    {
+    pub fn builder() -> crate::operation::restore_table_from_backup::builders::RestoreTableFromBackupInputBuilder {
         crate::operation::restore_table_from_backup::builders::RestoreTableFromBackupInputBuilder::default()
     }
 }
 
 /// A builder for [`RestoreTableFromBackupInput`](crate::operation::restore_table_from_backup::RestoreTableFromBackupInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RestoreTableFromBackupInputBuilder {
     pub(crate) target_table_name: ::std::option::Option<::std::string::String>,
@@ -100,29 +84,20 @@ pub struct RestoreTableFromBackupInputBuilder {
         ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>,
     pub(crate) local_secondary_index_override:
         ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndex>>,
-    pub(crate) provisioned_throughput_override:
-        ::std::option::Option<crate::types::ProvisionedThroughput>,
-    pub(crate) on_demand_throughput_override:
-        ::std::option::Option<crate::types::OnDemandThroughput>,
+    pub(crate) provisioned_throughput_override: ::std::option::Option<crate::types::ProvisionedThroughput>,
+    pub(crate) on_demand_throughput_override: ::std::option::Option<crate::types::OnDemandThroughput>,
     pub(crate) sse_specification_override: ::std::option::Option<crate::types::SseSpecification>,
-    pub(crate) vector_index_override:
-        ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>,
+    pub(crate) vector_index_override: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>,
 }
 impl RestoreTableFromBackupInputBuilder {
     /// <p>The name of the new table to which the backup must be restored.</p>
     /// This field is required.
-    pub fn target_table_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn target_table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.target_table_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the new table to which the backup must be restored.</p>
-    pub fn set_target_table_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_target_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.target_table_name = input;
         self
     }
@@ -151,10 +126,7 @@ impl RestoreTableFromBackupInputBuilder {
         self
     }
     /// <p>The billing mode of the restored table.</p>
-    pub fn set_billing_mode_override(
-        mut self,
-        input: ::std::option::Option<crate::types::BillingMode>,
-    ) -> Self {
+    pub fn set_billing_mode_override(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
         self.billing_mode_override = input;
         self
     }
@@ -167,10 +139,7 @@ impl RestoreTableFromBackupInputBuilder {
     /// To override the contents of this collection use [`set_global_secondary_index_override`](Self::set_global_secondary_index_override).
     ///
     /// <p>List of global secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
-    pub fn global_secondary_index_override(
-        mut self,
-        input: crate::types::GlobalSecondaryIndex,
-    ) -> Self {
+    pub fn global_secondary_index_override(mut self, input: crate::types::GlobalSecondaryIndex) -> Self {
         let mut v = self.global_secondary_index_override.unwrap_or_default();
         v.push(input);
         self.global_secondary_index_override = ::std::option::Option::Some(v);
@@ -195,10 +164,7 @@ impl RestoreTableFromBackupInputBuilder {
     /// To override the contents of this collection use [`set_local_secondary_index_override`](Self::set_local_secondary_index_override).
     ///
     /// <p>List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
-    pub fn local_secondary_index_override(
-        mut self,
-        input: crate::types::LocalSecondaryIndex,
-    ) -> Self {
+    pub fn local_secondary_index_override(mut self, input: crate::types::LocalSecondaryIndex) -> Self {
         let mut v = self.local_secondary_index_override.unwrap_or_default();
         v.push(input);
         self.local_secondary_index_override = ::std::option::Option::Some(v);
@@ -219,10 +185,7 @@ impl RestoreTableFromBackupInputBuilder {
         &self.local_secondary_index_override
     }
     /// <p>Provisioned throughput settings for the restored table.</p>
-    pub fn provisioned_throughput_override(
-        mut self,
-        input: crate::types::ProvisionedThroughput,
-    ) -> Self {
+    pub fn provisioned_throughput_override(mut self, input: crate::types::ProvisionedThroughput) -> Self {
         self.provisioned_throughput_override = ::std::option::Option::Some(input);
         self
     }
@@ -235,16 +198,11 @@ impl RestoreTableFromBackupInputBuilder {
         self
     }
     /// <p>Provisioned throughput settings for the restored table.</p>
-    pub fn get_provisioned_throughput_override(
-        &self,
-    ) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
+    pub fn get_provisioned_throughput_override(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
         &self.provisioned_throughput_override
     }
     /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn on_demand_throughput_override(
-        mut self,
-        input: crate::types::OnDemandThroughput,
-    ) -> Self {
+    pub fn on_demand_throughput_override(mut self, input: crate::types::OnDemandThroughput) -> Self {
         self.on_demand_throughput_override = ::std::option::Option::Some(input);
         self
     }
@@ -257,9 +215,7 @@ impl RestoreTableFromBackupInputBuilder {
         self
     }
     /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn get_on_demand_throughput_override(
-        &self,
-    ) -> &::std::option::Option<crate::types::OnDemandThroughput> {
+    pub fn get_on_demand_throughput_override(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> {
         &self.on_demand_throughput_override
     }
     /// <p>The new server-side encryption settings for the restored table.</p>
@@ -276,9 +232,7 @@ impl RestoreTableFromBackupInputBuilder {
         self
     }
     /// <p>The new server-side encryption settings for the restored table.</p>
-    pub fn get_sse_specification_override(
-        &self,
-    ) -> &::std::option::Option<crate::types::SseSpecification> {
+    pub fn get_sse_specification_override(&self) -> &::std::option::Option<crate::types::SseSpecification> {
         &self.sse_specification_override
     }
     /// Appends an item to `vector_index_override`.
@@ -301,9 +255,7 @@ impl RestoreTableFromBackupInputBuilder {
         self
     }
     /// <p>The vector indexes for the restored table. If not specified, all vector indexes from the backup are restored. The indexes provided must match existing vector indexes from the backup. You can choose to exclude some or all of the vector indexes at the time of restore.</p>
-    pub fn get_vector_index_override(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>> {
+    pub fn get_vector_index_override(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>> {
         &self.vector_index_override
     }
     /// Consumes the builder and constructs a [`RestoreTableFromBackupInput`](crate::operation::restore_table_from_backup::RestoreTableFromBackupInput).

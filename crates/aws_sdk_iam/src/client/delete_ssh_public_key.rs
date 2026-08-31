@@ -10,8 +10,6 @@ impl super::Client {
     pub fn delete_ssh_public_key(
         &self,
     ) -> crate::operation::delete_ssh_public_key::builders::DeleteSSHPublicKeyFluentBuilder {
-        crate::operation::delete_ssh_public_key::builders::DeleteSSHPublicKeyFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_ssh_public_key::builders::DeleteSSHPublicKeyFluentBuilder::new(self.handle.clone())
     }
 }

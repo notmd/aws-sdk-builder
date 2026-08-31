@@ -99,7 +99,7 @@ impl InvokeModelWithBidirectionalStreamOutputBuilder {
     ) -> ::std::result::Result<
         crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput {
                 body: self.body.ok_or_else(|| {

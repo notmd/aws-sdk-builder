@@ -20,8 +20,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetPackageVersionReadmeError>`](crate::operation::get_package_version_readme::GetPackageVersionReadmeError)
     pub fn get_package_version_readme(
         &self,
-    ) -> crate::operation::get_package_version_readme::builders::GetPackageVersionReadmeFluentBuilder
-    {
-        crate::operation::get_package_version_readme::builders::GetPackageVersionReadmeFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::get_package_version_readme::builders::GetPackageVersionReadmeFluentBuilder {
+        crate::operation::get_package_version_readme::builders::GetPackageVersionReadmeFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

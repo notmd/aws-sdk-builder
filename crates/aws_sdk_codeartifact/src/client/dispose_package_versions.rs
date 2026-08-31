@@ -18,8 +18,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DisposePackageVersionsError>`](crate::operation::dispose_package_versions::DisposePackageVersionsError)
     pub fn dispose_package_versions(
         &self,
-    ) -> crate::operation::dispose_package_versions::builders::DisposePackageVersionsFluentBuilder
-    {
-        crate::operation::dispose_package_versions::builders::DisposePackageVersionsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::dispose_package_versions::builders::DisposePackageVersionsFluentBuilder {
+        crate::operation::dispose_package_versions::builders::DisposePackageVersionsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -63,9 +63,7 @@ impl UntagLogGroupFluentBuilder {
         }
     }
     /// Access the UntagLogGroup as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::untag_log_group::builders::UntagLogGroupInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::untag_log_group::builders::UntagLogGroupInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,12 +87,11 @@ impl UntagLogGroupFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::untag_log_group::UntagLogGroup::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::untag_log_group::UntagLogGroup::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::untag_log_group::UntagLogGroup::orchestrate(&runtime_plugins, input).await
     }
 
@@ -124,18 +121,12 @@ impl UntagLogGroupFluentBuilder {
         self
     }
     /// <p>The name of the log group.</p>
-    pub fn log_group_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_group_name(input.into());
         self
     }
     /// <p>The name of the log group.</p>
-    pub fn set_log_group_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_log_group_name(input);
         self
     }
@@ -154,10 +145,7 @@ impl UntagLogGroupFluentBuilder {
         self
     }
     /// <p>The tag keys. The corresponding tags are removed from the log group.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }

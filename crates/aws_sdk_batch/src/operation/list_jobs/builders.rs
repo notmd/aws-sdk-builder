@@ -158,18 +158,12 @@ impl ListJobsFluentBuilder {
         self.inner.get_array_job_id()
     }
     /// <p>The job ID for a multi-node parallel job. Specifying a multi-node parallel job ID with this parameter lists all nodes that are associated with the specified job.</p>
-    pub fn multi_node_job_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn multi_node_job_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.multi_node_job_id(input.into());
         self
     }
     /// <p>The job ID for a multi-node parallel job. Specifying a multi-node parallel job ID with this parameter lists all nodes that are associated with the specified job.</p>
-    pub fn set_multi_node_job_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_multi_node_job_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_multi_node_job_id(input);
         self
     }
@@ -343,10 +337,7 @@ impl ListJobsFluentBuilder {
     /// <p>The value for the filter is the fairshare scheduling share identifier.</p>
     /// </dd>
     /// </dl>
-    pub fn set_filters(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>>,
-    ) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>>) -> Self {
         self.inner = self.inner.set_filters(input);
         self
     }
@@ -385,9 +376,7 @@ impl ListJobsFluentBuilder {
     /// <p>The value for the filter is the fairshare scheduling share identifier.</p>
     /// </dd>
     /// </dl>
-    pub fn get_filters(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>> {
+    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>> {
         self.inner.get_filters()
     }
 }

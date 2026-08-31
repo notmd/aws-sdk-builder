@@ -28,8 +28,7 @@ impl crate::operation::update_continuous_backups::builders::UpdateContinuousBack
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct UpdateContinuousBackupsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::update_continuous_backups::builders::UpdateContinuousBackupsInputBuilder,
+    inner: crate::operation::update_continuous_backups::builders::UpdateContinuousBackupsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -62,8 +61,7 @@ impl UpdateContinuousBackupsFluentBuilder {
     /// Access the UpdateContinuousBackups as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::update_continuous_backups::builders::UpdateContinuousBackupsInputBuilder
-    {
+    ) -> &crate::operation::update_continuous_backups::builders::UpdateContinuousBackupsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,16 +85,13 @@ impl UpdateContinuousBackupsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::update_continuous_backups::UpdateContinuousBackups::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::update_continuous_backups::UpdateContinuousBackups::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::update_continuous_backups::UpdateContinuousBackups::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::update_continuous_backups::UpdateContinuousBackups::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

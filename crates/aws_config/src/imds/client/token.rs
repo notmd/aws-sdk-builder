@@ -21,12 +21,8 @@ use aws_smithy_runtime::client::orchestrator::operation::Operation;
 use aws_smithy_runtime::expiring_cache::ExpiringCache;
 use aws_smithy_runtime_api::box_error::BoxError;
 use aws_smithy_runtime_api::client::auth::static_resolver::StaticAuthSchemeOptionResolver;
-use aws_smithy_runtime_api::client::auth::{
-    AuthScheme, AuthSchemeEndpointConfig, AuthSchemeId, Sign,
-};
-use aws_smithy_runtime_api::client::identity::{
-    Identity, IdentityFuture, ResolveIdentity, SharedIdentityResolver,
-};
+use aws_smithy_runtime_api::client::auth::{AuthScheme, AuthSchemeEndpointConfig, AuthSchemeId, Sign};
+use aws_smithy_runtime_api::client::identity::{Identity, IdentityFuture, ResolveIdentity, SharedIdentityResolver};
 use aws_smithy_runtime_api::client::orchestrator::{HttpRequest, HttpResponse, OrchestratorError};
 use aws_smithy_runtime_api::client::runtime_components::{
     GetIdentityResolver, RuntimeComponents, RuntimeComponentsBuilder,
@@ -92,19 +88,13 @@ impl TokenRuntimePlugin {
                 ])))
                 // The TokenResolver has a cache of its own, so don't use identity caching
                 .with_identity_cache(Some(IdentityCache::no_cache()))
-                .with_identity_resolver(
-                    IMDS_TOKEN_AUTH_SCHEME,
-                    TokenResolver::new(common_plugin, token_ttl),
-                ),
+                .with_identity_resolver(IMDS_TOKEN_AUTH_SCHEME, TokenResolver::new(common_plugin, token_ttl)),
         }
     }
 }
 
 impl RuntimePlugin for TokenRuntimePlugin {
-    fn runtime_components(
-        &self,
-        _current_components: &RuntimeComponentsBuilder,
-    ) -> Cow<'_, RuntimeComponentsBuilder> {
+    fn runtime_components(&self, _current_components: &RuntimeComponentsBuilder) -> Cow<'_, RuntimeComponentsBuilder> {
         Cow::Borrowed(&self.components)
     }
 }
@@ -141,18 +131,13 @@ impl TokenResolver {
                             .try_into()
                             .unwrap())
                     })
-                    .deserializer(move |response| {
-                        parse_token_response(response).map_err(OrchestratorError::operation)
-                    })
+                    .deserializer(move |response| parse_token_response(response).map_err(OrchestratorError::operation))
                     .build(),
             }),
         }
     }
 
-    async fn get_token(
-        &self,
-        time_source: SharedTimeSource,
-    ) -> Result<(Token, SystemTime), ImdsError> {
+    async fn get_token(&self, time_source: SharedTimeSource) -> Result<(Token, SystemTime), ImdsError> {
         let result = self.inner.refresh.invoke(()).await;
         let now = time_source.now();
         result
@@ -174,9 +159,8 @@ fn parse_token_response(response: &HttpResponse) -> Result<TtlToken, TokenError>
         403 => return Err(TokenErrorKind::Forbidden.into()),
         _ => {}
     }
-    let mut value =
-        HeaderValue::from_bytes(response.body().bytes().expect("non-streaming response"))
-            .map_err(|_| TokenErrorKind::InvalidToken)?;
+    let mut value = HeaderValue::from_bytes(response.body().bytes().expect("non-streaming response"))
+        .map_err(|_| TokenErrorKind::InvalidToken)?;
     value.set_sensitive(true);
 
     let ttl: u64 = response
@@ -234,9 +218,7 @@ struct TokenAuthScheme {
 
 impl TokenAuthScheme {
     fn new() -> Self {
-        Self {
-            signer: TokenSigner,
-        }
+        Self { signer: TokenSigner }
     }
 }
 
@@ -245,10 +227,7 @@ impl AuthScheme for TokenAuthScheme {
         IMDS_TOKEN_AUTH_SCHEME
     }
 
-    fn identity_resolver(
-        &self,
-        identity_resolvers: &dyn GetIdentityResolver,
-    ) -> Option<SharedIdentityResolver> {
+    fn identity_resolver(&self, identity_resolvers: &dyn GetIdentityResolver) -> Option<SharedIdentityResolver> {
         identity_resolvers.identity_resolver(IMDS_TOKEN_AUTH_SCHEME)
     }
 

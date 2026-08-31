@@ -41,9 +41,7 @@ impl QueueConfiguration {
 }
 
 /// A builder for [`QueueConfiguration`](crate::types::QueueConfiguration).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct QueueConfigurationBuilder {
     pub(crate) id: ::std::option::Option<::std::string::String>,
@@ -93,10 +91,7 @@ impl QueueConfigurationBuilder {
         self
     }
     /// <p>A collection of bucket events for which to send notifications</p>
-    pub fn set_events(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Event>>,
-    ) -> Self {
+    pub fn set_events(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Event>>) -> Self {
         self.events = input;
         self
     }
@@ -110,17 +105,12 @@ impl QueueConfigurationBuilder {
         self
     }
     /// <p>Specifies object key name filtering rules. For information about key name filtering, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html">Configuring event notifications using object key name filtering</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn set_filter(
-        mut self,
-        input: ::std::option::Option<crate::types::NotificationConfigurationFilter>,
-    ) -> Self {
+    pub fn set_filter(mut self, input: ::std::option::Option<crate::types::NotificationConfigurationFilter>) -> Self {
         self.filter = input;
         self
     }
     /// <p>Specifies object key name filtering rules. For information about key name filtering, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html">Configuring event notifications using object key name filtering</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_filter(
-        &self,
-    ) -> &::std::option::Option<crate::types::NotificationConfigurationFilter> {
+    pub fn get_filter(&self) -> &::std::option::Option<crate::types::NotificationConfigurationFilter> {
         &self.filter
     }
     /// Consumes the builder and constructs a [`QueueConfiguration`](crate::types::QueueConfiguration).
@@ -129,10 +119,7 @@ impl QueueConfigurationBuilder {
     /// - [`events`](crate::types::builders::QueueConfigurationBuilder::events)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::QueueConfiguration,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::QueueConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::QueueConfiguration {
             id: self.id,
             queue_arn: self.queue_arn.ok_or_else(|| {

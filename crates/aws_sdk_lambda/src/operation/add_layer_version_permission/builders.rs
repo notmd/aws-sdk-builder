@@ -3,9 +3,7 @@ pub use crate::operation::add_layer_version_permission::_add_layer_version_permi
 
 pub use crate::operation::add_layer_version_permission::_add_layer_version_permission_output::AddLayerVersionPermissionOutputBuilder;
 
-impl
-    crate::operation::add_layer_version_permission::builders::AddLayerVersionPermissionInputBuilder
-{
+impl crate::operation::add_layer_version_permission::builders::AddLayerVersionPermissionInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -60,7 +58,9 @@ impl AddLayerVersionPermissionFluentBuilder {
         }
     }
     /// Access the AddLayerVersionPermission as a reference.
-    pub fn as_input(&self) -> &crate::operation::add_layer_version_permission::builders::AddLayerVersionPermissionInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::add_layer_version_permission::builders::AddLayerVersionPermissionInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +84,14 @@ impl AddLayerVersionPermissionFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::add_layer_version_permission::AddLayerVersionPermission::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::add_layer_version_permission::AddLayerVersionPermission::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::add_layer_version_permission::AddLayerVersionPermission::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::add_layer_version_permission::AddLayerVersionPermission::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -192,18 +190,12 @@ impl AddLayerVersionPermissionFluentBuilder {
         self.inner.get_principal()
     }
     /// <p>With the principal set to <code>*</code>, grant permission to all accounts in the specified organization.</p>
-    pub fn organization_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn organization_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.organization_id(input.into());
         self
     }
     /// <p>With the principal set to <code>*</code>, grant permission to all accounts in the specified organization.</p>
-    pub fn set_organization_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_organization_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_organization_id(input);
         self
     }

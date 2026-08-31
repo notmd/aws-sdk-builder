@@ -30,9 +30,7 @@ impl UntagResourceInput {
 }
 
 /// A builder for [`UntagResourceInput`](crate::operation::untag_resource::UntagResourceInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UntagResourceInputBuilder {
     pub(crate) resource_arn: ::std::option::Option<::std::string::String>,
@@ -68,10 +66,7 @@ impl UntagResourceInputBuilder {
     }
     /// <p>The tags (tag keys) that you want to remove from the resource. When you specify a tag key, the action removes both that key and its associated tag value.</p>
     /// <p>To remove more than one tag from the resource, append the <code>TagKeys</code> parameter and argument for each additional tag to remove, separated by an ampersand. For example: <code>/v2/email/tags?ResourceArn=ResourceArn&amp;TagKeys=Key1&amp;TagKeys=Key2</code></p>
-    pub fn set_tag_keys(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.tag_keys = input;
         self
     }

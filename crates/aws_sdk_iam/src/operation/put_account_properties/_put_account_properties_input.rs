@@ -6,9 +6,7 @@ pub struct PutAccountPropertiesInput {
     /// <p>A map of property key-value pairs to set. All keys must belong to the same namespace.</p>
     /// <p>Each key uses the format <code>Namespace/PropertyName</code>. The key must contain exactly one <code>/</code> separating the namespace from the property name, and cannot start or end with <code>/</code>.</p>
     /// <p>The service validates each value based on the property key's expected type. For example, boolean properties expect <code>true</code> or <code>false</code>.</p>
-    pub properties: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub properties: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl PutAccountPropertiesInput {
     /// <p>A map of property key-value pairs to set. All keys must belong to the same namespace.</p>
@@ -16,29 +14,23 @@ impl PutAccountPropertiesInput {
     /// <p>The service validates each value based on the property key's expected type. For example, boolean properties expect <code>true</code> or <code>false</code>.</p>
     pub fn properties(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.properties.as_ref()
     }
 }
 impl PutAccountPropertiesInput {
     /// Creates a new builder-style object to manufacture [`PutAccountPropertiesInput`](crate::operation::put_account_properties::PutAccountPropertiesInput).
-    pub fn builder(
-    ) -> crate::operation::put_account_properties::builders::PutAccountPropertiesInputBuilder {
+    pub fn builder() -> crate::operation::put_account_properties::builders::PutAccountPropertiesInputBuilder {
         crate::operation::put_account_properties::builders::PutAccountPropertiesInputBuilder::default()
     }
 }
 
 /// A builder for [`PutAccountPropertiesInput`](crate::operation::put_account_properties::PutAccountPropertiesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutAccountPropertiesInputBuilder {
-    pub(crate) properties: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) properties:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl PutAccountPropertiesInputBuilder {
     /// Adds a key-value pair to `properties`.
@@ -63,9 +55,7 @@ impl PutAccountPropertiesInputBuilder {
     /// <p>The service validates each value based on the property key's expected type. For example, boolean properties expect <code>true</code> or <code>false</code>.</p>
     pub fn set_properties(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.properties = input;
         self
@@ -75,9 +65,7 @@ impl PutAccountPropertiesInputBuilder {
     /// <p>The service validates each value based on the property key's expected type. For example, boolean properties expect <code>true</code> or <code>false</code>.</p>
     pub fn get_properties(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.properties
     }
     /// Consumes the builder and constructs a [`PutAccountPropertiesInput`](crate::operation::put_account_properties::PutAccountPropertiesInput).
@@ -87,10 +75,8 @@ impl PutAccountPropertiesInputBuilder {
         crate::operation::put_account_properties::PutAccountPropertiesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::put_account_properties::PutAccountPropertiesInput {
-                properties: self.properties,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::put_account_properties::PutAccountPropertiesInput {
+            properties: self.properties,
+        })
     }
 }

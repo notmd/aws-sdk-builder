@@ -91,12 +91,11 @@ impl PublishBatchFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::publish_batch::PublishBatch::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::publish_batch::PublishBatch::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::publish_batch::PublishBatch::orchestrate(&runtime_plugins, input).await
     }
 
@@ -145,10 +144,7 @@ impl PublishBatchFluentBuilder {
     /// To override the contents of this collection use [`set_publish_batch_request_entries`](Self::set_publish_batch_request_entries).
     ///
     /// <p>A list of <code>PublishBatch</code> request entries to be sent to the SNS topic.</p>
-    pub fn publish_batch_request_entries(
-        mut self,
-        input: crate::types::PublishBatchRequestEntry,
-    ) -> Self {
+    pub fn publish_batch_request_entries(mut self, input: crate::types::PublishBatchRequestEntry) -> Self {
         self.inner = self.inner.publish_batch_request_entries(input);
         self
     }

@@ -15,15 +15,13 @@ impl ListPhoneNumbersOptedOutInput {
 }
 impl ListPhoneNumbersOptedOutInput {
     /// Creates a new builder-style object to manufacture [`ListPhoneNumbersOptedOutInput`](crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutInput).
-    pub fn builder() -> crate::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutInputBuilder{
+    pub fn builder() -> crate::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutInputBuilder {
         crate::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutInputBuilder::default()
     }
 }
 
 /// A builder for [`ListPhoneNumbersOptedOutInput`](crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListPhoneNumbersOptedOutInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,

@@ -58,10 +58,7 @@ impl UpdateRoleDescriptionFluentBuilder {
         }
     }
     /// Access the UpdateRoleDescription as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::update_role_description::builders::UpdateRoleDescriptionInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::update_role_description::builders::UpdateRoleDescriptionInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,16 +82,13 @@ impl UpdateRoleDescriptionFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::update_role_description::UpdateRoleDescription::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::update_role_description::UpdateRoleDescription::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::update_role_description::UpdateRoleDescription::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::update_role_description::UpdateRoleDescription::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

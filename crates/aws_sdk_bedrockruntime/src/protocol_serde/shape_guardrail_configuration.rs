@@ -9,9 +9,7 @@ pub fn ser_guardrail_configuration(
             .string(input.guardrail_identifier.as_str());
     }
     {
-        object
-            .key("guardrailVersion")
-            .string(input.guardrail_version.as_str());
+        object.key("guardrailVersion").string(input.guardrail_version.as_str());
     }
     {
         object.key("trace").string(input.trace.as_str());

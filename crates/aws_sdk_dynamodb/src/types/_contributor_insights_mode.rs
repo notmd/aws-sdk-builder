@@ -63,9 +63,9 @@ impl ::std::convert::From<&str> for ContributorInsightsMode {
         match s {
             "ACCESSED_AND_THROTTLED_KEYS" => ContributorInsightsMode::AccessedAndThrottledKeys,
             "THROTTLED_KEYS" => ContributorInsightsMode::ThrottledKeys,
-            other => ContributorInsightsMode::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => ContributorInsightsMode::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -99,14 +99,10 @@ impl ContributorInsightsMode {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -114,9 +110,7 @@ impl ContributorInsightsMode {
 impl ::std::fmt::Display for ContributorInsightsMode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
-            ContributorInsightsMode::AccessedAndThrottledKeys => {
-                write!(f, "ACCESSED_AND_THROTTLED_KEYS")
-            }
+            ContributorInsightsMode::AccessedAndThrottledKeys => write!(f, "ACCESSED_AND_THROTTLED_KEYS"),
             ContributorInsightsMode::ThrottledKeys => write!(f, "THROTTLED_KEYS"),
             ContributorInsightsMode::Unknown(value) => write!(f, "{value}"),
         }

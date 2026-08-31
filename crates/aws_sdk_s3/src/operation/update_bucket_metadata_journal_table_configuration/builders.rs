@@ -176,24 +176,16 @@ impl UpdateBucketMetadataJournalTableConfigurationFluentBuilder {
         self
     }
     /// <p>The checksum algorithm to use with your journal table configuration.</p>
-    pub fn set_checksum_algorithm(
-        mut self,
-        input: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-    ) -> Self {
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
         self.inner = self.inner.set_checksum_algorithm(input);
         self
     }
     /// <p>The checksum algorithm to use with your journal table configuration.</p>
-    pub fn get_checksum_algorithm(
-        &self,
-    ) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
         self.inner.get_checksum_algorithm()
     }
     /// <p>The contents of your journal table configuration.</p>
-    pub fn journal_table_configuration(
-        mut self,
-        input: crate::types::JournalTableConfigurationUpdates,
-    ) -> Self {
+    pub fn journal_table_configuration(mut self, input: crate::types::JournalTableConfigurationUpdates) -> Self {
         self.inner = self.inner.journal_table_configuration(input);
         self
     }
@@ -212,18 +204,12 @@ impl UpdateBucketMetadataJournalTableConfigurationFluentBuilder {
         self.inner.get_journal_table_configuration()
     }
     /// <p>The expected owner of the general purpose bucket that corresponds to the metadata table configuration that you want to enable or disable journal table record expiration for.</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The expected owner of the general purpose bucket that corresponds to the metadata table configuration that you want to enable or disable journal table record expiration for.</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

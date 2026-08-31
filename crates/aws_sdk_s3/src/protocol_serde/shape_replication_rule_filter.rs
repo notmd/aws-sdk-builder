@@ -15,7 +15,10 @@ pub fn ser_replication_rule_filter(
     }
     if let Some(var_3) = &input.and {
         let inner_writer = scope.start_el("And");
-        crate::protocol_serde::shape_replication_rule_and_operator::ser_replication_rule_and_operator(var_3, inner_writer)?
+        crate::protocol_serde::shape_replication_rule_and_operator::ser_replication_rule_and_operator(
+            var_3,
+            inner_writer,
+        )?
     }
     scope.finish();
     Ok(())
@@ -25,10 +28,7 @@ pub fn ser_replication_rule_filter(
 pub fn de_replication_rule_filter(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<
-    crate::types::ReplicationRuleFilter,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<crate::types::ReplicationRuleFilter, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
             "maximum nesting depth exceeded",

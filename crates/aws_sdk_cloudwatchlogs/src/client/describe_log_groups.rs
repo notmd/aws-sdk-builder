@@ -19,8 +19,6 @@ impl super::Client {
     pub fn describe_log_groups(
         &self,
     ) -> crate::operation::describe_log_groups::builders::DescribeLogGroupsFluentBuilder {
-        crate::operation::describe_log_groups::builders::DescribeLogGroupsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::describe_log_groups::builders::DescribeLogGroupsFluentBuilder::new(self.handle.clone())
     }
 }

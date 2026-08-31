@@ -39,10 +39,7 @@ pub use crate::types::_device_type::DeviceTypeBuilder;
 ))]
 pub use crate::types::_analytics_metadata_type::AnalyticsMetadataTypeBuilder;
 
-#[cfg(any(
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_respond_to_auth_challenge"
-))]
+#[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge"))]
 pub use crate::types::_context_data_type::ContextDataTypeBuilder;
 
 #[cfg(any(
@@ -54,28 +51,16 @@ pub use crate::types::_context_data_type::ContextDataTypeBuilder;
 ))]
 pub use crate::types::_authentication_result_type::AuthenticationResultTypeBuilder;
 
-#[cfg(any(
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_set_user_mfa_preference"
-))]
+#[cfg(any(feature = "op_admin_set_user_mfa_preference", feature = "op_set_user_mfa_preference"))]
 pub use crate::types::_sms_mfa_settings_type::SmsMfaSettingsTypeBuilder;
 
-#[cfg(any(
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_set_user_mfa_preference"
-))]
+#[cfg(any(feature = "op_admin_set_user_mfa_preference", feature = "op_set_user_mfa_preference"))]
 pub use crate::types::_software_token_mfa_settings_type::SoftwareTokenMfaSettingsTypeBuilder;
 
-#[cfg(any(
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_set_user_mfa_preference"
-))]
+#[cfg(any(feature = "op_admin_set_user_mfa_preference", feature = "op_set_user_mfa_preference"))]
 pub use crate::types::_email_mfa_settings_type::EmailMfaSettingsTypeBuilder;
 
-#[cfg(any(
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_set_user_mfa_preference"
-))]
+#[cfg(any(feature = "op_admin_set_user_mfa_preference", feature = "op_set_user_mfa_preference"))]
 pub use crate::types::_web_authn_mfa_settings_type::WebAuthnMfaSettingsTypeBuilder;
 
 #[cfg(feature = "op_confirm_device")]
@@ -284,10 +269,7 @@ pub use crate::types::_routing_type::RoutingTypeBuilder;
 ))]
 pub use crate::types::_user_pool_replica_type::UserPoolReplicaTypeBuilder;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub use crate::types::_risk_configuration_type::RiskConfigurationTypeBuilder;
 
 #[cfg(feature = "op_describe_user_pool_domain")]
@@ -308,64 +290,34 @@ pub use crate::types::_code_delivery_details_type::CodeDeliveryDetailsTypeBuilde
 ))]
 pub use crate::types::_log_delivery_configuration_type::LogDeliveryConfigurationTypeBuilder;
 
-#[cfg(any(
-    feature = "op_get_provisioned_limit",
-    feature = "op_update_provisioned_limit"
-))]
+#[cfg(any(feature = "op_get_provisioned_limit", feature = "op_update_provisioned_limit"))]
 pub use crate::types::_limit_definition_type::LimitDefinitionTypeBuilder;
 
-#[cfg(any(
-    feature = "op_get_provisioned_limit",
-    feature = "op_update_provisioned_limit"
-))]
+#[cfg(any(feature = "op_get_provisioned_limit", feature = "op_update_provisioned_limit"))]
 pub use crate::types::_limit_type::LimitTypeBuilder;
 
-#[cfg(any(
-    feature = "op_get_ui_customization",
-    feature = "op_set_ui_customization"
-))]
+#[cfg(any(feature = "op_get_ui_customization", feature = "op_set_ui_customization"))]
 pub use crate::types::_ui_customization_type::UiCustomizationTypeBuilder;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 pub use crate::types::_sms_mfa_config_type::SmsMfaConfigTypeBuilder;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 pub use crate::types::_software_token_mfa_config_type::SoftwareTokenMfaConfigTypeBuilder;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 pub use crate::types::_email_mfa_config_type::EmailMfaConfigTypeBuilder;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 pub use crate::types::_web_authn_configuration_type::WebAuthnConfigurationTypeBuilder;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub use crate::types::_compromised_credentials_risk_configuration_type::CompromisedCredentialsRiskConfigurationTypeBuilder;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub use crate::types::_account_takeover_risk_configuration_type::AccountTakeoverRiskConfigurationTypeBuilder;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub use crate::types::_risk_exception_configuration_type::RiskExceptionConfigurationTypeBuilder;
 
 #[cfg(any(
@@ -527,22 +479,13 @@ pub use crate::types::_web_authn_credential_description::WebAuthnCredentialDescr
 ))]
 pub use crate::types::_log_configuration_type::LogConfigurationTypeBuilder;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub use crate::types::_compromised_credentials_actions_type::CompromisedCredentialsActionsTypeBuilder;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub use crate::types::_notify_configuration_type::NotifyConfigurationTypeBuilder;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub use crate::types::_account_takeover_actions_type::AccountTakeoverActionsTypeBuilder;
 
 #[cfg(any(
@@ -559,10 +502,7 @@ pub use crate::types::_number_attribute_constraints_type::NumberAttributeConstra
 ))]
 pub use crate::types::_string_attribute_constraints_type::StringAttributeConstraintsTypeBuilder;
 
-#[cfg(any(
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_respond_to_auth_challenge"
-))]
+#[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge"))]
 pub use crate::types::_http_header::HttpHeaderBuilder;
 
 #[cfg(feature = "op_admin_list_user_auth_events")]
@@ -599,16 +539,10 @@ pub use crate::types::_s3_configuration_type::S3ConfigurationTypeBuilder;
 ))]
 pub use crate::types::_firehose_configuration_type::FirehoseConfigurationTypeBuilder;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub use crate::types::_notify_email_type::NotifyEmailTypeBuilder;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub use crate::types::_account_takeover_action_type::AccountTakeoverActionTypeBuilder;
 
 #[cfg(feature = "op_admin_list_user_auth_events")]

@@ -26,9 +26,7 @@ impl CreateDomainOutput {
 }
 
 /// A builder for [`CreateDomainOutput`](crate::operation::create_domain::CreateDomainOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateDomainOutputBuilder {
     pub(crate) domain: ::std::option::Option<crate::types::DomainDescription>,
@@ -41,10 +39,7 @@ impl CreateDomainOutputBuilder {
         self
     }
     /// <p>Contains information about the created domain after processing the request.</p>
-    pub fn set_domain(
-        mut self,
-        input: ::std::option::Option<crate::types::DomainDescription>,
-    ) -> Self {
+    pub fn set_domain(mut self, input: ::std::option::Option<crate::types::DomainDescription>) -> Self {
         self.domain = input;
         self
     }

@@ -9,8 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteBucketReplicationError>`](crate::operation::delete_bucket_replication::DeleteBucketReplicationError)
     pub fn delete_bucket_replication(
         &self,
-    ) -> crate::operation::delete_bucket_replication::builders::DeleteBucketReplicationFluentBuilder
-    {
-        crate::operation::delete_bucket_replication::builders::DeleteBucketReplicationFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::delete_bucket_replication::builders::DeleteBucketReplicationFluentBuilder {
+        crate::operation::delete_bucket_replication::builders::DeleteBucketReplicationFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

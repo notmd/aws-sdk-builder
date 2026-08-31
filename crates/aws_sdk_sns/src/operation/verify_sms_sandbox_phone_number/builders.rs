@@ -58,7 +58,9 @@ impl VerifySMSSandboxPhoneNumberFluentBuilder {
         }
     }
     /// Access the VerifySMSSandboxPhoneNumber as a reference.
-    pub fn as_input(&self) -> &crate::operation::verify_sms_sandbox_phone_number::builders::VerifySmsSandboxPhoneNumberInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::verify_sms_sandbox_phone_number::builders::VerifySmsSandboxPhoneNumberInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,11 +84,12 @@ impl VerifySMSSandboxPhoneNumberFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumber::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumber::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumber::orchestrate(
             &runtime_plugins,
             input,
@@ -134,18 +137,12 @@ impl VerifySMSSandboxPhoneNumberFluentBuilder {
         self.inner.get_phone_number()
     }
     /// <p>The OTP sent to the destination number from the <code>CreateSMSSandBoxPhoneNumber</code> call.</p>
-    pub fn one_time_password(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn one_time_password(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.one_time_password(input.into());
         self
     }
     /// <p>The OTP sent to the destination number from the <code>CreateSMSSandBoxPhoneNumber</code> call.</p>
-    pub fn set_one_time_password(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_one_time_password(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_one_time_password(input);
         self
     }

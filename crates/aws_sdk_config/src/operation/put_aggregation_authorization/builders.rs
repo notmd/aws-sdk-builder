@@ -61,7 +61,9 @@ impl PutAggregationAuthorizationFluentBuilder {
         }
     }
     /// Access the PutAggregationAuthorization as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_aggregation_authorization::builders::PutAggregationAuthorizationInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::put_aggregation_authorization::builders::PutAggregationAuthorizationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,11 +87,12 @@ impl PutAggregationAuthorizationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::put_aggregation_authorization::PutAggregationAuthorization::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::put_aggregation_authorization::PutAggregationAuthorization::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::put_aggregation_authorization::PutAggregationAuthorization::orchestrate(
             &runtime_plugins,
             input,
@@ -123,18 +126,12 @@ impl PutAggregationAuthorizationFluentBuilder {
         self
     }
     /// <p>The 12-digit account ID of the account authorized to aggregate data.</p>
-    pub fn authorized_account_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn authorized_account_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.authorized_account_id(input.into());
         self
     }
     /// <p>The 12-digit account ID of the account authorized to aggregate data.</p>
-    pub fn set_authorized_account_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_authorized_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_authorized_account_id(input);
         self
     }
@@ -143,18 +140,12 @@ impl PutAggregationAuthorizationFluentBuilder {
         self.inner.get_authorized_account_id()
     }
     /// <p>The region authorized to collect aggregated data.</p>
-    pub fn authorized_aws_region(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn authorized_aws_region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.authorized_aws_region(input.into());
         self
     }
     /// <p>The region authorized to collect aggregated data.</p>
-    pub fn set_authorized_aws_region(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_authorized_aws_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_authorized_aws_region(input);
         self
     }
@@ -173,10 +164,7 @@ impl PutAggregationAuthorizationFluentBuilder {
         self
     }
     /// <p>An array of tag object.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }

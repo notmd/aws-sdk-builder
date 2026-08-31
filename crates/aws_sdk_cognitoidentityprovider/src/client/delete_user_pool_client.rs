@@ -9,10 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteUserPoolClientError>`](crate::operation::delete_user_pool_client::DeleteUserPoolClientError)
     pub fn delete_user_pool_client(
         &self,
-    ) -> crate::operation::delete_user_pool_client::builders::DeleteUserPoolClientFluentBuilder
-    {
-        crate::operation::delete_user_pool_client::builders::DeleteUserPoolClientFluentBuilder::new(
-            self.handle.clone(),
-        )
+    ) -> crate::operation::delete_user_pool_client::builders::DeleteUserPoolClientFluentBuilder {
+        crate::operation::delete_user_pool_client::builders::DeleteUserPoolClientFluentBuilder::new(self.handle.clone())
     }
 }

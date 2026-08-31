@@ -10,8 +10,7 @@ pub struct UpdateBucketMetadataInventoryTableConfigurationInput {
     /// <p>The checksum algorithm to use with your inventory table configuration.</p>
     pub checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
     /// <p>The contents of your inventory table configuration.</p>
-    pub inventory_table_configuration:
-        ::std::option::Option<crate::types::InventoryTableConfigurationUpdates>,
+    pub inventory_table_configuration: ::std::option::Option<crate::types::InventoryTableConfigurationUpdates>,
     /// <p>The expected owner of the general purpose bucket that corresponds to the metadata table configuration that you want to enable or disable an inventory table for.</p>
     pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
 }
@@ -49,16 +48,13 @@ impl UpdateBucketMetadataInventoryTableConfigurationInput {
 }
 
 /// A builder for [`UpdateBucketMetadataInventoryTableConfigurationInput`](crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateBucketMetadataInventoryTableConfigurationInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
     pub(crate) content_md5: ::std::option::Option<::std::string::String>,
     pub(crate) checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-    pub(crate) inventory_table_configuration:
-        ::std::option::Option<crate::types::InventoryTableConfigurationUpdates>,
+    pub(crate) inventory_table_configuration: ::std::option::Option<crate::types::InventoryTableConfigurationUpdates>,
     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
 }
 impl UpdateBucketMetadataInventoryTableConfigurationInputBuilder {
@@ -97,25 +93,17 @@ impl UpdateBucketMetadataInventoryTableConfigurationInputBuilder {
         self
     }
     /// <p>The checksum algorithm to use with your inventory table configuration.</p>
-    pub fn set_checksum_algorithm(
-        mut self,
-        input: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-    ) -> Self {
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
         self.checksum_algorithm = input;
         self
     }
     /// <p>The checksum algorithm to use with your inventory table configuration.</p>
-    pub fn get_checksum_algorithm(
-        &self,
-    ) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
         &self.checksum_algorithm
     }
     /// <p>The contents of your inventory table configuration.</p>
     /// This field is required.
-    pub fn inventory_table_configuration(
-        mut self,
-        input: crate::types::InventoryTableConfigurationUpdates,
-    ) -> Self {
+    pub fn inventory_table_configuration(mut self, input: crate::types::InventoryTableConfigurationUpdates) -> Self {
         self.inventory_table_configuration = ::std::option::Option::Some(input);
         self
     }
@@ -134,18 +122,12 @@ impl UpdateBucketMetadataInventoryTableConfigurationInputBuilder {
         &self.inventory_table_configuration
     }
     /// <p>The expected owner of the general purpose bucket that corresponds to the metadata table configuration that you want to enable or disable an inventory table for.</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The expected owner of the general purpose bucket that corresponds to the metadata table configuration that you want to enable or disable an inventory table for.</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }

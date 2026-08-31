@@ -3,7 +3,9 @@ pub use crate::operation::get_conformance_pack_compliance_summary::_get_conforma
 
 pub use crate::operation::get_conformance_pack_compliance_summary::_get_conformance_pack_compliance_summary_output::GetConformancePackComplianceSummaryOutputBuilder;
 
-impl crate::operation::get_conformance_pack_compliance_summary::builders::GetConformancePackComplianceSummaryInputBuilder {
+impl
+    crate::operation::get_conformance_pack_compliance_summary::builders::GetConformancePackComplianceSummaryInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -76,7 +78,7 @@ impl GetConformancePackComplianceSummaryFluentBuilder {
             crate::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -87,7 +89,11 @@ impl GetConformancePackComplianceSummaryFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        crate::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummary::orchestrate(&runtime_plugins, input).await
+        crate::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummary::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -97,7 +103,7 @@ impl GetConformancePackComplianceSummaryFluentBuilder {
         crate::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryOutput,
         crate::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -132,10 +138,7 @@ impl GetConformancePackComplianceSummaryFluentBuilder {
     /// To override the contents of this collection use [`set_conformance_pack_names`](Self::set_conformance_pack_names).
     ///
     /// <p>Names of conformance packs.</p>
-    pub fn conformance_pack_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn conformance_pack_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.conformance_pack_names(input.into());
         self
     }
@@ -148,9 +151,7 @@ impl GetConformancePackComplianceSummaryFluentBuilder {
         self
     }
     /// <p>Names of conformance packs.</p>
-    pub fn get_conformance_pack_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_conformance_pack_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_conformance_pack_names()
     }
     /// <p>The maximum number of conformance packs returned on each page.</p>

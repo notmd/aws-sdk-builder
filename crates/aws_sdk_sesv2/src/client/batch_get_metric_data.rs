@@ -11,8 +11,6 @@ impl super::Client {
     pub fn batch_get_metric_data(
         &self,
     ) -> crate::operation::batch_get_metric_data::builders::BatchGetMetricDataFluentBuilder {
-        crate::operation::batch_get_metric_data::builders::BatchGetMetricDataFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::batch_get_metric_data::builders::BatchGetMetricDataFluentBuilder::new(self.handle.clone())
     }
 }

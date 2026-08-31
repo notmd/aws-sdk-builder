@@ -15,15 +15,14 @@ impl GetDeliverabilityTestReportInput {
 }
 impl GetDeliverabilityTestReportInput {
     /// Creates a new builder-style object to manufacture [`GetDeliverabilityTestReportInput`](crate::operation::get_deliverability_test_report::GetDeliverabilityTestReportInput).
-    pub fn builder() -> crate::operation::get_deliverability_test_report::builders::GetDeliverabilityTestReportInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::get_deliverability_test_report::builders::GetDeliverabilityTestReportInputBuilder {
         crate::operation::get_deliverability_test_report::builders::GetDeliverabilityTestReportInputBuilder::default()
     }
 }
 
 /// A builder for [`GetDeliverabilityTestReportInput`](crate::operation::get_deliverability_test_report::GetDeliverabilityTestReportInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetDeliverabilityTestReportInputBuilder {
     pub(crate) report_id: ::std::option::Option<::std::string::String>,

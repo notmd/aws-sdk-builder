@@ -58,9 +58,7 @@ impl ResyncMFADeviceFluentBuilder {
         }
     }
     /// Access the ResyncMFADevice as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::resync_mfa_device::builders::ResyncMfaDeviceInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::resync_mfa_device::builders::ResyncMfaDeviceInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,14 +82,12 @@ impl ResyncMFADeviceFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::resync_mfa_device::ResyncMFADevice::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::resync_mfa_device::ResyncMFADevice::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::resync_mfa_device::ResyncMFADevice::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::resync_mfa_device::ResyncMFADevice::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -138,19 +134,13 @@ impl ResyncMFADeviceFluentBuilder {
     }
     /// <p>Serial number that uniquely identifies the MFA device.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn serial_number(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn serial_number(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.serial_number(input.into());
         self
     }
     /// <p>Serial number that uniquely identifies the MFA device.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn set_serial_number(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_serial_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_serial_number(input);
         self
     }
@@ -161,19 +151,13 @@ impl ResyncMFADeviceFluentBuilder {
     }
     /// <p>An authentication code emitted by the device.</p>
     /// <p>The format for this parameter is a sequence of six digits.</p>
-    pub fn authentication_code1(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn authentication_code1(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.authentication_code1(input.into());
         self
     }
     /// <p>An authentication code emitted by the device.</p>
     /// <p>The format for this parameter is a sequence of six digits.</p>
-    pub fn set_authentication_code1(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_authentication_code1(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_authentication_code1(input);
         self
     }
@@ -184,19 +168,13 @@ impl ResyncMFADeviceFluentBuilder {
     }
     /// <p>A subsequent authentication code emitted by the device.</p>
     /// <p>The format for this parameter is a sequence of six digits.</p>
-    pub fn authentication_code2(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn authentication_code2(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.authentication_code2(input.into());
         self
     }
     /// <p>A subsequent authentication code emitted by the device.</p>
     /// <p>The format for this parameter is a sequence of six digits.</p>
-    pub fn set_authentication_code2(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_authentication_code2(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_authentication_code2(input);
         self
     }

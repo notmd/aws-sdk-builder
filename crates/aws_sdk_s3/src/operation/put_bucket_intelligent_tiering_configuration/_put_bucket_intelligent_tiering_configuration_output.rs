@@ -25,9 +25,7 @@ impl PutBucketIntelligentTieringConfigurationOutput {
 }
 
 /// A builder for [`PutBucketIntelligentTieringConfigurationOutput`](crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutBucketIntelligentTieringConfigurationOutputBuilder {
     _extended_request_id: Option<String>,
@@ -39,10 +37,7 @@ impl PutBucketIntelligentTieringConfigurationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -56,7 +51,10 @@ impl PutBucketIntelligentTieringConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutBucketIntelligentTieringConfigurationOutput`](crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationOutput).
-    pub fn build(self) -> crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationOutput
+    {
         crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

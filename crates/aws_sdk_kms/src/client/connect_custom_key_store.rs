@@ -8,8 +8,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ConnectCustomKeyStoreError>`](crate::operation::connect_custom_key_store::ConnectCustomKeyStoreError)
     pub fn connect_custom_key_store(
         &self,
-    ) -> crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreFluentBuilder
-    {
-        crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreFluentBuilder {
+        crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

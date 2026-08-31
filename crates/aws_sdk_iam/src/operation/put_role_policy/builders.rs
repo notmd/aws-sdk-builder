@@ -62,9 +62,7 @@ impl PutRolePolicyFluentBuilder {
         }
     }
     /// Access the PutRolePolicy as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::put_role_policy::builders::PutRolePolicyInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_role_policy::builders::PutRolePolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,12 +86,11 @@ impl PutRolePolicyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::put_role_policy::PutRolePolicy::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::put_role_policy::PutRolePolicy::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::put_role_policy::PutRolePolicy::orchestrate(&runtime_plugins, input).await
     }
 
@@ -167,10 +164,7 @@ impl PutRolePolicyFluentBuilder {
     /// <li>
     /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
     /// </ul>
-    pub fn policy_document(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.policy_document(input.into());
         self
     }
@@ -185,10 +179,7 @@ impl PutRolePolicyFluentBuilder {
     /// <li>
     /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
     /// </ul>
-    pub fn set_policy_document(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_policy_document(input);
         self
     }

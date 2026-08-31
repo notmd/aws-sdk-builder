@@ -78,7 +78,7 @@ impl PutConfigurationSetSuppressionOptionsFluentBuilder {
             crate::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -89,7 +89,11 @@ impl PutConfigurationSetSuppressionOptionsFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        crate::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptions::orchestrate(&runtime_plugins, input).await
+        crate::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptions::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,7 +103,7 @@ impl PutConfigurationSetSuppressionOptionsFluentBuilder {
         crate::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsOutput,
         crate::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -118,18 +122,12 @@ impl PutConfigurationSetSuppressionOptionsFluentBuilder {
         self
     }
     /// <p>The name of the configuration set to change the suppression list preferences for.</p>
-    pub fn configuration_set_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_set_name(input.into());
         self
     }
     /// <p>The name of the configuration set to change the suppression list preferences for.</p>
-    pub fn set_configuration_set_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_set_name(input);
         self
     }
@@ -155,10 +153,7 @@ impl PutConfigurationSetSuppressionOptionsFluentBuilder {
     /// <li>
     /// <p><code>ACCOUNT</code> – Use the account-level suppression list.</p></li>
     /// </ul>
-    pub fn set_suppression_scope(
-        mut self,
-        input: ::std::option::Option<crate::types::SuppressionListScope>,
-    ) -> Self {
+    pub fn set_suppression_scope(mut self, input: ::std::option::Option<crate::types::SuppressionListScope>) -> Self {
         self.inner = self.inner.set_suppression_scope(input);
         self
     }
@@ -169,9 +164,7 @@ impl PutConfigurationSetSuppressionOptionsFluentBuilder {
     /// <li>
     /// <p><code>ACCOUNT</code> – Use the account-level suppression list.</p></li>
     /// </ul>
-    pub fn get_suppression_scope(
-        &self,
-    ) -> &::std::option::Option<crate::types::SuppressionListScope> {
+    pub fn get_suppression_scope(&self) -> &::std::option::Option<crate::types::SuppressionListScope> {
         self.inner.get_suppression_scope()
     }
     ///
@@ -230,9 +223,7 @@ impl PutConfigurationSetSuppressionOptionsFluentBuilder {
         self
     }
     /// <p>An object that contains information about the email address suppression preferences for the configuration set in the current Amazon Web Services Region.</p>
-    pub fn get_validation_options(
-        &self,
-    ) -> &::std::option::Option<crate::types::SuppressionValidationOptions> {
+    pub fn get_validation_options(&self) -> &::std::option::Option<crate::types::SuppressionValidationOptions> {
         self.inner.get_validation_options()
     }
 }

@@ -726,9 +726,7 @@ impl InvokeWithResponseStreamResponseEventError {
     /// Creates the `InvokeWithResponseStreamResponseEventError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -788,9 +786,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for InvokeWithResponseStreamRes
     }
 }
 #[cfg(feature = "op_invoke_with_response_stream")]
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
-    for InvokeWithResponseStreamResponseEventError
-{
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvokeWithResponseStreamResponseEventError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::Unhandled(_inner) => &_inner.meta,
@@ -798,13 +794,9 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
     }
 }
 #[cfg(feature = "op_invoke_with_response_stream")]
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
-    for InvokeWithResponseStreamResponseEventError
-{
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for InvokeWithResponseStreamResponseEventError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -814,9 +806,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
     }
 }
 #[cfg(feature = "op_invoke_with_response_stream")]
-impl ::aws_types::request_id::RequestId
-    for crate::types::error::InvokeWithResponseStreamResponseEventError
-{
+impl ::aws_types::request_id::RequestId for crate::types::error::InvokeWithResponseStreamResponseEventError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

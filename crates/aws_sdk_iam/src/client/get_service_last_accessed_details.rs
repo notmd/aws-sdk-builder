@@ -18,7 +18,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetServiceLastAccessedDetailsError>`](crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError)
     pub fn get_service_last_accessed_details(
         &self,
-    ) -> crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsFluentBuilder{
-        crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsFluentBuilder {
+        crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

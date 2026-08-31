@@ -11,7 +11,8 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetUserAttributeVerificationCodeError>`](crate::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError)
     pub fn get_user_attribute_verification_code(
         &self,
-    ) -> crate::operation::get_user_attribute_verification_code::builders::GetUserAttributeVerificationCodeFluentBuilder{
+    ) -> crate::operation::get_user_attribute_verification_code::builders::GetUserAttributeVerificationCodeFluentBuilder
+    {
         crate::operation::get_user_attribute_verification_code::builders::GetUserAttributeVerificationCodeFluentBuilder::new(self.handle.clone())
     }
 }

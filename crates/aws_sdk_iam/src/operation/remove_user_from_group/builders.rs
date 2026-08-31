@@ -57,9 +57,7 @@ impl RemoveUserFromGroupFluentBuilder {
         }
     }
     /// Access the RemoveUserFromGroup as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::remove_user_from_group::builders::RemoveUserFromGroupInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::remove_user_from_group::builders::RemoveUserFromGroupInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,11 +86,7 @@ impl RemoveUserFromGroupFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::remove_user_from_group::RemoveUserFromGroup::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::remove_user_from_group::RemoveUserFromGroup::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

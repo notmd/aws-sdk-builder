@@ -137,12 +137,11 @@ impl CreateBucketFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::create_bucket::CreateBucket::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::create_bucket::CreateBucket::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::create_bucket::CreateBucket::orchestrate(&runtime_plugins, input).await
     }
 
@@ -212,10 +211,7 @@ impl CreateBucketFluentBuilder {
         self.inner.get_bucket()
     }
     /// <p>The configuration information for the bucket.</p>
-    pub fn create_bucket_configuration(
-        mut self,
-        input: crate::types::CreateBucketConfiguration,
-    ) -> Self {
+    pub fn create_bucket_configuration(mut self, input: crate::types::CreateBucketConfiguration) -> Self {
         self.inner = self.inner.create_bucket_configuration(input);
         self
     }
@@ -228,28 +224,20 @@ impl CreateBucketFluentBuilder {
         self
     }
     /// <p>The configuration information for the bucket.</p>
-    pub fn get_create_bucket_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::CreateBucketConfiguration> {
+    pub fn get_create_bucket_configuration(&self) -> &::std::option::Option<crate::types::CreateBucketConfiguration> {
         self.inner.get_create_bucket_configuration()
     }
     /// <p>Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn grant_full_control(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn grant_full_control(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.grant_full_control(input.into());
         self
     }
     /// <p>Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_grant_full_control(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_grant_full_control(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_grant_full_control(input);
         self
     }
@@ -282,20 +270,14 @@ impl CreateBucketFluentBuilder {
     /// <p>Allows grantee to read the bucket ACL.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn grant_read_acp(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn grant_read_acp(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.grant_read_acp(input.into());
         self
     }
     /// <p>Allows grantee to read the bucket ACL.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_grant_read_acp(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_grant_read_acp(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_grant_read_acp(input);
         self
     }
@@ -331,20 +313,14 @@ impl CreateBucketFluentBuilder {
     /// <p>Allows grantee to write the ACL for the applicable bucket.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn grant_write_acp(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn grant_write_acp(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.grant_write_acp(input.into());
         self
     }
     /// <p>Allows grantee to write the ACL for the applicable bucket.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_grant_write_acp(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_grant_write_acp(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_grant_write_acp(input);
         self
     }
@@ -364,10 +340,7 @@ impl CreateBucketFluentBuilder {
     /// <p>Specifies whether you want S3 Object Lock to be enabled for the new bucket.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_object_lock_enabled_for_bucket(
-        mut self,
-        input: ::std::option::Option<bool>,
-    ) -> Self {
+    pub fn set_object_lock_enabled_for_bucket(mut self, input: ::std::option::Option<bool>) -> Self {
         self.inner = self.inner.set_object_lock_enabled_for_bucket(input);
         self
     }
@@ -395,10 +368,7 @@ impl CreateBucketFluentBuilder {
     /// <p>By default, <code>ObjectOwnership</code> is set to <code>BucketOwnerEnforced</code> and ACLs are disabled. We recommend keeping ACLs disabled, except in uncommon use cases where you must control access for each object individually. For more information about S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling ownership of objects and disabling ACLs for your bucket</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets. Directory buckets use the bucket owner enforced setting for S3 Object Ownership.</p>
     /// </note>
-    pub fn set_object_ownership(
-        mut self,
-        input: ::std::option::Option<crate::types::ObjectOwnership>,
-    ) -> Self {
+    pub fn set_object_ownership(mut self, input: ::std::option::Option<crate::types::ObjectOwnership>) -> Self {
         self.inner = self.inner.set_object_ownership(input);
         self
     }
@@ -424,10 +394,7 @@ impl CreateBucketFluentBuilder {
     /// <p>General purpose buckets in your account regional namespace must follow a specific naming convention. These buckets consist of a bucket name prefix that you create, and a suffix that contains your 12-digit Amazon Web Services Account ID, the Amazon Web Services Region code, and ends with <code>-an</code>. Bucket names must follow the format <code>bucket-name-prefix-accountId-region-an</code> (for example, <code>amzn-s3-demo-bucket-111122223333-us-west-2-an</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html#account-regional-naming-rules">Account regional namespace naming rules</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_bucket_namespace(
-        mut self,
-        input: ::std::option::Option<crate::types::BucketNamespace>,
-    ) -> Self {
+    pub fn set_bucket_namespace(mut self, input: ::std::option::Option<crate::types::BucketNamespace>) -> Self {
         self.inner = self.inner.set_bucket_namespace(input);
         self
     }

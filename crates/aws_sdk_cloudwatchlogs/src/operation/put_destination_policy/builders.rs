@@ -57,9 +57,7 @@ impl PutDestinationPolicyFluentBuilder {
         }
     }
     /// Access the PutDestinationPolicy as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::put_destination_policy::builders::PutDestinationPolicyInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_destination_policy::builders::PutDestinationPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,11 +86,7 @@ impl PutDestinationPolicyFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_destination_policy::PutDestinationPolicy::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::put_destination_policy::PutDestinationPolicy::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -121,18 +115,12 @@ impl PutDestinationPolicyFluentBuilder {
         self
     }
     /// <p>A name for an existing destination.</p>
-    pub fn destination_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn destination_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.destination_name(input.into());
         self
     }
     /// <p>A name for an existing destination.</p>
-    pub fn set_destination_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_destination_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_destination_name(input);
         self
     }
@@ -141,18 +129,12 @@ impl PutDestinationPolicyFluentBuilder {
         self.inner.get_destination_name()
     }
     /// <p>An IAM policy document that authorizes cross-account users to deliver their log events to the associated destination. This can be up to 5120 bytes.</p>
-    pub fn access_policy(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn access_policy(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.access_policy(input.into());
         self
     }
     /// <p>An IAM policy document that authorizes cross-account users to deliver their log events to the associated destination. This can be up to 5120 bytes.</p>
-    pub fn set_access_policy(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_access_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_access_policy(input);
         self
     }

@@ -59,8 +59,7 @@ impl CreateCapacityProviderFluentBuilder {
     /// Access the CreateCapacityProvider as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::create_capacity_provider::builders::CreateCapacityProviderInputBuilder
-    {
+    ) -> &crate::operation::create_capacity_provider::builders::CreateCapacityProviderInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +83,13 @@ impl CreateCapacityProviderFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_capacity_provider::CreateCapacityProvider::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_capacity_provider::CreateCapacityProvider::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::create_capacity_provider::CreateCapacityProvider::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::create_capacity_provider::CreateCapacityProvider::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -122,18 +118,12 @@ impl CreateCapacityProviderFluentBuilder {
         self
     }
     /// <p>The name of the capacity provider.</p>
-    pub fn capacity_provider_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn capacity_provider_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.capacity_provider_name(input.into());
         self
     }
     /// <p>The name of the capacity provider.</p>
-    pub fn set_capacity_provider_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_capacity_provider_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_capacity_provider_name(input);
         self
     }
@@ -147,24 +137,16 @@ impl CreateCapacityProviderFluentBuilder {
         self
     }
     /// <p>The VPC configuration for the capacity provider, including subnet IDs and security group IDs where compute instances will be launched.</p>
-    pub fn set_vpc_config(
-        mut self,
-        input: ::std::option::Option<crate::types::CapacityProviderVpcConfig>,
-    ) -> Self {
+    pub fn set_vpc_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderVpcConfig>) -> Self {
         self.inner = self.inner.set_vpc_config(input);
         self
     }
     /// <p>The VPC configuration for the capacity provider, including subnet IDs and security group IDs where compute instances will be launched.</p>
-    pub fn get_vpc_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::CapacityProviderVpcConfig> {
+    pub fn get_vpc_config(&self) -> &::std::option::Option<crate::types::CapacityProviderVpcConfig> {
         self.inner.get_vpc_config()
     }
     /// <p>The permissions configuration that specifies the IAM role ARN used by the capacity provider to manage compute resources.</p>
-    pub fn permissions_config(
-        mut self,
-        input: crate::types::CapacityProviderPermissionsConfig,
-    ) -> Self {
+    pub fn permissions_config(mut self, input: crate::types::CapacityProviderPermissionsConfig) -> Self {
         self.inner = self.inner.permissions_config(input);
         self
     }
@@ -177,9 +159,7 @@ impl CreateCapacityProviderFluentBuilder {
         self
     }
     /// <p>The permissions configuration that specifies the IAM role ARN used by the capacity provider to manage compute resources.</p>
-    pub fn get_permissions_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::CapacityProviderPermissionsConfig> {
+    pub fn get_permissions_config(&self) -> &::std::option::Option<crate::types::CapacityProviderPermissionsConfig> {
         self.inner.get_permissions_config()
     }
     /// <p>The instance requirements that specify the compute instance characteristics, including architectures and allowed or excluded instance types.</p>
@@ -196,16 +176,11 @@ impl CreateCapacityProviderFluentBuilder {
         self
     }
     /// <p>The instance requirements that specify the compute instance characteristics, including architectures and allowed or excluded instance types.</p>
-    pub fn get_instance_requirements(
-        &self,
-    ) -> &::std::option::Option<crate::types::InstanceRequirements> {
+    pub fn get_instance_requirements(&self) -> &::std::option::Option<crate::types::InstanceRequirements> {
         self.inner.get_instance_requirements()
     }
     /// <p>The scaling configuration that defines how the capacity provider scales compute instances, including maximum vCPU count and scaling policies.</p>
-    pub fn capacity_provider_scaling_config(
-        mut self,
-        input: crate::types::CapacityProviderScalingConfig,
-    ) -> Self {
+    pub fn capacity_provider_scaling_config(mut self, input: crate::types::CapacityProviderScalingConfig) -> Self {
         self.inner = self.inner.capacity_provider_scaling_config(input);
         self
     }
@@ -254,9 +229,7 @@ impl CreateCapacityProviderFluentBuilder {
     /// <p>A list of tags to associate with the capacity provider.</p>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_tags(input);
         self
@@ -264,9 +237,7 @@ impl CreateCapacityProviderFluentBuilder {
     /// <p>A list of tags to associate with the capacity provider.</p>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_tags()
     }
     /// <p>The tag propagation configuration for the capacity provider. Specifies tags to apply to managed resources at launch.</p>
@@ -275,10 +246,7 @@ impl CreateCapacityProviderFluentBuilder {
         self
     }
     /// <p>The tag propagation configuration for the capacity provider. Specifies tags to apply to managed resources at launch.</p>
-    pub fn set_propagate_tags(
-        mut self,
-        input: ::std::option::Option<crate::types::PropagateTags>,
-    ) -> Self {
+    pub fn set_propagate_tags(mut self, input: ::std::option::Option<crate::types::PropagateTags>) -> Self {
         self.inner = self.inner.set_propagate_tags(input);
         self
     }
@@ -287,10 +255,7 @@ impl CreateCapacityProviderFluentBuilder {
         self.inner.get_propagate_tags()
     }
     /// <p>The telemetry configuration for the capacity provider. Specifies logging settings for managed resources.</p>
-    pub fn telemetry_config(
-        mut self,
-        input: crate::types::CapacityProviderTelemetryConfig,
-    ) -> Self {
+    pub fn telemetry_config(mut self, input: crate::types::CapacityProviderTelemetryConfig) -> Self {
         self.inner = self.inner.telemetry_config(input);
         self
     }
@@ -303,9 +268,7 @@ impl CreateCapacityProviderFluentBuilder {
         self
     }
     /// <p>The telemetry configuration for the capacity provider. Specifies logging settings for managed resources.</p>
-    pub fn get_telemetry_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::CapacityProviderTelemetryConfig> {
+    pub fn get_telemetry_config(&self) -> &::std::option::Option<crate::types::CapacityProviderTelemetryConfig> {
         self.inner.get_telemetry_config()
     }
 }

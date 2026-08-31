@@ -66,9 +66,7 @@ impl GetProvisionedLimitFluentBuilder {
         }
     }
     /// Access the GetProvisionedLimit as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_provisioned_limit::builders::GetProvisionedLimitInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_provisioned_limit::builders::GetProvisionedLimitInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -92,17 +90,12 @@ impl GetProvisionedLimitFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::get_provisioned_limit::GetProvisionedLimit::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::get_provisioned_limit::GetProvisionedLimit::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::get_provisioned_limit::GetProvisionedLimit::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::get_provisioned_limit::GetProvisionedLimit::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -136,17 +129,12 @@ impl GetProvisionedLimitFluentBuilder {
         self
     }
     /// <p>The limit to retrieve. Specify the limit class and the attributes that identify the limit.</p>
-    pub fn set_limit_definition(
-        mut self,
-        input: ::std::option::Option<crate::types::LimitDefinitionType>,
-    ) -> Self {
+    pub fn set_limit_definition(mut self, input: ::std::option::Option<crate::types::LimitDefinitionType>) -> Self {
         self.inner = self.inner.set_limit_definition(input);
         self
     }
     /// <p>The limit to retrieve. Specify the limit class and the attributes that identify the limit.</p>
-    pub fn get_limit_definition(
-        &self,
-    ) -> &::std::option::Option<crate::types::LimitDefinitionType> {
+    pub fn get_limit_definition(&self) -> &::std::option::Option<crate::types::LimitDefinitionType> {
         self.inner.get_limit_definition()
     }
 }

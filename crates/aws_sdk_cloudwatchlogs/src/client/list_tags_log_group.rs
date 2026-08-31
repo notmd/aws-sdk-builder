@@ -11,8 +11,6 @@ impl super::Client {
     pub fn list_tags_log_group(
         &self,
     ) -> crate::operation::list_tags_log_group::builders::ListTagsLogGroupFluentBuilder {
-        crate::operation::list_tags_log_group::builders::ListTagsLogGroupFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::list_tags_log_group::builders::ListTagsLogGroupFluentBuilder::new(self.handle.clone())
     }
 }

@@ -115,15 +115,10 @@ impl EcsCredentialsProvider {
             Some(HeaderValue::from_bytes(auth.as_slice()).map_err(|err| {
                 tracing::warn!(
                     token_length = auth.len(),
-                    ends_with_whitespace = auth
-                        .last()
-                        .map(|b| b.is_ascii_whitespace())
-                        .unwrap_or(false),
+                    ends_with_whitespace = auth.last().map(|b| b.is_ascii_whitespace()).unwrap_or(false),
                     "invalid auth token from file"
                 );
-                CredentialsError::invalid_configuration(EcsConfigurationError::InvalidAuthToken {
-                    err,
-                })
+                CredentialsError::invalid_configuration(EcsConfigurationError::InvalidAuthToken { err })
             })?)
         } else if let Some(auth_token) = env_token {
             Some(HeaderValue::from_str(&auth_token).map_err(|err| {
@@ -136,28 +131,20 @@ impl EcsCredentialsProvider {
                         .unwrap_or(false),
                     "invalid auth token from env"
                 );
-                CredentialsError::invalid_configuration(EcsConfigurationError::InvalidAuthToken {
-                    err,
-                })
+                CredentialsError::invalid_configuration(EcsConfigurationError::InvalidAuthToken { err })
             })?)
         } else {
             None
         };
         match self.provider().await {
-            Provider::NotConfigured => {
-                Err(CredentialsError::not_loaded("ECS provider not configured"))
-            }
-            Provider::InvalidConfiguration(err) => {
-                Err(CredentialsError::invalid_configuration(format!("{err}")))
-            }
+            Provider::NotConfigured => Err(CredentialsError::not_loaded("ECS provider not configured")),
+            Provider::InvalidConfiguration(err) => Err(CredentialsError::invalid_configuration(format!("{err}"))),
             Provider::Configured(provider) => provider.credentials(auth).await,
         }
     }
 
     async fn provider(&self) -> &Provider {
-        self.inner
-            .get_or_init(|| Provider::make(self.builder.clone()))
-            .await
+        self.inner.get_or_init(|| Provider::make(self.builder.clone())).await
     }
 }
 
@@ -247,17 +234,9 @@ impl Provider {
 
 #[derive(Debug)]
 enum EcsConfigurationError {
-    InvalidRelativeUri {
-        err: InvalidUri,
-        uri: String,
-    },
-    InvalidFullUri {
-        err: InvalidFullUriError,
-        uri: String,
-    },
-    InvalidAuthToken {
-        err: InvalidHeaderValue,
-    },
+    InvalidRelativeUri { err: InvalidUri, uri: String },
+    InvalidFullUri { err: InvalidFullUriError, uri: String },
+    InvalidAuthToken { err: InvalidHeaderValue },
     NotConfigured,
 }
 
@@ -270,14 +249,12 @@ impl Display for EcsConfigurationError {
             EcsConfigurationError::InvalidFullUri { err, uri } => {
                 write!(f, "invalid full URI for ECS provider ({err}): {uri}")
             }
-            EcsConfigurationError::NotConfigured => write!(
-                f,
-                "No environment variables were set to configure ECS provider"
-            ),
-            EcsConfigurationError::InvalidAuthToken { err } => write!(
-                f,
-                "the auth token could not be used as an HTTP header value. {err}",
-            ),
+            EcsConfigurationError::NotConfigured => {
+                write!(f, "No environment variables were set to configure ECS provider")
+            }
+            EcsConfigurationError::InvalidAuthToken { err } => {
+                write!(f, "the auth token could not be used as an HTTP header value. {err}",)
+            }
         }
     }
 }
@@ -396,12 +373,12 @@ impl Display for InvalidFullUriError {
                 write!(f, "URI did not refer to an allowed IP address")
             }
             DnsLookupFailed(_) => {
-                write!(
-                    f,
-                    "failed to perform DNS lookup while validating URI"
-                )
+                write!(f, "failed to perform DNS lookup while validating URI")
             }
-            NoDnsResolver => write!(f, "no DNS resolver was provided. Enable `rt-tokio` or provide a `dns` resolver to the builder.")
+            NoDnsResolver => write!(
+                f,
+                "no DNS resolver was provided. Enable `rt-tokio` or provide a `dns` resolver to the builder."
+            ),
         }
     }
 }
@@ -430,13 +407,8 @@ impl From<InvalidFullUriErrorKind> for InvalidFullUriError {
 ///    a DNS lookup will be performed. ALL resolved IP addresses MUST refer to an allowed IP, or
 ///    the credentials provider will return `CredentialsError::InvalidConfiguration`. Allowed IPs
 ///    are the loopback interfaces, and the known ECS/EKS container IPs.
-async fn validate_full_uri(
-    uri: &str,
-    dns: Option<SharedDnsResolver>,
-) -> Result<Uri, InvalidFullUriError> {
-    let uri = uri
-        .parse::<Uri>()
-        .map_err(InvalidFullUriErrorKind::InvalidUri)?;
+async fn validate_full_uri(uri: &str, dns: Option<SharedDnsResolver>) -> Result<Uri, InvalidFullUriError> {
+    let uri = uri.parse::<Uri>().map_err(InvalidFullUriErrorKind::InvalidUri)?;
     if uri.scheme() == Some(&Scheme::HTTPS) {
         return Ok(uri);
     }
@@ -455,15 +427,15 @@ async fn validate_full_uri(
                 .await
                 .map_err(|err| InvalidFullUriErrorKind::DnsLookupFailed(ResolveDnsError::new(err)))?
                 .iter()
-                    .all(|addr| {
-                        if !is_full_uri_ip_allowed(addr) {
-                            tracing::warn!(
-                                addr = ?addr,
-                                "HTTP credential provider cannot be used: Address does not resolve to an allowed IP."
-                            )
-                        };
-                        is_full_uri_ip_allowed(addr)
-                    })
+                .all(|addr| {
+                    if !is_full_uri_ip_allowed(addr) {
+                        tracing::warn!(
+                            addr = ?addr,
+                            "HTTP credential provider cannot be used: Address does not resolve to an allowed IP."
+                        )
+                    };
+                    is_full_uri_ip_allowed(addr)
+                })
         }
     };
     match is_allowed {
@@ -481,10 +453,7 @@ const EKS_CONTAINER_IPV4: IpAddr = IpAddr::V4(Ipv4Addr::new(169, 254, 170, 23));
 // "fd00:ec2::23"
 const EKS_CONTAINER_IPV6: IpAddr = IpAddr::V6(Ipv6Addr::new(0xFD00, 0x0EC2, 0, 0, 0, 0, 0, 0x23));
 fn is_full_uri_ip_allowed(ip: &IpAddr) -> bool {
-    ip.is_loopback()
-        || ip.eq(&ECS_CONTAINER_IPV4)
-        || ip.eq(&EKS_CONTAINER_IPV4)
-        || ip.eq(&EKS_CONTAINER_IPV6)
+    ip.is_loopback() || ip.eq(&ECS_CONTAINER_IPV4) || ip.eq(&EKS_CONTAINER_IPV4) || ip.eq(&EKS_CONTAINER_IPV6)
 }
 
 /// Default DNS resolver impl
@@ -526,11 +495,7 @@ mod test {
     use std::time::{Duration, UNIX_EPOCH};
     use tracing_test::traced_test;
 
-    fn provider(
-        env: Env,
-        fs: Fs,
-        http_client: impl HttpClient + 'static,
-    ) -> EcsCredentialsProvider {
+    fn provider(env: Env, fs: Fs, http_client: impl HttpClient + 'static) -> EcsCredentialsProvider {
         let provider_config = ProviderConfig::empty()
             .with_env(env)
             .with_fs(fs)
@@ -585,9 +550,7 @@ mod test {
         );
         // over HTTP, it will try to lookup
         assert!(
-            validate_full_uri("http://amazon.com", dns)
-                .now_or_never()
-                .is_none(),
+            validate_full_uri("http://amazon.com", dns).now_or_never().is_none(),
             "DNS lookup should occur, but it will never return"
         );
 
@@ -687,24 +650,16 @@ mod test {
             ])
             .into_shared(),
         );
-        let resp = validate_full_uri("http://localhost:8888", dns)
-            .now_or_never()
-            .unwrap();
+        let resp = validate_full_uri("http://localhost:8888", dns).now_or_never().unwrap();
         assert!(resp.is_ok(), "Should be valid: {:?}", resp);
     }
 
     #[test]
     fn all_addrs_not_local() {
         let dns = Some(
-            TestDns::with_fallback(vec![
-                "127.0.0.1".parse().unwrap(),
-                "192.168.0.1".parse().unwrap(),
-            ])
-            .into_shared(),
+            TestDns::with_fallback(vec!["127.0.0.1".parse().unwrap(), "192.168.0.1".parse().unwrap()]).into_shared(),
         );
-        let resp = validate_full_uri("http://localhost:8888", dns)
-            .now_or_never()
-            .unwrap();
+        let resp = validate_full_uri("http://localhost:8888", dns).now_or_never().unwrap();
         assert!(
             matches!(
                 resp,
@@ -746,10 +701,7 @@ mod test {
         assert_eq!(creds.secret_access_key(), "SECRET");
         assert_eq!(creds.account_id().unwrap().as_str(), "AID");
         assert_eq!(creds.session_token().unwrap(), "TOKEN....=");
-        assert_eq!(
-            creds.expiry().unwrap(),
-            UNIX_EPOCH + Duration::from_secs(1234567890)
-        );
+        assert_eq!(creds.expiry().unwrap(), UNIX_EPOCH + Duration::from_secs(1234567890));
     }
 
     #[tokio::test]
@@ -763,10 +715,7 @@ mod test {
             ok_creds_response(),
         )]);
         let provider = provider(env, Fs::default(), http_client.clone());
-        let creds = provider
-            .provide_credentials()
-            .await
-            .expect("valid credentials");
+        let creds = provider.provide_credentials().await.expect("valid credentials");
         assert_correct(creds);
         http_client.assert_requests_match(&[]);
     }
@@ -784,24 +733,16 @@ mod test {
             ),
         ]);
         let fs = Fs::from_raw_map(HashMap::from([(
-            OsString::from(
-                "/var/run/secrets/pods.eks.amazonaws.com/serviceaccount/eks-pod-identity-token",
-            ),
+            OsString::from("/var/run/secrets/pods.eks.amazonaws.com/serviceaccount/eks-pod-identity-token"),
             "Basic password".into(),
         )]));
 
         let http_client = StaticReplayClient::new(vec![ReplayEvent::new(
-            creds_request(
-                "http://169.254.170.23/v1/credentials",
-                Some("Basic password"),
-            ),
+            creds_request("http://169.254.170.23/v1/credentials", Some("Basic password")),
             ok_creds_response(),
         )]);
         let provider = provider(env, fs, http_client.clone());
-        let creds = provider
-            .provide_credentials()
-            .await
-            .expect("valid credentials");
+        let creds = provider.provide_credentials().await.expect("valid credentials");
         assert_correct(creds);
         http_client.assert_requests_match(&[]);
     }
@@ -811,10 +752,7 @@ mod test {
     async fn invalid_auth_token_env_does_not_log_value() {
         let env = Env::from_slice(&[
             ("AWS_CONTAINER_CREDENTIALS_RELATIVE_URI", "/credentials"),
-            (
-                "AWS_CONTAINER_AUTHORIZATION_TOKEN",
-                "SECRET-MARKER-DO-NOT-LOG-abc123\n",
-            ),
+            ("AWS_CONTAINER_AUTHORIZATION_TOKEN", "SECRET-MARKER-DO-NOT-LOG-abc123\n"),
         ]);
         let provider = provider(env, Fs::default(), no_traffic_client());
         let err = provider
@@ -845,10 +783,7 @@ mod test {
                 "AWS_CONTAINER_CREDENTIALS_FULL_URI",
                 "http://169.254.170.23/v1/credentials",
             ),
-            (
-                "AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE",
-                "/eks-pod-identity-token",
-            ),
+            ("AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE", "/eks-pod-identity-token"),
         ]);
         let fs = Fs::from_raw_map(HashMap::from([(
             OsString::from("/eks-pod-identity-token"),
@@ -889,24 +824,16 @@ mod test {
             ("AWS_CONTAINER_AUTHORIZATION_TOKEN", "unused"),
         ]);
         let fs = Fs::from_raw_map(HashMap::from([(
-            OsString::from(
-                "/var/run/secrets/pods.eks.amazonaws.com/serviceaccount/eks-pod-identity-token",
-            ),
+            OsString::from("/var/run/secrets/pods.eks.amazonaws.com/serviceaccount/eks-pod-identity-token"),
             "Basic password".into(),
         )]));
 
         let http_client = StaticReplayClient::new(vec![ReplayEvent::new(
-            creds_request(
-                "http://169.254.170.23/v1/credentials",
-                Some("Basic password"),
-            ),
+            creds_request("http://169.254.170.23/v1/credentials", Some("Basic password")),
             ok_creds_response(),
         )]);
         let provider = provider(env, fs, http_client.clone());
-        let creds = provider
-            .provide_credentials()
-            .await
-            .expect("valid credentials");
+        let creds = provider.provide_credentials().await.expect("valid credentials");
         assert_correct(creds);
         http_client.assert_requests_match(&[]);
     }
@@ -925,9 +852,7 @@ mod test {
             ("AWS_CONTAINER_AUTHORIZATION_TOKEN", "unused"),
         ]);
         let fs = Fs::from_raw_map(HashMap::from([(
-            OsString::from(
-                "/var/run/secrets/pods.eks.amazonaws.com/serviceaccount/eks-pod-identity-token",
-            ),
+            OsString::from("/var/run/secrets/pods.eks.amazonaws.com/serviceaccount/eks-pod-identity-token"),
             "Basic password".into(),
         )]));
 
@@ -939,10 +864,7 @@ mod test {
             ok_creds_response(),
         )]);
         let provider = provider(env, fs, http_client.clone());
-        let creds = provider
-            .provide_credentials()
-            .await
-            .expect("valid credentials");
+        let creds = provider.provide_credentials().await.expect("valid credentials");
         assert_correct(creds);
         http_client.assert_requests_match(&[]);
     }
@@ -975,10 +897,7 @@ mod test {
         let http_client = StaticReplayClient::new(vec![
             ReplayEvent::new(
                 creds_request("http://169.254.170.2/credentials", None),
-                http::Response::builder()
-                    .status(500)
-                    .body(SdkBody::empty())
-                    .unwrap(),
+                http::Response::builder().status(500).body(SdkBody::empty()).unwrap(),
             ),
             ReplayEvent::new(
                 creds_request("http://169.254.170.2/credentials", None),
@@ -987,10 +906,7 @@ mod test {
         ]);
         tokio::time::pause();
         let provider = provider(env, Fs::default(), http_client.clone());
-        let creds = provider
-            .provide_credentials()
-            .await
-            .expect("valid credentials");
+        let creds = provider.provide_credentials().await.expect("valid credentials");
         assert_correct(creds);
     }
 
@@ -1002,10 +918,7 @@ mod test {
             ok_creds_response(),
         )]);
         let provider = provider(env, Fs::default(), http_client.clone());
-        let creds = provider
-            .provide_credentials()
-            .await
-            .expect("valid credentials");
+        let creds = provider.provide_credentials().await.expect("valid credentials");
         assert_correct(creds);
         http_client.assert_requests_match(&[]);
     }
@@ -1016,11 +929,7 @@ mod test {
     #[traced_test]
     #[ignore]
     async fn real_dns_lookup() {
-        let dns = Some(
-            default_dns()
-                .expect("feature must be enabled")
-                .into_shared(),
-        );
+        let dns = Some(default_dns().expect("feature must be enabled").into_shared());
         let err = validate_full_uri("http://www.amazon.com/creds", dns.clone())
             .await
             .expect_err("not a valid IP");

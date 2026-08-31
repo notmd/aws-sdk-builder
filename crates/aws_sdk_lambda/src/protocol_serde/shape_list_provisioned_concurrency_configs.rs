@@ -9,13 +9,19 @@ pub fn de_list_provisioned_concurrency_configs_http_error(
     crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body).map_err(
+            crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsError::unhandled,
+        )?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsError::unhandled(generic)),
+        None => return Err(
+            crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsError::unhandled(
+                generic,
+            ),
+        ),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -116,9 +122,7 @@ pub fn de_list_provisioned_concurrency_configs_http_response(
         let mut output = crate::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsOutputBuilder::default();
         output = crate::protocol_serde::shape_list_provisioned_concurrency_configs::de_list_provisioned_concurrency_configs(_response_body, output)
             .map_err(crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -129,11 +133,9 @@ pub(crate) fn de_list_provisioned_concurrency_configs(
 ) -> ::std::result::Result<
     crate::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
->{
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+> {
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -141,44 +143,36 @@ pub(crate) fn de_list_provisioned_concurrency_configs(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "NextMarker" => {
-                        builder = builder.set_next_marker(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                tokens.next(),
-                            )?
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "NextMarker" => {
+                    builder = builder.set_next_marker(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                        );
-                    }
-                    "ProvisionedConcurrencyConfigs" => {
-                        builder = builder.set_provisioned_concurrency_configs(
+                    );
+                }
+                "ProvisionedConcurrencyConfigs" => {
+                    builder = builder.set_provisioned_concurrency_configs(
                         crate::protocol_serde::shape_provisioned_concurrency_config_list::de_provisioned_concurrency_config_list(
                             tokens,
                             _value,
                             depth + 1,
                         )?,
                     );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-            }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

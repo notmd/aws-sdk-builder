@@ -31,17 +31,13 @@ impl ::aws_types::request_id::RequestId for BatchGetMetricDataOutput {
 }
 impl BatchGetMetricDataOutput {
     /// Creates a new builder-style object to manufacture [`BatchGetMetricDataOutput`](crate::operation::batch_get_metric_data::BatchGetMetricDataOutput).
-    pub fn builder(
-    ) -> crate::operation::batch_get_metric_data::builders::BatchGetMetricDataOutputBuilder {
-        crate::operation::batch_get_metric_data::builders::BatchGetMetricDataOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::batch_get_metric_data::builders::BatchGetMetricDataOutputBuilder {
+        crate::operation::batch_get_metric_data::builders::BatchGetMetricDataOutputBuilder::default()
     }
 }
 
 /// A builder for [`BatchGetMetricDataOutput`](crate::operation::batch_get_metric_data::BatchGetMetricDataOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct BatchGetMetricDataOutputBuilder {
     pub(crate) results: ::std::option::Option<::std::vec::Vec<crate::types::MetricDataResult>>,
@@ -69,9 +65,7 @@ impl BatchGetMetricDataOutputBuilder {
         self
     }
     /// <p>A list of successfully retrieved <code>MetricDataResult</code>.</p>
-    pub fn get_results(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::MetricDataResult>> {
+    pub fn get_results(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MetricDataResult>> {
         &self.results
     }
     /// Appends an item to `errors`.
@@ -86,17 +80,12 @@ impl BatchGetMetricDataOutputBuilder {
         self
     }
     /// <p>A list of <code>MetricDataError</code> encountered while processing your metric data batch request.</p>
-    pub fn set_errors(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::MetricDataError>>,
-    ) -> Self {
+    pub fn set_errors(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MetricDataError>>) -> Self {
         self.errors = input;
         self
     }
     /// <p>A list of <code>MetricDataError</code> encountered while processing your metric data batch request.</p>
-    pub fn get_errors(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::MetricDataError>> {
+    pub fn get_errors(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MetricDataError>> {
         &self.errors
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

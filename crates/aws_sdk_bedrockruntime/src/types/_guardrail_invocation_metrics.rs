@@ -33,9 +33,7 @@ impl GuardrailInvocationMetrics {
 }
 
 /// A builder for [`GuardrailInvocationMetrics`](crate::types::GuardrailInvocationMetrics).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailInvocationMetricsBuilder {
     pub(crate) guardrail_processing_latency: ::std::option::Option<i64>,
@@ -77,17 +75,12 @@ impl GuardrailInvocationMetricsBuilder {
         self
     }
     /// <p>The coverage details for the guardrail invocation metrics.</p>
-    pub fn set_guardrail_coverage(
-        mut self,
-        input: ::std::option::Option<crate::types::GuardrailCoverage>,
-    ) -> Self {
+    pub fn set_guardrail_coverage(mut self, input: ::std::option::Option<crate::types::GuardrailCoverage>) -> Self {
         self.guardrail_coverage = input;
         self
     }
     /// <p>The coverage details for the guardrail invocation metrics.</p>
-    pub fn get_guardrail_coverage(
-        &self,
-    ) -> &::std::option::Option<crate::types::GuardrailCoverage> {
+    pub fn get_guardrail_coverage(&self) -> &::std::option::Option<crate::types::GuardrailCoverage> {
         &self.guardrail_coverage
     }
     /// Consumes the builder and constructs a [`GuardrailInvocationMetrics`](crate::types::GuardrailInvocationMetrics).

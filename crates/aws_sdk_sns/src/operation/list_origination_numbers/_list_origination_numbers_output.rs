@@ -28,22 +28,17 @@ impl ::aws_types::request_id::RequestId for ListOriginationNumbersOutput {
 }
 impl ListOriginationNumbersOutput {
     /// Creates a new builder-style object to manufacture [`ListOriginationNumbersOutput`](crate::operation::list_origination_numbers::ListOriginationNumbersOutput).
-    pub fn builder(
-    ) -> crate::operation::list_origination_numbers::builders::ListOriginationNumbersOutputBuilder
-    {
+    pub fn builder() -> crate::operation::list_origination_numbers::builders::ListOriginationNumbersOutputBuilder {
         crate::operation::list_origination_numbers::builders::ListOriginationNumbersOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListOriginationNumbersOutput`](crate::operation::list_origination_numbers::ListOriginationNumbersOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListOriginationNumbersOutputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
-    pub(crate) phone_numbers:
-        ::std::option::Option<::std::vec::Vec<crate::types::PhoneNumberInformation>>,
+    pub(crate) phone_numbers: ::std::option::Option<::std::vec::Vec<crate::types::PhoneNumberInformation>>,
     _request_id: Option<String>,
 }
 impl ListOriginationNumbersOutputBuilder {
@@ -81,9 +76,7 @@ impl ListOriginationNumbersOutputBuilder {
         self
     }
     /// <p>A list of the calling account's verified and pending origination numbers.</p>
-    pub fn get_phone_numbers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::PhoneNumberInformation>> {
+    pub fn get_phone_numbers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PhoneNumberInformation>> {
         &self.phone_numbers
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

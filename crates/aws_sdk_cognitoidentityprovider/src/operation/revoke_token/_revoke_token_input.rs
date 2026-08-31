@@ -80,18 +80,12 @@ impl RevokeTokenInputBuilder {
         &self.client_id
     }
     /// <p>The client secret of the requested app client, if the client has a secret.</p>
-    pub fn client_secret(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn client_secret(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.client_secret = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The client secret of the requested app client, if the client has a secret.</p>
-    pub fn set_client_secret(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_client_secret(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.client_secret = input;
         self
     }

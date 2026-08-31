@@ -19,9 +19,7 @@ pub struct ListConformancePackComplianceScoresInput {
 }
 impl ListConformancePackComplianceScoresInput {
     /// <p>Filters the results based on the <code>ConformancePackComplianceScoresFilters</code>.</p>
-    pub fn filters(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ConformancePackComplianceScoresFilters> {
+    pub fn filters(&self) -> ::std::option::Option<&crate::types::ConformancePackComplianceScoresFilters> {
         self.filters.as_ref()
     }
     /// <p>Determines the order in which conformance pack compliance scores are sorted. Either in ascending or descending order.</p>
@@ -52,9 +50,7 @@ impl ListConformancePackComplianceScoresInput {
 }
 
 /// A builder for [`ListConformancePackComplianceScoresInput`](crate::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListConformancePackComplianceScoresInputBuilder {
     pub(crate) filters: ::std::option::Option<crate::types::ConformancePackComplianceScoresFilters>,
@@ -78,9 +74,7 @@ impl ListConformancePackComplianceScoresInputBuilder {
         self
     }
     /// <p>Filters the results based on the <code>ConformancePackComplianceScoresFilters</code>.</p>
-    pub fn get_filters(
-        &self,
-    ) -> &::std::option::Option<crate::types::ConformancePackComplianceScoresFilters> {
+    pub fn get_filters(&self) -> &::std::option::Option<crate::types::ConformancePackComplianceScoresFilters> {
         &self.filters
     }
     /// <p>Determines the order in which conformance pack compliance scores are sorted. Either in ascending or descending order.</p>
@@ -154,7 +148,7 @@ impl ListConformancePackComplianceScoresInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresInput {
                 filters: self.filters,

@@ -177,10 +177,7 @@ impl ProviderConfig {
     }
 
     /// Initializer for ConfigBag to avoid possibly setting incorrect defaults.
-    pub(crate) fn init(
-        time_source: SharedTimeSource,
-        sleep_impl: Option<SharedAsyncSleep>,
-    ) -> Self {
+    pub(crate) fn init(time_source: SharedTimeSource, sleep_impl: Option<SharedAsyncSleep>) -> Self {
         Self {
             parsed_profile: Default::default(),
             #[allow(deprecated)]
@@ -386,9 +383,7 @@ impl ProviderConfig {
             // clear out the profile since we need to reparse it
             parsed_profile: Default::default(),
             profile_files: profile_files.unwrap_or(self.profile_files),
-            profile_name_override: profile_name_override
-                .map(Cow::Owned)
-                .or(self.profile_name_override),
+            profile_name_override: profile_name_override.map(Cow::Owned).or(self.profile_name_override),
             ..self
         }
     }

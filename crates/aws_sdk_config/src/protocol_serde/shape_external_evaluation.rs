@@ -14,9 +14,7 @@ pub fn ser_external_evaluation(
             .string(input.compliance_resource_id.as_str());
     }
     {
-        object
-            .key("ComplianceType")
-            .string(input.compliance_type.as_str());
+        object.key("ComplianceType").string(input.compliance_type.as_str());
     }
     if let Some(var_1) = &input.annotation {
         object.key("Annotation").string(var_1.as_str());

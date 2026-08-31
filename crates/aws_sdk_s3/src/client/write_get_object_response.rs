@@ -53,8 +53,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<WriteGetObjectResponseError>`](crate::operation::write_get_object_response::WriteGetObjectResponseError)
     pub fn write_get_object_response(
         &self,
-    ) -> crate::operation::write_get_object_response::builders::WriteGetObjectResponseFluentBuilder
-    {
-        crate::operation::write_get_object_response::builders::WriteGetObjectResponseFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::write_get_object_response::builders::WriteGetObjectResponseFluentBuilder {
+        crate::operation::write_get_object_response::builders::WriteGetObjectResponseFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

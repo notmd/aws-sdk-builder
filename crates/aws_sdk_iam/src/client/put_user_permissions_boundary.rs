@@ -9,7 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutUserPermissionsBoundaryError>`](crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryError)
     pub fn put_user_permissions_boundary(
         &self,
-    ) -> crate::operation::put_user_permissions_boundary::builders::PutUserPermissionsBoundaryFluentBuilder{
-        crate::operation::put_user_permissions_boundary::builders::PutUserPermissionsBoundaryFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::put_user_permissions_boundary::builders::PutUserPermissionsBoundaryFluentBuilder {
+        crate::operation::put_user_permissions_boundary::builders::PutUserPermissionsBoundaryFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

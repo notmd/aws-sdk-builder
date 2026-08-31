@@ -143,12 +143,8 @@ where
     E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
 {
     result
-        .map(|output| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output)
-        })
-        .map_err(|error| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error)
-        })
+        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))
+        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))
         .map_err(::std::convert::Into::into)
 }
 
@@ -1378,10 +1374,7 @@ pub(crate) mod shape_invalid_email_role_access_policy_exception;
 ))]
 pub(crate) mod shape_invalid_lambda_response_exception;
 
-#[cfg(any(
-    feature = "op_create_user_pool_client",
-    feature = "op_update_user_pool_client"
-))]
+#[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
 pub(crate) mod shape_invalid_o_auth_flow_exception;
 
 #[cfg(any(
@@ -2100,10 +2093,7 @@ pub(crate) mod shape_respond_to_auth_challenge_input;
 #[cfg(feature = "op_revoke_token")]
 pub(crate) mod shape_revoke_token_input;
 
-#[cfg(any(
-    feature = "op_create_user_pool_client",
-    feature = "op_update_user_pool_client"
-))]
+#[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
 pub(crate) mod shape_scope_does_not_exist_exception;
 
 #[cfg(feature = "op_update_provisioned_limit")]
@@ -2310,10 +2300,7 @@ pub(crate) mod shape_unauthorized_exception;
 ))]
 pub(crate) mod shape_unexpected_lambda_exception;
 
-#[cfg(any(
-    feature = "op_delete_identity_provider",
-    feature = "op_update_identity_provider"
-))]
+#[cfg(any(feature = "op_delete_identity_provider", feature = "op_update_identity_provider"))]
 pub(crate) mod shape_unsupported_identity_provider_exception;
 
 #[cfg(any(
@@ -2539,10 +2526,7 @@ pub(crate) mod shape_web_authn_relying_party_mismatch_exception;
 ))]
 pub(crate) mod shape_account_recovery_setting_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_account_takeover_risk_configuration_type;
 
 #[cfg(any(
@@ -2653,22 +2637,13 @@ pub(crate) mod shape_code_delivery_details_list_type;
 ))]
 pub(crate) mod shape_code_delivery_details_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_compromised_credentials_risk_configuration_type;
 
-#[cfg(any(
-    feature = "op_admin_get_user_auth_factors",
-    feature = "op_get_user_auth_factors"
-))]
+#[cfg(any(feature = "op_admin_get_user_auth_factors", feature = "op_get_user_auth_factors"))]
 pub(crate) mod shape_configured_user_auth_factors_list_type;
 
-#[cfg(any(
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_respond_to_auth_challenge"
-))]
+#[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge"))]
 pub(crate) mod shape_context_data_type;
 
 #[cfg(any(
@@ -2709,16 +2684,10 @@ pub(crate) mod shape_domain_description_type;
 ))]
 pub(crate) mod shape_email_configuration_type;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 pub(crate) mod shape_email_mfa_config_type;
 
-#[cfg(any(
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_set_user_mfa_preference"
-))]
+#[cfg(any(feature = "op_admin_set_user_mfa_preference", feature = "op_set_user_mfa_preference"))]
 pub(crate) mod shape_email_mfa_settings_type;
 
 #[cfg(any(feature = "op_admin_list_groups_for_user", feature = "op_list_groups"))]
@@ -2763,16 +2732,10 @@ pub(crate) mod shape_key_configuration_type;
 ))]
 pub(crate) mod shape_lambda_config_type;
 
-#[cfg(any(
-    feature = "op_get_provisioned_limit",
-    feature = "op_update_provisioned_limit"
-))]
+#[cfg(any(feature = "op_get_provisioned_limit", feature = "op_update_provisioned_limit"))]
 pub(crate) mod shape_limit_definition_type;
 
-#[cfg(any(
-    feature = "op_get_provisioned_limit",
-    feature = "op_update_provisioned_limit"
-))]
+#[cfg(any(feature = "op_get_provisioned_limit", feature = "op_update_provisioned_limit"))]
 pub(crate) mod shape_limit_type;
 
 #[cfg(feature = "op_get_csv_header")]
@@ -2853,16 +2816,10 @@ pub(crate) mod shape_resource_server_type;
 #[cfg(feature = "op_list_resource_servers")]
 pub(crate) mod shape_resource_servers_list_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_risk_configuration_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_risk_exception_configuration_type;
 
 #[cfg(any(
@@ -2888,28 +2845,16 @@ pub(crate) mod shape_schema_attribute_type;
 ))]
 pub(crate) mod shape_sms_configuration_type;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 pub(crate) mod shape_sms_mfa_config_type;
 
-#[cfg(any(
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_set_user_mfa_preference"
-))]
+#[cfg(any(feature = "op_admin_set_user_mfa_preference", feature = "op_set_user_mfa_preference"))]
 pub(crate) mod shape_sms_mfa_settings_type;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 pub(crate) mod shape_software_token_mfa_config_type;
 
-#[cfg(any(
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_set_user_mfa_preference"
-))]
+#[cfg(any(feature = "op_admin_set_user_mfa_preference", feature = "op_set_user_mfa_preference"))]
 pub(crate) mod shape_software_token_mfa_settings_type;
 
 #[cfg(feature = "op_list_terms")]
@@ -2929,10 +2874,7 @@ pub(crate) mod shape_terms_type;
 ))]
 pub(crate) mod shape_token_validity_units_type;
 
-#[cfg(any(
-    feature = "op_get_ui_customization",
-    feature = "op_set_ui_customization"
-))]
+#[cfg(any(feature = "op_get_ui_customization", feature = "op_set_ui_customization"))]
 pub(crate) mod shape_ui_customization_type;
 
 #[cfg(any(
@@ -3041,25 +2983,16 @@ pub(crate) mod shape_users_list_type;
 ))]
 pub(crate) mod shape_verification_message_template_type;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 pub(crate) mod shape_web_authn_configuration_type;
 
 #[cfg(feature = "op_list_web_authn_credentials")]
 pub(crate) mod shape_web_authn_credential_description_list_type;
 
-#[cfg(any(
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_set_user_mfa_preference"
-))]
+#[cfg(any(feature = "op_admin_set_user_mfa_preference", feature = "op_set_user_mfa_preference"))]
 pub(crate) mod shape_web_authn_mfa_settings_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_account_takeover_actions_type;
 
 #[cfg(any(
@@ -3111,10 +3044,7 @@ pub(crate) mod shape_client_permission_list_type;
 ))]
 pub(crate) mod shape_cloud_watch_logs_configuration_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_compromised_credentials_actions_type;
 
 #[cfg(any(
@@ -3162,10 +3092,7 @@ pub(crate) mod shape_failover_type;
 ))]
 pub(crate) mod shape_firehose_configuration_type;
 
-#[cfg(any(
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_respond_to_auth_challenge"
-))]
+#[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge"))]
 pub(crate) mod shape_http_header;
 
 #[cfg(any(
@@ -3220,10 +3147,7 @@ pub(crate) mod shape_message_template_type;
 ))]
 pub(crate) mod shape_new_device_metadata_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_notify_configuration_type;
 
 #[cfg(any(
@@ -3336,10 +3260,7 @@ pub(crate) mod shape_verified_attributes_list_type;
 #[cfg(feature = "op_list_web_authn_credentials")]
 pub(crate) mod shape_web_authn_credential_description;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_account_takeover_action_type;
 
 #[cfg(any(
@@ -3349,10 +3270,7 @@ pub(crate) mod shape_account_takeover_action_type;
 ))]
 pub(crate) mod shape_attributes_require_verification_before_update_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_blocked_ip_range_list_type;
 
 #[cfg(feature = "op_admin_list_user_auth_events")]
@@ -3364,19 +3282,13 @@ pub(crate) mod shape_event_context_data_type;
 #[cfg(feature = "op_admin_list_user_auth_events")]
 pub(crate) mod shape_event_feedback_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_event_filters_type;
 
 #[cfg(feature = "op_admin_list_user_auth_events")]
 pub(crate) mod shape_event_risk_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_notify_email_type;
 
 #[cfg(any(
@@ -3389,16 +3301,10 @@ pub(crate) mod shape_recovery_mechanisms_type;
 #[cfg(feature = "op_list_user_pools")]
 pub(crate) mod shape_replica_regions_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) mod shape_skipped_ip_range_list_type;
 
-#[cfg(any(
-    feature = "op_get_provisioned_limit",
-    feature = "op_update_provisioned_limit"
-))]
+#[cfg(any(feature = "op_get_provisioned_limit", feature = "op_update_provisioned_limit"))]
 pub(crate) mod shape_string_to_string_map_type;
 
 #[cfg(feature = "op_list_web_authn_credentials")]

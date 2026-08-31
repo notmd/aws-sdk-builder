@@ -44,16 +44,13 @@ impl EnableKeyRotationInput {
 }
 impl EnableKeyRotationInput {
     /// Creates a new builder-style object to manufacture [`EnableKeyRotationInput`](crate::operation::enable_key_rotation::EnableKeyRotationInput).
-    pub fn builder(
-    ) -> crate::operation::enable_key_rotation::builders::EnableKeyRotationInputBuilder {
+    pub fn builder() -> crate::operation::enable_key_rotation::builders::EnableKeyRotationInputBuilder {
         crate::operation::enable_key_rotation::builders::EnableKeyRotationInputBuilder::default()
     }
 }
 
 /// A builder for [`EnableKeyRotationInput`](crate::operation::enable_key_rotation::EnableKeyRotationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EnableKeyRotationInputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
@@ -132,11 +129,9 @@ impl EnableKeyRotationInputBuilder {
         crate::operation::enable_key_rotation::EnableKeyRotationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::enable_key_rotation::EnableKeyRotationInput {
-                key_id: self.key_id,
-                rotation_period_in_days: self.rotation_period_in_days,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::enable_key_rotation::EnableKeyRotationInput {
+            key_id: self.key_id,
+            rotation_period_in_days: self.rotation_period_in_days,
+        })
     }
 }

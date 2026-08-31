@@ -6,8 +6,7 @@ pub struct SetLogDeliveryConfigurationInput {
     /// <p>The ID of the user pool where you want to configure logging.</p>
     pub user_pool_id: ::std::option::Option<::std::string::String>,
     /// <p>A collection of the logging configurations for a user pool.</p>
-    pub log_configurations:
-        ::std::option::Option<::std::vec::Vec<crate::types::LogConfigurationType>>,
+    pub log_configurations: ::std::option::Option<::std::vec::Vec<crate::types::LogConfigurationType>>,
 }
 impl SetLogDeliveryConfigurationInput {
     /// <p>The ID of the user pool where you want to configure logging.</p>
@@ -23,20 +22,18 @@ impl SetLogDeliveryConfigurationInput {
 }
 impl SetLogDeliveryConfigurationInput {
     /// Creates a new builder-style object to manufacture [`SetLogDeliveryConfigurationInput`](crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationInput).
-    pub fn builder() -> crate::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationInputBuilder {
         crate::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationInputBuilder::default()
     }
 }
 
 /// A builder for [`SetLogDeliveryConfigurationInput`](crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SetLogDeliveryConfigurationInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
-    pub(crate) log_configurations:
-        ::std::option::Option<::std::vec::Vec<crate::types::LogConfigurationType>>,
+    pub(crate) log_configurations: ::std::option::Option<::std::vec::Vec<crate::types::LogConfigurationType>>,
 }
 impl SetLogDeliveryConfigurationInputBuilder {
     /// <p>The ID of the user pool where you want to configure logging.</p>

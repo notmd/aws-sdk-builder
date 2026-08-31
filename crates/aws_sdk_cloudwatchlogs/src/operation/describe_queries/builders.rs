@@ -58,9 +58,7 @@ impl DescribeQueriesFluentBuilder {
         }
     }
     /// Access the DescribeQueries as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::describe_queries::builders::DescribeQueriesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::describe_queries::builders::DescribeQueriesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,14 +82,12 @@ impl DescribeQueriesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::describe_queries::DescribeQueries::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::describe_queries::DescribeQueries::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::describe_queries::DescribeQueries::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::describe_queries::DescribeQueries::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -120,18 +116,12 @@ impl DescribeQueriesFluentBuilder {
         self
     }
     /// <p>Limits the returned queries to only those for the specified log group.</p>
-    pub fn log_group_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_group_name(input.into());
         self
     }
     /// <p>Limits the returned queries to only those for the specified log group.</p>
-    pub fn set_log_group_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_log_group_name(input);
         self
     }
@@ -187,10 +177,7 @@ impl DescribeQueriesFluentBuilder {
         self
     }
     /// <p>Limits the returned queries to only the queries that use the specified query language.</p>
-    pub fn set_query_language(
-        mut self,
-        input: ::std::option::Option<crate::types::QueryLanguage>,
-    ) -> Self {
+    pub fn set_query_language(mut self, input: ::std::option::Option<crate::types::QueryLanguage>) -> Self {
         self.inner = self.inner.set_query_language(input);
         self
     }

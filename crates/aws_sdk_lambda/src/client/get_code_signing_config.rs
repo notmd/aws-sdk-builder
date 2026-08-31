@@ -9,10 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetCodeSigningConfigError>`](crate::operation::get_code_signing_config::GetCodeSigningConfigError)
     pub fn get_code_signing_config(
         &self,
-    ) -> crate::operation::get_code_signing_config::builders::GetCodeSigningConfigFluentBuilder
-    {
-        crate::operation::get_code_signing_config::builders::GetCodeSigningConfigFluentBuilder::new(
-            self.handle.clone(),
-        )
+    ) -> crate::operation::get_code_signing_config::builders::GetCodeSigningConfigFluentBuilder {
+        crate::operation::get_code_signing_config::builders::GetCodeSigningConfigFluentBuilder::new(self.handle.clone())
     }
 }

@@ -3,9 +3,7 @@ pub use crate::operation::create_platform_application::_create_platform_applicat
 
 pub use crate::operation::create_platform_application::_create_platform_application_output::CreatePlatformApplicationOutputBuilder;
 
-impl
-    crate::operation::create_platform_application::builders::CreatePlatformApplicationInputBuilder
-{
+impl crate::operation::create_platform_application::builders::CreatePlatformApplicationInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -79,7 +77,9 @@ impl CreatePlatformApplicationFluentBuilder {
         }
     }
     /// Access the CreatePlatformApplication as a reference.
-    pub fn as_input(&self) -> &crate::operation::create_platform_application::builders::CreatePlatformApplicationInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::create_platform_application::builders::CreatePlatformApplicationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -103,16 +103,14 @@ impl CreatePlatformApplicationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_platform_application::CreatePlatformApplication::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_platform_application::CreatePlatformApplication::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::create_platform_application::CreatePlatformApplication::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::create_platform_application::CreatePlatformApplication::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -185,9 +183,7 @@ impl CreatePlatformApplicationFluentBuilder {
     /// <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html"> <code>SetPlatformApplicationAttributes</code> </a>.</p>
     pub fn set_attributes(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_attributes(input);
         self
@@ -195,9 +191,7 @@ impl CreatePlatformApplicationFluentBuilder {
     /// <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html"> <code>SetPlatformApplicationAttributes</code> </a>.</p>
     pub fn get_attributes(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_attributes()
     }
 }

@@ -135,40 +135,26 @@ impl GetAggregateComplianceDetailsByConfigRuleFluentBuilder {
         )
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn configuration_aggregator_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_aggregator_name(input.into());
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn set_configuration_aggregator_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_aggregator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_aggregator_name(input);
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn get_configuration_aggregator_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_configuration_aggregator_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_configuration_aggregator_name()
     }
     /// <p>The name of the Config rule for which you want compliance information.</p>
-    pub fn config_rule_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.config_rule_name(input.into());
         self
     }
     /// <p>The name of the Config rule for which you want compliance information.</p>
-    pub fn set_config_rule_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_config_rule_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_config_rule_name(input);
         self
     }
@@ -214,10 +200,7 @@ impl GetAggregateComplianceDetailsByConfigRuleFluentBuilder {
     /// <p>The resource compliance status.</p><note>
     /// <p>For the <code>GetAggregateComplianceDetailsByConfigRuleRequest</code> data type, Config supports only the <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. Config does not support the <code>NOT_APPLICABLE</code> and <code>INSUFFICIENT_DATA</code> values.</p>
     /// </note>
-    pub fn set_compliance_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ComplianceType>,
-    ) -> Self {
+    pub fn set_compliance_type(mut self, input: ::std::option::Option<crate::types::ComplianceType>) -> Self {
         self.inner = self.inner.set_compliance_type(input);
         self
     }

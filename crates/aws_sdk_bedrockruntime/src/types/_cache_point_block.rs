@@ -27,9 +27,7 @@ impl CachePointBlock {
 }
 
 /// A builder for [`CachePointBlock`](crate::types::CachePointBlock).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CachePointBlockBuilder {
     pub(crate) r#type: ::std::option::Option<crate::types::CachePointType>,
@@ -70,10 +68,7 @@ impl CachePointBlockBuilder {
     /// - [`r#type`](crate::types::builders::CachePointBlockBuilder::type)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::CachePointBlock,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::CachePointBlock, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CachePointBlock {
             r#type: self.r#type.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

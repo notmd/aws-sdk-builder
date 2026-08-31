@@ -129,15 +129,15 @@ impl WebIdentityTokenCredentialsProvider {
     fn source(&self) -> Result<Cow<'_, StaticConfiguration>, CredentialsError> {
         match &self.source {
             Source::Env(env) => {
-                let token_file = env.get(ENV_VAR_TOKEN_FILE).map_err(|_| {
-                    CredentialsError::not_loaded(format!("${ENV_VAR_TOKEN_FILE} was not set"))
-                })?;
-                let role_arn = env.get(ENV_VAR_ROLE_ARN).map_err(|_| {
-                    CredentialsError::not_loaded("AWS_ROLE_ARN environment variable must be set")
-                })?;
-                let session_name = env.get(ENV_VAR_SESSION_NAME).unwrap_or_else(|_| {
-                    sts::util::default_session_name("web-identity-token", self.time_source.now())
-                });
+                let token_file = env
+                    .get(ENV_VAR_TOKEN_FILE)
+                    .map_err(|_| CredentialsError::not_loaded(format!("${ENV_VAR_TOKEN_FILE} was not set")))?;
+                let role_arn = env
+                    .get(ENV_VAR_ROLE_ARN)
+                    .map_err(|_| CredentialsError::not_loaded("AWS_ROLE_ARN environment variable must be set"))?;
+                let session_name = env
+                    .get(ENV_VAR_SESSION_NAME)
+                    .unwrap_or_else(|_| sts::util::default_session_name("web-identity-token", self.time_source.now()));
                 Ok(Cow::Owned(StaticConfiguration {
                     web_identity_token_file: token_file.into(),
                     role_arn,
@@ -262,9 +262,8 @@ async fn load_credentials(
         .read_to_end(token_file)
         .await
         .map_err(CredentialsError::provider_error)?;
-    let token = String::from_utf8(token).map_err(|_utf_8_error| {
-        CredentialsError::unhandled("WebIdentityToken was not valid UTF-8")
-    })?;
+    let token = String::from_utf8(token)
+        .map_err(|_utf_8_error| CredentialsError::unhandled("WebIdentityToken was not valid UTF-8"))?;
 
     let resp = sts_client.assume_role_with_web_identity()
         .role_arn(role_arn)
@@ -285,9 +284,7 @@ async fn load_credentials(
 mod test {
     use crate::provider_config::ProviderConfig;
     use crate::test_case::no_traffic_client;
-    use crate::web_identity_token::{
-        Builder, ENV_VAR_ROLE_ARN, ENV_VAR_SESSION_NAME, ENV_VAR_TOKEN_FILE,
-    };
+    use crate::web_identity_token::{Builder, ENV_VAR_ROLE_ARN, ENV_VAR_SESSION_NAME, ENV_VAR_TOKEN_FILE};
     use aws_credential_types::provider::error::CredentialsError;
     use aws_smithy_async::rt::sleep::TokioSleep;
     use aws_smithy_types::error::display::DisplayErrorContext;

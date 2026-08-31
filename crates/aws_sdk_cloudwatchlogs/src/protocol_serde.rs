@@ -132,12 +132,8 @@ where
     E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
 {
     result
-        .map(|output| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output)
-        })
-        .map_err(|error| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error)
-        })
+        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))
+        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))
         .map_err(::std::convert::Into::into)
 }
 
@@ -1697,19 +1693,13 @@ pub fn parse_event_stream_error_metadata(
     ::aws_smithy_types::error::metadata::Builder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    crate::json_errors::parse_error_metadata(
-        payload,
-        &::aws_smithy_runtime_api::http::Headers::new(),
-    )
+    crate::json_errors::parse_error_metadata(payload, &::aws_smithy_runtime_api::http::Headers::new())
 }
 
 #[cfg(feature = "op_describe_account_policies")]
 pub(crate) mod shape_account_policies;
 
-#[cfg(any(
-    feature = "op_describe_account_policies",
-    feature = "op_put_account_policy"
-))]
+#[cfg(any(feature = "op_describe_account_policies", feature = "op_put_account_policy"))]
 pub(crate) mod shape_account_policy;
 
 #[cfg(feature = "op_list_aggregate_log_group_summaries")]
@@ -1730,10 +1720,7 @@ pub(crate) mod shape_configuration_templates;
 ))]
 pub(crate) mod shape_data_source;
 
-#[cfg(any(
-    feature = "op_list_aggregate_log_group_summaries",
-    feature = "op_list_log_groups"
-))]
+#[cfg(any(feature = "op_list_aggregate_log_group_summaries", feature = "op_list_log_groups"))]
 pub(crate) mod shape_data_source_filter;
 
 #[cfg(feature = "op_describe_deliveries")]
@@ -1802,28 +1789,19 @@ pub(crate) mod shape_filtered_log_events;
 #[cfg(feature = "op_describe_import_task_batches")]
 pub(crate) mod shape_import_batch_list;
 
-#[cfg(any(
-    feature = "op_create_import_task",
-    feature = "op_describe_import_tasks"
-))]
+#[cfg(any(feature = "op_create_import_task", feature = "op_describe_import_tasks"))]
 pub(crate) mod shape_import_filter;
 
 #[cfg(feature = "op_describe_import_tasks")]
 pub(crate) mod shape_import_list;
 
-#[cfg(any(
-    feature = "op_cancel_import_task",
-    feature = "op_describe_import_tasks"
-))]
+#[cfg(any(feature = "op_cancel_import_task", feature = "op_describe_import_tasks"))]
 pub(crate) mod shape_import_statistics;
 
 #[cfg(feature = "op_describe_index_policies")]
 pub(crate) mod shape_index_policies;
 
-#[cfg(any(
-    feature = "op_describe_index_policies",
-    feature = "op_put_index_policy"
-))]
+#[cfg(any(feature = "op_describe_index_policies", feature = "op_put_index_policy"))]
 pub(crate) mod shape_index_policy;
 
 #[cfg(feature = "op_put_log_events")]
@@ -1872,10 +1850,7 @@ pub(crate) mod shape_metric_filter_matches;
 #[cfg(feature = "op_describe_metric_filters")]
 pub(crate) mod shape_metric_filters;
 
-#[cfg(any(
-    feature = "op_describe_metric_filters",
-    feature = "op_put_metric_filter"
-))]
+#[cfg(any(feature = "op_describe_metric_filters", feature = "op_put_metric_filter"))]
 pub(crate) mod shape_metric_transformation;
 
 #[cfg(feature = "op_get_log_events")]
@@ -1906,10 +1881,7 @@ pub(crate) mod shape_query_definition_list;
 #[cfg(feature = "op_describe_queries")]
 pub(crate) mod shape_query_info_list;
 
-#[cfg(any(
-    feature = "op_describe_query_definitions",
-    feature = "op_put_query_definition"
-))]
+#[cfg(any(feature = "op_describe_query_definitions", feature = "op_put_query_definition"))]
 pub(crate) mod shape_query_parameter;
 
 #[cfg(feature = "op_get_query_results")]
@@ -1930,10 +1902,7 @@ pub(crate) mod shape_resource_config;
 #[cfg(feature = "op_describe_resource_policies")]
 pub(crate) mod shape_resource_policies;
 
-#[cfg(any(
-    feature = "op_describe_resource_policies",
-    feature = "op_put_resource_policy"
-))]
+#[cfg(any(feature = "op_describe_resource_policies", feature = "op_put_resource_policy"))]
 pub(crate) mod shape_resource_policy;
 
 #[cfg(any(
@@ -1948,10 +1917,7 @@ pub(crate) mod shape_s3_delivery_configuration;
 #[cfg(feature = "op_list_sources_for_s3_table_integration")]
 pub(crate) mod shape_s3_table_integration_sources;
 
-#[cfg(any(
-    feature = "op_get_scheduled_query",
-    feature = "op_update_scheduled_query"
-))]
+#[cfg(any(feature = "op_get_scheduled_query", feature = "op_update_scheduled_query"))]
 pub(crate) mod shape_scheduled_query_log_group_identifiers;
 
 #[cfg(feature = "op_list_scheduled_queries")]
@@ -2327,10 +2293,7 @@ pub(crate) mod shape_copy_value_entry;
 #[cfg(feature = "op_describe_configuration_templates")]
 pub(crate) mod shape_delivery_source_configuration_schemas;
 
-#[cfg(any(
-    feature = "op_describe_metric_filters",
-    feature = "op_describe_subscription_filters"
-))]
+#[cfg(any(feature = "op_describe_metric_filters", feature = "op_describe_subscription_filters"))]
 pub(crate) mod shape_emit_system_fields;
 
 #[cfg(feature = "op_describe_export_tasks")]
@@ -2570,10 +2533,7 @@ pub(crate) mod shape_upper_case_string_with_keys;
 #[cfg(feature = "op_describe_configuration_templates")]
 pub(crate) mod shape_delivery_source_configuration_supported_values;
 
-#[cfg(any(
-    feature = "op_describe_metric_filters",
-    feature = "op_put_metric_filter"
-))]
+#[cfg(any(feature = "op_describe_metric_filters", feature = "op_put_metric_filter"))]
 pub(crate) mod shape_dimensions;
 
 #[cfg(feature = "op_list_anomalies")]

@@ -21,8 +21,6 @@ impl super::Client {
     pub fn admin_initiate_auth(
         &self,
     ) -> crate::operation::admin_initiate_auth::builders::AdminInitiateAuthFluentBuilder {
-        crate::operation::admin_initiate_auth::builders::AdminInitiateAuthFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::admin_initiate_auth::builders::AdminInitiateAuthFluentBuilder::new(self.handle.clone())
     }
 }

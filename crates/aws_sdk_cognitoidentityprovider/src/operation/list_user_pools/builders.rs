@@ -66,9 +66,7 @@ impl ListUserPoolsFluentBuilder {
         }
     }
     /// Access the ListUserPools as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_user_pools::builders::ListUserPoolsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_user_pools::builders::ListUserPoolsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -92,12 +90,11 @@ impl ListUserPoolsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_user_pools::ListUserPools::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::list_user_pools::ListUserPools::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::list_user_pools::ListUserPools::orchestrate(&runtime_plugins, input).await
     }
 
@@ -129,13 +126,8 @@ impl ListUserPoolsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_user_pools::paginator::ListUserPoolsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_user_pools::paginator::ListUserPoolsPaginator {
-        crate::operation::list_user_pools::paginator::ListUserPoolsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_user_pools::paginator::ListUserPoolsPaginator {
+        crate::operation::list_user_pools::paginator::ListUserPoolsPaginator::new(self.handle, self.inner)
     }
     /// <p>This API operation returns a limited number of results. The pagination token is an identifier that you can present in an additional API request with the same parameters. When you include the pagination token, Amazon Cognito returns the next set of items after the current list. Subsequent requests return a new pagination token. By use of this token, you can paginate through the full list of items.</p>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

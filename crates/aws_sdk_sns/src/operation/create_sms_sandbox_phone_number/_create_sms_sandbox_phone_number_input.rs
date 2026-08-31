@@ -28,7 +28,8 @@ impl ::std::fmt::Debug for CreateSmsSandboxPhoneNumberInput {
 }
 impl CreateSmsSandboxPhoneNumberInput {
     /// Creates a new builder-style object to manufacture [`CreateSmsSandboxPhoneNumberInput`](crate::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberInput).
-    pub fn builder() -> crate::operation::create_sms_sandbox_phone_number::builders::CreateSmsSandboxPhoneNumberInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::create_sms_sandbox_phone_number::builders::CreateSmsSandboxPhoneNumberInputBuilder {
         crate::operation::create_sms_sandbox_phone_number::builders::CreateSmsSandboxPhoneNumberInputBuilder::default()
     }
 }
@@ -62,10 +63,7 @@ impl CreateSmsSandboxPhoneNumberInputBuilder {
         self
     }
     /// <p>The language to use for sending the OTP. The default value is <code>en-US</code>.</p>
-    pub fn set_language_code(
-        mut self,
-        input: ::std::option::Option<crate::types::LanguageCodeString>,
-    ) -> Self {
+    pub fn set_language_code(mut self, input: ::std::option::Option<crate::types::LanguageCodeString>) -> Self {
         self.language_code = input;
         self
     }

@@ -24,7 +24,10 @@ pub fn ser_put_conformance_pack_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_9 = array_7.value().start_object();
-                crate::protocol_serde::shape_conformance_pack_input_parameter::ser_conformance_pack_input_parameter(&mut object_9, item_8)?;
+                crate::protocol_serde::shape_conformance_pack_input_parameter::ser_conformance_pack_input_parameter(
+                    &mut object_9,
+                    item_8,
+                )?;
                 object_9.finish();
             }
         }
@@ -33,7 +36,10 @@ pub fn ser_put_conformance_pack_input_input(
     if let Some(var_10) = &input.template_ssm_document_details {
         #[allow(unused_mut)]
         let mut object_11 = object.key("TemplateSSMDocumentDetails").start_object();
-        crate::protocol_serde::shape_template_ssm_document_details::ser_template_ssm_document_details(&mut object_11, var_10)?;
+        crate::protocol_serde::shape_template_ssm_document_details::ser_template_ssm_document_details(
+            &mut object_11,
+            var_10,
+        )?;
         object_11.finish();
     }
     if let Some(var_12) = &input.tags {

@@ -12,8 +12,6 @@ impl super::Client {
     pub fn get_role_credentials(
         &self,
     ) -> crate::operation::get_role_credentials::builders::GetRoleCredentialsFluentBuilder {
-        crate::operation::get_role_credentials::builders::GetRoleCredentialsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_role_credentials::builders::GetRoleCredentialsFluentBuilder::new(self.handle.clone())
     }
 }

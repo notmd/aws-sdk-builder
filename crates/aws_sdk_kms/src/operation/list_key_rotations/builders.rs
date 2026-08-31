@@ -77,9 +77,7 @@ impl ListKeyRotationsFluentBuilder {
         }
     }
     /// Access the ListKeyRotations as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_key_rotations::builders::ListKeyRotationsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_key_rotations::builders::ListKeyRotationsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -103,14 +101,12 @@ impl ListKeyRotationsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_key_rotations::ListKeyRotations::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::list_key_rotations::ListKeyRotations::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::list_key_rotations::ListKeyRotations::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::list_key_rotations::ListKeyRotations::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -141,13 +137,8 @@ impl ListKeyRotationsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_key_rotations::paginator::ListKeyRotationsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_key_rotations::paginator::ListKeyRotationsPaginator {
-        crate::operation::list_key_rotations::paginator::ListKeyRotationsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_key_rotations::paginator::ListKeyRotationsPaginator {
+        crate::operation::list_key_rotations::paginator::ListKeyRotationsPaginator::new(self.handle, self.inner)
     }
     /// <p>Gets the key rotations for the specified KMS key.</p>
     /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -196,17 +187,12 @@ impl ListKeyRotationsFluentBuilder {
         self
     }
     /// <p>Use this optional parameter to control which key materials associated with this key are listed in the response. The default value of this parameter is <code>ROTATIONS_ONLY</code>. If you omit this parameter, KMS returns information on the key materials created by automatic or on-demand key rotation. When you specify a value of <code>ALL_KEY_MATERIAL</code>, KMS adds the first key material and any imported key material pending rotation to the response. This parameter can only be used with KMS keys that support automatic or on-demand key rotation.</p>
-    pub fn set_include_key_material(
-        mut self,
-        input: ::std::option::Option<crate::types::IncludeKeyMaterial>,
-    ) -> Self {
+    pub fn set_include_key_material(mut self, input: ::std::option::Option<crate::types::IncludeKeyMaterial>) -> Self {
         self.inner = self.inner.set_include_key_material(input);
         self
     }
     /// <p>Use this optional parameter to control which key materials associated with this key are listed in the response. The default value of this parameter is <code>ROTATIONS_ONLY</code>. If you omit this parameter, KMS returns information on the key materials created by automatic or on-demand key rotation. When you specify a value of <code>ALL_KEY_MATERIAL</code>, KMS adds the first key material and any imported key material pending rotation to the response. This parameter can only be used with KMS keys that support automatic or on-demand key rotation.</p>
-    pub fn get_include_key_material(
-        &self,
-    ) -> &::std::option::Option<crate::types::IncludeKeyMaterial> {
+    pub fn get_include_key_material(&self) -> &::std::option::Option<crate::types::IncludeKeyMaterial> {
         self.inner.get_include_key_material()
     }
     /// <p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p>

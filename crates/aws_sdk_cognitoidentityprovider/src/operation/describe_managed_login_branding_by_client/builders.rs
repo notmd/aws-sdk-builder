@@ -78,7 +78,7 @@ impl DescribeManagedLoginBrandingByClientFluentBuilder {
             crate::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -89,7 +89,11 @@ impl DescribeManagedLoginBrandingByClientFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        crate::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClient::orchestrate(&runtime_plugins, input).await
+        crate::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClient::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,7 +103,7 @@ impl DescribeManagedLoginBrandingByClientFluentBuilder {
         crate::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientOutput,
         crate::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(

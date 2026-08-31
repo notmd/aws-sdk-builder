@@ -59,8 +59,7 @@ impl DescribeJobDefinitionsFluentBuilder {
     /// Access the DescribeJobDefinitions as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::describe_job_definitions::builders::DescribeJobDefinitionsInputBuilder
-    {
+    ) -> &crate::operation::describe_job_definitions::builders::DescribeJobDefinitionsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +83,13 @@ impl DescribeJobDefinitionsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::describe_job_definitions::DescribeJobDefinitions::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::describe_job_definitions::DescribeJobDefinitions::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::describe_job_definitions::DescribeJobDefinitions::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::describe_job_definitions::DescribeJobDefinitions::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -126,8 +122,7 @@ impl DescribeJobDefinitionsFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::describe_job_definitions::paginator::DescribeJobDefinitionsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::describe_job_definitions::paginator::DescribeJobDefinitionsPaginator
-    {
+    ) -> crate::operation::describe_job_definitions::paginator::DescribeJobDefinitionsPaginator {
         crate::operation::describe_job_definitions::paginator::DescribeJobDefinitionsPaginator::new(
             self.handle,
             self.inner,
@@ -139,25 +134,17 @@ impl DescribeJobDefinitionsFluentBuilder {
     /// To override the contents of this collection use [`set_job_definitions`](Self::set_job_definitions).
     ///
     /// <p>A list of up to 100 job definitions. Each entry in the list can either be an ARN in the format <code>arn:aws:batch:${Region}:${Account}:job-definition/${JobDefinitionName}:${Revision}</code> or a short version using the form <code>${JobDefinitionName}:${Revision}</code>. This parameter can't be used with other parameters.</p>
-    pub fn job_definitions(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn job_definitions(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.job_definitions(input.into());
         self
     }
     /// <p>A list of up to 100 job definitions. Each entry in the list can either be an ARN in the format <code>arn:aws:batch:${Region}:${Account}:job-definition/${JobDefinitionName}:${Revision}</code> or a short version using the form <code>${JobDefinitionName}:${Revision}</code>. This parameter can't be used with other parameters.</p>
-    pub fn set_job_definitions(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_job_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_job_definitions(input);
         self
     }
     /// <p>A list of up to 100 job definitions. Each entry in the list can either be an ARN in the format <code>arn:aws:batch:${Region}:${Account}:job-definition/${JobDefinitionName}:${Revision}</code> or a short version using the form <code>${JobDefinitionName}:${Revision}</code>. This parameter can't be used with other parameters.</p>
-    pub fn get_job_definitions(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_job_definitions(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_job_definitions()
     }
     /// <p>The maximum number of results returned by <code>DescribeJobDefinitions</code> in paginated output. When this parameter is used, <code>DescribeJobDefinitions</code> only returns <code>maxResults</code> results in a single page and a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribeJobDefinitions</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>DescribeJobDefinitions</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>
@@ -175,18 +162,12 @@ impl DescribeJobDefinitionsFluentBuilder {
         self.inner.get_max_results()
     }
     /// <p>The name of the job definition to describe.</p>
-    pub fn job_definition_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn job_definition_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.job_definition_name(input.into());
         self
     }
     /// <p>The name of the job definition to describe.</p>
-    pub fn set_job_definition_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_job_definition_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_job_definition_name(input);
         self
     }

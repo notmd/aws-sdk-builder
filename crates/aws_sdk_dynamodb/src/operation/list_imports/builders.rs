@@ -81,12 +81,11 @@ impl ListImportsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_imports::ListImports::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::list_imports::ListImports::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::list_imports::ListImports::orchestrate(&runtime_plugins, input).await
     }
 
@@ -119,10 +118,7 @@ impl ListImportsFluentBuilder {
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_imports::paginator::ListImportsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(self) -> crate::operation::list_imports::paginator::ListImportsPaginator {
-        crate::operation::list_imports::paginator::ListImportsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+        crate::operation::list_imports::paginator::ListImportsPaginator::new(self.handle, self.inner)
     }
     /// <p>The Amazon Resource Name (ARN) associated with the table that was imported to.</p>
     pub fn table_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

@@ -40,78 +40,56 @@ pub fn ser_content_block(
         crate::types::ContentBlock::ToolResult(inner) => {
             #[allow(unused_mut)]
             let mut object_6 = object_3.key("toolResult").start_object();
-            crate::protocol_serde::shape_tool_result_block::ser_tool_result_block(
-                &mut object_6,
-                inner,
-            )?;
+            crate::protocol_serde::shape_tool_result_block::ser_tool_result_block(&mut object_6, inner)?;
             object_6.finish();
         }
         crate::types::ContentBlock::GuardContent(inner) => {
             #[allow(unused_mut)]
             let mut object_7 = object_3.key("guardContent").start_object();
-            crate::protocol_serde::shape_guardrail_converse_content_block::ser_guardrail_converse_content_block(&mut object_7, inner)?;
+            crate::protocol_serde::shape_guardrail_converse_content_block::ser_guardrail_converse_content_block(
+                &mut object_7,
+                inner,
+            )?;
             object_7.finish();
         }
         crate::types::ContentBlock::CachePoint(inner) => {
             #[allow(unused_mut)]
             let mut object_8 = object_3.key("cachePoint").start_object();
-            crate::protocol_serde::shape_cache_point_block::ser_cache_point_block(
-                &mut object_8,
-                inner,
-            )?;
+            crate::protocol_serde::shape_cache_point_block::ser_cache_point_block(&mut object_8, inner)?;
             object_8.finish();
         }
         crate::types::ContentBlock::ReasoningContent(inner) => {
             #[allow(unused_mut)]
             let mut object_9 = object_3.key("reasoningContent").start_object();
-            crate::protocol_serde::shape_reasoning_content_block::ser_reasoning_content_block(
-                &mut object_9,
-                inner,
-            )?;
+            crate::protocol_serde::shape_reasoning_content_block::ser_reasoning_content_block(&mut object_9, inner)?;
             object_9.finish();
         }
         crate::types::ContentBlock::CitationsContent(inner) => {
             #[allow(unused_mut)]
             let mut object_10 = object_3.key("citationsContent").start_object();
-            crate::protocol_serde::shape_citations_content_block::ser_citations_content_block(
-                &mut object_10,
-                inner,
-            )?;
+            crate::protocol_serde::shape_citations_content_block::ser_citations_content_block(&mut object_10, inner)?;
             object_10.finish();
         }
         crate::types::ContentBlock::SearchResult(inner) => {
             #[allow(unused_mut)]
             let mut object_11 = object_3.key("searchResult").start_object();
-            crate::protocol_serde::shape_search_result_block::ser_search_result_block(
-                &mut object_11,
-                inner,
-            )?;
+            crate::protocol_serde::shape_search_result_block::ser_search_result_block(&mut object_11, inner)?;
             object_11.finish();
         }
         crate::types::ContentBlock::ToolAddition(inner) => {
             #[allow(unused_mut)]
             let mut object_12 = object_3.key("toolAddition").start_object();
-            crate::protocol_serde::shape_tool_addition_block::ser_tool_addition_block(
-                &mut object_12,
-                inner,
-            )?;
+            crate::protocol_serde::shape_tool_addition_block::ser_tool_addition_block(&mut object_12, inner)?;
             object_12.finish();
         }
         crate::types::ContentBlock::ToolRemoval(inner) => {
             #[allow(unused_mut)]
             let mut object_13 = object_3.key("toolRemoval").start_object();
-            crate::protocol_serde::shape_tool_removal_block::ser_tool_removal_block(
-                &mut object_13,
-                inner,
-            )?;
+            crate::protocol_serde::shape_tool_removal_block::ser_tool_removal_block(&mut object_13, inner)?;
             object_13.finish();
         }
         crate::types::ContentBlock::Unknown => {
-            return Err(
-                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                    "ContentBlock",
-                ),
-            )
+            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("ContentBlock"))
         }
     }
     Ok(())
@@ -121,10 +99,7 @@ pub(crate) fn de_content_block<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<
-    Option<crate::types::ContentBlock>,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
->
+) -> ::std::result::Result<Option<crate::types::ContentBlock>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<
         Item = Result<
@@ -134,11 +109,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     let mut variant = None;
     match tokens.next().transpose()? {
@@ -160,11 +133,9 @@ where
                         continue;
                     }
                     if variant.is_some() {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                "encountered mixed variants in union",
-                            ),
-                        );
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            "encountered mixed variants in union",
+                        ));
                     }
                     variant = match key.as_ref() {
                         "text" => Some(crate::types::ContentBlock::Text(
@@ -247,28 +218,22 @@ where
                     };
                 }
                 other => {
-                    return Err(
-                        ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )),
-                    )
+                    return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                        format!("expected object key or end object, found: {other:?}"),
+                    ))
                 }
             }
         },
         _ => {
-            return Err(
-                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                    "expected start object or null",
-                ),
-            )
+            return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ))
         }
     }
     if variant.is_none() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "Union did not contain a valid variant.",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "Union did not contain a valid variant.",
+        ));
     }
     Ok(variant)
 }

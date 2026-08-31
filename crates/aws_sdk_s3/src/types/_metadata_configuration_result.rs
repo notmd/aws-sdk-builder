@@ -7,14 +7,11 @@ pub struct MetadataConfigurationResult {
     /// <p>The destination settings for a metadata configuration.</p>
     pub destination_result: ::std::option::Option<crate::types::DestinationResult>,
     /// <p>The journal table configuration for a metadata configuration.</p>
-    pub journal_table_configuration_result:
-        ::std::option::Option<crate::types::JournalTableConfigurationResult>,
+    pub journal_table_configuration_result: ::std::option::Option<crate::types::JournalTableConfigurationResult>,
     /// <p>The inventory table configuration for a metadata configuration.</p>
-    pub inventory_table_configuration_result:
-        ::std::option::Option<crate::types::InventoryTableConfigurationResult>,
+    pub inventory_table_configuration_result: ::std::option::Option<crate::types::InventoryTableConfigurationResult>,
     /// <p>The annotation table configuration result, if an annotation table is configured.</p>
-    pub annotation_table_configuration_result:
-        ::std::option::Option<crate::types::AnnotationTableConfigurationResult>,
+    pub annotation_table_configuration_result: ::std::option::Option<crate::types::AnnotationTableConfigurationResult>,
 }
 impl MetadataConfigurationResult {
     /// <p>The destination settings for a metadata configuration.</p>
@@ -48,14 +45,11 @@ impl MetadataConfigurationResult {
 }
 
 /// A builder for [`MetadataConfigurationResult`](crate::types::MetadataConfigurationResult).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct MetadataConfigurationResultBuilder {
     pub(crate) destination_result: ::std::option::Option<crate::types::DestinationResult>,
-    pub(crate) journal_table_configuration_result:
-        ::std::option::Option<crate::types::JournalTableConfigurationResult>,
+    pub(crate) journal_table_configuration_result: ::std::option::Option<crate::types::JournalTableConfigurationResult>,
     pub(crate) inventory_table_configuration_result:
         ::std::option::Option<crate::types::InventoryTableConfigurationResult>,
     pub(crate) annotation_table_configuration_result:
@@ -69,24 +63,16 @@ impl MetadataConfigurationResultBuilder {
         self
     }
     /// <p>The destination settings for a metadata configuration.</p>
-    pub fn set_destination_result(
-        mut self,
-        input: ::std::option::Option<crate::types::DestinationResult>,
-    ) -> Self {
+    pub fn set_destination_result(mut self, input: ::std::option::Option<crate::types::DestinationResult>) -> Self {
         self.destination_result = input;
         self
     }
     /// <p>The destination settings for a metadata configuration.</p>
-    pub fn get_destination_result(
-        &self,
-    ) -> &::std::option::Option<crate::types::DestinationResult> {
+    pub fn get_destination_result(&self) -> &::std::option::Option<crate::types::DestinationResult> {
         &self.destination_result
     }
     /// <p>The journal table configuration for a metadata configuration.</p>
-    pub fn journal_table_configuration_result(
-        mut self,
-        input: crate::types::JournalTableConfigurationResult,
-    ) -> Self {
+    pub fn journal_table_configuration_result(mut self, input: crate::types::JournalTableConfigurationResult) -> Self {
         self.journal_table_configuration_result = ::std::option::Option::Some(input);
         self
     }

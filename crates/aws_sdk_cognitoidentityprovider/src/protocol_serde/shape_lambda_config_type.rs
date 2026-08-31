@@ -25,9 +25,7 @@ pub fn ser_lambda_config_type(
         object.key("CreateAuthChallenge").string(var_7.as_str());
     }
     if let Some(var_8) = &input.verify_auth_challenge_response {
-        object
-            .key("VerifyAuthChallengeResponse")
-            .string(var_8.as_str());
+        object.key("VerifyAuthChallengeResponse").string(var_8.as_str());
     }
     if let Some(var_9) = &input.pre_token_generation {
         object.key("PreTokenGeneration").string(var_9.as_str());
@@ -44,7 +42,10 @@ pub fn ser_lambda_config_type(
     if let Some(var_13) = &input.custom_sms_sender {
         #[allow(unused_mut)]
         let mut object_14 = object.key("CustomSMSSender").start_object();
-        crate::protocol_serde::shape_custom_sms_lambda_version_config_type::ser_custom_sms_lambda_version_config_type(&mut object_14, var_13)?;
+        crate::protocol_serde::shape_custom_sms_lambda_version_config_type::ser_custom_sms_lambda_version_config_type(
+            &mut object_14,
+            var_13,
+        )?;
         object_14.finish();
     }
     if let Some(var_15) = &input.custom_email_sender {
@@ -59,7 +60,10 @@ pub fn ser_lambda_config_type(
     if let Some(var_18) = &input.inbound_federation {
         #[allow(unused_mut)]
         let mut object_19 = object.key("InboundFederation").start_object();
-        crate::protocol_serde::shape_inbound_federation_lambda_type::ser_inbound_federation_lambda_type(&mut object_19, var_18)?;
+        crate::protocol_serde::shape_inbound_federation_lambda_type::ser_inbound_federation_lambda_type(
+            &mut object_19,
+            var_18,
+        )?;
         object_19.finish();
     }
     Ok(())
@@ -82,11 +86,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -100,92 +102,72 @@ where
                         match key.to_unescaped()?.as_ref() {
                             "PreSignUp" => {
                                 builder = builder.set_pre_sign_up(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "CustomMessage" => {
                                 builder = builder.set_custom_message(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "PostConfirmation" => {
                                 builder = builder.set_post_confirmation(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "PreAuthentication" => {
                                 builder = builder.set_pre_authentication(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "PostAuthentication" => {
                                 builder = builder.set_post_authentication(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "DefineAuthChallenge" => {
                                 builder = builder.set_define_auth_challenge(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "CreateAuthChallenge" => {
                                 builder = builder.set_create_auth_challenge(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "VerifyAuthChallengeResponse" => {
                                 builder = builder.set_verify_auth_challenge_response(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "PreTokenGeneration" => {
                                 builder = builder.set_pre_token_generation(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "UserMigration" => {
                                 builder = builder.set_user_migration(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "PreTokenGenerationConfig" => {
@@ -213,11 +195,9 @@ where
                             }
                             "KMSKeyID" => {
                                 builder = builder.set_kms_key_id(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "InboundFederation" => {
@@ -233,20 +213,16 @@ where
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
             Ok(Some(builder.build()))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

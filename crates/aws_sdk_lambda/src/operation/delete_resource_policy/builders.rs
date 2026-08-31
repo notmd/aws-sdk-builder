@@ -57,9 +57,7 @@ impl DeleteResourcePolicyFluentBuilder {
         }
     }
     /// Access the DeleteResourcePolicy as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::delete_resource_policy::builders::DeleteResourcePolicyInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::delete_resource_policy::builders::DeleteResourcePolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,11 +86,7 @@ impl DeleteResourcePolicyFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_resource_policy::DeleteResourcePolicy::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::delete_resource_policy::DeleteResourcePolicy::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

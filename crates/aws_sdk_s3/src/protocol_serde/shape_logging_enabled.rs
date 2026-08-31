@@ -82,10 +82,7 @@ pub fn ser_logging_enabled(
         for list_item_6 in var_5 {
             {
                 let inner_writer = inner_writer.start_el("Grant");
-                crate::protocol_serde::shape_target_grant::ser_target_grant(
-                    list_item_6,
-                    inner_writer,
-                )?
+                crate::protocol_serde::shape_target_grant::ser_target_grant(list_item_6, inner_writer)?
             }
         }
     }
@@ -95,10 +92,7 @@ pub fn ser_logging_enabled(
     }
     if let Some(var_7) = &input.target_object_key_format {
         let inner_writer = scope.start_el("TargetObjectKeyFormat");
-        crate::protocol_serde::shape_target_object_key_format::ser_target_object_key_format(
-            var_7,
-            inner_writer,
-        )?
+        crate::protocol_serde::shape_target_object_key_format::ser_target_object_key_format(var_7, inner_writer)?
     }
     scope.finish();
     Ok(())

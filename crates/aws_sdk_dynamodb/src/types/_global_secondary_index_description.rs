@@ -38,8 +38,7 @@ pub struct GlobalSecondaryIndexDescription {
     pub backfilling: ::std::option::Option<bool>,
     /// <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub provisioned_throughput:
-        ::std::option::Option<crate::types::ProvisionedThroughputDescription>,
+    pub provisioned_throughput: ::std::option::Option<crate::types::ProvisionedThroughputDescription>,
     /// <p>The total size of the specified index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
     pub index_size_bytes: ::std::option::Option<i64>,
     /// <p>The number of items in the specified index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
@@ -49,8 +48,7 @@ pub struct GlobalSecondaryIndexDescription {
     /// <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
     pub on_demand_throughput: ::std::option::Option<crate::types::OnDemandThroughput>,
     /// <p>Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index.</p>
-    pub warm_throughput:
-        ::std::option::Option<crate::types::GlobalSecondaryIndexWarmThroughputDescription>,
+    pub warm_throughput: ::std::option::Option<crate::types::GlobalSecondaryIndexWarmThroughputDescription>,
 }
 impl GlobalSecondaryIndexDescription {
     /// <p>The name of the global secondary index.</p>
@@ -99,9 +97,7 @@ impl GlobalSecondaryIndexDescription {
     }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn provisioned_throughput(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ProvisionedThroughputDescription> {
+    pub fn provisioned_throughput(&self) -> ::std::option::Option<&crate::types::ProvisionedThroughputDescription> {
         self.provisioned_throughput.as_ref()
     }
     /// <p>The total size of the specified index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
@@ -135,9 +131,7 @@ impl GlobalSecondaryIndexDescription {
 }
 
 /// A builder for [`GlobalSecondaryIndexDescription`](crate::types::GlobalSecondaryIndexDescription).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GlobalSecondaryIndexDescriptionBuilder {
     pub(crate) index_name: ::std::option::Option<::std::string::String>,
@@ -145,14 +139,12 @@ pub struct GlobalSecondaryIndexDescriptionBuilder {
     pub(crate) projection: ::std::option::Option<crate::types::Projection>,
     pub(crate) index_status: ::std::option::Option<crate::types::IndexStatus>,
     pub(crate) backfilling: ::std::option::Option<bool>,
-    pub(crate) provisioned_throughput:
-        ::std::option::Option<crate::types::ProvisionedThroughputDescription>,
+    pub(crate) provisioned_throughput: ::std::option::Option<crate::types::ProvisionedThroughputDescription>,
     pub(crate) index_size_bytes: ::std::option::Option<i64>,
     pub(crate) item_count: ::std::option::Option<i64>,
     pub(crate) index_arn: ::std::option::Option<::std::string::String>,
     pub(crate) on_demand_throughput: ::std::option::Option<crate::types::OnDemandThroughput>,
-    pub(crate) warm_throughput:
-        ::std::option::Option<crate::types::GlobalSecondaryIndexWarmThroughputDescription>,
+    pub(crate) warm_throughput: ::std::option::Option<crate::types::GlobalSecondaryIndexWarmThroughputDescription>,
 }
 impl GlobalSecondaryIndexDescriptionBuilder {
     /// <p>The name of the global secondary index.</p>
@@ -216,9 +208,7 @@ impl GlobalSecondaryIndexDescriptionBuilder {
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>
-    pub fn get_key_schema(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> {
+    pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> {
         &self.key_schema
     }
     /// <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
@@ -227,10 +217,7 @@ impl GlobalSecondaryIndexDescriptionBuilder {
         self
     }
     /// <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
-    pub fn set_projection(
-        mut self,
-        input: ::std::option::Option<crate::types::Projection>,
-    ) -> Self {
+    pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
         self.projection = input;
         self
     }
@@ -264,10 +251,7 @@ impl GlobalSecondaryIndexDescriptionBuilder {
     /// <li>
     /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
     /// </ul>
-    pub fn set_index_status(
-        mut self,
-        input: ::std::option::Option<crate::types::IndexStatus>,
-    ) -> Self {
+    pub fn set_index_status(mut self, input: ::std::option::Option<crate::types::IndexStatus>) -> Self {
         self.index_status = input;
         self
     }
@@ -310,10 +294,7 @@ impl GlobalSecondaryIndexDescriptionBuilder {
     }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn provisioned_throughput(
-        mut self,
-        input: crate::types::ProvisionedThroughputDescription,
-    ) -> Self {
+    pub fn provisioned_throughput(mut self, input: crate::types::ProvisionedThroughputDescription) -> Self {
         self.provisioned_throughput = ::std::option::Option::Some(input);
         self
     }
@@ -328,9 +309,7 @@ impl GlobalSecondaryIndexDescriptionBuilder {
     }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_provisioned_throughput(
-        &self,
-    ) -> &::std::option::Option<crate::types::ProvisionedThroughputDescription> {
+    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughputDescription> {
         &self.provisioned_throughput
     }
     /// <p>The total size of the specified index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
@@ -381,24 +360,16 @@ impl GlobalSecondaryIndexDescriptionBuilder {
         self
     }
     /// <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn set_on_demand_throughput(
-        mut self,
-        input: ::std::option::Option<crate::types::OnDemandThroughput>,
-    ) -> Self {
+    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
         self.on_demand_throughput = input;
         self
     }
     /// <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn get_on_demand_throughput(
-        &self,
-    ) -> &::std::option::Option<crate::types::OnDemandThroughput> {
+    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> {
         &self.on_demand_throughput
     }
     /// <p>Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index.</p>
-    pub fn warm_throughput(
-        mut self,
-        input: crate::types::GlobalSecondaryIndexWarmThroughputDescription,
-    ) -> Self {
+    pub fn warm_throughput(mut self, input: crate::types::GlobalSecondaryIndexWarmThroughputDescription) -> Self {
         self.warm_throughput = ::std::option::Option::Some(input);
         self
     }

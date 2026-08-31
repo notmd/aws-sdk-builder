@@ -164,11 +164,7 @@ pub use crate::types::_backup_description::BackupDescription;
 ))]
 pub use crate::types::_conditional_operator::ConditionalOperator;
 
-#[cfg(any(
-    feature = "op_delete_item",
-    feature = "op_put_item",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_delete_item", feature = "op_put_item", feature = "op_update_item"))]
 pub use crate::types::_return_value::ReturnValue;
 
 #[cfg(any(
@@ -208,10 +204,7 @@ pub use crate::types::_consumed_capacity::ConsumedCapacity;
 ))]
 pub use crate::types::_item_collection_metrics::ItemCollectionMetrics;
 
-#[cfg(any(
-    feature = "op_describe_continuous_backups",
-    feature = "op_update_continuous_backups"
-))]
+#[cfg(any(feature = "op_describe_continuous_backups", feature = "op_update_continuous_backups"))]
 pub use crate::types::_continuous_backups_description::ContinuousBackupsDescription;
 
 #[cfg(any(
@@ -231,10 +224,7 @@ pub use crate::types::_failure_exception::FailureException;
 ))]
 pub use crate::types::_contributor_insights_mode::ContributorInsightsMode;
 
-#[cfg(any(
-    feature = "op_describe_export",
-    feature = "op_export_table_to_point_in_time"
-))]
+#[cfg(any(feature = "op_describe_export", feature = "op_export_table_to_point_in_time"))]
 pub use crate::types::_export_description::ExportDescription;
 
 #[cfg(any(feature = "op_describe_import", feature = "op_import_table"))]
@@ -267,16 +257,10 @@ pub use crate::types::_enable_kinesis_streaming_configuration::EnableKinesisStre
 ))]
 pub use crate::types::_destination_status::DestinationStatus;
 
-#[cfg(any(
-    feature = "op_describe_export",
-    feature = "op_export_table_to_point_in_time"
-))]
+#[cfg(any(feature = "op_describe_export", feature = "op_export_table_to_point_in_time"))]
 pub use crate::types::_s3_sse_algorithm::S3SseAlgorithm;
 
-#[cfg(any(
-    feature = "op_describe_export",
-    feature = "op_export_table_to_point_in_time"
-))]
+#[cfg(any(feature = "op_describe_export", feature = "op_export_table_to_point_in_time"))]
 pub use crate::types::_export_format::ExportFormat;
 
 #[cfg(any(
@@ -286,10 +270,7 @@ pub use crate::types::_export_format::ExportFormat;
 ))]
 pub use crate::types::_export_type::ExportType;
 
-#[cfg(any(
-    feature = "op_describe_export",
-    feature = "op_export_table_to_point_in_time"
-))]
+#[cfg(any(feature = "op_describe_export", feature = "op_export_table_to_point_in_time"))]
 pub use crate::types::_incremental_export_specification::IncrementalExportSpecification;
 
 #[cfg(any(
@@ -625,11 +606,7 @@ pub use crate::types::_source_table_feature_details::SourceTableFeatureDetails;
 ))]
 pub use crate::types::_attribute_value::AttributeValue;
 
-#[cfg(any(
-    feature = "op_delete_item",
-    feature = "op_put_item",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_delete_item", feature = "op_put_item", feature = "op_update_item"))]
 pub use crate::types::_expected_attribute_value::ExpectedAttributeValue;
 
 #[cfg(any(
@@ -649,16 +626,10 @@ pub use crate::types::_expected_attribute_value::ExpectedAttributeValue;
 ))]
 pub use crate::types::_capacity::Capacity;
 
-#[cfg(any(
-    feature = "op_describe_continuous_backups",
-    feature = "op_update_continuous_backups"
-))]
+#[cfg(any(feature = "op_describe_continuous_backups", feature = "op_update_continuous_backups"))]
 pub use crate::types::_continuous_backups_status::ContinuousBackupsStatus;
 
-#[cfg(any(
-    feature = "op_describe_continuous_backups",
-    feature = "op_update_continuous_backups"
-))]
+#[cfg(any(feature = "op_describe_continuous_backups", feature = "op_update_continuous_backups"))]
 pub use crate::types::_point_in_time_recovery_description::PointInTimeRecoveryDescription;
 
 #[cfg(feature = "op_describe_endpoints")]
@@ -715,10 +686,7 @@ pub use crate::types::_item_response::ItemResponse;
 ))]
 pub use crate::types::_cancellation_reason::CancellationReason;
 
-#[cfg(any(
-    feature = "op_describe_export",
-    feature = "op_export_table_to_point_in_time"
-))]
+#[cfg(any(feature = "op_describe_export", feature = "op_export_table_to_point_in_time"))]
 pub use crate::types::_export_view_type::ExportViewType;
 
 #[cfg(any(feature = "op_describe_import", feature = "op_import_table"))]
@@ -935,10 +903,7 @@ pub use crate::types::_vector_index_description::VectorIndexDescription;
 ))]
 pub use crate::types::_comparison_operator::ComparisonOperator;
 
-#[cfg(any(
-    feature = "op_describe_continuous_backups",
-    feature = "op_update_continuous_backups"
-))]
+#[cfg(any(feature = "op_describe_continuous_backups", feature = "op_update_continuous_backups"))]
 pub use crate::types::_point_in_time_recovery_status::PointInTimeRecoveryStatus;
 
 #[cfg(any(
@@ -1441,16 +1406,10 @@ mod _conditional_operator;
 ))]
 mod _consumed_capacity;
 
-#[cfg(any(
-    feature = "op_describe_continuous_backups",
-    feature = "op_update_continuous_backups"
-))]
+#[cfg(any(feature = "op_describe_continuous_backups", feature = "op_update_continuous_backups"))]
 mod _continuous_backups_description;
 
-#[cfg(any(
-    feature = "op_describe_continuous_backups",
-    feature = "op_update_continuous_backups"
-))]
+#[cfg(any(feature = "op_describe_continuous_backups", feature = "op_update_continuous_backups"))]
 mod _continuous_backups_status;
 
 #[cfg(feature = "op_update_contributor_insights")]
@@ -1529,23 +1488,13 @@ mod _enable_kinesis_streaming_configuration;
 #[cfg(feature = "op_describe_endpoints")]
 mod _endpoint;
 
-#[cfg(any(
-    feature = "op_delete_item",
-    feature = "op_put_item",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_delete_item", feature = "op_put_item", feature = "op_update_item"))]
 mod _expected_attribute_value;
 
-#[cfg(any(
-    feature = "op_describe_export",
-    feature = "op_export_table_to_point_in_time"
-))]
+#[cfg(any(feature = "op_describe_export", feature = "op_export_table_to_point_in_time"))]
 mod _export_description;
 
-#[cfg(any(
-    feature = "op_describe_export",
-    feature = "op_export_table_to_point_in_time"
-))]
+#[cfg(any(feature = "op_describe_export", feature = "op_export_table_to_point_in_time"))]
 mod _export_format;
 
 #[cfg(any(
@@ -1565,10 +1514,7 @@ mod _export_summary;
 ))]
 mod _export_type;
 
-#[cfg(any(
-    feature = "op_describe_export",
-    feature = "op_export_table_to_point_in_time"
-))]
+#[cfg(any(feature = "op_describe_export", feature = "op_export_table_to_point_in_time"))]
 mod _export_view_type;
 
 #[cfg(feature = "op_describe_contributor_insights")]
@@ -1677,10 +1623,7 @@ mod _import_summary;
 #[cfg(any(feature = "op_describe_import", feature = "op_import_table"))]
 mod _import_table_description;
 
-#[cfg(any(
-    feature = "op_describe_export",
-    feature = "op_export_table_to_point_in_time"
-))]
+#[cfg(any(feature = "op_describe_export", feature = "op_export_table_to_point_in_time"))]
 mod _incremental_export_specification;
 
 #[cfg(any(
@@ -1819,19 +1762,13 @@ mod _on_demand_throughput_override;
 #[cfg(feature = "op_execute_transaction")]
 mod _parameterized_statement;
 
-#[cfg(any(
-    feature = "op_describe_continuous_backups",
-    feature = "op_update_continuous_backups"
-))]
+#[cfg(any(feature = "op_describe_continuous_backups", feature = "op_update_continuous_backups"))]
 mod _point_in_time_recovery_description;
 
 #[cfg(feature = "op_update_continuous_backups")]
 mod _point_in_time_recovery_specification;
 
-#[cfg(any(
-    feature = "op_describe_continuous_backups",
-    feature = "op_update_continuous_backups"
-))]
+#[cfg(any(feature = "op_describe_continuous_backups", feature = "op_update_continuous_backups"))]
 mod _point_in_time_recovery_status;
 
 #[cfg(any(
@@ -2031,11 +1968,7 @@ mod _return_consumed_capacity;
 ))]
 mod _return_item_collection_metrics;
 
-#[cfg(any(
-    feature = "op_delete_item",
-    feature = "op_put_item",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_delete_item", feature = "op_put_item", feature = "op_update_item"))]
 mod _return_value;
 
 #[cfg(any(
@@ -2056,10 +1989,7 @@ mod _return_values_on_condition_check_failure;
 ))]
 mod _s3_bucket_source;
 
-#[cfg(any(
-    feature = "op_describe_export",
-    feature = "op_export_table_to_point_in_time"
-))]
+#[cfg(any(feature = "op_describe_export", feature = "op_export_table_to_point_in_time"))]
 mod _s3_sse_algorithm;
 
 #[cfg(any(

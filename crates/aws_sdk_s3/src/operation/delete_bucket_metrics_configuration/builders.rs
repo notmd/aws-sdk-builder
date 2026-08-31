@@ -62,7 +62,8 @@ impl crate::operation::delete_bucket_metrics_configuration::builders::DeleteBuck
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DeleteBucketMetricsConfigurationFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::delete_bucket_metrics_configuration::builders::DeleteBucketMetricsConfigurationInputBuilder,
+    inner:
+        crate::operation::delete_bucket_metrics_configuration::builders::DeleteBucketMetricsConfigurationInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -93,7 +94,10 @@ impl DeleteBucketMetricsConfigurationFluentBuilder {
         }
     }
     /// Access the DeleteBucketMetricsConfiguration as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_bucket_metrics_configuration::builders::DeleteBucketMetricsConfigurationInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::delete_bucket_metrics_configuration::builders::DeleteBucketMetricsConfigurationInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -112,7 +116,7 @@ impl DeleteBucketMetricsConfigurationFluentBuilder {
             crate::operation::delete_bucket_metrics_configuration::DeleteBucketMetricsConfigurationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -122,7 +126,11 @@ impl DeleteBucketMetricsConfigurationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_bucket_metrics_configuration::DeleteBucketMetricsConfiguration::orchestrate(&runtime_plugins, input).await
+        crate::operation::delete_bucket_metrics_configuration::DeleteBucketMetricsConfiguration::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -132,7 +140,7 @@ impl DeleteBucketMetricsConfigurationFluentBuilder {
         crate::operation::delete_bucket_metrics_configuration::DeleteBucketMetricsConfigurationOutput,
         crate::operation::delete_bucket_metrics_configuration::DeleteBucketMetricsConfigurationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -184,20 +192,14 @@ impl DeleteBucketMetricsConfigurationFluentBuilder {
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
     /// </note>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
     /// </note>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

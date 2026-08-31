@@ -66,10 +66,7 @@ impl StartMessageMoveTaskFluentBuilder {
         }
     }
     /// Access the StartMessageMoveTask as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::start_message_move_task::builders::StartMessageMoveTaskInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::start_message_move_task::builders::StartMessageMoveTaskInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -93,16 +90,13 @@ impl StartMessageMoveTaskFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::start_message_move_task::StartMessageMoveTask::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::start_message_move_task::StartMessageMoveTask::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::start_message_move_task::StartMessageMoveTask::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::start_message_move_task::StartMessageMoveTask::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -145,18 +139,12 @@ impl StartMessageMoveTaskFluentBuilder {
         self.inner.get_source_arn()
     }
     /// <p>The ARN of the queue that receives the moved messages. You can use this field to specify the destination queue where you would like to redrive messages. If this field is left blank, the messages will be redriven back to their respective original source queues.</p>
-    pub fn destination_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn destination_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.destination_arn(input.into());
         self
     }
     /// <p>The ARN of the queue that receives the moved messages. You can use this field to specify the destination queue where you would like to redrive messages. If this field is left blank, the messages will be redriven back to their respective original source queues.</p>
-    pub fn set_destination_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_destination_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_destination_arn(input);
         self
     }
@@ -170,10 +158,7 @@ impl StartMessageMoveTaskFluentBuilder {
         self
     }
     /// <p>The number of messages to be moved per second (the message movement rate). You can use this field to define a fixed message movement rate. The maximum value for messages per second is 500. If this field is left blank, the system will optimize the rate based on the queue message backlog size, which may vary throughout the duration of the message movement task.</p>
-    pub fn set_max_number_of_messages_per_second(
-        mut self,
-        input: ::std::option::Option<i32>,
-    ) -> Self {
+    pub fn set_max_number_of_messages_per_second(mut self, input: ::std::option::Option<i32>) -> Self {
         self.inner = self.inner.set_max_number_of_messages_per_second(input);
         self
     }

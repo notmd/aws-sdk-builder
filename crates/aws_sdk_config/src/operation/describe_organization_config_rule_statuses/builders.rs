@@ -81,7 +81,7 @@ impl DescribeOrganizationConfigRuleStatusesFluentBuilder {
             crate::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -103,7 +103,7 @@ impl DescribeOrganizationConfigRuleStatusesFluentBuilder {
         crate::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesOutput,
         crate::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -138,10 +138,7 @@ impl DescribeOrganizationConfigRuleStatusesFluentBuilder {
     /// To override the contents of this collection use [`set_organization_config_rule_names`](Self::set_organization_config_rule_names).
     ///
     /// <p>The names of organization Config rules for which you want status details. If you do not specify any names, Config returns details for all your organization Config rules.</p>
-    pub fn organization_config_rule_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn organization_config_rule_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.organization_config_rule_names(input.into());
         self
     }
@@ -154,9 +151,7 @@ impl DescribeOrganizationConfigRuleStatusesFluentBuilder {
         self
     }
     /// <p>The names of organization Config rules for which you want status details. If you do not specify any names, Config returns details for all your organization Config rules.</p>
-    pub fn get_organization_config_rule_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_organization_config_rule_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_organization_config_rule_names()
     }
     /// <p>The maximum number of <code>OrganizationConfigRuleStatuses</code> returned on each page. If you do no specify a number, Config uses the default. The default is 100.</p>

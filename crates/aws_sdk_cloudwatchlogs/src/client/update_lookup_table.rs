@@ -15,8 +15,6 @@ impl super::Client {
     pub fn update_lookup_table(
         &self,
     ) -> crate::operation::update_lookup_table::builders::UpdateLookupTableFluentBuilder {
-        crate::operation::update_lookup_table::builders::UpdateLookupTableFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::update_lookup_table::builders::UpdateLookupTableFluentBuilder::new(self.handle.clone())
     }
 }

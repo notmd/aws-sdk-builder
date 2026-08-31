@@ -17,20 +17,14 @@ pub enum Error {
     #[cfg(feature = "op_assume_role_with_web_identity")]
     /// <p>The request could not be fulfilled because the identity provider (IDP) that was asked to verify the incoming identity token could not be reached. This is often a transient error caused by network conditions. Retry the request a limited number of times so that you don't exceed the request rate. If the error persists, the identity provider might be down or not responding.</p>
     IdpCommunicationErrorException(crate::types::error::IdpCommunicationErrorException),
-    #[cfg(any(
-        feature = "op_assume_role_with_saml",
-        feature = "op_assume_role_with_web_identity"
-    ))]
+    #[cfg(any(feature = "op_assume_role_with_saml", feature = "op_assume_role_with_web_identity"))]
     /// <p>The identity provider (IdP) reported that authentication failed. This might be because the claim is invalid.</p>
     /// <p>If this error is returned for the <code>AssumeRoleWithWebIdentity</code> operation, it can also mean that the claim has expired or has been explicitly revoked.</p>
     IdpRejectedClaimException(crate::types::error::IdpRejectedClaimException),
     #[cfg(feature = "op_decode_authorization_message")]
     /// <p>The error returned if the message passed to <code>DecodeAuthorizationMessage</code> was invalid. This can happen if the token contains invalid characters, such as line breaks, or if the message has expired.</p>
     InvalidAuthorizationMessageException(crate::types::error::InvalidAuthorizationMessageException),
-    #[cfg(any(
-        feature = "op_assume_role_with_saml",
-        feature = "op_assume_role_with_web_identity"
-    ))]
+    #[cfg(any(feature = "op_assume_role_with_saml", feature = "op_assume_role_with_web_identity"))]
     /// <p>The web identity token that was passed could not be validated by Amazon Web Services. Get a new identity token from the identity provider and then retry the request.</p>
     InvalidIdentityTokenException(crate::types::error::InvalidIdentityTokenException),
     #[cfg(feature = "op_get_web_identity_token")]
@@ -46,9 +40,7 @@ pub enum Error {
     MalformedPolicyDocumentException(crate::types::error::MalformedPolicyDocumentException),
     #[cfg(feature = "op_get_web_identity_token")]
     /// <p>The outbound web identity federation feature is not enabled for this account. To use this feature, you must first enable it through the Amazon Web Services Management Console or API.</p>
-    OutboundWebIdentityFederationDisabledException(
-        crate::types::error::OutboundWebIdentityFederationDisabledException,
-    ),
+    OutboundWebIdentityFederationDisabledException(crate::types::error::OutboundWebIdentityFederationDisabledException),
     #[cfg(any(
         feature = "op_assume_role",
         feature = "op_assume_role_with_saml",
@@ -98,17 +90,11 @@ impl ::std::fmt::Display for Error {
             Error::ExpiredTradeInTokenException(inner) => inner.fmt(f),
             #[cfg(feature = "op_assume_role_with_web_identity")]
             Error::IdpCommunicationErrorException(inner) => inner.fmt(f),
-            #[cfg(any(
-                feature = "op_assume_role_with_saml",
-                feature = "op_assume_role_with_web_identity"
-            ))]
+            #[cfg(any(feature = "op_assume_role_with_saml", feature = "op_assume_role_with_web_identity"))]
             Error::IdpRejectedClaimException(inner) => inner.fmt(f),
             #[cfg(feature = "op_decode_authorization_message")]
             Error::InvalidAuthorizationMessageException(inner) => inner.fmt(f),
-            #[cfg(any(
-                feature = "op_assume_role_with_saml",
-                feature = "op_assume_role_with_web_identity"
-            ))]
+            #[cfg(any(feature = "op_assume_role_with_saml", feature = "op_assume_role_with_web_identity"))]
             Error::InvalidIdentityTokenException(inner) => inner.fmt(f),
             #[cfg(feature = "op_get_web_identity_token")]
             Error::JwtPayloadSizeExceededException(inner) => inner.fmt(f),
@@ -175,17 +161,11 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
             Self::ExpiredTradeInTokenException(inner) => inner.meta(),
             #[cfg(feature = "op_assume_role_with_web_identity")]
             Self::IdpCommunicationErrorException(inner) => inner.meta(),
-            #[cfg(any(
-                feature = "op_assume_role_with_saml",
-                feature = "op_assume_role_with_web_identity"
-            ))]
+            #[cfg(any(feature = "op_assume_role_with_saml", feature = "op_assume_role_with_web_identity"))]
             Self::IdpRejectedClaimException(inner) => inner.meta(),
             #[cfg(feature = "op_decode_authorization_message")]
             Self::InvalidAuthorizationMessageException(inner) => inner.meta(),
-            #[cfg(any(
-                feature = "op_assume_role_with_saml",
-                feature = "op_assume_role_with_web_identity"
-            ))]
+            #[cfg(any(feature = "op_assume_role_with_saml", feature = "op_assume_role_with_web_identity"))]
             Self::InvalidIdentityTokenException(inner) => inner.meta(),
             #[cfg(feature = "op_get_web_identity_token")]
             Self::JwtPayloadSizeExceededException(inner) => inner.meta(),
@@ -223,26 +203,16 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
     }
 }
 #[cfg(feature = "op_assume_role")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::assume_role::AssumeRoleError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::assume_role::AssumeRoleError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::assume_role::AssumeRoleError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::assume_role::AssumeRoleError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -257,18 +227,16 @@ impl From<crate::operation::assume_role::AssumeRoleError> for Error {
             crate::operation::assume_role::AssumeRoleError::ExpiredTokenException(inner) => {
                 Error::ExpiredTokenException(inner)
             }
-            crate::operation::assume_role::AssumeRoleError::MalformedPolicyDocumentException(
-                inner,
-            ) => Error::MalformedPolicyDocumentException(inner),
-            crate::operation::assume_role::AssumeRoleError::PackedPolicyTooLargeException(
-                inner,
-            ) => Error::PackedPolicyTooLargeException(inner),
+            crate::operation::assume_role::AssumeRoleError::MalformedPolicyDocumentException(inner) => {
+                Error::MalformedPolicyDocumentException(inner)
+            }
+            crate::operation::assume_role::AssumeRoleError::PackedPolicyTooLargeException(inner) => {
+                Error::PackedPolicyTooLargeException(inner)
+            }
             crate::operation::assume_role::AssumeRoleError::RegionDisabledException(inner) => {
                 Error::RegionDisabledException(inner)
             }
-            crate::operation::assume_role::AssumeRoleError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::assume_role::AssumeRoleError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -290,9 +258,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -304,21 +270,27 @@ where
 impl From<crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError> for Error {
     fn from(err: crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError) -> Self {
         match err {
-            crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError::ExpiredTokenException(inner) => Error::ExpiredTokenException(inner),
+            crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError::ExpiredTokenException(inner) => {
+                Error::ExpiredTokenException(inner)
+            }
             crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError::IdpRejectedClaimException(inner) => {
                 Error::IdpRejectedClaimException(inner)
             }
             crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError::InvalidIdentityTokenException(inner) => {
                 Error::InvalidIdentityTokenException(inner)
             }
-            crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError::MalformedPolicyDocumentException(inner) => {
-                Error::MalformedPolicyDocumentException(inner)
-            }
+            crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError::MalformedPolicyDocumentException(
+                inner,
+            ) => Error::MalformedPolicyDocumentException(inner),
             crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError::PackedPolicyTooLargeException(inner) => {
                 Error::PackedPolicyTooLargeException(inner)
             }
-            crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError::RegionDisabledException(inner) => Error::RegionDisabledException(inner),
-            crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError::RegionDisabledException(inner) => {
+                Error::RegionDisabledException(inner)
+            }
+            crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -340,9 +312,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -351,12 +321,8 @@ where
     }
 }
 #[cfg(feature = "op_assume_role_with_web_identity")]
-impl From<crate::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError>
-    for Error
-{
-    fn from(
-        err: crate::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError,
-    ) -> Self {
+impl From<crate::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError> for Error {
+    fn from(err: crate::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError) -> Self {
         match err {
             crate::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError::ExpiredTokenException(inner) => {
                 Error::ExpiredTokenException(inner)
@@ -384,26 +350,16 @@ impl From<crate::operation::assume_role_with_web_identity::AssumeRoleWithWebIden
     }
 }
 #[cfg(feature = "op_assume_root")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::assume_root::AssumeRootError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::assume_root::AssumeRootError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::assume_root::AssumeRootError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::assume_root::AssumeRootError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -421,9 +377,7 @@ impl From<crate::operation::assume_root::AssumeRootError> for Error {
             crate::operation::assume_root::AssumeRootError::RegionDisabledException(inner) => {
                 Error::RegionDisabledException(inner)
             }
-            crate::operation::assume_root::AssumeRootError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::assume_root::AssumeRootError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -445,9 +399,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -456,12 +408,8 @@ where
     }
 }
 #[cfg(feature = "op_decode_authorization_message")]
-impl From<crate::operation::decode_authorization_message::DecodeAuthorizationMessageError>
-    for Error
-{
-    fn from(
-        err: crate::operation::decode_authorization_message::DecodeAuthorizationMessageError,
-    ) -> Self {
+impl From<crate::operation::decode_authorization_message::DecodeAuthorizationMessageError> for Error {
+    fn from(err: crate::operation::decode_authorization_message::DecodeAuthorizationMessageError) -> Self {
         match err {
             crate::operation::decode_authorization_message::DecodeAuthorizationMessageError::InvalidAuthorizationMessageException(inner) => {
                 Error::InvalidAuthorizationMessageException(inner)
@@ -488,9 +436,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -502,9 +448,7 @@ where
 impl From<crate::operation::get_access_key_info::GetAccessKeyInfoError> for Error {
     fn from(err: crate::operation::get_access_key_info::GetAccessKeyInfoError) -> Self {
         match err {
-            crate::operation::get_access_key_info::GetAccessKeyInfoError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_access_key_info::GetAccessKeyInfoError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -526,9 +470,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -540,9 +482,7 @@ where
 impl From<crate::operation::get_caller_identity::GetCallerIdentityError> for Error {
     fn from(err: crate::operation::get_caller_identity::GetCallerIdentityError) -> Self {
         match err {
-            crate::operation::get_caller_identity::GetCallerIdentityError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_caller_identity::GetCallerIdentityError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -564,9 +504,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -576,9 +514,7 @@ where
 }
 #[cfg(feature = "op_get_delegated_access_token")]
 impl From<crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError> for Error {
-    fn from(
-        err: crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError,
-    ) -> Self {
+    fn from(err: crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError) -> Self {
         match err {
             crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError::ExpiredTradeInTokenException(inner) => {
                 Error::ExpiredTradeInTokenException(inner)
@@ -611,9 +547,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -625,14 +559,18 @@ where
 impl From<crate::operation::get_federation_token::GetFederationTokenError> for Error {
     fn from(err: crate::operation::get_federation_token::GetFederationTokenError) -> Self {
         match err {
-            crate::operation::get_federation_token::GetFederationTokenError::MalformedPolicyDocumentException(inner) => {
-                Error::MalformedPolicyDocumentException(inner)
-            }
+            crate::operation::get_federation_token::GetFederationTokenError::MalformedPolicyDocumentException(
+                inner,
+            ) => Error::MalformedPolicyDocumentException(inner),
             crate::operation::get_federation_token::GetFederationTokenError::PackedPolicyTooLargeException(inner) => {
                 Error::PackedPolicyTooLargeException(inner)
             }
-            crate::operation::get_federation_token::GetFederationTokenError::RegionDisabledException(inner) => Error::RegionDisabledException(inner),
-            crate::operation::get_federation_token::GetFederationTokenError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::get_federation_token::GetFederationTokenError::RegionDisabledException(inner) => {
+                Error::RegionDisabledException(inner)
+            }
+            crate::operation::get_federation_token::GetFederationTokenError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -654,9 +592,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -668,12 +604,10 @@ where
 impl From<crate::operation::get_session_token::GetSessionTokenError> for Error {
     fn from(err: crate::operation::get_session_token::GetSessionTokenError) -> Self {
         match err {
-            crate::operation::get_session_token::GetSessionTokenError::RegionDisabledException(
-                inner,
-            ) => Error::RegionDisabledException(inner),
-            crate::operation::get_session_token::GetSessionTokenError::Unhandled(inner) => {
-                Error::Unhandled(inner)
+            crate::operation::get_session_token::GetSessionTokenError::RegionDisabledException(inner) => {
+                Error::RegionDisabledException(inner)
             }
+            crate::operation::get_session_token::GetSessionTokenError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -695,9 +629,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -736,17 +668,11 @@ impl ::std::error::Error for Error {
             Error::ExpiredTradeInTokenException(inner) => inner.source(),
             #[cfg(feature = "op_assume_role_with_web_identity")]
             Error::IdpCommunicationErrorException(inner) => inner.source(),
-            #[cfg(any(
-                feature = "op_assume_role_with_saml",
-                feature = "op_assume_role_with_web_identity"
-            ))]
+            #[cfg(any(feature = "op_assume_role_with_saml", feature = "op_assume_role_with_web_identity"))]
             Error::IdpRejectedClaimException(inner) => inner.source(),
             #[cfg(feature = "op_decode_authorization_message")]
             Error::InvalidAuthorizationMessageException(inner) => inner.source(),
-            #[cfg(any(
-                feature = "op_assume_role_with_saml",
-                feature = "op_assume_role_with_web_identity"
-            ))]
+            #[cfg(any(feature = "op_assume_role_with_saml", feature = "op_assume_role_with_web_identity"))]
             Error::InvalidIdentityTokenException(inner) => inner.source(),
             #[cfg(feature = "op_get_web_identity_token")]
             Error::JwtPayloadSizeExceededException(inner) => inner.source(),
@@ -797,17 +723,11 @@ impl ::aws_types::request_id::RequestId for Error {
             Self::ExpiredTradeInTokenException(e) => e.request_id(),
             #[cfg(feature = "op_assume_role_with_web_identity")]
             Self::IdpCommunicationErrorException(e) => e.request_id(),
-            #[cfg(any(
-                feature = "op_assume_role_with_saml",
-                feature = "op_assume_role_with_web_identity"
-            ))]
+            #[cfg(any(feature = "op_assume_role_with_saml", feature = "op_assume_role_with_web_identity"))]
             Self::IdpRejectedClaimException(e) => e.request_id(),
             #[cfg(feature = "op_decode_authorization_message")]
             Self::InvalidAuthorizationMessageException(e) => e.request_id(),
-            #[cfg(any(
-                feature = "op_assume_role_with_saml",
-                feature = "op_assume_role_with_web_identity"
-            ))]
+            #[cfg(any(feature = "op_assume_role_with_saml", feature = "op_assume_role_with_web_identity"))]
             Self::InvalidIdentityTokenException(e) => e.request_id(),
             #[cfg(feature = "op_get_web_identity_token")]
             Self::JwtPayloadSizeExceededException(e) => e.request_id(),

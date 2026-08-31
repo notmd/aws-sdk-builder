@@ -11,8 +11,6 @@ impl super::Client {
     pub fn update_time_to_live(
         &self,
     ) -> crate::operation::update_time_to_live::builders::UpdateTimeToLiveFluentBuilder {
-        crate::operation::update_time_to_live::builders::UpdateTimeToLiveFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::update_time_to_live::builders::UpdateTimeToLiveFluentBuilder::new(self.handle.clone())
     }
 }

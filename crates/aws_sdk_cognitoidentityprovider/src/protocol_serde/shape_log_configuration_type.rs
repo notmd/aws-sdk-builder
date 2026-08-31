@@ -7,23 +7,21 @@ pub fn ser_log_configuration_type(
         object.key("LogLevel").string(input.log_level.as_str());
     }
     {
-        object
-            .key("EventSource")
-            .string(input.event_source.as_str());
+        object.key("EventSource").string(input.event_source.as_str());
     }
     if let Some(var_1) = &input.cloud_watch_logs_configuration {
         #[allow(unused_mut)]
         let mut object_2 = object.key("CloudWatchLogsConfiguration").start_object();
-        crate::protocol_serde::shape_cloud_watch_logs_configuration_type::ser_cloud_watch_logs_configuration_type(&mut object_2, var_1)?;
+        crate::protocol_serde::shape_cloud_watch_logs_configuration_type::ser_cloud_watch_logs_configuration_type(
+            &mut object_2,
+            var_1,
+        )?;
         object_2.finish();
     }
     if let Some(var_3) = &input.s3_configuration {
         #[allow(unused_mut)]
         let mut object_4 = object.key("S3Configuration").start_object();
-        crate::protocol_serde::shape_s3_configuration_type::ser_s3_configuration_type(
-            &mut object_4,
-            var_3,
-        )?;
+        crate::protocol_serde::shape_s3_configuration_type::ser_s3_configuration_type(&mut object_4, var_3)?;
         object_4.finish();
     }
     if let Some(var_5) = &input.firehose_configuration {
@@ -55,11 +53,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -73,27 +69,19 @@ where
                         match key.to_unescaped()?.as_ref() {
                             "LogLevel" => {
                                 builder = builder.set_log_level(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| crate::types::LogLevel::from(u.as_ref()))
-                                    })
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| crate::types::LogLevel::from(u.as_ref())))
+                                        .transpose()?,
                                 );
                             }
                             "EventSource" => {
                                 builder = builder.set_event_source(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| {
-                                        s.to_unescaped().map(|u| {
-                                            crate::types::EventSourceName::from(u.as_ref())
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| {
+                                            s.to_unescaped()
+                                                .map(|u| crate::types::EventSourceName::from(u.as_ref()))
                                         })
-                                    })
-                                    .transpose()?,
+                                        .transpose()?,
                                 );
                             }
                             "CloudWatchLogsConfiguration" => {
@@ -106,11 +94,13 @@ where
                             );
                             }
                             "S3Configuration" => {
-                                builder = builder.set_s3_configuration(crate::protocol_serde::shape_s3_configuration_type::de_s3_configuration_type(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                                builder = builder.set_s3_configuration(
+                                    crate::protocol_serde::shape_s3_configuration_type::de_s3_configuration_type(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "FirehoseConfiguration" => {
                                 builder = builder.set_firehose_configuration(
@@ -121,11 +111,9 @@ where
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
@@ -140,10 +128,8 @@ where
                     })?,
             ))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

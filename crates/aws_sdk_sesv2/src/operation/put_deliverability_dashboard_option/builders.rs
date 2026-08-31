@@ -27,7 +27,8 @@ impl crate::operation::put_deliverability_dashboard_option::builders::PutDeliver
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct PutDeliverabilityDashboardOptionFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionInputBuilder,
+    inner:
+        crate::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -58,7 +59,10 @@ impl PutDeliverabilityDashboardOptionFluentBuilder {
         }
     }
     /// Access the PutDeliverabilityDashboardOption as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -77,7 +81,7 @@ impl PutDeliverabilityDashboardOptionFluentBuilder {
             crate::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -87,7 +91,11 @@ impl PutDeliverabilityDashboardOptionFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOption::orchestrate(&runtime_plugins, input).await
+        crate::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOption::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -97,7 +105,7 @@ impl PutDeliverabilityDashboardOptionFluentBuilder {
         crate::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionOutput,
         crate::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -135,19 +143,14 @@ impl PutDeliverabilityDashboardOptionFluentBuilder {
     /// To override the contents of this collection use [`set_subscribed_domains`](Self::set_subscribed_domains).
     ///
     /// <p>An array of objects, one for each verified domain that you use to send email and enabled the Deliverability dashboard for.</p>
-    pub fn subscribed_domains(
-        mut self,
-        input: crate::types::DomainDeliverabilityTrackingOption,
-    ) -> Self {
+    pub fn subscribed_domains(mut self, input: crate::types::DomainDeliverabilityTrackingOption) -> Self {
         self.inner = self.inner.subscribed_domains(input);
         self
     }
     /// <p>An array of objects, one for each verified domain that you use to send email and enabled the Deliverability dashboard for.</p>
     pub fn set_subscribed_domains(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::DomainDeliverabilityTrackingOption>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::DomainDeliverabilityTrackingOption>>,
     ) -> Self {
         self.inner = self.inner.set_subscribed_domains(input);
         self
@@ -155,8 +158,7 @@ impl PutDeliverabilityDashboardOptionFluentBuilder {
     /// <p>An array of objects, one for each verified domain that you use to send email and enabled the Deliverability dashboard for.</p>
     pub fn get_subscribed_domains(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::DomainDeliverabilityTrackingOption>>
-    {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::DomainDeliverabilityTrackingOption>> {
         self.inner.get_subscribed_domains()
     }
 }

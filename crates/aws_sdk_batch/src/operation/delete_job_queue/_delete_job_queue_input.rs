@@ -21,9 +21,7 @@ impl DeleteJobQueueInput {
 }
 
 /// A builder for [`DeleteJobQueueInput`](crate::operation::delete_job_queue::DeleteJobQueueInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteJobQueueInputBuilder {
     pub(crate) job_queue: ::std::option::Option<::std::string::String>,

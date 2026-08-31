@@ -68,12 +68,8 @@ where
     E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
 {
     result
-        .map(|output| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output)
-        })
-        .map_err(|error| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error)
-        })
+        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))
+        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))
         .map_err(::std::convert::Into::into)
 }
 
@@ -394,10 +390,7 @@ pub(crate) mod shape_cloud_hsm_cluster_invalid_configuration_exception;
 ))]
 pub(crate) mod shape_cloud_hsm_cluster_not_active_exception;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub(crate) mod shape_cloud_hsm_cluster_not_found_exception;
 
 #[cfg(feature = "op_update_custom_key_store")]
@@ -434,10 +427,7 @@ pub(crate) mod shape_custom_key_store_has_cmks_exception;
 ))]
 pub(crate) mod shape_custom_key_store_invalid_state_exception;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub(crate) mod shape_custom_key_store_name_in_use_exception;
 
 #[cfg(any(
@@ -669,11 +659,7 @@ pub(crate) mod shape_invalid_arn_exception;
 ))]
 pub(crate) mod shape_invalid_ciphertext_exception;
 
-#[cfg(any(
-    feature = "op_list_grants",
-    feature = "op_retire_grant",
-    feature = "op_revoke_grant"
-))]
+#[cfg(any(feature = "op_list_grants", feature = "op_retire_grant", feature = "op_revoke_grant"))]
 pub(crate) mod shape_invalid_grant_id_exception;
 
 #[cfg(any(
@@ -1027,58 +1013,31 @@ pub(crate) mod shape_xks_key_invalid_configuration_exception;
 #[cfg(feature = "op_create_key")]
 pub(crate) mod shape_xks_key_not_found_exception;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub(crate) mod shape_xks_proxy_incorrect_authentication_credential_exception;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub(crate) mod shape_xks_proxy_invalid_configuration_exception;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub(crate) mod shape_xks_proxy_invalid_response_exception;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub(crate) mod shape_xks_proxy_uri_endpoint_in_use_exception;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub(crate) mod shape_xks_proxy_uri_in_use_exception;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub(crate) mod shape_xks_proxy_uri_unreachable_exception;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub(crate) mod shape_xks_proxy_vpc_endpoint_service_in_use_exception;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub(crate) mod shape_xks_proxy_vpc_endpoint_service_invalid_configuration_exception;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub(crate) mod shape_xks_proxy_vpc_endpoint_service_not_found_exception;
 
 #[cfg(feature = "op_list_aliases")]
@@ -1119,11 +1078,7 @@ pub(crate) mod shape_key_last_usage_data;
 #[cfg(feature = "op_list_keys")]
 pub(crate) mod shape_key_list;
 
-#[cfg(any(
-    feature = "op_create_key",
-    feature = "op_describe_key",
-    feature = "op_replicate_key"
-))]
+#[cfg(any(feature = "op_create_key", feature = "op_describe_key", feature = "op_replicate_key"))]
 pub(crate) mod shape_key_metadata;
 
 #[cfg(feature = "op_list_key_policies")]
@@ -1160,10 +1115,7 @@ pub(crate) mod shape_tag;
 #[cfg(any(feature = "op_list_resource_tags", feature = "op_replicate_key"))]
 pub(crate) mod shape_tag_list;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub(crate) mod shape_xks_proxy_authentication_credential_type;
 
 #[cfg(feature = "op_list_aliases")]
@@ -1178,45 +1130,25 @@ pub(crate) mod shape_grant_list_entry;
 #[cfg(feature = "op_list_keys")]
 pub(crate) mod shape_key_list_entry;
 
-#[cfg(any(
-    feature = "op_create_key",
-    feature = "op_describe_key",
-    feature = "op_replicate_key"
-))]
+#[cfg(any(feature = "op_create_key", feature = "op_describe_key", feature = "op_replicate_key"))]
 pub(crate) mod shape_mac_algorithm_spec_list;
 
-#[cfg(any(
-    feature = "op_create_key",
-    feature = "op_describe_key",
-    feature = "op_replicate_key"
-))]
+#[cfg(any(feature = "op_create_key", feature = "op_describe_key", feature = "op_replicate_key"))]
 pub(crate) mod shape_multi_region_configuration;
 
 #[cfg(feature = "op_list_key_rotations")]
 pub(crate) mod shape_rotations_list_entry;
 
-#[cfg(any(
-    feature = "op_create_key",
-    feature = "op_describe_key",
-    feature = "op_replicate_key"
-))]
+#[cfg(any(feature = "op_create_key", feature = "op_describe_key", feature = "op_replicate_key"))]
 pub(crate) mod shape_xks_key_configuration_type;
 
 #[cfg(any(feature = "op_list_grants", feature = "op_list_retirable_grants"))]
 pub(crate) mod shape_grant_operation_list;
 
-#[cfg(any(
-    feature = "op_create_key",
-    feature = "op_describe_key",
-    feature = "op_replicate_key"
-))]
+#[cfg(any(feature = "op_create_key", feature = "op_describe_key", feature = "op_replicate_key"))]
 pub(crate) mod shape_multi_region_key;
 
-#[cfg(any(
-    feature = "op_create_key",
-    feature = "op_describe_key",
-    feature = "op_replicate_key"
-))]
+#[cfg(any(feature = "op_create_key", feature = "op_describe_key", feature = "op_replicate_key"))]
 pub(crate) mod shape_multi_region_key_list;
 
 #[cfg(feature = "op_describe_custom_key_stores")]

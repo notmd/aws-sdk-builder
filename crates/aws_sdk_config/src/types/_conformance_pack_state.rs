@@ -75,9 +75,9 @@ impl ::std::convert::From<&str> for ConformancePackState {
             "CREATE_IN_PROGRESS" => ConformancePackState::CreateInProgress,
             "DELETE_FAILED" => ConformancePackState::DeleteFailed,
             "DELETE_IN_PROGRESS" => ConformancePackState::DeleteInProgress,
-            other => ConformancePackState::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => ConformancePackState::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -120,14 +120,10 @@ impl ConformancePackState {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }

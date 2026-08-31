@@ -57,7 +57,9 @@ impl DescribeSubscriptionFiltersFluentBuilder {
         }
     }
     /// Access the DescribeSubscriptionFilters as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_subscription_filters::builders::DescribeSubscriptionFiltersInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_subscription_filters::builders::DescribeSubscriptionFiltersInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,11 +83,12 @@ impl DescribeSubscriptionFiltersFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::describe_subscription_filters::DescribeSubscriptionFilters::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::describe_subscription_filters::DescribeSubscriptionFilters::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::describe_subscription_filters::DescribeSubscriptionFilters::orchestrate(
             &runtime_plugins,
             input,
@@ -121,22 +124,21 @@ impl DescribeSubscriptionFiltersFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_subscription_filters::paginator::DescribeSubscriptionFiltersPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::describe_subscription_filters::paginator::DescribeSubscriptionFiltersPaginator{
-        crate::operation::describe_subscription_filters::paginator::DescribeSubscriptionFiltersPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::describe_subscription_filters::paginator::DescribeSubscriptionFiltersPaginator {
+        crate::operation::describe_subscription_filters::paginator::DescribeSubscriptionFiltersPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The name of the log group.</p>
-    pub fn log_group_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_group_name(input.into());
         self
     }
     /// <p>The name of the log group.</p>
-    pub fn set_log_group_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_log_group_name(input);
         self
     }
@@ -145,18 +147,12 @@ impl DescribeSubscriptionFiltersFluentBuilder {
         self.inner.get_log_group_name()
     }
     /// <p>The prefix to match. If you don't specify a value, no prefix filter is applied.</p>
-    pub fn filter_name_prefix(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn filter_name_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.filter_name_prefix(input.into());
         self
     }
     /// <p>The prefix to match. If you don't specify a value, no prefix filter is applied.</p>
-    pub fn set_filter_name_prefix(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_filter_name_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_filter_name_prefix(input);
         self
     }

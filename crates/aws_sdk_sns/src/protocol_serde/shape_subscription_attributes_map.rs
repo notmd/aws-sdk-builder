@@ -15,7 +15,9 @@ pub fn de_subscription_attributes_map(
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("entry") => {
-                crate::protocol_serde::shape_subscription_attributes_map::de_subscription_attributes_map_entry(&mut tag, &mut out, depth)?;
+                crate::protocol_serde::shape_subscription_attributes_map::de_subscription_attributes_map_entry(
+                    &mut tag, &mut out, depth,
+                )?;
             }
             _ => {}
         }
@@ -60,11 +62,8 @@ pub fn de_subscription_attributes_map_entry(
             _ => {}
         }
     }
-    let k =
-        k.ok_or_else(|| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing key map entry"))?;
-    let v = v.ok_or_else(|| {
-        ::aws_smithy_xml::decode::XmlDecodeError::custom("missing value map entry")
-    })?;
+    let k = k.ok_or_else(|| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing key map entry"))?;
+    let v = v.ok_or_else(|| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing value map entry"))?;
     out.insert(k, v);
     Ok(())
 }

@@ -24,9 +24,7 @@ pub struct Delivery {
     /// <p>This structure contains delivery configurations that apply only when the delivery destination resource is an S3 bucket.</p>
     pub s3_delivery_configuration: ::std::option::Option<crate::types::S3DeliveryConfiguration>,
     /// <p>The tags that have been assigned to this delivery.</p>
-    pub tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl Delivery {
     /// <p>The unique ID that identifies this delivery in your account.</p>
@@ -46,9 +44,7 @@ impl Delivery {
         self.delivery_destination_arn.as_deref()
     }
     /// <p>Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, Firehose, or X-Ray.</p>
-    pub fn delivery_destination_type(
-        &self,
-    ) -> ::std::option::Option<&crate::types::DeliveryDestinationType> {
+    pub fn delivery_destination_type(&self) -> ::std::option::Option<&crate::types::DeliveryDestinationType> {
         self.delivery_destination_type.as_ref()
     }
     /// <p>The record fields used in this delivery.</p>
@@ -62,17 +58,13 @@ impl Delivery {
         self.field_delimiter.as_deref()
     }
     /// <p>This structure contains delivery configurations that apply only when the delivery destination resource is an S3 bucket.</p>
-    pub fn s3_delivery_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::S3DeliveryConfiguration> {
+    pub fn s3_delivery_configuration(&self) -> ::std::option::Option<&crate::types::S3DeliveryConfiguration> {
         self.s3_delivery_configuration.as_ref()
     }
     /// <p>The tags that have been assigned to this delivery.</p>
     pub fn tags(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
 }
@@ -84,24 +76,18 @@ impl Delivery {
 }
 
 /// A builder for [`Delivery`](crate::types::Delivery).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeliveryBuilder {
     pub(crate) id: ::std::option::Option<::std::string::String>,
     pub(crate) arn: ::std::option::Option<::std::string::String>,
     pub(crate) delivery_source_name: ::std::option::Option<::std::string::String>,
     pub(crate) delivery_destination_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) delivery_destination_type:
-        ::std::option::Option<crate::types::DeliveryDestinationType>,
+    pub(crate) delivery_destination_type: ::std::option::Option<crate::types::DeliveryDestinationType>,
     pub(crate) record_fields: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) field_delimiter: ::std::option::Option<::std::string::String>,
-    pub(crate) s3_delivery_configuration:
-        ::std::option::Option<crate::types::S3DeliveryConfiguration>,
-    pub(crate) tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) s3_delivery_configuration: ::std::option::Option<crate::types::S3DeliveryConfiguration>,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl DeliveryBuilder {
     /// <p>The unique ID that identifies this delivery in your account.</p>
@@ -133,18 +119,12 @@ impl DeliveryBuilder {
         &self.arn
     }
     /// <p>The name of the delivery source that is associated with this delivery.</p>
-    pub fn delivery_source_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delivery_source_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.delivery_source_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the delivery source that is associated with this delivery.</p>
-    pub fn set_delivery_source_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delivery_source_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delivery_source_name = input;
         self
     }
@@ -153,18 +133,12 @@ impl DeliveryBuilder {
         &self.delivery_source_name
     }
     /// <p>The ARN of the delivery destination that is associated with this delivery.</p>
-    pub fn delivery_destination_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delivery_destination_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.delivery_destination_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the delivery destination that is associated with this delivery.</p>
-    pub fn set_delivery_destination_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delivery_destination_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delivery_destination_arn = input;
         self
     }
@@ -173,10 +147,7 @@ impl DeliveryBuilder {
         &self.delivery_destination_arn
     }
     /// <p>Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, Firehose, or X-Ray.</p>
-    pub fn delivery_destination_type(
-        mut self,
-        input: crate::types::DeliveryDestinationType,
-    ) -> Self {
+    pub fn delivery_destination_type(mut self, input: crate::types::DeliveryDestinationType) -> Self {
         self.delivery_destination_type = ::std::option::Option::Some(input);
         self
     }
@@ -189,9 +160,7 @@ impl DeliveryBuilder {
         self
     }
     /// <p>Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, Firehose, or X-Ray.</p>
-    pub fn get_delivery_destination_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::DeliveryDestinationType> {
+    pub fn get_delivery_destination_type(&self) -> &::std::option::Option<crate::types::DeliveryDestinationType> {
         &self.delivery_destination_type
     }
     /// Appends an item to `record_fields`.
@@ -199,42 +168,28 @@ impl DeliveryBuilder {
     /// To override the contents of this collection use [`set_record_fields`](Self::set_record_fields).
     ///
     /// <p>The record fields used in this delivery.</p>
-    pub fn record_fields(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn record_fields(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.record_fields.unwrap_or_default();
         v.push(input.into());
         self.record_fields = ::std::option::Option::Some(v);
         self
     }
     /// <p>The record fields used in this delivery.</p>
-    pub fn set_record_fields(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_record_fields(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.record_fields = input;
         self
     }
     /// <p>The record fields used in this delivery.</p>
-    pub fn get_record_fields(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_record_fields(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.record_fields
     }
     /// <p>The field delimiter that is used between record fields when the final output format of a delivery is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
-    pub fn field_delimiter(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn field_delimiter(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.field_delimiter = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The field delimiter that is used between record fields when the final output format of a delivery is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
-    pub fn set_field_delimiter(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_field_delimiter(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.field_delimiter = input;
         self
     }
@@ -243,10 +198,7 @@ impl DeliveryBuilder {
         &self.field_delimiter
     }
     /// <p>This structure contains delivery configurations that apply only when the delivery destination resource is an S3 bucket.</p>
-    pub fn s3_delivery_configuration(
-        mut self,
-        input: crate::types::S3DeliveryConfiguration,
-    ) -> Self {
+    pub fn s3_delivery_configuration(mut self, input: crate::types::S3DeliveryConfiguration) -> Self {
         self.s3_delivery_configuration = ::std::option::Option::Some(input);
         self
     }
@@ -259,9 +211,7 @@ impl DeliveryBuilder {
         self
     }
     /// <p>This structure contains delivery configurations that apply only when the delivery destination resource is an S3 bucket.</p>
-    pub fn get_s3_delivery_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::S3DeliveryConfiguration> {
+    pub fn get_s3_delivery_configuration(&self) -> &::std::option::Option<crate::types::S3DeliveryConfiguration> {
         &self.s3_delivery_configuration
     }
     /// Adds a key-value pair to `tags`.
@@ -282,9 +232,7 @@ impl DeliveryBuilder {
     /// <p>The tags that have been assigned to this delivery.</p>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.tags = input;
         self
@@ -292,9 +240,7 @@ impl DeliveryBuilder {
     /// <p>The tags that have been assigned to this delivery.</p>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`Delivery`](crate::types::Delivery).

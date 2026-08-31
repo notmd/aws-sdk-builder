@@ -58,9 +58,7 @@ impl DeleteDeliverySourceFluentBuilder {
         }
     }
     /// Access the DeleteDeliverySource as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::delete_delivery_source::builders::DeleteDeliverySourceInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::delete_delivery_source::builders::DeleteDeliverySourceInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,11 +87,7 @@ impl DeleteDeliverySourceFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_delivery_source::DeleteDeliverySource::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::delete_delivery_source::DeleteDeliverySource::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

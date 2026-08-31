@@ -12,8 +12,6 @@ impl super::Client {
     pub fn list_tags_of_resource(
         &self,
     ) -> crate::operation::list_tags_of_resource::builders::ListTagsOfResourceFluentBuilder {
-        crate::operation::list_tags_of_resource::builders::ListTagsOfResourceFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::list_tags_of_resource::builders::ListTagsOfResourceFluentBuilder::new(self.handle.clone())
     }
 }

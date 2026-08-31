@@ -41,9 +41,7 @@ impl Topic {
 }
 
 /// A builder for [`Topic`](crate::types::Topic).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TopicBuilder {
     pub(crate) topic_name: ::std::option::Option<::std::string::String>,
@@ -111,9 +109,7 @@ impl TopicBuilder {
         self
     }
     /// <p>The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.</p>
-    pub fn get_default_subscription_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::SubscriptionStatus> {
+    pub fn get_default_subscription_status(&self) -> &::std::option::Option<crate::types::SubscriptionStatus> {
         &self.default_subscription_status
     }
     /// Consumes the builder and constructs a [`Topic`](crate::types::Topic).
@@ -121,10 +117,7 @@ impl TopicBuilder {
     /// - [`topic_name`](crate::types::builders::TopicBuilder::topic_name)
     /// - [`display_name`](crate::types::builders::TopicBuilder::display_name)
     /// - [`default_subscription_status`](crate::types::builders::TopicBuilder::default_subscription_status)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::types::Topic, ::aws_smithy_types::error::operation::BuildError>
-    {
+    pub fn build(self) -> ::std::result::Result<crate::types::Topic, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Topic {
             topic_name: self.topic_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -57,10 +57,7 @@ impl CreateDedicatedIpPoolFluentBuilder {
         }
     }
     /// Access the CreateDedicatedIpPool as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::create_dedicated_ip_pool::builders::CreateDedicatedIpPoolInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::create_dedicated_ip_pool::builders::CreateDedicatedIpPoolInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +81,13 @@ impl CreateDedicatedIpPoolFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_dedicated_ip_pool::CreateDedicatedIpPool::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_dedicated_ip_pool::CreateDedicatedIpPool::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::create_dedicated_ip_pool::CreateDedicatedIpPool::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::create_dedicated_ip_pool::CreateDedicatedIpPool::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -146,10 +140,7 @@ impl CreateDedicatedIpPoolFluentBuilder {
         self
     }
     /// <p>An object that defines the tags (keys and values) that you want to associate with the pool.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
@@ -163,10 +154,7 @@ impl CreateDedicatedIpPoolFluentBuilder {
         self
     }
     /// <p>The type of scaling mode.</p>
-    pub fn set_scaling_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::ScalingMode>,
-    ) -> Self {
+    pub fn set_scaling_mode(mut self, input: ::std::option::Option<crate::types::ScalingMode>) -> Self {
         self.inner = self.inner.set_scaling_mode(input);
         self
     }

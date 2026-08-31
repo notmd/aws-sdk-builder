@@ -45,7 +45,8 @@ impl ::aws_types::request_id::RequestId for CreateOAuth2TokenWithIamOutput {
 }
 impl CreateOAuth2TokenWithIamOutput {
     /// Creates a new builder-style object to manufacture [`CreateOAuth2TokenWithIamOutput`](crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIamOutput).
-    pub fn builder() -> crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIamOutputBuilder{
+    pub fn builder() -> crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIamOutputBuilder
+    {
         crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIamOutputBuilder::default()
     }
 }
@@ -125,27 +126,29 @@ impl CreateOAuth2TokenWithIamOutputBuilder {
         crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIamOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIamOutput {
-            access_token: self.access_token.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
+        ::std::result::Result::Ok(
+            crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIamOutput {
+                access_token: self.access_token.ok_or_else(|| {
+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "access_token",
                     "access_token was not specified but it is required when building CreateOAuth2TokenWithIamOutput",
                 )
-            })?,
-            token_type: self.token_type.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "token_type",
-                    "token_type was not specified but it is required when building CreateOAuth2TokenWithIamOutput",
-                )
-            })?,
-            expires_in: self.expires_in.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "expires_in",
-                    "expires_in was not specified but it is required when building CreateOAuth2TokenWithIamOutput",
-                )
-            })?,
-            _request_id: self._request_id,
-        })
+                })?,
+                token_type: self.token_type.ok_or_else(|| {
+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
+                        "token_type",
+                        "token_type was not specified but it is required when building CreateOAuth2TokenWithIamOutput",
+                    )
+                })?,
+                expires_in: self.expires_in.ok_or_else(|| {
+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
+                        "expires_in",
+                        "expires_in was not specified but it is required when building CreateOAuth2TokenWithIamOutput",
+                    )
+                })?,
+                _request_id: self._request_id,
+            },
+        )
     }
 }
 impl ::std::fmt::Debug for CreateOAuth2TokenWithIamOutputBuilder {

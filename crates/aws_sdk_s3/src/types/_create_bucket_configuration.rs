@@ -30,9 +30,7 @@ impl CreateBucketConfiguration {
     /// <p>For a list of the valid values for all of the Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn location_constraint(
-        &self,
-    ) -> ::std::option::Option<&crate::types::BucketLocationConstraint> {
+    pub fn location_constraint(&self) -> ::std::option::Option<&crate::types::BucketLocationConstraint> {
         self.location_constraint.as_ref()
     }
     /// <p>Specifies the location where the bucket will be created.</p>
@@ -65,9 +63,7 @@ impl CreateBucketConfiguration {
 }
 
 /// A builder for [`CreateBucketConfiguration`](crate::types::CreateBucketConfiguration).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateBucketConfigurationBuilder {
     pub(crate) location_constraint: ::std::option::Option<crate::types::BucketLocationConstraint>,
@@ -102,9 +98,7 @@ impl CreateBucketConfigurationBuilder {
     /// <p>For a list of the valid values for all of the Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_location_constraint(
-        &self,
-    ) -> &::std::option::Option<crate::types::BucketLocationConstraint> {
+    pub fn get_location_constraint(&self) -> &::std::option::Option<crate::types::BucketLocationConstraint> {
         &self.location_constraint
     }
     /// <p>Specifies the location where the bucket will be created.</p>
@@ -119,10 +113,7 @@ impl CreateBucketConfigurationBuilder {
     /// <p><b>Directory buckets </b> - The location type is Availability Zone or Local Zone. To use the Local Zone location type, your account must be enabled for Local Zones. Otherwise, you get an HTTP <code>403 Forbidden</code> error with the error code <code>AccessDenied</code>. To learn more, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/opt-in-directory-bucket-lz.html">Enable accounts for Local Zones</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is only supported by directory buckets.</p>
     /// </note>
-    pub fn set_location(
-        mut self,
-        input: ::std::option::Option<crate::types::LocationInfo>,
-    ) -> Self {
+    pub fn set_location(mut self, input: ::std::option::Option<crate::types::LocationInfo>) -> Self {
         self.location = input;
         self
     }
@@ -169,10 +160,7 @@ impl CreateBucketConfigurationBuilder {
     /// <p>An array of tags that you can apply to the bucket that you're creating. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access.</p>
     /// <p>You must have the <code>s3:TagResource</code> permission to create a general purpose bucket with tags or the <code>s3express:TagResource</code> permission to create a directory bucket with tags.</p>
     /// <p>When creating buckets with tags, note that tag-based conditions using <code>aws:ResourceTag</code> and <code>s3:BucketTag</code> condition keys are applicable only after ABAC is enabled on the bucket. To learn more, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging-enable-abac.html">Enabling ABAC in general purpose buckets</a>.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self
     }

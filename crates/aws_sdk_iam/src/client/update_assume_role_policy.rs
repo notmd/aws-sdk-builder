@@ -9,8 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateAssumeRolePolicyError>`](crate::operation::update_assume_role_policy::UpdateAssumeRolePolicyError)
     pub fn update_assume_role_policy(
         &self,
-    ) -> crate::operation::update_assume_role_policy::builders::UpdateAssumeRolePolicyFluentBuilder
-    {
-        crate::operation::update_assume_role_policy::builders::UpdateAssumeRolePolicyFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::update_assume_role_policy::builders::UpdateAssumeRolePolicyFluentBuilder {
+        crate::operation::update_assume_role_policy::builders::UpdateAssumeRolePolicyFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -53,8 +53,7 @@ pub struct AdminCreateUserInput {
     /// <p>Set to <code>RESEND</code> to resend the invitation message to a user that already exists, and to reset the temporary-password duration with a new temporary password. Set to <code>SUPPRESS</code> to suppress sending the message. You can specify only one value.</p>
     pub message_action: ::std::option::Option<crate::types::MessageActionType>,
     /// <p>Specify <code>EMAIL</code> if email will be used to send the welcome message. Specify <code>SMS</code> if the phone number will be used. The default value is <code>SMS</code>. You can specify more than one value.</p>
-    pub desired_delivery_mediums:
-        ::std::option::Option<::std::vec::Vec<crate::types::DeliveryMediumType>>,
+    pub desired_delivery_mediums: ::std::option::Option<::std::vec::Vec<crate::types::DeliveryMediumType>>,
     /// <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p>
     /// <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p>
     /// <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p><note>
@@ -68,9 +67,8 @@ pub struct AdminCreateUserInput {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub client_metadata: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub client_metadata:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl AdminCreateUserInput {
     /// <p>The ID of the user pool where you want to create a user.</p>
@@ -160,9 +158,7 @@ impl AdminCreateUserInput {
     /// </note>
     pub fn client_metadata(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.client_metadata.as_ref()
     }
 }
@@ -199,11 +195,9 @@ pub struct AdminCreateUserInputBuilder {
     pub(crate) temporary_password: ::std::option::Option<::std::string::String>,
     pub(crate) force_alias_creation: ::std::option::Option<bool>,
     pub(crate) message_action: ::std::option::Option<crate::types::MessageActionType>,
-    pub(crate) desired_delivery_mediums:
-        ::std::option::Option<::std::vec::Vec<crate::types::DeliveryMediumType>>,
-    pub(crate) client_metadata: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) desired_delivery_mediums: ::std::option::Option<::std::vec::Vec<crate::types::DeliveryMediumType>>,
+    pub(crate) client_metadata:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl AdminCreateUserInputBuilder {
     /// <p>The ID of the user pool where you want to create a user.</p>
@@ -334,9 +328,7 @@ impl AdminCreateUserInputBuilder {
     /// <p>The phone number where you want the user to receive their confirmation code and username. You must provide a value for <code>phone_number</code> when you want to set <code>phone_number_verified</code> to <code>true</code>, or if you set <code>SMS</code> in the <code>DesiredDeliveryMediums</code> parameter.</p>
     /// </dd>
     /// </dl>
-    pub fn get_user_attributes(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeType>> {
+    pub fn get_user_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeType>> {
         &self.user_attributes
     }
     /// Appends an item to `validation_data`.
@@ -365,9 +357,7 @@ impl AdminCreateUserInputBuilder {
     /// <p>Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger. This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.</p>
     /// <p>Your Lambda function can analyze this additional data and act on it. Your function can automatically confirm and verify select users or perform external API operations like logging user attributes and validation data to Amazon CloudWatch Logs.</p>
     /// <p>For more information about the pre sign-up Lambda trigger, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html">Pre sign-up Lambda trigger</a>.</p>
-    pub fn get_validation_data(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeType>> {
+    pub fn get_validation_data(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeType>> {
         &self.validation_data
     }
     /// <p>The user's temporary password. This password must conform to the password policy that you specified when you created the user pool.</p>
@@ -375,10 +365,7 @@ impl AdminCreateUserInputBuilder {
     /// <p>The temporary password is valid only once. To complete the Admin Create User flow, the user must enter the temporary password in the sign-in page, along with a new password to be used in all future sign-ins.</p>
     /// <p>If you don't specify a value, Amazon Cognito generates one for you unless you have passwordless options active for your user pool.</p>
     /// <p>The temporary password can only be used until the user account expiration limit that you set for your user pool. To reset the account after that time limit, you must call <code>AdminCreateUser</code> again and specify <code>RESEND</code> for the <code>MessageAction</code> parameter.</p>
-    pub fn temporary_password(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn temporary_password(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.temporary_password = ::std::option::Option::Some(input.into());
         self
     }
@@ -387,10 +374,7 @@ impl AdminCreateUserInputBuilder {
     /// <p>The temporary password is valid only once. To complete the Admin Create User flow, the user must enter the temporary password in the sign-in page, along with a new password to be used in all future sign-ins.</p>
     /// <p>If you don't specify a value, Amazon Cognito generates one for you unless you have passwordless options active for your user pool.</p>
     /// <p>The temporary password can only be used until the user account expiration limit that you set for your user pool. To reset the account after that time limit, you must call <code>AdminCreateUser</code> again and specify <code>RESEND</code> for the <code>MessageAction</code> parameter.</p>
-    pub fn set_temporary_password(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_temporary_password(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.temporary_password = input;
         self
     }
@@ -428,10 +412,7 @@ impl AdminCreateUserInputBuilder {
         self
     }
     /// <p>Set to <code>RESEND</code> to resend the invitation message to a user that already exists, and to reset the temporary-password duration with a new temporary password. Set to <code>SUPPRESS</code> to suppress sending the message. You can specify only one value.</p>
-    pub fn set_message_action(
-        mut self,
-        input: ::std::option::Option<crate::types::MessageActionType>,
-    ) -> Self {
+    pub fn set_message_action(mut self, input: ::std::option::Option<crate::types::MessageActionType>) -> Self {
         self.message_action = input;
         self
     }
@@ -506,9 +487,7 @@ impl AdminCreateUserInputBuilder {
     /// </note>
     pub fn set_client_metadata(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.client_metadata = input;
         self
@@ -528,9 +507,7 @@ impl AdminCreateUserInputBuilder {
     /// </note>
     pub fn get_client_metadata(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.client_metadata
     }
     /// Consumes the builder and constructs a [`AdminCreateUserInput`](crate::operation::admin_create_user::AdminCreateUserInput).

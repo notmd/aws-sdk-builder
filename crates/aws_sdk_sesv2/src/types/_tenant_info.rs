@@ -39,9 +39,7 @@ impl TenantInfo {
 }
 
 /// A builder for [`TenantInfo`](crate::types::TenantInfo).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TenantInfoBuilder {
     pub(crate) tenant_name: ::std::option::Option<::std::string::String>,
@@ -98,10 +96,7 @@ impl TenantInfoBuilder {
         self
     }
     /// <p>The date and time when the tenant was created.</p>
-    pub fn set_created_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_created_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.created_timestamp = input;
         self
     }

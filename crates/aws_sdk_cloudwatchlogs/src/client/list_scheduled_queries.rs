@@ -15,8 +15,6 @@ impl super::Client {
     pub fn list_scheduled_queries(
         &self,
     ) -> crate::operation::list_scheduled_queries::builders::ListScheduledQueriesFluentBuilder {
-        crate::operation::list_scheduled_queries::builders::ListScheduledQueriesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::list_scheduled_queries::builders::ListScheduledQueriesFluentBuilder::new(self.handle.clone())
     }
 }

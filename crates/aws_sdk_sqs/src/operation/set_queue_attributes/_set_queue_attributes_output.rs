@@ -12,16 +12,13 @@ impl ::aws_types::request_id::RequestId for SetQueueAttributesOutput {
 }
 impl SetQueueAttributesOutput {
     /// Creates a new builder-style object to manufacture [`SetQueueAttributesOutput`](crate::operation::set_queue_attributes::SetQueueAttributesOutput).
-    pub fn builder(
-    ) -> crate::operation::set_queue_attributes::builders::SetQueueAttributesOutputBuilder {
+    pub fn builder() -> crate::operation::set_queue_attributes::builders::SetQueueAttributesOutputBuilder {
         crate::operation::set_queue_attributes::builders::SetQueueAttributesOutputBuilder::default()
     }
 }
 
 /// A builder for [`SetQueueAttributesOutput`](crate::operation::set_queue_attributes::SetQueueAttributesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SetQueueAttributesOutputBuilder {
     _request_id: Option<String>,

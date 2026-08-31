@@ -22,9 +22,7 @@ impl GuardrailTopicPolicyAssessment {
 }
 
 /// A builder for [`GuardrailTopicPolicyAssessment`](crate::types::GuardrailTopicPolicyAssessment).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailTopicPolicyAssessmentBuilder {
     pub(crate) topics: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailTopic>>,
@@ -42,17 +40,12 @@ impl GuardrailTopicPolicyAssessmentBuilder {
         self
     }
     /// <p>The topics in the assessment.</p>
-    pub fn set_topics(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailTopic>>,
-    ) -> Self {
+    pub fn set_topics(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailTopic>>) -> Self {
         self.topics = input;
         self
     }
     /// <p>The topics in the assessment.</p>
-    pub fn get_topics(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailTopic>> {
+    pub fn get_topics(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailTopic>> {
         &self.topics
     }
     /// Consumes the builder and constructs a [`GuardrailTopicPolicyAssessment`](crate::types::GuardrailTopicPolicyAssessment).

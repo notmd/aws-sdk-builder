@@ -57,7 +57,9 @@ impl PutFunctionCodeSigningConfigFluentBuilder {
         }
     }
     /// Access the PutFunctionCodeSigningConfig as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_function_code_signing_config::builders::PutFunctionCodeSigningConfigInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::put_function_code_signing_config::builders::PutFunctionCodeSigningConfigInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,12 +83,17 @@ impl PutFunctionCodeSigningConfigFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::put_function_code_signing_config::PutFunctionCodeSigningConfig::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::put_function_code_signing_config::PutFunctionCodeSigningConfig::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::put_function_code_signing_config::PutFunctionCodeSigningConfig::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::put_function_code_signing_config::PutFunctionCodeSigningConfig::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -115,18 +122,12 @@ impl PutFunctionCodeSigningConfigFluentBuilder {
         self
     }
     /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
-    pub fn code_signing_config_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn code_signing_config_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.code_signing_config_arn(input.into());
         self
     }
     /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
-    pub fn set_code_signing_config_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_code_signing_config_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_code_signing_config_arn(input);
         self
     }
@@ -145,10 +146,7 @@ impl PutFunctionCodeSigningConfigFluentBuilder {
     /// <p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -163,10 +161,7 @@ impl PutFunctionCodeSigningConfigFluentBuilder {
     /// <p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }

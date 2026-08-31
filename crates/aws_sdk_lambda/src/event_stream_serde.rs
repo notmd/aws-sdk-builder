@@ -9,9 +9,7 @@ impl InvokeWithResponseStreamResponseEventUnmarshaller {
     }
 }
 #[cfg(feature = "op_invoke_with_response_stream")]
-impl ::aws_smithy_eventstream::frame::UnmarshallMessage
-    for InvokeWithResponseStreamResponseEventUnmarshaller
-{
+impl ::aws_smithy_eventstream::frame::UnmarshallMessage for InvokeWithResponseStreamResponseEventUnmarshaller {
     type Output = crate::types::InvokeWithResponseStreamResponseEvent;
     type Error = crate::types::error::InvokeWithResponseStreamResponseEventError;
     fn unmarshall(
@@ -25,21 +23,18 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage
         match response_headers.message_type.as_str() {
             "event" => match response_headers.smithy_type.as_str() {
                 "PayloadChunk" => {
-                    let mut builder =
-                        crate::types::builders::InvokeResponseStreamUpdateBuilder::default();
+                    let mut builder = crate::types::builders::InvokeResponseStreamUpdateBuilder::default();
                     let content_type = response_headers.content_type().unwrap_or_default();
                     if content_type != "application/octet-stream" {
                         return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(
                             "expected :content-type to be 'application/octet-stream', but was '{content_type}'"
                         )));
                     }
-                    builder = builder.set_payload(Some(
-                        ::aws_smithy_types::Blob::from_maybe_shared(message.payload().clone()),
-                    ));
+                    builder = builder.set_payload(Some(::aws_smithy_types::Blob::from_maybe_shared(
+                        message.payload().clone(),
+                    )));
                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        crate::types::InvokeWithResponseStreamResponseEvent::PayloadChunk(
-                            builder.build(),
-                        ),
+                        crate::types::InvokeWithResponseStreamResponseEvent::PayloadChunk(builder.build()),
                     ))
                 }
                 "InvokeComplete" => {
@@ -53,11 +48,9 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage
                         crate::types::InvokeWithResponseStreamResponseEvent::InvokeComplete(parsed),
                     ))
                 }
-                _unknown_variant => {
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        crate::types::InvokeWithResponseStreamResponseEvent::Unknown,
-                    ))
-                }
+                _unknown_variant => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+                    crate::types::InvokeWithResponseStreamResponseEvent::Unknown,
+                )),
             },
             "exception" => {
                 let generic = match crate::protocol_serde::parse_event_stream_error_metadata(message.payload()) {
@@ -69,15 +62,13 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage
                     }
                 };
                 Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
-                    crate::types::error::InvokeWithResponseStreamResponseEventError::generic(
-                        generic,
-                    ),
+                    crate::types::error::InvokeWithResponseStreamResponseEventError::generic(generic),
                 ))
             }
             value => {
-                return Err(::aws_smithy_eventstream::error::Error::unmarshalling(
-                    format!("unrecognized :message-type: {value}"),
-                ));
+                return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(
+                    "unrecognized :message-type: {value}"
+                )));
             }
         }
     }

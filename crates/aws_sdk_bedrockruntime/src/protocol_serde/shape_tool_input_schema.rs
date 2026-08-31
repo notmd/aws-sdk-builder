@@ -8,11 +8,7 @@ pub fn ser_tool_input_schema(
             object_3.key("json").document(inner);
         }
         crate::types::ToolInputSchema::Unknown => {
-            return Err(
-                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                    "ToolInputSchema",
-                ),
-            )
+            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("ToolInputSchema"))
         }
     }
     Ok(())

@@ -7,9 +7,9 @@ use std::{
     path::{Path, PathBuf},
 };
 use syn::{
-    Attribute, File, Item, Meta, UseTree,
     spanned::Spanned,
     visit::{self, Visit},
+    Attribute, File, Item, Meta, UseTree,
 };
 use thiserror::Error;
 use toml_edit::{Array, DocumentMut, Item as TomlItem, Table, Value};
@@ -24,9 +24,7 @@ pub struct Coverage {
 
 impl Coverage {
     pub fn is_complete(self) -> bool {
-        self.total == self.transformed + self.missing + self.ambiguous
-            && self.missing == 0
-            && self.ambiguous == 0
+        self.total == self.transformed + self.missing + self.ambiguous && self.missing == 0 && self.ambiguous == 0
     }
 }
 
@@ -39,10 +37,7 @@ pub struct TransformOutput {
 #[derive(Debug, Error)]
 pub enum TransformError {
     #[error("{path}: {source}")]
-    Io {
-        path: PathBuf,
-        source: std::io::Error,
-    },
+    Io { path: PathBuf, source: std::io::Error },
     #[error("{path}: invalid Rust: {message}")]
     Rust { path: PathBuf, message: String },
     #[error("{path}: invalid Cargo.toml: {message}")]
@@ -95,10 +90,7 @@ struct DocumentationVisitor<'a> {
 impl<'ast> Visit<'ast> for SuperModuleReferenceVisitor {
     fn visit_path(&mut self, path: &'ast syn::Path) {
         let mut segments = path.segments.iter();
-        if segments
-            .next()
-            .is_some_and(|segment| segment.ident == "super")
-        {
+        if segments.next().is_some_and(|segment| segment.ident == "super") {
             if let Some(segment) = segments.next() {
                 self.names.insert(segment.ident.to_string());
             }
@@ -134,12 +126,8 @@ fn normalized_type_key(segments: &[String], types_index: usize) -> Option<String
     let (namespace, name) = match suffix {
         [module, name] if module.starts_with('_') => ("types", name.as_str()),
         [module, name] if module == "builders" => ("types", name.as_str()),
-        [error, module, name] if error == "error" && module.starts_with('_') => {
-            ("types::error", name.as_str())
-        }
-        [error, module, name] if error == "error" && module == "builders" => {
-            ("types::error", name.as_str())
-        }
+        [error, module, name] if error == "error" && module.starts_with('_') => ("types::error", name.as_str()),
+        [error, module, name] if error == "error" && module == "builders" => ("types::error", name.as_str()),
         _ => return None,
     };
     let name = name.strip_suffix("Builder").unwrap_or(name);
@@ -150,10 +138,10 @@ impl<'ast> Visit<'ast> for OperationModuleReferenceVisitor {
     fn visit_path(&mut self, path: &'ast syn::Path) {
         let mut segments = path.segments.iter();
         while let Some(segment) = segments.next() {
-            if segment.ident == "operation"
-                && let Some(module) = segments.next()
-            {
-                self.modules.insert(module.ident.to_string());
+            if segment.ident == "operation" {
+                if let Some(module) = segments.next() {
+                    self.modules.insert(module.ident.to_string());
+                }
             }
         }
         visit::visit_path(self, path);
@@ -162,20 +150,16 @@ impl<'ast> Visit<'ast> for OperationModuleReferenceVisitor {
 
 impl<'ast> Visit<'ast> for DocumentationVisitor<'_> {
     fn visit_attribute(&mut self, attribute: &'ast Attribute) {
-        if attribute.path().is_ident("doc")
-            && let (Ok(start), Ok(end)) = (
+        if attribute.path().is_ident("doc") {
+            if let (Ok(start), Ok(end)) = (
                 source_offset(self.source, attribute.span().start()),
                 source_offset(self.source, attribute.span().end()),
-            )
-        {
-            let source_attribute = &self.source[start..end];
-            let replaced = replace_identifier(
-                source_attribute,
-                self.old_library_name,
-                self.new_library_name,
-            );
-            if replaced != source_attribute {
-                self.edits.push((start, end, replaced));
+            ) {
+                let source_attribute = &self.source[start..end];
+                let replaced = replace_identifier(source_attribute, self.old_library_name, self.new_library_name);
+                if replaced != source_attribute {
+                    self.edits.push((start, end, replaced));
+                }
             }
         }
         visit::visit_attribute(self, attribute);
@@ -226,11 +210,7 @@ impl<'ast> Visit<'ast> for OperationPathVisitor<'_> {
         for index in 0..segments.len() {
             if segments.get(index).map(String::as_str) == Some("operation") {
                 if let Some(module) = segments.get(index + 1) {
-                    if let Some(operation) = self
-                        .operations
-                        .iter()
-                        .find(|operation| &operation.module == module)
-                    {
+                    if let Some(operation) = self.operations.iter().find(|operation| &operation.module == module) {
                         self.owners.insert(operation.feature.clone());
                     }
                 }
@@ -256,11 +236,7 @@ impl<'ast> Visit<'ast> for OperationPathVisitor<'_> {
         let method = call.method.to_string();
         self.method_calls.insert(method.clone());
         if is_client_receiver(&call.receiver) {
-            if let Some(operation) = self
-                .operations
-                .iter()
-                .find(|operation| operation.module == method)
-            {
+            if let Some(operation) = self.operations.iter().find(|operation| operation.module == method) {
                 self.owners.insert(operation.feature.clone());
             }
         }
@@ -309,21 +285,18 @@ pub fn transform_tree(
     if !coverage.is_complete() {
         return Err(TransformError::IncompleteMapping { coverage });
     }
-    let mut changed_files =
-        prune_unselected_operation_surface(crate_root, &source_files, operations)?;
+    let mut changed_files = prune_unselected_operation_surface(crate_root, &source_files, operations)?;
     if !changed_files.is_empty() {
         source_files = collect_source_files(&source_root, crate_root)?;
     }
-    let redundant_cfg_files =
-        remove_redundant_operation_child_cfgs(crate_root, &source_files, operations)?;
+    let redundant_cfg_files = remove_redundant_operation_child_cfgs(crate_root, &source_files, operations)?;
     changed_files.extend(redundant_cfg_files);
     if !changed_files.is_empty() {
         source_files = collect_source_files(&source_root, crate_root)?;
     }
 
     let old_library_name = cargo_library_name(&crate_root.join("Cargo.toml"))?;
-    let documentation_files =
-        rewrite_documentation(crate_root, &source_files, &old_library_name, library_name)?;
+    let documentation_files = rewrite_documentation(crate_root, &source_files, &old_library_name, library_name)?;
     changed_files.extend(documentation_files);
     if !changed_files.is_empty() {
         source_files = collect_source_files(&source_root, crate_root)?;
@@ -338,23 +311,16 @@ pub fn transform_tree(
     let mut edits = BTreeMap::<String, BTreeMap<usize, BTreeSet<String>>>::new();
     let mut statement_edits = StatementEdits::new();
     for source_file in &source_files {
-        let child_of_parent_gated_module =
-            is_parent_gated_child_path(&source_file.relative, operations)
-                || is_type_definition_child_path(&source_file.relative);
+        let child_of_parent_gated_module = is_parent_gated_child_path(&source_file.relative, operations)
+            || is_type_definition_child_path(&source_file.relative);
         let mut direct_owners = path_owners(&source_file.relative, operations);
         if is_protocol_serde_path(&source_file.relative) {
-            if let Some(module_owners) =
-                symbol_owners.get(&source_module_path(&source_file.relative))
-            {
+            if let Some(module_owners) = symbol_owners.get(&source_module_path(&source_file.relative)) {
                 direct_owners.extend(module_owners.iter().cloned());
             }
         }
-        let method_owners = collect_method_owners(
-            &source_file.syntax.items,
-            operations,
-            &waiter_owners,
-            &symbol_owners,
-        );
+        let method_owners =
+            collect_method_owners(&source_file.syntax.items, operations, &waiter_owners, &symbol_owners);
         for item in &source_file.syntax.items {
             let mut owners = direct_owners.clone();
             if is_type_root_path(&source_file.relative) {
@@ -377,11 +343,7 @@ pub fn transform_tree(
             if direct_owners.is_empty() {
                 owners.extend(item_visitor.owners);
                 if owners.is_empty() {
-                    owners.extend(operation_error_owners(
-                        &source_file.relative,
-                        item,
-                        &type_owners,
-                    ));
+                    owners.extend(operation_error_owners(&source_file.relative, item, &type_owners));
                 }
                 if owners.is_empty() && is_type_ownership_path(&source_file.relative) {
                     owners.extend(type_reference_owners(item, &type_owners));
@@ -393,19 +355,17 @@ pub fn transform_tree(
                         &operation_error_names,
                     ));
                 }
-                if owners.is_empty()
-                    && source_file.relative == "src/protocol_serde.rs"
-                    && let Item::Fn(function) = item
-                    && let Some(helper_owners) =
-                        symbol_owners.get(&format!("protocol_serde::{}", function.sig.ident))
-                {
-                    owners.extend(helper_owners.iter().cloned());
+                if owners.is_empty() && source_file.relative == "src/protocol_serde.rs" {
+                    if let Item::Fn(function) = item {
+                        if let Some(helper_owners) =
+                            symbol_owners.get(&format!("protocol_serde::{}", function.sig.ident))
+                        {
+                            owners.extend(helper_owners.iter().cloned());
+                        }
+                    }
                 }
                 if owners.is_empty() {
-                    owners.extend(protocol_reference_owners(
-                        &item_visitor.references,
-                        &symbol_owners,
-                    ));
+                    owners.extend(protocol_reference_owners(&item_visitor.references, &symbol_owners));
                 }
             }
             if source_file.relative == "src/error_meta.rs" {
@@ -429,8 +389,7 @@ pub fn transform_tree(
             if !child_of_parent_gated_module {
                 if let Item::Impl(item_impl) = item {
                     let trait_method_owners = impl_method_owners(item_impl, &method_owners);
-                    let header_owners =
-                        impl_header_owners(item_impl, operations, &waiter_owners, &symbol_owners);
+                    let header_owners = impl_header_owners(item_impl, operations, &waiter_owners, &symbol_owners);
                     if direct_owners.is_empty() && !header_owners.is_empty() {
                         if !has_matching_cfg(item_attrs(item), &header_owners) {
                             add_edit(
@@ -443,10 +402,7 @@ pub fn transform_tree(
                     } else if direct_owners.is_empty()
                         && item_impl.trait_.is_some()
                         && !trait_method_owners.is_empty()
-                        && item_impl
-                            .items
-                            .iter()
-                            .all(|item| matches!(item, syn::ImplItem::Fn(_)))
+                        && item_impl.items.iter().all(|item| matches!(item, syn::ImplItem::Fn(_)))
                     {
                         collect_impl_method_edits(
                             &source_file.relative,
@@ -553,20 +509,13 @@ pub fn transform_tree(
             path: crate_root.join(&source_file.relative),
             message: error.to_string(),
         })?;
-        fs::write(crate_root.join(&source_file.relative), updated).map_err(|source| {
-            TransformError::Io {
-                path: crate_root.join(&source_file.relative),
-                source,
-            }
+        fs::write(crate_root.join(&source_file.relative), updated).map_err(|source| TransformError::Io {
+            path: crate_root.join(&source_file.relative),
+            source,
         })?;
         changed_files.push(source_file.relative.clone());
     }
-    rewrite_cargo_named(
-        &crate_root.join("Cargo.toml"),
-        package_name,
-        library_name,
-        operations,
-    )?;
+    rewrite_cargo_named(&crate_root.join("Cargo.toml"), package_name, library_name, operations)?;
     changed_files.push("Cargo.toml".to_owned());
     source_files = collect_source_files(&source_root, crate_root)?;
     for source_file in &source_files {
@@ -594,10 +543,7 @@ fn mapping_coverage(
         ..Coverage::default()
     };
     for operation in operations {
-        let operation_count = declarations
-            .iter()
-            .filter(|name| *name == &operation.module)
-            .count();
+        let operation_count = declarations.iter().filter(|name| *name == &operation.module).count();
         let client_count = client_declarations
             .iter()
             .filter(|name| *name == &operation.module)
@@ -611,10 +557,7 @@ fn mapping_coverage(
     Ok(coverage)
 }
 
-fn collect_source_files(
-    source_root: &Path,
-    crate_root: &Path,
-) -> Result<Vec<SourceFile>, TransformError> {
+fn collect_source_files(source_root: &Path, crate_root: &Path) -> Result<Vec<SourceFile>, TransformError> {
     let mut paths = Vec::new();
     collect_paths(source_root, &mut paths).map_err(|source| TransformError::Io {
         path: source_root.to_owned(),
@@ -679,9 +622,7 @@ fn prune_unselected_operation_surface(
     let mut removals = BTreeMap::<String, Vec<(usize, usize)>>::new();
     let mut removed_files = BTreeSet::new();
     for file in files {
-        if operation_or_client_module(file.relative.as_str())
-            .is_some_and(|module| unselected.contains(module))
-        {
+        if operation_or_client_module(file.relative.as_str()).is_some_and(|module| unselected.contains(module)) {
             removed_files.insert(file.relative.clone());
             continue;
         }
@@ -696,12 +637,7 @@ fn prune_unselected_operation_surface(
 
         match file.relative.as_str() {
             "src/client.rs" => {
-                collect_client_method_removals(
-                    &file.source,
-                    &file.syntax.items,
-                    &unselected,
-                    &mut removals,
-                )?;
+                collect_client_method_removals(&file.source, &file.syntax.items, &unselected, &mut removals)?;
             }
             "src/protocol_serde.rs" | "src/waiters.rs" => {
                 for item in &file.syntax.items {
@@ -721,26 +657,17 @@ fn prune_unselected_operation_surface(
                         continue;
                     };
                     let child_references = operation_module_references(&child.syntax);
-                    let stale_operation_shape =
-                        is_unselected_protocol_shape(&module.ident.to_string(), &unselected);
+                    let stale_operation_shape = is_unselected_protocol_shape(&module.ident.to_string(), &unselected);
                     if child_references.is_disjoint(&selected) && stale_operation_shape {
                         removed_files.insert(child.relative.clone());
-                        add_removal(
-                            &mut removals,
-                            &file.relative,
-                            item_range(item, &file.source)?,
-                        );
+                        add_removal(&mut removals, &file.relative, item_range(item, &file.source)?);
                     }
                 }
             }
             _ => {
                 for item in &file.syntax.items {
                     if !operation_module_references(item).is_disjoint(&unselected) {
-                        add_removal(
-                            &mut removals,
-                            &file.relative,
-                            item_range(item, &file.source)?,
-                        );
+                        add_removal(&mut removals, &file.relative, item_range(item, &file.source)?);
                     }
                 }
             }
@@ -771,11 +698,9 @@ fn prune_unselected_operation_surface(
         }
         let updated = apply_removals(&file.source, ranges, &file.relative)?;
         if updated != file.source {
-            fs::write(crate_root.join(&file.relative), updated).map_err(|source| {
-                TransformError::Io {
-                    path: crate_root.join(&file.relative),
-                    source,
-                }
+            fs::write(crate_root.join(&file.relative), updated).map_err(|source| TransformError::Io {
+                path: crate_root.join(&file.relative),
+                source,
             })?;
             changed.insert(file.relative.clone());
         }
@@ -794,9 +719,7 @@ fn is_unselected_protocol_shape(module: &str, unselected: &BTreeSet<String>) -> 
         return false;
     };
     unselected.iter().any(|operation| {
-        shape == operation
-            || shape == format!("{operation}_input")
-            || shape == format!("{operation}_output")
+        shape == operation || shape == format!("{operation}_input") || shape == format!("{operation}_output")
     })
 }
 
@@ -893,11 +816,7 @@ fn collect_client_method_removals(
     Ok(())
 }
 
-fn module_declarations(
-    files: &[SourceFile],
-    relative: &str,
-    crate_root: &Path,
-) -> Result<Vec<String>, TransformError> {
+fn module_declarations(files: &[SourceFile], relative: &str, crate_root: &Path) -> Result<Vec<String>, TransformError> {
     let Some(file) = files.iter().find(|file| file.relative == relative) else {
         return Err(TransformError::Invalid {
             path: crate_root.join(relative),
@@ -931,10 +850,7 @@ fn operation_symbols(
             for item in &file.syntax.items {
                 if let Item::Fn(function) = item {
                     symbols
-                        .entry(join_symbol_path(
-                            &module_path,
-                            &function.sig.ident.to_string(),
-                        ))
+                        .entry(join_symbol_path(&module_path, &function.sig.ident.to_string()))
                         .or_default();
                 }
             }
@@ -954,11 +870,7 @@ fn operation_symbols(
                 }
             }
             if !file_owners.is_empty() {
-                add_symbol(
-                    &mut symbols,
-                    &source_module_path(&file.relative),
-                    &file_owners,
-                );
+                add_symbol(&mut symbols, &source_module_path(&file.relative), &file_owners);
             }
             collect_operation_symbols(
                 &file.syntax.items,
@@ -1038,13 +950,7 @@ fn collect_operation_symbols(
                     };
                     child_visitor.visit_item(child);
                     let child_owners = if module_owners.is_empty() {
-                        inferred_item_owners(
-                            &module_path,
-                            child,
-                            &child_visitor,
-                            type_owners,
-                            known_symbols,
-                        )
+                        inferred_item_owners(&module_path, child, &child_visitor, type_owners, known_symbols)
                     } else {
                         module_owners.clone()
                     };
@@ -1083,10 +989,7 @@ fn collect_operation_symbols(
     }
 }
 
-fn build_type_owners(
-    files: &[SourceFile],
-    operations: &[Operation],
-) -> BTreeMap<String, BTreeSet<String>> {
+fn build_type_owners(files: &[SourceFile], operations: &[Operation]) -> BTreeMap<String, BTreeSet<String>> {
     let mut owners = BTreeMap::<String, BTreeSet<String>>::new();
     for file in files {
         if !file.relative.starts_with("src/operation/") {
@@ -1099,10 +1002,7 @@ fn build_type_owners(
         let mut visitor = TypeReferenceVisitor::default();
         visitor.visit_file(&file.syntax);
         for reference in visitor.references {
-            owners
-                .entry(reference)
-                .or_default()
-                .extend(file_owners.iter().cloned());
+            owners.entry(reference).or_default().extend(file_owners.iter().cloned());
         }
     }
     let type_modules = type_module_keys(files);
@@ -1125,10 +1025,7 @@ fn build_type_owners(
             visitor.visit_file(&file.syntax);
             for reference in visitor.references {
                 if reference.starts_with("types::") {
-                    owners
-                        .entry(reference)
-                        .or_default()
-                        .extend(type_owners.iter().cloned());
+                    owners.entry(reference).or_default().extend(type_owners.iter().cloned());
                 }
             }
         }
@@ -1155,10 +1052,7 @@ fn type_module_keys(files: &[SourceFile]) -> BTreeMap<String, BTreeSet<String>> 
                 let Some((module, key)) = type_import_parts(&path, false) else {
                     continue;
                 };
-                modules
-                    .entry(module)
-                    .or_insert_with(BTreeSet::new)
-                    .insert(key);
+                modules.entry(module).or_insert_with(BTreeSet::new).insert(key);
             }
         }
     }
@@ -1217,10 +1111,7 @@ fn type_root_item_owners(
     files: &[SourceFile],
     type_owners: &BTreeMap<String, BTreeSet<String>>,
 ) -> BTreeSet<String> {
-    let builder = matches!(
-        relative,
-        "src/types/builders.rs" | "src/types/error/builders.rs"
-    );
+    let builder = matches!(relative, "src/types/builders.rs" | "src/types/error/builders.rs");
     match item {
         Item::Use(item_use) => {
             let mut paths = Vec::new();
@@ -1256,10 +1147,7 @@ fn error_variant_owners(
     type_owners: &BTreeMap<String, BTreeSet<String>>,
 ) -> BTreeMap<String, BTreeSet<String>> {
     let mut owners = BTreeMap::new();
-    let Some(file) = files
-        .iter()
-        .find(|file| file.relative == "src/error_meta.rs")
-    else {
+    let Some(file) = files.iter().find(|file| file.relative == "src/error_meta.rs") else {
         return owners;
     };
     for item in &file.syntax.items {
@@ -1285,11 +1173,7 @@ fn type_reference_owner_set(
     references: &BTreeSet<String>,
     type_owners: &BTreeMap<String, BTreeSet<String>>,
 ) -> BTreeSet<String> {
-    intersect_owner_sets(
-        references
-            .iter()
-            .filter_map(|reference| type_owners.get(reference)),
-    )
+    intersect_owner_sets(references.iter().filter_map(|reference| type_owners.get(reference)))
 }
 
 fn collect_error_variant_edits(
@@ -1320,11 +1204,7 @@ fn collect_error_variant_edits(
                 path: PathBuf::from(relative),
                 message: "empty Rust enum variant".to_owned(),
             })?;
-        let start_span = variant
-            .attrs
-            .first()
-            .map(Spanned::span)
-            .unwrap_or_else(|| first.span());
+        let start_span = variant.attrs.first().map(Spanned::span).unwrap_or_else(|| first.span());
         add_edit(
             edits,
             relative,
@@ -1382,9 +1262,7 @@ fn match_arm_variant(pattern: &syn::Pat) -> Option<String> {
         syn::Pat::Reference(pattern) => return match_arm_variant(&pattern.pat),
         _ => return None,
     };
-    path.segments
-        .last()
-        .map(|segment| segment.ident.to_string())
+    path.segments.last().map(|segment| segment.ident.to_string())
 }
 
 fn collect_error_match_arm_edits(
@@ -1436,15 +1314,14 @@ fn inferred_item_owners(
     if !declared_owners.is_empty() {
         return declared_owners;
     }
-    if parent_path == "protocol_serde"
-        && let Item::Fn(function) = item
-        && let Some(owners) = known_symbols.get(&join_symbol_path(
-            parent_path,
-            &function.sig.ident.to_string(),
-        ))
-        && !owners.is_empty()
-    {
-        return owners.clone();
+    if parent_path == "protocol_serde" {
+        if let Item::Fn(function) = item {
+            if let Some(owners) = known_symbols.get(&join_symbol_path(parent_path, &function.sig.ident.to_string())) {
+                if !owners.is_empty() {
+                    return owners.clone();
+                }
+            }
+        }
     }
     if is_type_ownership_module(parent_path) {
         let type_reference_owners = type_reference_owners(item, type_owners);
@@ -1465,18 +1342,13 @@ fn inferred_item_owners(
     owners
 }
 
-fn type_reference_owners(
-    item: &Item,
-    type_owners: &BTreeMap<String, BTreeSet<String>>,
-) -> BTreeSet<String> {
+fn type_reference_owners(item: &Item, type_owners: &BTreeMap<String, BTreeSet<String>>) -> BTreeSet<String> {
     let mut visitor = TypeReferenceVisitor::default();
     visitor.visit_item(item);
     type_reference_owner_set(&visitor.references, type_owners)
 }
 
-fn intersect_owner_sets<'a>(
-    owner_sets: impl IntoIterator<Item = &'a BTreeSet<String>>,
-) -> BTreeSet<String> {
+fn intersect_owner_sets<'a>(owner_sets: impl IntoIterator<Item = &'a BTreeSet<String>>) -> BTreeSet<String> {
     let mut owner_sets = owner_sets.into_iter();
     let Some(first) = owner_sets.next() else {
         return BTreeSet::new();
@@ -1552,9 +1424,7 @@ fn operation_error_names(files: &[SourceFile]) -> BTreeSet<String> {
         .into_iter()
         .flat_map(|file| file.syntax.items.iter())
         .filter_map(|item| match item {
-            Item::Enum(item)
-                if item.ident != "Error" && item.ident.to_string().ends_with("Error") =>
-            {
+            Item::Enum(item) if item.ident != "Error" && item.ident.to_string().ends_with("Error") => {
                 Some(item.ident.to_string())
             }
             _ => None,
@@ -1566,11 +1436,7 @@ fn item_type_name(item: &Item) -> Option<String> {
     match item {
         Item::Enum(item) => Some(item.ident.to_string()),
         Item::Impl(item) => match item.self_ty.as_ref() {
-            syn::Type::Path(path) => path
-                .path
-                .segments
-                .last()
-                .map(|segment| segment.ident.to_string()),
+            syn::Type::Path(path) => path.path.segments.last().map(|segment| segment.ident.to_string()),
             _ => None,
         },
         _ => None,
@@ -1584,16 +1450,10 @@ fn is_type_ownership_path(relative: &str) -> bool {
 }
 
 fn is_type_ownership_module(module: &str) -> bool {
-    module == "event_stream_serde"
-        || module == "protocol_serde"
-        || module.starts_with("protocol_serde::")
+    module == "event_stream_serde" || module == "protocol_serde" || module.starts_with("protocol_serde::")
 }
 
-fn add_symbol(
-    symbols: &mut BTreeMap<String, BTreeSet<String>>,
-    name: &str,
-    owners: &BTreeSet<String>,
-) {
+fn add_symbol(symbols: &mut BTreeMap<String, BTreeSet<String>>, name: &str, owners: &BTreeSet<String>) {
     symbols
         .entry(name.to_owned())
         .or_default()
@@ -1618,10 +1478,7 @@ fn protocol_reference_owners(
 
 fn is_protocol_shape_symbol(symbol: &str) -> bool {
     let mut segments = symbol.split("::");
-    segments.next() == Some("protocol_serde")
-        && segments
-            .next()
-            .is_some_and(|segment| segment.starts_with("shape_"))
+    segments.next() == Some("protocol_serde") && segments.next().is_some_and(|segment| segment.starts_with("shape_"))
 }
 
 fn operation_symbol_reference_owners(
@@ -1686,10 +1543,7 @@ fn is_protocol_serde_path(relative: &str) -> bool {
 fn is_type_root_path(relative: &str) -> bool {
     matches!(
         relative,
-        "src/types.rs"
-            | "src/types/builders.rs"
-            | "src/types/error.rs"
-            | "src/types/error/builders.rs"
+        "src/types.rs" | "src/types/builders.rs" | "src/types/error.rs" | "src/types/error/builders.rs"
     )
 }
 
@@ -1701,20 +1555,12 @@ fn is_type_definition_child_path(relative: &str) -> bool {
 fn local_module_roots(files: &[SourceFile]) -> BTreeSet<String> {
     files
         .iter()
-        .filter_map(|file| {
-            source_module_path(&file.relative)
-                .split("::")
-                .next()
-                .map(str::to_owned)
-        })
+        .filter_map(|file| source_module_path(&file.relative).split("::").next().map(str::to_owned))
         .filter(|root| !root.is_empty())
         .collect()
 }
 
-fn waiter_owners(
-    files: &[SourceFile],
-    operations: &[Operation],
-) -> BTreeMap<String, BTreeSet<String>> {
+fn waiter_owners(files: &[SourceFile], operations: &[Operation]) -> BTreeMap<String, BTreeSet<String>> {
     let mut result = BTreeMap::new();
     for file in files {
         let Some(relative) = file.relative.strip_prefix("src/waiters/") else {
@@ -1773,11 +1619,7 @@ fn is_operation_or_client_child_path(relative: &str, operations: &[Operation]) -
         && components
             .next()
             .map(|module| module.trim_end_matches(".rs"))
-            .is_some_and(|module| {
-                operations
-                    .iter()
-                    .any(|operation| operation.module == module)
-            })
+            .is_some_and(|module| operations.iter().any(|operation| operation.module == module))
 }
 
 fn parent_operation_feature<'a>(relative: &str, operations: &'a [Operation]) -> Option<&'a str> {
@@ -1868,11 +1710,9 @@ fn remove_redundant_operation_child_cfgs(
         if updated == file.source {
             continue;
         }
-        fs::write(crate_root.join(&file.relative), updated).map_err(|source| {
-            TransformError::Io {
-                path: crate_root.join(&file.relative),
-                source,
-            }
+        fs::write(crate_root.join(&file.relative), updated).map_err(|source| TransformError::Io {
+            path: crate_root.join(&file.relative),
+            source,
         })?;
         changed.push(file.relative.clone());
     }
@@ -1915,11 +1755,9 @@ fn collect_module_edits(
     let child_relative = if module.content.is_some() {
         current_virtual.clone()
     } else {
-        resolve_external_module(relative, &module.ident.to_string(), files).ok_or_else(|| {
-            TransformError::Invalid {
-                path: PathBuf::from(relative),
-                message: format!("module `{}` has no source file", module.ident),
-            }
+        resolve_external_module(relative, &module.ident.to_string(), files).ok_or_else(|| TransformError::Invalid {
+            path: PathBuf::from(relative),
+            message: format!("module `{}` has no source file", module.ident),
         })?
     };
     let child_path = if child_relative.ends_with(".rs") {
@@ -2016,11 +1854,8 @@ impl<'ast> Visit<'ast> for StatementCfgVisitor<'_> {
             references: BTreeSet::new(),
         };
         visitor.visit_stmt(statement);
-        let owners = operation_symbol_reference_owners(
-            &visitor.references,
-            self.symbol_owners,
-            self.local_module_roots,
-        );
+        let owners =
+            operation_symbol_reference_owners(&visitor.references, self.symbol_owners, self.local_module_roots);
         if !owners.is_empty() && !has_matching_cfg(statement_attrs(statement), &owners) {
             match statement_range(statement, self.source) {
                 Ok((start, end)) => self
@@ -2076,11 +1911,7 @@ fn statement_attrs(statement: &syn::Stmt) -> &[Attribute] {
 }
 
 fn statement_range(statement: &syn::Stmt, source: &str) -> Result<(usize, usize), TransformError> {
-    token_range(
-        statement.to_token_stream(),
-        statement_attrs(statement),
-        source,
-    )
+    token_range(statement.to_token_stream(), statement_attrs(statement), source)
 }
 
 fn collect_inline_item_edits(
@@ -2095,8 +1926,7 @@ fn collect_inline_item_edits(
 ) -> Result<(), TransformError> {
     for item in items {
         if let Item::Impl(item_impl) = item {
-            let header_owners =
-                impl_header_owners(item_impl, operations, waiter_owners, symbol_owners);
+            let header_owners = impl_header_owners(item_impl, operations, waiter_owners, symbol_owners);
             let method_impl_owners = impl_method_owners(item_impl, method_owners);
             if !header_owners.is_empty() {
                 if !has_matching_cfg(item_attrs(item), &header_owners) {
@@ -2104,12 +1934,7 @@ fn collect_inline_item_edits(
                 }
             } else if item_impl.trait_.is_some() && !method_impl_owners.is_empty() {
                 if !has_matching_cfg(item_attrs(item), &method_impl_owners) {
-                    add_edit(
-                        edits,
-                        relative,
-                        item_start(item, source)?,
-                        method_impl_owners,
-                    );
+                    add_edit(edits, relative, item_start(item, source)?, method_impl_owners);
                 }
             } else {
                 collect_impl_method_edits(relative, source, item_impl, method_owners, edits)?;
@@ -2161,18 +1986,15 @@ fn collect_impl_method_edits(
         let key = method_key(&context, &method.sig.ident.to_string());
         let owners = method_owners.get(&key).cloned().unwrap_or_default();
         if !owners.is_empty() && !has_matching_cfg(&method.attrs, &owners) {
-            let first = method.to_token_stream().into_iter().next().ok_or_else(|| {
-                TransformError::Rust {
+            let first = method
+                .to_token_stream()
+                .into_iter()
+                .next()
+                .ok_or_else(|| TransformError::Rust {
                     path: PathBuf::from(relative),
                     message: "empty Rust impl item".to_owned(),
-                }
-            })?;
-            add_edit(
-                edits,
-                relative,
-                source_offset(source, first.span().start())?,
-                owners,
-            );
+                })?;
+            add_edit(edits, relative, source_offset(source, first.span().start())?, owners);
         }
     }
     Ok(())
@@ -2231,15 +2053,14 @@ fn collect_trait_method_edits(
         if visitor.owners.is_empty() || has_matching_cfg(&method.attrs, &visitor.owners) {
             continue;
         }
-        let first =
-            method
-                .to_token_stream()
-                .into_iter()
-                .next()
-                .ok_or_else(|| TransformError::Rust {
-                    path: PathBuf::from(relative),
-                    message: "empty Rust trait item".to_owned(),
-                })?;
+        let first = method
+            .to_token_stream()
+            .into_iter()
+            .next()
+            .ok_or_else(|| TransformError::Rust {
+                path: PathBuf::from(relative),
+                message: "empty Rust trait item".to_owned(),
+            })?;
         add_edit(
             edits,
             relative,
@@ -2257,13 +2078,7 @@ fn collect_method_owners(
     symbol_owners: &BTreeMap<String, BTreeSet<String>>,
 ) -> MethodOwnership {
     let mut methods = BTreeMap::<MethodKey, (BTreeSet<String>, BTreeSet<String>)>::new();
-    collect_method_info(
-        items,
-        operations,
-        waiter_owners,
-        symbol_owners,
-        &mut methods,
-    );
+    collect_method_info(items, operations, waiter_owners, symbol_owners, &mut methods);
     loop {
         let mut changed = false;
         let current = methods.clone();
@@ -2279,10 +2094,7 @@ fn collect_method_owners(
                     trait_type: key.trait_type.clone(),
                     name: call.clone(),
                 };
-                if let Some((called_owners, _)) = current
-                    .get(&inherent_key)
-                    .or_else(|| current.get(&trait_key))
-                {
+                if let Some((called_owners, _)) = current.get(&inherent_key).or_else(|| current.get(&trait_key)) {
                     let before = owners.len();
                     owners.extend(called_owners.iter().cloned());
                     changed |= before != owners.len();
@@ -2293,10 +2105,7 @@ fn collect_method_owners(
             break;
         }
     }
-    methods
-        .into_iter()
-        .map(|(key, (owners, _))| (key, owners))
-        .collect()
+    methods.into_iter().map(|(key, (owners, _))| (key, owners)).collect()
 }
 
 fn impl_header_owners(
@@ -2321,18 +2130,13 @@ fn impl_header_owners(
     visitor.owners
 }
 
-fn impl_method_owners(
-    item_impl: &syn::ItemImpl,
-    method_owners: &MethodOwnership,
-) -> BTreeSet<String> {
+fn impl_method_owners(item_impl: &syn::ItemImpl, method_owners: &MethodOwnership) -> BTreeSet<String> {
     let context = impl_context(item_impl);
     item_impl
         .items
         .iter()
         .filter_map(|item| match item {
-            syn::ImplItem::Fn(method) => {
-                method_owners.get(&method_key(&context, &method.sig.ident.to_string()))
-            }
+            syn::ImplItem::Fn(method) => method_owners.get(&method_key(&context, &method.sig.ident.to_string())),
             _ => None,
         })
         .flat_map(|owners| owners.iter().cloned())
@@ -2381,10 +2185,7 @@ fn collect_method_info(
 
 fn resolve_external_module(relative: &str, name: &str, files: &[SourceFile]) -> Option<String> {
     let virtual_path = module_virtual_path(relative, name);
-    let candidates = [
-        format!("{virtual_path}.rs"),
-        format!("{virtual_path}/mod.rs"),
-    ];
+    let candidates = [format!("{virtual_path}.rs"), format!("{virtual_path}/mod.rs")];
     let matches = candidates
         .iter()
         .filter(|candidate| files.iter().any(|file| &file.relative == *candidate))
@@ -2451,11 +2252,7 @@ fn add_edit(
         .extend(owners);
 }
 
-fn add_removal(
-    removals: &mut BTreeMap<String, Vec<(usize, usize)>>,
-    relative: &str,
-    range: (usize, usize),
-) {
+fn add_removal(removals: &mut BTreeMap<String, Vec<(usize, usize)>>, relative: &str, range: (usize, usize)) {
     removals.entry(relative.to_owned()).or_default().push(range);
 }
 
@@ -2463,10 +2260,7 @@ fn item_range(item: &Item, source: &str) -> Result<(usize, usize), TransformErro
     token_range(item.to_token_stream(), item_attrs(item), source)
 }
 
-fn trait_item_range(
-    item: &syn::TraitItemFn,
-    source: &str,
-) -> Result<(usize, usize), TransformError> {
+fn trait_item_range(item: &syn::TraitItemFn, source: &str) -> Result<(usize, usize), TransformError> {
     token_range(item.to_token_stream(), &item.attrs, source)
 }
 
@@ -2479,25 +2273,15 @@ fn token_range(
     attributes: &[Attribute],
     source: &str,
 ) -> Result<(usize, usize), TransformError> {
-    let first = tokens
-        .clone()
-        .into_iter()
-        .next()
-        .ok_or_else(|| TransformError::Rust {
-            path: PathBuf::from("<source>"),
-            message: "empty Rust item".to_owned(),
-        })?;
-    let last = tokens
-        .into_iter()
-        .last()
-        .ok_or_else(|| TransformError::Rust {
-            path: PathBuf::from("<source>"),
-            message: "empty Rust item".to_owned(),
-        })?;
-    let start_span = attributes
-        .first()
-        .map(Spanned::span)
-        .unwrap_or_else(|| first.span());
+    let first = tokens.clone().into_iter().next().ok_or_else(|| TransformError::Rust {
+        path: PathBuf::from("<source>"),
+        message: "empty Rust item".to_owned(),
+    })?;
+    let last = tokens.into_iter().last().ok_or_else(|| TransformError::Rust {
+        path: PathBuf::from("<source>"),
+        message: "empty Rust item".to_owned(),
+    })?;
+    let start_span = attributes.first().map(Spanned::span).unwrap_or_else(|| first.span());
     let start = source_offset(source, start_span.start())?;
     let mut end = source_offset(source, last.span().end())?;
     if source.as_bytes().get(end) == Some(&b'\r') {
@@ -2509,11 +2293,7 @@ fn token_range(
     Ok((start, end))
 }
 
-fn apply_removals(
-    source: &str,
-    ranges: &[(usize, usize)],
-    relative: &str,
-) -> Result<String, TransformError> {
+fn apply_removals(source: &str, ranges: &[(usize, usize)], relative: &str) -> Result<String, TransformError> {
     let mut ranges = ranges.to_owned();
     ranges.sort_unstable();
     let mut output = source.to_owned();
@@ -2566,10 +2346,7 @@ fn apply_edits(
     let mut insertions = BTreeMap::<usize, String>::new();
     if let Some(edits) = edits {
         for (offset, owners) in edits {
-            insertions
-                .entry(*offset)
-                .or_default()
-                .push_str(&cfg_attribute(owners));
+            insertions.entry(*offset).or_default().push_str(&cfg_attribute(owners));
         }
     }
     if let Some(statement_edits) = statement_edits {
@@ -2647,11 +2424,9 @@ fn rewrite_documentation(
             path: crate_root.join(&source_file.relative),
             message: error.to_string(),
         })?;
-        fs::write(crate_root.join(&source_file.relative), updated).map_err(|source| {
-            TransformError::Io {
-                path: crate_root.join(&source_file.relative),
-                source,
-            }
+        fs::write(crate_root.join(&source_file.relative), updated).map_err(|source| TransformError::Io {
+            path: crate_root.join(&source_file.relative),
+            source,
         })?;
         changed_files.push(source_file.relative.clone());
     }
@@ -2664,14 +2439,8 @@ fn replace_identifier(value: &str, old: &str, new: &str) -> String {
     while let Some(relative_start) = value[cursor..].find(old) {
         let start = cursor + relative_start;
         let end = start + old.len();
-        let previous_is_identifier = value[..start]
-            .chars()
-            .next_back()
-            .is_some_and(is_identifier_character);
-        let next_is_identifier = value[end..]
-            .chars()
-            .next()
-            .is_some_and(is_identifier_character);
+        let previous_is_identifier = value[..start].chars().next_back().is_some_and(is_identifier_character);
+        let next_is_identifier = value[end..].chars().next().is_some_and(is_identifier_character);
         output.push_str(&value[cursor..start]);
         if previous_is_identifier || next_is_identifier {
             output.push_str(old);
@@ -2688,11 +2457,7 @@ fn is_identifier_character(character: char) -> bool {
     character.is_ascii_alphanumeric() || character == '_'
 }
 
-fn apply_text_edits(
-    source: &str,
-    edits: &[(usize, usize, String)],
-    relative: &str,
-) -> Result<String, TransformError> {
+fn apply_text_edits(source: &str, edits: &[(usize, usize, String)], relative: &str) -> Result<String, TransformError> {
     let mut edits = edits.to_owned();
     edits.sort_by_key(|(start, end, _)| (*start, *end));
     let mut output = source.to_owned();
@@ -2721,12 +2486,10 @@ fn cargo_library_name(path: &Path) -> Result<String, TransformError> {
         path: path.to_owned(),
         source,
     })?;
-    let document = source
-        .parse::<DocumentMut>()
-        .map_err(|error| TransformError::Cargo {
-            path: path.to_owned(),
-            message: error.to_string(),
-        })?;
+    let document = source.parse::<DocumentMut>().map_err(|error| TransformError::Cargo {
+        path: path.to_owned(),
+        message: error.to_string(),
+    })?;
     if let Some(name) = document
         .get("lib")
         .and_then(TomlItem::as_table)
@@ -2757,12 +2520,10 @@ pub fn rewrite_cargo_named(
         path: path.to_owned(),
         source,
     })?;
-    let mut document = source
-        .parse::<DocumentMut>()
-        .map_err(|error| TransformError::Cargo {
-            path: path.to_owned(),
-            message: error.to_string(),
-        })?;
+    let mut document = source.parse::<DocumentMut>().map_err(|error| TransformError::Cargo {
+        path: path.to_owned(),
+        message: error.to_string(),
+    })?;
     let package = document
         .get_mut("package")
         .and_then(TomlItem::as_table_mut)
@@ -2791,18 +2552,14 @@ pub fn rewrite_cargo_named(
             })?;
         for operation in operations {
             if features.get(&operation.feature).is_none() {
-                features.insert(
-                    &operation.feature,
-                    TomlItem::Value(Value::Array(Array::new())),
-                );
+                features.insert(&operation.feature, TomlItem::Value(Value::Array(Array::new())));
             }
         }
         if let Some(default) = features.get("default").and_then(TomlItem::as_array) {
-            if operations.iter().any(|operation| {
-                default
-                    .iter()
-                    .any(|value| value.as_str() == Some(&operation.feature))
-            }) {
+            if operations
+                .iter()
+                .any(|operation| default.iter().any(|value| value.as_str() == Some(&operation.feature)))
+            {
                 return Err(TransformError::Cargo {
                     path: path.to_owned(),
                     message: "an operation feature is enabled by default".to_owned(),
@@ -2861,11 +2618,7 @@ mod tests {
             "pub mod operation;\npub mod client;\n",
         )
         .unwrap();
-        fs::write(
-            directory.path().join("src/operation.rs"),
-            "pub mod get_thing;\n",
-        )
-        .unwrap();
+        fs::write(directory.path().join("src/operation.rs"), "pub mod get_thing;\n").unwrap();
         fs::write(directory.path().join("src/client.rs"), "mod get_thing;\n").unwrap();
         fs::write(
             directory.path().join("src/operation/get_thing.rs"),
@@ -2883,11 +2636,8 @@ mod tests {
         )
         .unwrap();
         transform_tree(directory.path(), "new", "new", &operations()).unwrap();
-        let operation_source =
-            fs::read_to_string(directory.path().join("src/operation.rs")).unwrap();
-        assert!(
-            operation_source.contains("#[cfg(feature = \"op_get_thing\")]\npub mod get_thing;")
-        );
+        let operation_source = fs::read_to_string(directory.path().join("src/operation.rs")).unwrap();
+        assert!(operation_source.contains("#[cfg(feature = \"op_get_thing\")]\npub mod get_thing;"));
         let client_source = fs::read_to_string(directory.path().join("src/client.rs")).unwrap();
         assert!(client_source.contains("#[cfg(feature = \"op_get_thing\")]\nmod get_thing;"));
     }
@@ -2909,11 +2659,7 @@ pub mod client;
 "#,
         )
         .unwrap();
-        fs::write(
-            directory.path().join("src/operation.rs"),
-            "pub mod get_thing;\n",
-        )
-        .unwrap();
+        fs::write(directory.path().join("src/operation.rs"), "pub mod get_thing;\n").unwrap();
         fs::write(directory.path().join("src/client.rs"), "mod get_thing;\n").unwrap();
         fs::write(
             directory.path().join("src/operation/get_thing.rs"),
@@ -2952,11 +2698,7 @@ pub mod client;
             "pub mod operation;\npub mod client;\npub(crate) mod protocol_serde;\n",
         )
         .unwrap();
-        fs::write(
-            directory.path().join("src/operation.rs"),
-            "pub mod get_thing;\n",
-        )
-        .unwrap();
+        fs::write(directory.path().join("src/operation.rs"), "pub mod get_thing;\n").unwrap();
         fs::write(directory.path().join("src/client.rs"), "mod get_thing;\n").unwrap();
         fs::write(
             directory.path().join("src/operation/get_thing.rs"),
@@ -2974,9 +2716,7 @@ pub mod client;
         )
         .unwrap();
         fs::write(
-            directory
-                .path()
-                .join("src/protocol_serde/shape_get_thing.rs"),
+            directory.path().join("src/protocol_serde/shape_get_thing.rs"),
             "#[cfg(feature = \"op_get_thing\")]\npub(crate) fn serialize() {}\n",
         )
         .unwrap();
@@ -2988,23 +2728,10 @@ pub mod client;
 
         transform_tree(directory.path(), "new", "new", &operations()).unwrap();
 
-        let protocol_source =
-            fs::read_to_string(directory.path().join("src/protocol_serde.rs")).unwrap();
-        assert!(
-            protocol_source
-                .contains("#[cfg(feature = \"op_get_thing\")]\npub(crate) mod shape_get_thing;")
-        );
-        assert!(
-            protocol_source.contains(
-                "#[cfg(feature = \"op_get_thing\")]\npub(crate) fn type_erase_result() {}"
-            )
-        );
-        let child_source = fs::read_to_string(
-            directory
-                .path()
-                .join("src/protocol_serde/shape_get_thing.rs"),
-        )
-        .unwrap();
+        let protocol_source = fs::read_to_string(directory.path().join("src/protocol_serde.rs")).unwrap();
+        assert!(protocol_source.contains("#[cfg(feature = \"op_get_thing\")]\npub(crate) mod shape_get_thing;"));
+        assert!(protocol_source.contains("#[cfg(feature = \"op_get_thing\")]\npub(crate) fn type_erase_result() {}"));
+        let child_source = fs::read_to_string(directory.path().join("src/protocol_serde/shape_get_thing.rs")).unwrap();
         assert!(!child_source.contains("#[cfg"));
     }
 
@@ -3056,16 +2783,12 @@ pub mod client;
         )
         .unwrap();
         fs::write(
-            directory
-                .path()
-                .join("src/protocol_serde/shape_get_thing.rs"),
+            directory.path().join("src/protocol_serde/shape_get_thing.rs"),
             "pub(crate) fn serialize() {}\n",
         )
         .unwrap();
         fs::write(
-            directory
-                .path()
-                .join("src/protocol_serde/shape_old_thing.rs"),
+            directory.path().join("src/protocol_serde/shape_old_thing.rs"),
             "// stale operation serializer\n",
         )
         .unwrap();
@@ -3077,25 +2800,16 @@ pub mod client;
 
         transform_tree(directory.path(), "new", "new", &operations()).unwrap();
 
-        let protocol_source =
-            fs::read_to_string(directory.path().join("src/protocol_serde.rs")).unwrap();
+        let protocol_source = fs::read_to_string(directory.path().join("src/protocol_serde.rs")).unwrap();
         assert!(protocol_source.contains("shape_get_thing;"));
         assert!(!protocol_source.contains("shape_old_thing;"));
-        assert!(
-            !directory
-                .path()
-                .join("src/protocol_serde/shape_old_thing.rs")
-                .exists()
-        );
+        assert!(!directory.path().join("src/protocol_serde/shape_old_thing.rs").exists());
     }
 
     #[test]
     fn only_operation_named_client_children_inherit_parent_cfg() {
         let operations = operations();
-        assert!(is_parent_gated_child_path(
-            "src/client/get_thing.rs",
-            &operations
-        ));
+        assert!(is_parent_gated_child_path("src/client/get_thing.rs", &operations));
         assert!(is_parent_gated_child_path(
             "src/operation/get_thing/builders.rs",
             &operations
@@ -3104,10 +2818,7 @@ pub mod client;
             "src/client/get_thing/internal.rs",
             &operations
         ));
-        assert!(!is_parent_gated_child_path(
-            "src/client/customize.rs",
-            &operations
-        ));
+        assert!(!is_parent_gated_child_path("src/client/customize.rs", &operations));
         assert!(!is_parent_gated_child_path(
             "src/client/customize/internal.rs",
             &operations
@@ -3126,14 +2837,12 @@ pub mod client;
                 BTreeSet::from(["op_get_thing".to_owned()]),
             ),
         ]);
-        assert!(
-            operation_symbol_reference_owners(
-                &BTreeSet::from(["error::sealed_unhandled".to_owned()]),
-                &owners,
-                &BTreeSet::from(["error".to_owned()]),
-            )
-            .is_empty()
-        );
+        assert!(operation_symbol_reference_owners(
+            &BTreeSet::from(["error::sealed_unhandled".to_owned()]),
+            &owners,
+            &BTreeSet::from(["error".to_owned()]),
+        )
+        .is_empty());
         assert_eq!(
             operation_symbol_reference_owners(
                 &BTreeSet::from(["s3_express::runtime_plugin".to_owned()]),
@@ -3142,14 +2851,12 @@ pub mod client;
             ),
             BTreeSet::from(["op_get_thing".to_owned()]),
         );
-        assert!(
-            operation_symbol_reference_owners(
-                &BTreeSet::from(["aws_types::service_config::ServiceConfigKey".to_owned()]),
-                &owners,
-                &BTreeSet::from(["s3_express".to_owned()]),
-            )
-            .is_empty()
-        );
+        assert!(operation_symbol_reference_owners(
+            &BTreeSet::from(["aws_types::service_config::ServiceConfigKey".to_owned()]),
+            &owners,
+            &BTreeSet::from(["s3_express".to_owned()]),
+        )
+        .is_empty());
     }
 
     #[test]
@@ -3176,13 +2883,11 @@ pub mod client;
             ),
             BTreeSet::from(["op_list_jobs_by_consumable_resource".to_owned()])
         );
-        assert!(
-            path_owners(
-                "src/protocol_serde/shape_list_jobs_by_consumable_resource_summary.rs",
-                &operations,
-            )
-            .is_empty()
-        );
+        assert!(path_owners(
+            "src/protocol_serde/shape_list_jobs_by_consumable_resource_summary.rs",
+            &operations,
+        )
+        .is_empty());
     }
 
     #[test]
@@ -3192,14 +2897,10 @@ pub mod client;
         let Item::Impl(item_impl) = &file.items[0] else {
             panic!("expected an impl item");
         };
-        let owners = BTreeMap::from([(
-            "AccessDenied".to_owned(),
-            BTreeSet::from(["op_get_thing".to_owned()]),
-        )]);
+        let owners = BTreeMap::from([("AccessDenied".to_owned(), BTreeSet::from(["op_get_thing".to_owned()]))]);
         let mut edits = BTreeMap::new();
 
-        collect_error_match_arm_edits("src/error_meta.rs", source, item_impl, &owners, &mut edits)
-            .unwrap();
+        collect_error_match_arm_edits("src/error_meta.rs", source, item_impl, &owners, &mut edits).unwrap();
 
         assert_eq!(edits.len(), 1);
         assert_eq!(edits["src/error_meta.rs"].len(), 1);

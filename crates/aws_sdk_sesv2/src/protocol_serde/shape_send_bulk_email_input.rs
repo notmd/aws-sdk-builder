@@ -9,10 +9,7 @@ pub fn ser_send_bulk_email_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_4 = array_2.value().start_object();
-                crate::protocol_serde::shape_bulk_email_entry::ser_bulk_email_entry(
-                    &mut object_4,
-                    item_3,
-                )?;
+                crate::protocol_serde::shape_bulk_email_entry::ser_bulk_email_entry(&mut object_4, item_3)?;
                 object_4.finish();
             }
         }
@@ -21,10 +18,7 @@ pub fn ser_send_bulk_email_input_input(
     if let Some(var_5) = &input.configuration_overrides {
         #[allow(unused_mut)]
         let mut object_6 = object.key("ConfigurationOverrides").start_object();
-        crate::protocol_serde::shape_configuration_overrides::ser_configuration_overrides(
-            &mut object_6,
-            var_5,
-        )?;
+        crate::protocol_serde::shape_configuration_overrides::ser_configuration_overrides(&mut object_6, var_5)?;
         object_6.finish();
     }
     if let Some(var_7) = &input.configuration_set_name {
@@ -33,10 +27,7 @@ pub fn ser_send_bulk_email_input_input(
     if let Some(var_8) = &input.default_content {
         #[allow(unused_mut)]
         let mut object_9 = object.key("DefaultContent").start_object();
-        crate::protocol_serde::shape_bulk_email_content::ser_bulk_email_content(
-            &mut object_9,
-            var_8,
-        )?;
+        crate::protocol_serde::shape_bulk_email_content::ser_bulk_email_content(&mut object_9, var_8)?;
         object_9.finish();
     }
     if let Some(var_10) = &input.default_email_tags {
@@ -55,9 +46,7 @@ pub fn ser_send_bulk_email_input_input(
         object.key("EndpointId").string(var_14.as_str());
     }
     if let Some(var_15) = &input.feedback_forwarding_email_address {
-        object
-            .key("FeedbackForwardingEmailAddress")
-            .string(var_15.as_str());
+        object.key("FeedbackForwardingEmailAddress").string(var_15.as_str());
     }
     if let Some(var_16) = &input.feedback_forwarding_email_address_identity_arn {
         object
@@ -68,9 +57,7 @@ pub fn ser_send_bulk_email_input_input(
         object.key("FromEmailAddress").string(var_17.as_str());
     }
     if let Some(var_18) = &input.from_email_address_identity_arn {
-        object
-            .key("FromEmailAddressIdentityArn")
-            .string(var_18.as_str());
+        object.key("FromEmailAddressIdentityArn").string(var_18.as_str());
     }
     if let Some(var_19) = &input.reply_to_addresses {
         let mut array_20 = object.key("ReplyToAddresses").start_array();

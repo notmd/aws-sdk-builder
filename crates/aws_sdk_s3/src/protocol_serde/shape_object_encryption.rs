@@ -7,17 +7,10 @@ pub fn ser_object_encryption(
     match input {
         crate::types::ObjectEncryption::Ssekms(inner) => {
             let inner_writer = scope_writer.start_el("SSE-KMS");
-            crate::protocol_serde::shape_ssekms_encryption::ser_ssekms_encryption(
-                inner,
-                inner_writer,
-            )?
+            crate::protocol_serde::shape_ssekms_encryption::ser_ssekms_encryption(inner, inner_writer)?
         }
         crate::types::ObjectEncryption::Unknown => {
-            return Err(
-                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                    "ObjectEncryption",
-                ),
-            )
+            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("ObjectEncryption"))
         }
     }
     Ok(())

@@ -14,17 +14,13 @@ impl GetUserPoolMfaConfigInput {
 }
 impl GetUserPoolMfaConfigInput {
     /// Creates a new builder-style object to manufacture [`GetUserPoolMfaConfigInput`](crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigInput).
-    pub fn builder(
-    ) -> crate::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigInputBuilder
-    {
+    pub fn builder() -> crate::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigInputBuilder {
         crate::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigInputBuilder::default()
     }
 }
 
 /// A builder for [`GetUserPoolMfaConfigInput`](crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetUserPoolMfaConfigInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
@@ -52,10 +48,8 @@ impl GetUserPoolMfaConfigInputBuilder {
         crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigInput {
-                user_pool_id: self.user_pool_id,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigInput {
+            user_pool_id: self.user_pool_id,
+        })
     }
 }

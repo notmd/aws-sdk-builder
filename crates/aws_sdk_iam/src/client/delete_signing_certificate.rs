@@ -9,8 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteSigningCertificateError>`](crate::operation::delete_signing_certificate::DeleteSigningCertificateError)
     pub fn delete_signing_certificate(
         &self,
-    ) -> crate::operation::delete_signing_certificate::builders::DeleteSigningCertificateFluentBuilder
-    {
-        crate::operation::delete_signing_certificate::builders::DeleteSigningCertificateFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::delete_signing_certificate::builders::DeleteSigningCertificateFluentBuilder {
+        crate::operation::delete_signing_certificate::builders::DeleteSigningCertificateFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

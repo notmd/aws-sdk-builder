@@ -30,16 +30,13 @@ impl ListInstanceProfilesInput {
 }
 impl ListInstanceProfilesInput {
     /// Creates a new builder-style object to manufacture [`ListInstanceProfilesInput`](crate::operation::list_instance_profiles::ListInstanceProfilesInput).
-    pub fn builder(
-    ) -> crate::operation::list_instance_profiles::builders::ListInstanceProfilesInputBuilder {
+    pub fn builder() -> crate::operation::list_instance_profiles::builders::ListInstanceProfilesInputBuilder {
         crate::operation::list_instance_profiles::builders::ListInstanceProfilesInputBuilder::default()
     }
 }
 
 /// A builder for [`ListInstanceProfilesInput`](crate::operation::list_instance_profiles::ListInstanceProfilesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListInstanceProfilesInputBuilder {
     pub(crate) path_prefix: ::std::option::Option<::std::string::String>,
@@ -102,12 +99,10 @@ impl ListInstanceProfilesInputBuilder {
         crate::operation::list_instance_profiles::ListInstanceProfilesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::list_instance_profiles::ListInstanceProfilesInput {
-                path_prefix: self.path_prefix,
-                marker: self.marker,
-                max_items: self.max_items,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::list_instance_profiles::ListInstanceProfilesInput {
+            path_prefix: self.path_prefix,
+            marker: self.marker,
+            max_items: self.max_items,
+        })
     }
 }

@@ -27,8 +27,7 @@ impl crate::operation::test_render_email_template::builders::TestRenderEmailTemp
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct TestRenderEmailTemplateFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::test_render_email_template::builders::TestRenderEmailTemplateInputBuilder,
+    inner: crate::operation::test_render_email_template::builders::TestRenderEmailTemplateInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -61,8 +60,7 @@ impl TestRenderEmailTemplateFluentBuilder {
     /// Access the TestRenderEmailTemplate as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::test_render_email_template::builders::TestRenderEmailTemplateInputBuilder
-    {
+    ) -> &crate::operation::test_render_email_template::builders::TestRenderEmailTemplateInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,16 +84,14 @@ impl TestRenderEmailTemplateFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::test_render_email_template::TestRenderEmailTemplate::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::test_render_email_template::TestRenderEmailTemplate::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::test_render_email_template::TestRenderEmailTemplate::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::test_render_email_template::TestRenderEmailTemplate::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -124,18 +120,12 @@ impl TestRenderEmailTemplateFluentBuilder {
         self
     }
     /// <p>The name of the template.</p>
-    pub fn template_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn template_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.template_name(input.into());
         self
     }
     /// <p>The name of the template.</p>
-    pub fn set_template_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_template_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_template_name(input);
         self
     }
@@ -144,18 +134,12 @@ impl TestRenderEmailTemplateFluentBuilder {
         self.inner.get_template_name()
     }
     /// <p>A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.</p>
-    pub fn template_data(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn template_data(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.template_data(input.into());
         self
     }
     /// <p>A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.</p>
-    pub fn set_template_data(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_template_data(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_template_data(input);
         self
     }

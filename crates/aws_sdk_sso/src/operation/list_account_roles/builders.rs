@@ -57,9 +57,7 @@ impl ListAccountRolesFluentBuilder {
         }
     }
     /// Access the ListAccountRoles as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_account_roles::builders::ListAccountRolesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_account_roles::builders::ListAccountRolesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,14 +81,12 @@ impl ListAccountRolesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_account_roles::ListAccountRoles::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::list_account_roles::ListAccountRoles::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::list_account_roles::ListAccountRoles::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::list_account_roles::ListAccountRoles::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -121,13 +117,8 @@ impl ListAccountRolesFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_account_roles::paginator::ListAccountRolesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_account_roles::paginator::ListAccountRolesPaginator {
-        crate::operation::list_account_roles::paginator::ListAccountRolesPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_account_roles::paginator::ListAccountRolesPaginator {
+        crate::operation::list_account_roles::paginator::ListAccountRolesPaginator::new(self.handle, self.inner)
     }
     /// <p>The page token from the previous response output when you request subsequent pages.</p>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

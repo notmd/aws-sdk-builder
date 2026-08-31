@@ -24,16 +24,13 @@ impl AttachGroupPolicyInput {
 }
 impl AttachGroupPolicyInput {
     /// Creates a new builder-style object to manufacture [`AttachGroupPolicyInput`](crate::operation::attach_group_policy::AttachGroupPolicyInput).
-    pub fn builder(
-    ) -> crate::operation::attach_group_policy::builders::AttachGroupPolicyInputBuilder {
+    pub fn builder() -> crate::operation::attach_group_policy::builders::AttachGroupPolicyInputBuilder {
         crate::operation::attach_group_policy::builders::AttachGroupPolicyInputBuilder::default()
     }
 }
 
 /// A builder for [`AttachGroupPolicyInput`](crate::operation::attach_group_policy::AttachGroupPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AttachGroupPolicyInputBuilder {
     pub(crate) group_name: ::std::option::Option<::std::string::String>,
@@ -83,11 +80,9 @@ impl AttachGroupPolicyInputBuilder {
         crate::operation::attach_group_policy::AttachGroupPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::attach_group_policy::AttachGroupPolicyInput {
-                group_name: self.group_name,
-                policy_arn: self.policy_arn,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::attach_group_policy::AttachGroupPolicyInput {
+            group_name: self.group_name,
+            policy_arn: self.policy_arn,
+        })
     }
 }

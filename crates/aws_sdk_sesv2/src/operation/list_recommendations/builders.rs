@@ -58,9 +58,7 @@ impl ListRecommendationsFluentBuilder {
         }
     }
     /// Access the ListRecommendations as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_recommendations::builders::ListRecommendationsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_recommendations::builders::ListRecommendationsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,17 +82,12 @@ impl ListRecommendationsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_recommendations::ListRecommendations::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::list_recommendations::ListRecommendations::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::list_recommendations::ListRecommendations::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::list_recommendations::ListRecommendations::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -125,13 +118,8 @@ impl ListRecommendationsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_recommendations::paginator::ListRecommendationsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_recommendations::paginator::ListRecommendationsPaginator {
-        crate::operation::list_recommendations::paginator::ListRecommendationsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_recommendations::paginator::ListRecommendationsPaginator {
+        crate::operation::list_recommendations::paginator::ListRecommendationsPaginator::new(self.handle, self.inner)
     }
     ///
     /// Adds a key-value pair to `Filter`.
@@ -151,10 +139,7 @@ impl ListRecommendationsFluentBuilder {
     pub fn set_filter(
         mut self,
         input: ::std::option::Option<
-            ::std::collections::HashMap<
-                crate::types::ListRecommendationsFilterKey,
-                ::std::string::String,
-            >,
+            ::std::collections::HashMap<crate::types::ListRecommendationsFilterKey, ::std::string::String>,
         >,
     ) -> Self {
         self.inner = self.inner.set_filter(input);
@@ -164,10 +149,7 @@ impl ListRecommendationsFluentBuilder {
     pub fn get_filter(
         &self,
     ) -> &::std::option::Option<
-        ::std::collections::HashMap<
-            crate::types::ListRecommendationsFilterKey,
-            ::std::string::String,
-        >,
+        ::std::collections::HashMap<crate::types::ListRecommendationsFilterKey, ::std::string::String>,
     > {
         self.inner.get_filter()
     }

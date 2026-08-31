@@ -8,22 +8,19 @@ pub use ::aws_smithy_types::endpoint::Endpoint;
 pub(crate) struct EndpointOverrideFeatureTrackerInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for EndpointOverrideFeatureTrackerInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for EndpointOverrideFeatureTrackerInterceptor {
     fn name(&self) -> &'static str {
         "EndpointOverrideFeatureTrackerInterceptor"
     }
 
     fn read_before_execution(
         &self,
-        _context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<'_>,
+        _context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
+            '_,
+        >,
         cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-        if cfg
-            .load::<::aws_types::endpoint_config::EndpointUrl>()
-            .is_some()
-        {
+        if cfg.load::<::aws_types::endpoint_config::EndpointUrl>().is_some() {
             cfg.interceptor_state()
                 .store_append(::aws_runtime::sdk_feature::AwsSdkFeature::EndpointOverride);
         }
@@ -46,11 +43,10 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Invalid region: region was not a valid DNS name. [region is not a valid DNS-suffix]");
-        assert_eq!(
-            format!("{}", error),
-            "Invalid region: region was not a valid DNS name."
-        )
+        let error = endpoint.expect_err(
+            "expected error: Invalid region: region was not a valid DNS name. [region is not a valid DNS-suffix]",
+        );
+        assert_eq!(format!("{}", error), "Invalid region: region was not a valid DNS name.")
     }
 
     /// Invalid access point ARN: Not S3
@@ -82,9 +78,7 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .accelerate(false)
-            .bucket(
-                "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint:more-data".to_string(),
-            )
+            .bucket("arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint:more-data".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -170,7 +164,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
+        let endpoint = endpoint
+            .expect("Expected valid endpoint: https://myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -198,7 +193,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Partition does not support FIPS [Access points: partition does not support FIPS]");
+        let error = endpoint.expect_err(
+            "expected error: Partition does not support FIPS [Access points: partition does not support FIPS]",
+        );
         assert_eq!(format!("{}", error), "Partition does not support FIPS")
     }
 
@@ -216,7 +213,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Invalid region in ARN: `us-west -2` (invalid DNS name) [Bucket region is invalid]");
+        let error = endpoint.expect_err(
+            "expected error: Invalid region in ARN: `us-west -2` (invalid DNS name) [Bucket region is invalid]",
+        );
         assert_eq!(
             format!("{}", error),
             "Invalid region in ARN: `us-west -2` (invalid DNS name)"
@@ -258,7 +257,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Invalid ARN: `arn:aws:s3:us-west-2:123456789012:` was not a valid ARN [missing arn type]");
+        let error = endpoint.expect_err(
+            "expected error: Invalid ARN: `arn:aws:s3:us-west-2:123456789012:` was not a valid ARN [missing arn type]",
+        );
         assert_eq!(
             format!("{}", error),
             "Invalid ARN: `arn:aws:s3:us-west-2:123456789012:` was not a valid ARN"
@@ -333,7 +334,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://myendpoint-123456789012.s3-accesspoint.dualstack.us-west-2.amazonaws.com");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://myendpoint-123456789012.s3-accesspoint.dualstack.us-west-2.amazonaws.com",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -362,7 +365,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://mfzwi23gnjvgw.mrap.accesspoint.s3-global.amazonaws.com");
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://mfzwi23gnjvgw.mrap.accesspoint.s3-global.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -391,9 +395,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err(
-            "expected error: S3 MRAP does not support FIPS [MRAP does not support FIPS]",
-        );
+        let error = endpoint.expect_err("expected error: S3 MRAP does not support FIPS [MRAP does not support FIPS]");
         assert_eq!(format!("{}", error), "S3 MRAP does not support FIPS")
     }
 
@@ -411,9 +413,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err(
-            "expected error: S3 MRAP does not support dual-stack [MRAP does not support DualStack]",
-        );
+        let error = endpoint
+            .expect_err("expected error: S3 MRAP does not support dual-stack [MRAP does not support DualStack]");
         assert_eq!(format!("{}", error), "S3 MRAP does not support dual-stack")
     }
 
@@ -431,11 +432,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: S3 MRAP does not support S3 Accelerate [MRAP does not support S3 Accelerate]");
-        assert_eq!(
-            format!("{}", error),
-            "S3 MRAP does not support S3 Accelerate"
-        )
+        let error = endpoint
+            .expect_err("expected error: S3 MRAP does not support S3 Accelerate [MRAP does not support S3 Accelerate]");
+        assert_eq!(format!("{}", error), "S3 MRAP does not support S3 Accelerate")
     }
 
     /// MRAP explicitly disabled
@@ -474,9 +473,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://s3.dualstack.us-west-2.amazonaws.com/bucketname",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://s3.dualstack.us-west-2.amazonaws.com/bucketname");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -528,7 +526,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Path-style addressing cannot be used with ARN buckets [path style + ARN bucket]");
+        let error = endpoint.expect_err(
+            "expected error: Path-style addressing cannot be used with ARN buckets [path style + ARN bucket]",
+        );
         assert_eq!(
             format!("{}", error),
             "Path-style addressing cannot be used with ARN buckets"
@@ -548,8 +548,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3.dualstack.us-west-2.amazonaws.com/99_ab");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.dualstack.us-west-2.amazonaws.com/99_ab");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -599,8 +598,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3.us-west-2.amazonaws.com/example.com%23");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.us-west-2.amazonaws.com/example.com%23");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -628,8 +626,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3.us-west-2.amazonaws.com/bucket%20name");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.us-west-2.amazonaws.com/bucket%20name");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -650,9 +647,7 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .accelerate(false)
             .bucket("99_ab".to_string())
-            .endpoint(
-                "http://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string(),
-            )
+            .endpoint("http://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string())
             .region("af-south-1".to_string())
             .use_dual_stack(false)
             .use_fips(false)
@@ -660,7 +655,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: http://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com/99_ab");
+        let endpoint = endpoint
+            .expect("Expected valid endpoint: http://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com/99_ab");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -681,9 +677,7 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .accelerate(false)
             .bucket("bucketname".to_string())
-            .endpoint(
-                "http://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com/foo".to_string(),
-            )
+            .endpoint("http://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com/foo".to_string())
             .region("af-south-1".to_string())
             .use_dual_stack(false)
             .use_fips(false)
@@ -691,7 +685,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: http://bucketname.control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com/foo");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: http://bucketname.control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com/foo",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -712,9 +708,7 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .accelerate(false)
             .bucket("99_ab".to_string())
-            .endpoint(
-                "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string(),
-            )
+            .endpoint("https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string())
             .region("af-south-1".to_string())
             .use_dual_stack(false)
             .use_fips(false)
@@ -722,7 +716,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com/99_ab");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com/99_ab",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -751,7 +747,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Custom endpoint `abcde://nota#url` was not a valid URI [invalid Endpoint override]");
+        let error = endpoint.expect_err(
+            "expected error: Custom endpoint `abcde://nota#url` was not a valid URI [invalid Endpoint override]",
+        );
         assert_eq!(
             format!("{}", error),
             "Custom endpoint `abcde://nota#url` was not a valid URI"
@@ -823,7 +821,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
+        let endpoint = endpoint
+            .expect("Expected valid endpoint: https://myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -853,7 +852,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
+        let endpoint = endpoint
+            .expect("Expected valid endpoint: https://myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -878,8 +878,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3.us-east-1.amazonaws.com/bucket.name");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.us-east-1.amazonaws.com/bucket.name");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -904,8 +903,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://aaa.s3.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://aaa.s3.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -930,8 +928,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://s3.us-east-1.amazonaws.com/aa");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.us-east-1.amazonaws.com/aa");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -956,8 +953,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3.us-east-1.amazonaws.com/BucketName");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.us-east-1.amazonaws.com/BucketName");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1007,9 +1003,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err(
-            "expected error: A region must be set when sending requests to S3. [no region set]",
-        );
+        let error =
+            endpoint.expect_err("expected error: A region must be set when sending requests to S3. [no region set]");
         assert_eq!(
             format!("{}", error),
             "A region must be set when sending requests to S3."
@@ -1057,8 +1052,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://s3.us-west-2.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.us-west-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1086,8 +1080,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://s3.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1115,8 +1108,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://s3-fips.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3-fips.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1144,8 +1136,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3.dualstack.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.dualstack.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1173,8 +1164,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3-fips.dualstack.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3-fips.dualstack.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1314,8 +1304,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://s3-fips.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3-fips.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1342,8 +1331,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3.dualstack.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.dualstack.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1370,8 +1358,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3-fips.dualstack.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3-fips.dualstack.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1455,8 +1442,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://bucket-name.s3.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket-name.s3.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1486,8 +1472,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://bucket-name.s3.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket-name.s3.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1517,8 +1502,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://bucket-name.s3.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket-name.s3.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1546,8 +1530,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://bucket-name.s3-fips.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket-name.s3-fips.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1575,9 +1558,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://bucket-name.s3.dualstack.us-east-1.amazonaws.com",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://bucket-name.s3.dualstack.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1605,7 +1587,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket-name.s3-fips.dualstack.us-east-1.amazonaws.com");
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://bucket-name.s3-fips.dualstack.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1633,8 +1616,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://bucket-name.s3-accelerate.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket-name.s3-accelerate.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1692,8 +1674,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://bucket-name.s3.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket-name.s3.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1722,8 +1703,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://bucket-name.s3.us-west-2.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket-name.s3.us-west-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1752,8 +1732,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://bucket-name.s3-fips.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket-name.s3-fips.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1782,9 +1761,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://bucket-name.s3.dualstack.us-east-1.amazonaws.com",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://bucket-name.s3.dualstack.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1813,8 +1791,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://bucket-name.s3-accelerate.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket-name.s3-accelerate.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1873,8 +1850,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://s3.amazonaws.com/bucket-name");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.amazonaws.com/bucket-name");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1903,8 +1879,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3-fips.us-east-1.amazonaws.com/bucket-name");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3-fips.us-east-1.amazonaws.com/bucket-name");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1933,9 +1908,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://s3.dualstack.us-east-1.amazonaws.com/bucket-name",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://s3.dualstack.us-east-1.amazonaws.com/bucket-name");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1995,8 +1969,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://s3.amazonaws.com/bucket-name");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.amazonaws.com/bucket-name");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -2026,8 +1999,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3.us-west-2.amazonaws.com/bucket-name");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.us-west-2.amazonaws.com/bucket-name");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -2057,9 +2029,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://s3.dualstack.us-east-1.amazonaws.com/bucket-name",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://s3.dualstack.us-east-1.amazonaws.com/bucket-name");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -2114,7 +2085,10 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .accelerate(false)
-            .bucket("arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-01234567890123456/accesspoint/reports".to_string())
+            .bucket(
+                "arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-01234567890123456/accesspoint/reports"
+                    .to_string(),
+            )
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -2169,9 +2143,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: http://myendpoint-123456789012.beta.example.com:1234",
-        );
+        let endpoint = endpoint.expect("Expected valid endpoint: http://myendpoint-123456789012.beta.example.com:1234");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -2200,9 +2172,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: http://myendpoint-123456789012.beta.example.com:1234/path",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: http://myendpoint-123456789012.beta.example.com:1234/path");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -2231,10 +2202,7 @@ mod test {
         let endpoint = resolver.resolve_endpoint(&params);
         let error =
             endpoint.expect_err("expected error: A custom endpoint cannot be combined with FIPS [non-bucket endpoint override with FIPS = error]");
-        assert_eq!(
-            format!("{}", error),
-            "A custom endpoint cannot be combined with FIPS"
-        )
+        assert_eq!(format!("{}", error), "A custom endpoint cannot be combined with FIPS")
     }
 
     /// FIPS + dualstack + custom endpoint
@@ -2288,8 +2256,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: http://beta.example.com:1234/path");
+        let endpoint = endpoint.expect("Expected valid endpoint: http://beta.example.com:1234/path");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -2309,10 +2276,7 @@ mod test {
     fn test_86() {
         let params = crate::config::endpoint::Params::builder()
             .region("us-west-2".to_string())
-            .bucket(
-                "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint:myendpoint"
-                    .to_string(),
-            )
+            .bucket("arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint:myendpoint".to_string())
             .disable_access_points(true)
             .build()
             .expect("invalid params");
@@ -2337,8 +2301,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://s3-fips.us-west-2.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3-fips.us-west-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -2364,8 +2327,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://s3.us-west-2.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.us-west-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -2391,8 +2353,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3-fips.dualstack.us-west-2.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3-fips.dualstack.us-west-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -2418,8 +2379,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3.dualstack.us-west-2.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.dualstack.us-west-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -2476,8 +2436,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://s3.amazonaws.com/bucket%21");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.amazonaws.com/bucket%21");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -2533,9 +2492,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://s3-fips.dualstack.us-east-1.amazonaws.com/bucket%21",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://s3-fips.dualstack.us-east-1.amazonaws.com/bucket%21");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -2563,9 +2521,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://s3-fips.dualstack.us-east-1.amazonaws.com/bucket%21",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://s3-fips.dualstack.us-east-1.amazonaws.com/bucket%21");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -2596,10 +2553,7 @@ mod test {
         let endpoint = resolver.resolve_endpoint(&params);
         let error =
             endpoint.expect_err("expected error: A custom endpoint cannot be combined with FIPS [endpoint override + FIPS + dualstack (BUG)]");
-        assert_eq!(
-            format!("{}", error),
-            "A custom endpoint cannot be combined with FIPS"
-        )
+        assert_eq!(format!("{}", error), "A custom endpoint cannot be combined with FIPS")
     }
 
     /// endpoint override + non-dns bucket + FIPS (BUG)
@@ -2617,10 +2571,7 @@ mod test {
         let endpoint = resolver.resolve_endpoint(&params);
         let error =
             endpoint.expect_err("expected error: A custom endpoint cannot be combined with FIPS [endpoint override + non-dns bucket + FIPS (BUG)]");
-        assert_eq!(
-            format!("{}", error),
-            "A custom endpoint cannot be combined with FIPS"
-        )
+        assert_eq!(format!("{}", error), "A custom endpoint cannot be combined with FIPS")
     }
 
     /// FIPS + bucket endpoint + force path style
@@ -2637,8 +2588,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3-fips.us-east-1.amazonaws.com/bucket%21");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3-fips.us-east-1.amazonaws.com/bucket%21");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -2667,9 +2617,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://s3-fips.dualstack.us-east-1.amazonaws.com/bucket",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://s3-fips.dualstack.us-east-1.amazonaws.com/bucket");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -2697,9 +2646,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://bucket.s3-fips.dualstack.us-east-1.amazonaws.com",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://bucket.s3-fips.dualstack.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -2728,11 +2676,10 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: A custom endpoint cannot be combined with FIPS [URI encoded bucket + use global endpoint]");
-        assert_eq!(
-            format!("{}", error),
-            "A custom endpoint cannot be combined with FIPS"
-        )
+        let error = endpoint.expect_err(
+            "expected error: A custom endpoint cannot be combined with FIPS [URI encoded bucket + use global endpoint]",
+        );
+        assert_eq!(format!("{}", error), "A custom endpoint cannot be combined with FIPS")
     }
 
     /// FIPS + path based endpoint
@@ -2749,8 +2696,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3-fips.us-east-1.amazonaws.com/bucket%21");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3-fips.us-east-1.amazonaws.com/bucket%21");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -2779,9 +2725,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://bucket.s3-accelerate.dualstack.amazonaws.com",
-        );
+        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket.s3-accelerate.dualstack.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -2810,9 +2754,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://s3.dualstack.us-east-1.amazonaws.com/bucket%21",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://s3.dualstack.us-east-1.amazonaws.com/bucket%21");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -2842,8 +2785,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3-fips.us-east-1.amazonaws.com/bucket%21");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3-fips.us-east-1.amazonaws.com/bucket%21");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -2877,10 +2819,7 @@ mod test {
         let error = endpoint.expect_err(
             "expected error: A custom endpoint cannot be combined with FIPS [endpoint override + non-uri safe endpoint + force path style]",
         );
-        assert_eq!(
-            format!("{}", error),
-            "A custom endpoint cannot be combined with FIPS"
-        )
+        assert_eq!(format!("{}", error), "A custom endpoint cannot be combined with FIPS")
     }
 
     /// FIPS + Dualstack + global endpoint + non-dns bucket
@@ -2897,9 +2836,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://s3-fips.dualstack.us-east-1.amazonaws.com/bucket%21",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://s3-fips.dualstack.us-east-1.amazonaws.com/bucket%21");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -2970,10 +2908,7 @@ mod test {
         let endpoint = resolver.resolve_endpoint(&params);
         let error =
             endpoint.expect_err("expected error: A custom endpoint cannot be combined with FIPS [Endpoint override + UseGlobalEndpoint + us-east-1]");
-        assert_eq!(
-            format!("{}", error),
-            "A custom endpoint cannot be combined with FIPS"
-        )
+        assert_eq!(format!("{}", error), "A custom endpoint cannot be combined with FIPS")
     }
 
     /// non-FIPS partition with FIPS set + custom endpoint
@@ -2988,7 +2923,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Partition does not support FIPS [non-FIPS partition with FIPS set + custom endpoint]");
+        let error = endpoint.expect_err(
+            "expected error: Partition does not support FIPS [non-FIPS partition with FIPS set + custom endpoint]",
+        );
         assert_eq!(format!("{}", error), "Partition does not support FIPS")
     }
 
@@ -3005,9 +2942,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://s3-fips.dualstack.us-east-1.amazonaws.com/bucket%21",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://s3-fips.dualstack.us-east-1.amazonaws.com/bucket%21");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -3064,9 +3000,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://s3.dualstack.us-east-1.amazonaws.com/bucket%21",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://s3.dualstack.us-east-1.amazonaws.com/bucket%21");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -3091,8 +3026,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://s3.amazonaws.com/bucket%21");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.amazonaws.com/bucket%21");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -3121,11 +3055,10 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: A custom endpoint cannot be combined with FIPS [aws-global + fips + custom endpoint]");
-        assert_eq!(
-            format!("{}", error),
-            "A custom endpoint cannot be combined with FIPS"
-        )
+        let error = endpoint.expect_err(
+            "expected error: A custom endpoint cannot be combined with FIPS [aws-global + fips + custom endpoint]",
+        );
+        assert_eq!(format!("{}", error), "A custom endpoint cannot be combined with FIPS")
     }
 
     /// aws-global, endpoint override & path only-bucket
@@ -3191,7 +3124,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket.s3-accelerate.dualstack.us-east-1.amazonaws.com");
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://bucket.s3-accelerate.dualstack.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -3220,9 +3154,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://s3-fips.dualstack.us-east-1.amazonaws.com/bucket%21",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://s3-fips.dualstack.us-east-1.amazonaws.com/bucket%21");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -3248,11 +3181,10 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: A custom endpoint cannot be combined with FIPS [aws-global + FIPS + endpoint override.]");
-        assert_eq!(
-            format!("{}", error),
-            "A custom endpoint cannot be combined with FIPS"
-        )
+        let error = endpoint.expect_err(
+            "expected error: A custom endpoint cannot be combined with FIPS [aws-global + FIPS + endpoint override.]",
+        );
+        assert_eq!(format!("{}", error), "A custom endpoint cannot be combined with FIPS")
     }
 
     /// force path style, FIPS, aws-global & endpoint override
@@ -3270,10 +3202,7 @@ mod test {
         let endpoint = resolver.resolve_endpoint(&params);
         let error = endpoint
             .expect_err("expected error: A custom endpoint cannot be combined with FIPS [force path style, FIPS, aws-global & endpoint override]");
-        assert_eq!(
-            format!("{}", error),
-            "A custom endpoint cannot be combined with FIPS"
-        )
+        assert_eq!(format!("{}", error), "A custom endpoint cannot be combined with FIPS")
     }
 
     /// ip address causes path style to be forced
@@ -3333,8 +3262,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3-fips.us-east-1.amazonaws.com/bucket%21");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3-fips.us-east-1.amazonaws.com/bucket%21");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -3359,8 +3287,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint
-            .expect_err("expected error: Invalid ARN: No ARN type specified [empty arn type]");
+        let error = endpoint.expect_err("expected error: Invalid ARN: No ARN type specified [empty arn type]");
         assert_eq!(format!("{}", error), "Invalid ARN: No ARN type specified")
     }
 
@@ -3394,13 +3321,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err(
-            "expected error: Invalid region: region was not a valid DNS name. [invalid region]",
-        );
-        assert_eq!(
-            format!("{}", error),
-            "Invalid region: region was not a valid DNS name."
-        )
+        let error =
+            endpoint.expect_err("expected error: Invalid region: region was not a valid DNS name. [invalid region]");
+        assert_eq!(format!("{}", error), "Invalid region: region was not a valid DNS name.")
     }
 
     /// invalid region
@@ -3414,13 +3337,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err(
-            "expected error: Invalid region: region was not a valid DNS name. [invalid region]",
-        );
-        assert_eq!(
-            format!("{}", error),
-            "Invalid region: region was not a valid DNS name."
-        )
+        let error =
+            endpoint.expect_err("expected error: Invalid region: region was not a valid DNS name. [invalid region]");
+        assert_eq!(format!("{}", error), "Invalid region: region was not a valid DNS name.")
     }
 
     /// empty arn type
@@ -3433,8 +3352,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error =
-            endpoint.expect_err("expected error: Invalid Access Point Name [empty arn type]");
+        let error = endpoint.expect_err("expected error: Invalid Access Point Name [empty arn type]");
         assert_eq!(format!("{}", error), "Invalid Access Point Name")
     }
 
@@ -3461,16 +3379,14 @@ mod test {
     fn test_132() {
         let params = crate::config::endpoint::Params::builder()
             .region("us-east-2".to_string())
-            .bucket(
-                "arn:aws:s3-object-lambda:us-east_2:123456789012:accesspoint:my-endpoint"
-                    .to_string(),
-            )
+            .bucket("arn:aws:s3-object-lambda:us-east_2:123456789012:accesspoint:my-endpoint".to_string())
             .use_arn_region(true)
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Invalid region in ARN: `us-east_2` (invalid DNS name) [invalid arn region]");
+        let error = endpoint
+            .expect_err("expected error: Invalid region in ARN: `us-east_2` (invalid DNS name) [invalid arn region]");
         assert_eq!(
             format!("{}", error),
             "Invalid region in ARN: `us-east_2` (invalid DNS name)"
@@ -3482,7 +3398,10 @@ mod test {
     fn test_133() {
         let params = crate::config::endpoint::Params::builder()
             .region("us-east-2".to_string())
-            .bucket("arn:aws:s3-outposts:us-east-1:123456789012:outpost/op_01234567890123456/accesspoint/reports".to_string())
+            .bucket(
+                "arn:aws:s3-outposts:us-east-1:123456789012:outpost/op_01234567890123456/accesspoint/reports"
+                    .to_string(),
+            )
             .use_arn_region(true)
             .build()
             .expect("invalid params");
@@ -3502,20 +3421,13 @@ mod test {
     fn test_134() {
         let params = crate::config::endpoint::Params::builder()
             .region("us-east-2".to_string())
-            .bucket(
-                "arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-01234567890123456/reports"
-                    .to_string(),
-            )
+            .bucket("arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-01234567890123456/reports".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint
-            .expect_err("expected error: Invalid ARN: expected an access point name [invalid ARN]");
-        assert_eq!(
-            format!("{}", error),
-            "Invalid ARN: expected an access point name"
-        )
+        let error = endpoint.expect_err("expected error: Invalid ARN: expected an access point name [invalid ARN]");
+        assert_eq!(format!("{}", error), "Invalid ARN: expected an access point name")
     }
 
     /// invalid ARN
@@ -3523,21 +3435,13 @@ mod test {
     fn test_135() {
         let params = crate::config::endpoint::Params::builder()
             .region("us-east-2".to_string())
-            .bucket(
-                "arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-01234567890123456"
-                    .to_string(),
-            )
+            .bucket("arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-01234567890123456".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err(
-            "expected error: Invalid ARN: Expected a 4-component resource [invalid ARN]",
-        );
-        assert_eq!(
-            format!("{}", error),
-            "Invalid ARN: Expected a 4-component resource"
-        )
+        let error = endpoint.expect_err("expected error: Invalid ARN: Expected a 4-component resource [invalid ARN]");
+        assert_eq!(format!("{}", error), "Invalid ARN: Expected a 4-component resource")
     }
 
     /// invalid outpost type
@@ -3545,12 +3449,17 @@ mod test {
     fn test_136() {
         let params = crate::config::endpoint::Params::builder()
             .region("us-east-2".to_string())
-            .bucket("arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-01234567890123456/not-accesspoint/reports".to_string())
+            .bucket(
+                "arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-01234567890123456/not-accesspoint/reports"
+                    .to_string(),
+            )
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Expected an outpost type `accesspoint`, found not-accesspoint [invalid outpost type]");
+        let error = endpoint.expect_err(
+            "expected error: Expected an outpost type `accesspoint`, found not-accesspoint [invalid outpost type]",
+        );
         assert_eq!(
             format!("{}", error),
             "Expected an outpost type `accesspoint`, found not-accesspoint"
@@ -3562,12 +3471,16 @@ mod test {
     fn test_137() {
         let params = crate::config::endpoint::Params::builder()
             .region("us-east-2".to_string())
-            .bucket("arn:aws:s3-outposts:us-east_1:123456789012:outpost/op-01234567890123456/not-accesspoint/reports".to_string())
+            .bucket(
+                "arn:aws:s3-outposts:us-east_1:123456789012:outpost/op-01234567890123456/not-accesspoint/reports"
+                    .to_string(),
+            )
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Invalid region in ARN: `us-east_1` (invalid DNS name) [invalid outpost type]");
+        let error = endpoint
+            .expect_err("expected error: Invalid region in ARN: `us-east_1` (invalid DNS name) [invalid outpost type]");
         assert_eq!(
             format!("{}", error),
             "Invalid region in ARN: `us-east_1` (invalid DNS name)"
@@ -3579,7 +3492,10 @@ mod test {
     fn test_138() {
         let params = crate::config::endpoint::Params::builder()
             .region("us-east-2".to_string())
-            .bucket("arn:aws:s3-outposts:us-east-1:12345_789012:outpost/op-01234567890123456/not-accesspoint/reports".to_string())
+            .bucket(
+                "arn:aws:s3-outposts:us-east-1:12345_789012:outpost/op-01234567890123456/not-accesspoint/reports"
+                    .to_string(),
+            )
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -3603,13 +3519,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err(
-            "expected error: Invalid ARN: The Outpost Id was not set [invalid outpost type]",
-        );
-        assert_eq!(
-            format!("{}", error),
-            "Invalid ARN: The Outpost Id was not set"
-        )
+        let error =
+            endpoint.expect_err("expected error: Invalid ARN: The Outpost Id was not set [invalid outpost type]");
+        assert_eq!(format!("{}", error), "Invalid ARN: The Outpost Id was not set")
     }
 
     /// use global endpoint virtual addressing
@@ -3677,8 +3589,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3.us-east-2.amazonaws.com/bucket%21");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.us-east-2.amazonaws.com/bucket%21");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -3705,8 +3616,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://bucket.s3-accelerate.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket.s3-accelerate.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -3790,8 +3700,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://bucket-name.s3.us-west-2.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket-name.s3.us-west-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -3820,9 +3729,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://bucket-name.s3.dualstack.us-west-2.amazonaws.com",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://bucket-name.s3.dualstack.us-west-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -3851,9 +3759,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://bucket-name.s3-accelerate.dualstack.amazonaws.com",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://bucket-name.s3-accelerate.dualstack.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -3882,8 +3789,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://bucket-name.s3-accelerate.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket-name.s3-accelerate.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -3912,8 +3818,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://bucket-name.s3-fips.us-west-2.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket-name.s3-fips.us-west-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -3942,7 +3847,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket-name.s3-fips.dualstack.us-west-2.amazonaws.com");
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://bucket-name.s3-fips.dualstack.us-west-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -3971,7 +3877,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Accelerate cannot be used with FIPS [accelerate + fips = error@us-west-2]");
+        let error = endpoint
+            .expect_err("expected error: Accelerate cannot be used with FIPS [accelerate + fips = error@us-west-2]");
         assert_eq!(format!("{}", error), "Accelerate cannot be used with FIPS")
     }
 
@@ -3989,8 +3896,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://bucket-name.s3.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket-name.s3.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4019,9 +3925,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://bucket-name.s3.dualstack.cn-north-1.amazonaws.com.cn",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://bucket-name.s3.dualstack.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4050,11 +3955,10 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: S3 Accelerate cannot be used in this region [accelerate (dualstack=false)@cn-north-1]");
-        assert_eq!(
-            format!("{}", error),
-            "S3 Accelerate cannot be used in this region"
-        )
+        let error = endpoint.expect_err(
+            "expected error: S3 Accelerate cannot be used in this region [accelerate (dualstack=false)@cn-north-1]",
+        );
+        assert_eq!(format!("{}", error), "S3 Accelerate cannot be used in this region")
     }
 
     /// virtual addressing + fips@cn-north-1
@@ -4071,7 +3975,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Partition does not support FIPS [virtual addressing + fips@cn-north-1]");
+        let error = endpoint
+            .expect_err("expected error: Partition does not support FIPS [virtual addressing + fips@cn-north-1]");
         assert_eq!(format!("{}", error), "Partition does not support FIPS")
     }
 
@@ -4089,8 +3994,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://bucket-name.s3.af-south-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket-name.s3.af-south-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4119,9 +4023,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://bucket-name.s3.dualstack.af-south-1.amazonaws.com",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://bucket-name.s3.dualstack.af-south-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4150,9 +4053,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://bucket-name.s3-accelerate.dualstack.amazonaws.com",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://bucket-name.s3-accelerate.dualstack.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4181,8 +4083,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://bucket-name.s3-accelerate.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket-name.s3-accelerate.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4211,9 +4112,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://bucket-name.s3-fips.af-south-1.amazonaws.com",
-        );
+        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket-name.s3-fips.af-south-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4242,7 +4141,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket-name.s3-fips.dualstack.af-south-1.amazonaws.com");
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://bucket-name.s3-fips.dualstack.af-south-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4271,7 +4171,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Accelerate cannot be used with FIPS [accelerate + fips = error@af-south-1]");
+        let error = endpoint
+            .expect_err("expected error: Accelerate cannot be used with FIPS [accelerate + fips = error@af-south-1]");
         assert_eq!(format!("{}", error), "Accelerate cannot be used with FIPS")
     }
 
@@ -4289,8 +4190,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3.us-west-2.amazonaws.com/bucket-name");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.us-west-2.amazonaws.com/bucket-name");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4318,9 +4218,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://s3-fips.us-gov-west-1.amazonaws.com/bucket.with.dots",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://s3-fips.us-gov-west-1.amazonaws.com/bucket.with.dots");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4371,9 +4270,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://s3.dualstack.us-west-2.amazonaws.com/bucket-name",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://s3.dualstack.us-west-2.amazonaws.com/bucket-name");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4393,7 +4291,10 @@ mod test {
     fn test_168() {
         let params = crate::config::endpoint::Params::builder()
             .accelerate(false)
-            .bucket("arn:PARTITION:s3-outposts:REGION:123456789012:outpost:op-01234567890123456:bucket:mybucket".to_string())
+            .bucket(
+                "arn:PARTITION:s3-outposts:REGION:123456789012:outpost:op-01234567890123456:bucket:mybucket"
+                    .to_string(),
+            )
             .force_path_style(true)
             .region("us-west-2".to_string())
             .use_dual_stack(false)
@@ -4424,8 +4325,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://s3.us-west-2.amazonaws.com/99a_b");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.us-west-2.amazonaws.com/99a_b");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4453,8 +4353,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://s3.us-west-2.amazonaws.com/99a_b");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.us-west-2.amazonaws.com/99a_b");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4483,8 +4382,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3.cn-north-1.amazonaws.com.cn/bucket-name");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.cn-north-1.amazonaws.com.cn/bucket-name");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4513,9 +4411,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err(
-            "expected error: Partition does not support FIPS [path style + fips@cn-north-1]",
-        );
+        let error =
+            endpoint.expect_err("expected error: Partition does not support FIPS [path style + fips@cn-north-1]");
         assert_eq!(format!("{}", error), "Partition does not support FIPS")
     }
 
@@ -4555,9 +4452,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://s3.dualstack.cn-north-1.amazonaws.com.cn/bucket-name",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://s3.dualstack.cn-north-1.amazonaws.com.cn/bucket-name");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4577,7 +4473,10 @@ mod test {
     fn test_175() {
         let params = crate::config::endpoint::Params::builder()
             .accelerate(false)
-            .bucket("arn:PARTITION:s3-outposts:REGION:123456789012:outpost:op-01234567890123456:bucket:mybucket".to_string())
+            .bucket(
+                "arn:PARTITION:s3-outposts:REGION:123456789012:outpost:op-01234567890123456:bucket:mybucket"
+                    .to_string(),
+            )
             .force_path_style(true)
             .region("cn-north-1".to_string())
             .use_dual_stack(false)
@@ -4608,8 +4507,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3.cn-north-1.amazonaws.com.cn/99a_b");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.cn-north-1.amazonaws.com.cn/99a_b");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4637,8 +4535,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3.cn-north-1.amazonaws.com.cn/99a_b");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.cn-north-1.amazonaws.com.cn/99a_b");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4667,8 +4564,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3.af-south-1.amazonaws.com/bucket-name");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.af-south-1.amazonaws.com/bucket-name");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4697,9 +4593,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://s3-fips.af-south-1.amazonaws.com/bucket-name",
-        );
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3-fips.af-south-1.amazonaws.com/bucket-name");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4750,9 +4644,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://s3.dualstack.af-south-1.amazonaws.com/bucket-name",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://s3.dualstack.af-south-1.amazonaws.com/bucket-name");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4772,7 +4665,10 @@ mod test {
     fn test_182() {
         let params = crate::config::endpoint::Params::builder()
             .accelerate(false)
-            .bucket("arn:PARTITION:s3-outposts:REGION:123456789012:outpost:op-01234567890123456:bucket:mybucket".to_string())
+            .bucket(
+                "arn:PARTITION:s3-outposts:REGION:123456789012:outpost:op-01234567890123456:bucket:mybucket"
+                    .to_string(),
+            )
             .force_path_style(true)
             .region("af-south-1".to_string())
             .use_dual_stack(false)
@@ -4803,8 +4699,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://s3.af-south-1.amazonaws.com/99a_b");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.af-south-1.amazonaws.com/99a_b");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4832,8 +4727,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://s3.af-south-1.amazonaws.com/99a_b");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3.af-south-1.amazonaws.com/99a_b");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4855,9 +4749,7 @@ mod test {
             .accelerate(false)
             .bucket("bucket-name".to_string())
             .force_path_style(false)
-            .endpoint(
-                "http://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string(),
-            )
+            .endpoint("http://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string())
             .region("us-west-2".to_string())
             .use_dual_stack(false)
             .use_fips(false)
@@ -4865,13 +4757,13 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: http://bucket-name.control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: http://bucket-name.control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
-                .url(
-                    "http://bucket-name.control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com"
-                )
+                .url("http://bucket-name.control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com")
                 .auth_scheme(
                     ::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity("sigv4", 3)
                         .put("disableDoubleEncoding", true)
@@ -4889,9 +4781,7 @@ mod test {
             .accelerate(false)
             .bucket("bucket-name".to_string())
             .force_path_style(true)
-            .endpoint(
-                "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string(),
-            )
+            .endpoint("https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string())
             .region("us-west-2".to_string())
             .use_dual_stack(false)
             .use_fips(false)
@@ -4899,7 +4789,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com/bucket-name");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com/bucket-name",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4921,9 +4813,7 @@ mod test {
             .accelerate(false)
             .bucket("bucket-name".to_string())
             .force_path_style(false)
-            .endpoint(
-                "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string(),
-            )
+            .endpoint("https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string())
             .region("us-west-2".to_string())
             .use_dual_stack(false)
             .use_fips(true)
@@ -4931,11 +4821,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: A custom endpoint cannot be combined with FIPS [SDK::Host + FIPS@us-west-2]");
-        assert_eq!(
-            format!("{}", error),
-            "A custom endpoint cannot be combined with FIPS"
-        )
+        let error = endpoint
+            .expect_err("expected error: A custom endpoint cannot be combined with FIPS [SDK::Host + FIPS@us-west-2]");
+        assert_eq!(format!("{}", error), "A custom endpoint cannot be combined with FIPS")
     }
 
     /// SDK::Host + DualStack@us-west-2
@@ -4945,9 +4833,7 @@ mod test {
             .accelerate(false)
             .bucket("bucket-name".to_string())
             .force_path_style(false)
-            .endpoint(
-                "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string(),
-            )
+            .endpoint("https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string())
             .region("us-west-2".to_string())
             .use_dual_stack(true)
             .use_fips(false)
@@ -4970,9 +4856,7 @@ mod test {
             .accelerate(true)
             .bucket("bucket-name".to_string())
             .force_path_style(false)
-            .endpoint(
-                "http://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string(),
-            )
+            .endpoint("http://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string())
             .region("us-west-2".to_string())
             .use_dual_stack(false)
             .use_fips(false)
@@ -5002,8 +4886,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://myendpoint-123456789012.beta.example.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://myendpoint-123456789012.beta.example.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5025,9 +4908,7 @@ mod test {
             .accelerate(false)
             .bucket("bucket-name".to_string())
             .force_path_style(false)
-            .endpoint(
-                "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string(),
-            )
+            .endpoint("https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string())
             .region("cn-north-1".to_string())
             .use_dual_stack(false)
             .use_fips(false)
@@ -5035,7 +4916,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket-name.control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://bucket-name.control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5057,9 +4940,7 @@ mod test {
             .accelerate(false)
             .bucket("bucket-name".to_string())
             .force_path_style(true)
-            .endpoint(
-                "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string(),
-            )
+            .endpoint("https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string())
             .region("cn-north-1".to_string())
             .use_dual_stack(false)
             .use_fips(false)
@@ -5067,7 +4948,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com/bucket-name");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com/bucket-name",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5096,8 +4979,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint
-            .expect_err("expected error: Partition does not support FIPS [FIPS@cn-north-1]");
+        let error = endpoint.expect_err("expected error: Partition does not support FIPS [FIPS@cn-north-1]");
         assert_eq!(format!("{}", error), "Partition does not support FIPS")
     }
 
@@ -5108,9 +4990,7 @@ mod test {
             .accelerate(false)
             .bucket("bucket-name".to_string())
             .force_path_style(false)
-            .endpoint(
-                "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string(),
-            )
+            .endpoint("https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string())
             .region("cn-north-1".to_string())
             .use_dual_stack(true)
             .use_fips(false)
@@ -5133,9 +5013,7 @@ mod test {
             .accelerate(true)
             .bucket("bucket-name".to_string())
             .force_path_style(false)
-            .endpoint(
-                "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string(),
-            )
+            .endpoint("https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string())
             .region("cn-north-1".to_string())
             .use_dual_stack(false)
             .use_fips(false)
@@ -5166,8 +5044,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://myendpoint-123456789012.beta.example.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://myendpoint-123456789012.beta.example.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5189,9 +5066,7 @@ mod test {
             .accelerate(false)
             .bucket("bucket-name".to_string())
             .force_path_style(false)
-            .endpoint(
-                "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string(),
-            )
+            .endpoint("https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string())
             .region("af-south-1".to_string())
             .use_dual_stack(false)
             .use_fips(false)
@@ -5199,7 +5074,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://bucket-name.control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://bucket-name.control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5221,9 +5098,7 @@ mod test {
             .accelerate(false)
             .bucket("bucket-name".to_string())
             .force_path_style(true)
-            .endpoint(
-                "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string(),
-            )
+            .endpoint("https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string())
             .region("af-south-1".to_string())
             .use_dual_stack(false)
             .use_fips(false)
@@ -5231,7 +5106,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com/bucket-name");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com/bucket-name",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5253,9 +5130,7 @@ mod test {
             .accelerate(false)
             .bucket("bucket-name".to_string())
             .force_path_style(false)
-            .endpoint(
-                "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string(),
-            )
+            .endpoint("https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string())
             .region("af-south-1".to_string())
             .use_dual_stack(false)
             .use_fips(true)
@@ -5263,11 +5138,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: A custom endpoint cannot be combined with FIPS [SDK::Host + FIPS@af-south-1]");
-        assert_eq!(
-            format!("{}", error),
-            "A custom endpoint cannot be combined with FIPS"
-        )
+        let error = endpoint
+            .expect_err("expected error: A custom endpoint cannot be combined with FIPS [SDK::Host + FIPS@af-south-1]");
+        assert_eq!(format!("{}", error), "A custom endpoint cannot be combined with FIPS")
     }
 
     /// SDK::Host + DualStack@af-south-1
@@ -5277,9 +5150,7 @@ mod test {
             .accelerate(false)
             .bucket("bucket-name".to_string())
             .force_path_style(false)
-            .endpoint(
-                "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string(),
-            )
+            .endpoint("https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string())
             .region("af-south-1".to_string())
             .use_dual_stack(true)
             .use_fips(false)
@@ -5302,9 +5173,7 @@ mod test {
             .accelerate(true)
             .bucket("bucket-name".to_string())
             .force_path_style(false)
-            .endpoint(
-                "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string(),
-            )
+            .endpoint("https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com".to_string())
             .region("af-south-1".to_string())
             .use_dual_stack(false)
             .use_fips(false)
@@ -5335,8 +5204,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://myendpoint-123456789012.beta.example.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://myendpoint-123456789012.beta.example.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5365,7 +5233,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
+        let endpoint = endpoint
+            .expect("Expected valid endpoint: https://myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5394,7 +5263,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://myendpoint-123456789012.s3-accesspoint-fips.us-west-2.amazonaws.com");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://myendpoint-123456789012.s3-accesspoint-fips.us-west-2.amazonaws.com",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5425,10 +5296,7 @@ mod test {
         let endpoint = resolver.resolve_endpoint(&params);
         let error =
             endpoint.expect_err("expected error: Access Points do not support S3 Accelerate [access point arn + accelerate = error@us-west-2]");
-        assert_eq!(
-            format!("{}", error),
-            "Access Points do not support S3 Accelerate"
-        )
+        assert_eq!(format!("{}", error), "Access Points do not support S3 Accelerate")
     }
 
     /// access point arn + FIPS + DualStack@us-west-2
@@ -5475,7 +5343,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://myendpoint-123456789012.s3-accesspoint.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://myendpoint-123456789012.s3-accesspoint.cn-north-1.amazonaws.com.cn",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5504,9 +5374,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err(
-            "expected error: Partition does not support FIPS [access point arn + FIPS@cn-north-1]",
-        );
+        let error =
+            endpoint.expect_err("expected error: Partition does not support FIPS [access point arn + FIPS@cn-north-1]");
         assert_eq!(format!("{}", error), "Partition does not support FIPS")
     }
 
@@ -5526,10 +5395,7 @@ mod test {
         let endpoint = resolver.resolve_endpoint(&params);
         let error =
             endpoint.expect_err("expected error: Access Points do not support S3 Accelerate [access point arn + accelerate = error@cn-north-1]");
-        assert_eq!(
-            format!("{}", error),
-            "Access Points do not support S3 Accelerate"
-        )
+        assert_eq!(format!("{}", error), "Access Points do not support S3 Accelerate")
     }
 
     /// access point arn + FIPS + DualStack@cn-north-1
@@ -5546,7 +5412,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Partition does not support FIPS [access point arn + FIPS + DualStack@cn-north-1]");
+        let error = endpoint.expect_err(
+            "expected error: Partition does not support FIPS [access point arn + FIPS + DualStack@cn-north-1]",
+        );
         assert_eq!(format!("{}", error), "Partition does not support FIPS")
     }
 
@@ -5564,7 +5432,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://myendpoint-123456789012.s3-accesspoint.af-south-1.amazonaws.com");
+        let endpoint = endpoint
+            .expect("Expected valid endpoint: https://myendpoint-123456789012.s3-accesspoint.af-south-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5593,7 +5462,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://myendpoint-123456789012.s3-accesspoint-fips.af-south-1.amazonaws.com");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://myendpoint-123456789012.s3-accesspoint-fips.af-south-1.amazonaws.com",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5624,10 +5495,7 @@ mod test {
         let endpoint = resolver.resolve_endpoint(&params);
         let error =
             endpoint.expect_err("expected error: Access Points do not support S3 Accelerate [access point arn + accelerate = error@af-south-1]");
-        assert_eq!(
-            format!("{}", error),
-            "Access Points do not support S3 Accelerate"
-        )
+        assert_eq!(format!("{}", error), "Access Points do not support S3 Accelerate")
     }
 
     /// access point arn + FIPS + DualStack@af-south-1
@@ -5668,7 +5536,10 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .accelerate(false)
-            .bucket("arn:aws:s3-outposts:us-west-2:123456789012:outpost/op-01234567890123456/accesspoint/reports".to_string())
+            .bucket(
+                "arn:aws:s3-outposts:us-west-2:123456789012:outpost/op-01234567890123456/accesspoint/reports"
+                    .to_string(),
+            )
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -5703,13 +5574,17 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .accelerate(false)
-            .bucket("arn:aws:s3-outposts:us-west-2:123456789012:outpost/op-01234567890123456/accesspoint/reports".to_string())
+            .bucket(
+                "arn:aws:s3-outposts:us-west-2:123456789012:outpost/op-01234567890123456/accesspoint/reports"
+                    .to_string(),
+            )
             .endpoint("https://example.amazonaws.com".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://reports-123456789012.op-01234567890123456.example.amazonaws.com");
+        let endpoint = endpoint
+            .expect("Expected valid endpoint: https://reports-123456789012.op-01234567890123456.example.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5735,7 +5610,10 @@ mod test {
     fn test_217() {
         let params = crate::config::endpoint::Params::builder()
             .accelerate(false)
-            .bucket("arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint".to_string())
+            .bucket(
+                "arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint"
+                    .to_string(),
+            )
             .force_path_style(false)
             .use_arn_region(false)
             .region("us-west-2".to_string())
@@ -5757,7 +5635,10 @@ mod test {
     fn test_218() {
         let params = crate::config::endpoint::Params::builder()
             .accelerate(false)
-            .bucket("arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint".to_string())
+            .bucket(
+                "arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint"
+                    .to_string(),
+            )
             .endpoint("https://example.com".to_string())
             .force_path_style(false)
             .use_arn_region(false)
@@ -5780,7 +5661,10 @@ mod test {
     fn test_219() {
         let params = crate::config::endpoint::Params::builder()
             .accelerate(false)
-            .bucket("arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint".to_string())
+            .bucket(
+                "arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint"
+                    .to_string(),
+            )
             .force_path_style(false)
             .use_arn_region(true)
             .region("us-west-2".to_string())
@@ -5817,7 +5701,10 @@ mod test {
     fn test_220() {
         let params = crate::config::endpoint::Params::builder()
             .accelerate(false)
-            .bucket("arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint".to_string())
+            .bucket(
+                "arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint"
+                    .to_string(),
+            )
             .force_path_style(false)
             .region("us-west-2".to_string())
             .use_dual_stack(false)
@@ -5853,7 +5740,10 @@ mod test {
     fn test_221() {
         let params = crate::config::endpoint::Params::builder()
             .accelerate(false)
-            .bucket("arn:aws:s3-outposts:cn-north-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint".to_string())
+            .bucket(
+                "arn:aws:s3-outposts:cn-north-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint"
+                    .to_string(),
+            )
             .force_path_style(false)
             .use_arn_region(true)
             .region("us-west-2".to_string())
@@ -5876,7 +5766,10 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .accelerate(false)
-            .bucket("arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-01234567890123456/accesspoint/reports".to_string())
+            .bucket(
+                "arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-01234567890123456/accesspoint/reports"
+                    .to_string(),
+            )
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -5911,16 +5804,18 @@ mod test {
             .use_fips(false)
             .use_dual_stack(true)
             .accelerate(false)
-            .bucket("arn:aws:s3-outposts:us-west-2:123456789012:outpost/op-01234567890123456/accesspoint/reports".to_string())
+            .bucket(
+                "arn:aws:s3-outposts:us-west-2:123456789012:outpost/op-01234567890123456/accesspoint/reports"
+                    .to_string(),
+            )
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: S3 Outposts does not support Dual-stack [S3 outposts does not support dualstack]");
-        assert_eq!(
-            format!("{}", error),
-            "S3 Outposts does not support Dual-stack"
-        )
+        let error = endpoint.expect_err(
+            "expected error: S3 Outposts does not support Dual-stack [S3 outposts does not support dualstack]",
+        );
+        assert_eq!(format!("{}", error), "S3 Outposts does not support Dual-stack")
     }
 
     /// S3 outposts does not support fips
@@ -5931,14 +5826,16 @@ mod test {
             .use_fips(true)
             .use_dual_stack(false)
             .accelerate(false)
-            .bucket("arn:aws:s3-outposts:us-west-2:123456789012:outpost/op-01234567890123456/accesspoint/reports".to_string())
+            .bucket(
+                "arn:aws:s3-outposts:us-west-2:123456789012:outpost/op-01234567890123456/accesspoint/reports"
+                    .to_string(),
+            )
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err(
-            "expected error: S3 Outposts does not support FIPS [S3 outposts does not support fips]",
-        );
+        let error = endpoint
+            .expect_err("expected error: S3 Outposts does not support FIPS [S3 outposts does not support fips]");
         assert_eq!(format!("{}", error), "S3 Outposts does not support FIPS")
     }
 
@@ -5950,16 +5847,18 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .accelerate(true)
-            .bucket("arn:aws:s3-outposts:us-west-2:123456789012:outpost/op-01234567890123456/accesspoint/reports".to_string())
+            .bucket(
+                "arn:aws:s3-outposts:us-west-2:123456789012:outpost/op-01234567890123456/accesspoint/reports"
+                    .to_string(),
+            )
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: S3 Outposts does not support S3 Accelerate [S3 outposts does not support accelerate]");
-        assert_eq!(
-            format!("{}", error),
-            "S3 Outposts does not support S3 Accelerate"
-        )
+        let error = endpoint.expect_err(
+            "expected error: S3 Outposts does not support S3 Accelerate [S3 outposts does not support accelerate]",
+        );
+        assert_eq!(format!("{}", error), "S3 Outposts does not support S3 Accelerate")
     }
 
     /// validates against subresource
@@ -5991,7 +5890,10 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .accelerate(false)
-            .bucket("arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:accesspoint:invalid.bucket#".to_string())
+            .bucket(
+                "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:accesspoint:invalid.bucket#"
+                    .to_string(),
+            )
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -6012,14 +5914,13 @@ mod test {
             .use_dual_stack(false)
             .accelerate(false)
             .use_arn_region(false)
-            .bucket(
-                "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner".to_string(),
-            )
+            .bucket("arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://mybanner-123456789012.s3-object-lambda.us-east-1.amazonaws.com");
+        let endpoint = endpoint
+            .expect("Expected valid endpoint: https://mybanner-123456789012.s3-object-lambda.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6043,14 +5944,13 @@ mod test {
             .use_dual_stack(false)
             .accelerate(false)
             .use_arn_region(false)
-            .bucket(
-                "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner".to_string(),
-            )
+            .bucket("arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://mybanner-123456789012.s3-object-lambda.us-west-2.amazonaws.com");
+        let endpoint = endpoint
+            .expect("Expected valid endpoint: https://mybanner-123456789012.s3-object-lambda.us-west-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6074,14 +5974,13 @@ mod test {
             .use_dual_stack(false)
             .accelerate(false)
             .use_arn_region(false)
-            .bucket(
-                "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint:mybanner".to_string(),
-            )
+            .bucket("arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint:mybanner".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://mybanner-123456789012.s3-object-lambda.us-west-2.amazonaws.com");
+        let endpoint = endpoint
+            .expect("Expected valid endpoint: https://mybanner-123456789012.s3-object-lambda.us-west-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6105,14 +6004,13 @@ mod test {
             .use_dual_stack(false)
             .accelerate(false)
             .use_arn_region(true)
-            .bucket(
-                "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner".to_string(),
-            )
+            .bucket("arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://mybanner-123456789012.s3-object-lambda.us-east-1.amazonaws.com");
+        let endpoint = endpoint
+            .expect("Expected valid endpoint: https://mybanner-123456789012.s3-object-lambda.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6136,14 +6034,13 @@ mod test {
             .use_dual_stack(false)
             .accelerate(false)
             .use_arn_region(true)
-            .bucket(
-                "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner".to_string(),
-            )
+            .bucket("arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://mybanner-123456789012.s3-object-lambda.us-east-1.amazonaws.com");
+        let endpoint = endpoint
+            .expect("Expected valid endpoint: https://mybanner-123456789012.s3-object-lambda.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6167,9 +6064,7 @@ mod test {
             .use_dual_stack(false)
             .accelerate(false)
             .use_arn_region(false)
-            .bucket(
-                "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner".to_string(),
-            )
+            .bucket("arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -6190,14 +6085,13 @@ mod test {
             .use_dual_stack(false)
             .accelerate(false)
             .use_arn_region(true)
-            .bucket(
-                "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner".to_string(),
-            )
+            .bucket("arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://mybanner-123456789012.s3-object-lambda.us-east-1.amazonaws.com");
+        let endpoint = endpoint
+            .expect("Expected valid endpoint: https://mybanner-123456789012.s3-object-lambda.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6221,9 +6115,7 @@ mod test {
             .use_dual_stack(false)
             .accelerate(false)
             .use_arn_region(false)
-            .bucket(
-                "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner".to_string(),
-            )
+            .bucket("arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -6244,10 +6136,7 @@ mod test {
             .use_dual_stack(false)
             .accelerate(false)
             .use_arn_region(true)
-            .bucket(
-                "arn:aws-cn:s3-object-lambda:cn-north-1:123456789012:accesspoint/mybanner"
-                    .to_string(),
-            )
+            .bucket("arn:aws-cn:s3-object-lambda:cn-north-1:123456789012:accesspoint/mybanner".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -6265,18 +6154,14 @@ mod test {
             .use_dual_stack(true)
             .accelerate(false)
             .use_arn_region(false)
-            .bucket(
-                "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner".to_string(),
-            )
+            .bucket("arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: S3 Object Lambda does not support Dual-stack [object lambda with dualstack]");
-        assert_eq!(
-            format!("{}", error),
-            "S3 Object Lambda does not support Dual-stack"
-        )
+        let error = endpoint
+            .expect_err("expected error: S3 Object Lambda does not support Dual-stack [object lambda with dualstack]");
+        assert_eq!(format!("{}", error), "S3 Object Lambda does not support Dual-stack")
     }
 
     /// object lambda @us-gov-east-1
@@ -6288,15 +6173,14 @@ mod test {
             .use_dual_stack(false)
             .accelerate(false)
             .use_arn_region(false)
-            .bucket(
-                "arn:aws-us-gov:s3-object-lambda:us-gov-east-1:123456789012:accesspoint/mybanner"
-                    .to_string(),
-            )
+            .bucket("arn:aws-us-gov:s3-object-lambda:us-gov-east-1:123456789012:accesspoint/mybanner".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://mybanner-123456789012.s3-object-lambda.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://mybanner-123456789012.s3-object-lambda.us-gov-east-1.amazonaws.com",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6320,15 +6204,14 @@ mod test {
             .use_dual_stack(false)
             .accelerate(false)
             .use_arn_region(false)
-            .bucket(
-                "arn:aws-us-gov:s3-object-lambda:us-gov-east-1:123456789012:accesspoint/mybanner"
-                    .to_string(),
-            )
+            .bucket("arn:aws-us-gov:s3-object-lambda:us-gov-east-1:123456789012:accesspoint/mybanner".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://mybanner-123456789012.s3-object-lambda-fips.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://mybanner-123456789012.s3-object-lambda-fips.us-gov-east-1.amazonaws.com",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6352,15 +6235,13 @@ mod test {
             .use_dual_stack(false)
             .accelerate(false)
             .use_arn_region(false)
-            .bucket(
-                "arn:aws-cn:s3-object-lambda:cn-north-1:123456789012:accesspoint/mybanner"
-                    .to_string(),
-            )
+            .bucket("arn:aws-cn:s3-object-lambda:cn-north-1:123456789012:accesspoint/mybanner".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Partition does not support FIPS [object lambda @cn-north-1, with fips]");
+        let error = endpoint
+            .expect_err("expected error: Partition does not support FIPS [object lambda @cn-north-1, with fips]");
         assert_eq!(format!("{}", error), "Partition does not support FIPS")
     }
 
@@ -6373,18 +6254,15 @@ mod test {
             .use_dual_stack(false)
             .accelerate(true)
             .use_arn_region(false)
-            .bucket(
-                "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner".to_string(),
-            )
+            .bucket("arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: S3 Object Lambda does not support S3 Accelerate [object lambda with accelerate]");
-        assert_eq!(
-            format!("{}", error),
-            "S3 Object Lambda does not support S3 Accelerate"
-        )
+        let error = endpoint.expect_err(
+            "expected error: S3 Object Lambda does not support S3 Accelerate [object lambda with accelerate]",
+        );
+        assert_eq!(format!("{}", error), "S3 Object Lambda does not support S3 Accelerate")
     }
 
     /// object lambda with invalid arn - bad service and someresource
@@ -6417,9 +6295,7 @@ mod test {
             .use_dual_stack(false)
             .accelerate(false)
             .use_arn_region(false)
-            .bucket(
-                "arn:aws:s3-object-lambda:us-west-2:123456789012:bucket_name:mybucket".to_string(),
-            )
+            .bucket("arn:aws:s3-object-lambda:us-west-2:123456789012:bucket_name:mybucket".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -6447,10 +6323,7 @@ mod test {
         let endpoint = resolver.resolve_endpoint(&params);
         let error =
             endpoint.expect_err("expected error: Invalid ARN: bucket ARN is missing a region [object lambda with invalid arn - missing region]");
-        assert_eq!(
-            format!("{}", error),
-            "Invalid ARN: bucket ARN is missing a region"
-        )
+        assert_eq!(format!("{}", error), "Invalid ARN: bucket ARN is missing a region")
     }
 
     /// object lambda with invalid arn - missing account-id
@@ -6467,7 +6340,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Invalid ARN: Missing account id [object lambda with invalid arn - missing account-id]");
+        let error = endpoint.expect_err(
+            "expected error: Invalid ARN: Missing account id [object lambda with invalid arn - missing account-id]",
+        );
         assert_eq!(format!("{}", error), "Invalid ARN: Missing account id")
     }
 
@@ -6480,10 +6355,7 @@ mod test {
             .use_dual_stack(false)
             .accelerate(false)
             .use_arn_region(true)
-            .bucket(
-                "arn:aws:s3-object-lambda:us-west-2:123.45678.9012:accesspoint:mybucket"
-                    .to_string(),
-            )
+            .bucket("arn:aws:s3-object-lambda:us-west-2:123.45678.9012:accesspoint:mybucket".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -6546,9 +6418,7 @@ mod test {
             .use_dual_stack(false)
             .accelerate(false)
             .use_arn_region(true)
-            .bucket(
-                "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint:my.bucket".to_string(),
-            )
+            .bucket("arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint:my.bucket".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -6569,10 +6439,7 @@ mod test {
             .use_dual_stack(false)
             .accelerate(false)
             .use_arn_region(true)
-            .bucket(
-                "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint:mybucket:object:foo"
-                    .to_string(),
-            )
+            .bucket("arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint:mybucket:object:foo".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
@@ -6593,16 +6460,13 @@ mod test {
             .use_dual_stack(false)
             .accelerate(false)
             .use_arn_region(false)
-            .bucket(
-                "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner".to_string(),
-            )
+            .bucket("arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner".to_string())
             .endpoint("https://my-endpoint.com".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://mybanner-123456789012.my-endpoint.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://mybanner-123456789012.my-endpoint.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6622,9 +6486,7 @@ mod test {
     fn test_252() {
         let params = crate::config::endpoint::Params::builder()
             .accelerate(false)
-            .bucket(
-                "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner".to_string(),
-            )
+            .bucket("arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner".to_string())
             .force_path_style(false)
             .use_arn_region(false)
             .region("us-west-2".to_string())
@@ -6654,8 +6516,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3-object-lambda.us-west-2.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3-object-lambda.us-west-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6712,8 +6573,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3-object-lambda.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3-object-lambda.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6741,9 +6601,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://s3-object-lambda-fips.us-east-1.amazonaws.com",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://s3-object-lambda-fips.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6771,11 +6630,10 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: S3 Object Lambda does not support Dual-stack [WriteGetObjectResponse with dualstack]");
-        assert_eq!(
-            format!("{}", error),
-            "S3 Object Lambda does not support Dual-stack"
-        )
+        let error = endpoint.expect_err(
+            "expected error: S3 Object Lambda does not support Dual-stack [WriteGetObjectResponse with dualstack]",
+        );
+        assert_eq!(format!("{}", error), "S3 Object Lambda does not support Dual-stack")
     }
 
     /// WriteGetObjectResponse with accelerate
@@ -6791,11 +6649,10 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: S3 Object Lambda does not support S3 Accelerate [WriteGetObjectResponse with accelerate]");
-        assert_eq!(
-            format!("{}", error),
-            "S3 Object Lambda does not support S3 Accelerate"
-        )
+        let error = endpoint.expect_err(
+            "expected error: S3 Object Lambda does not support S3 Accelerate [WriteGetObjectResponse with accelerate]",
+        );
+        assert_eq!(format!("{}", error), "S3 Object Lambda does not support S3 Accelerate")
     }
 
     /// WriteGetObjectResponse with fips in CN
@@ -6811,7 +6668,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Partition does not support FIPS [WriteGetObjectResponse with fips in CN]");
+        let error = endpoint
+            .expect_err("expected error: Partition does not support FIPS [WriteGetObjectResponse with fips in CN]");
         assert_eq!(format!("{}", error), "Partition does not support FIPS")
     }
 
@@ -6830,10 +6688,7 @@ mod test {
         let endpoint = resolver.resolve_endpoint(&params);
         let error =
             endpoint.expect_err("expected error: Invalid region: region was not a valid DNS name. [WriteGetObjectResponse with invalid partition]");
-        assert_eq!(
-            format!("{}", error),
-            "Invalid region: region was not a valid DNS name."
-        )
+        assert_eq!(format!("{}", error), "Invalid region: region was not a valid DNS name.")
     }
 
     /// WriteGetObjectResponse with an unknown partition
@@ -6849,9 +6704,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://s3-object-lambda.us-east.special.amazonaws.com",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://s3-object-lambda.us-east.special.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7044,7 +6898,9 @@ mod test {
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
-                .url("https://161743052723-e00000136899934034jeahy1t8gpzpbwjj8kb7beta0--op-s3.ec2.example.amazonaws.com")
+                .url(
+                    "https://161743052723-e00000136899934034jeahy1t8gpzpbwjj8kb7beta0--op-s3.ec2.example.amazonaws.com"
+                )
                 .auth_scheme(
                     ::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity("sigv4a", 3)
                         .put("disableDoubleEncoding", true)
@@ -7298,19 +7154,18 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://mybucket--abcd-ab1--x-s3.s3express-abcd-ab1.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://mybucket--abcd-ab1--x-s3.s3express-abcd-ab1.us-east-1.amazonaws.com",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
                 .url("https://mybucket--abcd-ab1--x-s3.s3express-abcd-ab1.us-east-1.amazonaws.com")
                 .auth_scheme(
-                    ::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity(
-                        "sigv4-s3express",
-                        3
-                    )
-                    .put("disableDoubleEncoding", true)
-                    .put("signingName", "s3express".to_string())
-                    .put("signingRegion", "us-east-1".to_string())
+                    ::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity("sigv4-s3express", 3)
+                        .put("disableDoubleEncoding", true)
+                        .put("signingName", "s3express".to_string())
+                        .put("signingRegion", "us-east-1".to_string())
                 )
                 .property("backend", "S3Express".to_string())
                 .build()
@@ -7331,7 +7186,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://mybucket--abcd-ab1--x-s3.s3express-abcd-ab1.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://mybucket--abcd-ab1--x-s3.s3express-abcd-ab1.cn-north-1.amazonaws.com.cn",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7609,7 +7466,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://mybucket--test-ab1--x-s3.s3express-fips-test-ab1.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://mybucket--test-ab1--x-s3.s3express-fips-test-ab1.us-east-1.amazonaws.com",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7639,7 +7498,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Partition does not support FIPS [Data Plane with short zone fips china region]");
+        let error = endpoint.expect_err(
+            "expected error: Partition does not support FIPS [Data Plane with short zone fips china region]",
+        );
         assert_eq!(format!("{}", error), "Partition does not support FIPS")
     }
 
@@ -7688,7 +7549,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Partition does not support FIPS [Data Plane with short zone fips with AP china region]");
+        let error = endpoint.expect_err(
+            "expected error: Partition does not support FIPS [Data Plane with short zone fips with AP china region]",
+        );
         assert_eq!(format!("{}", error), "Partition does not support FIPS")
     }
 
@@ -7894,21 +7757,18 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://mybucket--test1-az1--x-s3.s3express-test1-az1.us-west-2.amazonaws.com");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://mybucket--test1-az1--x-s3.s3express-test1-az1.us-west-2.amazonaws.com",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
-                .url(
-                    "https://mybucket--test1-az1--x-s3.s3express-test1-az1.us-west-2.amazonaws.com"
-                )
+                .url("https://mybucket--test1-az1--x-s3.s3express-test1-az1.us-west-2.amazonaws.com")
                 .auth_scheme(
-                    ::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity(
-                        "sigv4-s3express",
-                        3
-                    )
-                    .put("disableDoubleEncoding", true)
-                    .put("signingName", "s3express".to_string())
-                    .put("signingRegion", "us-west-2".to_string())
+                    ::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity("sigv4-s3express", 3)
+                        .put("disableDoubleEncoding", true)
+                        .put("signingName", "s3express".to_string())
+                        .put("signingRegion", "us-west-2".to_string())
                 )
                 .property("backend", "S3Express".to_string())
                 .build()
@@ -8022,7 +7882,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://s3express-control.us-east-1.amazonaws.com/mybucket--test-ab1--x-s3");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://s3express-control.us-east-1.amazonaws.com/mybucket--test-ab1--x-s3",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8053,7 +7915,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://s3express-control.cn-north-1.amazonaws.com.cn/mybucket--test-ab1--x-s3");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://s3express-control.cn-north-1.amazonaws.com.cn/mybucket--test-ab1--x-s3",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8084,7 +7948,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://s3express-control-fips.us-east-1.amazonaws.com/mybucket--test-ab1--x-s3");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://s3express-control-fips.us-east-1.amazonaws.com/mybucket--test-ab1--x-s3",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8133,8 +7999,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://s3express-control.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://s3express-control.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8164,9 +8029,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://s3express-control-fips.us-east-1.amazonaws.com",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://s3express-control-fips.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8196,7 +8060,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://mybucket--usw2-az1--x-s3.s3express-usw2-az1.us-west-2.amazonaws.com");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://mybucket--usw2-az1--x-s3.s3express-usw2-az1.us-west-2.amazonaws.com",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8318,7 +8184,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://mybucket--usw2-az1--x-s3.s3express-fips-usw2-az1.us-west-2.amazonaws.com");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://mybucket--usw2-az1--x-s3.s3express-fips-usw2-az1.us-west-2.amazonaws.com",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8442,13 +8310,13 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://mybucket--test1-az1--x-s3.s3express-test1-az1.us-west-2.amazonaws.com");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://mybucket--test1-az1--x-s3.s3express-test1-az1.us-west-2.amazonaws.com",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
-                .url(
-                    "https://mybucket--test1-az1--x-s3.s3express-test1-az1.us-west-2.amazonaws.com"
-                )
+                .url("https://mybucket--test1-az1--x-s3.s3express-test1-az1.us-west-2.amazonaws.com")
                 .auth_scheme(
                     ::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity("sigv4", 3)
                         .put("disableDoubleEncoding", true)
@@ -8830,8 +8698,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://mybucket--usw2-az1--x-s3.custom.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://mybucket--usw2-az1--x-s3.custom.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8863,8 +8730,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://myaccesspoint--usw2-az1--xa-s3.custom.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://myaccesspoint--usw2-az1--xa-s3.custom.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8925,20 +8791,16 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://10.0.0.1/mybucket--usw2-az1--x-s3");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://10.0.0.1/mybucket--usw2-az1--x-s3");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
                 .url("https://10.0.0.1/mybucket--usw2-az1--x-s3")
                 .auth_scheme(
-                    ::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity(
-                        "sigv4-s3express",
-                        3
-                    )
-                    .put("disableDoubleEncoding", true)
-                    .put("signingName", "s3express".to_string())
-                    .put("signingRegion", "us-west-2".to_string())
+                    ::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity("sigv4-s3express", 3)
+                        .put("disableDoubleEncoding", true)
+                        .put("signingName", "s3express".to_string())
+                        .put("signingRegion", "us-west-2".to_string())
                 )
                 .property("backend", "S3Express".to_string())
                 .build()
@@ -8959,20 +8821,16 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://10.0.0.1/myaccesspoint--usw2-az1--xa-s3");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://10.0.0.1/myaccesspoint--usw2-az1--xa-s3");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
                 .url("https://10.0.0.1/myaccesspoint--usw2-az1--xa-s3")
                 .auth_scheme(
-                    ::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity(
-                        "sigv4-s3express",
-                        3
-                    )
-                    .put("disableDoubleEncoding", true)
-                    .put("signingName", "s3express".to_string())
-                    .put("signingRegion", "us-west-2".to_string())
+                    ::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity("sigv4-s3express", 3)
+                        .put("disableDoubleEncoding", true)
+                        .put("signingName", "s3express".to_string())
+                        .put("signingRegion", "us-west-2".to_string())
                 )
                 .property("backend", "S3Express".to_string())
                 .build()
@@ -8995,8 +8853,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://10.0.0.1/mybucket--usw2-az1--x-s3");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://10.0.0.1/mybucket--usw2-az1--x-s3");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -9028,8 +8885,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://10.0.0.1/myaccesspoint--usw2-az1--xa-s3");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://10.0.0.1/myaccesspoint--usw2-az1--xa-s3");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -9059,20 +8915,16 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://mybucket--usw2-az1--x-s3.custom.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://mybucket--usw2-az1--x-s3.custom.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
                 .url("https://mybucket--usw2-az1--x-s3.custom.com")
                 .auth_scheme(
-                    ::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity(
-                        "sigv4-s3express",
-                        3
-                    )
-                    .put("disableDoubleEncoding", true)
-                    .put("signingName", "s3express".to_string())
-                    .put("signingRegion", "us-west-2".to_string())
+                    ::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity("sigv4-s3express", 3)
+                        .put("disableDoubleEncoding", true)
+                        .put("signingName", "s3express".to_string())
+                        .put("signingRegion", "us-west-2".to_string())
                 )
                 .property("backend", "S3Express".to_string())
                 .build()
@@ -9093,20 +8945,16 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://myaccesspoint--usw2-az1--xa-s3.custom.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://myaccesspoint--usw2-az1--xa-s3.custom.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
                 .url("https://myaccesspoint--usw2-az1--xa-s3.custom.com")
                 .auth_scheme(
-                    ::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity(
-                        "sigv4-s3express",
-                        3
-                    )
-                    .put("disableDoubleEncoding", true)
-                    .put("signingName", "s3express".to_string())
-                    .put("signingRegion", "us-west-2".to_string())
+                    ::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity("sigv4-s3express", 3)
+                        .put("disableDoubleEncoding", true)
+                        .put("signingName", "s3express".to_string())
+                        .put("signingRegion", "us-west-2".to_string())
                 )
                 .property("backend", "S3Express".to_string())
                 .build()
@@ -9127,13 +8975,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err(
-            "expected error: Unrecognized S3Express bucket name format. [bad format error]",
-        );
-        assert_eq!(
-            format!("{}", error),
-            "Unrecognized S3Express bucket name format."
-        )
+        let error =
+            endpoint.expect_err("expected error: Unrecognized S3Express bucket name format. [bad format error]");
+        assert_eq!(format!("{}", error), "Unrecognized S3Express bucket name format.")
     }
 
     /// bad AP format error
@@ -9150,13 +8994,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err(
-            "expected error: Unrecognized S3Express bucket name format. [bad AP format error]",
-        );
-        assert_eq!(
-            format!("{}", error),
-            "Unrecognized S3Express bucket name format."
-        )
+        let error =
+            endpoint.expect_err("expected error: Unrecognized S3Express bucket name format. [bad AP format error]");
+        assert_eq!(format!("{}", error), "Unrecognized S3Express bucket name format.")
     }
 
     /// bad format error no session auth
@@ -9174,11 +9014,10 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Unrecognized S3Express bucket name format. [bad format error no session auth]");
-        assert_eq!(
-            format!("{}", error),
-            "Unrecognized S3Express bucket name format."
-        )
+        let error = endpoint.expect_err(
+            "expected error: Unrecognized S3Express bucket name format. [bad format error no session auth]",
+        );
+        assert_eq!(format!("{}", error), "Unrecognized S3Express bucket name format.")
     }
 
     /// bad AP format error no session auth
@@ -9196,11 +9035,10 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: Unrecognized S3Express bucket name format. [bad AP format error no session auth]");
-        assert_eq!(
-            format!("{}", error),
-            "Unrecognized S3Express bucket name format."
-        )
+        let error = endpoint.expect_err(
+            "expected error: Unrecognized S3Express bucket name format. [bad AP format error no session auth]",
+        );
+        assert_eq!(format!("{}", error), "Unrecognized S3Express bucket name format.")
     }
 
     /// accelerate error
@@ -9217,13 +9055,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err(
-            "expected error: S3Express does not support S3 Accelerate. [accelerate error]",
-        );
-        assert_eq!(
-            format!("{}", error),
-            "S3Express does not support S3 Accelerate."
-        )
+        let error = endpoint.expect_err("expected error: S3Express does not support S3 Accelerate. [accelerate error]");
+        assert_eq!(format!("{}", error), "S3Express does not support S3 Accelerate.")
     }
 
     /// accelerate error with AP
@@ -9240,13 +9073,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err(
-            "expected error: S3Express does not support S3 Accelerate. [accelerate error with AP]",
-        );
-        assert_eq!(
-            format!("{}", error),
-            "S3Express does not support S3 Accelerate."
-        )
+        let error =
+            endpoint.expect_err("expected error: S3Express does not support S3 Accelerate. [accelerate error with AP]");
+        assert_eq!(format!("{}", error), "S3Express does not support S3 Accelerate.")
     }
 
     /// Data plane bucket format error
@@ -9285,7 +9114,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint.expect_err("expected error: S3Express bucket name is not a valid virtual hostable name. [Data plane AP format error]");
+        let error = endpoint.expect_err(
+            "expected error: S3Express bucket name is not a valid virtual hostable name. [Data plane AP format error]",
+        );
         assert_eq!(
             format!("{}", error),
             "S3Express bucket name is not a valid virtual hostable name."
@@ -9398,9 +9229,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://s3express-control.dualstack.us-east-1.amazonaws.com",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://s3express-control.dualstack.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -9430,7 +9260,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://s3express-control-fips.dualstack.us-east-1.amazonaws.com");
+        let endpoint = endpoint
+            .expect("Expected valid endpoint: https://s3express-control-fips.dualstack.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -9491,7 +9322,9 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://s3express-control.us-east-1.amazonaws.com/my--s3--bucket--abcd-ab1--x-s3");
+        let endpoint = endpoint.expect(
+            "Expected valid endpoint: https://s3express-control.us-east-1.amazonaws.com/my--s3--bucket--abcd-ab1--x-s3",
+        );
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -9898,7 +9731,9 @@ mod test {
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
-                .url("https://mybucket--test1-zone-ab1--x-s3.s3express-test1-zone-ab1.dualstack.us-west-2.amazonaws.com")
+                .url(
+                    "https://mybucket--test1-zone-ab1--x-s3.s3express-test1-zone-ab1.dualstack.us-west-2.amazonaws.com"
+                )
                 .auth_scheme(
                     ::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity("sigv4-s3express", 3)
                         .put("disableDoubleEncoding", true)
@@ -9961,7 +9796,9 @@ mod test {
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
-                .url("https://mybucket--test1-zone-ab1--x-s3.s3express-test1-zone-ab1.dualstack.us-west-2.amazonaws.com")
+                .url(
+                    "https://mybucket--test1-zone-ab1--x-s3.s3express-test1-zone-ab1.dualstack.us-west-2.amazonaws.com"
+                )
                 .auth_scheme(
                     ::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity("sigv4", 3)
                         .put("disableDoubleEncoding", true)
@@ -10825,15 +10662,11 @@ pub trait ResolveEndpoint: ::std::marker::Send + ::std::marker::Sync + ::std::fm
     /// Convert this service-specific resolver into a `SharedEndpointResolver`
     ///
     /// The resulting resolver will downcast `EndpointResolverParams` into `crate::config::endpoint::Params`.
-    fn into_shared_resolver(
-        self,
-    ) -> ::aws_smithy_runtime_api::client::endpoint::SharedEndpointResolver
+    fn into_shared_resolver(self) -> ::aws_smithy_runtime_api::client::endpoint::SharedEndpointResolver
     where
         Self: Sized + 'static,
     {
-        ::aws_smithy_runtime_api::client::endpoint::SharedEndpointResolver::new(DowncastParams(
-            self,
-        ))
+        ::aws_smithy_runtime_api::client::endpoint::SharedEndpointResolver::new(DowncastParams(self))
     }
 }
 
@@ -10861,9 +10694,7 @@ where
 /// The default endpoint resolver.
 pub struct DefaultResolver {
     partition_resolver: &'static crate::endpoint_lib::partition::PartitionResolver,
-    endpoint_cache: ::arc_swap::ArcSwap<
-        ::std::option::Option<(Params, ::aws_smithy_types::endpoint::Endpoint)>,
-    >,
+    endpoint_cache: ::arc_swap::ArcSwap<::std::option::Option<(Params, ::aws_smithy_types::endpoint::Endpoint)>>,
 }
 
 impl Default for DefaultResolver {
@@ -10897,10 +10728,8 @@ impl DefaultResolver {
     fn resolve_endpoint<'a>(
         &'a self,
         params: &'a crate::config::endpoint::Params,
-    ) -> ::std::result::Result<
-        ::aws_smithy_types::endpoint::Endpoint,
-        ::aws_smithy_runtime_api::box_error::BoxError,
-    > {
+    ) -> ::std::result::Result<::aws_smithy_types::endpoint::Endpoint, ::aws_smithy_runtime_api::box_error::BoxError>
+    {
         let mut _diagnostic_collector = crate::endpoint_lib::diagnostic::DiagnosticCollector::new();
         #[allow(unused_mut)]
         let mut context = ConditionContext::default();
@@ -13053,9 +12882,7 @@ impl DefaultResolver {
                 }
                 1 | -1 => {
                     return ::std::result::Result::Err(Box::new(
-                        ::aws_smithy_http::endpoint::ResolveEndpointError::message(
-                            "No endpoint rule matched",
-                        ),
+                        ::aws_smithy_http::endpoint::ResolveEndpointError::message("No endpoint rule matched"),
                     )
                         as ::aws_smithy_runtime_api::box_error::BoxError)
                 }
@@ -13784,18 +13611,16 @@ impl crate::config::endpoint::ResolveEndpoint for DefaultResolver {
         let cached = self.endpoint_cache.load();
         if let Some((cached_params, cached_endpoint)) = cached.as_ref() {
             if cached_params == params {
-                return ::aws_smithy_runtime_api::client::endpoint::EndpointFuture::ready(
-                    ::std::result::Result::Ok(cached_endpoint.clone()),
-                );
+                return ::aws_smithy_runtime_api::client::endpoint::EndpointFuture::ready(::std::result::Result::Ok(
+                    cached_endpoint.clone(),
+                ));
             }
         }
         drop(cached);
         let result = self.resolve_endpoint(params);
         if let ::std::result::Result::Ok(ref endpoint) = result {
-            self.endpoint_cache.store(::std::sync::Arc::new(Some((
-                params.clone(),
-                endpoint.clone(),
-            ))));
+            self.endpoint_cache
+                .store(::std::sync::Arc::new(Some((params.clone(), endpoint.clone()))));
         }
         ::aws_smithy_runtime_api::client::endpoint::EndpointFuture::ready(result)
     }
@@ -16709,9 +16534,7 @@ impl Params {
 }
 
 /// Builder for [`Params`]
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct ParamsBuilder {
     bucket: ::std::option::Option<::std::string::String>,
     region: ::std::option::Option<::std::string::String>,
@@ -16735,10 +16558,7 @@ impl ParamsBuilder {
     /// Consume this builder, creating [`Params`].
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::config::endpoint::Params,
-        crate::config::endpoint::InvalidParams,
-    > {
+    ) -> ::std::result::Result<crate::config::endpoint::Params, crate::config::endpoint::InvalidParams> {
         Ok(
             #[allow(clippy::unnecessary_lazy_evaluations)]
             crate::config::endpoint::Params {
@@ -16748,13 +16568,15 @@ impl ParamsBuilder {
                     .use_fips
                     .or_else(|| Some(false))
                     .ok_or_else(|| crate::config::endpoint::InvalidParams::missing("use_fips"))?,
-                use_dual_stack: self.use_dual_stack.or_else(|| Some(false)).ok_or_else(|| {
-                    crate::config::endpoint::InvalidParams::missing("use_dual_stack")
-                })?,
+                use_dual_stack: self
+                    .use_dual_stack
+                    .or_else(|| Some(false))
+                    .ok_or_else(|| crate::config::endpoint::InvalidParams::missing("use_dual_stack"))?,
                 endpoint: self.endpoint,
-                force_path_style: self.force_path_style.or_else(|| Some(false)).ok_or_else(
-                    || crate::config::endpoint::InvalidParams::missing("force_path_style"),
-                )?,
+                force_path_style: self
+                    .force_path_style
+                    .or_else(|| Some(false))
+                    .ok_or_else(|| crate::config::endpoint::InvalidParams::missing("force_path_style"))?,
                 accelerate: self
                     .accelerate
                     .or_else(|| Some(false))
@@ -16762,9 +16584,7 @@ impl ParamsBuilder {
                 use_global_endpoint: self
                     .use_global_endpoint
                     .or_else(|| Some(false))
-                    .ok_or_else(|| {
-                        crate::config::endpoint::InvalidParams::missing("use_global_endpoint")
-                    })?,
+                    .ok_or_else(|| crate::config::endpoint::InvalidParams::missing("use_global_endpoint"))?,
                 use_object_lambda_endpoint: self.use_object_lambda_endpoint,
                 key: self.key,
                 prefix: self.prefix,
@@ -16774,9 +16594,7 @@ impl ParamsBuilder {
                     .disable_multi_region_access_points
                     .or_else(|| Some(false))
                     .ok_or_else(|| {
-                        crate::config::endpoint::InvalidParams::missing(
-                            "disable_multi_region_access_points",
-                        )
+                        crate::config::endpoint::InvalidParams::missing("disable_multi_region_access_points")
                     })?,
                 use_arn_region: self.use_arn_region,
                 use_s3_express_control_endpoint: self.use_s3_express_control_endpoint,
@@ -17088,9 +16906,7 @@ impl InvalidParams {
 impl std::fmt::Display for InvalidParams {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self.kind {
-            InvalidParamsErrorKind::MissingField => {
-                write!(f, "a required field was missing: `{}`", self.field)
-            }
+            InvalidParamsErrorKind::MissingField => write!(f, "a required field was missing: `{}`", self.field),
             InvalidParamsErrorKind::InvalidValue { message } => {
                 write!(f, "invalid value for field: `{}` - {}", self.field, message)
             }

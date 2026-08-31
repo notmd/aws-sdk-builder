@@ -24,9 +24,7 @@ impl PutBucketNotificationConfigurationOutput {
 }
 
 /// A builder for [`PutBucketNotificationConfigurationOutput`](crate::operation::put_bucket_notification_configuration::PutBucketNotificationConfigurationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutBucketNotificationConfigurationOutputBuilder {
     _extended_request_id: Option<String>,
@@ -38,10 +36,7 @@ impl PutBucketNotificationConfigurationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -55,7 +50,9 @@ impl PutBucketNotificationConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutBucketNotificationConfigurationOutput`](crate::operation::put_bucket_notification_configuration::PutBucketNotificationConfigurationOutput).
-    pub fn build(self) -> crate::operation::put_bucket_notification_configuration::PutBucketNotificationConfigurationOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::put_bucket_notification_configuration::PutBucketNotificationConfigurationOutput {
         crate::operation::put_bucket_notification_configuration::PutBucketNotificationConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

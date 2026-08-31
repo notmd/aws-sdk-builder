@@ -12,17 +12,13 @@ impl ::aws_types::request_id::RequestId for SendDelegationTokenOutput {
 }
 impl SendDelegationTokenOutput {
     /// Creates a new builder-style object to manufacture [`SendDelegationTokenOutput`](crate::operation::send_delegation_token::SendDelegationTokenOutput).
-    pub fn builder(
-    ) -> crate::operation::send_delegation_token::builders::SendDelegationTokenOutputBuilder {
-        crate::operation::send_delegation_token::builders::SendDelegationTokenOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::send_delegation_token::builders::SendDelegationTokenOutputBuilder {
+        crate::operation::send_delegation_token::builders::SendDelegationTokenOutputBuilder::default()
     }
 }
 
 /// A builder for [`SendDelegationTokenOutput`](crate::operation::send_delegation_token::SendDelegationTokenOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SendDelegationTokenOutputBuilder {
     _request_id: Option<String>,

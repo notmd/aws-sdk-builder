@@ -15,7 +15,10 @@ pub fn ser_instance_launch_template_update(
     if let Some(var_4) = &input.instance_requirements {
         #[allow(unused_mut)]
         let mut object_5 = object.key("instanceRequirements").start_object();
-        crate::protocol_serde::shape_instance_requirements_request::ser_instance_requirements_request(&mut object_5, var_4)?;
+        crate::protocol_serde::shape_instance_requirements_request::ser_instance_requirements_request(
+            &mut object_5,
+            var_4,
+        )?;
         object_5.finish();
     }
     if let Some(var_6) = &input.storage_configuration {
@@ -30,13 +33,14 @@ pub fn ser_instance_launch_template_update(
     if let Some(var_9) = &input.capacity_reservations {
         #[allow(unused_mut)]
         let mut object_10 = object.key("capacityReservations").start_object();
-        crate::protocol_serde::shape_capacity_reservation_request::ser_capacity_reservation_request(&mut object_10, var_9)?;
+        crate::protocol_serde::shape_capacity_reservation_request::ser_capacity_reservation_request(
+            &mut object_10,
+            var_9,
+        )?;
         object_10.finish();
     }
     if let Some(var_11) = &input.instance_metadata_tags_propagation {
-        object
-            .key("instanceMetadataTagsPropagation")
-            .boolean(*var_11);
+        object.key("instanceMetadataTagsPropagation").boolean(*var_11);
     }
     if let Some(var_12) = &input.local_storage_configuration {
         #[allow(unused_mut)]

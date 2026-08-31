@@ -11,8 +11,6 @@ impl super::Client {
     pub fn get_bucket_replication(
         &self,
     ) -> crate::operation::get_bucket_replication::builders::GetBucketReplicationFluentBuilder {
-        crate::operation::get_bucket_replication::builders::GetBucketReplicationFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_bucket_replication::builders::GetBucketReplicationFluentBuilder::new(self.handle.clone())
     }
 }

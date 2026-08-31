@@ -60,9 +60,7 @@ impl ListInstanceProfilesFluentBuilder {
         }
     }
     /// Access the ListInstanceProfiles as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_instance_profiles::builders::ListInstanceProfilesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_instance_profiles::builders::ListInstanceProfilesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -91,11 +89,7 @@ impl ListInstanceProfilesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_instance_profiles::ListInstanceProfiles::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::list_instance_profiles::ListInstanceProfiles::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -126,13 +120,8 @@ impl ListInstanceProfilesFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_instance_profiles::paginator::ListInstanceProfilesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_instance_profiles::paginator::ListInstanceProfilesPaginator {
-        crate::operation::list_instance_profiles::paginator::ListInstanceProfilesPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_instance_profiles::paginator::ListInstanceProfilesPaginator {
+        crate::operation::list_instance_profiles::paginator::ListInstanceProfilesPaginator::new(self.handle, self.inner)
     }
     /// <p>The path prefix for filtering the results. For example, the prefix <code>/application_abc/component_xyz/</code> gets all instance profiles whose path starts with <code>/application_abc/component_xyz/</code>.</p>
     /// <p>This parameter is optional. If it is not included, it defaults to a slash (/), listing all instance profiles. This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including most punctuation characters, digits, and upper and lowercased letters.</p>

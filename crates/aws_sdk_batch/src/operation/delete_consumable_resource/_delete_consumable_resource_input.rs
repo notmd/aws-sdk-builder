@@ -14,17 +14,13 @@ impl DeleteConsumableResourceInput {
 }
 impl DeleteConsumableResourceInput {
     /// Creates a new builder-style object to manufacture [`DeleteConsumableResourceInput`](crate::operation::delete_consumable_resource::DeleteConsumableResourceInput).
-    pub fn builder(
-    ) -> crate::operation::delete_consumable_resource::builders::DeleteConsumableResourceInputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_consumable_resource::builders::DeleteConsumableResourceInputBuilder {
         crate::operation::delete_consumable_resource::builders::DeleteConsumableResourceInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteConsumableResourceInput`](crate::operation::delete_consumable_resource::DeleteConsumableResourceInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteConsumableResourceInputBuilder {
     pub(crate) consumable_resource: ::std::option::Option<::std::string::String>,
@@ -32,18 +28,12 @@ pub struct DeleteConsumableResourceInputBuilder {
 impl DeleteConsumableResourceInputBuilder {
     /// <p>The name or ARN of the consumable resource that will be deleted.</p>
     /// This field is required.
-    pub fn consumable_resource(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn consumable_resource(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.consumable_resource = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name or ARN of the consumable resource that will be deleted.</p>
-    pub fn set_consumable_resource(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_consumable_resource(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.consumable_resource = input;
         self
     }

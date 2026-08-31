@@ -13,8 +13,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListContributorInsightsError>`](crate::operation::list_contributor_insights::ListContributorInsightsError)
     pub fn list_contributor_insights(
         &self,
-    ) -> crate::operation::list_contributor_insights::builders::ListContributorInsightsFluentBuilder
-    {
-        crate::operation::list_contributor_insights::builders::ListContributorInsightsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::list_contributor_insights::builders::ListContributorInsightsFluentBuilder {
+        crate::operation::list_contributor_insights::builders::ListContributorInsightsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

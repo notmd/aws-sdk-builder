@@ -236,26 +236,16 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
     }
 }
 #[cfg(feature = "op_create_token")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_token::CreateTokenError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_token::CreateTokenError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_token::CreateTokenError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_token::CreateTokenError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -270,9 +260,9 @@ impl From<crate::operation::create_token::CreateTokenError> for Error {
             crate::operation::create_token::CreateTokenError::AccessDeniedException(inner) => {
                 Error::AccessDeniedException(inner)
             }
-            crate::operation::create_token::CreateTokenError::AuthorizationPendingException(
-                inner,
-            ) => Error::AuthorizationPendingException(inner),
+            crate::operation::create_token::CreateTokenError::AuthorizationPendingException(inner) => {
+                Error::AuthorizationPendingException(inner)
+            }
             crate::operation::create_token::CreateTokenError::ExpiredTokenException(inner) => {
                 Error::ExpiredTokenException(inner)
             }
@@ -294,15 +284,13 @@ impl From<crate::operation::create_token::CreateTokenError> for Error {
             crate::operation::create_token::CreateTokenError::SlowDownException(inner) => {
                 Error::SlowDownException(inner)
             }
-            crate::operation::create_token::CreateTokenError::UnauthorizedClientException(
-                inner,
-            ) => Error::UnauthorizedClientException(inner),
-            crate::operation::create_token::CreateTokenError::UnsupportedGrantTypeException(
-                inner,
-            ) => Error::UnsupportedGrantTypeException(inner),
-            crate::operation::create_token::CreateTokenError::Unhandled(inner) => {
-                Error::Unhandled(inner)
+            crate::operation::create_token::CreateTokenError::UnauthorizedClientException(inner) => {
+                Error::UnauthorizedClientException(inner)
             }
+            crate::operation::create_token::CreateTokenError::UnsupportedGrantTypeException(inner) => {
+                Error::UnsupportedGrantTypeException(inner)
+            }
+            crate::operation::create_token::CreateTokenError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -324,9 +312,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -338,38 +324,52 @@ where
 impl From<crate::operation::create_token_with_iam::CreateTokenWithIAMError> for Error {
     fn from(err: crate::operation::create_token_with_iam::CreateTokenWithIAMError) -> Self {
         match err {
-            crate::operation::create_token_with_iam::CreateTokenWithIAMError::AccessDeniedException(inner) => Error::AccessDeniedException(inner),
+            crate::operation::create_token_with_iam::CreateTokenWithIAMError::AccessDeniedException(inner) => {
+                Error::AccessDeniedException(inner)
+            }
             crate::operation::create_token_with_iam::CreateTokenWithIAMError::AuthorizationPendingException(inner) => {
                 Error::AuthorizationPendingException(inner)
             }
-            crate::operation::create_token_with_iam::CreateTokenWithIAMError::ExpiredTokenException(inner) => Error::ExpiredTokenException(inner),
-            crate::operation::create_token_with_iam::CreateTokenWithIAMError::InternalServerException(inner) => Error::InternalServerException(inner),
-            crate::operation::create_token_with_iam::CreateTokenWithIAMError::InvalidClientException(inner) => Error::InvalidClientException(inner),
-            crate::operation::create_token_with_iam::CreateTokenWithIAMError::InvalidGrantException(inner) => Error::InvalidGrantException(inner),
-            crate::operation::create_token_with_iam::CreateTokenWithIAMError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::create_token_with_iam::CreateTokenWithIAMError::ExpiredTokenException(inner) => {
+                Error::ExpiredTokenException(inner)
+            }
+            crate::operation::create_token_with_iam::CreateTokenWithIAMError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
+            crate::operation::create_token_with_iam::CreateTokenWithIAMError::InvalidClientException(inner) => {
+                Error::InvalidClientException(inner)
+            }
+            crate::operation::create_token_with_iam::CreateTokenWithIAMError::InvalidGrantException(inner) => {
+                Error::InvalidGrantException(inner)
+            }
+            crate::operation::create_token_with_iam::CreateTokenWithIAMError::InvalidRequestException(inner) => {
+                Error::InvalidRequestException(inner)
+            }
             crate::operation::create_token_with_iam::CreateTokenWithIAMError::InvalidRequestRegionException(inner) => {
                 Error::InvalidRequestRegionException(inner)
             }
-            crate::operation::create_token_with_iam::CreateTokenWithIAMError::InvalidScopeException(inner) => Error::InvalidScopeException(inner),
-            crate::operation::create_token_with_iam::CreateTokenWithIAMError::SlowDownException(inner) => Error::SlowDownException(inner),
+            crate::operation::create_token_with_iam::CreateTokenWithIAMError::InvalidScopeException(inner) => {
+                Error::InvalidScopeException(inner)
+            }
+            crate::operation::create_token_with_iam::CreateTokenWithIAMError::SlowDownException(inner) => {
+                Error::SlowDownException(inner)
+            }
             crate::operation::create_token_with_iam::CreateTokenWithIAMError::UnauthorizedClientException(inner) => {
                 Error::UnauthorizedClientException(inner)
             }
             crate::operation::create_token_with_iam::CreateTokenWithIAMError::UnsupportedGrantTypeException(inner) => {
                 Error::UnsupportedGrantTypeException(inner)
             }
-            crate::operation::create_token_with_iam::CreateTokenWithIAMError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::create_token_with_iam::CreateTokenWithIAMError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_register_client")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::register_client::RegisterClientError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::register_client::RegisterClientError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -380,9 +380,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -394,14 +392,24 @@ where
 impl From<crate::operation::register_client::RegisterClientError> for Error {
     fn from(err: crate::operation::register_client::RegisterClientError) -> Self {
         match err {
-            crate::operation::register_client::RegisterClientError::InternalServerException(inner) => Error::InternalServerException(inner),
+            crate::operation::register_client::RegisterClientError::InternalServerException(inner) => {
+                Error::InternalServerException(inner)
+            }
             crate::operation::register_client::RegisterClientError::InvalidClientMetadataException(inner) => {
                 Error::InvalidClientMetadataException(inner)
             }
-            crate::operation::register_client::RegisterClientError::InvalidRedirectUriException(inner) => Error::InvalidRedirectUriException(inner),
-            crate::operation::register_client::RegisterClientError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
-            crate::operation::register_client::RegisterClientError::InvalidScopeException(inner) => Error::InvalidScopeException(inner),
-            crate::operation::register_client::RegisterClientError::SlowDownException(inner) => Error::SlowDownException(inner),
+            crate::operation::register_client::RegisterClientError::InvalidRedirectUriException(inner) => {
+                Error::InvalidRedirectUriException(inner)
+            }
+            crate::operation::register_client::RegisterClientError::InvalidRequestException(inner) => {
+                Error::InvalidRequestException(inner)
+            }
+            crate::operation::register_client::RegisterClientError::InvalidScopeException(inner) => {
+                Error::InvalidScopeException(inner)
+            }
+            crate::operation::register_client::RegisterClientError::SlowDownException(inner) => {
+                Error::SlowDownException(inner)
+            }
             crate::operation::register_client::RegisterClientError::UnsupportedGrantTypeException(inner) => {
                 Error::UnsupportedGrantTypeException(inner)
             }
@@ -427,9 +435,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -439,9 +445,7 @@ where
 }
 #[cfg(feature = "op_start_device_authorization")]
 impl From<crate::operation::start_device_authorization::StartDeviceAuthorizationError> for Error {
-    fn from(
-        err: crate::operation::start_device_authorization::StartDeviceAuthorizationError,
-    ) -> Self {
+    fn from(err: crate::operation::start_device_authorization::StartDeviceAuthorizationError) -> Self {
         match err {
             crate::operation::start_device_authorization::StartDeviceAuthorizationError::InternalServerException(inner) => {
                 Error::InternalServerException(inner)

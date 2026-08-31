@@ -10,8 +10,7 @@ pub struct PutMetricFilterInput {
     /// <p>A filter pattern for extracting metric data out of ingested log events.</p>
     pub filter_pattern: ::std::option::Option<::std::string::String>,
     /// <p>A collection of information that defines how metric data gets emitted.</p>
-    pub metric_transformations:
-        ::std::option::Option<::std::vec::Vec<crate::types::MetricTransformation>>,
+    pub metric_transformations: ::std::option::Option<::std::vec::Vec<crate::types::MetricTransformation>>,
     /// <p>This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html">PutTransformer</a>.</p>
     /// <p>If the log group uses either a log-group level or account-level transformer, and you specify <code>true</code>, the metric filter will be applied on the transformed version of the log events instead of the original ingested log events.</p>
     pub apply_on_transformed_logs: ::std::option::Option<bool>,
@@ -52,9 +51,7 @@ impl PutMetricFilterInput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.emit_system_field_dimensions.is_none()`.
     pub fn emit_system_field_dimensions(&self) -> &[::std::string::String] {
-        self.emit_system_field_dimensions
-            .as_deref()
-            .unwrap_or_default()
+        self.emit_system_field_dimensions.as_deref().unwrap_or_default()
     }
 }
 impl PutMetricFilterInput {
@@ -65,36 +62,26 @@ impl PutMetricFilterInput {
 }
 
 /// A builder for [`PutMetricFilterInput`](crate::operation::put_metric_filter::PutMetricFilterInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutMetricFilterInputBuilder {
     pub(crate) log_group_name: ::std::option::Option<::std::string::String>,
     pub(crate) filter_name: ::std::option::Option<::std::string::String>,
     pub(crate) filter_pattern: ::std::option::Option<::std::string::String>,
-    pub(crate) metric_transformations:
-        ::std::option::Option<::std::vec::Vec<crate::types::MetricTransformation>>,
+    pub(crate) metric_transformations: ::std::option::Option<::std::vec::Vec<crate::types::MetricTransformation>>,
     pub(crate) apply_on_transformed_logs: ::std::option::Option<bool>,
     pub(crate) field_selection_criteria: ::std::option::Option<::std::string::String>,
-    pub(crate) emit_system_field_dimensions:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) emit_system_field_dimensions: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl PutMetricFilterInputBuilder {
     /// <p>The name of the log group.</p>
     /// This field is required.
-    pub fn log_group_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the log group.</p>
-    pub fn set_log_group_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_name = input;
         self
     }
@@ -119,18 +106,12 @@ impl PutMetricFilterInputBuilder {
     }
     /// <p>A filter pattern for extracting metric data out of ingested log events.</p>
     /// This field is required.
-    pub fn filter_pattern(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn filter_pattern(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.filter_pattern = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A filter pattern for extracting metric data out of ingested log events.</p>
-    pub fn set_filter_pattern(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_filter_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.filter_pattern = input;
         self
     }
@@ -181,18 +162,12 @@ impl PutMetricFilterInputBuilder {
         &self.apply_on_transformed_logs
     }
     /// <p>A filter expression that specifies which log events should be processed by this metric filter based on system fields such as source account and source region. Uses selection criteria syntax with operators like <code>=</code>, <code>!=</code>, <code>AND</code>, <code>OR</code>, <code>IN</code>, <code>NOT IN</code>. Example: <code>@aws.region = "us-east-1"</code> or <code>@aws.account IN \["123456789012", "987654321098"\]</code>. Maximum length: 2000 characters.</p>
-    pub fn field_selection_criteria(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn field_selection_criteria(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.field_selection_criteria = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A filter expression that specifies which log events should be processed by this metric filter based on system fields such as source account and source region. Uses selection criteria syntax with operators like <code>=</code>, <code>!=</code>, <code>AND</code>, <code>OR</code>, <code>IN</code>, <code>NOT IN</code>. Example: <code>@aws.region = "us-east-1"</code> or <code>@aws.account IN \["123456789012", "987654321098"\]</code>. Maximum length: 2000 characters.</p>
-    pub fn set_field_selection_criteria(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_field_selection_criteria(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.field_selection_criteria = input;
         self
     }
@@ -205,10 +180,7 @@ impl PutMetricFilterInputBuilder {
     /// To override the contents of this collection use [`set_emit_system_field_dimensions`](Self::set_emit_system_field_dimensions).
     ///
     /// <p>A list of system fields to emit as additional dimensions in the generated metrics. Valid values are <code>@aws.account</code> and <code>@aws.region</code>. These dimensions help identify the source of centralized log data and count toward the total dimension limit for metric filters.</p>
-    pub fn emit_system_field_dimensions(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn emit_system_field_dimensions(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.emit_system_field_dimensions.unwrap_or_default();
         v.push(input.into());
         self.emit_system_field_dimensions = ::std::option::Option::Some(v);
@@ -223,9 +195,7 @@ impl PutMetricFilterInputBuilder {
         self
     }
     /// <p>A list of system fields to emit as additional dimensions in the generated metrics. Valid values are <code>@aws.account</code> and <code>@aws.region</code>. These dimensions help identify the source of centralized log data and count toward the total dimension limit for metric filters.</p>
-    pub fn get_emit_system_field_dimensions(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_emit_system_field_dimensions(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.emit_system_field_dimensions
     }
     /// Consumes the builder and constructs a [`PutMetricFilterInput`](crate::operation::put_metric_filter::PutMetricFilterInput).

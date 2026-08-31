@@ -39,9 +39,7 @@ impl ProviderDescription {
 }
 
 /// A builder for [`ProviderDescription`](crate::types::ProviderDescription).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ProviderDescriptionBuilder {
     pub(crate) provider_name: ::std::option::Option<::std::string::String>,
@@ -51,18 +49,12 @@ pub struct ProviderDescriptionBuilder {
 }
 impl ProviderDescriptionBuilder {
     /// <p>The name of the IdP, for example <code>MySAMLProvider</code>.</p>
-    pub fn provider_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn provider_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.provider_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the IdP, for example <code>MySAMLProvider</code>.</p>
-    pub fn set_provider_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_provider_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.provider_name = input;
         self
     }
@@ -76,17 +68,12 @@ impl ProviderDescriptionBuilder {
         self
     }
     /// <p>The type of the provider, for example <code>SAML</code>. Amazon Cognito supports SAML 2.0, OIDC, and social IdPs. User pools list supported social IdPs by name in this response parameter: Facebook, Google, Login with Amazon, and Sign in with Apple.</p>
-    pub fn set_provider_type(
-        mut self,
-        input: ::std::option::Option<crate::types::IdentityProviderTypeType>,
-    ) -> Self {
+    pub fn set_provider_type(mut self, input: ::std::option::Option<crate::types::IdentityProviderTypeType>) -> Self {
         self.provider_type = input;
         self
     }
     /// <p>The type of the provider, for example <code>SAML</code>. Amazon Cognito supports SAML 2.0, OIDC, and social IdPs. User pools list supported social IdPs by name in this response parameter: Facebook, Google, Login with Amazon, and Sign in with Apple.</p>
-    pub fn get_provider_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::IdentityProviderTypeType> {
+    pub fn get_provider_type(&self) -> &::std::option::Option<crate::types::IdentityProviderTypeType> {
         &self.provider_type
     }
     /// <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
@@ -95,10 +82,7 @@ impl ProviderDescriptionBuilder {
         self
     }
     /// <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
-    pub fn set_last_modified_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_last_modified_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_modified_date = input;
         self
     }
@@ -112,10 +96,7 @@ impl ProviderDescriptionBuilder {
         self
     }
     /// <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
-    pub fn set_creation_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.creation_date = input;
         self
     }

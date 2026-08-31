@@ -9,8 +9,6 @@ impl super::Client {
     pub fn delete_email_identity(
         &self,
     ) -> crate::operation::delete_email_identity::builders::DeleteEmailIdentityFluentBuilder {
-        crate::operation::delete_email_identity::builders::DeleteEmailIdentityFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_email_identity::builders::DeleteEmailIdentityFluentBuilder::new(self.handle.clone())
     }
 }

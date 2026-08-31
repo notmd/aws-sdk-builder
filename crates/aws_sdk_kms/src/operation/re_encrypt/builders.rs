@@ -159,10 +159,7 @@ impl ReEncryptFluentBuilder {
     }
     /// <p>Ciphertext of the data to reencrypt.</p>
     /// <p>This parameter is required in all cases except when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>.</p>
-    pub fn set_ciphertext_blob(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::Blob>,
-    ) -> Self {
+    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.inner = self.inner.set_ciphertext_blob(input);
         self
     }
@@ -192,9 +189,7 @@ impl ReEncryptFluentBuilder {
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
     pub fn set_source_encryption_context(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_source_encryption_context(input);
         self
@@ -204,9 +199,7 @@ impl ReEncryptFluentBuilder {
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
     pub fn get_source_encryption_context(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_source_encryption_context()
     }
     /// <p>Specifies the KMS key that KMS will use to decrypt the ciphertext before it is re-encrypted.</p>
@@ -225,10 +218,7 @@ impl ReEncryptFluentBuilder {
     /// <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li>
     /// </ul>
     /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>. To get the alias name and alias ARN, use <code>ListAliases</code>.</p>
-    pub fn source_key_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn source_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.source_key_id(input.into());
         self
     }
@@ -248,10 +238,7 @@ impl ReEncryptFluentBuilder {
     /// <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li>
     /// </ul>
     /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>. To get the alias name and alias ARN, use <code>ListAliases</code>.</p>
-    pub fn set_source_key_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_source_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_source_key_id(input);
         self
     }
@@ -288,10 +275,7 @@ impl ReEncryptFluentBuilder {
     /// <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li>
     /// </ul>
     /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>. To get the alias name and alias ARN, use <code>ListAliases</code>.</p>
-    pub fn destination_key_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn destination_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.destination_key_id(input.into());
         self
     }
@@ -309,10 +293,7 @@ impl ReEncryptFluentBuilder {
     /// <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li>
     /// </ul>
     /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>. To get the alias name and alias ARN, use <code>ListAliases</code>.</p>
-    pub fn set_destination_key_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_destination_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_destination_key_id(input);
         self
     }
@@ -349,9 +330,7 @@ impl ReEncryptFluentBuilder {
         k: impl ::std::convert::Into<::std::string::String>,
         v: impl ::std::convert::Into<::std::string::String>,
     ) -> Self {
-        self.inner = self
-            .inner
-            .destination_encryption_context(k.into(), v.into());
+        self.inner = self.inner.destination_encryption_context(k.into(), v.into());
         self
     }
     /// <p>Specifies that encryption context to use when the reencrypting the data.</p><important>
@@ -362,9 +341,7 @@ impl ReEncryptFluentBuilder {
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
     pub fn set_destination_encryption_context(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_destination_encryption_context(input);
         self
@@ -377,18 +354,13 @@ impl ReEncryptFluentBuilder {
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
     pub fn get_destination_encryption_context(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_destination_encryption_context()
     }
     /// <p>Specifies the encryption algorithm that KMS will use to decrypt the ciphertext before it is reencrypted. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the algorithm used for symmetric encryption KMS keys.</p>
     /// <p>Specify the same algorithm that was used to encrypt the ciphertext. If you specify a different algorithm, the decrypt attempt fails.</p>
     /// <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.</p>
-    pub fn source_encryption_algorithm(
-        mut self,
-        input: crate::types::EncryptionAlgorithmSpec,
-    ) -> Self {
+    pub fn source_encryption_algorithm(mut self, input: crate::types::EncryptionAlgorithmSpec) -> Self {
         self.inner = self.inner.source_encryption_algorithm(input);
         self
     }
@@ -405,17 +377,12 @@ impl ReEncryptFluentBuilder {
     /// <p>Specifies the encryption algorithm that KMS will use to decrypt the ciphertext before it is reencrypted. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the algorithm used for symmetric encryption KMS keys.</p>
     /// <p>Specify the same algorithm that was used to encrypt the ciphertext. If you specify a different algorithm, the decrypt attempt fails.</p>
     /// <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.</p>
-    pub fn get_source_encryption_algorithm(
-        &self,
-    ) -> &::std::option::Option<crate::types::EncryptionAlgorithmSpec> {
+    pub fn get_source_encryption_algorithm(&self) -> &::std::option::Option<crate::types::EncryptionAlgorithmSpec> {
         self.inner.get_source_encryption_algorithm()
     }
     /// <p>Specifies the encryption algorithm that KMS will use to reecrypt the data after it has decrypted it. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the encryption algorithm used for symmetric encryption KMS keys.</p>
     /// <p>This parameter is required only when the destination KMS key is an asymmetric KMS key.</p>
-    pub fn destination_encryption_algorithm(
-        mut self,
-        input: crate::types::EncryptionAlgorithmSpec,
-    ) -> Self {
+    pub fn destination_encryption_algorithm(mut self, input: crate::types::EncryptionAlgorithmSpec) -> Self {
         self.inner = self.inner.destination_encryption_algorithm(input);
         self
     }
@@ -448,18 +415,13 @@ impl ReEncryptFluentBuilder {
     }
     /// <p>A list of grant tokens.</p>
     /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn set_grant_tokens(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_grant_tokens(input);
         self
     }
     /// <p>A list of grant tokens.</p>
     /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn get_grant_tokens(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_grant_tokens()
     }
     /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
@@ -504,9 +466,7 @@ impl ReEncryptFluentBuilder {
     /// <p>Specifies the modifiers to apply to the dry run operation. <code>DryRunModifiers</code> is an optional parameter that only applies when <code>DryRun</code> is set to <code>true</code>.</p>
     /// <p>When set to <code>IGNORE_CIPHERTEXT</code>, KMS performs only authorization validation without ciphertext validation. This allows you to test permissions without requiring a valid ciphertext blob.</p>
     /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn get_dry_run_modifiers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::DryRunModifierType>> {
+    pub fn get_dry_run_modifiers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DryRunModifierType>> {
         self.inner.get_dry_run_modifiers()
     }
 }

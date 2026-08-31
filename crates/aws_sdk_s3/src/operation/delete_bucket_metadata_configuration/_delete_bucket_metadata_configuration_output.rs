@@ -18,15 +18,15 @@ impl ::aws_types::request_id::RequestId for DeleteBucketMetadataConfigurationOut
 }
 impl DeleteBucketMetadataConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketMetadataConfigurationOutput`](crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationOutput).
-    pub fn builder() -> crate::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationOutputBuilder
+    {
         crate::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteBucketMetadataConfigurationOutput`](crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteBucketMetadataConfigurationOutputBuilder {
     _extended_request_id: Option<String>,
@@ -38,10 +38,7 @@ impl DeleteBucketMetadataConfigurationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -55,7 +52,9 @@ impl DeleteBucketMetadataConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteBucketMetadataConfigurationOutput`](crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationOutput).
-    pub fn build(self) -> crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationOutput {
         crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

@@ -14,8 +14,6 @@ impl super::Client {
     pub fn list_resource_tenants(
         &self,
     ) -> crate::operation::list_resource_tenants::builders::ListResourceTenantsFluentBuilder {
-        crate::operation::list_resource_tenants::builders::ListResourceTenantsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::list_resource_tenants::builders::ListResourceTenantsFluentBuilder::new(self.handle.clone())
     }
 }

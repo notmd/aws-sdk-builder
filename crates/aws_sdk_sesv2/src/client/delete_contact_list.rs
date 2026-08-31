@@ -9,8 +9,6 @@ impl super::Client {
     pub fn delete_contact_list(
         &self,
     ) -> crate::operation::delete_contact_list::builders::DeleteContactListFluentBuilder {
-        crate::operation::delete_contact_list::builders::DeleteContactListFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_contact_list::builders::DeleteContactListFluentBuilder::new(self.handle.clone())
     }
 }

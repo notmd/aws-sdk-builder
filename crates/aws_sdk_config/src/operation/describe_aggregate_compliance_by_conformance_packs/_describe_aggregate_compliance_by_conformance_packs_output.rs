@@ -14,9 +14,7 @@ impl DescribeAggregateComplianceByConformancePacksOutput {
     /// <p>Returns the <code>AggregateComplianceByConformancePack</code> object.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.aggregate_compliance_by_conformance_packs.is_none()`.
-    pub fn aggregate_compliance_by_conformance_packs(
-        &self,
-    ) -> &[crate::types::AggregateComplianceByConformancePack] {
+    pub fn aggregate_compliance_by_conformance_packs(&self) -> &[crate::types::AggregateComplianceByConformancePack] {
         self.aggregate_compliance_by_conformance_packs
             .as_deref()
             .unwrap_or_default()
@@ -41,9 +39,7 @@ impl DescribeAggregateComplianceByConformancePacksOutput {
 }
 
 /// A builder for [`DescribeAggregateComplianceByConformancePacksOutput`](crate::operation::describe_aggregate_compliance_by_conformance_packs::DescribeAggregateComplianceByConformancePacksOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeAggregateComplianceByConformancePacksOutputBuilder {
     pub(crate) aggregate_compliance_by_conformance_packs:
@@ -61,9 +57,7 @@ impl DescribeAggregateComplianceByConformancePacksOutputBuilder {
         mut self,
         input: crate::types::AggregateComplianceByConformancePack,
     ) -> Self {
-        let mut v = self
-            .aggregate_compliance_by_conformance_packs
-            .unwrap_or_default();
+        let mut v = self.aggregate_compliance_by_conformance_packs.unwrap_or_default();
         v.push(input);
         self.aggregate_compliance_by_conformance_packs = ::std::option::Option::Some(v);
         self
@@ -71,9 +65,7 @@ impl DescribeAggregateComplianceByConformancePacksOutputBuilder {
     /// <p>Returns the <code>AggregateComplianceByConformancePack</code> object.</p>
     pub fn set_aggregate_compliance_by_conformance_packs(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::AggregateComplianceByConformancePack>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::AggregateComplianceByConformancePack>>,
     ) -> Self {
         self.aggregate_compliance_by_conformance_packs = input;
         self
@@ -81,8 +73,7 @@ impl DescribeAggregateComplianceByConformancePacksOutputBuilder {
     /// <p>Returns the <code>AggregateComplianceByConformancePack</code> object.</p>
     pub fn get_aggregate_compliance_by_conformance_packs(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AggregateComplianceByConformancePack>>
-    {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AggregateComplianceByConformancePack>> {
         &self.aggregate_compliance_by_conformance_packs
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>

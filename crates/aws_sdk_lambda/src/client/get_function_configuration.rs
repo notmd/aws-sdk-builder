@@ -49,8 +49,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetFunctionConfigurationError>`](crate::operation::get_function_configuration::GetFunctionConfigurationError)
     pub fn get_function_configuration(
         &self,
-    ) -> crate::operation::get_function_configuration::builders::GetFunctionConfigurationFluentBuilder
-    {
-        crate::operation::get_function_configuration::builders::GetFunctionConfigurationFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::get_function_configuration::builders::GetFunctionConfigurationFluentBuilder {
+        crate::operation::get_function_configuration::builders::GetFunctionConfigurationFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

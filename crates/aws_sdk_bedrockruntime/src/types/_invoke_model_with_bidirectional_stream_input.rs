@@ -20,9 +20,7 @@ impl InvokeModelWithBidirectionalStreamInput {
     #[allow(irrefutable_let_patterns)]
     /// Tries to convert the enum instance into [`Chunk`](crate::types::InvokeModelWithBidirectionalStreamInput::Chunk), extracting the inner [`BidirectionalInputPayloadPart`](crate::types::BidirectionalInputPayloadPart).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_chunk(
-        &self,
-    ) -> ::std::result::Result<&crate::types::BidirectionalInputPayloadPart, &Self> {
+    pub fn as_chunk(&self) -> ::std::result::Result<&crate::types::BidirectionalInputPayloadPart, &Self> {
         if let InvokeModelWithBidirectionalStreamInput::Chunk(val) = &self {
             ::std::result::Result::Ok(val)
         } else {

@@ -59,7 +59,9 @@ impl ListDeadLetterSourceQueuesFluentBuilder {
         }
     }
     /// Access the ListDeadLetterSourceQueues as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,11 +85,12 @@ impl ListDeadLetterSourceQueuesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueues::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueues::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueues::orchestrate(
             &runtime_plugins,
             input,
@@ -123,8 +126,13 @@ impl ListDeadLetterSourceQueuesFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_dead_letter_source_queues::paginator::ListDeadLetterSourceQueuesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_dead_letter_source_queues::paginator::ListDeadLetterSourceQueuesPaginator{
-        crate::operation::list_dead_letter_source_queues::paginator::ListDeadLetterSourceQueuesPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::list_dead_letter_source_queues::paginator::ListDeadLetterSourceQueuesPaginator {
+        crate::operation::list_dead_letter_source_queues::paginator::ListDeadLetterSourceQueuesPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The URL of a dead-letter queue.</p>
     /// <p>Queue URLs and names are case-sensitive.</p>

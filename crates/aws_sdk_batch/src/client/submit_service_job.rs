@@ -20,11 +20,7 @@ impl super::Client {
     ///   - [`job_name(Option<String>)`](crate::operation::submit_service_job::SubmitServiceJobOutput::job_name): <p>The name of the service job.</p>
     ///   - [`job_id(Option<String>)`](crate::operation::submit_service_job::SubmitServiceJobOutput::job_id): <p>The unique identifier for the service job.</p>
     /// - On failure, responds with [`SdkError<SubmitServiceJobError>`](crate::operation::submit_service_job::SubmitServiceJobError)
-    pub fn submit_service_job(
-        &self,
-    ) -> crate::operation::submit_service_job::builders::SubmitServiceJobFluentBuilder {
-        crate::operation::submit_service_job::builders::SubmitServiceJobFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn submit_service_job(&self) -> crate::operation::submit_service_job::builders::SubmitServiceJobFluentBuilder {
+        crate::operation::submit_service_job::builders::SubmitServiceJobFluentBuilder::new(self.handle.clone())
     }
 }

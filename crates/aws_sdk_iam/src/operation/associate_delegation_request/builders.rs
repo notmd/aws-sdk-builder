@@ -3,9 +3,7 @@ pub use crate::operation::associate_delegation_request::_associate_delegation_re
 
 pub use crate::operation::associate_delegation_request::_associate_delegation_request_output::AssociateDelegationRequestOutputBuilder;
 
-impl
-    crate::operation::associate_delegation_request::builders::AssociateDelegationRequestInputBuilder
-{
+impl crate::operation::associate_delegation_request::builders::AssociateDelegationRequestInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -62,7 +60,9 @@ impl AssociateDelegationRequestFluentBuilder {
         }
     }
     /// Access the AssociateDelegationRequest as a reference.
-    pub fn as_input(&self) -> &crate::operation::associate_delegation_request::builders::AssociateDelegationRequestInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::associate_delegation_request::builders::AssociateDelegationRequestInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,16 +86,14 @@ impl AssociateDelegationRequestFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::associate_delegation_request::AssociateDelegationRequest::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::associate_delegation_request::AssociateDelegationRequest::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::associate_delegation_request::AssociateDelegationRequest::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::associate_delegation_request::AssociateDelegationRequest::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -124,18 +122,12 @@ impl AssociateDelegationRequestFluentBuilder {
         self
     }
     /// <p>The unique identifier of the delegation request to associate.</p>
-    pub fn delegation_request_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delegation_request_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.delegation_request_id(input.into());
         self
     }
     /// <p>The unique identifier of the delegation request to associate.</p>
-    pub fn set_delegation_request_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_delegation_request_id(input);
         self
     }

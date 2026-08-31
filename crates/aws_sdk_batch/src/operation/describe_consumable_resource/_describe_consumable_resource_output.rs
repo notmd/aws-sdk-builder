@@ -24,9 +24,7 @@ pub struct DescribeConsumableResourceOutput {
     /// <p>The Unix timestamp (in milliseconds) for when the consumable resource was created.</p>
     pub created_at: ::std::option::Option<i64>,
     /// <p>The tags that you apply to the consumable resource to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
-    pub tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     _request_id: Option<String>,
 }
 impl DescribeConsumableResourceOutput {
@@ -67,9 +65,7 @@ impl DescribeConsumableResourceOutput {
     /// <p>The tags that you apply to the consumable resource to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
     pub fn tags(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
 }
@@ -80,15 +76,14 @@ impl ::aws_types::request_id::RequestId for DescribeConsumableResourceOutput {
 }
 impl DescribeConsumableResourceOutput {
     /// Creates a new builder-style object to manufacture [`DescribeConsumableResourceOutput`](crate::operation::describe_consumable_resource::DescribeConsumableResourceOutput).
-    pub fn builder() -> crate::operation::describe_consumable_resource::builders::DescribeConsumableResourceOutputBuilder{
+    pub fn builder() -> crate::operation::describe_consumable_resource::builders::DescribeConsumableResourceOutputBuilder
+    {
         crate::operation::describe_consumable_resource::builders::DescribeConsumableResourceOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeConsumableResourceOutput`](crate::operation::describe_consumable_resource::DescribeConsumableResourceOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeConsumableResourceOutputBuilder {
     pub(crate) consumable_resource_name: ::std::option::Option<::std::string::String>,
@@ -98,26 +93,18 @@ pub struct DescribeConsumableResourceOutputBuilder {
     pub(crate) available_quantity: ::std::option::Option<i64>,
     pub(crate) resource_type: ::std::option::Option<::std::string::String>,
     pub(crate) created_at: ::std::option::Option<i64>,
-    pub(crate) tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     _request_id: Option<String>,
 }
 impl DescribeConsumableResourceOutputBuilder {
     /// <p>The name of the consumable resource.</p>
     /// This field is required.
-    pub fn consumable_resource_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn consumable_resource_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.consumable_resource_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the consumable resource.</p>
-    pub fn set_consumable_resource_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_consumable_resource_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.consumable_resource_name = input;
         self
     }
@@ -127,18 +114,12 @@ impl DescribeConsumableResourceOutputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the consumable resource.</p>
     /// This field is required.
-    pub fn consumable_resource_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn consumable_resource_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.consumable_resource_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the consumable resource.</p>
-    pub fn set_consumable_resource_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_consumable_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.consumable_resource_arn = input;
         self
     }
@@ -195,10 +176,7 @@ impl DescribeConsumableResourceOutputBuilder {
     /// <li>
     /// <p><code>NON_REPLENISHABLE</code></p></li>
     /// </ul>
-    pub fn resource_type(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.resource_type = ::std::option::Option::Some(input.into());
         self
     }
@@ -209,10 +187,7 @@ impl DescribeConsumableResourceOutputBuilder {
     /// <li>
     /// <p><code>NON_REPLENISHABLE</code></p></li>
     /// </ul>
-    pub fn set_resource_type(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_resource_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.resource_type = input;
         self
     }
@@ -258,9 +233,7 @@ impl DescribeConsumableResourceOutputBuilder {
     /// <p>The tags that you apply to the consumable resource to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.tags = input;
         self
@@ -268,9 +241,7 @@ impl DescribeConsumableResourceOutputBuilder {
     /// <p>The tags that you apply to the consumable resource to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -283,9 +254,7 @@ impl DescribeConsumableResourceOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeConsumableResourceOutput`](crate::operation::describe_consumable_resource::DescribeConsumableResourceOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::describe_consumable_resource::DescribeConsumableResourceOutput {
+    pub fn build(self) -> crate::operation::describe_consumable_resource::DescribeConsumableResourceOutput {
         crate::operation::describe_consumable_resource::DescribeConsumableResourceOutput {
             consumable_resource_name: self.consumable_resource_name,
             consumable_resource_arn: self.consumable_resource_arn,

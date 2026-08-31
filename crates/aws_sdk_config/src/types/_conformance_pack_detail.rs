@@ -26,8 +26,7 @@ pub struct ConformancePackDetail {
     /// <p>The Amazon Web Services service that created the conformance pack.</p>
     pub created_by: ::std::option::Option<::std::string::String>,
     /// <p>An object that contains the name or Amazon Resource Name (ARN) of the Amazon Web Services Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack.</p>
-    pub template_ssm_document_details:
-        ::std::option::Option<crate::types::TemplateSsmDocumentDetails>,
+    pub template_ssm_document_details: ::std::option::Option<crate::types::TemplateSsmDocumentDetails>,
 }
 impl ConformancePackDetail {
     /// <p>Name of the conformance pack.</p>
@@ -60,17 +59,11 @@ impl ConformancePackDetail {
     /// <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.conformance_pack_input_parameters.is_none()`.
-    pub fn conformance_pack_input_parameters(
-        &self,
-    ) -> &[crate::types::ConformancePackInputParameter] {
-        self.conformance_pack_input_parameters
-            .as_deref()
-            .unwrap_or_default()
+    pub fn conformance_pack_input_parameters(&self) -> &[crate::types::ConformancePackInputParameter] {
+        self.conformance_pack_input_parameters.as_deref().unwrap_or_default()
     }
     /// <p>The last time a conformation pack update was requested.</p>
-    pub fn last_update_requested_time(
-        &self,
-    ) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn last_update_requested_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.last_update_requested_time.as_ref()
     }
     /// <p>The Amazon Web Services service that created the conformance pack.</p>
@@ -78,9 +71,7 @@ impl ConformancePackDetail {
         self.created_by.as_deref()
     }
     /// <p>An object that contains the name or Amazon Resource Name (ARN) of the Amazon Web Services Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack.</p>
-    pub fn template_ssm_document_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::TemplateSsmDocumentDetails> {
+    pub fn template_ssm_document_details(&self) -> ::std::option::Option<&crate::types::TemplateSsmDocumentDetails> {
         self.template_ssm_document_details.as_ref()
     }
 }
@@ -92,9 +83,7 @@ impl ConformancePackDetail {
 }
 
 /// A builder for [`ConformancePackDetail`](crate::types::ConformancePackDetail).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ConformancePackDetailBuilder {
     pub(crate) conformance_pack_name: ::std::option::Option<::std::string::String>,
@@ -106,24 +95,17 @@ pub struct ConformancePackDetailBuilder {
         ::std::option::Option<::std::vec::Vec<crate::types::ConformancePackInputParameter>>,
     pub(crate) last_update_requested_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) created_by: ::std::option::Option<::std::string::String>,
-    pub(crate) template_ssm_document_details:
-        ::std::option::Option<crate::types::TemplateSsmDocumentDetails>,
+    pub(crate) template_ssm_document_details: ::std::option::Option<crate::types::TemplateSsmDocumentDetails>,
 }
 impl ConformancePackDetailBuilder {
     /// <p>Name of the conformance pack.</p>
     /// This field is required.
-    pub fn conformance_pack_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn conformance_pack_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.conformance_pack_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Name of the conformance pack.</p>
-    pub fn set_conformance_pack_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_conformance_pack_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.conformance_pack_name = input;
         self
     }
@@ -133,18 +115,12 @@ impl ConformancePackDetailBuilder {
     }
     /// <p>Amazon Resource Name (ARN) of the conformance pack.</p>
     /// This field is required.
-    pub fn conformance_pack_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn conformance_pack_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.conformance_pack_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Amazon Resource Name (ARN) of the conformance pack.</p>
-    pub fn set_conformance_pack_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_conformance_pack_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.conformance_pack_arn = input;
         self
     }
@@ -154,18 +130,12 @@ impl ConformancePackDetailBuilder {
     }
     /// <p>ID of the conformance pack.</p>
     /// This field is required.
-    pub fn conformance_pack_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn conformance_pack_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.conformance_pack_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>ID of the conformance pack.</p>
-    pub fn set_conformance_pack_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_conformance_pack_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.conformance_pack_id = input;
         self
     }
@@ -176,20 +146,14 @@ impl ConformancePackDetailBuilder {
     /// <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.</p><note>
     /// <p>This field is optional.</p>
     /// </note>
-    pub fn delivery_s3_bucket(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delivery_s3_bucket(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.delivery_s3_bucket = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.</p><note>
     /// <p>This field is optional.</p>
     /// </note>
-    pub fn set_delivery_s3_bucket(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delivery_s3_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delivery_s3_bucket = input;
         self
     }
@@ -202,20 +166,14 @@ impl ConformancePackDetailBuilder {
     /// <p>The prefix for the Amazon S3 bucket.</p><note>
     /// <p>This field is optional.</p>
     /// </note>
-    pub fn delivery_s3_key_prefix(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delivery_s3_key_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.delivery_s3_key_prefix = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The prefix for the Amazon S3 bucket.</p><note>
     /// <p>This field is optional.</p>
     /// </note>
-    pub fn set_delivery_s3_key_prefix(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delivery_s3_key_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delivery_s3_key_prefix = input;
         self
     }
@@ -230,10 +188,7 @@ impl ConformancePackDetailBuilder {
     /// To override the contents of this collection use [`set_conformance_pack_input_parameters`](Self::set_conformance_pack_input_parameters).
     ///
     /// <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-    pub fn conformance_pack_input_parameters(
-        mut self,
-        input: crate::types::ConformancePackInputParameter,
-    ) -> Self {
+    pub fn conformance_pack_input_parameters(mut self, input: crate::types::ConformancePackInputParameter) -> Self {
         let mut v = self.conformance_pack_input_parameters.unwrap_or_default();
         v.push(input);
         self.conformance_pack_input_parameters = ::std::option::Option::Some(v);
@@ -267,9 +222,7 @@ impl ConformancePackDetailBuilder {
         self
     }
     /// <p>The last time a conformation pack update was requested.</p>
-    pub fn get_last_update_requested_time(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_last_update_requested_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_update_requested_time
     }
     /// <p>The Amazon Web Services service that created the conformance pack.</p>
@@ -287,10 +240,7 @@ impl ConformancePackDetailBuilder {
         &self.created_by
     }
     /// <p>An object that contains the name or Amazon Resource Name (ARN) of the Amazon Web Services Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack.</p>
-    pub fn template_ssm_document_details(
-        mut self,
-        input: crate::types::TemplateSsmDocumentDetails,
-    ) -> Self {
+    pub fn template_ssm_document_details(mut self, input: crate::types::TemplateSsmDocumentDetails) -> Self {
         self.template_ssm_document_details = ::std::option::Option::Some(input);
         self
     }
@@ -315,10 +265,8 @@ impl ConformancePackDetailBuilder {
     /// - [`conformance_pack_id`](crate::types::builders::ConformancePackDetailBuilder::conformance_pack_id)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::ConformancePackDetail,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::ConformancePackDetail, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::ConformancePackDetail {
             conformance_pack_name: self.conformance_pack_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

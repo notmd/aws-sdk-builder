@@ -26,33 +26,26 @@ impl ::std::fmt::Display for PointInTimeRecoveryUnavailableException {
     }
 }
 impl ::std::error::Error for PointInTimeRecoveryUnavailableException {}
-impl ::aws_types::request_id::RequestId
-    for crate::types::error::PointInTimeRecoveryUnavailableException
-{
+impl ::aws_types::request_id::RequestId for crate::types::error::PointInTimeRecoveryUnavailableException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
-    for PointInTimeRecoveryUnavailableException
-{
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for PointInTimeRecoveryUnavailableException {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         &self.meta
     }
 }
 impl PointInTimeRecoveryUnavailableException {
     /// Creates a new builder-style object to manufacture [`PointInTimeRecoveryUnavailableException`](crate::types::error::PointInTimeRecoveryUnavailableException).
-    pub fn builder() -> crate::types::error::builders::PointInTimeRecoveryUnavailableExceptionBuilder
-    {
+    pub fn builder() -> crate::types::error::builders::PointInTimeRecoveryUnavailableExceptionBuilder {
         crate::types::error::builders::PointInTimeRecoveryUnavailableExceptionBuilder::default()
     }
 }
 
 /// A builder for [`PointInTimeRecoveryUnavailableException`](crate::types::error::PointInTimeRecoveryUnavailableException).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PointInTimeRecoveryUnavailableExceptionBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
@@ -80,10 +73,7 @@ impl PointInTimeRecoveryUnavailableExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(
-        &mut self,
-        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> &mut Self {
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
         self.meta = meta;
         self
     }

@@ -29,15 +29,15 @@ impl ::aws_types::request_id::RequestId for ListDurableExecutionsByFunctionOutpu
 }
 impl ListDurableExecutionsByFunctionOutput {
     /// Creates a new builder-style object to manufacture [`ListDurableExecutionsByFunctionOutput`](crate::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionOutput).
-    pub fn builder() -> crate::operation::list_durable_executions_by_function::builders::ListDurableExecutionsByFunctionOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::list_durable_executions_by_function::builders::ListDurableExecutionsByFunctionOutputBuilder
+    {
         crate::operation::list_durable_executions_by_function::builders::ListDurableExecutionsByFunctionOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListDurableExecutionsByFunctionOutput`](crate::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListDurableExecutionsByFunctionOutputBuilder {
     pub(crate) durable_executions: ::std::option::Option<::std::vec::Vec<crate::types::Execution>>,
@@ -65,9 +65,7 @@ impl ListDurableExecutionsByFunctionOutputBuilder {
         self
     }
     /// <p>List of durable execution summaries matching the filter criteria.</p>
-    pub fn get_durable_executions(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Execution>> {
+    pub fn get_durable_executions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Execution>> {
         &self.durable_executions
     }
     /// <p>Pagination token for retrieving additional results. Present only if there are more results available.</p>
@@ -94,10 +92,7 @@ impl ListDurableExecutionsByFunctionOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListDurableExecutionsByFunctionOutput`](crate::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionOutput
-    {
+    pub fn build(self) -> crate::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionOutput {
         crate::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionOutput {
             durable_executions: self.durable_executions,
             next_marker: self.next_marker,

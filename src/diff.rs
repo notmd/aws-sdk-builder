@@ -8,15 +8,9 @@ use thiserror::Error;
 #[derive(Debug, Error)]
 pub enum DiffError {
     #[error("cannot read {path}: {source}")]
-    Read {
-        path: PathBuf,
-        source: std::io::Error,
-    },
+    Read { path: PathBuf, source: std::io::Error },
     #[error("cannot walk {path}: {source}")]
-    Walk {
-        path: PathBuf,
-        source: std::io::Error,
-    },
+    Walk { path: PathBuf, source: std::io::Error },
 }
 
 pub fn snapshot(root: &Path) -> Result<BTreeMap<String, Vec<u8>>, DiffError> {
@@ -25,11 +19,7 @@ pub fn snapshot(root: &Path) -> Result<BTreeMap<String, Vec<u8>>, DiffError> {
     Ok(files)
 }
 
-fn walk(
-    root: &Path,
-    current: &Path,
-    files: &mut BTreeMap<String, Vec<u8>>,
-) -> Result<(), DiffError> {
+fn walk(root: &Path, current: &Path, files: &mut BTreeMap<String, Vec<u8>>) -> Result<(), DiffError> {
     let entries = fs::read_dir(current).map_err(|source| DiffError::Walk {
         path: current.to_owned(),
         source,
@@ -66,20 +56,14 @@ pub fn excluded(relative: &Path) -> bool {
         || relative == Path::new("DIFF.diff")
 }
 
-pub fn unified_patch(
-    before: &BTreeMap<String, Vec<u8>>,
-    after: &BTreeMap<String, Vec<u8>>,
-) -> String {
+pub fn unified_patch(before: &BTreeMap<String, Vec<u8>>, after: &BTreeMap<String, Vec<u8>>) -> String {
     file_patches(before, after)
         .into_iter()
         .map(|(_, patch)| patch)
         .collect()
 }
 
-pub fn file_patches(
-    before: &BTreeMap<String, Vec<u8>>,
-    after: &BTreeMap<String, Vec<u8>>,
-) -> Vec<(String, String)> {
+pub fn file_patches(before: &BTreeMap<String, Vec<u8>>, after: &BTreeMap<String, Vec<u8>>) -> Vec<(String, String)> {
     let mut result = Vec::new();
     let keys = before
         .keys()
@@ -111,10 +95,7 @@ pub fn file_patches(
     result
 }
 
-pub fn changed_files(
-    before: &BTreeMap<String, Vec<u8>>,
-    after: &BTreeMap<String, Vec<u8>>,
-) -> Vec<String> {
+pub fn changed_files(before: &BTreeMap<String, Vec<u8>>, after: &BTreeMap<String, Vec<u8>>) -> Vec<String> {
     before
         .keys()
         .chain(after.keys())

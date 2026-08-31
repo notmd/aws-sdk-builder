@@ -10,8 +10,6 @@ impl super::Client {
     pub fn enable_key_rotation(
         &self,
     ) -> crate::operation::enable_key_rotation::builders::EnableKeyRotationFluentBuilder {
-        crate::operation::enable_key_rotation::builders::EnableKeyRotationFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::enable_key_rotation::builders::EnableKeyRotationFluentBuilder::new(self.handle.clone())
     }
 }

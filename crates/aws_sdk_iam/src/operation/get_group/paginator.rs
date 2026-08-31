@@ -70,16 +70,15 @@ impl GetGroupPaginator {
             &handle.conf,
             ::std::option::Option::None,
         )
-        .with_operation_plugin(
-            crate::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new(),
-        );
+        .with_operation_plugin(crate::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
         ::aws_smithy_async::future::pagination_stream::PaginationStream::new(
             ::aws_smithy_async::future::pagination_stream::fn_stream::FnStream::new(move |tx| {
                 ::std::boxed::Box::pin(async move {
                     // Build the input for the first time. If required fields are missing, this is where we'll produce an early error.
-                    let mut input = match builder.build().map_err(
-                        ::aws_smithy_runtime_api::client::result::SdkError::construction_failure,
-                    ) {
+                    let mut input = match builder
+                        .build()
+                        .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)
+                    {
                         ::std::result::Result::Ok(input) => input,
                         ::std::result::Result::Err(e) => {
                             let _ = tx.send(::std::result::Result::Err(e)).await;
@@ -87,23 +86,15 @@ impl GetGroupPaginator {
                         }
                     };
                     loop {
-                        let resp = crate::operation::get_group::GetGroup::orchestrate(
-                            &runtime_plugins,
-                            input.clone(),
-                        )
-                        .await;
+                        let resp =
+                            crate::operation::get_group::GetGroup::orchestrate(&runtime_plugins, input.clone()).await;
                         // If the input member is None or it was an error
                         let done = match resp {
                             ::std::result::Result::Ok(ref resp) => {
-                                let new_token =
-                                    crate::lens::reflens_get_group_output_output_marker(resp);
+                                let new_token = crate::lens::reflens_get_group_output_output_marker(resp);
                                 // Pagination is exhausted when the next token is an empty string
-                                let is_empty =
-                                    new_token.map(|token| token.is_empty()).unwrap_or(true);
-                                if !is_empty
-                                    && new_token == input.marker.as_ref()
-                                    && self.stop_on_duplicate_token
-                                {
+                                let is_empty = new_token.map(|token| token.is_empty()).unwrap_or(true);
+                                if !is_empty && new_token == input.marker.as_ref() && self.stop_on_duplicate_token {
                                     true
                                 } else {
                                     input.marker = new_token.cloned();
@@ -149,12 +140,10 @@ impl GetGroupPaginatorItems {
             >,
         >,
     > {
-        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(
-            |page| {
-                crate::lens::lens_get_group_output_output_users(page)
-                    .unwrap_or_default()
-                    .into_iter()
-            },
-        )
+        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(|page| {
+            crate::lens::lens_get_group_output_output_users(page)
+                .unwrap_or_default()
+                .into_iter()
+        })
     }
 }

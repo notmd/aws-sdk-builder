@@ -59,9 +59,7 @@ impl CreateTokenWithIAMFluentBuilder {
         }
     }
     /// Access the CreateTokenWithIAM as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::create_token_with_iam::builders::CreateTokenWithIamInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::create_token_with_iam::builders::CreateTokenWithIamInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,17 +83,12 @@ impl CreateTokenWithIAMFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::create_token_with_iam::CreateTokenWithIAM::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::create_token_with_iam::CreateTokenWithIAM::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::create_token_with_iam::CreateTokenWithIAM::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::create_token_with_iam::CreateTokenWithIAM::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -179,19 +172,13 @@ impl CreateTokenWithIAMFluentBuilder {
     }
     /// <p>Used only when calling this API for the Refresh Token grant type. This token is used to refresh short-lived tokens, such as the access token, that might expire.</p>
     /// <p>For more information about the features and limitations of the current IAM Identity Center OIDC implementation, see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center OIDC API Reference</a>.</p>
-    pub fn refresh_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn refresh_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.refresh_token(input.into());
         self
     }
     /// <p>Used only when calling this API for the Refresh Token grant type. This token is used to refresh short-lived tokens, such as the access token, that might expire.</p>
     /// <p>For more information about the features and limitations of the current IAM Identity Center OIDC implementation, see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center OIDC API Reference</a>.</p>
-    pub fn set_refresh_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_refresh_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_refresh_token(input);
         self
     }
@@ -225,10 +212,7 @@ impl CreateTokenWithIAMFluentBuilder {
         self
     }
     /// <p>The list of scopes for which authorization is requested. The access token that is issued is limited to the scopes that are granted. If the value is not specified, IAM Identity Center authorizes all scopes configured for the application, including the following default scopes: <code>openid</code>, <code>aws</code>, <code>sts:identity_context</code>.</p>
-    pub fn set_scope(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_scope(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_scope(input);
         self
     }
@@ -251,18 +235,12 @@ impl CreateTokenWithIAMFluentBuilder {
         self.inner.get_redirect_uri()
     }
     /// <p>Used only when calling this API for the Token Exchange grant type. This value specifies the subject of the exchange. The value of the subject token must be an access token issued by IAM Identity Center to a different client or application. The access token must have authorized scopes that indicate the requested application as a target audience.</p>
-    pub fn subject_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn subject_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.subject_token(input.into());
         self
     }
     /// <p>Used only when calling this API for the Token Exchange grant type. This value specifies the subject of the exchange. The value of the subject token must be an access token issued by IAM Identity Center to a different client or application. The access token must have authorized scopes that indicate the requested application as a target audience.</p>
-    pub fn set_subject_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_subject_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_subject_token(input);
         self
     }
@@ -272,19 +250,13 @@ impl CreateTokenWithIAMFluentBuilder {
     }
     /// <p>Used only when calling this API for the Token Exchange grant type. This value specifies the type of token that is passed as the subject of the exchange. The following value is supported:</p>
     /// <p>* Access Token - <code>urn:ietf:params:oauth:token-type:access_token</code></p>
-    pub fn subject_token_type(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn subject_token_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.subject_token_type(input.into());
         self
     }
     /// <p>Used only when calling this API for the Token Exchange grant type. This value specifies the type of token that is passed as the subject of the exchange. The following value is supported:</p>
     /// <p>* Access Token - <code>urn:ietf:params:oauth:token-type:access_token</code></p>
-    pub fn set_subject_token_type(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_subject_token_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_subject_token_type(input);
         self
     }
@@ -296,20 +268,14 @@ impl CreateTokenWithIAMFluentBuilder {
     /// <p>Used only when calling this API for the Token Exchange grant type. This value specifies the type of token that the requester can receive. The following values are supported:</p>
     /// <p>* Access Token - <code>urn:ietf:params:oauth:token-type:access_token</code></p>
     /// <p>* Refresh Token - <code>urn:ietf:params:oauth:token-type:refresh_token</code></p>
-    pub fn requested_token_type(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn requested_token_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.requested_token_type(input.into());
         self
     }
     /// <p>Used only when calling this API for the Token Exchange grant type. This value specifies the type of token that the requester can receive. The following values are supported:</p>
     /// <p>* Access Token - <code>urn:ietf:params:oauth:token-type:access_token</code></p>
     /// <p>* Refresh Token - <code>urn:ietf:params:oauth:token-type:refresh_token</code></p>
-    pub fn set_requested_token_type(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_requested_token_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_requested_token_type(input);
         self
     }
@@ -320,18 +286,12 @@ impl CreateTokenWithIAMFluentBuilder {
         self.inner.get_requested_token_type()
     }
     /// <p>Used only when calling this API for the Authorization Code grant type. This value is generated by the client and presented to validate the original code challenge value the client passed at authorization time.</p>
-    pub fn code_verifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn code_verifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.code_verifier(input.into());
         self
     }
     /// <p>Used only when calling this API for the Authorization Code grant type. This value is generated by the client and presented to validate the original code challenge value the client passed at authorization time.</p>
-    pub fn set_code_verifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_code_verifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_code_verifier(input);
         self
     }

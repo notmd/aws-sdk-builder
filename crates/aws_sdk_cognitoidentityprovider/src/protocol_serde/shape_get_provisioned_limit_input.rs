@@ -6,10 +6,7 @@ pub fn ser_get_provisioned_limit_input_input(
     if let Some(var_1) = &input.limit_definition {
         #[allow(unused_mut)]
         let mut object_2 = object.key("LimitDefinition").start_object();
-        crate::protocol_serde::shape_limit_definition_type::ser_limit_definition_type(
-            &mut object_2,
-            var_1,
-        )?;
+        crate::protocol_serde::shape_limit_definition_type::ser_limit_definition_type(&mut object_2, var_1)?;
         object_2.finish();
     }
     Ok(())

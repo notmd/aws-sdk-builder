@@ -21,9 +21,7 @@ impl NotificationConfigurationFilter {
 }
 
 /// A builder for [`NotificationConfigurationFilter`](crate::types::NotificationConfigurationFilter).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct NotificationConfigurationFilterBuilder {
     pub(crate) key: ::std::option::Option<crate::types::S3KeyFilter>,

@@ -53,16 +53,10 @@ mod cell {
 
     impl<T, E> ErrorTakingOnceCell<T, E> {
         pub(super) fn new() -> Self {
-            Self {
-                cell: OnceCell::new(),
-            }
+            Self { cell: OnceCell::new() }
         }
 
-        pub(super) async fn get_or_init<F, Fut>(
-            &self,
-            init: F,
-            mut taken_error: E,
-        ) -> Result<Arc<T>, E>
+        pub(super) async fn get_or_init<F, Fut>(&self, init: F, mut taken_error: E) -> Result<Arc<T>, E>
         where
             F: FnOnce() -> Fut,
             Fut: Future<Output = Result<T, E>>,

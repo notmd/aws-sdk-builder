@@ -29,17 +29,13 @@ impl ::aws_types::request_id::RequestId for ListEmailIdentitiesOutput {
 }
 impl ListEmailIdentitiesOutput {
     /// Creates a new builder-style object to manufacture [`ListEmailIdentitiesOutput`](crate::operation::list_email_identities::ListEmailIdentitiesOutput).
-    pub fn builder(
-    ) -> crate::operation::list_email_identities::builders::ListEmailIdentitiesOutputBuilder {
-        crate::operation::list_email_identities::builders::ListEmailIdentitiesOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::list_email_identities::builders::ListEmailIdentitiesOutputBuilder {
+        crate::operation::list_email_identities::builders::ListEmailIdentitiesOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListEmailIdentitiesOutput`](crate::operation::list_email_identities::ListEmailIdentitiesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListEmailIdentitiesOutputBuilder {
     pub(crate) email_identities: ::std::option::Option<::std::vec::Vec<crate::types::IdentityInfo>>,
@@ -67,9 +63,7 @@ impl ListEmailIdentitiesOutputBuilder {
         self
     }
     /// <p>An array that includes all of the email identities associated with your Amazon Web Services account.</p>
-    pub fn get_email_identities(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::IdentityInfo>> {
+    pub fn get_email_identities(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::IdentityInfo>> {
         &self.email_identities
     }
     /// <p>A token that indicates that there are additional configuration sets to list. To view additional configuration sets, issue another request to <code>ListEmailIdentities</code>, and pass this token in the <code>NextToken</code> parameter.</p>

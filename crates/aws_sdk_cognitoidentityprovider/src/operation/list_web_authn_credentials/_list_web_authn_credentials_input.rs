@@ -35,9 +35,7 @@ impl ::std::fmt::Debug for ListWebAuthnCredentialsInput {
 }
 impl ListWebAuthnCredentialsInput {
     /// Creates a new builder-style object to manufacture [`ListWebAuthnCredentialsInput`](crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsInput).
-    pub fn builder(
-    ) -> crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsInputBuilder {
         crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsInputBuilder::default()
     }
 }

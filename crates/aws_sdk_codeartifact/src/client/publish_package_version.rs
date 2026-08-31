@@ -25,8 +25,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PublishPackageVersionError>`](crate::operation::publish_package_version::PublishPackageVersionError)
     pub fn publish_package_version(
         &self,
-    ) -> crate::operation::publish_package_version::builders::PublishPackageVersionFluentBuilder
-    {
+    ) -> crate::operation::publish_package_version::builders::PublishPackageVersionFluentBuilder {
         crate::operation::publish_package_version::builders::PublishPackageVersionFluentBuilder::new(
             self.handle.clone(),
         )

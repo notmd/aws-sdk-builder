@@ -51,9 +51,7 @@ impl UsernameConfigurationType {
 }
 
 /// A builder for [`UsernameConfigurationType`](crate::types::UsernameConfigurationType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UsernameConfigurationTypeBuilder {
     pub(crate) case_sensitive: ::std::option::Option<bool>,
@@ -124,10 +122,8 @@ impl UsernameConfigurationTypeBuilder {
     /// - [`case_sensitive`](crate::types::builders::UsernameConfigurationTypeBuilder::case_sensitive)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::UsernameConfigurationType,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::UsernameConfigurationType, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::UsernameConfigurationType {
             case_sensitive: self.case_sensitive.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

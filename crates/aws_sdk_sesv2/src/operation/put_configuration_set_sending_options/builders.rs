@@ -57,7 +57,10 @@ impl PutConfigurationSetSendingOptionsFluentBuilder {
         }
     }
     /// Access the PutConfigurationSetSendingOptions as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +79,7 @@ impl PutConfigurationSetSendingOptionsFluentBuilder {
             crate::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +89,11 @@ impl PutConfigurationSetSendingOptionsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptions::orchestrate(&runtime_plugins, input).await
+        crate::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptions::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +103,7 @@ impl PutConfigurationSetSendingOptionsFluentBuilder {
         crate::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsOutput,
         crate::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -115,18 +122,12 @@ impl PutConfigurationSetSendingOptionsFluentBuilder {
         self
     }
     /// <p>The name of the configuration set to enable or disable email sending for.</p>
-    pub fn configuration_set_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_set_name(input.into());
         self
     }
     /// <p>The name of the configuration set to enable or disable email sending for.</p>
-    pub fn set_configuration_set_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_set_name(input);
         self
     }

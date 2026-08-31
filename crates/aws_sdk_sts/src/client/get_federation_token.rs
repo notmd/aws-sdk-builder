@@ -16,8 +16,6 @@ impl super::Client {
     pub fn get_federation_token(
         &self,
     ) -> crate::operation::get_federation_token::builders::GetFederationTokenFluentBuilder {
-        crate::operation::get_federation_token::builders::GetFederationTokenFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_federation_token::builders::GetFederationTokenFluentBuilder::new(self.handle.clone())
     }
 }

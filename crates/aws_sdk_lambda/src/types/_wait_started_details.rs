@@ -27,9 +27,7 @@ impl WaitStartedDetails {
 }
 
 /// A builder for [`WaitStartedDetails`](crate::types::WaitStartedDetails).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct WaitStartedDetailsBuilder {
     pub(crate) duration: ::std::option::Option<i32>,
@@ -58,17 +56,12 @@ impl WaitStartedDetailsBuilder {
         self
     }
     /// <p>The date and time when the wait operation is scheduled to complete, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    pub fn set_scheduled_end_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_scheduled_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.scheduled_end_timestamp = input;
         self
     }
     /// <p>The date and time when the wait operation is scheduled to complete, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    pub fn get_scheduled_end_timestamp(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_scheduled_end_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.scheduled_end_timestamp
     }
     /// Consumes the builder and constructs a [`WaitStartedDetails`](crate::types::WaitStartedDetails).
@@ -77,10 +70,7 @@ impl WaitStartedDetailsBuilder {
     /// - [`scheduled_end_timestamp`](crate::types::builders::WaitStartedDetailsBuilder::scheduled_end_timestamp)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::WaitStartedDetails,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::WaitStartedDetails, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::WaitStartedDetails {
             duration: self.duration.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

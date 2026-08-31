@@ -26,16 +26,13 @@ impl DescribePackageGroupInput {
 }
 impl DescribePackageGroupInput {
     /// Creates a new builder-style object to manufacture [`DescribePackageGroupInput`](crate::operation::describe_package_group::DescribePackageGroupInput).
-    pub fn builder(
-    ) -> crate::operation::describe_package_group::builders::DescribePackageGroupInputBuilder {
+    pub fn builder() -> crate::operation::describe_package_group::builders::DescribePackageGroupInputBuilder {
         crate::operation::describe_package_group::builders::DescribePackageGroupInputBuilder::default()
     }
 }
 
 /// A builder for [`DescribePackageGroupInput`](crate::operation::describe_package_group::DescribePackageGroupInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribePackageGroupInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -74,18 +71,12 @@ impl DescribePackageGroupInputBuilder {
     }
     /// <p>The pattern of the requested package group.</p>
     /// This field is required.
-    pub fn package_group(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_group(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.package_group = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The pattern of the requested package group.</p>
-    pub fn set_package_group(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_group(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.package_group = input;
         self
     }
@@ -100,12 +91,10 @@ impl DescribePackageGroupInputBuilder {
         crate::operation::describe_package_group::DescribePackageGroupInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::describe_package_group::DescribePackageGroupInput {
-                domain: self.domain,
-                domain_owner: self.domain_owner,
-                package_group: self.package_group,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::describe_package_group::DescribePackageGroupInput {
+            domain: self.domain,
+            domain_owner: self.domain_owner,
+            package_group: self.package_group,
+        })
     }
 }

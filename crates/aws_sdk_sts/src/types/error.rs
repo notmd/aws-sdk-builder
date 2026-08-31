@@ -35,16 +35,10 @@ pub use crate::types::error::_packed_policy_too_large_exception::PackedPolicyToo
 ))]
 pub use crate::types::error::_region_disabled_exception::RegionDisabledException;
 
-#[cfg(any(
-    feature = "op_assume_role_with_saml",
-    feature = "op_assume_role_with_web_identity"
-))]
+#[cfg(any(feature = "op_assume_role_with_saml", feature = "op_assume_role_with_web_identity"))]
 pub use crate::types::error::_idp_rejected_claim_exception::IdpRejectedClaimException;
 
-#[cfg(any(
-    feature = "op_assume_role_with_saml",
-    feature = "op_assume_role_with_web_identity"
-))]
+#[cfg(any(feature = "op_assume_role_with_saml", feature = "op_assume_role_with_web_identity"))]
 pub use crate::types::error::_invalid_identity_token_exception::InvalidIdentityTokenException;
 
 #[cfg(feature = "op_assume_role_with_web_identity")]
@@ -79,19 +73,13 @@ mod _expired_trade_in_token_exception;
 #[cfg(feature = "op_assume_role_with_web_identity")]
 mod _idp_communication_error_exception;
 
-#[cfg(any(
-    feature = "op_assume_role_with_saml",
-    feature = "op_assume_role_with_web_identity"
-))]
+#[cfg(any(feature = "op_assume_role_with_saml", feature = "op_assume_role_with_web_identity"))]
 mod _idp_rejected_claim_exception;
 
 #[cfg(feature = "op_decode_authorization_message")]
 mod _invalid_authorization_message_exception;
 
-#[cfg(any(
-    feature = "op_assume_role_with_saml",
-    feature = "op_assume_role_with_web_identity"
-))]
+#[cfg(any(feature = "op_assume_role_with_saml", feature = "op_assume_role_with_web_identity"))]
 mod _invalid_identity_token_exception;
 
 #[cfg(feature = "op_get_web_identity_token")]

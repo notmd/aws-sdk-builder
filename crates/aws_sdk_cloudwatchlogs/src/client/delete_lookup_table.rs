@@ -9,8 +9,6 @@ impl super::Client {
     pub fn delete_lookup_table(
         &self,
     ) -> crate::operation::delete_lookup_table::builders::DeleteLookupTableFluentBuilder {
-        crate::operation::delete_lookup_table::builders::DeleteLookupTableFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_lookup_table::builders::DeleteLookupTableFluentBuilder::new(self.handle.clone())
     }
 }

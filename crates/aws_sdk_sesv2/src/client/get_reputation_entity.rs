@@ -11,8 +11,6 @@ impl super::Client {
     pub fn get_reputation_entity(
         &self,
     ) -> crate::operation::get_reputation_entity::builders::GetReputationEntityFluentBuilder {
-        crate::operation::get_reputation_entity::builders::GetReputationEntityFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_reputation_entity::builders::GetReputationEntityFluentBuilder::new(self.handle.clone())
     }
 }

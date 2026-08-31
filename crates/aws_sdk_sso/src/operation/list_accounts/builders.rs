@@ -81,12 +81,11 @@ impl ListAccountsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_accounts::ListAccounts::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::list_accounts::ListAccounts::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::list_accounts::ListAccounts::orchestrate(&runtime_plugins, input).await
     }
 
@@ -118,13 +117,8 @@ impl ListAccountsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_accounts::paginator::ListAccountsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_accounts::paginator::ListAccountsPaginator {
-        crate::operation::list_accounts::paginator::ListAccountsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_accounts::paginator::ListAccountsPaginator {
+        crate::operation::list_accounts::paginator::ListAccountsPaginator::new(self.handle, self.inner)
     }
     /// <p>(Optional) When requesting subsequent pages, this is the page token from the previous response output.</p>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

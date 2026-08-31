@@ -26,33 +26,26 @@ impl ::std::fmt::Display for NoRunningConfigurationRecorderException {
     }
 }
 impl ::std::error::Error for NoRunningConfigurationRecorderException {}
-impl ::aws_types::request_id::RequestId
-    for crate::types::error::NoRunningConfigurationRecorderException
-{
+impl ::aws_types::request_id::RequestId for crate::types::error::NoRunningConfigurationRecorderException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
-    for NoRunningConfigurationRecorderException
-{
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for NoRunningConfigurationRecorderException {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         &self.meta
     }
 }
 impl NoRunningConfigurationRecorderException {
     /// Creates a new builder-style object to manufacture [`NoRunningConfigurationRecorderException`](crate::types::error::NoRunningConfigurationRecorderException).
-    pub fn builder() -> crate::types::error::builders::NoRunningConfigurationRecorderExceptionBuilder
-    {
+    pub fn builder() -> crate::types::error::builders::NoRunningConfigurationRecorderExceptionBuilder {
         crate::types::error::builders::NoRunningConfigurationRecorderExceptionBuilder::default()
     }
 }
 
 /// A builder for [`NoRunningConfigurationRecorderException`](crate::types::error::NoRunningConfigurationRecorderException).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct NoRunningConfigurationRecorderExceptionBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
@@ -80,10 +73,7 @@ impl NoRunningConfigurationRecorderExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(
-        &mut self,
-        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> &mut Self {
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
         self.meta = meta;
         self
     }

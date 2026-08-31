@@ -52,8 +52,7 @@ pub struct DeleteEventSourceMappingOutput {
     /// <p>(Amazon MQ) The name of the Amazon MQ broker destination queue to consume.</p>
     pub queues: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.</p>
-    pub source_access_configurations:
-        ::std::option::Option<::std::vec::Vec<crate::types::SourceAccessConfiguration>>,
+    pub source_access_configurations: ::std::option::Option<::std::vec::Vec<crate::types::SourceAccessConfiguration>>,
     /// <p>The self-managed Apache Kafka cluster for your event source.</p>
     pub self_managed_event_source: ::std::option::Option<crate::types::SelfManagedEventSource>,
     /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.</p><note>
@@ -67,17 +66,14 @@ pub struct DeleteEventSourceMappingOutput {
     /// <p>(Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.</p>
     pub tumbling_window_in_seconds: ::std::option::Option<i32>,
     /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
-    pub function_response_types:
-        ::std::option::Option<::std::vec::Vec<crate::types::FunctionResponseType>>,
+    pub function_response_types: ::std::option::Option<::std::vec::Vec<crate::types::FunctionResponseType>>,
     /// <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
     pub amazon_managed_kafka_event_source_config:
         ::std::option::Option<crate::types::AmazonManagedKafkaEventSourceConfig>,
     /// <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
-    pub self_managed_kafka_event_source_config:
-        ::std::option::Option<crate::types::SelfManagedKafkaEventSourceConfig>,
+    pub self_managed_kafka_event_source_config: ::std::option::Option<crate::types::SelfManagedKafkaEventSourceConfig>,
     /// <p>Specific configuration settings for a DocumentDB event source.</p>
-    pub document_db_event_source_config:
-        ::std::option::Option<crate::types::DocumentDbEventSourceConfig>,
+    pub document_db_event_source_config: ::std::option::Option<crate::types::DocumentDbEventSourceConfig>,
     /// <p>The Amazon Resource Name (ARN) of the event source mapping.</p>
     pub event_source_mapping_arn: ::std::option::Option<::std::string::String>,
     /// <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
@@ -94,9 +90,7 @@ impl DeleteEventSourceMappingOutput {
         self.starting_position.as_ref()
     }
     /// <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading. <code>StartingPositionTimestamp</code> cannot be in the future.</p>
-    pub fn starting_position_timestamp(
-        &self,
-    ) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn starting_position_timestamp(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.starting_position_timestamp.as_ref()
     }
     /// <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p>
@@ -125,9 +119,7 @@ impl DeleteEventSourceMappingOutput {
         self.filter_criteria.as_ref()
     }
     /// <p>An object that contains details about an error related to filter criteria encryption.</p>
-    pub fn filter_criteria_error(
-        &self,
-    ) -> ::std::option::Option<&crate::types::FilterCriteriaError> {
+    pub fn filter_criteria_error(&self) -> ::std::option::Option<&crate::types::FilterCriteriaError> {
         self.filter_criteria_error.as_ref()
     }
     /// <p>The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics">filter criteria</a>.</p>
@@ -135,15 +127,11 @@ impl DeleteEventSourceMappingOutput {
         self.kms_key_arn.as_deref()
     }
     /// <p>The metrics configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
-    pub fn metrics_config(
-        &self,
-    ) -> ::std::option::Option<&crate::types::EventSourceMappingMetricsConfig> {
+    pub fn metrics_config(&self) -> ::std::option::Option<&crate::types::EventSourceMappingMetricsConfig> {
         self.metrics_config.as_ref()
     }
     /// <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html">Event source mapping logging</a>.</p>
-    pub fn logging_config(
-        &self,
-    ) -> ::std::option::Option<&crate::types::EventSourceMappingLoggingConfig> {
+    pub fn logging_config(&self) -> ::std::option::Option<&crate::types::EventSourceMappingLoggingConfig> {
         self.logging_config.as_ref()
     }
     /// <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
@@ -190,14 +178,10 @@ impl DeleteEventSourceMappingOutput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.source_access_configurations.is_none()`.
     pub fn source_access_configurations(&self) -> &[crate::types::SourceAccessConfiguration] {
-        self.source_access_configurations
-            .as_deref()
-            .unwrap_or_default()
+        self.source_access_configurations.as_deref().unwrap_or_default()
     }
     /// <p>The self-managed Apache Kafka cluster for your event source.</p>
-    pub fn self_managed_event_source(
-        &self,
-    ) -> ::std::option::Option<&crate::types::SelfManagedEventSource> {
+    pub fn self_managed_event_source(&self) -> ::std::option::Option<&crate::types::SelfManagedEventSource> {
         self.self_managed_event_source.as_ref()
     }
     /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.</p><note>
@@ -237,9 +221,7 @@ impl DeleteEventSourceMappingOutput {
         self.self_managed_kafka_event_source_config.as_ref()
     }
     /// <p>Specific configuration settings for a DocumentDB event source.</p>
-    pub fn document_db_event_source_config(
-        &self,
-    ) -> ::std::option::Option<&crate::types::DocumentDbEventSourceConfig> {
+    pub fn document_db_event_source_config(&self) -> ::std::option::Option<&crate::types::DocumentDbEventSourceConfig> {
         self.document_db_event_source_config.as_ref()
     }
     /// <p>The Amazon Resource Name (ARN) of the event source mapping.</p>
@@ -247,9 +229,7 @@ impl DeleteEventSourceMappingOutput {
         self.event_source_mapping_arn.as_deref()
     }
     /// <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
-    pub fn provisioned_poller_config(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ProvisionedPollerConfig> {
+    pub fn provisioned_poller_config(&self) -> ::std::option::Option<&crate::types::ProvisionedPollerConfig> {
         self.provisioned_poller_config.as_ref()
     }
 }
@@ -260,15 +240,13 @@ impl ::aws_types::request_id::RequestId for DeleteEventSourceMappingOutput {
 }
 impl DeleteEventSourceMappingOutput {
     /// Creates a new builder-style object to manufacture [`DeleteEventSourceMappingOutput`](crate::operation::delete_event_source_mapping::DeleteEventSourceMappingOutput).
-    pub fn builder() -> crate::operation::delete_event_source_mapping::builders::DeleteEventSourceMappingOutputBuilder{
+    pub fn builder() -> crate::operation::delete_event_source_mapping::builders::DeleteEventSourceMappingOutputBuilder {
         crate::operation::delete_event_source_mapping::builders::DeleteEventSourceMappingOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteEventSourceMappingOutput`](crate::operation::delete_event_source_mapping::DeleteEventSourceMappingOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteEventSourceMappingOutputBuilder {
     pub(crate) uuid: ::std::option::Option<::std::string::String>,
@@ -294,23 +272,19 @@ pub struct DeleteEventSourceMappingOutputBuilder {
     pub(crate) queues: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) source_access_configurations:
         ::std::option::Option<::std::vec::Vec<crate::types::SourceAccessConfiguration>>,
-    pub(crate) self_managed_event_source:
-        ::std::option::Option<crate::types::SelfManagedEventSource>,
+    pub(crate) self_managed_event_source: ::std::option::Option<crate::types::SelfManagedEventSource>,
     pub(crate) maximum_record_age_in_seconds: ::std::option::Option<i32>,
     pub(crate) bisect_batch_on_function_error: ::std::option::Option<bool>,
     pub(crate) maximum_retry_attempts: ::std::option::Option<i32>,
     pub(crate) tumbling_window_in_seconds: ::std::option::Option<i32>,
-    pub(crate) function_response_types:
-        ::std::option::Option<::std::vec::Vec<crate::types::FunctionResponseType>>,
+    pub(crate) function_response_types: ::std::option::Option<::std::vec::Vec<crate::types::FunctionResponseType>>,
     pub(crate) amazon_managed_kafka_event_source_config:
         ::std::option::Option<crate::types::AmazonManagedKafkaEventSourceConfig>,
     pub(crate) self_managed_kafka_event_source_config:
         ::std::option::Option<crate::types::SelfManagedKafkaEventSourceConfig>,
-    pub(crate) document_db_event_source_config:
-        ::std::option::Option<crate::types::DocumentDbEventSourceConfig>,
+    pub(crate) document_db_event_source_config: ::std::option::Option<crate::types::DocumentDbEventSourceConfig>,
     pub(crate) event_source_mapping_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) provisioned_poller_config:
-        ::std::option::Option<crate::types::ProvisionedPollerConfig>,
+    pub(crate) provisioned_poller_config: ::std::option::Option<crate::types::ProvisionedPollerConfig>,
     _request_id: Option<String>,
 }
 impl DeleteEventSourceMappingOutputBuilder {
@@ -334,17 +308,12 @@ impl DeleteEventSourceMappingOutputBuilder {
         self
     }
     /// <p>The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Stream event sources. <code>AT_TIMESTAMP</code> is supported only for Amazon Kinesis streams, Amazon DocumentDB, Amazon MSK, and self-managed Apache Kafka.</p>
-    pub fn set_starting_position(
-        mut self,
-        input: ::std::option::Option<crate::types::EventSourcePosition>,
-    ) -> Self {
+    pub fn set_starting_position(mut self, input: ::std::option::Option<crate::types::EventSourcePosition>) -> Self {
         self.starting_position = input;
         self
     }
     /// <p>The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Stream event sources. <code>AT_TIMESTAMP</code> is supported only for Amazon Kinesis streams, Amazon DocumentDB, Amazon MSK, and self-managed Apache Kafka.</p>
-    pub fn get_starting_position(
-        &self,
-    ) -> &::std::option::Option<crate::types::EventSourcePosition> {
+    pub fn get_starting_position(&self) -> &::std::option::Option<crate::types::EventSourcePosition> {
         &self.starting_position
     }
     /// <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading. <code>StartingPositionTimestamp</code> cannot be in the future.</p>
@@ -361,9 +330,7 @@ impl DeleteEventSourceMappingOutputBuilder {
         self
     }
     /// <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading. <code>StartingPositionTimestamp</code> cannot be in the future.</p>
-    pub fn get_starting_position_timestamp(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_starting_position_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.starting_position_timestamp
     }
     /// <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p>
@@ -396,10 +363,7 @@ impl DeleteEventSourceMappingOutputBuilder {
     /// <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p>
     /// <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p>
     /// <p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
-    pub fn set_maximum_batching_window_in_seconds(
-        mut self,
-        input: ::std::option::Option<i32>,
-    ) -> Self {
+    pub fn set_maximum_batching_window_in_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
         self.maximum_batching_window_in_seconds = input;
         self
     }
@@ -424,18 +388,12 @@ impl DeleteEventSourceMappingOutputBuilder {
         &self.parallelization_factor
     }
     /// <p>The Amazon Resource Name (ARN) of the event source.</p>
-    pub fn event_source_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn event_source_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.event_source_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the event source.</p>
-    pub fn set_event_source_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_event_source_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.event_source_arn = input;
         self
     }
@@ -451,10 +409,7 @@ impl DeleteEventSourceMappingOutputBuilder {
     }
     /// <p>An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
     /// <p>If filter criteria is encrypted, this field shows up as <code>null</code> in the response of ListEventSourceMapping API calls. You can view this field in plaintext in the response of GetEventSourceMapping and DeleteEventSourceMapping calls if you have <code>kms:Decrypt</code> permissions for the correct KMS key.</p>
-    pub fn set_filter_criteria(
-        mut self,
-        input: ::std::option::Option<crate::types::FilterCriteria>,
-    ) -> Self {
+    pub fn set_filter_criteria(mut self, input: ::std::option::Option<crate::types::FilterCriteria>) -> Self {
         self.filter_criteria = input;
         self
     }
@@ -477,9 +432,7 @@ impl DeleteEventSourceMappingOutputBuilder {
         self
     }
     /// <p>An object that contains details about an error related to filter criteria encryption.</p>
-    pub fn get_filter_criteria_error(
-        &self,
-    ) -> &::std::option::Option<crate::types::FilterCriteriaError> {
+    pub fn get_filter_criteria_error(&self) -> &::std::option::Option<crate::types::FilterCriteriaError> {
         &self.filter_criteria_error
     }
     /// <p>The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics">filter criteria</a>.</p>
@@ -510,9 +463,7 @@ impl DeleteEventSourceMappingOutputBuilder {
         self
     }
     /// <p>The metrics configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
-    pub fn get_metrics_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::EventSourceMappingMetricsConfig> {
+    pub fn get_metrics_config(&self) -> &::std::option::Option<crate::types::EventSourceMappingMetricsConfig> {
         &self.metrics_config
     }
     /// <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html">Event source mapping logging</a>.</p>
@@ -529,9 +480,7 @@ impl DeleteEventSourceMappingOutputBuilder {
         self
     }
     /// <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html">Event source mapping logging</a>.</p>
-    pub fn get_logging_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::EventSourceMappingLoggingConfig> {
+    pub fn get_logging_config(&self) -> &::std::option::Option<crate::types::EventSourceMappingLoggingConfig> {
         &self.logging_config
     }
     /// <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
@@ -540,10 +489,7 @@ impl DeleteEventSourceMappingOutputBuilder {
         self
     }
     /// <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
-    pub fn set_scaling_config(
-        mut self,
-        input: ::std::option::Option<crate::types::ScalingConfig>,
-    ) -> Self {
+    pub fn set_scaling_config(mut self, input: ::std::option::Option<crate::types::ScalingConfig>) -> Self {
         self.scaling_config = input;
         self
     }
@@ -571,10 +517,7 @@ impl DeleteEventSourceMappingOutputBuilder {
         self
     }
     /// <p>The date that the event source mapping was last updated or that its state changed.</p>
-    pub fn set_last_modified(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_last_modified(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_modified = input;
         self
     }
@@ -583,18 +526,12 @@ impl DeleteEventSourceMappingOutputBuilder {
         &self.last_modified
     }
     /// <p>The result of the event source mapping's last processing attempt.</p>
-    pub fn last_processing_result(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn last_processing_result(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.last_processing_result = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The result of the event source mapping's last processing attempt.</p>
-    pub fn set_last_processing_result(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_last_processing_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.last_processing_result = input;
         self
     }
@@ -617,18 +554,12 @@ impl DeleteEventSourceMappingOutputBuilder {
         &self.state
     }
     /// <p>Indicates whether a user or Lambda made the last change to the event source mapping.</p>
-    pub fn state_transition_reason(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn state_transition_reason(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.state_transition_reason = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Indicates whether a user or Lambda made the last change to the event source mapping.</p>
-    pub fn set_state_transition_reason(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_state_transition_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.state_transition_reason = input;
         self
     }
@@ -642,17 +573,12 @@ impl DeleteEventSourceMappingOutputBuilder {
         self
     }
     /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.</p>
-    pub fn set_destination_config(
-        mut self,
-        input: ::std::option::Option<crate::types::DestinationConfig>,
-    ) -> Self {
+    pub fn set_destination_config(mut self, input: ::std::option::Option<crate::types::DestinationConfig>) -> Self {
         self.destination_config = input;
         self
     }
     /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.</p>
-    pub fn get_destination_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::DestinationConfig> {
+    pub fn get_destination_config(&self) -> &::std::option::Option<crate::types::DestinationConfig> {
         &self.destination_config
     }
     /// Appends an item to `topics`.
@@ -667,10 +593,7 @@ impl DeleteEventSourceMappingOutputBuilder {
         self
     }
     /// <p>The name of the Kafka topic.</p>
-    pub fn set_topics(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_topics(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.topics = input;
         self
     }
@@ -690,10 +613,7 @@ impl DeleteEventSourceMappingOutputBuilder {
         self
     }
     /// <p>(Amazon MQ) The name of the Amazon MQ broker destination queue to consume.</p>
-    pub fn set_queues(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_queues(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.queues = input;
         self
     }
@@ -706,10 +626,7 @@ impl DeleteEventSourceMappingOutputBuilder {
     /// To override the contents of this collection use [`set_source_access_configurations`](Self::set_source_access_configurations).
     ///
     /// <p>An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.</p>
-    pub fn source_access_configurations(
-        mut self,
-        input: crate::types::SourceAccessConfiguration,
-    ) -> Self {
+    pub fn source_access_configurations(mut self, input: crate::types::SourceAccessConfiguration) -> Self {
         let mut v = self.source_access_configurations.unwrap_or_default();
         v.push(input);
         self.source_access_configurations = ::std::option::Option::Some(v);
@@ -730,10 +647,7 @@ impl DeleteEventSourceMappingOutputBuilder {
         &self.source_access_configurations
     }
     /// <p>The self-managed Apache Kafka cluster for your event source.</p>
-    pub fn self_managed_event_source(
-        mut self,
-        input: crate::types::SelfManagedEventSource,
-    ) -> Self {
+    pub fn self_managed_event_source(mut self, input: crate::types::SelfManagedEventSource) -> Self {
         self.self_managed_event_source = ::std::option::Option::Some(input);
         self
     }
@@ -746,9 +660,7 @@ impl DeleteEventSourceMappingOutputBuilder {
         self
     }
     /// <p>The self-managed Apache Kafka cluster for your event source.</p>
-    pub fn get_self_managed_event_source(
-        &self,
-    ) -> &::std::option::Option<crate::types::SelfManagedEventSource> {
+    pub fn get_self_managed_event_source(&self) -> &::std::option::Option<crate::types::SelfManagedEventSource> {
         &self.self_managed_event_source
     }
     /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.</p><note>
@@ -777,10 +689,7 @@ impl DeleteEventSourceMappingOutputBuilder {
         self
     }
     /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) If the function returns an error, split the batch in two and retry. The default value is false.</p>
-    pub fn set_bisect_batch_on_function_error(
-        mut self,
-        input: ::std::option::Option<bool>,
-    ) -> Self {
+    pub fn set_bisect_batch_on_function_error(mut self, input: ::std::option::Option<bool>) -> Self {
         self.bisect_batch_on_function_error = input;
         self
     }
@@ -886,10 +795,7 @@ impl DeleteEventSourceMappingOutputBuilder {
         &self.self_managed_kafka_event_source_config
     }
     /// <p>Specific configuration settings for a DocumentDB event source.</p>
-    pub fn document_db_event_source_config(
-        mut self,
-        input: crate::types::DocumentDbEventSourceConfig,
-    ) -> Self {
+    pub fn document_db_event_source_config(mut self, input: crate::types::DocumentDbEventSourceConfig) -> Self {
         self.document_db_event_source_config = ::std::option::Option::Some(input);
         self
     }
@@ -908,18 +814,12 @@ impl DeleteEventSourceMappingOutputBuilder {
         &self.document_db_event_source_config
     }
     /// <p>The Amazon Resource Name (ARN) of the event source mapping.</p>
-    pub fn event_source_mapping_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn event_source_mapping_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.event_source_mapping_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the event source mapping.</p>
-    pub fn set_event_source_mapping_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_event_source_mapping_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.event_source_mapping_arn = input;
         self
     }
@@ -928,10 +828,7 @@ impl DeleteEventSourceMappingOutputBuilder {
         &self.event_source_mapping_arn
     }
     /// <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
-    pub fn provisioned_poller_config(
-        mut self,
-        input: crate::types::ProvisionedPollerConfig,
-    ) -> Self {
+    pub fn provisioned_poller_config(mut self, input: crate::types::ProvisionedPollerConfig) -> Self {
         self.provisioned_poller_config = ::std::option::Option::Some(input);
         self
     }
@@ -944,9 +841,7 @@ impl DeleteEventSourceMappingOutputBuilder {
         self
     }
     /// <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
-    pub fn get_provisioned_poller_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::ProvisionedPollerConfig> {
+    pub fn get_provisioned_poller_config(&self) -> &::std::option::Option<crate::types::ProvisionedPollerConfig> {
         &self.provisioned_poller_config
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -959,9 +854,7 @@ impl DeleteEventSourceMappingOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteEventSourceMappingOutput`](crate::operation::delete_event_source_mapping::DeleteEventSourceMappingOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::delete_event_source_mapping::DeleteEventSourceMappingOutput {
+    pub fn build(self) -> crate::operation::delete_event_source_mapping::DeleteEventSourceMappingOutput {
         crate::operation::delete_event_source_mapping::DeleteEventSourceMappingOutput {
             uuid: self.uuid,
             starting_position: self.starting_position,

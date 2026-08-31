@@ -51,10 +51,7 @@ mod test {
     #[tokio::test]
     #[traced_test]
     async fn log_error_on_invalid_value() {
-        let conf = ProviderConfig::empty().with_env(Env::from_slice(&[(
-            env::ACCOUNT_ID_ENDPOINT_MODE,
-            "invalid",
-        )]));
+        let conf = ProviderConfig::empty().with_env(Env::from_slice(&[(env::ACCOUNT_ID_ENDPOINT_MODE, "invalid")]));
         assert_eq!(None, account_id_endpoint_mode_provider(&conf).await);
         assert!(logs_contain("invalid value for `AccountIdEndpointMode`"));
     }
@@ -63,10 +60,7 @@ mod test {
     #[traced_test]
     async fn environment_priority() {
         let conf = ProviderConfig::empty()
-            .with_env(Env::from_slice(&[(
-                env::ACCOUNT_ID_ENDPOINT_MODE,
-                "disabled",
-            )]))
+            .with_env(Env::from_slice(&[(env::ACCOUNT_ID_ENDPOINT_MODE, "disabled")]))
             .with_profile_config(
                 Some(
                     #[allow(deprecated)]
@@ -86,10 +80,7 @@ mod test {
             )]));
         assert_eq!(
             "disabled".to_owned(),
-            account_id_endpoint_mode_provider(&conf)
-                .await
-                .unwrap()
-                .to_string(),
+            account_id_endpoint_mode_provider(&conf).await.unwrap().to_string(),
         );
     }
 }

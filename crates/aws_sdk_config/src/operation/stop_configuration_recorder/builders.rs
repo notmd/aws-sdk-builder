@@ -3,9 +3,7 @@ pub use crate::operation::stop_configuration_recorder::_stop_configuration_recor
 
 pub use crate::operation::stop_configuration_recorder::_stop_configuration_recorder_output::StopConfigurationRecorderOutputBuilder;
 
-impl
-    crate::operation::stop_configuration_recorder::builders::StopConfigurationRecorderInputBuilder
-{
+impl crate::operation::stop_configuration_recorder::builders::StopConfigurationRecorderInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -59,7 +57,9 @@ impl StopConfigurationRecorderFluentBuilder {
         }
     }
     /// Access the StopConfigurationRecorder as a reference.
-    pub fn as_input(&self) -> &crate::operation::stop_configuration_recorder::builders::StopConfigurationRecorderInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::stop_configuration_recorder::builders::StopConfigurationRecorderInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,16 +83,14 @@ impl StopConfigurationRecorderFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::stop_configuration_recorder::StopConfigurationRecorder::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::stop_configuration_recorder::StopConfigurationRecorder::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::stop_configuration_recorder::StopConfigurationRecorder::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::stop_configuration_recorder::StopConfigurationRecorder::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -121,18 +119,12 @@ impl StopConfigurationRecorderFluentBuilder {
         self
     }
     /// <p>The name of the customer managed configuration recorder that you want to stop.</p>
-    pub fn configuration_recorder_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_recorder_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_recorder_name(input.into());
         self
     }
     /// <p>The name of the customer managed configuration recorder that you want to stop.</p>
-    pub fn set_configuration_recorder_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_recorder_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_recorder_name(input);
         self
     }

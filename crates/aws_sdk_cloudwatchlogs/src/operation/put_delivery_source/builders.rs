@@ -71,9 +71,7 @@ impl PutDeliverySourceFluentBuilder {
         }
     }
     /// Access the PutDeliverySource as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::put_delivery_source::builders::PutDeliverySourceInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_delivery_source::builders::PutDeliverySourceInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -97,17 +95,12 @@ impl PutDeliverySourceFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::put_delivery_source::PutDeliverySource::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::put_delivery_source::PutDeliverySource::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::put_delivery_source::PutDeliverySource::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::put_delivery_source::PutDeliverySource::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -385,9 +378,7 @@ impl PutDeliverySourceFluentBuilder {
     /// <p>For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a></p>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_tags(input);
         self
@@ -396,9 +387,7 @@ impl PutDeliverySourceFluentBuilder {
     /// <p>For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a></p>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_tags()
     }
     ///
@@ -418,9 +407,7 @@ impl PutDeliverySourceFluentBuilder {
     /// <p>A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length. For example, <code>{"samplingRate": "50"}</code>.</p>
     pub fn set_delivery_source_configuration(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_delivery_source_configuration(input);
         self
@@ -428,9 +415,7 @@ impl PutDeliverySourceFluentBuilder {
     /// <p>A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length. For example, <code>{"samplingRate": "50"}</code>.</p>
     pub fn get_delivery_source_configuration(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_delivery_source_configuration()
     }
 }

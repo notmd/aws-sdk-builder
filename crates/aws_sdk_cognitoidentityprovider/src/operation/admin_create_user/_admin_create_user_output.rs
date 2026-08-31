@@ -21,16 +21,13 @@ impl ::aws_types::request_id::RequestId for AdminCreateUserOutput {
 }
 impl AdminCreateUserOutput {
     /// Creates a new builder-style object to manufacture [`AdminCreateUserOutput`](crate::operation::admin_create_user::AdminCreateUserOutput).
-    pub fn builder() -> crate::operation::admin_create_user::builders::AdminCreateUserOutputBuilder
-    {
+    pub fn builder() -> crate::operation::admin_create_user::builders::AdminCreateUserOutputBuilder {
         crate::operation::admin_create_user::builders::AdminCreateUserOutputBuilder::default()
     }
 }
 
 /// A builder for [`AdminCreateUserOutput`](crate::operation::admin_create_user::AdminCreateUserOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AdminCreateUserOutputBuilder {
     pub(crate) user: ::std::option::Option<crate::types::UserType>,

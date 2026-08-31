@@ -9,21 +9,14 @@ pub fn de_get_account_settings_http_error(
     crate::operation::get_account_settings::GetAccountSettingsError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::get_account_settings::GetAccountSettingsError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::get_account_settings::GetAccountSettingsError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(
-                crate::operation::get_account_settings::GetAccountSettingsError::unhandled(generic),
-            )
-        }
+        None => return Err(crate::operation::get_account_settings::GetAccountSettingsError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -33,8 +26,11 @@ pub fn de_get_account_settings_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::ServiceExceptionBuilder::default();
-                output = crate::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_account_settings::GetAccountSettingsError::unhandled)?;
+                output = crate::protocol_serde::shape_service_exception::de_service_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::get_account_settings::GetAccountSettingsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -43,28 +39,33 @@ pub fn de_get_account_settings_http_error(
             }
             tmp
         }),
-        "TooManyRequestsException" => crate::operation::get_account_settings::GetAccountSettingsError::TooManyRequestsException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "TooManyRequestsException" => {
+            crate::operation::get_account_settings::GetAccountSettingsError::TooManyRequestsException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(crate::operation::get_account_settings::GetAccountSettingsError::unhandled)?;
-                output = output.set_retry_after_seconds(
-                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
-                        crate::operation::get_account_settings::GetAccountSettingsError::unhandled(
-                            "Failed to parse retryAfterSeconds from header `Retry-After",
+                    output = output.set_retry_after_seconds(
+                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(
+                            _response_headers,
                         )
-                    })?,
-                );
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                        .map_err(|_| {
+                            crate::operation::get_account_settings::GetAccountSettingsError::unhandled(
+                                "Failed to parse retryAfterSeconds from header `Retry-After",
+                            )
+                        })?,
+                    );
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => crate::operation::get_account_settings::GetAccountSettingsError::generic(generic),
     })
 }
@@ -81,14 +82,9 @@ pub fn de_get_account_settings_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::get_account_settings::builders::GetAccountSettingsOutputBuilder::default();
-        output = crate::protocol_serde::shape_get_account_settings::de_get_account_settings(
-            _response_body,
-            output,
-        )
-        .map_err(crate::operation::get_account_settings::GetAccountSettingsError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output = crate::protocol_serde::shape_get_account_settings::de_get_account_settings(_response_body, output)
+            .map_err(crate::operation::get_account_settings::GetAccountSettingsError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -100,10 +96,8 @@ pub(crate) fn de_get_account_settings(
     crate::operation::get_account_settings::builders::GetAccountSettingsOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -115,40 +109,28 @@ pub(crate) fn de_get_account_settings(
                 match key.to_unescaped()?.as_ref() {
                     "AccountLimit" => {
                         builder = builder.set_account_limit(
-                            crate::protocol_serde::shape_account_limit::de_account_limit(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?,
+                            crate::protocol_serde::shape_account_limit::de_account_limit(tokens, _value, depth + 1)?,
                         );
                     }
                     "AccountUsage" => {
                         builder = builder.set_account_usage(
-                            crate::protocol_serde::shape_account_usage::de_account_usage(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?,
+                            crate::protocol_serde::shape_account_usage::de_account_usage(tokens, _value, depth + 1)?,
                         );
                     }
                     _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
             }
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

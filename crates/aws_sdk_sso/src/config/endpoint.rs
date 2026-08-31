@@ -8,22 +8,19 @@ pub use ::aws_smithy_types::endpoint::Endpoint;
 pub(crate) struct EndpointOverrideFeatureTrackerInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for EndpointOverrideFeatureTrackerInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for EndpointOverrideFeatureTrackerInterceptor {
     fn name(&self) -> &'static str {
         "EndpointOverrideFeatureTrackerInterceptor"
     }
 
     fn read_before_execution(
         &self,
-        _context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<'_>,
+        _context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
+            '_,
+        >,
         cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-        if cfg
-            .load::<::aws_types::endpoint_config::EndpointUrl>()
-            .is_some()
-        {
+        if cfg.load::<::aws_types::endpoint_config::EndpointUrl>().is_some() {
             cfg.interceptor_state()
                 .store_append(::aws_runtime::sdk_feature::AwsSdkFeature::EndpointOverride);
         }
@@ -45,8 +42,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://portal.sso.ap-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.ap-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -66,8 +62,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://portal.sso.ap-northeast-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.ap-northeast-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -87,8 +82,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://portal.sso.ap-northeast-2.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.ap-northeast-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -108,8 +102,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://portal.sso.ap-northeast-3.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.ap-northeast-3.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -129,8 +122,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://portal.sso.ap-south-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.ap-south-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -150,8 +142,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://portal.sso.ap-southeast-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.ap-southeast-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -171,8 +162,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://portal.sso.ap-southeast-2.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.ap-southeast-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -192,8 +182,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://portal.sso.ca-central-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.ca-central-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -213,8 +202,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://portal.sso.eu-central-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.eu-central-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -234,8 +222,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://portal.sso.eu-north-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.eu-north-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -255,8 +242,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://portal.sso.eu-south-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.eu-south-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -276,8 +262,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://portal.sso.eu-west-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.eu-west-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -297,8 +282,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://portal.sso.eu-west-2.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.eu-west-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -318,8 +302,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://portal.sso.eu-west-3.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.eu-west-3.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -339,8 +322,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://portal.sso.me-south-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.me-south-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -360,8 +342,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://portal.sso.sa-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.sa-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -381,8 +362,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://portal.sso.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -402,8 +382,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://portal.sso.us-east-2.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.us-east-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -423,8 +402,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://portal.sso.us-west-2.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.us-west-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -444,8 +422,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://portal.sso-fips.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso-fips.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -465,8 +442,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://portal.sso-fips.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso-fips.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -486,8 +462,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://portal.sso.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -507,7 +482,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso-fips.cn-north-1.api.amazonwebservices.com.cn");
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://portal.sso-fips.cn-north-1.api.amazonwebservices.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -527,8 +503,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://portal.sso-fips.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso-fips.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -548,9 +523,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://portal.sso.cn-north-1.api.amazonwebservices.com.cn",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://portal.sso.cn-north-1.api.amazonwebservices.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -570,8 +544,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://portal.sso.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -591,8 +564,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://portal.sso.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -612,8 +584,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://portal.sso.us-gov-west-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.us-gov-west-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -633,8 +604,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://portal.sso-fips.us-gov-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso-fips.us-gov-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -654,8 +624,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://portal.sso.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -675,8 +644,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://portal.sso.us-gov-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.us-gov-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -696,8 +664,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://portal.sso-fips.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso-fips.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -717,8 +684,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://portal.sso.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -738,9 +704,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://portal.sso-fips.us-isob-east-1.sc2s.sgov.gov",
-        );
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso-fips.us-isob-east-1.sc2s.sgov.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -760,8 +724,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://portal.sso.us-isob-east-1.sc2s.sgov.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://portal.sso.us-isob-east-1.sc2s.sgov.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -857,12 +820,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint
-            .expect_err("expected error: Invalid Configuration: Missing Region [Missing region]");
-        assert_eq!(
-            format!("{}", error),
-            "Invalid Configuration: Missing Region"
-        )
+        let error = endpoint.expect_err("expected error: Invalid Configuration: Missing Region [Missing region]");
+        assert_eq!(format!("{}", error), "Invalid Configuration: Missing Region")
     }
 }
 
@@ -877,15 +836,11 @@ pub trait ResolveEndpoint: ::std::marker::Send + ::std::marker::Sync + ::std::fm
     /// Convert this service-specific resolver into a `SharedEndpointResolver`
     ///
     /// The resulting resolver will downcast `EndpointResolverParams` into `crate::config::endpoint::Params`.
-    fn into_shared_resolver(
-        self,
-    ) -> ::aws_smithy_runtime_api::client::endpoint::SharedEndpointResolver
+    fn into_shared_resolver(self) -> ::aws_smithy_runtime_api::client::endpoint::SharedEndpointResolver
     where
         Self: Sized + 'static,
     {
-        ::aws_smithy_runtime_api::client::endpoint::SharedEndpointResolver::new(DowncastParams(
-            self,
-        ))
+        ::aws_smithy_runtime_api::client::endpoint::SharedEndpointResolver::new(DowncastParams(self))
     }
 }
 
@@ -913,9 +868,7 @@ where
 /// The default endpoint resolver.
 pub struct DefaultResolver {
     partition_resolver: &'static crate::endpoint_lib::partition::PartitionResolver,
-    endpoint_cache: ::arc_swap::ArcSwap<
-        ::std::option::Option<(Params, ::aws_smithy_types::endpoint::Endpoint)>,
-    >,
+    endpoint_cache: ::arc_swap::ArcSwap<::std::option::Option<(Params, ::aws_smithy_types::endpoint::Endpoint)>>,
 }
 
 impl Default for DefaultResolver {
@@ -949,10 +902,8 @@ impl DefaultResolver {
     fn resolve_endpoint<'a>(
         &'a self,
         params: &'a crate::config::endpoint::Params,
-    ) -> ::std::result::Result<
-        ::aws_smithy_types::endpoint::Endpoint,
-        ::aws_smithy_runtime_api::box_error::BoxError,
-    > {
+    ) -> ::std::result::Result<::aws_smithy_types::endpoint::Endpoint, ::aws_smithy_runtime_api::box_error::BoxError>
+    {
         let mut _diagnostic_collector = crate::endpoint_lib::diagnostic::DiagnosticCollector::new();
         #[allow(unused_mut)]
         let mut context = ConditionContext::default();
@@ -968,22 +919,36 @@ impl DefaultResolver {
             match current_ref {
                 ref_val if ref_val >= 100_000_000 => {
                     return match (ref_val - 100_000_000) as usize {
-                        0 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
-                            "No endpoint rule matched",
-                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
-                        1 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
-                            "Invalid Configuration: FIPS and custom endpoint are not supported".to_string(),
-                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
-                        2 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
-                            "Invalid Configuration: Dualstack and custom endpoint are not supported".to_string(),
-                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
+                        0 => ::std::result::Result::Err(Box::new(
+                            ::aws_smithy_http::endpoint::ResolveEndpointError::message("No endpoint rule matched"),
+                        )
+                            as ::aws_smithy_runtime_api::box_error::BoxError),
+                        1 => ::std::result::Result::Err(Box::new(
+                            ::aws_smithy_http::endpoint::ResolveEndpointError::message(
+                                "Invalid Configuration: FIPS and custom endpoint are not supported".to_string(),
+                            ),
+                        )
+                            as ::aws_smithy_runtime_api::box_error::BoxError),
+                        2 => ::std::result::Result::Err(Box::new(
+                            ::aws_smithy_http::endpoint::ResolveEndpointError::message(
+                                "Invalid Configuration: Dualstack and custom endpoint are not supported".to_string(),
+                            ),
+                        )
+                            as ::aws_smithy_runtime_api::box_error::BoxError),
                         3 => {
                             let endpoint = params.endpoint.as_deref().unwrap_or_default();
-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url(endpoint.to_owned()).build())
+                            ::std::result::Result::Ok(
+                                ::aws_smithy_types::endpoint::Endpoint::builder()
+                                    .url(endpoint.to_owned())
+                                    .build(),
+                            )
                         }
                         4 => {
                             let region = params.region.as_deref().unwrap_or_default();
-                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+                            let partition_result = context
+                                .partition_result
+                                .as_ref()
+                                .expect("Guaranteed to have a value by earlier checks.");
                             ::std::result::Result::Ok(
                                 ::aws_smithy_types::endpoint::Endpoint::builder()
                                     .url({
@@ -999,9 +964,13 @@ impl DefaultResolver {
                                     .build(),
                             )
                         }
-                        5 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
-                            "FIPS and DualStack are enabled, but this partition does not support one or both".to_string(),
-                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
+                        5 => ::std::result::Result::Err(Box::new(
+                            ::aws_smithy_http::endpoint::ResolveEndpointError::message(
+                                "FIPS and DualStack are enabled, but this partition does not support one or both"
+                                    .to_string(),
+                            ),
+                        )
+                            as ::aws_smithy_runtime_api::box_error::BoxError),
                         6 => {
                             let region = params.region.as_deref().unwrap_or_default();
                             ::std::result::Result::Ok(
@@ -1019,7 +988,10 @@ impl DefaultResolver {
                         }
                         7 => {
                             let region = params.region.as_deref().unwrap_or_default();
-                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+                            let partition_result = context
+                                .partition_result
+                                .as_ref()
+                                .expect("Guaranteed to have a value by earlier checks.");
                             ::std::result::Result::Ok(
                                 ::aws_smithy_types::endpoint::Endpoint::builder()
                                     .url({
@@ -1035,12 +1007,18 @@ impl DefaultResolver {
                                     .build(),
                             )
                         }
-                        8 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
-                            "FIPS is enabled but this partition does not support FIPS".to_string(),
-                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
+                        8 => ::std::result::Result::Err(Box::new(
+                            ::aws_smithy_http::endpoint::ResolveEndpointError::message(
+                                "FIPS is enabled but this partition does not support FIPS".to_string(),
+                            ),
+                        )
+                            as ::aws_smithy_runtime_api::box_error::BoxError),
                         9 => {
                             let region = params.region.as_deref().unwrap_or_default();
-                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+                            let partition_result = context
+                                .partition_result
+                                .as_ref()
+                                .expect("Guaranteed to have a value by earlier checks.");
                             ::std::result::Result::Ok(
                                 ::aws_smithy_types::endpoint::Endpoint::builder()
                                     .url({
@@ -1056,12 +1034,18 @@ impl DefaultResolver {
                                     .build(),
                             )
                         }
-                        10 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
-                            "DualStack is enabled but this partition does not support DualStack".to_string(),
-                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
+                        10 => ::std::result::Result::Err(Box::new(
+                            ::aws_smithy_http::endpoint::ResolveEndpointError::message(
+                                "DualStack is enabled but this partition does not support DualStack".to_string(),
+                            ),
+                        )
+                            as ::aws_smithy_runtime_api::box_error::BoxError),
                         11 => {
                             let region = params.region.as_deref().unwrap_or_default();
-                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+                            let partition_result = context
+                                .partition_result
+                                .as_ref()
+                                .expect("Guaranteed to have a value by earlier checks.");
                             ::std::result::Result::Ok(
                                 ::aws_smithy_types::endpoint::Endpoint::builder()
                                     .url({
@@ -1077,19 +1061,21 @@ impl DefaultResolver {
                                     .build(),
                             )
                         }
-                        12 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
-                            "Invalid Configuration: Missing Region".to_string(),
-                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
-                        _ => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
-                            "No endpoint rule matched",
-                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
+                        12 => ::std::result::Result::Err(Box::new(
+                            ::aws_smithy_http::endpoint::ResolveEndpointError::message(
+                                "Invalid Configuration: Missing Region".to_string(),
+                            ),
+                        )
+                            as ::aws_smithy_runtime_api::box_error::BoxError),
+                        _ => ::std::result::Result::Err(Box::new(
+                            ::aws_smithy_http::endpoint::ResolveEndpointError::message("No endpoint rule matched"),
+                        )
+                            as ::aws_smithy_runtime_api::box_error::BoxError),
                     };
                 }
                 1 | -1 => {
                     return ::std::result::Result::Err(Box::new(
-                        ::aws_smithy_http::endpoint::ResolveEndpointError::message(
-                            "No endpoint rule matched",
-                        ),
+                        ::aws_smithy_http::endpoint::ResolveEndpointError::message("No endpoint rule matched"),
                     )
                         as ::aws_smithy_runtime_api::box_error::BoxError)
                 }
@@ -1160,18 +1146,16 @@ impl crate::config::endpoint::ResolveEndpoint for DefaultResolver {
         let cached = self.endpoint_cache.load();
         if let Some((cached_params, cached_endpoint)) = cached.as_ref() {
             if cached_params == params {
-                return ::aws_smithy_runtime_api::client::endpoint::EndpointFuture::ready(
-                    ::std::result::Result::Ok(cached_endpoint.clone()),
-                );
+                return ::aws_smithy_runtime_api::client::endpoint::EndpointFuture::ready(::std::result::Result::Ok(
+                    cached_endpoint.clone(),
+                ));
             }
         }
         drop(cached);
         let result = self.resolve_endpoint(params);
         if let ::std::result::Result::Ok(ref endpoint) = result {
-            self.endpoint_cache.store(::std::sync::Arc::new(Some((
-                params.clone(),
-                endpoint.clone(),
-            ))));
+            self.endpoint_cache
+                .store(::std::sync::Arc::new(Some((params.clone(), endpoint.clone()))));
         }
         ::aws_smithy_runtime_api::client::endpoint::EndpointFuture::ready(result)
     }
@@ -1295,9 +1279,7 @@ impl Params {
 }
 
 /// Builder for [`Params`]
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct ParamsBuilder {
     region: ::std::option::Option<::std::string::String>,
     use_dual_stack: ::std::option::Option<bool>,
@@ -1308,10 +1290,7 @@ impl ParamsBuilder {
     /// Consume this builder, creating [`Params`].
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::config::endpoint::Params,
-        crate::config::endpoint::InvalidParams,
-    > {
+    ) -> ::std::result::Result<crate::config::endpoint::Params, crate::config::endpoint::InvalidParams> {
         if let Some(region) = &self.region {
             if !crate::endpoint_lib::host::is_valid_host_label(
                 region.as_ref() as &str,
@@ -1328,9 +1307,10 @@ impl ParamsBuilder {
             #[allow(clippy::unnecessary_lazy_evaluations)]
             crate::config::endpoint::Params {
                 region: self.region,
-                use_dual_stack: self.use_dual_stack.or_else(|| Some(false)).ok_or_else(|| {
-                    crate::config::endpoint::InvalidParams::missing("use_dual_stack")
-                })?,
+                use_dual_stack: self
+                    .use_dual_stack
+                    .or_else(|| Some(false))
+                    .ok_or_else(|| crate::config::endpoint::InvalidParams::missing("use_dual_stack"))?,
                 use_fips: self
                     .use_fips
                     .or_else(|| Some(false))
@@ -1440,9 +1420,7 @@ impl InvalidParams {
 impl std::fmt::Display for InvalidParams {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self.kind {
-            InvalidParamsErrorKind::MissingField => {
-                write!(f, "a required field was missing: `{}`", self.field)
-            }
+            InvalidParamsErrorKind::MissingField => write!(f, "a required field was missing: `{}`", self.field),
             InvalidParamsErrorKind::InvalidValue { message } => {
                 write!(f, "invalid value for field: `{}` - {}", self.field, message)
             }

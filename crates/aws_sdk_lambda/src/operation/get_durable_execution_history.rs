@@ -85,28 +85,22 @@ impl GetDurableExecutionHistory {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(
-                crate::config::ConfigOverrideRuntimePlugin::new(
-                    config_override,
-                    client_config.config.clone(),
-                    &client_config.runtime_components,
-                ),
-            );
+            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+                config_override,
+                client_config.config.clone(),
+                &client_config.runtime_components,
+            ));
         }
         runtime_plugins
     }
 }
-impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
-    for GetDurableExecutionHistory
-{
+impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetDurableExecutionHistory {
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("GetDurableExecutionHistory");
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                GetDurableExecutionHistoryRequestSerializer,
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+            GetDurableExecutionHistoryRequestSerializer,
+        ));
         cfg.store_put(
             ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
                 GetDurableExecutionHistoryResponseDeserializer,
@@ -123,12 +117,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
         );
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-                "GetDurableExecutionHistory",
-                "Lambda",
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+            "GetDurableExecutionHistory",
+            "Lambda",
+        ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = true;
         signing_options.content_sha256_header = false;
@@ -146,30 +138,39 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<
-        '_,
-        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    > {
+    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
-        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetDurableExecutionHistory")
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new(
+            "GetDurableExecutionHistory",
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 GetDurableExecutionHistoryTelemetryInputCaptureInterceptor,
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 GetDurableExecutionHistoryEndpointParamsInterceptor,
-            ))
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+            ),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                 crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError,
-            >::new())
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+            >::new(),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                 crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError,
-            >::new())
-            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError,
-            >::new());
+            >::new(),
+        )
+        .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+            crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError,
+        >::new());
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -204,9 +205,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) = context
-            .input()
-            .downcast_ref::<GetDurableExecutionHistoryInput>()
+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<GetDurableExecutionHistoryInput>()
         else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
@@ -230,9 +229,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
 }
 #[derive(Debug)]
 struct GetDurableExecutionHistoryResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
-    for GetDurableExecutionHistoryResponseDeserializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetDurableExecutionHistoryResponseDeserializer {
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -245,18 +242,20 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_get_durable_execution_history::de_get_durable_execution_history_http_error(status, headers, body)
+            crate::protocol_serde::shape_get_durable_execution_history::de_get_durable_execution_history_http_error(
+                status, headers, body,
+            )
         } else {
-            crate::protocol_serde::shape_get_durable_execution_history::de_get_durable_execution_history_http_response(status, headers, body)
+            crate::protocol_serde::shape_get_durable_execution_history::de_get_durable_execution_history_http_response(
+                status, headers, body,
+            )
         };
         crate::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
 struct GetDurableExecutionHistoryRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
-    for GetDurableExecutionHistoryRequestSerializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetDurableExecutionHistoryRequestSerializer {
     #[allow(
         unused_mut,
         clippy::let_and_return,
@@ -283,8 +282,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_base(
                 _input: &crate::operation::get_durable_execution_history::GetDurableExecutionHistoryInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
                 let input_1 = &_input.durable_execution_arn;
                 let input_1 = input_1.as_ref().ok_or_else(|| {
@@ -293,10 +291,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
                         "cannot be empty or unset",
                     )
                 })?;
-                let durable_execution_arn = ::aws_smithy_http::label::fmt_string(
-                    input_1,
-                    ::aws_smithy_http::label::EncodingStrategy::Default,
-                );
+                let durable_execution_arn =
+                    ::aws_smithy_http::label::fmt_string(input_1, ::aws_smithy_http::label::EncodingStrategy::Default);
                 if durable_execution_arn.is_empty() {
                     return ::std::result::Result::Err(
                         ::aws_smithy_types::error::operation::BuildError::missing_field(
@@ -316,8 +312,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_query(
                 _input: &crate::operation::get_durable_execution_history::GetDurableExecutionHistoryInput,
                 mut output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_2) = &_input.include_execution_data {
                     {
@@ -354,10 +349,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn update_http_builder(
                 input: &crate::operation::get_durable_execution_history::GetDurableExecutionHistoryInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<
-                ::http_1x::request::Builder,
-                ::aws_smithy_types::error::operation::BuildError,
-            > {
+            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
@@ -368,22 +361,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
         };
         let body = ::aws_smithy_types::body::SdkBody::from("");
 
-        ::std::result::Result::Ok(
-            request_builder
-                .body(body)
-                .expect("valid request")
-                .try_into()
-                .unwrap(),
-        )
+        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
 #[derive(Debug)]
 struct GetDurableExecutionHistoryEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for GetDurableExecutionHistoryEndpointParamsInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetDurableExecutionHistoryEndpointParamsInterceptor {
     fn name(&self) -> &'static str {
         "GetDurableExecutionHistoryEndpointParamsInterceptor"
     }
@@ -404,18 +389,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             .ok_or("failed to downcast to GetDurableExecutionHistoryInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(
-                cfg.load::<::aws_types::region::Region>()
-                    .map(|r| r.as_ref().to_owned()),
-            )
-            .set_use_dual_stack(
-                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
-                    .map(|ty| ty.0),
-            )
-            .set_use_fips(
-                cfg.load::<::aws_types::endpoint_config::UseFips>()
-                    .map(|ty| ty.0),
-            )
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_endpoint(
                 cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
                     .map(|ty| ty.0.clone()),
@@ -427,9 +403,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
                     err,
                 )
             })?;
-        cfg.interceptor_state().store_put(
-            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
-        );
+        cfg.interceptor_state()
+            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(
+                params,
+            ));
         ::std::result::Result::Ok(())
     }
 }
@@ -472,9 +449,7 @@ impl GetDurableExecutionHistoryError {
     /// Creates the `GetDurableExecutionHistoryError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -499,27 +474,13 @@ impl GetDurableExecutionHistoryError {
             Self::InvalidParameterValueException(e) => {
                 ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
             }
-            Self::KmsAccessDeniedException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::KmsDisabledException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::KmsInvalidStateException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::KmsNotFoundException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::ResourceNotFoundException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::ServiceException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::TooManyRequestsException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::KmsAccessDeniedException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::KmsDisabledException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::KmsInvalidStateException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::KmsNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ResourceNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ServiceException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyRequestsException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -623,9 +584,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetDurableExe
             Self::ResourceNotFoundException(_inner) => {
                 ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
             }
-            Self::ServiceException(_inner) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
-            }
+            Self::ServiceException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::TooManyRequestsException(_inner) => {
                 ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
             }
@@ -633,13 +592,9 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetDurableExe
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
-    for GetDurableExecutionHistoryError
-{
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetDurableExecutionHistoryError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {

@@ -3,10 +3,7 @@
 pub fn de_server_certificate_metadata(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<
-    crate::types::ServerCertificateMetadata,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<crate::types::ServerCertificateMetadata, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
             "maximum nesting depth exceeded",
@@ -99,9 +96,7 @@ pub fn de_server_certificate_metadata(
             _ => {}
         }
     }
-    Ok(
-        crate::serde_util::server_certificate_metadata_correct_errors(builder)
-            .build()
-            .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?,
-    )
+    Ok(crate::serde_util::server_certificate_metadata_correct_errors(builder)
+        .build()
+        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
 }

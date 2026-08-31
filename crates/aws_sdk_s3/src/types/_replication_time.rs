@@ -27,9 +27,7 @@ impl ReplicationTime {
 }
 
 /// A builder for [`ReplicationTime`](crate::types::ReplicationTime).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ReplicationTimeBuilder {
     pub(crate) status: ::std::option::Option<crate::types::ReplicationTimeStatus>,
@@ -43,10 +41,7 @@ impl ReplicationTimeBuilder {
         self
     }
     /// <p>Specifies whether the replication time is enabled.</p>
-    pub fn set_status(
-        mut self,
-        input: ::std::option::Option<crate::types::ReplicationTimeStatus>,
-    ) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ReplicationTimeStatus>) -> Self {
         self.status = input;
         self
     }
@@ -61,10 +56,7 @@ impl ReplicationTimeBuilder {
         self
     }
     /// <p>A container specifying the time by which replication should be complete for all objects and operations on objects.</p>
-    pub fn set_time(
-        mut self,
-        input: ::std::option::Option<crate::types::ReplicationTimeValue>,
-    ) -> Self {
+    pub fn set_time(mut self, input: ::std::option::Option<crate::types::ReplicationTimeValue>) -> Self {
         self.time = input;
         self
     }
@@ -77,10 +69,7 @@ impl ReplicationTimeBuilder {
     /// - [`status`](crate::types::builders::ReplicationTimeBuilder::status)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::ReplicationTime,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::ReplicationTime, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ReplicationTime {
             status: self.status.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

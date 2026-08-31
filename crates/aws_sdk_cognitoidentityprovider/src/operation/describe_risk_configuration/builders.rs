@@ -3,9 +3,7 @@ pub use crate::operation::describe_risk_configuration::_describe_risk_configurat
 
 pub use crate::operation::describe_risk_configuration::_describe_risk_configuration_output::DescribeRiskConfigurationOutputBuilder;
 
-impl
-    crate::operation::describe_risk_configuration::builders::DescribeRiskConfigurationInputBuilder
-{
+impl crate::operation::describe_risk_configuration::builders::DescribeRiskConfigurationInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -59,7 +57,9 @@ impl DescribeRiskConfigurationFluentBuilder {
         }
     }
     /// Access the DescribeRiskConfiguration as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_risk_configuration::builders::DescribeRiskConfigurationInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_risk_configuration::builders::DescribeRiskConfigurationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,16 +83,14 @@ impl DescribeRiskConfigurationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::describe_risk_configuration::DescribeRiskConfiguration::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::describe_risk_configuration::DescribeRiskConfiguration::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::describe_risk_configuration::DescribeRiskConfiguration::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::describe_risk_configuration::DescribeRiskConfiguration::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

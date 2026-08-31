@@ -12,9 +12,7 @@ impl GetAccountInput {
 }
 
 /// A builder for [`GetAccountInput`](crate::operation::get_account::GetAccountInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetAccountInputBuilder {}
 impl GetAccountInputBuilder {

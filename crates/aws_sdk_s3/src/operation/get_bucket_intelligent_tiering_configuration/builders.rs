@@ -60,7 +60,7 @@ impl
             crate::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationOutput,
             crate::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationError,
         >,
-    > {
+    >{
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -117,7 +117,7 @@ impl GetBucketIntelligentTieringConfigurationFluentBuilder {
         crate::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationOutput,
         crate::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -164,18 +164,12 @@ impl GetBucketIntelligentTieringConfigurationFluentBuilder {
         self.inner.get_id()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

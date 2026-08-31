@@ -16,11 +16,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     let mut variant = None;
     match tokens.next().transpose()? {
@@ -42,11 +40,9 @@ where
                         continue;
                     }
                     if variant.is_some() {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                "encountered mixed variants in union",
-                            ),
-                        );
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            "encountered mixed variants in union",
+                        ));
                     }
                     variant = match key.as_ref() {
                             "valid" => {
@@ -98,28 +94,22 @@ where
                         };
                 }
                 other => {
-                    return Err(
-                        ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )),
-                    )
+                    return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                        format!("expected object key or end object, found: {other:?}"),
+                    ))
                 }
             }
         },
         _ => {
-            return Err(
-                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                    "expected start object or null",
-                ),
-            )
+            return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ))
         }
     }
     if variant.is_none() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "Union did not contain a valid variant.",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "Union did not contain a valid variant.",
+        ));
     }
     Ok(variant)
 }

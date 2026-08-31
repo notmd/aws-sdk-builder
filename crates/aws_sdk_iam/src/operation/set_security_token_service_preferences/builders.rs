@@ -3,7 +3,9 @@ pub use crate::operation::set_security_token_service_preferences::_set_security_
 
 pub use crate::operation::set_security_token_service_preferences::_set_security_token_service_preferences_output::SetSecurityTokenServicePreferencesOutputBuilder;
 
-impl crate::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesInputBuilder {
+impl
+    crate::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -79,7 +81,7 @@ impl SetSecurityTokenServicePreferencesFluentBuilder {
             crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -89,7 +91,11 @@ impl SetSecurityTokenServicePreferencesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferences::orchestrate(&runtime_plugins, input).await
+        crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferences::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,7 +105,7 @@ impl SetSecurityTokenServicePreferencesFluentBuilder {
         crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesOutput,
         crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -119,10 +125,7 @@ impl SetSecurityTokenServicePreferencesFluentBuilder {
     }
     /// <p>The version of the global endpoint token. Version 1 tokens are valid only in Amazon Web Services Regions that are available by default. These tokens do not work in manually enabled Regions, such as Asia Pacific (Hong Kong). Version 2 tokens are valid in all Regions. However, version 2 tokens are longer and might affect systems where you temporarily store tokens.</p>
     /// <p>For information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and deactivating STS in an Amazon Web Services Region</a> in the <i>IAM User Guide</i>.</p>
-    pub fn global_endpoint_token_version(
-        mut self,
-        input: crate::types::GlobalEndpointTokenVersion,
-    ) -> Self {
+    pub fn global_endpoint_token_version(mut self, input: crate::types::GlobalEndpointTokenVersion) -> Self {
         self.inner = self.inner.global_endpoint_token_version(input);
         self
     }

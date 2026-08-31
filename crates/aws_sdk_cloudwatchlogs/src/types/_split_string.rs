@@ -23,9 +23,7 @@ impl SplitString {
 }
 
 /// A builder for [`SplitString`](crate::types::SplitString).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SplitStringBuilder {
     pub(crate) entries: ::std::option::Option<::std::vec::Vec<crate::types::SplitStringEntry>>,
@@ -51,9 +49,7 @@ impl SplitStringBuilder {
         self
     }
     /// <p>An array of <code>SplitStringEntry</code> objects, where each object contains the information about one field to split.</p>
-    pub fn get_entries(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::SplitStringEntry>> {
+    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SplitStringEntry>> {
         &self.entries
     }
     /// Consumes the builder and constructs a [`SplitString`](crate::types::SplitString).
@@ -61,10 +57,7 @@ impl SplitStringBuilder {
     /// - [`entries`](crate::types::builders::SplitStringBuilder::entries)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::SplitString,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::SplitString, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::SplitString {
             entries: self.entries.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

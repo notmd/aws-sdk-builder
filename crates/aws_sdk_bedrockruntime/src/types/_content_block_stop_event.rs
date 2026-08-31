@@ -21,9 +21,7 @@ impl ContentBlockStopEvent {
 }
 
 /// A builder for [`ContentBlockStopEvent`](crate::types::ContentBlockStopEvent).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ContentBlockStopEventBuilder {
     pub(crate) content_block_index: ::std::option::Option<i32>,
@@ -49,10 +47,8 @@ impl ContentBlockStopEventBuilder {
     /// - [`content_block_index`](crate::types::builders::ContentBlockStopEventBuilder::content_block_index)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::ContentBlockStopEvent,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::ContentBlockStopEvent, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::ContentBlockStopEvent {
             content_block_index: self.content_block_index.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

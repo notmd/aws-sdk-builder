@@ -130,18 +130,12 @@ impl PutThirdPartyServiceLinkedConfigurationRecorderFluentBuilder {
         self
     }
     /// <p>The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to create.</p>
-    pub fn service_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.service_principal(input.into());
         self
     }
     /// <p>The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to create.</p>
-    pub fn set_service_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_service_principal(input);
         self
     }
@@ -150,18 +144,12 @@ impl PutThirdPartyServiceLinkedConfigurationRecorderFluentBuilder {
         self.inner.get_service_principal()
     }
     /// <p>The Amazon Resource Name (ARN) of the connector that specifies the connection between the third-party cloud service provider and Config. The specified connector must exist.</p>
-    pub fn connector_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn connector_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.connector_arn(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the connector that specifies the connection between the third-party cloud service provider and Config. The specified connector must exist.</p>
-    pub fn set_connector_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_connector_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_connector_arn(input);
         self
     }
@@ -175,17 +163,12 @@ impl PutThirdPartyServiceLinkedConfigurationRecorderFluentBuilder {
         self
     }
     /// <p>Specifies the scope of resources to record from the third-party cloud service provider.</p>
-    pub fn set_scope_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::ScopeConfiguration>,
-    ) -> Self {
+    pub fn set_scope_configuration(mut self, input: ::std::option::Option<crate::types::ScopeConfiguration>) -> Self {
         self.inner = self.inner.set_scope_configuration(input);
         self
     }
     /// <p>Specifies the scope of resources to record from the third-party cloud service provider.</p>
-    pub fn get_scope_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::ScopeConfiguration> {
+    pub fn get_scope_configuration(&self) -> &::std::option::Option<crate::types::ScopeConfiguration> {
         self.inner.get_scope_configuration()
     }
     ///
@@ -199,10 +182,7 @@ impl PutThirdPartyServiceLinkedConfigurationRecorderFluentBuilder {
         self
     }
     /// <p>The tags for a service-linked configuration recorder. Each tag consists of a key and an optional value, both of which you define.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }

@@ -16,8 +16,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<CreateConfigurationSetError>`](crate::operation::create_configuration_set::CreateConfigurationSetError)
     pub fn create_configuration_set(
         &self,
-    ) -> crate::operation::create_configuration_set::builders::CreateConfigurationSetFluentBuilder
-    {
-        crate::operation::create_configuration_set::builders::CreateConfigurationSetFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::create_configuration_set::builders::CreateConfigurationSetFluentBuilder {
+        crate::operation::create_configuration_set::builders::CreateConfigurationSetFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

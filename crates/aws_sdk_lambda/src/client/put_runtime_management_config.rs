@@ -14,7 +14,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutRuntimeManagementConfigError>`](crate::operation::put_runtime_management_config::PutRuntimeManagementConfigError)
     pub fn put_runtime_management_config(
         &self,
-    ) -> crate::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigFluentBuilder{
-        crate::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigFluentBuilder {
+        crate::operation::put_runtime_management_config::builders::PutRuntimeManagementConfigFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

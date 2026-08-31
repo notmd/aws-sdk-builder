@@ -55,9 +55,7 @@ impl ContentBlockDelta {
     }
     /// Tries to convert the enum instance into [`ReasoningContent`](crate::types::ContentBlockDelta::ReasoningContent), extracting the inner [`ReasoningContentBlockDelta`](crate::types::ReasoningContentBlockDelta).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_reasoning_content(
-        &self,
-    ) -> ::std::result::Result<&crate::types::ReasoningContentBlockDelta, &Self> {
+    pub fn as_reasoning_content(&self) -> ::std::result::Result<&crate::types::ReasoningContentBlockDelta, &Self> {
         if let ContentBlockDelta::ReasoningContent(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -83,9 +81,7 @@ impl ContentBlockDelta {
     }
     /// Tries to convert the enum instance into [`ToolResult`](crate::types::ContentBlockDelta::ToolResult), extracting the inner [`Vec`](::std::vec::Vec).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_tool_result(
-        &self,
-    ) -> ::std::result::Result<&::std::vec::Vec<crate::types::ToolResultBlockDelta>, &Self> {
+    pub fn as_tool_result(&self) -> ::std::result::Result<&::std::vec::Vec<crate::types::ToolResultBlockDelta>, &Self> {
         if let ContentBlockDelta::ToolResult(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -119,9 +115,7 @@ impl ::std::fmt::Debug for ContentBlockDelta {
         match self {
             ContentBlockDelta::Citation(val) => f.debug_tuple("Citation").field(&val).finish(),
             ContentBlockDelta::Image(val) => f.debug_tuple("Image").field(&val).finish(),
-            ContentBlockDelta::ReasoningContent(_) => {
-                f.debug_tuple("*** Sensitive Data Redacted ***").finish()
-            }
+            ContentBlockDelta::ReasoningContent(_) => f.debug_tuple("*** Sensitive Data Redacted ***").finish(),
             ContentBlockDelta::Text(val) => f.debug_tuple("Text").field(&val).finish(),
             ContentBlockDelta::ToolResult(val) => f.debug_tuple("ToolResult").field(&val).finish(),
             ContentBlockDelta::ToolUse(val) => f.debug_tuple("ToolUse").field(&val).finish(),

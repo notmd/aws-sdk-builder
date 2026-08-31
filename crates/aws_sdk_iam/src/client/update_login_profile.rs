@@ -11,8 +11,6 @@ impl super::Client {
     pub fn update_login_profile(
         &self,
     ) -> crate::operation::update_login_profile::builders::UpdateLoginProfileFluentBuilder {
-        crate::operation::update_login_profile::builders::UpdateLoginProfileFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::update_login_profile::builders::UpdateLoginProfileFluentBuilder::new(self.handle.clone())
     }
 }

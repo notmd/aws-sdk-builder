@@ -35,9 +35,7 @@ impl MessageAttributeValue {
 }
 
 /// A builder for [`MessageAttributeValue`](crate::types::MessageAttributeValue).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct MessageAttributeValueBuilder {
     pub(crate) data_type: ::std::option::Option<::std::string::String>,
@@ -80,10 +78,7 @@ impl MessageAttributeValueBuilder {
         self
     }
     /// <p>Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.</p>
-    pub fn set_binary_value(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::Blob>,
-    ) -> Self {
+    pub fn set_binary_value(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.binary_value = input;
         self
     }
@@ -96,10 +91,8 @@ impl MessageAttributeValueBuilder {
     /// - [`data_type`](crate::types::builders::MessageAttributeValueBuilder::data_type)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::MessageAttributeValue,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::MessageAttributeValue, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::MessageAttributeValue {
             data_type: self.data_type.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

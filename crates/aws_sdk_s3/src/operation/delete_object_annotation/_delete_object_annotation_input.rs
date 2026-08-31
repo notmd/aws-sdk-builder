@@ -56,17 +56,13 @@ impl DeleteObjectAnnotationInput {
 }
 impl DeleteObjectAnnotationInput {
     /// Creates a new builder-style object to manufacture [`DeleteObjectAnnotationInput`](crate::operation::delete_object_annotation::DeleteObjectAnnotationInput).
-    pub fn builder(
-    ) -> crate::operation::delete_object_annotation::builders::DeleteObjectAnnotationInputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_object_annotation::builders::DeleteObjectAnnotationInputBuilder {
         crate::operation::delete_object_annotation::builders::DeleteObjectAnnotationInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteObjectAnnotationInput`](crate::operation::delete_object_annotation::DeleteObjectAnnotationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteObjectAnnotationInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -111,19 +107,13 @@ impl DeleteObjectAnnotationInputBuilder {
     /// <p>The name of the annotation to delete. Annotation names are UTF-8 encoded and cannot start with <code>aws</code> or <code>s3</code> (case-insensitive).</p>
     /// <p>Length Constraints: Minimum length of 1. Maximum length of 512 bytes.</p>
     /// This field is required.
-    pub fn annotation_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn annotation_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.annotation_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the annotation to delete. Annotation names are UTF-8 encoded and cannot start with <code>aws</code> or <code>s3</code> (case-insensitive).</p>
     /// <p>Length Constraints: Minimum length of 1. Maximum length of 512 bytes.</p>
-    pub fn set_annotation_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_annotation_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.annotation_name = input;
         self
     }
@@ -156,10 +146,7 @@ impl DeleteObjectAnnotationInputBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(
-        mut self,
-        input: ::std::option::Option<crate::types::RequestPayer>,
-    ) -> Self {
+    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
         self.request_payer = input;
         self
     }
@@ -170,18 +157,12 @@ impl DeleteObjectAnnotationInputBuilder {
         &self.request_payer
     }
     /// <p>The account ID of the expected bucket owner.</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner.</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -190,18 +171,12 @@ impl DeleteObjectAnnotationInputBuilder {
         &self.expected_bucket_owner
     }
     /// <p>If specified, the operation only succeeds if the object's ETag matches the provided value.</p>
-    pub fn object_if_match(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn object_if_match(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.object_if_match = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>If specified, the operation only succeeds if the object's ETag matches the provided value.</p>
-    pub fn set_object_if_match(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_object_if_match(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.object_if_match = input;
         self
     }

@@ -60,9 +60,7 @@ impl DeleteMessageFluentBuilder {
         }
     }
     /// Access the DeleteMessage as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::delete_message::builders::DeleteMessageInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::delete_message::builders::DeleteMessageInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,12 +84,11 @@ impl DeleteMessageFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::delete_message::DeleteMessage::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::delete_message::DeleteMessage::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::delete_message::DeleteMessage::orchestrate(&runtime_plugins, input).await
     }
 
@@ -138,18 +135,12 @@ impl DeleteMessageFluentBuilder {
         self.inner.get_queue_url()
     }
     /// <p>The receipt handle associated with the message to delete.</p>
-    pub fn receipt_handle(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn receipt_handle(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.receipt_handle(input.into());
         self
     }
     /// <p>The receipt handle associated with the message to delete.</p>
-    pub fn set_receipt_handle(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_receipt_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_receipt_handle(input);
         self
     }

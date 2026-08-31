@@ -15,8 +15,6 @@ impl super::Client {
     pub fn describe_import_tasks(
         &self,
     ) -> crate::operation::describe_import_tasks::builders::DescribeImportTasksFluentBuilder {
-        crate::operation::describe_import_tasks::builders::DescribeImportTasksFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::describe_import_tasks::builders::DescribeImportTasksFluentBuilder::new(self.handle.clone())
     }
 }

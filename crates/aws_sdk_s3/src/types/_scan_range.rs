@@ -43,9 +43,7 @@ impl ScanRange {
 }
 
 /// A builder for [`ScanRange`](crate::types::ScanRange).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ScanRangeBuilder {
     pub(crate) start: ::std::option::Option<i64>,

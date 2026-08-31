@@ -23,8 +23,6 @@ impl super::Client {
     pub fn assume_role_with_saml(
         &self,
     ) -> crate::operation::assume_role_with_saml::builders::AssumeRoleWithSAMLFluentBuilder {
-        crate::operation::assume_role_with_saml::builders::AssumeRoleWithSAMLFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::assume_role_with_saml::builders::AssumeRoleWithSAMLFluentBuilder::new(self.handle.clone())
     }
 }

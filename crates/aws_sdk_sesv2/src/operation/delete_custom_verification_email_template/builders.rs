@@ -80,7 +80,7 @@ impl DeleteCustomVerificationEmailTemplateFluentBuilder {
             crate::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -91,7 +91,11 @@ impl DeleteCustomVerificationEmailTemplateFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        crate::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplate::orchestrate(&runtime_plugins, input).await
+        crate::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplate::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -101,7 +105,7 @@ impl DeleteCustomVerificationEmailTemplateFluentBuilder {
         crate::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateOutput,
         crate::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -120,18 +124,12 @@ impl DeleteCustomVerificationEmailTemplateFluentBuilder {
         self
     }
     /// <p>The name of the custom verification email template that you want to delete.</p>
-    pub fn template_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn template_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.template_name(input.into());
         self
     }
     /// <p>The name of the custom verification email template that you want to delete.</p>
-    pub fn set_template_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_template_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_template_name(input);
         self
     }

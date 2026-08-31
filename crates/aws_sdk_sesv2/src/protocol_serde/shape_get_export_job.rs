@@ -9,66 +9,60 @@ pub fn de_get_export_job_http_error(
     crate::operation::get_export_job::GetExportJobError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::get_export_job::GetExportJobError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::get_export_job::GetExportJobError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(crate::operation::get_export_job::GetExportJobError::unhandled(generic))
-        }
+        None => return Err(crate::operation::get_export_job::GetExportJobError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "BadRequestException" => {
-            crate::operation::get_export_job::GetExportJobError::BadRequestException({
+        "BadRequestException" => crate::operation::get_export_job::GetExportJobError::BadRequestException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::BadRequestExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_export_job::GetExportJobError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "NotFoundException" => {
-            crate::operation::get_export_job::GetExportJobError::NotFoundException({
+                let mut output = crate::types::error::builders::BadRequestExceptionBuilder::default();
+                output = crate::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::get_export_job::GetExportJobError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFoundException" => crate::operation::get_export_job::GetExportJobError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::NotFoundExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_export_job::GetExportJobError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
+                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::get_export_job::GetExportJobError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "TooManyRequestsException" => {
             crate::operation::get_export_job::GetExportJobError::TooManyRequestsException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
                     output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(crate::operation::get_export_job::GetExportJobError::unhandled)?;
                     let output = output.meta(generic);
@@ -95,14 +89,10 @@ pub fn de_get_export_job_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::get_export_job::builders::GetExportJobOutputBuilder::default();
-        output =
-            crate::protocol_serde::shape_get_export_job::de_get_export_job(_response_body, output)
-                .map_err(crate::operation::get_export_job::GetExportJobError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::get_export_job::builders::GetExportJobOutputBuilder::default();
+        output = crate::protocol_serde::shape_get_export_job::de_get_export_job(_response_body, output)
+            .map_err(crate::operation::get_export_job::GetExportJobError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -114,10 +104,8 @@ pub(crate) fn de_get_export_job(
     crate::operation::get_export_job::builders::GetExportJobOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -125,111 +113,92 @@ pub(crate) fn de_get_export_job(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "CompletedTimestamp" => {
-                        builder = builder.set_completed_timestamp(
-                            ::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-                                tokens.next(),
-                                ::aws_smithy_types::date_time::Format::EpochSeconds,
-                            )?,
-                        );
-                    }
-                    "CreatedTimestamp" => {
-                        builder = builder.set_created_timestamp(
-                            ::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-                                tokens.next(),
-                                ::aws_smithy_types::date_time::Format::EpochSeconds,
-                            )?,
-                        );
-                    }
-                    "ExportDataSource" => {
-                        builder = builder.set_export_data_source(
-                            crate::protocol_serde::shape_export_data_source::de_export_data_source(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?,
-                        );
-                    }
-                    "ExportDestination" => {
-                        builder = builder.set_export_destination(
-                            crate::protocol_serde::shape_export_destination::de_export_destination(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?,
-                        );
-                    }
-                    "ExportSourceType" => {
-                        builder = builder.set_export_source_type(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                tokens.next(),
-                            )?
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "CompletedTimestamp" => {
+                    builder = builder.set_completed_timestamp(
+                        ::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                            tokens.next(),
+                            ::aws_smithy_types::date_time::Format::EpochSeconds,
+                        )?,
+                    );
+                }
+                "CreatedTimestamp" => {
+                    builder =
+                        builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                            tokens.next(),
+                            ::aws_smithy_types::date_time::Format::EpochSeconds,
+                        )?);
+                }
+                "ExportDataSource" => {
+                    builder = builder.set_export_data_source(
+                        crate::protocol_serde::shape_export_data_source::de_export_data_source(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
+                }
+                "ExportDestination" => {
+                    builder = builder.set_export_destination(
+                        crate::protocol_serde::shape_export_destination::de_export_destination(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
+                }
+                "ExportSourceType" => {
+                    builder = builder.set_export_source_type(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| {
                                 s.to_unescaped()
                                     .map(|u| crate::types::ExportSourceType::from(u.as_ref()))
                             })
                             .transpose()?,
-                        );
-                    }
-                    "FailureInfo" => {
-                        builder = builder.set_failure_info(
-                            crate::protocol_serde::shape_failure_info::de_failure_info(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?,
-                        );
-                    }
-                    "JobId" => {
-                        builder = builder.set_job_id(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                tokens.next(),
-                            )?
+                    );
+                }
+                "FailureInfo" => {
+                    builder = builder.set_failure_info(crate::protocol_serde::shape_failure_info::de_failure_info(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
+                "JobId" => {
+                    builder = builder.set_job_id(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                        );
-                    }
-                    "JobStatus" => {
-                        builder = builder.set_job_status(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                tokens.next(),
-                            )?
-                            .map(|s| {
-                                s.to_unescaped()
-                                    .map(|u| crate::types::JobStatus::from(u.as_ref()))
-                            })
-                            .transpose()?,
-                        );
-                    }
-                    "Statistics" => {
-                        builder = builder.set_statistics(
-                            crate::protocol_serde::shape_export_statistics::de_export_statistics(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    );
                 }
-            }
+                "JobStatus" => {
+                    builder = builder.set_job_status(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| crate::types::JobStatus::from(u.as_ref())))
+                            .transpose()?,
+                    );
+                }
+                "Statistics" => {
+                    builder =
+                        builder.set_statistics(crate::protocol_serde::shape_export_statistics::de_export_statistics(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?);
+                }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

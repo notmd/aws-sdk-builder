@@ -43,7 +43,7 @@ impl
             crate::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyOutput,
             crate::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -57,7 +57,10 @@ impl GetRepositoryPermissionsPolicyFluentBuilder {
         }
     }
     /// Access the GetRepositoryPermissionsPolicy as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_repository_permissions_policy::builders::GetRepositoryPermissionsPolicyInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_repository_permissions_policy::builders::GetRepositoryPermissionsPolicyInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +79,7 @@ impl GetRepositoryPermissionsPolicyFluentBuilder {
             crate::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +89,11 @@ impl GetRepositoryPermissionsPolicyFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicy::orchestrate(&runtime_plugins, input).await
+        crate::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicy::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

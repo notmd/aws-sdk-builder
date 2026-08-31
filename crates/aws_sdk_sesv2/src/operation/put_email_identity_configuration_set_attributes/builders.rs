@@ -122,18 +122,12 @@ impl PutEmailIdentityConfigurationSetAttributesFluentBuilder {
         self
     }
     /// <p>The email address or domain to associate with a configuration set.</p>
-    pub fn email_identity(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_identity(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.email_identity(input.into());
         self
     }
     /// <p>The email address or domain to associate with a configuration set.</p>
-    pub fn set_email_identity(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_identity(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_email_identity(input);
         self
     }
@@ -142,18 +136,12 @@ impl PutEmailIdentityConfigurationSetAttributesFluentBuilder {
         self.inner.get_email_identity()
     }
     /// <p>The configuration set to associate with an email identity.</p>
-    pub fn configuration_set_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_set_name(input.into());
         self
     }
     /// <p>The configuration set to associate with an email identity.</p>
-    pub fn set_configuration_set_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_set_name(input);
         self
     }

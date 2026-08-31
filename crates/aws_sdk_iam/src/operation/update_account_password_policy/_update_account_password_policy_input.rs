@@ -86,15 +86,14 @@ impl UpdateAccountPasswordPolicyInput {
 }
 impl UpdateAccountPasswordPolicyInput {
     /// Creates a new builder-style object to manufacture [`UpdateAccountPasswordPolicyInput`](crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyInput).
-    pub fn builder() -> crate::operation::update_account_password_policy::builders::UpdateAccountPasswordPolicyInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::update_account_password_policy::builders::UpdateAccountPasswordPolicyInputBuilder {
         crate::operation::update_account_password_policy::builders::UpdateAccountPasswordPolicyInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateAccountPasswordPolicyInput`](crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateAccountPasswordPolicyInputBuilder {
     pub(crate) minimum_password_length: ::std::option::Option<i32>,
@@ -204,10 +203,7 @@ impl UpdateAccountPasswordPolicyInputBuilder {
     }
     /// <p>Allows all IAM users in your account to use the Amazon Web Services Management Console to change their own passwords. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_enable-user-change.html">Permitting IAM users to change their own passwords</a> in the <i>IAM User Guide</i>.</p>
     /// <p>If you do not specify a value for this parameter, then the operation uses the default value of <code>false</code>. The result is that IAM users in the account do not automatically have permissions to change their own password.</p>
-    pub fn set_allow_users_to_change_password(
-        mut self,
-        input: ::std::option::Option<bool>,
-    ) -> Self {
+    pub fn set_allow_users_to_change_password(mut self, input: ::std::option::Option<bool>) -> Self {
         self.allow_users_to_change_password = input;
         self
     }

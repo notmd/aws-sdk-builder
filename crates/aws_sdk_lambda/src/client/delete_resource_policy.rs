@@ -10,8 +10,6 @@ impl super::Client {
     pub fn delete_resource_policy(
         &self,
     ) -> crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder {
-        crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder::new(self.handle.clone())
     }
 }

@@ -20,16 +20,13 @@ impl ListStoredQueriesInput {
 }
 impl ListStoredQueriesInput {
     /// Creates a new builder-style object to manufacture [`ListStoredQueriesInput`](crate::operation::list_stored_queries::ListStoredQueriesInput).
-    pub fn builder(
-    ) -> crate::operation::list_stored_queries::builders::ListStoredQueriesInputBuilder {
+    pub fn builder() -> crate::operation::list_stored_queries::builders::ListStoredQueriesInputBuilder {
         crate::operation::list_stored_queries::builders::ListStoredQueriesInputBuilder::default()
     }
 }
 
 /// A builder for [`ListStoredQueriesInput`](crate::operation::list_stored_queries::ListStoredQueriesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListStoredQueriesInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
@@ -71,11 +68,9 @@ impl ListStoredQueriesInputBuilder {
         crate::operation::list_stored_queries::ListStoredQueriesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::list_stored_queries::ListStoredQueriesInput {
-                next_token: self.next_token,
-                max_results: self.max_results,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::list_stored_queries::ListStoredQueriesInput {
+            next_token: self.next_token,
+            max_results: self.max_results,
+        })
     }
 }

@@ -59,9 +59,7 @@ impl DeleteMessageBatchFluentBuilder {
         }
     }
     /// Access the DeleteMessageBatch as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::delete_message_batch::builders::DeleteMessageBatchInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::delete_message_batch::builders::DeleteMessageBatchInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,17 +83,12 @@ impl DeleteMessageBatchFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::delete_message_batch::DeleteMessageBatch::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::delete_message_batch::DeleteMessageBatch::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::delete_message_batch::DeleteMessageBatch::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::delete_message_batch::DeleteMessageBatch::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -159,9 +152,7 @@ impl DeleteMessageBatchFluentBuilder {
         self
     }
     /// <p>Lists the receipt handles for the messages to be deleted.</p>
-    pub fn get_entries(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchRequestEntry>> {
+    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchRequestEntry>> {
         self.inner.get_entries()
     }
 }

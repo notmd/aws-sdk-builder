@@ -61,9 +61,7 @@ impl PutGroupPolicyFluentBuilder {
         }
     }
     /// Access the PutGroupPolicy as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::put_group_policy::builders::PutGroupPolicyInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_group_policy::builders::PutGroupPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,14 +85,12 @@ impl PutGroupPolicyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::put_group_policy::PutGroupPolicy::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::put_group_policy::PutGroupPolicy::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::put_group_policy::PutGroupPolicy::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::put_group_policy::PutGroupPolicy::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -167,10 +163,7 @@ impl PutGroupPolicyFluentBuilder {
     /// <li>
     /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
     /// </ul>
-    pub fn policy_document(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.policy_document(input.into());
         self
     }
@@ -185,10 +178,7 @@ impl PutGroupPolicyFluentBuilder {
     /// <li>
     /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
     /// </ul>
-    pub fn set_policy_document(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_policy_document(input);
         self
     }

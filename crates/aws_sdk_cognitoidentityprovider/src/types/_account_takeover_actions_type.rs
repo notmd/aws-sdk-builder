@@ -33,9 +33,7 @@ impl AccountTakeoverActionsType {
 }
 
 /// A builder for [`AccountTakeoverActionsType`](crate::types::AccountTakeoverActionsType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AccountTakeoverActionsTypeBuilder {
     pub(crate) low_action: ::std::option::Option<crate::types::AccountTakeoverActionType>,
@@ -49,17 +47,12 @@ impl AccountTakeoverActionsTypeBuilder {
         self
     }
     /// <p>The action that you assign to a low-risk assessment by threat protection.</p>
-    pub fn set_low_action(
-        mut self,
-        input: ::std::option::Option<crate::types::AccountTakeoverActionType>,
-    ) -> Self {
+    pub fn set_low_action(mut self, input: ::std::option::Option<crate::types::AccountTakeoverActionType>) -> Self {
         self.low_action = input;
         self
     }
     /// <p>The action that you assign to a low-risk assessment by threat protection.</p>
-    pub fn get_low_action(
-        &self,
-    ) -> &::std::option::Option<crate::types::AccountTakeoverActionType> {
+    pub fn get_low_action(&self) -> &::std::option::Option<crate::types::AccountTakeoverActionType> {
         &self.low_action
     }
     /// <p>The action that you assign to a medium-risk assessment by threat protection.</p>
@@ -68,17 +61,12 @@ impl AccountTakeoverActionsTypeBuilder {
         self
     }
     /// <p>The action that you assign to a medium-risk assessment by threat protection.</p>
-    pub fn set_medium_action(
-        mut self,
-        input: ::std::option::Option<crate::types::AccountTakeoverActionType>,
-    ) -> Self {
+    pub fn set_medium_action(mut self, input: ::std::option::Option<crate::types::AccountTakeoverActionType>) -> Self {
         self.medium_action = input;
         self
     }
     /// <p>The action that you assign to a medium-risk assessment by threat protection.</p>
-    pub fn get_medium_action(
-        &self,
-    ) -> &::std::option::Option<crate::types::AccountTakeoverActionType> {
+    pub fn get_medium_action(&self) -> &::std::option::Option<crate::types::AccountTakeoverActionType> {
         &self.medium_action
     }
     /// <p>The action that you assign to a high-risk assessment by threat protection.</p>
@@ -87,17 +75,12 @@ impl AccountTakeoverActionsTypeBuilder {
         self
     }
     /// <p>The action that you assign to a high-risk assessment by threat protection.</p>
-    pub fn set_high_action(
-        mut self,
-        input: ::std::option::Option<crate::types::AccountTakeoverActionType>,
-    ) -> Self {
+    pub fn set_high_action(mut self, input: ::std::option::Option<crate::types::AccountTakeoverActionType>) -> Self {
         self.high_action = input;
         self
     }
     /// <p>The action that you assign to a high-risk assessment by threat protection.</p>
-    pub fn get_high_action(
-        &self,
-    ) -> &::std::option::Option<crate::types::AccountTakeoverActionType> {
+    pub fn get_high_action(&self) -> &::std::option::Option<crate::types::AccountTakeoverActionType> {
         &self.high_action
     }
     /// Consumes the builder and constructs a [`AccountTakeoverActionsType`](crate::types::AccountTakeoverActionsType).

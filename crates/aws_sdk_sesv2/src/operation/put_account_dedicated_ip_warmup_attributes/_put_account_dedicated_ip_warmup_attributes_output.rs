@@ -19,9 +19,7 @@ impl PutAccountDedicatedIpWarmupAttributesOutput {
 }
 
 /// A builder for [`PutAccountDedicatedIpWarmupAttributesOutput`](crate::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutAccountDedicatedIpWarmupAttributesOutputBuilder {
     _request_id: Option<String>,
@@ -37,7 +35,9 @@ impl PutAccountDedicatedIpWarmupAttributesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutAccountDedicatedIpWarmupAttributesOutput`](crate::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesOutput).
-    pub fn build(self) -> crate::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesOutput {
         crate::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesOutput {
             _request_id: self._request_id,
         }

@@ -58,9 +58,7 @@ impl UpdateLookupTableFluentBuilder {
         }
     }
     /// Access the UpdateLookupTable as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::update_lookup_table::builders::UpdateLookupTableInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::update_lookup_table::builders::UpdateLookupTableInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,17 +82,12 @@ impl UpdateLookupTableFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::update_lookup_table::UpdateLookupTable::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::update_lookup_table::UpdateLookupTable::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::update_lookup_table::UpdateLookupTable::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::update_lookup_table::UpdateLookupTable::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -123,18 +116,12 @@ impl UpdateLookupTableFluentBuilder {
         self
     }
     /// <p>The ARN of the lookup table to update.</p>
-    pub fn lookup_table_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn lookup_table_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.lookup_table_arn(input.into());
         self
     }
     /// <p>The ARN of the lookup table to update.</p>
-    pub fn set_lookup_table_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_lookup_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_lookup_table_arn(input);
         self
     }

@@ -49,10 +49,7 @@ impl GuardrailConverseImageBlockBuilder {
         self
     }
     /// <p>The format details for the image type of the guardrail converse image block.</p>
-    pub fn set_format(
-        mut self,
-        input: ::std::option::Option<crate::types::GuardrailConverseImageFormat>,
-    ) -> Self {
+    pub fn set_format(mut self, input: ::std::option::Option<crate::types::GuardrailConverseImageFormat>) -> Self {
         self.format = input;
         self
     }
@@ -67,10 +64,7 @@ impl GuardrailConverseImageBlockBuilder {
         self
     }
     /// <p>The image source (image bytes) of the guardrail converse image block.</p>
-    pub fn set_source(
-        mut self,
-        input: ::std::option::Option<crate::types::GuardrailConverseImageSource>,
-    ) -> Self {
+    pub fn set_source(mut self, input: ::std::option::Option<crate::types::GuardrailConverseImageSource>) -> Self {
         self.source = input;
         self
     }

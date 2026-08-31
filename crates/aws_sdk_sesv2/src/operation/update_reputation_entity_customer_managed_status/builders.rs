@@ -135,24 +135,16 @@ impl UpdateReputationEntityCustomerManagedStatusFluentBuilder {
         self
     }
     /// <p>The type of reputation entity. Currently, only <code>RESOURCE</code> type entities are supported.</p>
-    pub fn get_reputation_entity_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::ReputationEntityType> {
+    pub fn get_reputation_entity_type(&self) -> &::std::option::Option<crate::types::ReputationEntityType> {
         self.inner.get_reputation_entity_type()
     }
     /// <p>The unique identifier for the reputation entity. For resource-type entities, this is the Amazon Resource Name (ARN) of the resource.</p>
-    pub fn reputation_entity_reference(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn reputation_entity_reference(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.reputation_entity_reference(input.into());
         self
     }
     /// <p>The unique identifier for the reputation entity. For resource-type entities, this is the Amazon Resource Name (ARN) of the resource.</p>
-    pub fn set_reputation_entity_reference(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_reputation_entity_reference(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_reputation_entity_reference(input);
         self
     }
@@ -182,10 +174,7 @@ impl UpdateReputationEntityCustomerManagedStatusFluentBuilder {
     /// <li>
     /// <p><code>REINSTATED</code> – Allow sending even if there are active reputation findings.</p></li>
     /// </ul>
-    pub fn set_sending_status(
-        mut self,
-        input: ::std::option::Option<crate::types::SendingStatus>,
-    ) -> Self {
+    pub fn set_sending_status(mut self, input: ::std::option::Option<crate::types::SendingStatus>) -> Self {
         self.inner = self.inner.set_sending_status(input);
         self
     }

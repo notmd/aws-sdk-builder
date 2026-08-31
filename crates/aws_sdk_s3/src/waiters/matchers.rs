@@ -20,8 +20,7 @@ pub(crate) fn match_head_bucket_01223db2f9ae15f05(
     >,
 ) -> bool {
     if let ::std::result::Result::Err(err) = _result {
-        if let ::std::option::Option::Some(code) =
-            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err)
+        if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err)
         {
             return code == "NotFound";
         }
@@ -49,8 +48,7 @@ pub(crate) fn match_head_object_01223db2f9ae15f05(
     >,
 ) -> bool {
     if let ::std::result::Result::Err(err) = _result {
-        if let ::std::option::Option::Some(code) =
-            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err)
+        if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err)
         {
             return code == "NotFound";
         }

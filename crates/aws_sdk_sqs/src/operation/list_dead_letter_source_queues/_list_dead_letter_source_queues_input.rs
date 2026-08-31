@@ -29,15 +29,14 @@ impl ListDeadLetterSourceQueuesInput {
 }
 impl ListDeadLetterSourceQueuesInput {
     /// Creates a new builder-style object to manufacture [`ListDeadLetterSourceQueuesInput`](crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesInput).
-    pub fn builder() -> crate::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesInputBuilder {
         crate::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesInputBuilder::default()
     }
 }
 
 /// A builder for [`ListDeadLetterSourceQueuesInput`](crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListDeadLetterSourceQueuesInputBuilder {
     pub(crate) queue_url: ::std::option::Option<::std::string::String>,

@@ -10,8 +10,6 @@ impl super::Client {
     pub fn delete_layer_version(
         &self,
     ) -> crate::operation::delete_layer_version::builders::DeleteLayerVersionFluentBuilder {
-        crate::operation::delete_layer_version::builders::DeleteLayerVersionFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_layer_version::builders::DeleteLayerVersionFluentBuilder::new(self.handle.clone())
     }
 }

@@ -110,19 +110,13 @@ pub use crate::types::_consumed_capacity::ConsumedCapacityBuilder;
 ))]
 pub use crate::types::_item_collection_metrics::ItemCollectionMetricsBuilder;
 
-#[cfg(any(
-    feature = "op_describe_continuous_backups",
-    feature = "op_update_continuous_backups"
-))]
+#[cfg(any(feature = "op_describe_continuous_backups", feature = "op_update_continuous_backups"))]
 pub use crate::types::_continuous_backups_description::ContinuousBackupsDescriptionBuilder;
 
 #[cfg(feature = "op_describe_contributor_insights")]
 pub use crate::types::_failure_exception::FailureExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_describe_export",
-    feature = "op_export_table_to_point_in_time"
-))]
+#[cfg(any(feature = "op_describe_export", feature = "op_export_table_to_point_in_time"))]
 pub use crate::types::_export_description::ExportDescriptionBuilder;
 
 #[cfg(any(feature = "op_describe_import", feature = "op_import_table"))]
@@ -147,10 +141,7 @@ pub use crate::types::_time_to_live_description::TimeToLiveDescriptionBuilder;
 ))]
 pub use crate::types::_enable_kinesis_streaming_configuration::EnableKinesisStreamingConfigurationBuilder;
 
-#[cfg(any(
-    feature = "op_describe_export",
-    feature = "op_export_table_to_point_in_time"
-))]
+#[cfg(any(feature = "op_describe_export", feature = "op_export_table_to_point_in_time"))]
 pub use crate::types::_incremental_export_specification::IncrementalExportSpecificationBuilder;
 
 #[cfg(any(
@@ -375,11 +366,7 @@ pub use crate::types::_source_table_details::SourceTableDetailsBuilder;
 #[cfg(any(feature = "op_delete_backup", feature = "op_describe_backup"))]
 pub use crate::types::_source_table_feature_details::SourceTableFeatureDetailsBuilder;
 
-#[cfg(any(
-    feature = "op_delete_item",
-    feature = "op_put_item",
-    feature = "op_update_item"
-))]
+#[cfg(any(feature = "op_delete_item", feature = "op_put_item", feature = "op_update_item"))]
 pub use crate::types::_expected_attribute_value::ExpectedAttributeValueBuilder;
 
 #[cfg(any(
@@ -399,10 +386,7 @@ pub use crate::types::_expected_attribute_value::ExpectedAttributeValueBuilder;
 ))]
 pub use crate::types::_capacity::CapacityBuilder;
 
-#[cfg(any(
-    feature = "op_describe_continuous_backups",
-    feature = "op_update_continuous_backups"
-))]
+#[cfg(any(feature = "op_describe_continuous_backups", feature = "op_update_continuous_backups"))]
 pub use crate::types::_point_in_time_recovery_description::PointInTimeRecoveryDescriptionBuilder;
 
 #[cfg(feature = "op_describe_endpoints")]

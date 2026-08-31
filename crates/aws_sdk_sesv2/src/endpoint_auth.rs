@@ -52,8 +52,7 @@ pub(crate) async fn resolve_endpoint_based_auth_scheme_options<'a>(
                 .and_then(|object| object.get("name"))
                 .and_then(aws_smithy_types::Document::as_string);
             if let Some(scheme_id_str) = scheme_id_str {
-                endpoint_auth_scheme_ids
-                    .push(AuthSchemeId::from(Cow::Owned(scheme_id_str.to_owned())));
+                endpoint_auth_scheme_ids.push(AuthSchemeId::from(Cow::Owned(scheme_id_str.to_owned())));
             }
         }
     }
@@ -73,12 +72,9 @@ fn merge_auth_scheme_options(
     modeled_auth_scheme_options: &[AuthSchemeOption],
     endpoint_auth_scheme_ids: Vec<AuthSchemeId>,
 ) -> Vec<AuthSchemeOption> {
-    let (common_auth_scheme_options, model_only_auth_scheme_options): (Vec<_>, Vec<_>) =
-        modeled_auth_scheme_options
-            .iter()
-            .partition(|auth_scheme_option| {
-                endpoint_auth_scheme_ids.contains(auth_scheme_option.scheme_id())
-            });
+    let (common_auth_scheme_options, model_only_auth_scheme_options): (Vec<_>, Vec<_>) = modeled_auth_scheme_options
+        .iter()
+        .partition(|auth_scheme_option| endpoint_auth_scheme_ids.contains(auth_scheme_option.scheme_id()));
 
     let mut endpoint_auth_scheme_options = endpoint_auth_scheme_ids
         .into_iter()
@@ -117,25 +113,19 @@ mod tests {
 
     #[test]
     fn merge_auth_scheme_options_basic() {
-        let modeled_auth_scheme_options =
-            into_auth_scheme_options(["schemeA", "schemeX", "schemeB", "schemeY"]);
+        let modeled_auth_scheme_options = into_auth_scheme_options(["schemeA", "schemeX", "schemeB", "schemeY"]);
         let endpoint_auth_scheme_ids = into_auth_scheme_ids(["schemeY", "schemeX"]);
         let expected = ["schemeY", "schemeX", "schemeA", "schemeB"];
-        let actual =
-            merge_auth_scheme_options(&modeled_auth_scheme_options, endpoint_auth_scheme_ids);
+        let actual = merge_auth_scheme_options(&modeled_auth_scheme_options, endpoint_auth_scheme_ids);
         assert_eq!(
             expected.to_vec(),
-            actual
-                .iter()
-                .map(|opt| opt.scheme_id().inner())
-                .collect::<Vec<_>>()
+            actual.iter().map(|opt| opt.scheme_id().inner()).collect::<Vec<_>>()
         );
     }
 
     #[test]
     fn merge_auth_scheme_options_preserving_modeled_auth_properties() {
-        let mut modeled_auth_scheme_options =
-            into_auth_scheme_options(["schemeA", "schemeX", "schemeB"]);
+        let mut modeled_auth_scheme_options = into_auth_scheme_options(["schemeA", "schemeX", "schemeB"]);
         modeled_auth_scheme_options.push(
             AuthSchemeOption::builder()
                 .scheme_id(AuthSchemeId::new("schemeY"))
@@ -149,14 +139,10 @@ mod tests {
         );
         let endpoint_auth_scheme_ids = into_auth_scheme_ids(["schemeY", "schemeX"]);
         let expected = ["schemeY", "schemeX", "schemeA", "schemeB"];
-        let actual =
-            merge_auth_scheme_options(&modeled_auth_scheme_options, endpoint_auth_scheme_ids);
+        let actual = merge_auth_scheme_options(&modeled_auth_scheme_options, endpoint_auth_scheme_ids);
         assert_eq!(
             expected.to_vec(),
-            actual
-                .iter()
-                .map(|opt| opt.scheme_id().inner())
-                .collect::<Vec<_>>()
+            actual.iter().map(|opt| opt.scheme_id().inner()).collect::<Vec<_>>()
         );
         let prop = actual.first().unwrap().properties().unwrap();
         assert!(matches!(
@@ -170,30 +156,22 @@ mod tests {
         let expected = ["schemeA", "schemeX", "schemeB", "schemeY"];
         let modeled_auth_scheme_options = into_auth_scheme_options(expected);
         let endpoint_auth_scheme_ids = Vec::new();
-        let actual =
-            merge_auth_scheme_options(&modeled_auth_scheme_options, endpoint_auth_scheme_ids);
+        let actual = merge_auth_scheme_options(&modeled_auth_scheme_options, endpoint_auth_scheme_ids);
         assert_eq!(
             expected.to_vec(),
-            actual
-                .iter()
-                .map(|opt| opt.scheme_id().inner())
-                .collect::<Vec<_>>()
+            actual.iter().map(|opt| opt.scheme_id().inner()).collect::<Vec<_>>()
         );
     }
 
     #[test]
     fn merge_auth_scheme_options_should_also_include_those_only_in_endpoint_auth_scheme_options() {
-        let modeled_auth_scheme_ids =
-            into_auth_scheme_options(["schemeA", "schemeX", "schemeB", "schemeY"]);
+        let modeled_auth_scheme_ids = into_auth_scheme_options(["schemeA", "schemeX", "schemeB", "schemeY"]);
         let endpoint_auth_scheme_ids = into_auth_scheme_ids(["schemeY", "schemeZ"]);
         let expected = ["schemeY", "schemeZ", "schemeA", "schemeX", "schemeB"];
         let actual = merge_auth_scheme_options(&modeled_auth_scheme_ids, endpoint_auth_scheme_ids);
         assert_eq!(
             expected.to_vec(),
-            actual
-                .iter()
-                .map(|opt| opt.scheme_id().inner())
-                .collect::<Vec<_>>()
+            actual.iter().map(|opt| opt.scheme_id().inner()).collect::<Vec<_>>()
         );
     }
 }

@@ -87,9 +87,9 @@ impl ::std::convert::From<&str> for TableStatus {
             "INACCESSIBLE_ENCRYPTION_CREDENTIALS" => TableStatus::InaccessibleEncryptionCredentials,
             "REPLICATION_NOT_AUTHORIZED" => TableStatus::ReplicationNotAuthorized,
             "UPDATING" => TableStatus::Updating,
-            other => TableStatus::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => TableStatus::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -138,14 +138,10 @@ impl TableStatus {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -158,9 +154,7 @@ impl ::std::fmt::Display for TableStatus {
             TableStatus::Archiving => write!(f, "ARCHIVING"),
             TableStatus::Creating => write!(f, "CREATING"),
             TableStatus::Deleting => write!(f, "DELETING"),
-            TableStatus::InaccessibleEncryptionCredentials => {
-                write!(f, "INACCESSIBLE_ENCRYPTION_CREDENTIALS")
-            }
+            TableStatus::InaccessibleEncryptionCredentials => write!(f, "INACCESSIBLE_ENCRYPTION_CREDENTIALS"),
             TableStatus::ReplicationNotAuthorized => write!(f, "REPLICATION_NOT_AUTHORIZED"),
             TableStatus::Updating => write!(f, "UPDATING"),
             TableStatus::Unknown(value) => write!(f, "{value}"),

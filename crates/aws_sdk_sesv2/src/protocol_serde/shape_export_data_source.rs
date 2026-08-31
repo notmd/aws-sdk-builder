@@ -6,16 +6,16 @@ pub fn ser_export_data_source(
     if let Some(var_1) = &input.metrics_data_source {
         #[allow(unused_mut)]
         let mut object_2 = object.key("MetricsDataSource").start_object();
-        crate::protocol_serde::shape_metrics_data_source::ser_metrics_data_source(
-            &mut object_2,
-            var_1,
-        )?;
+        crate::protocol_serde::shape_metrics_data_source::ser_metrics_data_source(&mut object_2, var_1)?;
         object_2.finish();
     }
     if let Some(var_3) = &input.message_insights_data_source {
         #[allow(unused_mut)]
         let mut object_4 = object.key("MessageInsightsDataSource").start_object();
-        crate::protocol_serde::shape_message_insights_data_source::ser_message_insights_data_source(&mut object_4, var_3)?;
+        crate::protocol_serde::shape_message_insights_data_source::ser_message_insights_data_source(
+            &mut object_4,
+            var_3,
+        )?;
         object_4.finish();
     }
     Ok(())
@@ -38,11 +38,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -55,11 +53,13 @@ where
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
                         match key.to_unescaped()?.as_ref() {
                             "MetricsDataSource" => {
-                                builder = builder.set_metrics_data_source(crate::protocol_serde::shape_metrics_data_source::de_metrics_data_source(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                                builder = builder.set_metrics_data_source(
+                                    crate::protocol_serde::shape_metrics_data_source::de_metrics_data_source(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "MessageInsightsDataSource" => {
                                 builder = builder.set_message_insights_data_source(
@@ -74,20 +74,16 @@ where
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
             Ok(Some(builder.build()))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

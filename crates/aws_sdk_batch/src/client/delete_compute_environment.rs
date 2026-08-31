@@ -8,8 +8,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteComputeEnvironmentError>`](crate::operation::delete_compute_environment::DeleteComputeEnvironmentError)
     pub fn delete_compute_environment(
         &self,
-    ) -> crate::operation::delete_compute_environment::builders::DeleteComputeEnvironmentFluentBuilder
-    {
-        crate::operation::delete_compute_environment::builders::DeleteComputeEnvironmentFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::delete_compute_environment::builders::DeleteComputeEnvironmentFluentBuilder {
+        crate::operation::delete_compute_environment::builders::DeleteComputeEnvironmentFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

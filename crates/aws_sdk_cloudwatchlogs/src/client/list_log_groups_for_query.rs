@@ -13,8 +13,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListLogGroupsForQueryError>`](crate::operation::list_log_groups_for_query::ListLogGroupsForQueryError)
     pub fn list_log_groups_for_query(
         &self,
-    ) -> crate::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryFluentBuilder
-    {
-        crate::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryFluentBuilder {
+        crate::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

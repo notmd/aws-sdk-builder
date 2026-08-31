@@ -25,9 +25,7 @@ impl ReputationEntity {
         self.reputation_entity_reference.as_deref()
     }
     /// <p>The type of reputation entity. Currently, only <code>RESOURCE</code> type entities are supported.</p>
-    pub fn reputation_entity_type(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ReputationEntityType> {
+    pub fn reputation_entity_type(&self) -> ::std::option::Option<&crate::types::ReputationEntityType> {
         self.reputation_entity_type.as_ref()
     }
     /// <p>The Amazon Resource Name (ARN) of the reputation management policy applied to this entity. This is an Amazon Web Services Amazon SES-managed policy.</p>
@@ -59,9 +57,7 @@ impl ReputationEntity {
 }
 
 /// A builder for [`ReputationEntity`](crate::types::ReputationEntity).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ReputationEntityBuilder {
     pub(crate) reputation_entity_reference: ::std::option::Option<::std::string::String>,
@@ -74,18 +70,12 @@ pub struct ReputationEntityBuilder {
 }
 impl ReputationEntityBuilder {
     /// <p>The unique identifier for the reputation entity. For resource-type entities, this is the Amazon Resource Name (ARN) of the resource.</p>
-    pub fn reputation_entity_reference(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn reputation_entity_reference(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.reputation_entity_reference = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier for the reputation entity. For resource-type entities, this is the Amazon Resource Name (ARN) of the resource.</p>
-    pub fn set_reputation_entity_reference(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_reputation_entity_reference(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.reputation_entity_reference = input;
         self
     }
@@ -107,31 +97,21 @@ impl ReputationEntityBuilder {
         self
     }
     /// <p>The type of reputation entity. Currently, only <code>RESOURCE</code> type entities are supported.</p>
-    pub fn get_reputation_entity_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::ReputationEntityType> {
+    pub fn get_reputation_entity_type(&self) -> &::std::option::Option<crate::types::ReputationEntityType> {
         &self.reputation_entity_type
     }
     /// <p>The Amazon Resource Name (ARN) of the reputation management policy applied to this entity. This is an Amazon Web Services Amazon SES-managed policy.</p>
-    pub fn reputation_management_policy(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn reputation_management_policy(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.reputation_management_policy = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the reputation management policy applied to this entity. This is an Amazon Web Services Amazon SES-managed policy.</p>
-    pub fn set_reputation_management_policy(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_reputation_management_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.reputation_management_policy = input;
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the reputation management policy applied to this entity. This is an Amazon Web Services Amazon SES-managed policy.</p>
-    pub fn get_reputation_management_policy(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_reputation_management_policy(&self) -> &::std::option::Option<::std::string::String> {
         &self.reputation_management_policy
     }
     /// <p>The customer-managed status record for this reputation entity, including the current status, cause description, and last updated timestamp.</p>
@@ -140,17 +120,12 @@ impl ReputationEntityBuilder {
         self
     }
     /// <p>The customer-managed status record for this reputation entity, including the current status, cause description, and last updated timestamp.</p>
-    pub fn set_customer_managed_status(
-        mut self,
-        input: ::std::option::Option<crate::types::StatusRecord>,
-    ) -> Self {
+    pub fn set_customer_managed_status(mut self, input: ::std::option::Option<crate::types::StatusRecord>) -> Self {
         self.customer_managed_status = input;
         self
     }
     /// <p>The customer-managed status record for this reputation entity, including the current status, cause description, and last updated timestamp.</p>
-    pub fn get_customer_managed_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::StatusRecord> {
+    pub fn get_customer_managed_status(&self) -> &::std::option::Option<crate::types::StatusRecord> {
         &self.customer_managed_status
     }
     /// <p>The Amazon Web Services Amazon SES-managed status record for this reputation entity, including the current status, cause description, and last updated timestamp.</p>
@@ -159,10 +134,7 @@ impl ReputationEntityBuilder {
         self
     }
     /// <p>The Amazon Web Services Amazon SES-managed status record for this reputation entity, including the current status, cause description, and last updated timestamp.</p>
-    pub fn set_aws_ses_managed_status(
-        mut self,
-        input: ::std::option::Option<crate::types::StatusRecord>,
-    ) -> Self {
+    pub fn set_aws_ses_managed_status(mut self, input: ::std::option::Option<crate::types::StatusRecord>) -> Self {
         self.aws_ses_managed_status = input;
         self
     }
@@ -176,17 +148,12 @@ impl ReputationEntityBuilder {
         self
     }
     /// <p>The aggregate sending status that determines whether the entity is allowed to send emails. This status is derived from both the customer-managed and Amazon Web Services Amazon SES-managed statuses. If either the customer-managed status or the Amazon Web Services Amazon SES-managed status is <code>DISABLED</code>, the aggregate status will be <code>DISABLED</code> and the entity will not be allowed to send emails. When the customer-managed status is set to <code>REINSTATED</code>, the entity can continue sending even if there are active reputation findings, provided the Amazon Web Services Amazon SES-managed status also permits sending. The entity can only send emails when both statuses permit sending.</p>
-    pub fn set_sending_status_aggregate(
-        mut self,
-        input: ::std::option::Option<crate::types::SendingStatus>,
-    ) -> Self {
+    pub fn set_sending_status_aggregate(mut self, input: ::std::option::Option<crate::types::SendingStatus>) -> Self {
         self.sending_status_aggregate = input;
         self
     }
     /// <p>The aggregate sending status that determines whether the entity is allowed to send emails. This status is derived from both the customer-managed and Amazon Web Services Amazon SES-managed statuses. If either the customer-managed status or the Amazon Web Services Amazon SES-managed status is <code>DISABLED</code>, the aggregate status will be <code>DISABLED</code> and the entity will not be allowed to send emails. When the customer-managed status is set to <code>REINSTATED</code>, the entity can continue sending even if there are active reputation findings, provided the Amazon Web Services Amazon SES-managed status also permits sending. The entity can only send emails when both statuses permit sending.</p>
-    pub fn get_sending_status_aggregate(
-        &self,
-    ) -> &::std::option::Option<crate::types::SendingStatus> {
+    pub fn get_sending_status_aggregate(&self) -> &::std::option::Option<crate::types::SendingStatus> {
         &self.sending_status_aggregate
     }
     /// <p>The reputation impact level for this entity, representing the highest impact reputation finding currently active. Reputation findings can be retrieved using the <code>ListRecommendations</code> operation.</p>
@@ -195,17 +162,12 @@ impl ReputationEntityBuilder {
         self
     }
     /// <p>The reputation impact level for this entity, representing the highest impact reputation finding currently active. Reputation findings can be retrieved using the <code>ListRecommendations</code> operation.</p>
-    pub fn set_reputation_impact(
-        mut self,
-        input: ::std::option::Option<crate::types::RecommendationImpact>,
-    ) -> Self {
+    pub fn set_reputation_impact(mut self, input: ::std::option::Option<crate::types::RecommendationImpact>) -> Self {
         self.reputation_impact = input;
         self
     }
     /// <p>The reputation impact level for this entity, representing the highest impact reputation finding currently active. Reputation findings can be retrieved using the <code>ListRecommendations</code> operation.</p>
-    pub fn get_reputation_impact(
-        &self,
-    ) -> &::std::option::Option<crate::types::RecommendationImpact> {
+    pub fn get_reputation_impact(&self) -> &::std::option::Option<crate::types::RecommendationImpact> {
         &self.reputation_impact
     }
     /// Consumes the builder and constructs a [`ReputationEntity`](crate::types::ReputationEntity).

@@ -138,11 +138,7 @@ impl DeleteItemFluentBuilder {
     ///
     /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of the item to delete.</p>
     /// <p>For the primary key, you must provide all of the key attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</p>
-    pub fn key(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: crate::types::AttributeValue,
-    ) -> Self {
+    pub fn key(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
         self.inner = self.inner.key(k.into(), v);
         self
     }
@@ -150,9 +146,7 @@ impl DeleteItemFluentBuilder {
     /// <p>For the primary key, you must provide all of the key attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</p>
     pub fn set_key(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     ) -> Self {
         self.inner = self.inner.set_key(input);
         self
@@ -161,9 +155,7 @@ impl DeleteItemFluentBuilder {
     /// <p>For the primary key, you must provide all of the key attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</p>
     pub fn get_key(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
         self.inner.get_key()
     }
     ///
@@ -184,10 +176,7 @@ impl DeleteItemFluentBuilder {
     pub fn set_expected(
         mut self,
         input: ::std::option::Option<
-            ::std::collections::HashMap<
-                ::std::string::String,
-                crate::types::ExpectedAttributeValue,
-            >,
+            ::std::collections::HashMap<::std::string::String, crate::types::ExpectedAttributeValue>,
         >,
     ) -> Self {
         self.inner = self.inner.set_expected(input);
@@ -196,9 +185,8 @@ impl DeleteItemFluentBuilder {
     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn get_expected(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::ExpectedAttributeValue>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::ExpectedAttributeValue>>
+    {
         self.inner.get_expected()
     }
     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -207,17 +195,12 @@ impl DeleteItemFluentBuilder {
         self
     }
     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn set_conditional_operator(
-        mut self,
-        input: ::std::option::Option<crate::types::ConditionalOperator>,
-    ) -> Self {
+    pub fn set_conditional_operator(mut self, input: ::std::option::Option<crate::types::ConditionalOperator>) -> Self {
         self.inner = self.inner.set_conditional_operator(input);
         self
     }
     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_conditional_operator(
-        &self,
-    ) -> &::std::option::Option<crate::types::ConditionalOperator> {
+    pub fn get_conditional_operator(&self) -> &::std::option::Option<crate::types::ConditionalOperator> {
         self.inner.get_conditional_operator()
     }
     /// <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were deleted. For <code>DeleteItem</code>, the valid values are:</p>
@@ -244,10 +227,7 @@ impl DeleteItemFluentBuilder {
     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p><note>
     /// <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>DeleteItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>.</p>
     /// </note>
-    pub fn set_return_values(
-        mut self,
-        input: ::std::option::Option<crate::types::ReturnValue>,
-    ) -> Self {
+    pub fn set_return_values(mut self, input: ::std::option::Option<crate::types::ReturnValue>) -> Self {
         self.inner = self.inner.set_return_values(input);
         self
     }
@@ -305,16 +285,11 @@ impl DeleteItemFluentBuilder {
     /// <li>
     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
     /// </ul>
-    pub fn get_return_consumed_capacity(
-        &self,
-    ) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
+    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
         self.inner.get_return_consumed_capacity()
     }
     /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
-    pub fn return_item_collection_metrics(
-        mut self,
-        input: crate::types::ReturnItemCollectionMetrics,
-    ) -> Self {
+    pub fn return_item_collection_metrics(mut self, input: crate::types::ReturnItemCollectionMetrics) -> Self {
         self.inner = self.inner.return_item_collection_metrics(input);
         self
     }
@@ -344,10 +319,7 @@ impl DeleteItemFluentBuilder {
     /// <p>Logical operators: <code>AND | OR | NOT</code></p></li>
     /// </ul>
     /// <p>For more information about condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn condition_expression(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn condition_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.condition_expression(input.into());
         self
     }
@@ -363,10 +335,7 @@ impl DeleteItemFluentBuilder {
     /// <p>Logical operators: <code>AND | OR | NOT</code></p></li>
     /// </ul>
     /// <p>For more information about condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn set_condition_expression(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_condition_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_condition_expression(input);
         self
     }
@@ -454,9 +423,7 @@ impl DeleteItemFluentBuilder {
     /// <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn set_expression_attribute_names(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_expression_attribute_names(input);
         self
@@ -490,9 +457,7 @@ impl DeleteItemFluentBuilder {
     /// <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn get_expression_attribute_names(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_expression_attribute_names()
     }
     ///
@@ -526,9 +491,7 @@ impl DeleteItemFluentBuilder {
     /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn set_expression_attribute_values(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     ) -> Self {
         self.inner = self.inner.set_expression_attribute_values(input);
         self
@@ -543,9 +506,7 @@ impl DeleteItemFluentBuilder {
     /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn get_expression_attribute_values(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
         self.inner.get_expression_attribute_values()
     }
     /// <p>An optional parameter that returns the item attributes for a <code>DeleteItem</code> operation that failed a condition check.</p>
@@ -563,9 +524,7 @@ impl DeleteItemFluentBuilder {
         mut self,
         input: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
     ) -> Self {
-        self.inner = self
-            .inner
-            .set_return_values_on_condition_check_failure(input);
+        self.inner = self.inner.set_return_values_on_condition_check_failure(input);
         self
     }
     /// <p>An optional parameter that returns the item attributes for a <code>DeleteItem</code> operation that failed a condition check.</p>

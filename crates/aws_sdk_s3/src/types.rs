@@ -275,10 +275,7 @@ pub use crate::types::_owner::Owner;
 ))]
 pub use crate::types::_analytics_configuration::AnalyticsConfiguration;
 
-#[cfg(any(
-    feature = "op_get_bucket_encryption",
-    feature = "op_put_bucket_encryption"
-))]
+#[cfg(any(feature = "op_get_bucket_encryption", feature = "op_put_bucket_encryption"))]
 pub use crate::types::_server_side_encryption_configuration::ServerSideEncryptionConfiguration;
 
 #[cfg(any(
@@ -335,22 +332,13 @@ pub use crate::types::_ownership_controls::OwnershipControls;
 #[cfg(feature = "op_get_bucket_policy_status")]
 pub use crate::types::_policy_status::PolicyStatus;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_replication_configuration::ReplicationConfiguration;
 
-#[cfg(any(
-    feature = "op_get_bucket_request_payment",
-    feature = "op_put_bucket_request_payment"
-))]
+#[cfg(any(feature = "op_get_bucket_request_payment", feature = "op_put_bucket_request_payment"))]
 pub use crate::types::_payer::Payer;
 
-#[cfg(any(
-    feature = "op_get_bucket_versioning",
-    feature = "op_put_bucket_versioning"
-))]
+#[cfg(any(feature = "op_get_bucket_versioning", feature = "op_put_bucket_versioning"))]
 pub use crate::types::_bucket_versioning_status::BucketVersioningStatus;
 
 #[cfg(feature = "op_get_bucket_versioning")]
@@ -395,10 +383,7 @@ pub use crate::types::_checksum::Checksum;
 #[cfg(feature = "op_get_object_attributes")]
 pub use crate::types::_get_object_attributes_parts::GetObjectAttributesParts;
 
-#[cfg(any(
-    feature = "op_get_object_legal_hold",
-    feature = "op_put_object_legal_hold"
-))]
+#[cfg(any(feature = "op_get_object_legal_hold", feature = "op_put_object_legal_hold"))]
 pub use crate::types::_object_lock_legal_hold::ObjectLockLegalHold;
 
 #[cfg(any(
@@ -407,16 +392,10 @@ pub use crate::types::_object_lock_legal_hold::ObjectLockLegalHold;
 ))]
 pub use crate::types::_object_lock_configuration::ObjectLockConfiguration;
 
-#[cfg(any(
-    feature = "op_get_object_retention",
-    feature = "op_put_object_retention"
-))]
+#[cfg(any(feature = "op_get_object_retention", feature = "op_put_object_retention"))]
 pub use crate::types::_object_lock_retention::ObjectLockRetention;
 
-#[cfg(any(
-    feature = "op_get_public_access_block",
-    feature = "op_put_public_access_block"
-))]
+#[cfg(any(feature = "op_get_public_access_block", feature = "op_put_public_access_block"))]
 pub use crate::types::_public_access_block_configuration::PublicAccessBlockConfiguration;
 
 #[cfg(any(feature = "op_create_bucket", feature = "op_head_bucket"))]
@@ -863,10 +842,7 @@ pub use crate::types::_analytics_and_operator::AnalyticsAndOperator;
 ))]
 pub use crate::types::_storage_class_analysis_data_export::StorageClassAnalysisDataExport;
 
-#[cfg(any(
-    feature = "op_get_bucket_encryption",
-    feature = "op_put_bucket_encryption"
-))]
+#[cfg(any(feature = "op_get_bucket_encryption", feature = "op_put_bucket_encryption"))]
 pub use crate::types::_server_side_encryption_rule::ServerSideEncryptionRule;
 
 #[cfg(any(
@@ -977,10 +953,7 @@ pub use crate::types::_notification_configuration_filter::NotificationConfigurat
 ))]
 pub use crate::types::_ownership_controls_rule::OwnershipControlsRule;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_replication_rule::ReplicationRule;
 
 #[cfg(any(feature = "op_get_bucket_website", feature = "op_put_bucket_website"))]
@@ -1068,16 +1041,10 @@ pub use crate::types::_storage_class_analysis_schema_version::StorageClassAnalys
 ))]
 pub use crate::types::_analytics_export_destination::AnalyticsExportDestination;
 
-#[cfg(any(
-    feature = "op_get_bucket_encryption",
-    feature = "op_put_bucket_encryption"
-))]
+#[cfg(any(feature = "op_get_bucket_encryption", feature = "op_put_bucket_encryption"))]
 pub use crate::types::_server_side_encryption_by_default::ServerSideEncryptionByDefault;
 
-#[cfg(any(
-    feature = "op_get_bucket_encryption",
-    feature = "op_put_bucket_encryption"
-))]
+#[cfg(any(feature = "op_get_bucket_encryption", feature = "op_put_bucket_encryption"))]
 pub use crate::types::_blocked_encryption_types::BlockedEncryptionTypes;
 
 #[cfg(any(
@@ -1133,40 +1100,22 @@ pub use crate::types::_event::Event;
 ))]
 pub use crate::types::_s3_key_filter::S3KeyFilter;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_replication_rule_filter::ReplicationRuleFilter;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_replication_rule_status::ReplicationRuleStatus;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_source_selection_criteria::SourceSelectionCriteria;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_existing_object_replication::ExistingObjectReplication;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_destination::Destination;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_delete_marker_replication::DeleteMarkerReplication;
 
 #[cfg(feature = "op_restore_object")]
@@ -1199,58 +1148,31 @@ pub use crate::types::_ssekms::Ssekms;
 ))]
 pub use crate::types::_transition_storage_class::TransitionStorageClass;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_replication_rule_and_operator::ReplicationRuleAndOperator;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_sse_kms_encrypted_objects::SseKmsEncryptedObjects;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_replica_modifications::ReplicaModifications;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_existing_object_replication_status::ExistingObjectReplicationStatus;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_access_control_translation::AccessControlTranslation;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_encryption_configuration::EncryptionConfiguration;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_replication_time::ReplicationTime;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_metrics::Metrics;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_delete_marker_replication_status::DeleteMarkerReplicationStatus;
 
 #[cfg(feature = "op_restore_object")]
@@ -1263,10 +1185,7 @@ pub use crate::types::_metadata_entry::MetadataEntry;
 ))]
 pub use crate::types::_analytics_s3_export_file_format::AnalyticsS3ExportFileFormat;
 
-#[cfg(any(
-    feature = "op_get_bucket_encryption",
-    feature = "op_put_bucket_encryption"
-))]
+#[cfg(any(feature = "op_get_bucket_encryption", feature = "op_put_bucket_encryption"))]
 pub use crate::types::_encryption_type::EncryptionType;
 
 #[cfg(any(
@@ -1275,40 +1194,22 @@ pub use crate::types::_encryption_type::EncryptionType;
 ))]
 pub use crate::types::_filter_rule::FilterRule;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_sse_kms_encrypted_objects_status::SseKmsEncryptedObjectsStatus;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_replica_modifications_status::ReplicaModificationsStatus;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_owner_override::OwnerOverride;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_replication_time_status::ReplicationTimeStatus;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_replication_time_value::ReplicationTimeValue;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_metrics_status::MetricsStatus;
 
 #[cfg(any(
@@ -1332,10 +1233,7 @@ mod _accelerate_configuration;
 #[cfg(any(feature = "op_put_bucket_acl", feature = "op_put_object_acl"))]
 mod _access_control_policy;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _access_control_translation;
 
 #[cfg(any(
@@ -1405,10 +1303,7 @@ mod _annotation_table_configuration_updates;
 #[cfg(feature = "op_head_object")]
 mod _archive_status;
 
-#[cfg(any(
-    feature = "op_get_bucket_encryption",
-    feature = "op_put_bucket_encryption"
-))]
+#[cfg(any(feature = "op_get_bucket_encryption", feature = "op_put_bucket_encryption"))]
 mod _blocked_encryption_types;
 
 #[cfg(any(feature = "op_list_buckets", feature = "op_list_directory_buckets"))]
@@ -1447,10 +1342,7 @@ mod _bucket_namespace;
 #[cfg(feature = "op_create_bucket")]
 mod _bucket_type;
 
-#[cfg(any(
-    feature = "op_get_bucket_versioning",
-    feature = "op_put_bucket_versioning"
-))]
+#[cfg(any(feature = "op_get_bucket_versioning", feature = "op_put_bucket_versioning"))]
 mod _bucket_versioning_status;
 
 #[cfg(feature = "op_get_object_attributes")]
@@ -1583,25 +1475,16 @@ mod _delete;
 #[cfg(feature = "op_list_object_versions")]
 mod _delete_marker_entry;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _delete_marker_replication;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _delete_marker_replication_status;
 
 #[cfg(feature = "op_delete_objects")]
 mod _deleted_object;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _destination;
 
 #[cfg(feature = "op_get_bucket_metadata_configuration")]
@@ -1618,16 +1501,10 @@ mod _encoding_type;
 #[cfg(feature = "op_restore_object")]
 mod _encryption;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _encryption_configuration;
 
-#[cfg(any(
-    feature = "op_get_bucket_encryption",
-    feature = "op_put_bucket_encryption"
-))]
+#[cfg(any(feature = "op_get_bucket_encryption", feature = "op_put_bucket_encryption"))]
 mod _encryption_type;
 
 #[cfg(feature = "op_select_object_content")]
@@ -1657,16 +1534,10 @@ mod _event;
 ))]
 mod _event_bridge_configuration;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _existing_object_replication;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _existing_object_replication_status;
 
 #[cfg(any(
@@ -1945,10 +1816,7 @@ mod _metadata_table_configuration_result;
 ))]
 mod _metadata_table_encryption_configuration;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _metrics;
 
 #[cfg(any(
@@ -1972,10 +1840,7 @@ mod _metrics_configuration;
 ))]
 mod _metrics_filter;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _metrics_status;
 
 #[cfg(feature = "op_put_bucket_versioning")]
@@ -2041,10 +1906,7 @@ mod _object_lock_configuration;
 ))]
 mod _object_lock_enabled;
 
-#[cfg(any(
-    feature = "op_get_object_legal_hold",
-    feature = "op_put_object_legal_hold"
-))]
+#[cfg(any(feature = "op_get_object_legal_hold", feature = "op_put_object_legal_hold"))]
 mod _object_lock_legal_hold;
 
 #[cfg(any(
@@ -2069,10 +1931,7 @@ mod _object_lock_legal_hold_status;
 ))]
 mod _object_lock_mode;
 
-#[cfg(any(
-    feature = "op_get_object_retention",
-    feature = "op_put_object_retention"
-))]
+#[cfg(any(feature = "op_get_object_retention", feature = "op_put_object_retention"))]
 mod _object_lock_retention;
 
 #[cfg(any(
@@ -2135,10 +1994,7 @@ mod _output_serialization;
 ))]
 mod _owner;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _owner_override;
 
 #[cfg(any(
@@ -2165,10 +2021,7 @@ mod _partition_date_source;
 #[cfg(any(feature = "op_get_bucket_logging", feature = "op_put_bucket_logging"))]
 mod _partitioned_prefix;
 
-#[cfg(any(
-    feature = "op_get_bucket_request_payment",
-    feature = "op_put_bucket_request_payment"
-))]
+#[cfg(any(feature = "op_get_bucket_request_payment", feature = "op_put_bucket_request_payment"))]
 mod _payer;
 
 #[cfg(any(
@@ -2192,10 +2045,7 @@ mod _progress_event;
 #[cfg(any(feature = "op_get_bucket_website", feature = "op_put_bucket_website"))]
 mod _protocol;
 
-#[cfg(any(
-    feature = "op_get_public_access_block",
-    feature = "op_put_public_access_block"
-))]
+#[cfg(any(feature = "op_get_public_access_block", feature = "op_put_public_access_block"))]
 mod _public_access_block_configuration;
 
 #[cfg(any(
@@ -2223,46 +2073,25 @@ mod _redirect;
 #[cfg(any(feature = "op_get_bucket_website", feature = "op_put_bucket_website"))]
 mod _redirect_all_requests_to;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _replica_modifications;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _replica_modifications_status;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _replication_configuration;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _replication_rule;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _replication_rule_and_operator;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _replication_rule_filter;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _replication_rule_status;
 
 #[cfg(any(
@@ -2274,22 +2103,13 @@ mod _replication_rule_status;
 ))]
 mod _replication_status;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _replication_time;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _replication_time_status;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _replication_time_value;
 
 #[cfg(any(
@@ -2433,22 +2253,13 @@ mod _select_parameters;
 ))]
 mod _server_side_encryption;
 
-#[cfg(any(
-    feature = "op_get_bucket_encryption",
-    feature = "op_put_bucket_encryption"
-))]
+#[cfg(any(feature = "op_get_bucket_encryption", feature = "op_put_bucket_encryption"))]
 mod _server_side_encryption_by_default;
 
-#[cfg(any(
-    feature = "op_get_bucket_encryption",
-    feature = "op_put_bucket_encryption"
-))]
+#[cfg(any(feature = "op_get_bucket_encryption", feature = "op_put_bucket_encryption"))]
 mod _server_side_encryption_configuration;
 
-#[cfg(any(
-    feature = "op_get_bucket_encryption",
-    feature = "op_put_bucket_encryption"
-))]
+#[cfg(any(feature = "op_get_bucket_encryption", feature = "op_put_bucket_encryption"))]
 mod _server_side_encryption_rule;
 
 #[cfg(feature = "op_create_session")]
@@ -2460,22 +2271,13 @@ mod _session_mode;
 #[cfg(any(feature = "op_get_bucket_logging", feature = "op_put_bucket_logging"))]
 mod _simple_prefix;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _source_selection_criteria;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _sse_kms_encrypted_objects;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 mod _sse_kms_encrypted_objects_status;
 
 #[cfg(any(

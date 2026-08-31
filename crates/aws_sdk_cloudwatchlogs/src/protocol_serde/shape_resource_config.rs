@@ -7,15 +7,14 @@ pub fn ser_resource_config(
         crate::types::ResourceConfig::OpenSearchResourceConfig(inner) => {
             #[allow(unused_mut)]
             let mut object_1 = object_3.key("openSearchResourceConfig").start_object();
-            crate::protocol_serde::shape_open_search_resource_config::ser_open_search_resource_config(&mut object_1, inner)?;
+            crate::protocol_serde::shape_open_search_resource_config::ser_open_search_resource_config(
+                &mut object_1,
+                inner,
+            )?;
             object_1.finish();
         }
         crate::types::ResourceConfig::Unknown => {
-            return Err(
-                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                    "ResourceConfig",
-                ),
-            )
+            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("ResourceConfig"))
         }
     }
     Ok(())

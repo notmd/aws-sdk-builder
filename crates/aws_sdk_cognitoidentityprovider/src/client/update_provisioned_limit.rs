@@ -10,8 +10,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateProvisionedLimitError>`](crate::operation::update_provisioned_limit::UpdateProvisionedLimitError)
     pub fn update_provisioned_limit(
         &self,
-    ) -> crate::operation::update_provisioned_limit::builders::UpdateProvisionedLimitFluentBuilder
-    {
-        crate::operation::update_provisioned_limit::builders::UpdateProvisionedLimitFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::update_provisioned_limit::builders::UpdateProvisionedLimitFluentBuilder {
+        crate::operation::update_provisioned_limit::builders::UpdateProvisionedLimitFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

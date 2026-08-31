@@ -36,23 +36,20 @@ impl PolicyExistsFluentBuilder {
         crate::waiters::policy_exists::PolicyExistsFinalPoll,
         crate::waiters::policy_exists::WaitUntilPolicyExistsError,
     > {
-        let input = self.inner.build().map_err(
-            ::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure,
-        )?;
+        let input = self
+            .inner
+            .build()
+            .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
         let runtime_plugins = crate::operation::get_policy::GetPolicy::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             ::std::option::Option::None,
         )
-        .with_operation_plugin(
-            crate::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new(),
-        );
+        .with_operation_plugin(crate::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new());
         let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();
         let runtime_components_builder = runtime_plugins
             .apply_client_configuration(&mut cfg)
-            .map_err(
-                ::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure,
-            )?;
+            .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
         let time_components = runtime_components_builder.into_time_components();
         let sleep_impl = time_components
             .sleep_impl()
@@ -78,9 +75,7 @@ impl PolicyExistsFluentBuilder {
         let operation = move || {
             let input = input.clone();
             let runtime_plugins = runtime_plugins.clone();
-            async move {
-                crate::operation::get_policy::GetPolicy::orchestrate(&runtime_plugins, input).await
-            }
+            async move { crate::operation::get_policy::GetPolicy::orchestrate(&runtime_plugins, input).await }
         };
         let orchestrator = ::aws_smithy_runtime::client::waiters::WaiterOrchestrator::builder()
             .min_delay(::std::time::Duration::from_secs(1))
@@ -91,10 +86,7 @@ impl PolicyExistsFluentBuilder {
             .acceptor(acceptor)
             .operation(operation)
             .build();
-        ::aws_smithy_runtime::client::waiters::attach_waiter_tracing_span(
-            orchestrator.orchestrate(),
-        )
-        .await
+        ::aws_smithy_runtime::client::waiters::attach_waiter_tracing_span(orchestrator.orchestrate()).await
     }
     /// <p>The Amazon Resource Name (ARN) of the managed policy that you want information about.</p>
     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>

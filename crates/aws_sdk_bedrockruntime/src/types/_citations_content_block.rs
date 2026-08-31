@@ -31,13 +31,10 @@ impl CitationsContentBlock {
 }
 
 /// A builder for [`CitationsContentBlock`](crate::types::CitationsContentBlock).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CitationsContentBlockBuilder {
-    pub(crate) content:
-        ::std::option::Option<::std::vec::Vec<crate::types::CitationGeneratedContent>>,
+    pub(crate) content: ::std::option::Option<::std::vec::Vec<crate::types::CitationGeneratedContent>>,
     pub(crate) citations: ::std::option::Option<::std::vec::Vec<crate::types::Citation>>,
 }
 impl CitationsContentBlockBuilder {
@@ -61,9 +58,7 @@ impl CitationsContentBlockBuilder {
         self
     }
     /// <p>The generated content that is supported by the associated citations.</p>
-    pub fn get_content(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::CitationGeneratedContent>> {
+    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CitationGeneratedContent>> {
         &self.content
     }
     /// Appends an item to `citations`.
@@ -78,10 +73,7 @@ impl CitationsContentBlockBuilder {
         self
     }
     /// <p>An array of citations that reference the source documents used to generate the associated content.</p>
-    pub fn set_citations(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Citation>>,
-    ) -> Self {
+    pub fn set_citations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Citation>>) -> Self {
         self.citations = input;
         self
     }

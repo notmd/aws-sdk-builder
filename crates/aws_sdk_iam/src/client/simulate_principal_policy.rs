@@ -24,8 +24,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<SimulatePrincipalPolicyError>`](crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError)
     pub fn simulate_principal_policy(
         &self,
-    ) -> crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder
-    {
-        crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder {
+        crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

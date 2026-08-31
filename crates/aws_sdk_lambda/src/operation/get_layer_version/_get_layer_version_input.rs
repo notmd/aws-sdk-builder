@@ -26,9 +26,7 @@ impl GetLayerVersionInput {
 }
 
 /// A builder for [`GetLayerVersionInput`](crate::operation::get_layer_version::GetLayerVersionInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetLayerVersionInputBuilder {
     pub(crate) layer_name: ::std::option::Option<::std::string::String>,

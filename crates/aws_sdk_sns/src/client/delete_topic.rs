@@ -6,9 +6,7 @@ impl super::Client {
     ///   - [`topic_arn(impl Into<String>)`](crate::operation::delete_topic::builders::DeleteTopicFluentBuilder::topic_arn) / [`set_topic_arn(Option<String>)`](crate::operation::delete_topic::builders::DeleteTopicFluentBuilder::set_topic_arn):<br>required: **true**<br><p>The ARN of the topic you want to delete.</p><br>
     /// - On success, responds with [`DeleteTopicOutput`](crate::operation::delete_topic::DeleteTopicOutput)
     /// - On failure, responds with [`SdkError<DeleteTopicError>`](crate::operation::delete_topic::DeleteTopicError)
-    pub fn delete_topic(
-        &self,
-    ) -> crate::operation::delete_topic::builders::DeleteTopicFluentBuilder {
+    pub fn delete_topic(&self) -> crate::operation::delete_topic::builders::DeleteTopicFluentBuilder {
         crate::operation::delete_topic::builders::DeleteTopicFluentBuilder::new(self.handle.clone())
     }
 }

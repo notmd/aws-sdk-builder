@@ -18,9 +18,7 @@ impl PutTransformerOutput {
 }
 
 /// A builder for [`PutTransformerOutput`](crate::operation::put_transformer::PutTransformerOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutTransformerOutputBuilder {
     _request_id: Option<String>,

@@ -9,20 +9,17 @@ pub fn de_attach_role_policy_http_error(
     crate::operation::attach_role_policy::AttachRolePolicyError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::attach_role_policy::AttachRolePolicyError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::attach_role_policy::AttachRolePolicyError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(
-                crate::operation::attach_role_policy::AttachRolePolicyError::unhandled(generic),
-            )
+            return Err(crate::operation::attach_role_policy::AttachRolePolicyError::unhandled(
+                generic,
+            ))
         }
     };
 
@@ -33,8 +30,11 @@ pub fn de_attach_role_policy_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::InvalidInputExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::attach_role_policy::AttachRolePolicyError::unhandled)?;
+                output = crate::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::attach_role_policy::AttachRolePolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -48,8 +48,11 @@ pub fn de_attach_role_policy_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
-                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::attach_role_policy::AttachRolePolicyError::unhandled)?;
+                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::attach_role_policy::AttachRolePolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -63,8 +66,11 @@ pub fn de_attach_role_policy_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
-                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::attach_role_policy::AttachRolePolicyError::unhandled)?;
+                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::attach_role_policy::AttachRolePolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -73,29 +79,34 @@ pub fn de_attach_role_policy_http_error(
             }
             tmp
         }),
-        "PolicyNotAttachable" => crate::operation::attach_role_policy::AttachRolePolicyError::PolicyNotAttachableException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "PolicyNotAttachable" => {
+            crate::operation::attach_role_policy::AttachRolePolicyError::PolicyNotAttachableException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::PolicyNotAttachableExceptionBuilder::default();
-                output =
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::PolicyNotAttachableExceptionBuilder::default();
+                    output =
                     crate::protocol_serde::shape_policy_not_attachable_exception::de_policy_not_attachable_exception_xml_err(_response_body, output)
                         .map_err(crate::operation::attach_role_policy::AttachRolePolicyError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "ServiceFailure" => crate::operation::attach_role_policy::AttachRolePolicyError::ServiceFailureException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
-                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::attach_role_policy::AttachRolePolicyError::unhandled)?;
+                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::attach_role_policy::AttachRolePolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -104,21 +115,23 @@ pub fn de_attach_role_policy_http_error(
             }
             tmp
         }),
-        "UnmodifiableEntity" => crate::operation::attach_role_policy::AttachRolePolicyError::UnmodifiableEntityException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "UnmodifiableEntity" => {
+            crate::operation::attach_role_policy::AttachRolePolicyError::UnmodifiableEntityException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UnmodifiableEntityExceptionBuilder::default();
-                output = crate::protocol_serde::shape_unmodifiable_entity_exception::de_unmodifiable_entity_exception_xml_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::UnmodifiableEntityExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_unmodifiable_entity_exception::de_unmodifiable_entity_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::attach_role_policy::AttachRolePolicyError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => crate::operation::attach_role_policy::AttachRolePolicyError::generic(generic),
     })
 }
@@ -134,12 +147,8 @@ pub fn de_attach_role_policy_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::attach_role_policy::builders::AttachRolePolicyOutputBuilder::default(
-            );
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::attach_role_policy::builders::AttachRolePolicyOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }

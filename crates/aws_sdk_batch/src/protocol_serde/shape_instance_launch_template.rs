@@ -15,7 +15,10 @@ pub fn ser_instance_launch_template(
     if let Some(var_4) = &input.instance_requirements {
         #[allow(unused_mut)]
         let mut object_5 = object.key("instanceRequirements").start_object();
-        crate::protocol_serde::shape_instance_requirements_request::ser_instance_requirements_request(&mut object_5, var_4)?;
+        crate::protocol_serde::shape_instance_requirements_request::ser_instance_requirements_request(
+            &mut object_5,
+            var_4,
+        )?;
         object_5.finish();
     }
     if let Some(var_6) = &input.capacity_option_type {
@@ -36,13 +39,14 @@ pub fn ser_instance_launch_template(
     if let Some(var_11) = &input.capacity_reservations {
         #[allow(unused_mut)]
         let mut object_12 = object.key("capacityReservations").start_object();
-        crate::protocol_serde::shape_capacity_reservation_request::ser_capacity_reservation_request(&mut object_12, var_11)?;
+        crate::protocol_serde::shape_capacity_reservation_request::ser_capacity_reservation_request(
+            &mut object_12,
+            var_11,
+        )?;
         object_12.finish();
     }
     if let Some(var_13) = &input.instance_metadata_tags_propagation {
-        object
-            .key("instanceMetadataTagsPropagation")
-            .boolean(*var_13);
+        object.key("instanceMetadataTagsPropagation").boolean(*var_13);
     }
     if let Some(var_14) = &input.local_storage_configuration {
         #[allow(unused_mut)]
@@ -73,11 +77,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -91,11 +93,9 @@ where
                         match key.to_unescaped()?.as_ref() {
                             "ec2InstanceProfileArn" => {
                                 builder = builder.set_ec2_instance_profile_arn(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "networkConfiguration" => {
@@ -118,11 +118,9 @@ where
                             }
                             "capacityOptionType" => {
                                 builder = builder.set_capacity_option_type(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "storageConfiguration" => {
@@ -136,18 +134,14 @@ where
                             }
                             "monitoring" => {
                                 builder = builder.set_monitoring(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "fipsEnabled" => {
                                 builder = builder.set_fips_enabled(
-                                    ::aws_smithy_json::deserialize::token::expect_bool_or_null(
-                                        tokens.next(),
-                                    )?,
+                                    ::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?,
                                 );
                             }
                             "capacityReservations" => {
@@ -161,9 +155,7 @@ where
                             }
                             "instanceMetadataTagsPropagation" => {
                                 builder = builder.set_instance_metadata_tags_propagation(
-                                    ::aws_smithy_json::deserialize::token::expect_bool_or_null(
-                                        tokens.next(),
-                                    )?,
+                                    ::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?,
                                 );
                             }
                             "localStorageConfiguration" => {
@@ -175,11 +167,9 @@ where
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
@@ -187,10 +177,8 @@ where
                 crate::serde_util::instance_launch_template_correct_errors(builder).build(),
             ))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

@@ -5,8 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GuardrailAutomatedReasoningScenario {
     /// <p>List of logical assignments and statements that define this scenario.</p>
-    pub statements:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
+    pub statements: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
 }
 impl GuardrailAutomatedReasoningScenario {
     /// <p>List of logical assignments and statements that define this scenario.</p>
@@ -24,13 +23,10 @@ impl GuardrailAutomatedReasoningScenario {
 }
 
 /// A builder for [`GuardrailAutomatedReasoningScenario`](crate::types::GuardrailAutomatedReasoningScenario).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailAutomatedReasoningScenarioBuilder {
-    pub(crate) statements:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
+    pub(crate) statements: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
 }
 impl GuardrailAutomatedReasoningScenarioBuilder {
     /// Appends an item to `statements`.
@@ -47,9 +43,7 @@ impl GuardrailAutomatedReasoningScenarioBuilder {
     /// <p>List of logical assignments and statements that define this scenario.</p>
     pub fn set_statements(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
     ) -> Self {
         self.statements = input;
         self
@@ -57,8 +51,7 @@ impl GuardrailAutomatedReasoningScenarioBuilder {
     /// <p>List of logical assignments and statements that define this scenario.</p>
     pub fn get_statements(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>
-    {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>> {
         &self.statements
     }
     /// Consumes the builder and constructs a [`GuardrailAutomatedReasoningScenario`](crate::types::GuardrailAutomatedReasoningScenario).

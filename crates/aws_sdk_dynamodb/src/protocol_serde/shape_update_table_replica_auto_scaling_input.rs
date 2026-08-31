@@ -23,10 +23,11 @@ pub fn ser_update_table_replica_auto_scaling_input_input(
     }
     if let Some(var_6) = &input.provisioned_write_capacity_auto_scaling_update {
         #[allow(unused_mut)]
-        let mut object_7 = object
-            .key("ProvisionedWriteCapacityAutoScalingUpdate")
-            .start_object();
-        crate::protocol_serde::shape_auto_scaling_settings_update::ser_auto_scaling_settings_update(&mut object_7, var_6)?;
+        let mut object_7 = object.key("ProvisionedWriteCapacityAutoScalingUpdate").start_object();
+        crate::protocol_serde::shape_auto_scaling_settings_update::ser_auto_scaling_settings_update(
+            &mut object_7,
+            var_6,
+        )?;
         object_7.finish();
     }
     if let Some(var_8) = &input.replica_updates {
@@ -35,7 +36,10 @@ pub fn ser_update_table_replica_auto_scaling_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_11 = array_9.value().start_object();
-                crate::protocol_serde::shape_replica_auto_scaling_update::ser_replica_auto_scaling_update(&mut object_11, item_10)?;
+                crate::protocol_serde::shape_replica_auto_scaling_update::ser_replica_auto_scaling_update(
+                    &mut object_11,
+                    item_10,
+                )?;
                 object_11.finish();
             }
         }

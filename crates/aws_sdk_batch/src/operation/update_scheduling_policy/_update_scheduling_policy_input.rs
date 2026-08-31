@@ -27,17 +27,13 @@ impl UpdateSchedulingPolicyInput {
 }
 impl UpdateSchedulingPolicyInput {
     /// Creates a new builder-style object to manufacture [`UpdateSchedulingPolicyInput`](crate::operation::update_scheduling_policy::UpdateSchedulingPolicyInput).
-    pub fn builder(
-    ) -> crate::operation::update_scheduling_policy::builders::UpdateSchedulingPolicyInputBuilder
-    {
+    pub fn builder() -> crate::operation::update_scheduling_policy::builders::UpdateSchedulingPolicyInputBuilder {
         crate::operation::update_scheduling_policy::builders::UpdateSchedulingPolicyInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateSchedulingPolicyInput`](crate::operation::update_scheduling_policy::UpdateSchedulingPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateSchedulingPolicyInputBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,
@@ -66,10 +62,7 @@ impl UpdateSchedulingPolicyInputBuilder {
         self
     }
     /// <p>The quota share scheduling policy details. Once set during creation, a quotaSharePolicy cannot be removed or changed to a fairsharePolicy.</p>
-    pub fn set_quota_share_policy(
-        mut self,
-        input: ::std::option::Option<crate::types::QuotaSharePolicy>,
-    ) -> Self {
+    pub fn set_quota_share_policy(mut self, input: ::std::option::Option<crate::types::QuotaSharePolicy>) -> Self {
         self.quota_share_policy = input;
         self
     }
@@ -83,10 +76,7 @@ impl UpdateSchedulingPolicyInputBuilder {
         self
     }
     /// <p>The fair-share policy scheduling details. Once set during creation, a fairsharePolicy cannot be removed or changed to a quotaSharePolicy.</p>
-    pub fn set_fairshare_policy(
-        mut self,
-        input: ::std::option::Option<crate::types::FairsharePolicy>,
-    ) -> Self {
+    pub fn set_fairshare_policy(mut self, input: ::std::option::Option<crate::types::FairsharePolicy>) -> Self {
         self.fairshare_policy = input;
         self
     }

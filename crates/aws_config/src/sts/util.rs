@@ -16,13 +16,10 @@ pub(crate) fn into_credentials(
     assumed_role_user: Option<AssumedRoleUser>,
     provider_name: &'static str,
 ) -> provider::Result {
-    let sts_credentials = sts_credentials
-        .ok_or_else(|| CredentialsError::unhandled("STS credentials must be defined"))?;
-    let expiration = SystemTime::try_from(sts_credentials.expiration).map_err(|_| {
-        CredentialsError::unhandled(
-            "credential expiration time cannot be represented by a SystemTime",
-        )
-    })?;
+    let sts_credentials =
+        sts_credentials.ok_or_else(|| CredentialsError::unhandled("STS credentials must be defined"))?;
+    let expiration = SystemTime::try_from(sts_credentials.expiration)
+        .map_err(|_| CredentialsError::unhandled("credential expiration time cannot be represented by a SystemTime"))?;
     let mut builder = AwsCredentials::builder()
         .access_key_id(sts_credentials.access_key_id)
         .secret_access_key(sts_credentials.secret_access_key)
@@ -53,8 +50,7 @@ pub(crate) fn default_session_name(base: &str, ts: SystemTime) -> String {
 // TODO(https://github.com/smithy-lang/smithy-rs/issues/4090): Consider making a `pub` Arn parser
 fn parse_account_id(arn: &str) -> Result<AccountId, CredentialsError> {
     let mut split = arn.splitn(6, ':');
-    let invalid_format =
-        || CredentialsError::unhandled("ARN must have 6 components delimited by `:`");
+    let invalid_format = || CredentialsError::unhandled("ARN must have 6 components delimited by `:`");
     let _arn = split.next().ok_or_else(invalid_format)?;
     let _partition = split.next().ok_or_else(invalid_format)?;
     let _service = split.next().ok_or_else(invalid_format)?;

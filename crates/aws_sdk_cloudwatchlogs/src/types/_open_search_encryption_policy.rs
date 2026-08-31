@@ -27,9 +27,7 @@ impl OpenSearchEncryptionPolicy {
 }
 
 /// A builder for [`OpenSearchEncryptionPolicy`](crate::types::OpenSearchEncryptionPolicy).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct OpenSearchEncryptionPolicyBuilder {
     pub(crate) policy_name: ::std::option::Option<::std::string::String>,
@@ -56,10 +54,7 @@ impl OpenSearchEncryptionPolicyBuilder {
         self
     }
     /// <p>This structure contains information about the status of this OpenSearch Service resource.</p>
-    pub fn set_status(
-        mut self,
-        input: ::std::option::Option<crate::types::OpenSearchResourceStatus>,
-    ) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::OpenSearchResourceStatus>) -> Self {
         self.status = input;
         self
     }

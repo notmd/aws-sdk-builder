@@ -16,11 +16,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -34,26 +32,20 @@ where
                         match key.to_unescaped()?.as_ref() {
                             "SchemaRegistryURI" => {
                                 builder = builder.set_schema_registry_uri(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "EventRecordFormat" => {
                                 builder = builder.set_event_record_format(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| {
-                                        s.to_unescaped().map(|u| {
-                                            crate::types::SchemaRegistryEventRecordFormat::from(
-                                                u.as_ref(),
-                                            )
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| {
+                                            s.to_unescaped().map(|u| {
+                                                crate::types::SchemaRegistryEventRecordFormat::from(u.as_ref())
+                                            })
                                         })
-                                    })
-                                    .transpose()?,
+                                        .transpose()?,
                                 );
                             }
                             "AccessConfigs" => {
@@ -74,21 +66,17 @@ where
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
             Ok(Some(builder.build()))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }
 
@@ -120,7 +108,10 @@ pub fn ser_kafka_schema_registry_config(
             {
                 #[allow(unused_mut)]
                 let mut object_10 = array_8.value().start_object();
-                crate::protocol_serde::shape_kafka_schema_validation_config::ser_kafka_schema_validation_config(&mut object_10, item_9)?;
+                crate::protocol_serde::shape_kafka_schema_validation_config::ser_kafka_schema_validation_config(
+                    &mut object_10,
+                    item_9,
+                )?;
                 object_10.finish();
             }
         }

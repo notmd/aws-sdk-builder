@@ -9,19 +9,18 @@ pub fn de_get_durable_execution_history_http_error(
     crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(
-        crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled,
-    )?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled(generic)),
+        None => {
+            return Err(
+                crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled(generic),
+            )
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -173,12 +172,15 @@ pub fn de_get_durable_execution_history_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder::default();
-        output = crate::protocol_serde::shape_get_durable_execution_history::de_get_durable_execution_history(_response_body, output)
-            .map_err(crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output =
+            crate::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder::default(
+            );
+        output = crate::protocol_serde::shape_get_durable_execution_history::de_get_durable_execution_history(
+            _response_body,
+            output,
+        )
+        .map_err(crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         crate::serde_util::get_durable_execution_history_output_output_correct_errors(output)
             .build()
             .map_err(crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError::unhandled)?
@@ -191,11 +193,9 @@ pub(crate) fn de_get_durable_execution_history(
 ) -> ::std::result::Result<
     crate::operation::get_durable_execution_history::builders::GetDurableExecutionHistoryOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
->{
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+> {
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -203,43 +203,34 @@ pub(crate) fn de_get_durable_execution_history(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "Events" => {
-                        builder =
-                            builder.set_events(crate::protocol_serde::shape_events::de_events(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
-                    }
-                    "NextMarker" => {
-                        builder = builder.set_next_marker(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                tokens.next(),
-                            )?
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "Events" => {
+                    builder = builder.set_events(crate::protocol_serde::shape_events::de_events(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
+                "NextMarker" => {
+                    builder = builder.set_next_marker(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    );
                 }
-            }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

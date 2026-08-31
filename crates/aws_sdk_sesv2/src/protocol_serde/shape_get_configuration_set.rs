@@ -9,49 +9,48 @@ pub fn de_get_configuration_set_http_error(
     crate::operation::get_configuration_set::GetConfigurationSetError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::get_configuration_set::GetConfigurationSetError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::get_configuration_set::GetConfigurationSetError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(
-                crate::operation::get_configuration_set::GetConfigurationSetError::unhandled(
-                    generic,
-                ),
-            )
-        }
+        None => return Err(crate::operation::get_configuration_set::GetConfigurationSetError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "BadRequestException" => crate::operation::get_configuration_set::GetConfigurationSetError::BadRequestException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "BadRequestException" => {
+            crate::operation::get_configuration_set::GetConfigurationSetError::BadRequestException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::BadRequestExceptionBuilder::default();
-                output = crate::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::BadRequestExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(
+                        _response_body,
+                        output,
+                    )
                     .map_err(crate::operation::get_configuration_set::GetConfigurationSetError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "NotFoundException" => crate::operation::get_configuration_set::GetConfigurationSetError::NotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_configuration_set::GetConfigurationSetError::unhandled)?;
+                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::get_configuration_set::GetConfigurationSetError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -60,21 +59,23 @@ pub fn de_get_configuration_set_http_error(
             }
             tmp
         }),
-        "TooManyRequestsException" => crate::operation::get_configuration_set::GetConfigurationSetError::TooManyRequestsException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "TooManyRequestsException" => {
+            crate::operation::get_configuration_set::GetConfigurationSetError::TooManyRequestsException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(crate::operation::get_configuration_set::GetConfigurationSetError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => crate::operation::get_configuration_set::GetConfigurationSetError::generic(generic),
     })
 }
@@ -91,14 +92,9 @@ pub fn de_get_configuration_set_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::get_configuration_set::builders::GetConfigurationSetOutputBuilder::default();
-        output = crate::protocol_serde::shape_get_configuration_set::de_get_configuration_set(
-            _response_body,
-            output,
-        )
-        .map_err(crate::operation::get_configuration_set::GetConfigurationSetError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output = crate::protocol_serde::shape_get_configuration_set::de_get_configuration_set(_response_body, output)
+            .map_err(crate::operation::get_configuration_set::GetConfigurationSetError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -110,10 +106,8 @@ pub(crate) fn de_get_configuration_set(
     crate::operation::get_configuration_set::builders::GetConfigurationSetOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -121,104 +115,83 @@ pub(crate) fn de_get_configuration_set(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "ArchivingOptions" => {
-                        builder = builder.set_archiving_options(
-                            crate::protocol_serde::shape_archiving_options::de_archiving_options(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?,
-                        );
-                    }
-                    "ConfigurationSetName" => {
-                        builder = builder.set_configuration_set_name(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                tokens.next(),
-                            )?
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "ArchivingOptions" => {
+                    builder = builder.set_archiving_options(
+                        crate::protocol_serde::shape_archiving_options::de_archiving_options(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
+                }
+                "ConfigurationSetName" => {
+                    builder = builder.set_configuration_set_name(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                        );
-                    }
-                    "DeliveryOptions" => {
-                        builder = builder.set_delivery_options(
-                            crate::protocol_serde::shape_delivery_options::de_delivery_options(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?,
-                        );
-                    }
-                    "ReputationOptions" => {
-                        builder = builder.set_reputation_options(
-                            crate::protocol_serde::shape_reputation_options::de_reputation_options(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?,
-                        );
-                    }
-                    "SendingOptions" => {
-                        builder = builder.set_sending_options(
-                            crate::protocol_serde::shape_sending_options::de_sending_options(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?,
-                        );
-                    }
-                    "SuppressionOptions" => {
-                        builder = builder.set_suppression_options(crate::protocol_serde::shape_suppression_options::de_suppression_options(
+                    );
+                }
+                "DeliveryOptions" => {
+                    builder = builder.set_delivery_options(
+                        crate::protocol_serde::shape_delivery_options::de_delivery_options(tokens, _value, depth + 1)?,
+                    );
+                }
+                "ReputationOptions" => {
+                    builder = builder.set_reputation_options(
+                        crate::protocol_serde::shape_reputation_options::de_reputation_options(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
+                }
+                "SendingOptions" => {
+                    builder = builder.set_sending_options(
+                        crate::protocol_serde::shape_sending_options::de_sending_options(tokens, _value, depth + 1)?,
+                    );
+                }
+                "SuppressionOptions" => {
+                    builder = builder.set_suppression_options(
+                        crate::protocol_serde::shape_suppression_options::de_suppression_options(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
+                }
+                "Tags" => {
+                    builder = builder.set_tags(crate::protocol_serde::shape_tag_list::de_tag_list(
                         tokens,
                         _value,
                         depth + 1,
                     )?);
-                    }
-                    "Tags" => {
-                        builder =
-                            builder.set_tags(crate::protocol_serde::shape_tag_list::de_tag_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
-                    }
-                    "TrackingOptions" => {
-                        builder = builder.set_tracking_options(
-                            crate::protocol_serde::shape_tracking_options::de_tracking_options(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?,
-                        );
-                    }
-                    "VdmOptions" => {
-                        builder = builder.set_vdm_options(
-                            crate::protocol_serde::shape_vdm_options::de_vdm_options(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-            }
+                "TrackingOptions" => {
+                    builder = builder.set_tracking_options(
+                        crate::protocol_serde::shape_tracking_options::de_tracking_options(tokens, _value, depth + 1)?,
+                    );
+                }
+                "VdmOptions" => {
+                    builder = builder.set_vdm_options(crate::protocol_serde::shape_vdm_options::de_vdm_options(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

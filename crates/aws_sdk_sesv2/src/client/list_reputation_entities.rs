@@ -13,8 +13,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListReputationEntitiesError>`](crate::operation::list_reputation_entities::ListReputationEntitiesError)
     pub fn list_reputation_entities(
         &self,
-    ) -> crate::operation::list_reputation_entities::builders::ListReputationEntitiesFluentBuilder
-    {
-        crate::operation::list_reputation_entities::builders::ListReputationEntitiesFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::list_reputation_entities::builders::ListReputationEntitiesFluentBuilder {
+        crate::operation::list_reputation_entities::builders::ListReputationEntitiesFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

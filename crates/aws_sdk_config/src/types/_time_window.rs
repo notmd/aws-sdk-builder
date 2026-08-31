@@ -27,9 +27,7 @@ impl TimeWindow {
 }
 
 /// A builder for [`TimeWindow`](crate::types::TimeWindow).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TimeWindowBuilder {
     pub(crate) start_time: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -42,10 +40,7 @@ impl TimeWindowBuilder {
         self
     }
     /// <p>The start time of an execution.</p>
-    pub fn set_start_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_start_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.start_time = input;
         self
     }
@@ -59,10 +54,7 @@ impl TimeWindowBuilder {
         self
     }
     /// <p>The end time of an execution. The end time must be after the start date.</p>
-    pub fn set_end_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_end_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.end_time = input;
         self
     }

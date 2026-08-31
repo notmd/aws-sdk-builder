@@ -41,9 +41,7 @@ impl S3Configuration {
 }
 
 /// A builder for [`S3Configuration`](crate::types::S3Configuration).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct S3ConfigurationBuilder {
     pub(crate) destination_identifier: ::std::option::Option<::std::string::String>,
@@ -54,18 +52,12 @@ pub struct S3ConfigurationBuilder {
 impl S3ConfigurationBuilder {
     /// <p>The Amazon S3 URI where query results are delivered. Must be a valid S3 URI format.</p>
     /// This field is required.
-    pub fn destination_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn destination_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.destination_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon S3 URI where query results are delivered. Must be a valid S3 URI format.</p>
-    pub fn set_destination_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_destination_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.destination_identifier = input;
         self
     }
@@ -89,18 +81,12 @@ impl S3ConfigurationBuilder {
         &self.role_arn
     }
     /// <p>The Amazon Web Services accountId for the bucket owning account.</p>
-    pub fn owner_account_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn owner_account_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.owner_account_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Web Services accountId for the bucket owning account.</p>
-    pub fn set_owner_account_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_owner_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.owner_account_id = input;
         self
     }
@@ -128,10 +114,7 @@ impl S3ConfigurationBuilder {
     /// - [`role_arn`](crate::types::builders::S3ConfigurationBuilder::role_arn)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::S3Configuration,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::S3Configuration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::S3Configuration {
             destination_identifier: self.destination_identifier.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

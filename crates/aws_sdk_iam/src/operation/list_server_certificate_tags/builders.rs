@@ -3,9 +3,7 @@ pub use crate::operation::list_server_certificate_tags::_list_server_certificate
 
 pub use crate::operation::list_server_certificate_tags::_list_server_certificate_tags_output::ListServerCertificateTagsOutputBuilder;
 
-impl
-    crate::operation::list_server_certificate_tags::builders::ListServerCertificateTagsInputBuilder
-{
+impl crate::operation::list_server_certificate_tags::builders::ListServerCertificateTagsInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -61,7 +59,9 @@ impl ListServerCertificateTagsFluentBuilder {
         }
     }
     /// Access the ListServerCertificateTags as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_server_certificate_tags::builders::ListServerCertificateTagsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_server_certificate_tags::builders::ListServerCertificateTagsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,16 +85,14 @@ impl ListServerCertificateTagsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_server_certificate_tags::ListServerCertificateTags::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_server_certificate_tags::ListServerCertificateTags::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::list_server_certificate_tags::ListServerCertificateTags::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_server_certificate_tags::ListServerCertificateTags::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -127,25 +125,21 @@ impl ListServerCertificateTagsFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::list_server_certificate_tags::paginator::ListServerCertificateTagsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::list_server_certificate_tags::paginator::ListServerCertificateTagsPaginator
-    {
-        crate::operation::list_server_certificate_tags::paginator::ListServerCertificateTagsPaginator::new(self.handle, self.inner)
+    ) -> crate::operation::list_server_certificate_tags::paginator::ListServerCertificateTagsPaginator {
+        crate::operation::list_server_certificate_tags::paginator::ListServerCertificateTagsPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The name of the IAM server certificate whose tags you want to see.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn server_certificate_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn server_certificate_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.server_certificate_name(input.into());
         self
     }
     /// <p>The name of the IAM server certificate whose tags you want to see.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn set_server_certificate_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_server_certificate_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_server_certificate_name(input);
         self
     }

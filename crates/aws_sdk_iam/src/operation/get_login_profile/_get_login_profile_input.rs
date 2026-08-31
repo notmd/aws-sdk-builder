@@ -24,9 +24,7 @@ impl GetLoginProfileInput {
 }
 
 /// A builder for [`GetLoginProfileInput`](crate::operation::get_login_profile::GetLoginProfileInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetLoginProfileInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,

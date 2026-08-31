@@ -40,15 +40,12 @@ impl GuardrailPiiEntityFilter {
 }
 
 /// A builder for [`GuardrailPiiEntityFilter`](crate::types::GuardrailPiiEntityFilter).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailPiiEntityFilterBuilder {
     pub(crate) r#match: ::std::option::Option<::std::string::String>,
     pub(crate) r#type: ::std::option::Option<crate::types::GuardrailPiiEntityType>,
-    pub(crate) action:
-        ::std::option::Option<crate::types::GuardrailSensitiveInformationPolicyAction>,
+    pub(crate) action: ::std::option::Option<crate::types::GuardrailSensitiveInformationPolicyAction>,
     pub(crate) detected: ::std::option::Option<bool>,
 }
 impl GuardrailPiiEntityFilterBuilder {
@@ -74,10 +71,7 @@ impl GuardrailPiiEntityFilterBuilder {
         self
     }
     /// <p>The PII entity filter type.</p>
-    pub fn set_type(
-        mut self,
-        input: ::std::option::Option<crate::types::GuardrailPiiEntityType>,
-    ) -> Self {
+    pub fn set_type(mut self, input: ::std::option::Option<crate::types::GuardrailPiiEntityType>) -> Self {
         self.r#type = input;
         self
     }
@@ -87,10 +81,7 @@ impl GuardrailPiiEntityFilterBuilder {
     }
     /// <p>The PII entity filter action.</p>
     /// This field is required.
-    pub fn action(
-        mut self,
-        input: crate::types::GuardrailSensitiveInformationPolicyAction,
-    ) -> Self {
+    pub fn action(mut self, input: crate::types::GuardrailSensitiveInformationPolicyAction) -> Self {
         self.action = ::std::option::Option::Some(input);
         self
     }
@@ -103,9 +94,7 @@ impl GuardrailPiiEntityFilterBuilder {
         self
     }
     /// <p>The PII entity filter action.</p>
-    pub fn get_action(
-        &self,
-    ) -> &::std::option::Option<crate::types::GuardrailSensitiveInformationPolicyAction> {
+    pub fn get_action(&self) -> &::std::option::Option<crate::types::GuardrailSensitiveInformationPolicyAction> {
         &self.action
     }
     /// <p>Indicates whether personally identifiable information (PII) that breaches the guardrail configuration is detected.</p>
@@ -129,10 +118,8 @@ impl GuardrailPiiEntityFilterBuilder {
     /// - [`action`](crate::types::builders::GuardrailPiiEntityFilterBuilder::action)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::GuardrailPiiEntityFilter,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::GuardrailPiiEntityFilter, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::GuardrailPiiEntityFilter {
             r#match: self.r#match.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

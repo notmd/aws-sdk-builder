@@ -57,10 +57,7 @@ impl PutExternalEvaluationFluentBuilder {
         }
     }
     /// Access the PutExternalEvaluation as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::put_external_evaluation::builders::PutExternalEvaluationInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::put_external_evaluation::builders::PutExternalEvaluationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +81,13 @@ impl PutExternalEvaluationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::put_external_evaluation::PutExternalEvaluation::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::put_external_evaluation::PutExternalEvaluation::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::put_external_evaluation::PutExternalEvaluation::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::put_external_evaluation::PutExternalEvaluation::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -122,18 +116,12 @@ impl PutExternalEvaluationFluentBuilder {
         self
     }
     /// <p>The name of the Config rule.</p>
-    pub fn config_rule_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.config_rule_name(input.into());
         self
     }
     /// <p>The name of the Config rule.</p>
-    pub fn set_config_rule_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_config_rule_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_config_rule_name(input);
         self
     }
@@ -147,17 +135,12 @@ impl PutExternalEvaluationFluentBuilder {
         self
     }
     /// <p>An <code>ExternalEvaluation</code> object that provides details about compliance.</p>
-    pub fn set_external_evaluation(
-        mut self,
-        input: ::std::option::Option<crate::types::ExternalEvaluation>,
-    ) -> Self {
+    pub fn set_external_evaluation(mut self, input: ::std::option::Option<crate::types::ExternalEvaluation>) -> Self {
         self.inner = self.inner.set_external_evaluation(input);
         self
     }
     /// <p>An <code>ExternalEvaluation</code> object that provides details about compliance.</p>
-    pub fn get_external_evaluation(
-        &self,
-    ) -> &::std::option::Option<crate::types::ExternalEvaluation> {
+    pub fn get_external_evaluation(&self) -> &::std::option::Option<crate::types::ExternalEvaluation> {
         self.inner.get_external_evaluation()
     }
 }

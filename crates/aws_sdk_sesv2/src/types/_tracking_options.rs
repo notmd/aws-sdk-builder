@@ -29,9 +29,7 @@ impl TrackingOptions {
 }
 
 /// A builder for [`TrackingOptions`](crate::types::TrackingOptions).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TrackingOptionsBuilder {
     pub(crate) custom_redirect_domain: ::std::option::Option<::std::string::String>,
@@ -40,18 +38,12 @@ pub struct TrackingOptionsBuilder {
 impl TrackingOptionsBuilder {
     /// <p>The domain to use for tracking open and click events.</p>
     /// This field is required.
-    pub fn custom_redirect_domain(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn custom_redirect_domain(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.custom_redirect_domain = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The domain to use for tracking open and click events.</p>
-    pub fn set_custom_redirect_domain(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_custom_redirect_domain(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.custom_redirect_domain = input;
         self
     }
@@ -65,10 +57,7 @@ impl TrackingOptionsBuilder {
         self
     }
     /// <p>The https policy to use for tracking open and click events.</p>
-    pub fn set_https_policy(
-        mut self,
-        input: ::std::option::Option<crate::types::HttpsPolicy>,
-    ) -> Self {
+    pub fn set_https_policy(mut self, input: ::std::option::Option<crate::types::HttpsPolicy>) -> Self {
         self.https_policy = input;
         self
     }
@@ -81,10 +70,7 @@ impl TrackingOptionsBuilder {
     /// - [`custom_redirect_domain`](crate::types::builders::TrackingOptionsBuilder::custom_redirect_domain)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::TrackingOptions,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::TrackingOptions, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TrackingOptions {
             custom_redirect_domain: self.custom_redirect_domain.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

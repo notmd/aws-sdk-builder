@@ -14,8 +14,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<CreateServiceEnvironmentError>`](crate::operation::create_service_environment::CreateServiceEnvironmentError)
     pub fn create_service_environment(
         &self,
-    ) -> crate::operation::create_service_environment::builders::CreateServiceEnvironmentFluentBuilder
-    {
-        crate::operation::create_service_environment::builders::CreateServiceEnvironmentFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::create_service_environment::builders::CreateServiceEnvironmentFluentBuilder {
+        crate::operation::create_service_environment::builders::CreateServiceEnvironmentFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -24,17 +24,13 @@ impl RemoveUserFromGroupInput {
 }
 impl RemoveUserFromGroupInput {
     /// Creates a new builder-style object to manufacture [`RemoveUserFromGroupInput`](crate::operation::remove_user_from_group::RemoveUserFromGroupInput).
-    pub fn builder(
-    ) -> crate::operation::remove_user_from_group::builders::RemoveUserFromGroupInputBuilder {
-        crate::operation::remove_user_from_group::builders::RemoveUserFromGroupInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::remove_user_from_group::builders::RemoveUserFromGroupInputBuilder {
+        crate::operation::remove_user_from_group::builders::RemoveUserFromGroupInputBuilder::default()
     }
 }
 
 /// A builder for [`RemoveUserFromGroupInput`](crate::operation::remove_user_from_group::RemoveUserFromGroupInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RemoveUserFromGroupInputBuilder {
     pub(crate) group_name: ::std::option::Option<::std::string::String>,
@@ -84,11 +80,9 @@ impl RemoveUserFromGroupInputBuilder {
         crate::operation::remove_user_from_group::RemoveUserFromGroupInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::remove_user_from_group::RemoveUserFromGroupInput {
-                group_name: self.group_name,
-                user_name: self.user_name,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::remove_user_from_group::RemoveUserFromGroupInput {
+            group_name: self.group_name,
+            user_name: self.user_name,
+        })
     }
 }

@@ -13,16 +13,13 @@ impl ::aws_types::request_id::RequestId for PutAccountDetailsOutput {
 }
 impl PutAccountDetailsOutput {
     /// Creates a new builder-style object to manufacture [`PutAccountDetailsOutput`](crate::operation::put_account_details::PutAccountDetailsOutput).
-    pub fn builder(
-    ) -> crate::operation::put_account_details::builders::PutAccountDetailsOutputBuilder {
+    pub fn builder() -> crate::operation::put_account_details::builders::PutAccountDetailsOutputBuilder {
         crate::operation::put_account_details::builders::PutAccountDetailsOutputBuilder::default()
     }
 }
 
 /// A builder for [`PutAccountDetailsOutput`](crate::operation::put_account_details::PutAccountDetailsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutAccountDetailsOutputBuilder {
     _request_id: Option<String>,

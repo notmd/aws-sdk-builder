@@ -57,9 +57,7 @@ impl UntagMFADeviceFluentBuilder {
         }
     }
     /// Access the UntagMFADevice as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::untag_mfa_device::builders::UntagMfaDeviceInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::untag_mfa_device::builders::UntagMfaDeviceInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,14 +81,12 @@ impl UntagMFADeviceFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::untag_mfa_device::UntagMFADevice::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::untag_mfa_device::UntagMFADevice::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::untag_mfa_device::UntagMFADevice::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::untag_mfa_device::UntagMFADevice::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -120,19 +116,13 @@ impl UntagMFADeviceFluentBuilder {
     }
     /// <p>The unique identifier for the IAM virtual MFA device from which you want to remove tags. For virtual MFA devices, the serial number is the same as the ARN.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn serial_number(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn serial_number(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.serial_number(input.into());
         self
     }
     /// <p>The unique identifier for the IAM virtual MFA device from which you want to remove tags. For virtual MFA devices, the serial number is the same as the ARN.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn set_serial_number(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_serial_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_serial_number(input);
         self
     }
@@ -152,10 +142,7 @@ impl UntagMFADeviceFluentBuilder {
         self
     }
     /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified instance profile.</p>
-    pub fn set_tag_keys(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_tag_keys(input);
         self
     }

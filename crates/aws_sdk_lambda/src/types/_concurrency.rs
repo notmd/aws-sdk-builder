@@ -20,9 +20,7 @@ impl Concurrency {
 }
 
 /// A builder for [`Concurrency`](crate::types::Concurrency).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ConcurrencyBuilder {
     pub(crate) reserved_concurrent_executions: ::std::option::Option<i32>,

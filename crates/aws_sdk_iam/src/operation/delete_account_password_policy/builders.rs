@@ -57,7 +57,9 @@ impl DeleteAccountPasswordPolicyFluentBuilder {
         }
     }
     /// Access the DeleteAccountPasswordPolicy as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_account_password_policy::builders::DeleteAccountPasswordPolicyInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::delete_account_password_policy::builders::DeleteAccountPasswordPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,11 +83,12 @@ impl DeleteAccountPasswordPolicyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicy::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicy::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicy::orchestrate(
             &runtime_plugins,
             input,

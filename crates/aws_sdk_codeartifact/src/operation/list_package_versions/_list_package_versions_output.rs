@@ -84,25 +84,20 @@ impl ::aws_types::request_id::RequestId for ListPackageVersionsOutput {
 }
 impl ListPackageVersionsOutput {
     /// Creates a new builder-style object to manufacture [`ListPackageVersionsOutput`](crate::operation::list_package_versions::ListPackageVersionsOutput).
-    pub fn builder(
-    ) -> crate::operation::list_package_versions::builders::ListPackageVersionsOutputBuilder {
-        crate::operation::list_package_versions::builders::ListPackageVersionsOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::list_package_versions::builders::ListPackageVersionsOutputBuilder {
+        crate::operation::list_package_versions::builders::ListPackageVersionsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListPackageVersionsOutput`](crate::operation::list_package_versions::ListPackageVersionsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListPackageVersionsOutputBuilder {
     pub(crate) default_display_version: ::std::option::Option<::std::string::String>,
     pub(crate) format: ::std::option::Option<crate::types::PackageFormat>,
     pub(crate) namespace: ::std::option::Option<::std::string::String>,
     pub(crate) package: ::std::option::Option<::std::string::String>,
-    pub(crate) versions:
-        ::std::option::Option<::std::vec::Vec<crate::types::PackageVersionSummary>>,
+    pub(crate) versions: ::std::option::Option<::std::vec::Vec<crate::types::PackageVersionSummary>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -114,10 +109,7 @@ impl ListPackageVersionsOutputBuilder {
     /// <li>
     /// <p>For npm packages, it's the version referenced by the <code>latest</code> tag. If the <code>latest</code> tag is not set, it's the most recently published package version.</p></li>
     /// </ul>
-    pub fn default_display_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn default_display_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.default_display_version = ::std::option::Option::Some(input.into());
         self
     }
@@ -128,10 +120,7 @@ impl ListPackageVersionsOutputBuilder {
     /// <li>
     /// <p>For npm packages, it's the version referenced by the <code>latest</code> tag. If the <code>latest</code> tag is not set, it's the most recently published package version.</p></li>
     /// </ul>
-    pub fn set_default_display_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_default_display_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.default_display_version = input;
         self
     }
@@ -237,9 +226,7 @@ impl ListPackageVersionsOutputBuilder {
         self
     }
     /// <p>The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html">PackageVersionSummary</a> objects.</p>
-    pub fn get_versions(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::PackageVersionSummary>> {
+    pub fn get_versions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PackageVersionSummary>> {
         &self.versions
     }
     /// <p>If there are additional results, this is the token for the next set of results.</p>

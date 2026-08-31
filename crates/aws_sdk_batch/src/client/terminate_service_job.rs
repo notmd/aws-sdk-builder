@@ -10,8 +10,6 @@ impl super::Client {
     pub fn terminate_service_job(
         &self,
     ) -> crate::operation::terminate_service_job::builders::TerminateServiceJobFluentBuilder {
-        crate::operation::terminate_service_job::builders::TerminateServiceJobFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::terminate_service_job::builders::TerminateServiceJobFluentBuilder::new(self.handle.clone())
     }
 }

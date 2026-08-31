@@ -14,7 +14,11 @@ impl super::Client {
     ///   - [`created_at(Option<i64>)`](crate::operation::describe_consumable_resource::DescribeConsumableResourceOutput::created_at): <p>The Unix timestamp (in milliseconds) for when the consumable resource was created.</p>
     ///   - [`tags(Option<HashMap::<String, String>>)`](crate::operation::describe_consumable_resource::DescribeConsumableResourceOutput::tags): <p>The tags that you apply to the consumable resource to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
     /// - On failure, responds with [`SdkError<DescribeConsumableResourceError>`](crate::operation::describe_consumable_resource::DescribeConsumableResourceError)
-    pub fn describe_consumable_resource(&self) -> crate::operation::describe_consumable_resource::builders::DescribeConsumableResourceFluentBuilder{
-        crate::operation::describe_consumable_resource::builders::DescribeConsumableResourceFluentBuilder::new(self.handle.clone())
+    pub fn describe_consumable_resource(
+        &self,
+    ) -> crate::operation::describe_consumable_resource::builders::DescribeConsumableResourceFluentBuilder {
+        crate::operation::describe_consumable_resource::builders::DescribeConsumableResourceFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

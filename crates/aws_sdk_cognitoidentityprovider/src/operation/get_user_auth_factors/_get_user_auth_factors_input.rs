@@ -21,8 +21,7 @@ impl ::std::fmt::Debug for GetUserAuthFactorsInput {
 }
 impl GetUserAuthFactorsInput {
     /// Creates a new builder-style object to manufacture [`GetUserAuthFactorsInput`](crate::operation::get_user_auth_factors::GetUserAuthFactorsInput).
-    pub fn builder(
-    ) -> crate::operation::get_user_auth_factors::builders::GetUserAuthFactorsInputBuilder {
+    pub fn builder() -> crate::operation::get_user_auth_factors::builders::GetUserAuthFactorsInputBuilder {
         crate::operation::get_user_auth_factors::builders::GetUserAuthFactorsInputBuilder::default()
     }
 }
@@ -56,11 +55,9 @@ impl GetUserAuthFactorsInputBuilder {
         crate::operation::get_user_auth_factors::GetUserAuthFactorsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::get_user_auth_factors::GetUserAuthFactorsInput {
-                access_token: self.access_token,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::get_user_auth_factors::GetUserAuthFactorsInput {
+            access_token: self.access_token,
+        })
     }
 }
 impl ::std::fmt::Debug for GetUserAuthFactorsInputBuilder {

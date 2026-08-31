@@ -23,9 +23,7 @@ use aws_smithy_runtime_api::client::interceptors::{
     disable_interceptor, dyn_dispatch_hint, Intercept, SharedInterceptor,
 };
 use aws_smithy_runtime_api::client::retries::SharedRetryStrategy;
-use aws_smithy_runtime_api::client::runtime_components::{
-    RuntimeComponents, RuntimeComponentsBuilder,
-};
+use aws_smithy_runtime_api::client::runtime_components::{RuntimeComponents, RuntimeComponentsBuilder};
 use aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin;
 use aws_smithy_schema::header_omit_settings::SharedHeaderOmitSettings;
 use aws_smithy_types::config_bag::{ConfigBag, FrozenLayer, Layer};
@@ -89,13 +87,14 @@ impl Intercept for SigV4PresigningInterceptor {
             config.signing_options.expires_in = Some(self.config.expires());
             config.signing_options.signature_type = HttpSignatureType::HttpRequestQueryParams;
             config.signing_options.payload_override = Some(self.payload_override.clone());
-            cfg.interceptor_state()
-                .store_put::<SigV4OperationSigningConfig>(config);
+            cfg.interceptor_state().store_put::<SigV4OperationSigningConfig>(config);
             Ok(())
         } else {
-            Err("SigV4 presigning requires the SigV4OperationSigningConfig to be in the config bag. \
+            Err(
+                "SigV4 presigning requires the SigV4OperationSigningConfig to be in the config bag. \
                 This is a bug. Please file an issue."
-                .into())
+                    .into(),
+            )
         }
     }
 }
@@ -111,9 +110,10 @@ impl SigV4PresigningRuntimePlugin {
         let time_source = SharedTimeSource::new(StaticTimeSource::new(config.start_time()));
         Self {
             runtime_components: RuntimeComponentsBuilder::new("SigV4PresigningRuntimePlugin")
-                .with_interceptor(SharedInterceptor::permanent(
-                    SigV4PresigningInterceptor::new(config, payload_override),
-                ))
+                .with_interceptor(SharedInterceptor::permanent(SigV4PresigningInterceptor::new(
+                    config,
+                    payload_override,
+                )))
                 .with_retry_strategy(Some(SharedRetryStrategy::new(NeverRetryStrategy::new())))
                 .with_time_source(Some(time_source)),
         }
@@ -129,10 +129,7 @@ impl RuntimePlugin for SigV4PresigningRuntimePlugin {
         Some(layer.freeze())
     }
 
-    fn runtime_components(
-        &self,
-        _: &RuntimeComponentsBuilder,
-    ) -> Cow<'_, RuntimeComponentsBuilder> {
+    fn runtime_components(&self, _: &RuntimeComponentsBuilder) -> Cow<'_, RuntimeComponentsBuilder> {
         Cow::Borrowed(&self.runtime_components)
     }
 }

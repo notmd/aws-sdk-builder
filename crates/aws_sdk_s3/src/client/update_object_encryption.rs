@@ -16,8 +16,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateObjectEncryptionError>`](crate::operation::update_object_encryption::UpdateObjectEncryptionError)
     pub fn update_object_encryption(
         &self,
-    ) -> crate::operation::update_object_encryption::builders::UpdateObjectEncryptionFluentBuilder
-    {
-        crate::operation::update_object_encryption::builders::UpdateObjectEncryptionFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::update_object_encryption::builders::UpdateObjectEncryptionFluentBuilder {
+        crate::operation::update_object_encryption::builders::UpdateObjectEncryptionFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

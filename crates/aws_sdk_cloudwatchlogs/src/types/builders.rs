@@ -5,10 +5,7 @@
 ))]
 pub use crate::types::_data_source::DataSourceBuilder;
 
-#[cfg(any(
-    feature = "op_cancel_import_task",
-    feature = "op_describe_import_tasks"
-))]
+#[cfg(any(feature = "op_cancel_import_task", feature = "op_describe_import_tasks"))]
 pub use crate::types::_import_statistics::ImportStatisticsBuilder;
 
 #[cfg(any(
@@ -27,10 +24,7 @@ pub use crate::types::_s3_delivery_configuration::S3DeliveryConfigurationBuilder
 ))]
 pub use crate::types::_delivery::DeliveryBuilder;
 
-#[cfg(any(
-    feature = "op_create_import_task",
-    feature = "op_describe_import_tasks"
-))]
+#[cfg(any(feature = "op_create_import_task", feature = "op_describe_import_tasks"))]
 pub use crate::types::_import_filter::ImportFilterBuilder;
 
 #[cfg(any(
@@ -64,10 +58,7 @@ pub use crate::types::_delivery_source::DeliverySourceBuilder;
 #[cfg(feature = "op_get_query_results")]
 pub use crate::types::_query_statistics::QueryStatisticsBuilder;
 
-#[cfg(any(
-    feature = "op_describe_account_policies",
-    feature = "op_put_account_policy"
-))]
+#[cfg(any(feature = "op_describe_account_policies", feature = "op_put_account_policy"))]
 pub use crate::types::_account_policy::AccountPolicyBuilder;
 
 #[cfg(any(
@@ -80,10 +71,7 @@ pub use crate::types::_delivery_destination_configuration::DeliveryDestinationCo
 #[cfg(any(feature = "op_describe_destinations", feature = "op_put_destination"))]
 pub use crate::types::_destination::DestinationBuilder;
 
-#[cfg(any(
-    feature = "op_describe_index_policies",
-    feature = "op_put_index_policy"
-))]
+#[cfg(any(feature = "op_describe_index_policies", feature = "op_put_index_policy"))]
 pub use crate::types::_index_policy::IndexPolicyBuilder;
 
 #[cfg(feature = "op_put_log_events")]
@@ -95,10 +83,7 @@ pub use crate::types::_rejected_log_events_info::RejectedLogEventsInfoBuilder;
 #[cfg(feature = "op_put_log_events")]
 pub use crate::types::_rejected_entity_info::RejectedEntityInfoBuilder;
 
-#[cfg(any(
-    feature = "op_describe_resource_policies",
-    feature = "op_put_resource_policy"
-))]
+#[cfg(any(feature = "op_describe_resource_policies", feature = "op_put_resource_policy"))]
 pub use crate::types::_resource_policy::ResourcePolicyBuilder;
 
 #[cfg(feature = "op_start_query")]
@@ -190,10 +175,7 @@ pub use crate::types::_trigger_history_record::TriggerHistoryRecordBuilder;
 ))]
 pub use crate::types::_processor::ProcessorBuilder;
 
-#[cfg(any(
-    feature = "op_list_aggregate_log_group_summaries",
-    feature = "op_list_log_groups"
-))]
+#[cfg(any(feature = "op_list_aggregate_log_group_summaries", feature = "op_list_log_groups"))]
 pub use crate::types::_data_source_filter::DataSourceFilterBuilder;
 
 #[cfg(feature = "op_list_aggregate_log_group_summaries")]
@@ -229,16 +211,10 @@ pub use crate::types::_open_search_resource_config::OpenSearchResourceConfigBuil
 #[cfg(feature = "op_put_log_events")]
 pub use crate::types::_input_log_event::InputLogEventBuilder;
 
-#[cfg(any(
-    feature = "op_describe_metric_filters",
-    feature = "op_put_metric_filter"
-))]
+#[cfg(any(feature = "op_describe_metric_filters", feature = "op_put_metric_filter"))]
 pub use crate::types::_metric_transformation::MetricTransformationBuilder;
 
-#[cfg(any(
-    feature = "op_describe_query_definitions",
-    feature = "op_put_query_definition"
-))]
+#[cfg(any(feature = "op_describe_query_definitions", feature = "op_put_query_definition"))]
 pub use crate::types::_query_parameter::QueryParameterBuilder;
 
 #[cfg(feature = "op_start_live_tail")]

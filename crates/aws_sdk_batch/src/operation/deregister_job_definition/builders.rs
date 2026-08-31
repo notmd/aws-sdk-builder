@@ -26,8 +26,7 @@ impl crate::operation::deregister_job_definition::builders::DeregisterJobDefinit
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DeregisterJobDefinitionFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::deregister_job_definition::builders::DeregisterJobDefinitionInputBuilder,
+    inner: crate::operation::deregister_job_definition::builders::DeregisterJobDefinitionInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -60,8 +59,7 @@ impl DeregisterJobDefinitionFluentBuilder {
     /// Access the DeregisterJobDefinition as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::deregister_job_definition::builders::DeregisterJobDefinitionInputBuilder
-    {
+    ) -> &crate::operation::deregister_job_definition::builders::DeregisterJobDefinitionInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,16 +83,13 @@ impl DeregisterJobDefinitionFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::deregister_job_definition::DeregisterJobDefinition::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::deregister_job_definition::DeregisterJobDefinition::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::deregister_job_definition::DeregisterJobDefinition::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::deregister_job_definition::DeregisterJobDefinition::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -123,18 +118,12 @@ impl DeregisterJobDefinitionFluentBuilder {
         self
     }
     /// <p>The name and revision (<code>name:revision</code>) or full Amazon Resource Name (ARN) of the job definition to deregister.</p>
-    pub fn job_definition(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn job_definition(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.job_definition(input.into());
         self
     }
     /// <p>The name and revision (<code>name:revision</code>) or full Amazon Resource Name (ARN) of the job definition to deregister.</p>
-    pub fn set_job_definition(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_job_definition(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_job_definition(input);
         self
     }

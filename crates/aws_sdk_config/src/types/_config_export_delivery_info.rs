@@ -51,9 +51,7 @@ impl ConfigExportDeliveryInfo {
 }
 
 /// A builder for [`ConfigExportDeliveryInfo`](crate::types::ConfigExportDeliveryInfo).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ConfigExportDeliveryInfoBuilder {
     pub(crate) last_status: ::std::option::Option<crate::types::DeliveryStatus>,
@@ -70,10 +68,7 @@ impl ConfigExportDeliveryInfoBuilder {
         self
     }
     /// <p>Status of the last attempted delivery.</p>
-    pub fn set_last_status(
-        mut self,
-        input: ::std::option::Option<crate::types::DeliveryStatus>,
-    ) -> Self {
+    pub fn set_last_status(mut self, input: ::std::option::Option<crate::types::DeliveryStatus>) -> Self {
         self.last_status = input;
         self
     }
@@ -82,18 +77,12 @@ impl ConfigExportDeliveryInfoBuilder {
         &self.last_status
     }
     /// <p>The error code from the last attempted delivery.</p>
-    pub fn last_error_code(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn last_error_code(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.last_error_code = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The error code from the last attempted delivery.</p>
-    pub fn set_last_error_code(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_last_error_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.last_error_code = input;
         self
     }
@@ -102,18 +91,12 @@ impl ConfigExportDeliveryInfoBuilder {
         &self.last_error_code
     }
     /// <p>The error message from the last attempted delivery.</p>
-    pub fn last_error_message(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn last_error_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.last_error_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The error message from the last attempted delivery.</p>
-    pub fn set_last_error_message(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_last_error_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.last_error_message = input;
         self
     }
@@ -127,10 +110,7 @@ impl ConfigExportDeliveryInfoBuilder {
         self
     }
     /// <p>The time of the last attempted delivery.</p>
-    pub fn set_last_attempt_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_last_attempt_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_attempt_time = input;
         self
     }
@@ -144,10 +124,7 @@ impl ConfigExportDeliveryInfoBuilder {
         self
     }
     /// <p>The time of the last successful delivery.</p>
-    pub fn set_last_successful_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_last_successful_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_successful_time = input;
         self
     }
@@ -161,10 +138,7 @@ impl ConfigExportDeliveryInfoBuilder {
         self
     }
     /// <p>The time that the next delivery occurs.</p>
-    pub fn set_next_delivery_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_next_delivery_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.next_delivery_time = input;
         self
     }

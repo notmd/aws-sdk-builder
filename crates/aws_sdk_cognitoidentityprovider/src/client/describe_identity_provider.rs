@@ -10,8 +10,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeIdentityProviderError>`](crate::operation::describe_identity_provider::DescribeIdentityProviderError)
     pub fn describe_identity_provider(
         &self,
-    ) -> crate::operation::describe_identity_provider::builders::DescribeIdentityProviderFluentBuilder
-    {
-        crate::operation::describe_identity_provider::builders::DescribeIdentityProviderFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::describe_identity_provider::builders::DescribeIdentityProviderFluentBuilder {
+        crate::operation::describe_identity_provider::builders::DescribeIdentityProviderFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

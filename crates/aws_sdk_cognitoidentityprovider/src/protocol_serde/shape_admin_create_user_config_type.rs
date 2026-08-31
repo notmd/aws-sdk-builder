@@ -17,10 +17,7 @@ pub fn ser_admin_create_user_config_type(
     if let Some(var_1) = &input.invite_message_template {
         #[allow(unused_mut)]
         let mut object_2 = object.key("InviteMessageTemplate").start_object();
-        crate::protocol_serde::shape_message_template_type::ser_message_template_type(
-            &mut object_2,
-            var_1,
-        )?;
+        crate::protocol_serde::shape_message_template_type::ser_message_template_type(&mut object_2, var_1)?;
         object_2.finish();
     }
     Ok(())
@@ -43,11 +40,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -61,43 +56,39 @@ where
                         match key.to_unescaped()?.as_ref() {
                             "AllowAdminCreateUserOnly" => {
                                 builder = builder.set_allow_admin_create_user_only(
-                                    ::aws_smithy_json::deserialize::token::expect_bool_or_null(
-                                        tokens.next(),
-                                    )?,
+                                    ::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?,
                                 );
                             }
                             "UnusedAccountValidityDays" => {
                                 builder = builder.set_unused_account_validity_days(
-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(i32::try_from)
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                        .map(i32::try_from)
+                                        .transpose()?,
                                 );
                             }
                             "InviteMessageTemplate" => {
                                 builder = builder.set_invite_message_template(
-                                crate::protocol_serde::shape_message_template_type::de_message_template_type(tokens, _value, depth + 1)?,
-                            );
+                                    crate::protocol_serde::shape_message_template_type::de_message_template_type(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
             Ok(Some(builder.build()))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

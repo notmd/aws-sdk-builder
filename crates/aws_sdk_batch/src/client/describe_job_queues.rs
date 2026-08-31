@@ -14,8 +14,6 @@ impl super::Client {
     pub fn describe_job_queues(
         &self,
     ) -> crate::operation::describe_job_queues::builders::DescribeJobQueuesFluentBuilder {
-        crate::operation::describe_job_queues::builders::DescribeJobQueuesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::describe_job_queues::builders::DescribeJobQueuesFluentBuilder::new(self.handle.clone())
     }
 }

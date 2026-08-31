@@ -84,12 +84,11 @@ impl ListBackupsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_backups::ListBackups::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::list_backups::ListBackups::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::list_backups::ListBackups::orchestrate(&runtime_plugins, input).await
     }
 
@@ -152,17 +151,12 @@ impl ListBackupsFluentBuilder {
         self
     }
     /// <p>Only backups created after this time are listed. <code>TimeRangeLowerBound</code> is inclusive.</p>
-    pub fn set_time_range_lower_bound(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_time_range_lower_bound(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.inner = self.inner.set_time_range_lower_bound(input);
         self
     }
     /// <p>Only backups created after this time are listed. <code>TimeRangeLowerBound</code> is inclusive.</p>
-    pub fn get_time_range_lower_bound(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_time_range_lower_bound(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         self.inner.get_time_range_lower_bound()
     }
     /// <p>Only backups created before this time are listed. <code>TimeRangeUpperBound</code> is exclusive.</p>
@@ -171,32 +165,21 @@ impl ListBackupsFluentBuilder {
         self
     }
     /// <p>Only backups created before this time are listed. <code>TimeRangeUpperBound</code> is exclusive.</p>
-    pub fn set_time_range_upper_bound(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_time_range_upper_bound(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.inner = self.inner.set_time_range_upper_bound(input);
         self
     }
     /// <p>Only backups created before this time are listed. <code>TimeRangeUpperBound</code> is exclusive.</p>
-    pub fn get_time_range_upper_bound(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_time_range_upper_bound(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         self.inner.get_time_range_upper_bound()
     }
     /// <p><code>LastEvaluatedBackupArn</code> is the Amazon Resource Name (ARN) of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the <code>ExclusiveStartBackupArn</code> of a new <code>ListBackups</code> operation in order to fetch the next page of results.</p>
-    pub fn exclusive_start_backup_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn exclusive_start_backup_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.exclusive_start_backup_arn(input.into());
         self
     }
     /// <p><code>LastEvaluatedBackupArn</code> is the Amazon Resource Name (ARN) of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the <code>ExclusiveStartBackupArn</code> of a new <code>ListBackups</code> operation in order to fetch the next page of results.</p>
-    pub fn set_exclusive_start_backup_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_exclusive_start_backup_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_exclusive_start_backup_arn(input);
         self
     }
@@ -228,10 +211,7 @@ impl ListBackupsFluentBuilder {
     /// <li>
     /// <p><code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</p></li>
     /// </ul>
-    pub fn set_backup_type(
-        mut self,
-        input: ::std::option::Option<crate::types::BackupTypeFilter>,
-    ) -> Self {
+    pub fn set_backup_type(mut self, input: ::std::option::Option<crate::types::BackupTypeFilter>) -> Self {
         self.inner = self.inner.set_backup_type(input);
         self
     }

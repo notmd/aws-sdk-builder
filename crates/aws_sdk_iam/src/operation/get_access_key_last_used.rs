@@ -37,8 +37,7 @@ impl GetAccessKeyLastUsed {
         let output = context.finalize().map_err(map_err)?;
         ::std::result::Result::Ok(
             output
-                .downcast::<crate::operation::get_access_key_last_used::GetAccessKeyLastUsedOutput>(
-                )
+                .downcast::<crate::operation::get_access_key_last_used::GetAccessKeyLastUsedOutput>()
                 .expect("correct output type"),
         )
     }
@@ -86,13 +85,11 @@ impl GetAccessKeyLastUsed {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(
-                crate::config::ConfigOverrideRuntimePlugin::new(
-                    config_override,
-                    client_config.config.clone(),
-                    &client_config.runtime_components,
-                ),
-            );
+            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+                config_override,
+                client_config.config.clone(),
+                &client_config.runtime_components,
+            ));
         }
         runtime_plugins
     }
@@ -101,11 +98,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetAcce
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("GetAccessKeyLastUsed");
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                GetAccessKeyLastUsedRequestSerializer,
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+            GetAccessKeyLastUsedRequestSerializer,
+        ));
         cfg.store_put(
             ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
                 GetAccessKeyLastUsedResponseDeserializer,
@@ -121,12 +116,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetAcce
             ),
         );
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-                "GetAccessKeyLastUsed",
-                "IAM",
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+            "GetAccessKeyLastUsed",
+            "IAM",
+        ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = true;
         signing_options.content_sha256_header = false;
@@ -144,30 +137,39 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetAcce
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<
-        '_,
-        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    > {
+    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
-        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetAccessKeyLastUsed")
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new(
+            "GetAccessKeyLastUsed",
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 GetAccessKeyLastUsedTelemetryInputCaptureInterceptor,
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 GetAccessKeyLastUsedEndpointParamsInterceptor,
-            ))
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+            ),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                 crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError,
-            >::new())
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+            >::new(),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                 crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError,
-            >::new())
-            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError,
-            >::new());
+            >::new(),
+        )
+        .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+            crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError,
+        >::new());
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -202,9 +204,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) =
-            context.input().downcast_ref::<GetAccessKeyLastUsedInput>()
-        else {
+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<GetAccessKeyLastUsedInput>() else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
@@ -222,9 +222,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
 }
 #[derive(Debug)]
 struct GetAccessKeyLastUsedResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
-    for GetAccessKeyLastUsedResponseDeserializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetAccessKeyLastUsedResponseDeserializer {
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -237,18 +235,20 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_get_access_key_last_used::de_get_access_key_last_used_http_error(status, headers, body)
+            crate::protocol_serde::shape_get_access_key_last_used::de_get_access_key_last_used_http_error(
+                status, headers, body,
+            )
         } else {
-            crate::protocol_serde::shape_get_access_key_last_used::de_get_access_key_last_used_http_response(status, headers, body)
+            crate::protocol_serde::shape_get_access_key_last_used::de_get_access_key_last_used_http_response(
+                status, headers, body,
+            )
         };
         crate::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
 struct GetAccessKeyLastUsedRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
-    for GetAccessKeyLastUsedRequestSerializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetAccessKeyLastUsedRequestSerializer {
     #[allow(
         unused_mut,
         clippy::let_and_return,
@@ -275,8 +275,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_base(
                 _input: &crate::operation::get_access_key_last_used::GetAccessKeyLastUsedInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
                 ::std::write!(output, "/").expect("formatting should succeed");
                 ::std::result::Result::Ok(())
@@ -285,10 +284,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn update_http_builder(
                 input: &crate::operation::get_access_key_last_used::GetAccessKeyLastUsedInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<
-                ::http_1x::request::Builder,
-                ::aws_smithy_types::error::operation::BuildError,
-            > {
+            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
@@ -312,22 +309,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
                 &content_length,
             );
         }
-        ::std::result::Result::Ok(
-            request_builder
-                .body(body)
-                .expect("valid request")
-                .try_into()
-                .unwrap(),
-        )
+        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
 #[derive(Debug)]
 struct GetAccessKeyLastUsedEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for GetAccessKeyLastUsedEndpointParamsInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetAccessKeyLastUsedEndpointParamsInterceptor {
     fn name(&self) -> &'static str {
         "GetAccessKeyLastUsedEndpointParamsInterceptor"
     }
@@ -348,22 +337,13 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             .ok_or("failed to downcast to GetAccessKeyLastUsedInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_use_dual_stack(
-                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
-                    .map(|ty| ty.0),
-            )
-            .set_use_fips(
-                cfg.load::<::aws_types::endpoint_config::UseFips>()
-                    .map(|ty| ty.0),
-            )
+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_endpoint(
                 cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
                     .map(|ty| ty.0.clone()),
             )
-            .set_region(
-                cfg.load::<::aws_types::region::Region>()
-                    .map(|r| r.as_ref().to_owned()),
-            )
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .build()
             .map_err(|err| {
                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(
@@ -371,9 +351,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
                     err,
                 )
             })?;
-        cfg.interceptor_state().store_put(
-            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
-        );
+        cfg.interceptor_state()
+            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(
+                params,
+            ));
         ::std::result::Result::Ok(())
     }
 }
@@ -400,9 +381,7 @@ impl GetAccessKeyLastUsedError {
     /// Creates the `GetAccessKeyLastUsedError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -467,9 +446,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetAccessKeyL
 }
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetAccessKeyLastUsedError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -478,9 +455,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetAcces
         })
     }
 }
-impl ::aws_types::request_id::RequestId
-    for crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError
-{
+impl ::aws_types::request_id::RequestId for crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

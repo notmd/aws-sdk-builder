@@ -57,9 +57,7 @@ impl DescribeExportTasksFluentBuilder {
         }
     }
     /// Access the DescribeExportTasks as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::describe_export_tasks::builders::DescribeExportTasksInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::describe_export_tasks::builders::DescribeExportTasksInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,17 +81,12 @@ impl DescribeExportTasksFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::describe_export_tasks::DescribeExportTasks::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::describe_export_tasks::DescribeExportTasks::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::describe_export_tasks::DescribeExportTasks::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::describe_export_tasks::DescribeExportTasks::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -141,10 +134,7 @@ impl DescribeExportTasksFluentBuilder {
         self
     }
     /// <p>The status code of the export task. Specifying a status code filters the results to zero or more export tasks.</p>
-    pub fn set_status_code(
-        mut self,
-        input: ::std::option::Option<crate::types::ExportTaskStatusCode>,
-    ) -> Self {
+    pub fn set_status_code(mut self, input: ::std::option::Option<crate::types::ExportTaskStatusCode>) -> Self {
         self.inner = self.inner.set_status_code(input);
         self
     }

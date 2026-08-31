@@ -11,8 +11,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<AssociateSoftwareTokenError>`](crate::operation::associate_software_token::AssociateSoftwareTokenError)
     pub fn associate_software_token(
         &self,
-    ) -> crate::operation::associate_software_token::builders::AssociateSoftwareTokenFluentBuilder
-    {
-        crate::operation::associate_software_token::builders::AssociateSoftwareTokenFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::associate_software_token::builders::AssociateSoftwareTokenFluentBuilder {
+        crate::operation::associate_software_token::builders::AssociateSoftwareTokenFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -120,18 +120,12 @@ impl AssumeRootFluentBuilder {
         self
     }
     /// <p>The member account principal ARN or account ID.</p>
-    pub fn target_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn target_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.target_principal(input.into());
         self
     }
     /// <p>The member account principal ARN or account ID.</p>
-    pub fn set_target_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_target_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_target_principal(input);
         self
     }
@@ -169,10 +163,7 @@ impl AssumeRootFluentBuilder {
     /// <li>
     /// <p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/security-iam-awsmanpol.html#security-iam-awsmanpol-SQSUnlockQueuePolicy">SQSUnlockQueuePolicy</a></p></li>
     /// </ul>
-    pub fn set_task_policy_arn(
-        mut self,
-        input: ::std::option::Option<crate::types::PolicyDescriptorType>,
-    ) -> Self {
+    pub fn set_task_policy_arn(mut self, input: ::std::option::Option<crate::types::PolicyDescriptorType>) -> Self {
         self.inner = self.inner.set_task_policy_arn(input);
         self
     }
@@ -189,9 +180,7 @@ impl AssumeRootFluentBuilder {
     /// <li>
     /// <p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/security-iam-awsmanpol.html#security-iam-awsmanpol-SQSUnlockQueuePolicy">SQSUnlockQueuePolicy</a></p></li>
     /// </ul>
-    pub fn get_task_policy_arn(
-        &self,
-    ) -> &::std::option::Option<crate::types::PolicyDescriptorType> {
+    pub fn get_task_policy_arn(&self) -> &::std::option::Option<crate::types::PolicyDescriptorType> {
         self.inner.get_task_policy_arn()
     }
     /// <p>The duration, in seconds, of the privileged session. The value can range from 0 seconds up to the maximum session duration of 900 seconds (15 minutes). If you specify a value higher than this setting, the operation fails.</p>

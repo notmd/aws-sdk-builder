@@ -57,7 +57,10 @@ impl ListDurableExecutionsByFunctionFluentBuilder {
         }
     }
     /// Access the ListDurableExecutionsByFunction as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_durable_executions_by_function::builders::ListDurableExecutionsByFunctionInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_durable_executions_by_function::builders::ListDurableExecutionsByFunctionInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +79,7 @@ impl ListDurableExecutionsByFunctionFluentBuilder {
             crate::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +89,11 @@ impl ListDurableExecutionsByFunctionFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_durable_executions_by_function::ListDurableExecutionsByFunction::orchestrate(&runtime_plugins, input).await
+        crate::operation::list_durable_executions_by_function::ListDurableExecutionsByFunction::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +103,7 @@ impl ListDurableExecutionsByFunctionFluentBuilder {
         crate::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionOutput,
         crate::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -117,22 +124,22 @@ impl ListDurableExecutionsByFunctionFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_durable_executions_by_function::paginator::ListDurableExecutionsByFunctionPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_durable_executions_by_function::paginator::ListDurableExecutionsByFunctionPaginator{
-        crate::operation::list_durable_executions_by_function::paginator::ListDurableExecutionsByFunctionPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::list_durable_executions_by_function::paginator::ListDurableExecutionsByFunctionPaginator
+    {
+        crate::operation::list_durable_executions_by_function::paginator::ListDurableExecutionsByFunctionPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The name or ARN of the Lambda function. You can specify a function name, a partial ARN, or a full ARN.</p>
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
     /// <p>The name or ARN of the Lambda function. You can specify a function name, a partial ARN, or a full ARN.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }
@@ -155,18 +162,12 @@ impl ListDurableExecutionsByFunctionFluentBuilder {
         self.inner.get_qualifier()
     }
     /// <p>Filter executions by name. Only executions with names that matches this string are returned.</p>
-    pub fn durable_execution_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn durable_execution_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.durable_execution_name(input.into());
         self
     }
     /// <p>Filter executions by name. Only executions with names that matches this string are returned.</p>
-    pub fn set_durable_execution_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_durable_execution_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_durable_execution_name(input);
         self
     }
@@ -193,9 +194,7 @@ impl ListDurableExecutionsByFunctionFluentBuilder {
         self
     }
     /// <p>Filter executions by status. Valid values: RUNNING, SUCCEEDED, FAILED, TIMED_OUT, STOPPED.</p>
-    pub fn get_statuses(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ExecutionStatus>> {
+    pub fn get_statuses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ExecutionStatus>> {
         self.inner.get_statuses()
     }
     /// <p>Filter executions that started after this timestamp (ISO 8601 format).</p>
@@ -204,10 +203,7 @@ impl ListDurableExecutionsByFunctionFluentBuilder {
         self
     }
     /// <p>Filter executions that started after this timestamp (ISO 8601 format).</p>
-    pub fn set_started_after(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_started_after(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.inner = self.inner.set_started_after(input);
         self
     }
@@ -221,10 +217,7 @@ impl ListDurableExecutionsByFunctionFluentBuilder {
         self
     }
     /// <p>Filter executions that started before this timestamp (ISO 8601 format).</p>
-    pub fn set_started_before(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_started_before(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.inner = self.inner.set_started_before(input);
         self
     }

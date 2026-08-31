@@ -15,9 +15,7 @@ impl DescribeConformancePackStatusOutput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.conformance_pack_status_details.is_none()`.
     pub fn conformance_pack_status_details(&self) -> &[crate::types::ConformancePackStatusDetail] {
-        self.conformance_pack_status_details
-            .as_deref()
-            .unwrap_or_default()
+        self.conformance_pack_status_details.as_deref().unwrap_or_default()
     }
     /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -31,15 +29,14 @@ impl ::aws_types::request_id::RequestId for DescribeConformancePackStatusOutput 
 }
 impl DescribeConformancePackStatusOutput {
     /// Creates a new builder-style object to manufacture [`DescribeConformancePackStatusOutput`](crate::operation::describe_conformance_pack_status::DescribeConformancePackStatusOutput).
-    pub fn builder() -> crate::operation::describe_conformance_pack_status::builders::DescribeConformancePackStatusOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::describe_conformance_pack_status::builders::DescribeConformancePackStatusOutputBuilder {
         crate::operation::describe_conformance_pack_status::builders::DescribeConformancePackStatusOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeConformancePackStatusOutput`](crate::operation::describe_conformance_pack_status::DescribeConformancePackStatusOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeConformancePackStatusOutputBuilder {
     pub(crate) conformance_pack_status_details:
@@ -53,10 +50,7 @@ impl DescribeConformancePackStatusOutputBuilder {
     /// To override the contents of this collection use [`set_conformance_pack_status_details`](Self::set_conformance_pack_status_details).
     ///
     /// <p>A list of <code>ConformancePackStatusDetail</code> objects.</p>
-    pub fn conformance_pack_status_details(
-        mut self,
-        input: crate::types::ConformancePackStatusDetail,
-    ) -> Self {
+    pub fn conformance_pack_status_details(mut self, input: crate::types::ConformancePackStatusDetail) -> Self {
         let mut v = self.conformance_pack_status_details.unwrap_or_default();
         v.push(input);
         self.conformance_pack_status_details = ::std::option::Option::Some(v);
@@ -100,10 +94,7 @@ impl DescribeConformancePackStatusOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeConformancePackStatusOutput`](crate::operation::describe_conformance_pack_status::DescribeConformancePackStatusOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::describe_conformance_pack_status::DescribeConformancePackStatusOutput
-    {
+    pub fn build(self) -> crate::operation::describe_conformance_pack_status::DescribeConformancePackStatusOutput {
         crate::operation::describe_conformance_pack_status::DescribeConformancePackStatusOutput {
             conformance_pack_status_details: self.conformance_pack_status_details,
             next_token: self.next_token,

@@ -9,19 +9,14 @@ pub fn de_put_key_policy_http_error(
     crate::operation::put_key_policy::PutKeyPolicyError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::put_key_policy::PutKeyPolicyError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::put_key_policy::PutKeyPolicyError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(crate::operation::put_key_policy::PutKeyPolicyError::unhandled(generic))
-        }
+        None => return Err(crate::operation::put_key_policy::PutKeyPolicyError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -31,8 +26,7 @@ pub fn de_put_key_policy_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::DependencyTimeoutExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::DependencyTimeoutExceptionBuilder::default();
                     output = crate::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
                     .map_err(crate::operation::put_key_policy::PutKeyPolicyError::unhandled)?;
                     let output = output.meta(generic);
@@ -44,49 +38,48 @@ pub fn de_put_key_policy_http_error(
                 tmp
             })
         }
-        "InvalidArnException" => {
-            crate::operation::put_key_policy::PutKeyPolicyError::InvalidArnException({
+        "InvalidArnException" => crate::operation::put_key_policy::PutKeyPolicyError::InvalidArnException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InvalidArnExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_invalid_arn_exception::de_invalid_arn_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::put_key_policy::PutKeyPolicyError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "KMSInternalException" => {
-            crate::operation::put_key_policy::PutKeyPolicyError::KmsInternalException({
+                let mut output = crate::types::error::builders::InvalidArnExceptionBuilder::default();
+                output = crate::protocol_serde::shape_invalid_arn_exception::de_invalid_arn_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::put_key_policy::PutKeyPolicyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "KMSInternalException" => crate::operation::put_key_policy::PutKeyPolicyError::KmsInternalException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::KmsInternalExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::put_key_policy::PutKeyPolicyError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::KmsInternalExceptionBuilder::default();
+                output = crate::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::put_key_policy::PutKeyPolicyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "KMSInvalidStateException" => {
             crate::operation::put_key_policy::PutKeyPolicyError::KmsInvalidStateException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
                     output = crate::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
                     .map_err(crate::operation::put_key_policy::PutKeyPolicyError::unhandled)?;
                     let output = output.meta(generic);
@@ -98,30 +91,30 @@ pub fn de_put_key_policy_http_error(
                 tmp
             })
         }
-        "LimitExceededException" => {
-            crate::operation::put_key_policy::PutKeyPolicyError::LimitExceededException({
+        "LimitExceededException" => crate::operation::put_key_policy::PutKeyPolicyError::LimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::LimitExceededExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::put_key_policy::PutKeyPolicyError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
+                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::put_key_policy::PutKeyPolicyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "MalformedPolicyDocumentException" => {
             crate::operation::put_key_policy::PutKeyPolicyError::MalformedPolicyDocumentException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::MalformedPolicyDocumentExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::MalformedPolicyDocumentExceptionBuilder::default();
                     output = crate::protocol_serde::shape_malformed_policy_document_exception::de_malformed_policy_document_exception_json_err(
                     _response_body,
                     output,
@@ -136,30 +129,30 @@ pub fn de_put_key_policy_http_error(
                 tmp
             })
         }
-        "NotFoundException" => {
-            crate::operation::put_key_policy::PutKeyPolicyError::NotFoundException({
+        "NotFoundException" => crate::operation::put_key_policy::PutKeyPolicyError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::NotFoundExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::put_key_policy::PutKeyPolicyError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
+                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::put_key_policy::PutKeyPolicyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "UnsupportedOperationException" => {
             crate::operation::put_key_policy::PutKeyPolicyError::UnsupportedOperationException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UnsupportedOperationExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::UnsupportedOperationExceptionBuilder::default();
                     output =
                     crate::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(_response_body, output)
                         .map_err(crate::operation::put_key_policy::PutKeyPolicyError::unhandled)?;
@@ -187,27 +180,19 @@ pub fn de_put_key_policy_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::put_key_policy::builders::PutKeyPolicyOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::put_key_policy::builders::PutKeyPolicyOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_put_key_policy_input(
     input: &crate::operation::put_key_policy::PutKeyPolicyInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_put_key_policy_input::ser_put_key_policy_input_input(
-        &mut object,
-        input,
-    )?;
+    crate::protocol_serde::shape_put_key_policy_input::ser_put_key_policy_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

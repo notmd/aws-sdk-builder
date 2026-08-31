@@ -9,7 +9,10 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetContextKeysForCustomPolicyError>`](crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError)
     pub fn get_context_keys_for_custom_policy(
         &self,
-    ) -> crate::operation::get_context_keys_for_custom_policy::builders::GetContextKeysForCustomPolicyFluentBuilder{
-        crate::operation::get_context_keys_for_custom_policy::builders::GetContextKeysForCustomPolicyFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::get_context_keys_for_custom_policy::builders::GetContextKeysForCustomPolicyFluentBuilder
+    {
+        crate::operation::get_context_keys_for_custom_policy::builders::GetContextKeysForCustomPolicyFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

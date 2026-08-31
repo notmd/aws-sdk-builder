@@ -14,8 +14,6 @@ impl super::Client {
     pub fn update_package_group(
         &self,
     ) -> crate::operation::update_package_group::builders::UpdatePackageGroupFluentBuilder {
-        crate::operation::update_package_group::builders::UpdatePackageGroupFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::update_package_group::builders::UpdatePackageGroupFluentBuilder::new(self.handle.clone())
     }
 }

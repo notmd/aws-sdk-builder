@@ -29,10 +29,7 @@ pub fn ser_search_vectors_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_12 = object_9.key(key_10.as_str()).start_object();
-                crate::protocol_serde::shape_attribute_value::ser_attribute_value(
-                    &mut object_12,
-                    value_11,
-                )?;
+                crate::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_12, value_11)?;
                 object_12.finish();
             }
         }
@@ -47,19 +44,14 @@ pub fn ser_search_vectors_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_17 = array_15.value().start_object();
-                crate::protocol_serde::shape_attribute_value::ser_attribute_value(
-                    &mut object_17,
-                    item_16,
-                )?;
+                crate::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_17, item_16)?;
                 object_17.finish();
             }
         }
         array_15.finish();
     }
     if let Some(var_18) = &input.search_condition_expression {
-        object
-            .key("SearchConditionExpression")
-            .string(var_18.as_str());
+        object.key("SearchConditionExpression").string(var_18.as_str());
     }
     if let Some(var_19) = &input.top_k {
         object.key("TopK").number(

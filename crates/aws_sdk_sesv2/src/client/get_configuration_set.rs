@@ -18,8 +18,6 @@ impl super::Client {
     pub fn get_configuration_set(
         &self,
     ) -> crate::operation::get_configuration_set::builders::GetConfigurationSetFluentBuilder {
-        crate::operation::get_configuration_set::builders::GetConfigurationSetFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_configuration_set::builders::GetConfigurationSetFluentBuilder::new(self.handle.clone())
     }
 }

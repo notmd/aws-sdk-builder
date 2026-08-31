@@ -12,15 +12,15 @@ impl ::aws_types::request_id::RequestId for UpdateServiceSpecificCredentialOutpu
 }
 impl UpdateServiceSpecificCredentialOutput {
     /// Creates a new builder-style object to manufacture [`UpdateServiceSpecificCredentialOutput`](crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialOutput).
-    pub fn builder() -> crate::operation::update_service_specific_credential::builders::UpdateServiceSpecificCredentialOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::update_service_specific_credential::builders::UpdateServiceSpecificCredentialOutputBuilder
+    {
         crate::operation::update_service_specific_credential::builders::UpdateServiceSpecificCredentialOutputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateServiceSpecificCredentialOutput`](crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateServiceSpecificCredentialOutputBuilder {
     _request_id: Option<String>,
@@ -36,10 +36,7 @@ impl UpdateServiceSpecificCredentialOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateServiceSpecificCredentialOutput`](crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialOutput
-    {
+    pub fn build(self) -> crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialOutput {
         crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialOutput {
             _request_id: self._request_id,
         }

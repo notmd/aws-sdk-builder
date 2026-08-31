@@ -12,8 +12,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateCapacityProviderError>`](crate::operation::update_capacity_provider::UpdateCapacityProviderError)
     pub fn update_capacity_provider(
         &self,
-    ) -> crate::operation::update_capacity_provider::builders::UpdateCapacityProviderFluentBuilder
-    {
-        crate::operation::update_capacity_provider::builders::UpdateCapacityProviderFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::update_capacity_provider::builders::UpdateCapacityProviderFluentBuilder {
+        crate::operation::update_capacity_provider::builders::UpdateCapacityProviderFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

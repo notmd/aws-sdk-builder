@@ -15,7 +15,10 @@ pub fn ser_start_async_invoke_input_input(
     if let Some(var_4) = &input.output_data_config {
         #[allow(unused_mut)]
         let mut object_5 = object.key("outputDataConfig").start_object();
-        crate::protocol_serde::shape_async_invoke_output_data_config::ser_async_invoke_output_data_config(&mut object_5, var_4)?;
+        crate::protocol_serde::shape_async_invoke_output_data_config::ser_async_invoke_output_data_config(
+            &mut object_5,
+            var_4,
+        )?;
         object_5.finish();
     }
     if let Some(var_6) = &input.tags {

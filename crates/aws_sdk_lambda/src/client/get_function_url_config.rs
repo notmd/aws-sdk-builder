@@ -16,10 +16,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetFunctionUrlConfigError>`](crate::operation::get_function_url_config::GetFunctionUrlConfigError)
     pub fn get_function_url_config(
         &self,
-    ) -> crate::operation::get_function_url_config::builders::GetFunctionUrlConfigFluentBuilder
-    {
-        crate::operation::get_function_url_config::builders::GetFunctionUrlConfigFluentBuilder::new(
-            self.handle.clone(),
-        )
+    ) -> crate::operation::get_function_url_config::builders::GetFunctionUrlConfigFluentBuilder {
+        crate::operation::get_function_url_config::builders::GetFunctionUrlConfigFluentBuilder::new(self.handle.clone())
     }
 }

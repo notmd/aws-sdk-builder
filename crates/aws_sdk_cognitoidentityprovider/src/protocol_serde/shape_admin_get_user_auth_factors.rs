@@ -9,72 +9,83 @@ pub fn de_admin_get_user_auth_factors_http_error(
     crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(
-        crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::unhandled,
-    )?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(
-            crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::unhandled(
-                generic,
-            ),
-        ),
+        None => {
+            return Err(crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::unhandled(generic))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InternalErrorException" => crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::InternalErrorException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "InternalErrorException" => {
+            crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::InternalErrorException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
-                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidParameterException" => crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::InvalidParameterException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(
+                            crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidParameterException" => {
+            crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::InvalidParameterException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
                     .map_err(crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "NotAuthorizedException" => crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::NotAuthorizedException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "NotAuthorizedException" => {
+            crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::NotAuthorizedException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
-                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(
+                            crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "OperationNotEnabledException" => {
             crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::OperationNotEnabledException({
                 #[allow(unused_mut)]
@@ -95,51 +106,63 @@ pub fn de_admin_get_user_auth_factors_http_error(
                 tmp
             })
         }
-        "ResourceNotFoundException" => crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::ResourceNotFoundException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "ResourceNotFoundException" => {
+            crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::ResourceNotFoundException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "TooManyRequestsException" => crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::TooManyRequestsException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "TooManyRequestsException" => {
+            crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::TooManyRequestsException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "UserNotFoundException" => crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::UserNotFoundException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "UserNotFoundException" => {
+            crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::UserNotFoundException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UserNotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::UserNotFoundExceptionBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(
+                            crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::generic(generic),
     })
 }
@@ -155,12 +178,14 @@ pub fn de_admin_get_user_auth_factors_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsOutputBuilder::default();
-        output = crate::protocol_serde::shape_admin_get_user_auth_factors::de_admin_get_user_auth_factors(_response_body, output)
-            .map_err(crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output =
+            crate::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsOutputBuilder::default();
+        output = crate::protocol_serde::shape_admin_get_user_auth_factors::de_admin_get_user_auth_factors(
+            _response_body,
+            output,
+        )
+        .map_err(crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         crate::serde_util::admin_get_user_auth_factors_output_output_correct_errors(output)
             .build()
             .map_err(crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError::unhandled)?
@@ -169,13 +194,14 @@ pub fn de_admin_get_user_auth_factors_http_response(
 
 pub fn ser_admin_get_user_auth_factors_input(
     input: &crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_admin_get_user_auth_factors_input::ser_admin_get_user_auth_factors_input_input(&mut object, input)?;
+    crate::protocol_serde::shape_admin_get_user_auth_factors_input::ser_admin_get_user_auth_factors_input_input(
+        &mut object,
+        input,
+    )?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -187,10 +213,8 @@ pub(crate) fn de_admin_get_user_auth_factors(
     crate::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -198,58 +222,52 @@ pub(crate) fn de_admin_get_user_auth_factors(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "Username" => {
-                        builder = builder.set_username(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                tokens.next(),
-                            )?
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "Username" => {
+                    builder = builder.set_username(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                        );
-                    }
-                    "PreferredMfaSetting" => {
-                        builder = builder.set_preferred_mfa_setting(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                tokens.next(),
-                            )?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                        );
-                    }
-                    "UserMFASettingList" => {
-                        builder = builder.set_user_mfa_setting_list(
-                        crate::protocol_serde::shape_user_mfa_setting_list_type::de_user_mfa_setting_list_type(tokens, _value, depth + 1)?,
                     );
-                    }
-                    "ConfiguredUserAuthFactors" => {
-                        builder = builder.set_configured_user_auth_factors(
+                }
+                "PreferredMfaSetting" => {
+                    builder = builder.set_preferred_mfa_setting(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "UserMFASettingList" => {
+                    builder = builder.set_user_mfa_setting_list(
+                        crate::protocol_serde::shape_user_mfa_setting_list_type::de_user_mfa_setting_list_type(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
+                }
+                "ConfiguredUserAuthFactors" => {
+                    builder = builder.set_configured_user_auth_factors(
                         crate::protocol_serde::shape_configured_user_auth_factors_list_type::de_configured_user_auth_factors_list_type(
                             tokens,
                             _value,
                             depth + 1,
                         )?,
                     );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-            }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

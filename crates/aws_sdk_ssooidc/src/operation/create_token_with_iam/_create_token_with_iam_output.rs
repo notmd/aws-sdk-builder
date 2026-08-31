@@ -59,9 +59,7 @@ impl CreateTokenWithIamOutput {
         self.scope.as_deref().unwrap_or_default()
     }
     /// <p>A structure containing information from IAM Identity Center managed user and group information.</p>
-    pub fn aws_additional_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::AwsAdditionalDetails> {
+    pub fn aws_additional_details(&self) -> ::std::option::Option<&crate::types::AwsAdditionalDetails> {
         self.aws_additional_details.as_ref()
     }
 }
@@ -87,10 +85,8 @@ impl ::aws_types::request_id::RequestId for CreateTokenWithIamOutput {
 }
 impl CreateTokenWithIamOutput {
     /// Creates a new builder-style object to manufacture [`CreateTokenWithIamOutput`](crate::operation::create_token_with_iam::CreateTokenWithIamOutput).
-    pub fn builder(
-    ) -> crate::operation::create_token_with_iam::builders::CreateTokenWithIamOutputBuilder {
-        crate::operation::create_token_with_iam::builders::CreateTokenWithIamOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::create_token_with_iam::builders::CreateTokenWithIamOutputBuilder {
+        crate::operation::create_token_with_iam::builders::CreateTokenWithIamOutputBuilder::default()
     }
 }
 
@@ -153,19 +149,13 @@ impl CreateTokenWithIamOutputBuilder {
     }
     /// <p>A token that, if present, can be used to refresh a previously issued access token that might have expired.</p>
     /// <p>For more information about the features and limitations of the current IAM Identity Center OIDC implementation, see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center OIDC API Reference</a>.</p>
-    pub fn refresh_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn refresh_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.refresh_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A token that, if present, can be used to refresh a previously issued access token that might have expired.</p>
     /// <p>For more information about the features and limitations of the current IAM Identity Center OIDC implementation, see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center OIDC API Reference</a>.</p>
-    pub fn set_refresh_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_refresh_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.refresh_token = input;
         self
     }
@@ -191,20 +181,14 @@ impl CreateTokenWithIamOutputBuilder {
     /// <p>Indicates the type of tokens that are issued by IAM Identity Center. The following values are supported:</p>
     /// <p>* Access Token - <code>urn:ietf:params:oauth:token-type:access_token</code></p>
     /// <p>* Refresh Token - <code>urn:ietf:params:oauth:token-type:refresh_token</code></p>
-    pub fn issued_token_type(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn issued_token_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.issued_token_type = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Indicates the type of tokens that are issued by IAM Identity Center. The following values are supported:</p>
     /// <p>* Access Token - <code>urn:ietf:params:oauth:token-type:access_token</code></p>
     /// <p>* Refresh Token - <code>urn:ietf:params:oauth:token-type:refresh_token</code></p>
-    pub fn set_issued_token_type(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_issued_token_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.issued_token_type = input;
         self
     }
@@ -226,10 +210,7 @@ impl CreateTokenWithIamOutputBuilder {
         self
     }
     /// <p>The list of scopes for which authorization is granted. The access token that is issued is limited to the scopes that are granted.</p>
-    pub fn set_scope(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_scope(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.scope = input;
         self
     }
@@ -251,9 +232,7 @@ impl CreateTokenWithIamOutputBuilder {
         self
     }
     /// <p>A structure containing information from IAM Identity Center managed user and group information.</p>
-    pub fn get_aws_additional_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::AwsAdditionalDetails> {
+    pub fn get_aws_additional_details(&self) -> &::std::option::Option<crate::types::AwsAdditionalDetails> {
         &self.aws_additional_details
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

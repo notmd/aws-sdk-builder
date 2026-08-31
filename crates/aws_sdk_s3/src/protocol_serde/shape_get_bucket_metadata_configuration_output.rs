@@ -15,10 +15,7 @@ pub(crate) fn de_get_bucket_metadata_configuration_result_payload(
 
 pub fn de_get_bucket_metadata_configuration_result(
     inp: &[u8],
-) -> std::result::Result<
-    crate::types::GetBucketMetadataConfigurationResult,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> std::result::Result<crate::types::GetBucketMetadataConfigurationResult, ::aws_smithy_xml::decode::XmlDecodeError> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
     #[allow(unused_mut)]
     let mut decoder = doc.root_element()?;
@@ -30,5 +27,8 @@ pub fn de_get_bucket_metadata_configuration_result(
     }
     #[allow(unused_variables)]
     let depth = 0u32;
-    crate::protocol_serde::shape_get_bucket_metadata_configuration_result::de_get_bucket_metadata_configuration_result(&mut decoder, depth + 1)
+    crate::protocol_serde::shape_get_bucket_metadata_configuration_result::de_get_bucket_metadata_configuration_result(
+        &mut decoder,
+        depth + 1,
+    )
 }

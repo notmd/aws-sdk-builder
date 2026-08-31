@@ -59,10 +59,7 @@ impl ListEntitiesForPolicyFluentBuilder {
         }
     }
     /// Access the ListEntitiesForPolicy as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_entities_for_policy::builders::ListEntitiesForPolicyInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::list_entities_for_policy::builders::ListEntitiesForPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,16 +83,13 @@ impl ListEntitiesForPolicyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_entities_for_policy::ListEntitiesForPolicy::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_entities_for_policy::ListEntitiesForPolicy::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::list_entities_for_policy::ListEntitiesForPolicy::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_entities_for_policy::ListEntitiesForPolicy::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -159,10 +153,7 @@ impl ListEntitiesForPolicyFluentBuilder {
     }
     /// <p>The entity type to use for filtering the results.</p>
     /// <p>For example, when <code>EntityFilter</code> is <code>Role</code>, only the roles that are attached to the specified policy are returned. This parameter is optional. If it is not included, all attached entities (users, groups, and roles) are returned. The argument for this parameter must be one of the valid values listed below.</p>
-    pub fn set_entity_filter(
-        mut self,
-        input: ::std::option::Option<crate::types::EntityType>,
-    ) -> Self {
+    pub fn set_entity_filter(mut self, input: ::std::option::Option<crate::types::EntityType>) -> Self {
         self.inner = self.inner.set_entity_filter(input);
         self
     }
@@ -198,10 +189,7 @@ impl ListEntitiesForPolicyFluentBuilder {
     /// <p>The policy usage method to use for filtering the results.</p>
     /// <p>To list only permissions policies, set <code>PolicyUsageFilter</code> to <code>PermissionsPolicy</code>. To list only the policies used to set permissions boundaries, set the value to <code>PermissionsBoundary</code>.</p>
     /// <p>This parameter is optional. If it is not included, all policies are returned.</p>
-    pub fn set_policy_usage_filter(
-        mut self,
-        input: ::std::option::Option<crate::types::PolicyUsageType>,
-    ) -> Self {
+    pub fn set_policy_usage_filter(mut self, input: ::std::option::Option<crate::types::PolicyUsageType>) -> Self {
         self.inner = self.inner.set_policy_usage_filter(input);
         self
     }

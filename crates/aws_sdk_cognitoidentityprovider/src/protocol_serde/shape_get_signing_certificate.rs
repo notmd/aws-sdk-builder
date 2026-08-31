@@ -9,87 +9,91 @@ pub fn de_get_signing_certificate_http_error(
     crate::operation::get_signing_certificate::GetSigningCertificateError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::get_signing_certificate::GetSigningCertificateError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::get_signing_certificate::GetSigningCertificateError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    let error_code =
-        match generic.code() {
-            Some(code) => code,
-            None => return Err(
-                crate::operation::get_signing_certificate::GetSigningCertificateError::unhandled(
-                    generic,
-                ),
-            ),
-        };
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => return Err(crate::operation::get_signing_certificate::GetSigningCertificateError::unhandled(generic)),
+    };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InternalErrorException" => crate::operation::get_signing_certificate::GetSigningCertificateError::InternalErrorException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "InternalErrorException" => {
+            crate::operation::get_signing_certificate::GetSigningCertificateError::InternalErrorException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
-                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(crate::operation::get_signing_certificate::GetSigningCertificateError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidParameterException" => {
+            crate::operation::get_signing_certificate::GetSigningCertificateError::InvalidParameterException({
+                #[allow(unused_mut)]
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
                     .map_err(crate::operation::get_signing_certificate::GetSigningCertificateError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidParameterException" => crate::operation::get_signing_certificate::GetSigningCertificateError::InvalidParameterException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "OperationNotEnabledException" => {
+            crate::operation::get_signing_certificate::GetSigningCertificateError::OperationNotEnabledException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::get_signing_certificate::GetSigningCertificateError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "OperationNotEnabledException" => crate::operation::get_signing_certificate::GetSigningCertificateError::OperationNotEnabledException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                output =
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+                    output =
                     crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
                         .map_err(crate::operation::get_signing_certificate::GetSigningCertificateError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ResourceNotFoundException" => crate::operation::get_signing_certificate::GetSigningCertificateError::ResourceNotFoundException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ResourceNotFoundException" => {
+            crate::operation::get_signing_certificate::GetSigningCertificateError::ResourceNotFoundException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(crate::operation::get_signing_certificate::GetSigningCertificateError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => crate::operation::get_signing_certificate::GetSigningCertificateError::generic(generic),
     })
 }
@@ -105,30 +109,26 @@ pub fn de_get_signing_certificate_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::get_signing_certificate::builders::GetSigningCertificateOutputBuilder::default();
-        output = crate::protocol_serde::shape_get_signing_certificate::de_get_signing_certificate(
-            _response_body,
-            output,
-        )
-        .map_err(
-            crate::operation::get_signing_certificate::GetSigningCertificateError::unhandled,
-        )?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output =
+            crate::operation::get_signing_certificate::builders::GetSigningCertificateOutputBuilder::default();
+        output =
+            crate::protocol_serde::shape_get_signing_certificate::de_get_signing_certificate(_response_body, output)
+                .map_err(crate::operation::get_signing_certificate::GetSigningCertificateError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_get_signing_certificate_input(
     input: &crate::operation::get_signing_certificate::GetSigningCertificateInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_get_signing_certificate_input::ser_get_signing_certificate_input_input(&mut object, input)?;
+    crate::protocol_serde::shape_get_signing_certificate_input::ser_get_signing_certificate_input_input(
+        &mut object,
+        input,
+    )?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -140,10 +140,8 @@ pub(crate) fn de_get_signing_certificate(
     crate::operation::get_signing_certificate::builders::GetSigningCertificateOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -151,35 +149,27 @@ pub(crate) fn de_get_signing_certificate(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "Certificate" => {
-                        builder = builder.set_certificate(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                tokens.next(),
-                            )?
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "Certificate" => {
+                    builder = builder.set_certificate(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    );
                 }
-            }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

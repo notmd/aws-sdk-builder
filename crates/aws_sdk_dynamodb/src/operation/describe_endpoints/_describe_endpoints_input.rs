@@ -5,16 +5,13 @@
 pub struct DescribeEndpointsInput {}
 impl DescribeEndpointsInput {
     /// Creates a new builder-style object to manufacture [`DescribeEndpointsInput`](crate::operation::describe_endpoints::DescribeEndpointsInput).
-    pub fn builder() -> crate::operation::describe_endpoints::builders::DescribeEndpointsInputBuilder
-    {
+    pub fn builder() -> crate::operation::describe_endpoints::builders::DescribeEndpointsInputBuilder {
         crate::operation::describe_endpoints::builders::DescribeEndpointsInputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeEndpointsInput`](crate::operation::describe_endpoints::DescribeEndpointsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeEndpointsInputBuilder {}
 impl DescribeEndpointsInputBuilder {

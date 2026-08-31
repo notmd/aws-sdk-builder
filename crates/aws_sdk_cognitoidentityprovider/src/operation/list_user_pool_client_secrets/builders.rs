@@ -3,9 +3,7 @@ pub use crate::operation::list_user_pool_client_secrets::_list_user_pool_client_
 
 pub use crate::operation::list_user_pool_client_secrets::_list_user_pool_client_secrets_output::ListUserPoolClientSecretsOutputBuilder;
 
-impl
-    crate::operation::list_user_pool_client_secrets::builders::ListUserPoolClientSecretsInputBuilder
-{
+impl crate::operation::list_user_pool_client_secrets::builders::ListUserPoolClientSecretsInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -59,7 +57,9 @@ impl ListUserPoolClientSecretsFluentBuilder {
         }
     }
     /// Access the ListUserPoolClientSecrets as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_user_pool_client_secrets::builders::ListUserPoolClientSecretsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_user_pool_client_secrets::builders::ListUserPoolClientSecretsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,16 +83,14 @@ impl ListUserPoolClientSecretsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecrets::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecrets::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecrets::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecrets::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

@@ -23,8 +23,6 @@ impl super::Client {
     pub fn publish_layer_version(
         &self,
     ) -> crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder {
-        crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder::new(self.handle.clone())
     }
 }

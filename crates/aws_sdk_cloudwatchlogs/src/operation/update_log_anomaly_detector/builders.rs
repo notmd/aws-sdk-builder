@@ -57,7 +57,9 @@ impl UpdateLogAnomalyDetectorFluentBuilder {
         }
     }
     /// Access the UpdateLogAnomalyDetector as a reference.
-    pub fn as_input(&self) -> &crate::operation::update_log_anomaly_detector::builders::UpdateLogAnomalyDetectorInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::update_log_anomaly_detector::builders::UpdateLogAnomalyDetectorInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,16 +83,14 @@ impl UpdateLogAnomalyDetectorFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::update_log_anomaly_detector::UpdateLogAnomalyDetector::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::update_log_anomaly_detector::UpdateLogAnomalyDetector::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::update_log_anomaly_detector::UpdateLogAnomalyDetector::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::update_log_anomaly_detector::UpdateLogAnomalyDetector::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -119,18 +119,12 @@ impl UpdateLogAnomalyDetectorFluentBuilder {
         self
     }
     /// <p>The ARN of the anomaly detector that you want to update.</p>
-    pub fn anomaly_detector_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn anomaly_detector_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.anomaly_detector_arn(input.into());
         self
     }
     /// <p>The ARN of the anomaly detector that you want to update.</p>
-    pub fn set_anomaly_detector_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_anomaly_detector_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_anomaly_detector_arn(input);
         self
     }
@@ -144,32 +138,21 @@ impl UpdateLogAnomalyDetectorFluentBuilder {
         self
     }
     /// <p>Specifies how often the anomaly detector runs and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then setting <code>evaluationFrequency</code> to <code>FIFTEEN_MIN</code> might be appropriate.</p>
-    pub fn set_evaluation_frequency(
-        mut self,
-        input: ::std::option::Option<crate::types::EvaluationFrequency>,
-    ) -> Self {
+    pub fn set_evaluation_frequency(mut self, input: ::std::option::Option<crate::types::EvaluationFrequency>) -> Self {
         self.inner = self.inner.set_evaluation_frequency(input);
         self
     }
     /// <p>Specifies how often the anomaly detector runs and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then setting <code>evaluationFrequency</code> to <code>FIFTEEN_MIN</code> might be appropriate.</p>
-    pub fn get_evaluation_frequency(
-        &self,
-    ) -> &::std::option::Option<crate::types::EvaluationFrequency> {
+    pub fn get_evaluation_frequency(&self) -> &::std::option::Option<crate::types::EvaluationFrequency> {
         self.inner.get_evaluation_frequency()
     }
     /// <p>A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.</p>
-    pub fn filter_pattern(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn filter_pattern(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.filter_pattern(input.into());
         self
     }
     /// <p>A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.</p>
-    pub fn set_filter_pattern(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_filter_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_filter_pattern(input);
         self
     }

@@ -9,8 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteQueryDefinitionError>`](crate::operation::delete_query_definition::DeleteQueryDefinitionError)
     pub fn delete_query_definition(
         &self,
-    ) -> crate::operation::delete_query_definition::builders::DeleteQueryDefinitionFluentBuilder
-    {
+    ) -> crate::operation::delete_query_definition::builders::DeleteQueryDefinitionFluentBuilder {
         crate::operation::delete_query_definition::builders::DeleteQueryDefinitionFluentBuilder::new(
             self.handle.clone(),
         )

@@ -14,8 +14,6 @@ impl super::Client {
     pub fn get_web_identity_token(
         &self,
     ) -> crate::operation::get_web_identity_token::builders::GetWebIdentityTokenFluentBuilder {
-        crate::operation::get_web_identity_token::builders::GetWebIdentityTokenFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_web_identity_token::builders::GetWebIdentityTokenFluentBuilder::new(self.handle.clone())
     }
 }

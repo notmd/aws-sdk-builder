@@ -9,87 +9,109 @@ pub fn de_set_default_policy_version_http_error(
     crate::operation::set_default_policy_version::SetDefaultPolicyVersionError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(
-        crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::unhandled,
-    )?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(
-            crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::unhandled(
-                generic,
-            ),
-        ),
+        None => {
+            return Err(crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::unhandled(generic))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InvalidInput" => crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::InvalidInputException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "InvalidInput" => {
+            crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::InvalidInputException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidInputExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::InvalidInputExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(
+                        _response_body,
+                        output,
+                    )
                     .map_err(crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "LimitExceeded" => crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::LimitExceededException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "LimitExceeded" => {
+            crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::LimitExceededException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
-                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "NoSuchEntity" => crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::NoSuchEntityException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(
+                            crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "NoSuchEntity" => {
+            crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::NoSuchEntityException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
-                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ServiceFailure" => crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::ServiceFailureException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(
+                            crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ServiceFailure" => {
+            crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::ServiceFailureException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
-                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(
+                            crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::generic(generic),
     })
 }
@@ -105,10 +127,9 @@ pub fn de_set_default_policy_version_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::set_default_policy_version::builders::SetDefaultPolicyVersionOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output =
+            crate::operation::set_default_policy_version::builders::SetDefaultPolicyVersionOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }

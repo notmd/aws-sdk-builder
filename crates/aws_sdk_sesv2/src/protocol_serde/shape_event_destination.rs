@@ -16,11 +16,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -34,18 +32,14 @@ where
                         match key.to_unescaped()?.as_ref() {
                             "Name" => {
                                 builder = builder.set_name(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "Enabled" => {
                                 builder = builder.set_enabled(
-                                    ::aws_smithy_json::deserialize::token::expect_bool_or_null(
-                                        tokens.next(),
-                                    )?,
+                                    ::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?,
                                 );
                             }
                             "MatchingEventTypes" => {
@@ -68,35 +62,47 @@ where
                             }
                             "CloudWatchDestination" => {
                                 builder = builder.set_cloud_watch_destination(
-                                    crate::protocol_serde::shape_cloud_watch_destination::de_cloud_watch_destination(tokens, _value, depth + 1)?,
+                                    crate::protocol_serde::shape_cloud_watch_destination::de_cloud_watch_destination(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
                                 );
                             }
                             "SnsDestination" => {
-                                builder = builder.set_sns_destination(crate::protocol_serde::shape_sns_destination::de_sns_destination(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?);
+                                builder = builder.set_sns_destination(
+                                    crate::protocol_serde::shape_sns_destination::de_sns_destination(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "EventBridgeDestination" => {
                                 builder = builder.set_event_bridge_destination(
-                                    crate::protocol_serde::shape_event_bridge_destination::de_event_bridge_destination(tokens, _value, depth + 1)?,
+                                    crate::protocol_serde::shape_event_bridge_destination::de_event_bridge_destination(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
                                 );
                             }
                             "PinpointDestination" => {
                                 builder = builder.set_pinpoint_destination(
-                                    crate::protocol_serde::shape_pinpoint_destination::de_pinpoint_destination(tokens, _value, depth + 1)?,
+                                    crate::protocol_serde::shape_pinpoint_destination::de_pinpoint_destination(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
                                 );
                             }
                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
@@ -111,10 +117,8 @@ where
                     })?,
             ))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

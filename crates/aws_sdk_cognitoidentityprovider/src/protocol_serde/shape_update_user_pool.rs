@@ -9,66 +9,72 @@ pub fn de_update_user_pool_http_error(
     crate::operation::update_user_pool::UpdateUserPoolError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::update_user_pool::UpdateUserPoolError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::update_user_pool::UpdateUserPoolError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(crate::operation::update_user_pool::UpdateUserPoolError::unhandled(generic))
+            return Err(crate::operation::update_user_pool::UpdateUserPoolError::unhandled(
+                generic,
+            ))
         }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "ConcurrentModificationException" => crate::operation::update_user_pool::UpdateUserPoolError::ConcurrentModificationException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "ConcurrentModificationException" => {
+            crate::operation::update_user_pool::UpdateUserPoolError::ConcurrentModificationException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
-                output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::update_user_pool::UpdateUserPoolError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "FeatureUnavailableInTierException" => crate::operation::update_user_pool::UpdateUserPoolError::FeatureUnavailableInTierException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "FeatureUnavailableInTierException" => {
+            crate::operation::update_user_pool::UpdateUserPoolError::FeatureUnavailableInTierException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::FeatureUnavailableInTierExceptionBuilder::default();
-                output = crate::protocol_serde::shape_feature_unavailable_in_tier_exception::de_feature_unavailable_in_tier_exception_json_err(
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::FeatureUnavailableInTierExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_feature_unavailable_in_tier_exception::de_feature_unavailable_in_tier_exception_json_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::update_user_pool::UpdateUserPoolError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "InternalErrorException" => crate::operation::update_user_pool::UpdateUserPoolError::InternalErrorException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
-                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::update_user_pool::UpdateUserPoolError::unhandled)?;
+                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::update_user_pool::UpdateUserPoolError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -82,7 +88,8 @@ pub fn de_update_user_pool_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::InvalidEmailRoleAccessPolicyExceptionBuilder::default();
+                    let mut output =
+                        crate::types::error::builders::InvalidEmailRoleAccessPolicyExceptionBuilder::default();
                     output = crate::protocol_serde::shape_invalid_email_role_access_policy_exception::de_invalid_email_role_access_policy_exception_json_err(_response_body, output).map_err(crate::operation::update_user_pool::UpdateUserPoolError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
@@ -93,45 +100,51 @@ pub fn de_update_user_pool_http_error(
                 tmp
             })
         }
-        "InvalidParameterException" => crate::operation::update_user_pool::UpdateUserPoolError::InvalidParameterException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "InvalidParameterException" => {
+            crate::operation::update_user_pool::UpdateUserPoolError::InvalidParameterException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
                     .map_err(crate::operation::update_user_pool::UpdateUserPoolError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidSmsRoleAccessPolicyException" => crate::operation::update_user_pool::UpdateUserPoolError::InvalidSmsRoleAccessPolicyException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidSmsRoleAccessPolicyException" => {
+            crate::operation::update_user_pool::UpdateUserPoolError::InvalidSmsRoleAccessPolicyException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output =
+                        crate::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::update_user_pool::UpdateUserPoolError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "InvalidSmsRoleTrustRelationshipException" => {
             crate::operation::update_user_pool::UpdateUserPoolError::InvalidSmsRoleTrustRelationshipException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::InvalidSmsRoleTrustRelationshipExceptionBuilder::default();
+                    let mut output =
+                        crate::types::error::builders::InvalidSmsRoleTrustRelationshipExceptionBuilder::default();
                     output = crate::protocol_serde::shape_invalid_sms_role_trust_relationship_exception::de_invalid_sms_role_trust_relationship_exception_json_err(_response_body, output).map_err(crate::operation::update_user_pool::UpdateUserPoolError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
@@ -147,8 +160,11 @@ pub fn de_update_user_pool_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
-                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::update_user_pool::UpdateUserPoolError::unhandled)?;
+                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::update_user_pool::UpdateUserPoolError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -157,103 +173,115 @@ pub fn de_update_user_pool_http_error(
             }
             tmp
         }),
-        "OperationNotEnabledException" => crate::operation::update_user_pool::UpdateUserPoolError::OperationNotEnabledException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "OperationNotEnabledException" => {
+            crate::operation::update_user_pool::UpdateUserPoolError::OperationNotEnabledException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                output =
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+                    output =
                     crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
                         .map_err(crate::operation::update_user_pool::UpdateUserPoolError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ResourceNotFoundException" => crate::operation::update_user_pool::UpdateUserPoolError::ResourceNotFoundException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ResourceNotFoundException" => {
+            crate::operation::update_user_pool::UpdateUserPoolError::ResourceNotFoundException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(crate::operation::update_user_pool::UpdateUserPoolError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "TierChangeNotAllowedException" => crate::operation::update_user_pool::UpdateUserPoolError::TierChangeNotAllowedException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "TierChangeNotAllowedException" => {
+            crate::operation::update_user_pool::UpdateUserPoolError::TierChangeNotAllowedException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::TierChangeNotAllowedExceptionBuilder::default();
-                output = crate::protocol_serde::shape_tier_change_not_allowed_exception::de_tier_change_not_allowed_exception_json_err(
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::TierChangeNotAllowedExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_tier_change_not_allowed_exception::de_tier_change_not_allowed_exception_json_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::update_user_pool::UpdateUserPoolError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "TooManyRequestsException" => crate::operation::update_user_pool::UpdateUserPoolError::TooManyRequestsException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "TooManyRequestsException" => {
+            crate::operation::update_user_pool::UpdateUserPoolError::TooManyRequestsException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(crate::operation::update_user_pool::UpdateUserPoolError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "UserImportInProgressException" => crate::operation::update_user_pool::UpdateUserPoolError::UserImportInProgressException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "UserImportInProgressException" => {
+            crate::operation::update_user_pool::UpdateUserPoolError::UserImportInProgressException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UserImportInProgressExceptionBuilder::default();
-                output = crate::protocol_serde::shape_user_import_in_progress_exception::de_user_import_in_progress_exception_json_err(
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::UserImportInProgressExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_user_import_in_progress_exception::de_user_import_in_progress_exception_json_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::update_user_pool::UpdateUserPoolError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "UserPoolTaggingException" => crate::operation::update_user_pool::UpdateUserPoolError::UserPoolTaggingException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "UserPoolTaggingException" => {
+            crate::operation::update_user_pool::UpdateUserPoolError::UserPoolTaggingException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UserPoolTaggingExceptionBuilder::default();
-                output = crate::protocol_serde::shape_user_pool_tagging_exception::de_user_pool_tagging_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::UserPoolTaggingExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_user_pool_tagging_exception::de_user_pool_tagging_exception_json_err(_response_body, output)
                     .map_err(crate::operation::update_user_pool::UpdateUserPoolError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => crate::operation::update_user_pool::UpdateUserPoolError::generic(generic),
     })
 }
@@ -269,27 +297,19 @@ pub fn de_update_user_pool_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::update_user_pool::builders::UpdateUserPoolOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::update_user_pool::builders::UpdateUserPoolOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_update_user_pool_input(
     input: &crate::operation::update_user_pool::UpdateUserPoolInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_update_user_pool_input::ser_update_user_pool_input_input(
-        &mut object,
-        input,
-    )?;
+    crate::protocol_serde::shape_update_user_pool_input::ser_update_user_pool_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

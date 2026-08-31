@@ -89,15 +89,13 @@ impl SetSubscriptionAttributesInput {
 }
 impl SetSubscriptionAttributesInput {
     /// Creates a new builder-style object to manufacture [`SetSubscriptionAttributesInput`](crate::operation::set_subscription_attributes::SetSubscriptionAttributesInput).
-    pub fn builder() -> crate::operation::set_subscription_attributes::builders::SetSubscriptionAttributesInputBuilder{
+    pub fn builder() -> crate::operation::set_subscription_attributes::builders::SetSubscriptionAttributesInputBuilder {
         crate::operation::set_subscription_attributes::builders::SetSubscriptionAttributesInputBuilder::default()
     }
 }
 
 /// A builder for [`SetSubscriptionAttributesInput`](crate::operation::set_subscription_attributes::SetSubscriptionAttributesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SetSubscriptionAttributesInputBuilder {
     pub(crate) subscription_arn: ::std::option::Option<::std::string::String>,
@@ -107,18 +105,12 @@ pub struct SetSubscriptionAttributesInputBuilder {
 impl SetSubscriptionAttributesInputBuilder {
     /// <p>The ARN of the subscription to modify.</p>
     /// This field is required.
-    pub fn subscription_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn subscription_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.subscription_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the subscription to modify.</p>
-    pub fn set_subscription_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_subscription_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.subscription_arn = input;
         self
     }
@@ -159,10 +151,7 @@ impl SetSubscriptionAttributesInputBuilder {
     /// <p>Specifying a valid ARN for this attribute is required for Firehose delivery stream subscriptions. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html">Fanout to Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p></li>
     /// </ul>
     /// This field is required.
-    pub fn attribute_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn attribute_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.attribute_name = ::std::option::Option::Some(input.into());
         self
     }
@@ -198,10 +187,7 @@ impl SetSubscriptionAttributesInputBuilder {
     /// </ul>
     /// <p>Specifying a valid ARN for this attribute is required for Firehose delivery stream subscriptions. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html">Fanout to Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p></li>
     /// </ul>
-    pub fn set_attribute_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.attribute_name = input;
         self
     }
@@ -241,18 +227,12 @@ impl SetSubscriptionAttributesInputBuilder {
         &self.attribute_name
     }
     /// <p>The new value for the attribute in JSON format.</p>
-    pub fn attribute_value(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn attribute_value(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.attribute_value = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The new value for the attribute in JSON format.</p>
-    pub fn set_attribute_value(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_attribute_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.attribute_value = input;
         self
     }

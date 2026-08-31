@@ -70,7 +70,9 @@ impl AdminDisableProviderForUserFluentBuilder {
         }
     }
     /// Access the AdminDisableProviderForUser as a reference.
-    pub fn as_input(&self) -> &crate::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -94,11 +96,12 @@ impl AdminDisableProviderForUserFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUser::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUser::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUser::orchestrate(
             &runtime_plugins,
             input,
@@ -151,10 +154,7 @@ impl AdminDisableProviderForUserFluentBuilder {
         self
     }
     /// <p>The user profile that you want to delete a linked identity from.</p>
-    pub fn set_user(
-        mut self,
-        input: ::std::option::Option<crate::types::ProviderUserIdentifierType>,
-    ) -> Self {
+    pub fn set_user(mut self, input: ::std::option::Option<crate::types::ProviderUserIdentifierType>) -> Self {
         self.inner = self.inner.set_user(input);
         self
     }

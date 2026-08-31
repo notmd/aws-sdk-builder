@@ -38,9 +38,7 @@ impl GetOrganizationConfigRuleDetailedStatusOutput {
 }
 
 /// A builder for [`GetOrganizationConfigRuleDetailedStatusOutput`](crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetOrganizationConfigRuleDetailedStatusOutputBuilder {
     pub(crate) organization_config_rule_detailed_status:
@@ -54,13 +52,8 @@ impl GetOrganizationConfigRuleDetailedStatusOutputBuilder {
     /// To override the contents of this collection use [`set_organization_config_rule_detailed_status`](Self::set_organization_config_rule_detailed_status).
     ///
     /// <p>A list of <code>MemberAccountStatus</code> objects.</p>
-    pub fn organization_config_rule_detailed_status(
-        mut self,
-        input: crate::types::MemberAccountStatus,
-    ) -> Self {
-        let mut v = self
-            .organization_config_rule_detailed_status
-            .unwrap_or_default();
+    pub fn organization_config_rule_detailed_status(mut self, input: crate::types::MemberAccountStatus) -> Self {
+        let mut v = self.organization_config_rule_detailed_status.unwrap_or_default();
         v.push(input);
         self.organization_config_rule_detailed_status = ::std::option::Option::Some(v);
         self
@@ -103,7 +96,10 @@ impl GetOrganizationConfigRuleDetailedStatusOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetOrganizationConfigRuleDetailedStatusOutput`](crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusOutput).
-    pub fn build(self) -> crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusOutput
+    {
         crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusOutput {
             organization_config_rule_detailed_status: self.organization_config_rule_detailed_status,
             next_token: self.next_token,

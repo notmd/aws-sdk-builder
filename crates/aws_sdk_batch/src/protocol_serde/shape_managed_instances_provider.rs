@@ -12,10 +12,7 @@ pub fn ser_managed_instances_provider(
     if let Some(var_3) = &input.instance_launch_template {
         #[allow(unused_mut)]
         let mut object_4 = object.key("instanceLaunchTemplate").start_object();
-        crate::protocol_serde::shape_instance_launch_template::ser_instance_launch_template(
-            &mut object_4,
-            var_3,
-        )?;
+        crate::protocol_serde::shape_instance_launch_template::ser_instance_launch_template(&mut object_4, var_3)?;
         object_4.finish();
     }
     if let Some(var_5) = &input.infrastructure_optimization {
@@ -47,11 +44,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -65,26 +60,26 @@ where
                         match key.to_unescaped()?.as_ref() {
                             "propagateTags" => {
                                 builder = builder.set_propagate_tags(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "infrastructureRoleArn" => {
                                 builder = builder.set_infrastructure_role_arn(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "instanceLaunchTemplate" => {
                                 builder = builder.set_instance_launch_template(
-                                crate::protocol_serde::shape_instance_launch_template::de_instance_launch_template(tokens, _value, depth + 1)?,
-                            );
+                                    crate::protocol_serde::shape_instance_launch_template::de_instance_launch_template(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "infrastructureOptimization" => {
                                 builder = builder.set_infrastructure_optimization(
@@ -95,11 +90,9 @@ where
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
@@ -107,10 +100,8 @@ where
                 crate::serde_util::managed_instances_provider_correct_errors(builder).build(),
             ))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

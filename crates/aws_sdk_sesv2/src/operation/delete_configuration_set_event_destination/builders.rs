@@ -79,7 +79,7 @@ impl DeleteConfigurationSetEventDestinationFluentBuilder {
             crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -101,7 +101,7 @@ impl DeleteConfigurationSetEventDestinationFluentBuilder {
         crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationOutput,
         crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -120,18 +120,12 @@ impl DeleteConfigurationSetEventDestinationFluentBuilder {
         self
     }
     /// <p>The name of the configuration set that contains the event destination to delete.</p>
-    pub fn configuration_set_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_set_name(input.into());
         self
     }
     /// <p>The name of the configuration set that contains the event destination to delete.</p>
-    pub fn set_configuration_set_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_set_name(input);
         self
     }
@@ -140,18 +134,12 @@ impl DeleteConfigurationSetEventDestinationFluentBuilder {
         self.inner.get_configuration_set_name()
     }
     /// <p>The name of the event destination to delete.</p>
-    pub fn event_destination_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn event_destination_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.event_destination_name(input.into());
         self
     }
     /// <p>The name of the event destination to delete.</p>
-    pub fn set_event_destination_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_event_destination_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_event_destination_name(input);
         self
     }

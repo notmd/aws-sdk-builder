@@ -14,8 +14,6 @@ impl super::Client {
     pub fn put_resource_config(
         &self,
     ) -> crate::operation::put_resource_config::builders::PutResourceConfigFluentBuilder {
-        crate::operation::put_resource_config::builders::PutResourceConfigFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::put_resource_config::builders::PutResourceConfigFluentBuilder::new(self.handle.clone())
     }
 }

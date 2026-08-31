@@ -33,9 +33,7 @@ impl TemplateSsmDocumentDetails {
 }
 
 /// A builder for [`TemplateSsmDocumentDetails`](crate::types::TemplateSsmDocumentDetails).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TemplateSsmDocumentDetailsBuilder {
     pub(crate) document_name: ::std::option::Option<::std::string::String>,
@@ -44,18 +42,12 @@ pub struct TemplateSsmDocumentDetailsBuilder {
 impl TemplateSsmDocumentDetailsBuilder {
     /// <p>The name or Amazon Resource Name (ARN) of the SSM document to use to create a conformance pack. If you use the document name, Config checks only your account and Amazon Web Services Region for the SSM document.</p>
     /// This field is required.
-    pub fn document_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn document_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.document_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name or Amazon Resource Name (ARN) of the SSM document to use to create a conformance pack. If you use the document name, Config checks only your account and Amazon Web Services Region for the SSM document.</p>
-    pub fn set_document_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_document_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.document_name = input;
         self
     }
@@ -66,20 +58,14 @@ impl TemplateSsmDocumentDetailsBuilder {
     /// <p>The version of the SSM document to use to create a conformance pack. By default, Config uses the latest version.</p><note>
     /// <p>This field is optional.</p>
     /// </note>
-    pub fn document_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn document_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.document_version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The version of the SSM document to use to create a conformance pack. By default, Config uses the latest version.</p><note>
     /// <p>This field is optional.</p>
     /// </note>
-    pub fn set_document_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_document_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.document_version = input;
         self
     }
@@ -94,10 +80,8 @@ impl TemplateSsmDocumentDetailsBuilder {
     /// - [`document_name`](crate::types::builders::TemplateSsmDocumentDetailsBuilder::document_name)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::TemplateSsmDocumentDetails,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::TemplateSsmDocumentDetails, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::TemplateSsmDocumentDetails {
             document_name: self.document_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

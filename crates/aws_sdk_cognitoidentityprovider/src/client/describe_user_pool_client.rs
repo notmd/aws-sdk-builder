@@ -10,8 +10,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeUserPoolClientError>`](crate::operation::describe_user_pool_client::DescribeUserPoolClientError)
     pub fn describe_user_pool_client(
         &self,
-    ) -> crate::operation::describe_user_pool_client::builders::DescribeUserPoolClientFluentBuilder
-    {
-        crate::operation::describe_user_pool_client::builders::DescribeUserPoolClientFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::describe_user_pool_client::builders::DescribeUserPoolClientFluentBuilder {
+        crate::operation::describe_user_pool_client::builders::DescribeUserPoolClientFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

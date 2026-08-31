@@ -33,9 +33,7 @@ impl RejectedLogEventsInfo {
 }
 
 /// A builder for [`RejectedLogEventsInfo`](crate::types::RejectedLogEventsInfo).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RejectedLogEventsInfoBuilder {
     pub(crate) too_new_log_event_start_index: ::std::option::Option<i32>,

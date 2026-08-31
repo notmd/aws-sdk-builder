@@ -6,8 +6,7 @@ pub struct ListConformancePackComplianceScoresOutput {
     /// <p>The <code>nextToken</code> string that you can use to get the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     /// <p>A list of <code>ConformancePackComplianceScore</code> objects.</p>
-    pub conformance_pack_compliance_scores:
-        ::std::vec::Vec<crate::types::ConformancePackComplianceScore>,
+    pub conformance_pack_compliance_scores: ::std::vec::Vec<crate::types::ConformancePackComplianceScore>,
     _request_id: Option<String>,
 }
 impl ListConformancePackComplianceScoresOutput {
@@ -16,9 +15,7 @@ impl ListConformancePackComplianceScoresOutput {
         self.next_token.as_deref()
     }
     /// <p>A list of <code>ConformancePackComplianceScore</code> objects.</p>
-    pub fn conformance_pack_compliance_scores(
-        &self,
-    ) -> &[crate::types::ConformancePackComplianceScore] {
+    pub fn conformance_pack_compliance_scores(&self) -> &[crate::types::ConformancePackComplianceScore] {
         use std::ops::Deref;
         self.conformance_pack_compliance_scores.deref()
     }
@@ -36,9 +33,7 @@ impl ListConformancePackComplianceScoresOutput {
 }
 
 /// A builder for [`ListConformancePackComplianceScoresOutput`](crate::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListConformancePackComplianceScoresOutputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
@@ -66,10 +61,7 @@ impl ListConformancePackComplianceScoresOutputBuilder {
     /// To override the contents of this collection use [`set_conformance_pack_compliance_scores`](Self::set_conformance_pack_compliance_scores).
     ///
     /// <p>A list of <code>ConformancePackComplianceScore</code> objects.</p>
-    pub fn conformance_pack_compliance_scores(
-        mut self,
-        input: crate::types::ConformancePackComplianceScore,
-    ) -> Self {
+    pub fn conformance_pack_compliance_scores(mut self, input: crate::types::ConformancePackComplianceScore) -> Self {
         let mut v = self.conformance_pack_compliance_scores.unwrap_or_default();
         v.push(input);
         self.conformance_pack_compliance_scores = ::std::option::Option::Some(v);
@@ -106,7 +98,7 @@ impl ListConformancePackComplianceScoresOutputBuilder {
     ) -> ::std::result::Result<
         crate::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresOutput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresOutput {
                 next_token: self.next_token

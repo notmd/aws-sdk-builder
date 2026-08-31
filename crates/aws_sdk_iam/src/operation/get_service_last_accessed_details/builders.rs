@@ -60,7 +60,7 @@ impl
             crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput,
             crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -74,7 +74,9 @@ impl GetServiceLastAccessedDetailsFluentBuilder {
         }
     }
     /// Access the GetServiceLastAccessedDetails as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -103,7 +105,11 @@ impl GetServiceLastAccessedDetailsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetails::orchestrate(&runtime_plugins, input).await
+        crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetails::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

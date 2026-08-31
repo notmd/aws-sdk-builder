@@ -332,10 +332,7 @@ pub use crate::types::error::_import_not_found_exception::ImportNotFoundExceptio
 #[cfg(feature = "op_execute_statement")]
 pub use crate::types::error::_duplicate_item_exception::DuplicateItemException;
 
-#[cfg(any(
-    feature = "op_execute_transaction",
-    feature = "op_transact_write_items"
-))]
+#[cfg(any(feature = "op_execute_transaction", feature = "op_transact_write_items"))]
 pub use crate::types::error::_idempotent_parameter_mismatch_exception::IdempotentParameterMismatchException;
 
 #[cfg(any(
@@ -345,10 +342,7 @@ pub use crate::types::error::_idempotent_parameter_mismatch_exception::Idempoten
 ))]
 pub use crate::types::error::_transaction_canceled_exception::TransactionCanceledException;
 
-#[cfg(any(
-    feature = "op_execute_transaction",
-    feature = "op_transact_write_items"
-))]
+#[cfg(any(feature = "op_execute_transaction", feature = "op_transact_write_items"))]
 pub use crate::types::error::_transaction_in_progress_exception::TransactionInProgressException;
 
 #[cfg(feature = "op_export_table_to_point_in_time")]
@@ -378,10 +372,7 @@ pub use crate::types::error::_invalid_restore_time_exception::InvalidRestoreTime
 #[cfg(feature = "op_update_global_table")]
 pub use crate::types::error::_replica_already_exists_exception::ReplicaAlreadyExistsException;
 
-#[cfg(any(
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings"
-))]
+#[cfg(any(feature = "op_update_global_table", feature = "op_update_global_table_settings"))]
 pub use crate::types::error::_replica_not_found_exception::ReplicaNotFoundException;
 
 #[cfg(feature = "op_update_global_table_settings")]
@@ -432,10 +423,7 @@ mod _global_table_already_exists_exception;
 ))]
 mod _global_table_not_found_exception;
 
-#[cfg(any(
-    feature = "op_execute_transaction",
-    feature = "op_transact_write_items"
-))]
+#[cfg(any(feature = "op_execute_transaction", feature = "op_transact_write_items"))]
 mod _idempotent_parameter_mismatch_exception;
 
 #[cfg(feature = "op_import_table")]
@@ -625,10 +613,7 @@ mod _provisioned_throughput_exceeded_exception;
 #[cfg(feature = "op_update_global_table")]
 mod _replica_already_exists_exception;
 
-#[cfg(any(
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings"
-))]
+#[cfg(any(feature = "op_update_global_table", feature = "op_update_global_table_settings"))]
 mod _replica_not_found_exception;
 
 #[cfg(any(
@@ -769,10 +754,7 @@ mod _transaction_canceled_exception;
 ))]
 mod _transaction_conflict_exception;
 
-#[cfg(any(
-    feature = "op_execute_transaction",
-    feature = "op_transact_write_items"
-))]
+#[cfg(any(feature = "op_execute_transaction", feature = "op_transact_write_items"))]
 mod _transaction_in_progress_exception;
 
 /// Builders

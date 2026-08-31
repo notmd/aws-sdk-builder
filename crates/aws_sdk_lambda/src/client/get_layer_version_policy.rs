@@ -11,8 +11,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetLayerVersionPolicyError>`](crate::operation::get_layer_version_policy::GetLayerVersionPolicyError)
     pub fn get_layer_version_policy(
         &self,
-    ) -> crate::operation::get_layer_version_policy::builders::GetLayerVersionPolicyFluentBuilder
-    {
-        crate::operation::get_layer_version_policy::builders::GetLayerVersionPolicyFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::get_layer_version_policy::builders::GetLayerVersionPolicyFluentBuilder {
+        crate::operation::get_layer_version_policy::builders::GetLayerVersionPolicyFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -18,15 +18,15 @@ impl ::aws_types::request_id::RequestId for PutBucketAccelerateConfigurationOutp
 }
 impl PutBucketAccelerateConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`PutBucketAccelerateConfigurationOutput`](crate::operation::put_bucket_accelerate_configuration::PutBucketAccelerateConfigurationOutput).
-    pub fn builder() -> crate::operation::put_bucket_accelerate_configuration::builders::PutBucketAccelerateConfigurationOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::put_bucket_accelerate_configuration::builders::PutBucketAccelerateConfigurationOutputBuilder
+    {
         crate::operation::put_bucket_accelerate_configuration::builders::PutBucketAccelerateConfigurationOutputBuilder::default()
     }
 }
 
 /// A builder for [`PutBucketAccelerateConfigurationOutput`](crate::operation::put_bucket_accelerate_configuration::PutBucketAccelerateConfigurationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutBucketAccelerateConfigurationOutputBuilder {
     _extended_request_id: Option<String>,
@@ -38,10 +38,7 @@ impl PutBucketAccelerateConfigurationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -57,8 +54,7 @@ impl PutBucketAccelerateConfigurationOutputBuilder {
     /// Consumes the builder and constructs a [`PutBucketAccelerateConfigurationOutput`](crate::operation::put_bucket_accelerate_configuration::PutBucketAccelerateConfigurationOutput).
     pub fn build(
         self,
-    ) -> crate::operation::put_bucket_accelerate_configuration::PutBucketAccelerateConfigurationOutput
-    {
+    ) -> crate::operation::put_bucket_accelerate_configuration::PutBucketAccelerateConfigurationOutput {
         crate::operation::put_bucket_accelerate_configuration::PutBucketAccelerateConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

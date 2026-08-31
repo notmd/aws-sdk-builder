@@ -4,8 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeOrganizationConformancePackStatusesInput {
     /// <p>The names of organization conformance packs for which you want status details. If you do not specify any names, Config returns details for all your organization conformance packs.</p>
-    pub organization_conformance_pack_names:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub organization_conformance_pack_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>The maximum number of OrganizationConformancePackStatuses returned on each page. If you do no specify a number, Config uses the default. The default is 100.</p>
     pub limit: ::std::option::Option<i32>,
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -16,9 +15,7 @@ impl DescribeOrganizationConformancePackStatusesInput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.organization_conformance_pack_names.is_none()`.
     pub fn organization_conformance_pack_names(&self) -> &[::std::string::String] {
-        self.organization_conformance_pack_names
-            .as_deref()
-            .unwrap_or_default()
+        self.organization_conformance_pack_names.as_deref().unwrap_or_default()
     }
     /// <p>The maximum number of OrganizationConformancePackStatuses returned on each page. If you do no specify a number, Config uses the default. The default is 100.</p>
     pub fn limit(&self) -> ::std::option::Option<i32> {
@@ -39,13 +36,10 @@ impl DescribeOrganizationConformancePackStatusesInput {
 }
 
 /// A builder for [`DescribeOrganizationConformancePackStatusesInput`](crate::operation::describe_organization_conformance_pack_statuses::DescribeOrganizationConformancePackStatusesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeOrganizationConformancePackStatusesInputBuilder {
-    pub(crate) organization_conformance_pack_names:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) organization_conformance_pack_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) limit: ::std::option::Option<i32>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
 }

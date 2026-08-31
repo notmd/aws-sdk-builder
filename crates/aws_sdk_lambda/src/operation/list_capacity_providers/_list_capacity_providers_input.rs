@@ -26,17 +26,13 @@ impl ListCapacityProvidersInput {
 }
 impl ListCapacityProvidersInput {
     /// Creates a new builder-style object to manufacture [`ListCapacityProvidersInput`](crate::operation::list_capacity_providers::ListCapacityProvidersInput).
-    pub fn builder(
-    ) -> crate::operation::list_capacity_providers::builders::ListCapacityProvidersInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_capacity_providers::builders::ListCapacityProvidersInputBuilder {
         crate::operation::list_capacity_providers::builders::ListCapacityProvidersInputBuilder::default()
     }
 }
 
 /// A builder for [`ListCapacityProvidersInput`](crate::operation::list_capacity_providers::ListCapacityProvidersInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListCapacityProvidersInputBuilder {
     pub(crate) state: ::std::option::Option<crate::types::CapacityProviderState>,
@@ -50,10 +46,7 @@ impl ListCapacityProvidersInputBuilder {
         self
     }
     /// <p>Filter capacity providers by their current state.</p>
-    pub fn set_state(
-        mut self,
-        input: ::std::option::Option<crate::types::CapacityProviderState>,
-    ) -> Self {
+    pub fn set_state(mut self, input: ::std::option::Option<crate::types::CapacityProviderState>) -> Self {
         self.state = input;
         self
     }
@@ -96,12 +89,10 @@ impl ListCapacityProvidersInputBuilder {
         crate::operation::list_capacity_providers::ListCapacityProvidersInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::list_capacity_providers::ListCapacityProvidersInput {
-                state: self.state,
-                marker: self.marker,
-                max_items: self.max_items,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::list_capacity_providers::ListCapacityProvidersInput {
+            state: self.state,
+            marker: self.marker,
+            max_items: self.max_items,
+        })
     }
 }

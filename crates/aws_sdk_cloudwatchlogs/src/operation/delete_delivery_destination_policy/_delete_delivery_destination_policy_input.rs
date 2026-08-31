@@ -14,15 +14,15 @@ impl DeleteDeliveryDestinationPolicyInput {
 }
 impl DeleteDeliveryDestinationPolicyInput {
     /// Creates a new builder-style object to manufacture [`DeleteDeliveryDestinationPolicyInput`](crate::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyInput).
-    pub fn builder() -> crate::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyInputBuilder
+    {
         crate::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteDeliveryDestinationPolicyInput`](crate::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteDeliveryDestinationPolicyInputBuilder {
     pub(crate) delivery_destination_name: ::std::option::Option<::std::string::String>,
@@ -30,18 +30,12 @@ pub struct DeleteDeliveryDestinationPolicyInputBuilder {
 impl DeleteDeliveryDestinationPolicyInputBuilder {
     /// <p>The name of the delivery destination that you want to delete the policy for.</p>
     /// This field is required.
-    pub fn delivery_destination_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delivery_destination_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.delivery_destination_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the delivery destination that you want to delete the policy for.</p>
-    pub fn set_delivery_destination_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delivery_destination_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delivery_destination_name = input;
         self
     }

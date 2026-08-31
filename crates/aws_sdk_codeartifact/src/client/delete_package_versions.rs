@@ -17,8 +17,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeletePackageVersionsError>`](crate::operation::delete_package_versions::DeletePackageVersionsError)
     pub fn delete_package_versions(
         &self,
-    ) -> crate::operation::delete_package_versions::builders::DeletePackageVersionsFluentBuilder
-    {
+    ) -> crate::operation::delete_package_versions::builders::DeletePackageVersionsFluentBuilder {
         crate::operation::delete_package_versions::builders::DeletePackageVersionsFluentBuilder::new(
             self.handle.clone(),
         )

@@ -23,8 +23,6 @@ impl super::Client {
     pub fn get_durable_execution(
         &self,
     ) -> crate::operation::get_durable_execution::builders::GetDurableExecutionFluentBuilder {
-        crate::operation::get_durable_execution::builders::GetDurableExecutionFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_durable_execution::builders::GetDurableExecutionFluentBuilder::new(self.handle.clone())
     }
 }

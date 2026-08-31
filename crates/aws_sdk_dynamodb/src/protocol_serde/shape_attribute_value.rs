@@ -51,10 +51,7 @@ pub fn ser_attribute_value(
                 {
                     #[allow(unused_mut)]
                     let mut object_10 = object_7.key(key_8.as_str()).start_object();
-                    crate::protocol_serde::shape_attribute_value::ser_attribute_value(
-                        &mut object_10,
-                        value_9,
-                    )?;
+                    crate::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_10, value_9)?;
                     object_10.finish();
                 }
             }
@@ -66,10 +63,7 @@ pub fn ser_attribute_value(
                 {
                     #[allow(unused_mut)]
                     let mut object_13 = array_11.value().start_object();
-                    crate::protocol_serde::shape_attribute_value::ser_attribute_value(
-                        &mut object_13,
-                        item_12,
-                    )?;
+                    crate::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_13, item_12)?;
                     object_13.finish();
                 }
             }
@@ -82,11 +76,7 @@ pub fn ser_attribute_value(
             object_6.key("BOOL").boolean(*inner);
         }
         crate::types::AttributeValue::Unknown => {
-            return Err(
-                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                    "AttributeValue",
-                ),
-            )
+            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("AttributeValue"))
         }
     }
     Ok(())
@@ -96,10 +86,7 @@ pub(crate) fn de_attribute_value<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<
-    Option<crate::types::AttributeValue>,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
->
+) -> ::std::result::Result<Option<crate::types::AttributeValue>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<
         Item = Result<
@@ -109,11 +96,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     let mut variant = None;
     match tokens.next().transpose()? {
@@ -135,56 +120,117 @@ where
                         continue;
                     }
                     if variant.is_some() {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                "encountered mixed variants in union",
-                            ),
-                        );
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            "encountered mixed variants in union",
+                        ));
                     }
                     variant = match key.as_ref() {
                         "S" => Some(crate::types::AttributeValue::S(
                             ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                 .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                 .transpose()?
-                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'S' cannot be null"))?,
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                        "value for 'S' cannot be null",
+                                    )
+                                })?,
                         )),
                         "N" => Some(crate::types::AttributeValue::N(
                             ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                 .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                 .transpose()?
-                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'N' cannot be null"))?,
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                        "value for 'N' cannot be null",
+                                    )
+                                })?,
                         )),
                         "B" => Some(crate::types::AttributeValue::B(
-                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?
-                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'B' cannot be null"))?,
+                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(
+                                || {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                        "value for 'B' cannot be null",
+                                    )
+                                },
+                            )?,
                         )),
                         "SS" => Some(crate::types::AttributeValue::Ss(
-                            crate::protocol_serde::shape_string_set_attribute_value::de_string_set_attribute_value(tokens, _value, depth + 1)?
-                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'SS' cannot be null"))?,
+                            crate::protocol_serde::shape_string_set_attribute_value::de_string_set_attribute_value(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                    "value for 'SS' cannot be null",
+                                )
+                            })?,
                         )),
                         "NS" => Some(crate::types::AttributeValue::Ns(
-                            crate::protocol_serde::shape_number_set_attribute_value::de_number_set_attribute_value(tokens, _value, depth + 1)?
-                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'NS' cannot be null"))?,
+                            crate::protocol_serde::shape_number_set_attribute_value::de_number_set_attribute_value(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                    "value for 'NS' cannot be null",
+                                )
+                            })?,
                         )),
                         "BS" => Some(crate::types::AttributeValue::Bs(
-                            crate::protocol_serde::shape_binary_set_attribute_value::de_binary_set_attribute_value(tokens, _value, depth + 1)?
-                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'BS' cannot be null"))?,
+                            crate::protocol_serde::shape_binary_set_attribute_value::de_binary_set_attribute_value(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                    "value for 'BS' cannot be null",
+                                )
+                            })?,
                         )),
                         "M" => Some(crate::types::AttributeValue::M(
-                            crate::protocol_serde::shape_map_attribute_value::de_map_attribute_value(tokens, _value, depth + 1)?
-                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'M' cannot be null"))?,
+                            crate::protocol_serde::shape_map_attribute_value::de_map_attribute_value(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                    "value for 'M' cannot be null",
+                                )
+                            })?,
                         )),
                         "L" => Some(crate::types::AttributeValue::L(
-                            crate::protocol_serde::shape_list_attribute_value::de_list_attribute_value(tokens, _value, depth + 1)?
-                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'L' cannot be null"))?,
+                            crate::protocol_serde::shape_list_attribute_value::de_list_attribute_value(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                    "value for 'L' cannot be null",
+                                )
+                            })?,
                         )),
                         "NULL" => Some(crate::types::AttributeValue::Null(
-                            ::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?
-                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'NULL' cannot be null"))?,
+                            ::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?.ok_or_else(
+                                || {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                        "value for 'NULL' cannot be null",
+                                    )
+                                },
+                            )?,
                         )),
                         "BOOL" => Some(crate::types::AttributeValue::Bool(
-                            ::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?
-                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'BOOL' cannot be null"))?,
+                            ::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?.ok_or_else(
+                                || {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                        "value for 'BOOL' cannot be null",
+                                    )
+                                },
+                            )?,
                         )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
@@ -193,28 +239,22 @@ where
                     };
                 }
                 other => {
-                    return Err(
-                        ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )),
-                    )
+                    return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                        format!("expected object key or end object, found: {other:?}"),
+                    ))
                 }
             }
         },
         _ => {
-            return Err(
-                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                    "expected start object or null",
-                ),
-            )
+            return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ))
         }
     }
     if variant.is_none() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "Union did not contain a valid variant.",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "Union did not contain a valid variant.",
+        ));
     }
     Ok(variant)
 }

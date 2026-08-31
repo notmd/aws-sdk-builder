@@ -85,13 +85,11 @@ impl OptInPhoneNumber {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(
-                crate::config::ConfigOverrideRuntimePlugin::new(
-                    config_override,
-                    client_config.config.clone(),
-                    &client_config.runtime_components,
-                ),
-            );
+            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+                config_override,
+                client_config.config.clone(),
+                &client_config.runtime_components,
+            ));
         }
         runtime_plugins
     }
@@ -100,11 +98,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for OptInPh
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("OptInPhoneNumber");
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                OptInPhoneNumberRequestSerializer,
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+            OptInPhoneNumberRequestSerializer,
+        ));
         cfg.store_put(
             ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
                 OptInPhoneNumberResponseDeserializer,
@@ -120,12 +116,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for OptInPh
             ),
         );
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-                "OptInPhoneNumber",
-                "SNS",
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+            "OptInPhoneNumber",
+            "SNS",
+        ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = true;
         signing_options.content_sha256_header = false;
@@ -143,27 +137,34 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for OptInPh
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<
-        '_,
-        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    > {
+    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
-        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("OptInPhoneNumber")
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new(
+            "OptInPhoneNumber",
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 OptInPhoneNumberEndpointParamsInterceptor,
-            ))
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+            ),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                 crate::operation::opt_in_phone_number::OptInPhoneNumberError,
-            >::new())
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+            >::new(),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                 crate::operation::opt_in_phone_number::OptInPhoneNumberError,
-            >::new())
-            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::opt_in_phone_number::OptInPhoneNumberError,
-            >::new());
+            >::new(),
+        )
+        .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+            crate::operation::opt_in_phone_number::OptInPhoneNumberError,
+        >::new());
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -171,9 +172,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for OptInPh
 
 #[derive(Debug)]
 struct OptInPhoneNumberResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
-    for OptInPhoneNumberResponseDeserializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for OptInPhoneNumberResponseDeserializer {
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -186,9 +185,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_opt_in_phone_number::de_opt_in_phone_number_http_error(
-                status, headers, body,
-            )
+            crate::protocol_serde::shape_opt_in_phone_number::de_opt_in_phone_number_http_error(status, headers, body)
         } else {
             crate::protocol_serde::shape_opt_in_phone_number::de_opt_in_phone_number_http_response(
                 status, headers, body,
@@ -199,9 +196,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
 }
 #[derive(Debug)]
 struct OptInPhoneNumberRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
-    for OptInPhoneNumberRequestSerializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for OptInPhoneNumberRequestSerializer {
     #[allow(
         unused_mut,
         clippy::let_and_return,
@@ -228,8 +223,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_base(
                 _input: &crate::operation::opt_in_phone_number::OptInPhoneNumberInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
                 ::std::write!(output, "/").expect("formatting should succeed");
                 ::std::result::Result::Ok(())
@@ -238,10 +232,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn update_http_builder(
                 input: &crate::operation::opt_in_phone_number::OptInPhoneNumberInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<
-                ::http_1x::request::Builder,
-                ::aws_smithy_types::error::operation::BuildError,
-            > {
+            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
@@ -265,22 +257,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
                 &content_length,
             );
         }
-        ::std::result::Result::Ok(
-            request_builder
-                .body(body)
-                .expect("valid request")
-                .try_into()
-                .unwrap(),
-        )
+        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
 #[derive(Debug)]
 struct OptInPhoneNumberEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for OptInPhoneNumberEndpointParamsInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for OptInPhoneNumberEndpointParamsInterceptor {
     fn name(&self) -> &'static str {
         "OptInPhoneNumberEndpointParamsInterceptor"
     }
@@ -301,18 +285,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             .ok_or("failed to downcast to OptInPhoneNumberInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(
-                cfg.load::<::aws_types::region::Region>()
-                    .map(|r| r.as_ref().to_owned()),
-            )
-            .set_use_dual_stack(
-                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
-                    .map(|ty| ty.0),
-            )
-            .set_use_fips(
-                cfg.load::<::aws_types::endpoint_config::UseFips>()
-                    .map(|ty| ty.0),
-            )
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_endpoint(
                 cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
                     .map(|ty| ty.0.clone()),
@@ -324,9 +299,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
                     err,
                 )
             })?;
-        cfg.interceptor_state().store_put(
-            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
-        );
+        cfg.interceptor_state()
+            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(
+                params,
+            ));
         ::std::result::Result::Ok(())
     }
 }
@@ -361,9 +337,7 @@ impl OptInPhoneNumberError {
     /// Creates the `OptInPhoneNumberError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -385,18 +359,10 @@ impl OptInPhoneNumberError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::AuthorizationErrorException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::InternalErrorException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::InvalidParameterException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::ThrottledException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::AuthorizationErrorException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InternalErrorException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidParameterException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ThrottledException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -467,18 +433,14 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for OptInPhoneNum
             Self::InvalidParameterException(_inner) => {
                 ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
             }
-            Self::ThrottledException(_inner) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
-            }
+            Self::ThrottledException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::Unhandled(_inner) => &_inner.meta,
         }
     }
 }
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for OptInPhoneNumberError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -487,9 +449,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for OptInPho
         })
     }
 }
-impl ::aws_types::request_id::RequestId
-    for crate::operation::opt_in_phone_number::OptInPhoneNumberError
-{
+impl ::aws_types::request_id::RequestId for crate::operation::opt_in_phone_number::OptInPhoneNumberError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

@@ -4,8 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListResourceEvaluationsOutput {
     /// <p>Returns a <code>ResourceEvaluations</code> object.</p>
-    pub resource_evaluations:
-        ::std::option::Option<::std::vec::Vec<crate::types::ResourceEvaluation>>,
+    pub resource_evaluations: ::std::option::Option<::std::vec::Vec<crate::types::ResourceEvaluation>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -29,21 +28,16 @@ impl ::aws_types::request_id::RequestId for ListResourceEvaluationsOutput {
 }
 impl ListResourceEvaluationsOutput {
     /// Creates a new builder-style object to manufacture [`ListResourceEvaluationsOutput`](crate::operation::list_resource_evaluations::ListResourceEvaluationsOutput).
-    pub fn builder(
-    ) -> crate::operation::list_resource_evaluations::builders::ListResourceEvaluationsOutputBuilder
-    {
+    pub fn builder() -> crate::operation::list_resource_evaluations::builders::ListResourceEvaluationsOutputBuilder {
         crate::operation::list_resource_evaluations::builders::ListResourceEvaluationsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListResourceEvaluationsOutput`](crate::operation::list_resource_evaluations::ListResourceEvaluationsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListResourceEvaluationsOutputBuilder {
-    pub(crate) resource_evaluations:
-        ::std::option::Option<::std::vec::Vec<crate::types::ResourceEvaluation>>,
+    pub(crate) resource_evaluations: ::std::option::Option<::std::vec::Vec<crate::types::ResourceEvaluation>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -97,9 +91,7 @@ impl ListResourceEvaluationsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListResourceEvaluationsOutput`](crate::operation::list_resource_evaluations::ListResourceEvaluationsOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::list_resource_evaluations::ListResourceEvaluationsOutput {
+    pub fn build(self) -> crate::operation::list_resource_evaluations::ListResourceEvaluationsOutput {
         crate::operation::list_resource_evaluations::ListResourceEvaluationsOutput {
             resource_evaluations: self.resource_evaluations,
             next_token: self.next_token,

@@ -9,13 +9,20 @@ pub fn de_remove_layer_version_permission_http_error(
     crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError::unhandled(generic)),
+        None => {
+            return Err(
+                crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError::unhandled(
+                    generic,
+                ),
+            )
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -132,9 +139,7 @@ pub fn de_remove_layer_version_permission_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::remove_layer_version_permission::builders::RemoveLayerVersionPermissionOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }

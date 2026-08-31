@@ -8,11 +8,7 @@ impl super::Client {
     /// - On success, responds with [`GetLogFieldsOutput`](crate::operation::get_log_fields::GetLogFieldsOutput) with field(s):
     ///   - [`log_fields(Option<Vec::<LogFieldsListItem>>)`](crate::operation::get_log_fields::GetLogFieldsOutput::log_fields): <p>The list of log fields for the specified data source, including field names and their data types.</p>
     /// - On failure, responds with [`SdkError<GetLogFieldsError>`](crate::operation::get_log_fields::GetLogFieldsError)
-    pub fn get_log_fields(
-        &self,
-    ) -> crate::operation::get_log_fields::builders::GetLogFieldsFluentBuilder {
-        crate::operation::get_log_fields::builders::GetLogFieldsFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn get_log_fields(&self) -> crate::operation::get_log_fields::builders::GetLogFieldsFluentBuilder {
+        crate::operation::get_log_fields::builders::GetLogFieldsFluentBuilder::new(self.handle.clone())
     }
 }

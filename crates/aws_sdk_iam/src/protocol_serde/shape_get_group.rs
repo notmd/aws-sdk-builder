@@ -4,26 +4,16 @@ pub fn de_get_group_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::get_group::GetGroupOutput,
-    crate::operation::get_group::GetGroupError,
-> {
+) -> std::result::Result<crate::operation::get_group::GetGroupOutput, crate::operation::get_group::GetGroupError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::get_group::GetGroupError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::get_group::GetGroupError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(crate::operation::get_group::GetGroupError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(crate::operation::get_group::GetGroupError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -32,10 +22,12 @@ pub fn de_get_group_http_error(
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output =
-                    crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
-                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::get_group::GetGroupError::unhandled)?;
+                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::get_group::GetGroupError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -48,10 +40,12 @@ pub fn de_get_group_http_error(
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output =
-                    crate::types::error::builders::ServiceFailureExceptionBuilder::default();
-                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::get_group::GetGroupError::unhandled)?;
+                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
+                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::get_group::GetGroupError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -69,18 +63,13 @@ pub fn de_get_group_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::get_group::GetGroupOutput,
-    crate::operation::get_group::GetGroupError,
-> {
+) -> std::result::Result<crate::operation::get_group::GetGroupOutput, crate::operation::get_group::GetGroupError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::get_group::builders::GetGroupOutputBuilder::default();
         output = crate::protocol_serde::shape_get_group::de_get_group(_response_body, output)
             .map_err(crate::operation::get_group::GetGroupError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         crate::serde_util::get_group_output_output_correct_errors(output)
             .build()
             .map_err(crate::operation::get_group::GetGroupError::unhandled)?

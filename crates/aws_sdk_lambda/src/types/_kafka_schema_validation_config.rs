@@ -9,9 +9,7 @@ pub struct KafkaSchemaValidationConfig {
 }
 impl KafkaSchemaValidationConfig {
     /// <p>The attributes you want your schema registry to validate and filter for. If you selected <code>JSON</code> as the <code>EventRecordFormat</code>, Lambda also deserializes the selected message attributes.</p>
-    pub fn attribute(
-        &self,
-    ) -> ::std::option::Option<&crate::types::KafkaSchemaValidationAttribute> {
+    pub fn attribute(&self) -> ::std::option::Option<&crate::types::KafkaSchemaValidationAttribute> {
         self.attribute.as_ref()
     }
 }
@@ -23,9 +21,7 @@ impl KafkaSchemaValidationConfig {
 }
 
 /// A builder for [`KafkaSchemaValidationConfig`](crate::types::KafkaSchemaValidationConfig).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct KafkaSchemaValidationConfigBuilder {
     pub(crate) attribute: ::std::option::Option<crate::types::KafkaSchemaValidationAttribute>,
@@ -37,17 +33,12 @@ impl KafkaSchemaValidationConfigBuilder {
         self
     }
     /// <p>The attributes you want your schema registry to validate and filter for. If you selected <code>JSON</code> as the <code>EventRecordFormat</code>, Lambda also deserializes the selected message attributes.</p>
-    pub fn set_attribute(
-        mut self,
-        input: ::std::option::Option<crate::types::KafkaSchemaValidationAttribute>,
-    ) -> Self {
+    pub fn set_attribute(mut self, input: ::std::option::Option<crate::types::KafkaSchemaValidationAttribute>) -> Self {
         self.attribute = input;
         self
     }
     /// <p>The attributes you want your schema registry to validate and filter for. If you selected <code>JSON</code> as the <code>EventRecordFormat</code>, Lambda also deserializes the selected message attributes.</p>
-    pub fn get_attribute(
-        &self,
-    ) -> &::std::option::Option<crate::types::KafkaSchemaValidationAttribute> {
+    pub fn get_attribute(&self) -> &::std::option::Option<crate::types::KafkaSchemaValidationAttribute> {
         &self.attribute
     }
     /// Consumes the builder and constructs a [`KafkaSchemaValidationConfig`](crate::types::KafkaSchemaValidationConfig).

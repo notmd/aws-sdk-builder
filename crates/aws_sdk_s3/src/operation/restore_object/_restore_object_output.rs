@@ -42,9 +42,7 @@ impl RestoreObjectOutput {
 }
 
 /// A builder for [`RestoreObjectOutput`](crate::operation::restore_object::RestoreObjectOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RestoreObjectOutputBuilder {
     pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
@@ -63,10 +61,7 @@ impl RestoreObjectOutputBuilder {
     /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_charged(
-        mut self,
-        input: ::std::option::Option<crate::types::RequestCharged>,
-    ) -> Self {
+    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
         self.request_charged = input;
         self
     }
@@ -77,18 +72,12 @@ impl RestoreObjectOutputBuilder {
         &self.request_charged
     }
     /// <p>Indicates the path in the provided S3 output location where Select results will be restored to.</p>
-    pub fn restore_output_path(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn restore_output_path(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.restore_output_path = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Indicates the path in the provided S3 output location where Select results will be restored to.</p>
-    pub fn set_restore_output_path(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_restore_output_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.restore_output_path = input;
         self
     }
@@ -101,10 +90,7 @@ impl RestoreObjectOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

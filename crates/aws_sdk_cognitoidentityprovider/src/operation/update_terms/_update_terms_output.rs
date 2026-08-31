@@ -26,9 +26,7 @@ impl UpdateTermsOutput {
 }
 
 /// A builder for [`UpdateTermsOutput`](crate::operation::update_terms::UpdateTermsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateTermsOutputBuilder {
     pub(crate) terms: ::std::option::Option<crate::types::TermsType>,

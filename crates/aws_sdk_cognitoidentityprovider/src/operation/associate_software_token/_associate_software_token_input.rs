@@ -30,9 +30,7 @@ impl ::std::fmt::Debug for AssociateSoftwareTokenInput {
 }
 impl AssociateSoftwareTokenInput {
     /// Creates a new builder-style object to manufacture [`AssociateSoftwareTokenInput`](crate::operation::associate_software_token::AssociateSoftwareTokenInput).
-    pub fn builder(
-    ) -> crate::operation::associate_software_token::builders::AssociateSoftwareTokenInputBuilder
-    {
+    pub fn builder() -> crate::operation::associate_software_token::builders::AssociateSoftwareTokenInputBuilder {
         crate::operation::associate_software_token::builders::AssociateSoftwareTokenInputBuilder::default()
     }
 }

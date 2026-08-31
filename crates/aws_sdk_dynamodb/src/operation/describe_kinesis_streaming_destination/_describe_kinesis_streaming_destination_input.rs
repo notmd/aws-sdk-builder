@@ -20,9 +20,7 @@ impl DescribeKinesisStreamingDestinationInput {
 }
 
 /// A builder for [`DescribeKinesisStreamingDestinationInput`](crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeKinesisStreamingDestinationInputBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
@@ -49,9 +47,11 @@ impl DescribeKinesisStreamingDestinationInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
-            crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationInput { table_name: self.table_name },
+            crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationInput {
+                table_name: self.table_name,
+            },
         )
     }
 }

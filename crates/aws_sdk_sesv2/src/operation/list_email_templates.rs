@@ -85,13 +85,11 @@ impl ListEmailTemplates {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(
-                crate::config::ConfigOverrideRuntimePlugin::new(
-                    config_override,
-                    client_config.config.clone(),
-                    &client_config.runtime_components,
-                ),
-            );
+            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+                config_override,
+                client_config.config.clone(),
+                &client_config.runtime_components,
+            ));
         }
         runtime_plugins
     }
@@ -100,11 +98,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListEma
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("ListEmailTemplates");
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                ListEmailTemplatesRequestSerializer,
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+            ListEmailTemplatesRequestSerializer,
+        ));
         cfg.store_put(
             ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
                 ListEmailTemplatesResponseDeserializer,
@@ -120,12 +116,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListEma
             ),
         );
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-                "ListEmailTemplates",
-                "SESv2",
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+            "ListEmailTemplates",
+            "SESv2",
+        ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = true;
         signing_options.content_sha256_header = false;
@@ -143,30 +137,39 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListEma
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<
-        '_,
-        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    > {
+    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
-        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListEmailTemplates")
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new(
+            "ListEmailTemplates",
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 ListEmailTemplatesTelemetryInputCaptureInterceptor,
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 ListEmailTemplatesEndpointParamsInterceptor,
-            ))
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+            ),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                 crate::operation::list_email_templates::ListEmailTemplatesError,
-            >::new())
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+            >::new(),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                 crate::operation::list_email_templates::ListEmailTemplatesError,
-            >::new())
-            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::list_email_templates::ListEmailTemplatesError,
-            >::new());
+            >::new(),
+        )
+        .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+            crate::operation::list_email_templates::ListEmailTemplatesError,
+        >::new());
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -176,9 +179,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListEma
 struct ListEmailTemplatesTelemetryInputCaptureInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for ListEmailTemplatesTelemetryInputCaptureInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListEmailTemplatesTelemetryInputCaptureInterceptor {
     fn name(&self) -> &'static str {
         "ListEmailTemplatesTelemetryInputCaptureInterceptor"
     }
@@ -201,9 +202,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) =
-            context.input().downcast_ref::<ListEmailTemplatesInput>()
-        else {
+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<ListEmailTemplatesInput>() else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
@@ -221,9 +220,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
 }
 #[derive(Debug)]
 struct ListEmailTemplatesResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
-    for ListEmailTemplatesResponseDeserializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for ListEmailTemplatesResponseDeserializer {
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -236,9 +233,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_list_email_templates::de_list_email_templates_http_error(
-                status, headers, body,
-            )
+            crate::protocol_serde::shape_list_email_templates::de_list_email_templates_http_error(status, headers, body)
         } else {
             crate::protocol_serde::shape_list_email_templates::de_list_email_templates_http_response(
                 status, headers, body,
@@ -249,9 +244,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
 }
 #[derive(Debug)]
 struct ListEmailTemplatesRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
-    for ListEmailTemplatesRequestSerializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListEmailTemplatesRequestSerializer {
     #[allow(
         unused_mut,
         clippy::let_and_return,
@@ -278,8 +271,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_base(
                 _input: &crate::operation::list_email_templates::ListEmailTemplatesInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
                 ::std::write!(output, "/v2/email/templates").expect("formatting should succeed");
                 ::std::result::Result::Ok(())
@@ -287,8 +279,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_query(
                 _input: &crate::operation::list_email_templates::ListEmailTemplatesInput,
                 mut output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_1) = &_input.next_token {
                     {
@@ -309,10 +300,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn update_http_builder(
                 input: &crate::operation::list_email_templates::ListEmailTemplatesInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<
-                ::http_1x::request::Builder,
-                ::aws_smithy_types::error::operation::BuildError,
-            > {
+            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
@@ -323,22 +312,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
         };
         let body = ::aws_smithy_types::body::SdkBody::from("");
 
-        ::std::result::Result::Ok(
-            request_builder
-                .body(body)
-                .expect("valid request")
-                .try_into()
-                .unwrap(),
-        )
+        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
 #[derive(Debug)]
 struct ListEmailTemplatesEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for ListEmailTemplatesEndpointParamsInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListEmailTemplatesEndpointParamsInterceptor {
     fn name(&self) -> &'static str {
         "ListEmailTemplatesEndpointParamsInterceptor"
     }
@@ -359,18 +340,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             .ok_or("failed to downcast to ListEmailTemplatesInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(
-                cfg.load::<::aws_types::region::Region>()
-                    .map(|r| r.as_ref().to_owned()),
-            )
-            .set_use_dual_stack(
-                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
-                    .map(|ty| ty.0),
-            )
-            .set_use_fips(
-                cfg.load::<::aws_types::endpoint_config::UseFips>()
-                    .map(|ty| ty.0),
-            )
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_endpoint(
                 cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
                     .map(|ty| ty.0.clone()),
@@ -382,9 +354,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
                     err,
                 )
             })?;
-        cfg.interceptor_state().store_put(
-            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
-        );
+        cfg.interceptor_state()
+            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(
+                params,
+            ));
         ::std::result::Result::Ok(())
     }
 }
@@ -415,9 +388,7 @@ impl ListEmailTemplatesError {
     /// Creates the `ListEmailTemplatesError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -439,12 +410,8 @@ impl ListEmailTemplatesError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::BadRequestException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::TooManyRequestsException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::BadRequestException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::TooManyRequestsException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -506,9 +473,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ListEmailTemp
 }
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ListEmailTemplatesError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -517,9 +482,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ListEmai
         })
     }
 }
-impl ::aws_types::request_id::RequestId
-    for crate::operation::list_email_templates::ListEmailTemplatesError
-{
+impl ::aws_types::request_id::RequestId for crate::operation::list_email_templates::ListEmailTemplatesError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

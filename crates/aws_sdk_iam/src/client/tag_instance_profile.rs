@@ -10,8 +10,6 @@ impl super::Client {
     pub fn tag_instance_profile(
         &self,
     ) -> crate::operation::tag_instance_profile::builders::TagInstanceProfileFluentBuilder {
-        crate::operation::tag_instance_profile::builders::TagInstanceProfileFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::tag_instance_profile::builders::TagInstanceProfileFluentBuilder::new(self.handle.clone())
     }
 }

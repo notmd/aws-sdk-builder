@@ -43,7 +43,7 @@ impl
             crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestOutput,
             crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -57,7 +57,10 @@ impl DeletePendingAggregationRequestFluentBuilder {
         }
     }
     /// Access the DeletePendingAggregationRequest as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +79,7 @@ impl DeletePendingAggregationRequestFluentBuilder {
             crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequestError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +89,11 @@ impl DeletePendingAggregationRequestFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequest::orchestrate(&runtime_plugins, input).await
+        crate::operation::delete_pending_aggregation_request::DeletePendingAggregationRequest::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -115,18 +122,12 @@ impl DeletePendingAggregationRequestFluentBuilder {
         self
     }
     /// <p>The 12-digit account ID of the account requesting to aggregate data.</p>
-    pub fn requester_account_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn requester_account_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.requester_account_id(input.into());
         self
     }
     /// <p>The 12-digit account ID of the account requesting to aggregate data.</p>
-    pub fn set_requester_account_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_requester_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_requester_account_id(input);
         self
     }
@@ -135,18 +136,12 @@ impl DeletePendingAggregationRequestFluentBuilder {
         self.inner.get_requester_account_id()
     }
     /// <p>The region requesting to aggregate data.</p>
-    pub fn requester_aws_region(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn requester_aws_region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.requester_aws_region(input.into());
         self
     }
     /// <p>The region requesting to aggregate data.</p>
-    pub fn set_requester_aws_region(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_requester_aws_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_requester_aws_region(input);
         self
     }

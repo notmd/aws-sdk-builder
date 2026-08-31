@@ -10,10 +10,7 @@ pub struct PermissionStatementSummary {
     pub condition: ::std::option::Option<
         ::std::collections::HashMap<
             ::std::string::String,
-            ::std::collections::HashMap<
-                ::std::string::String,
-                ::std::vec::Vec<::std::string::String>,
-            >,
+            ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>,
         >,
     >,
 }
@@ -29,10 +26,7 @@ impl PermissionStatementSummary {
     ) -> ::std::option::Option<
         &::std::collections::HashMap<
             ::std::string::String,
-            ::std::collections::HashMap<
-                ::std::string::String,
-                ::std::vec::Vec<::std::string::String>,
-            >,
+            ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>,
         >,
     > {
         self.condition.as_ref()
@@ -46,19 +40,14 @@ impl PermissionStatementSummary {
 }
 
 /// A builder for [`PermissionStatementSummary`](crate::types::PermissionStatementSummary).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PermissionStatementSummaryBuilder {
     pub(crate) sid: ::std::option::Option<::std::string::String>,
     pub(crate) condition: ::std::option::Option<
         ::std::collections::HashMap<
             ::std::string::String,
-            ::std::collections::HashMap<
-                ::std::string::String,
-                ::std::vec::Vec<::std::string::String>,
-            >,
+            ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>,
         >,
     >,
 }
@@ -86,10 +75,7 @@ impl PermissionStatementSummaryBuilder {
     pub fn condition(
         mut self,
         k: impl ::std::convert::Into<::std::string::String>,
-        v: ::std::collections::HashMap<
-            ::std::string::String,
-            ::std::vec::Vec<::std::string::String>,
-        >,
+        v: ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>,
     ) -> Self {
         let mut hash_map = self.condition.unwrap_or_default();
         hash_map.insert(k.into(), v);
@@ -102,10 +88,7 @@ impl PermissionStatementSummaryBuilder {
         input: ::std::option::Option<
             ::std::collections::HashMap<
                 ::std::string::String,
-                ::std::collections::HashMap<
-                    ::std::string::String,
-                    ::std::vec::Vec<::std::string::String>,
-                >,
+                ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>,
             >,
         >,
     ) -> Self {
@@ -118,10 +101,7 @@ impl PermissionStatementSummaryBuilder {
     ) -> &::std::option::Option<
         ::std::collections::HashMap<
             ::std::string::String,
-            ::std::collections::HashMap<
-                ::std::string::String,
-                ::std::vec::Vec<::std::string::String>,
-            >,
+            ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::string::String>>,
         >,
     > {
         &self.condition
@@ -131,10 +111,8 @@ impl PermissionStatementSummaryBuilder {
     /// - [`sid`](crate::types::builders::PermissionStatementSummaryBuilder::sid)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::PermissionStatementSummary,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::PermissionStatementSummary, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::PermissionStatementSummary {
             sid: self.sid.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

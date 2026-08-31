@@ -13,8 +13,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetRepositoryEndpointError>`](crate::operation::get_repository_endpoint::GetRepositoryEndpointError)
     pub fn get_repository_endpoint(
         &self,
-    ) -> crate::operation::get_repository_endpoint::builders::GetRepositoryEndpointFluentBuilder
-    {
+    ) -> crate::operation::get_repository_endpoint::builders::GetRepositoryEndpointFluentBuilder {
         crate::operation::get_repository_endpoint::builders::GetRepositoryEndpointFluentBuilder::new(
             self.handle.clone(),
         )

@@ -44,10 +44,7 @@ pub fn ser_restore_table_to_point_in_time_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_14 = array_12.value().start_object();
-                crate::protocol_serde::shape_local_secondary_index::ser_local_secondary_index(
-                    &mut object_14,
-                    item_13,
-                )?;
+                crate::protocol_serde::shape_local_secondary_index::ser_local_secondary_index(&mut object_14, item_13)?;
                 object_14.finish();
             }
         }
@@ -56,28 +53,19 @@ pub fn ser_restore_table_to_point_in_time_input_input(
     if let Some(var_15) = &input.provisioned_throughput_override {
         #[allow(unused_mut)]
         let mut object_16 = object.key("ProvisionedThroughputOverride").start_object();
-        crate::protocol_serde::shape_provisioned_throughput::ser_provisioned_throughput(
-            &mut object_16,
-            var_15,
-        )?;
+        crate::protocol_serde::shape_provisioned_throughput::ser_provisioned_throughput(&mut object_16, var_15)?;
         object_16.finish();
     }
     if let Some(var_17) = &input.on_demand_throughput_override {
         #[allow(unused_mut)]
         let mut object_18 = object.key("OnDemandThroughputOverride").start_object();
-        crate::protocol_serde::shape_on_demand_throughput::ser_on_demand_throughput(
-            &mut object_18,
-            var_17,
-        )?;
+        crate::protocol_serde::shape_on_demand_throughput::ser_on_demand_throughput(&mut object_18, var_17)?;
         object_18.finish();
     }
     if let Some(var_19) = &input.sse_specification_override {
         #[allow(unused_mut)]
         let mut object_20 = object.key("SSESpecificationOverride").start_object();
-        crate::protocol_serde::shape_sse_specification::ser_sse_specification(
-            &mut object_20,
-            var_19,
-        )?;
+        crate::protocol_serde::shape_sse_specification::ser_sse_specification(&mut object_20, var_19)?;
         object_20.finish();
     }
     if let Some(var_21) = &input.vector_index_override {
@@ -86,10 +74,7 @@ pub fn ser_restore_table_to_point_in_time_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_24 = array_22.value().start_object();
-                crate::protocol_serde::shape_vector_index::ser_vector_index(
-                    &mut object_24,
-                    item_23,
-                )?;
+                crate::protocol_serde::shape_vector_index::ser_vector_index(&mut object_24, item_23)?;
                 object_24.finish();
             }
         }

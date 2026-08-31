@@ -15,8 +15,7 @@ pub(crate) fn de_retention_payload(
 
 pub fn de_retention(
     inp: &[u8],
-) -> std::result::Result<crate::types::ObjectLockRetention, ::aws_smithy_xml::decode::XmlDecodeError>
-{
+) -> std::result::Result<crate::types::ObjectLockRetention, ::aws_smithy_xml::decode::XmlDecodeError> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
     #[allow(unused_mut)]
     let mut decoder = doc.root_element()?;
@@ -28,8 +27,5 @@ pub fn de_retention(
     }
     #[allow(unused_variables)]
     let depth = 0u32;
-    crate::protocol_serde::shape_object_lock_retention::de_object_lock_retention(
-        &mut decoder,
-        depth + 1,
-    )
+    crate::protocol_serde::shape_object_lock_retention::de_object_lock_retention(&mut decoder, depth + 1)
 }

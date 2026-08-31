@@ -14,8 +14,6 @@ impl super::Client {
     pub fn get_message_insights(
         &self,
     ) -> crate::operation::get_message_insights::builders::GetMessageInsightsFluentBuilder {
-        crate::operation::get_message_insights::builders::GetMessageInsightsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_message_insights::builders::GetMessageInsightsFluentBuilder::new(self.handle.clone())
     }
 }

@@ -6,15 +6,11 @@ pub(crate) fn apply_guardrail_output_output_correct_errors(
     if builder.usage.is_none() {
         builder.usage = {
             let builder = crate::types::builders::GuardrailUsageBuilder::default();
-            crate::serde_util::guardrail_usage_correct_errors(builder)
-                .build()
-                .ok()
+            crate::serde_util::guardrail_usage_correct_errors(builder).build().ok()
         }
     }
     if builder.action.is_none() {
-        builder.action = "no value was set"
-            .parse::<crate::types::GuardrailAction>()
-            .ok()
+        builder.action = "no value was set".parse::<crate::types::GuardrailAction>().ok()
     }
     if builder.outputs.is_none() {
         builder.outputs = Some(Default::default())
@@ -38,17 +34,13 @@ pub(crate) fn converse_output_output_correct_errors(
     if builder.usage.is_none() {
         builder.usage = {
             let builder = crate::types::builders::TokenUsageBuilder::default();
-            crate::serde_util::token_usage_correct_errors(builder)
-                .build()
-                .ok()
+            crate::serde_util::token_usage_correct_errors(builder).build().ok()
         }
     }
     if builder.metrics.is_none() {
         builder.metrics = {
             let builder = crate::types::builders::ConverseMetricsBuilder::default();
-            crate::serde_util::converse_metrics_correct_errors(builder)
-                .build()
-                .ok()
+            crate::serde_util::converse_metrics_correct_errors(builder).build().ok()
         }
     }
     builder
@@ -75,9 +67,7 @@ pub(crate) fn get_async_invoke_output_output_correct_errors(
         builder.model_arn = Some(Default::default())
     }
     if builder.status.is_none() {
-        builder.status = "no value was set"
-            .parse::<crate::types::AsyncInvokeStatus>()
-            .ok()
+        builder.status = "no value was set".parse::<crate::types::AsyncInvokeStatus>().ok()
     }
     if builder.submit_time.is_none() {
         builder.submit_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
@@ -123,7 +113,7 @@ pub(crate) fn invoke_model_output_output_correct_errors(
 #[cfg(feature = "op_invoke_model_with_response_stream")]
 pub(crate) fn invoke_model_with_response_stream_output_output_correct_errors(
     mut builder: crate::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder,
-) -> crate::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder{
+) -> crate::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamOutputBuilder {
     if builder.content_type.is_none() {
         builder.content_type = Some(Default::default())
     }
@@ -200,9 +190,7 @@ pub(crate) fn service_tier_correct_errors(
     mut builder: crate::types::builders::ServiceTierBuilder,
 ) -> crate::types::builders::ServiceTierBuilder {
     if builder.r#type.is_none() {
-        builder.r#type = "no value was set"
-            .parse::<crate::types::ServiceTierType>()
-            .ok()
+        builder.r#type = "no value was set".parse::<crate::types::ServiceTierType>().ok()
     }
     builder
 }
@@ -300,18 +288,12 @@ pub(crate) fn guardrail_checks_sensitive_information_usage_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) fn message_correct_errors(
     mut builder: crate::types::builders::MessageBuilder,
 ) -> crate::types::builders::MessageBuilder {
     if builder.role.is_none() {
-        builder.role = "no value was set"
-            .parse::<crate::types::ConversationRole>()
-            .ok()
+        builder.role = "no value was set".parse::<crate::types::ConversationRole>().ok()
     }
     if builder.content.is_none() {
         builder.content = Some(Default::default())
@@ -375,9 +357,7 @@ pub(crate) fn converse_stream_metadata_event_correct_errors(
     if builder.usage.is_none() {
         builder.usage = {
             let builder = crate::types::builders::TokenUsageBuilder::default();
-            crate::serde_util::token_usage_correct_errors(builder)
-                .build()
-                .ok()
+            crate::serde_util::token_usage_correct_errors(builder).build().ok()
         }
     }
     if builder.metrics.is_none() {
@@ -458,9 +438,7 @@ pub(crate) fn message_start_event_correct_errors(
     mut builder: crate::types::builders::MessageStartEventBuilder,
 ) -> crate::types::builders::MessageStartEventBuilder {
     if builder.role.is_none() {
-        builder.role = "no value was set"
-            .parse::<crate::types::ConversationRole>()
-            .ok()
+        builder.role = "no value was set".parse::<crate::types::ConversationRole>().ok()
     }
     builder
 }
@@ -542,11 +520,7 @@ pub(crate) fn guardrail_checks_sensitive_information_result_entry_correct_errors
     builder
 }
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) fn audio_block_correct_errors(
     mut builder: crate::types::builders::AudioBlockBuilder,
 ) -> crate::types::builders::AudioBlockBuilder {
@@ -559,27 +533,17 @@ pub(crate) fn audio_block_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) fn cache_point_block_correct_errors(
     mut builder: crate::types::builders::CachePointBlockBuilder,
 ) -> crate::types::builders::CachePointBlockBuilder {
     if builder.r#type.is_none() {
-        builder.r#type = "no value was set"
-            .parse::<crate::types::CachePointType>()
-            .ok()
+        builder.r#type = "no value was set".parse::<crate::types::CachePointType>().ok()
     }
     builder
 }
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) fn document_block_correct_errors(
     mut builder: crate::types::builders::DocumentBlockBuilder,
 ) -> crate::types::builders::DocumentBlockBuilder {
@@ -700,9 +664,7 @@ pub(crate) fn guardrail_pii_entity_filter_correct_errors(
         builder.r#match = Some(Default::default())
     }
     if builder.r#type.is_none() {
-        builder.r#type = "no value was set"
-            .parse::<crate::types::GuardrailPiiEntityType>()
-            .ok()
+        builder.r#type = "no value was set".parse::<crate::types::GuardrailPiiEntityType>().ok()
     }
     if builder.action.is_none() {
         builder.action = "no value was set"
@@ -740,9 +702,7 @@ pub(crate) fn guardrail_topic_correct_errors(
         builder.name = Some(Default::default())
     }
     if builder.r#type.is_none() {
-        builder.r#type = "no value was set"
-            .parse::<crate::types::GuardrailTopicType>()
-            .ok()
+        builder.r#type = "no value was set".parse::<crate::types::GuardrailTopicType>().ok()
     }
     if builder.action.is_none() {
         builder.action = "no value was set"
@@ -752,11 +712,7 @@ pub(crate) fn guardrail_topic_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) fn image_block_correct_errors(
     mut builder: crate::types::builders::ImageBlockBuilder,
 ) -> crate::types::builders::ImageBlockBuilder {
@@ -779,11 +735,7 @@ pub(crate) fn image_block_start_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) fn search_result_block_correct_errors(
     mut builder: crate::types::builders::SearchResultBlockBuilder,
 ) -> crate::types::builders::SearchResultBlockBuilder {
@@ -799,11 +751,7 @@ pub(crate) fn search_result_block_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) fn tool_addition_block_correct_errors(
     mut builder: crate::types::builders::ToolAdditionBlockBuilder,
 ) -> crate::types::builders::ToolAdditionBlockBuilder {
@@ -816,11 +764,7 @@ pub(crate) fn tool_addition_block_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) fn tool_removal_block_correct_errors(
     mut builder: crate::types::builders::ToolRemovalBlockBuilder,
 ) -> crate::types::builders::ToolRemovalBlockBuilder {
@@ -833,11 +777,7 @@ pub(crate) fn tool_removal_block_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) fn tool_result_block_correct_errors(
     mut builder: crate::types::builders::ToolResultBlockBuilder,
 ) -> crate::types::builders::ToolResultBlockBuilder {
@@ -860,11 +800,7 @@ pub(crate) fn tool_result_block_start_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) fn tool_use_block_correct_errors(
     mut builder: crate::types::builders::ToolUseBlockBuilder,
 ) -> crate::types::builders::ToolUseBlockBuilder {
@@ -903,11 +839,7 @@ pub(crate) fn tool_use_block_start_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) fn video_block_correct_errors(
     mut builder: crate::types::builders::VideoBlockBuilder,
 ) -> crate::types::builders::VideoBlockBuilder {
@@ -920,11 +852,7 @@ pub(crate) fn video_block_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) fn citations_config_correct_errors(
     mut builder: crate::types::builders::CitationsConfigBuilder,
 ) -> crate::types::builders::CitationsConfigBuilder {
@@ -934,11 +862,7 @@ pub(crate) fn citations_config_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) fn guardrail_converse_image_block_correct_errors(
     mut builder: crate::types::builders::GuardrailConverseImageBlockBuilder,
 ) -> crate::types::builders::GuardrailConverseImageBlockBuilder {
@@ -953,11 +877,7 @@ pub(crate) fn guardrail_converse_image_block_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) fn guardrail_converse_text_block_correct_errors(
     mut builder: crate::types::builders::GuardrailConverseTextBlockBuilder,
 ) -> crate::types::builders::GuardrailConverseTextBlockBuilder {
@@ -967,11 +887,7 @@ pub(crate) fn guardrail_converse_text_block_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) fn reasoning_text_block_correct_errors(
     mut builder: crate::types::builders::ReasoningTextBlockBuilder,
 ) -> crate::types::builders::ReasoningTextBlockBuilder {
@@ -981,11 +897,7 @@ pub(crate) fn reasoning_text_block_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) fn s3_location_correct_errors(
     mut builder: crate::types::builders::S3LocationBuilder,
 ) -> crate::types::builders::S3LocationBuilder {
@@ -995,11 +907,7 @@ pub(crate) fn s3_location_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) fn search_result_content_block_correct_errors(
     mut builder: crate::types::builders::SearchResultContentBlockBuilder,
 ) -> crate::types::builders::SearchResultContentBlockBuilder {

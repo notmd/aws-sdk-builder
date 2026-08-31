@@ -146,10 +146,7 @@ pub use crate::types::error::_resource_not_found_exception::ResourceNotFoundExce
 #[cfg(feature = "op_change_message_visibility")]
 pub use crate::types::error::_message_not_inflight::MessageNotInflightBuilder;
 
-#[cfg(any(
-    feature = "op_change_message_visibility",
-    feature = "op_delete_message"
-))]
+#[cfg(any(feature = "op_change_message_visibility", feature = "op_delete_message"))]
 pub use crate::types::error::_receipt_handle_is_invalid::ReceiptHandleIsInvalidBuilder;
 
 #[cfg(any(

@@ -21,9 +21,7 @@ impl GuardrailChecksPromptAttackCategoryConfig {
 }
 
 /// A builder for [`GuardrailChecksPromptAttackCategoryConfig`](crate::types::GuardrailChecksPromptAttackCategoryConfig).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailChecksPromptAttackCategoryConfigBuilder {
     pub(crate) category: ::std::option::Option<crate::types::GuardrailChecksPromptAttackCategory>,
@@ -44,9 +42,7 @@ impl GuardrailChecksPromptAttackCategoryConfigBuilder {
         self
     }
     /// <p>The prompt attack category to evaluate.</p>
-    pub fn get_category(
-        &self,
-    ) -> &::std::option::Option<crate::types::GuardrailChecksPromptAttackCategory> {
+    pub fn get_category(&self) -> &::std::option::Option<crate::types::GuardrailChecksPromptAttackCategory> {
         &self.category
     }
     /// Consumes the builder and constructs a [`GuardrailChecksPromptAttackCategoryConfig`](crate::types::GuardrailChecksPromptAttackCategoryConfig).

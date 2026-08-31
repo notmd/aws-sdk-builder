@@ -98,7 +98,7 @@ impl GenerateDataKeyPairWithoutPlaintextFluentBuilder {
             crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -109,7 +109,11 @@ impl GenerateDataKeyPairWithoutPlaintextFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintext::orchestrate(&runtime_plugins, input).await
+        crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintext::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -119,7 +123,7 @@ impl GenerateDataKeyPairWithoutPlaintextFluentBuilder {
         crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextOutput,
         crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -162,9 +166,7 @@ impl GenerateDataKeyPairWithoutPlaintextFluentBuilder {
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
     pub fn set_encryption_context(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_encryption_context(input);
         self
@@ -176,9 +178,7 @@ impl GenerateDataKeyPairWithoutPlaintextFluentBuilder {
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
     pub fn get_encryption_context(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_encryption_context()
     }
     /// <p>Specifies the symmetric encryption KMS key that encrypts the private key in the data key pair. You cannot specify an asymmetric KMS key or a KMS key in a custom key store. To get the type and origin of your KMS key, use the <code>DescribeKey</code> operation.</p>
@@ -242,10 +242,7 @@ impl GenerateDataKeyPairWithoutPlaintextFluentBuilder {
     }
     /// <p>Determines the type of data key pair that is generated.</p>
     /// <p>The KMS rule that restricts the use of asymmetric RSA and SM2 KMS keys to encrypt and decrypt or to sign and verify (but not both), the rule that permits you to use ECC KMS keys only to sign and verify, and the rule that permits you to use ML-DSA key pairs to sign and verify only are not effective on data key pairs, which are used outside of KMS. The SM2 key spec is only available in China Regions.</p>
-    pub fn set_key_pair_spec(
-        mut self,
-        input: ::std::option::Option<crate::types::DataKeyPairSpec>,
-    ) -> Self {
+    pub fn set_key_pair_spec(mut self, input: ::std::option::Option<crate::types::DataKeyPairSpec>) -> Self {
         self.inner = self.inner.set_key_pair_spec(input);
         self
     }
@@ -267,18 +264,13 @@ impl GenerateDataKeyPairWithoutPlaintextFluentBuilder {
     }
     /// <p>A list of grant tokens.</p>
     /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn set_grant_tokens(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_grant_tokens(input);
         self
     }
     /// <p>A list of grant tokens.</p>
     /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn get_grant_tokens(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_grant_tokens()
     }
     /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>

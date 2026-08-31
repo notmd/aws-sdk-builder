@@ -23,9 +23,7 @@ impl MoveKeys {
 }
 
 /// A builder for [`MoveKeys`](crate::types::MoveKeys).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct MoveKeysBuilder {
     pub(crate) entries: ::std::option::Option<::std::vec::Vec<crate::types::MoveKeyEntry>>,
@@ -43,17 +41,12 @@ impl MoveKeysBuilder {
         self
     }
     /// <p>An array of objects, where each object contains the information about one key to move.</p>
-    pub fn set_entries(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::MoveKeyEntry>>,
-    ) -> Self {
+    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MoveKeyEntry>>) -> Self {
         self.entries = input;
         self
     }
     /// <p>An array of objects, where each object contains the information about one key to move.</p>
-    pub fn get_entries(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::MoveKeyEntry>> {
+    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MoveKeyEntry>> {
         &self.entries
     }
     /// Consumes the builder and constructs a [`MoveKeys`](crate::types::MoveKeys).
@@ -61,10 +54,7 @@ impl MoveKeysBuilder {
     /// - [`entries`](crate::types::builders::MoveKeysBuilder::entries)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::MoveKeys,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::MoveKeys, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::MoveKeys {
             entries: self.entries.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

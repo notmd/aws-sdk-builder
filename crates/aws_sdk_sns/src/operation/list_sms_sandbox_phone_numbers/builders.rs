@@ -58,7 +58,9 @@ impl ListSMSSandboxPhoneNumbersFluentBuilder {
         }
     }
     /// Access the ListSMSSandboxPhoneNumbers as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_sms_sandbox_phone_numbers::builders::ListSmsSandboxPhoneNumbersInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_sms_sandbox_phone_numbers::builders::ListSmsSandboxPhoneNumbersInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,11 +84,12 @@ impl ListSMSSandboxPhoneNumbersFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbers::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbers::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbers::orchestrate(
             &runtime_plugins,
             input,
@@ -122,8 +125,13 @@ impl ListSMSSandboxPhoneNumbersFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_sms_sandbox_phone_numbers::paginator::ListSmsSandboxPhoneNumbersPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_sms_sandbox_phone_numbers::paginator::ListSmsSandboxPhoneNumbersPaginator{
-        crate::operation::list_sms_sandbox_phone_numbers::paginator::ListSmsSandboxPhoneNumbersPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::list_sms_sandbox_phone_numbers::paginator::ListSmsSandboxPhoneNumbersPaginator {
+        crate::operation::list_sms_sandbox_phone_numbers::paginator::ListSmsSandboxPhoneNumbersPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>Token that the previous <code>ListSMSSandboxPhoneNumbersInput</code> request returns.</p>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

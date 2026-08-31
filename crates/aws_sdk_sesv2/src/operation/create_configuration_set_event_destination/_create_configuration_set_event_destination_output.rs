@@ -19,9 +19,7 @@ impl CreateConfigurationSetEventDestinationOutput {
 }
 
 /// A builder for [`CreateConfigurationSetEventDestinationOutput`](crate::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateConfigurationSetEventDestinationOutputBuilder {
     _request_id: Option<String>,
@@ -37,7 +35,10 @@ impl CreateConfigurationSetEventDestinationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateConfigurationSetEventDestinationOutput`](crate::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationOutput).
-    pub fn build(self) -> crate::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationOutput
+    {
         crate::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationOutput {
             _request_id: self._request_id,
         }

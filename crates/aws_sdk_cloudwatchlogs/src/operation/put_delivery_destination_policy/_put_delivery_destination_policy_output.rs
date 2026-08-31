@@ -20,15 +20,15 @@ impl ::aws_types::request_id::RequestId for PutDeliveryDestinationPolicyOutput {
 }
 impl PutDeliveryDestinationPolicyOutput {
     /// Creates a new builder-style object to manufacture [`PutDeliveryDestinationPolicyOutput`](crate::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyOutput).
-    pub fn builder() -> crate::operation::put_delivery_destination_policy::builders::PutDeliveryDestinationPolicyOutputBuilder{
-        crate::operation::put_delivery_destination_policy::builders::PutDeliveryDestinationPolicyOutputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::put_delivery_destination_policy::builders::PutDeliveryDestinationPolicyOutputBuilder {
+        crate::operation::put_delivery_destination_policy::builders::PutDeliveryDestinationPolicyOutputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`PutDeliveryDestinationPolicyOutput`](crate::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutDeliveryDestinationPolicyOutputBuilder {
     pub(crate) policy: ::std::option::Option<crate::types::Policy>,
@@ -59,9 +59,7 @@ impl PutDeliveryDestinationPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutDeliveryDestinationPolicyOutput`](crate::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyOutput {
+    pub fn build(self) -> crate::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyOutput {
         crate::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyOutput {
             policy: self.policy,
             _request_id: self._request_id,

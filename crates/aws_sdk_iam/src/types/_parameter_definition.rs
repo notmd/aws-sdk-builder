@@ -58,9 +58,7 @@ impl ParameterDefinition {
 }
 
 /// A builder for [`ParameterDefinition`](crate::types::ParameterDefinition).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ParameterDefinitionBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
@@ -94,10 +92,7 @@ impl ParameterDefinitionBuilder {
         self
     }
     /// <p>The data type of the parameter. Valid values are <code>String</code>, <code>StringList</code>, <code>Number</code>, <code>NumberList</code>, <code>Arn</code>, and <code>ArnList</code>.</p>
-    pub fn set_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ParameterTypeType>,
-    ) -> Self {
+    pub fn set_type(mut self, input: ::std::option::Option<crate::types::ParameterTypeType>) -> Self {
         self.r#type = input;
         self
     }
@@ -148,18 +143,12 @@ impl ParameterDefinitionBuilder {
         &self.is_required
     }
     /// <p>The value that the service uses for the parameter when you do not supply one.</p>
-    pub fn default_value(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn default_value(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.default_value = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The value that the service uses for the parameter when you do not supply one.</p>
-    pub fn set_default_value(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_default_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.default_value = input;
         self
     }
@@ -187,10 +176,8 @@ impl ParameterDefinitionBuilder {
     /// - [`r#type`](crate::types::builders::ParameterDefinitionBuilder::type)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::ParameterDefinition,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::ParameterDefinition, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::ParameterDefinition {
             name: self.name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -19,8 +19,7 @@ pub struct TableAutoScalingDescription {
     /// </ul>
     pub table_status: ::std::option::Option<crate::types::TableStatus>,
     /// <p>Represents replicas of the global table.</p>
-    pub replicas:
-        ::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingDescription>>,
+    pub replicas: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingDescription>>,
 }
 impl TableAutoScalingDescription {
     /// <p>The name of the table.</p>
@@ -56,15 +55,12 @@ impl TableAutoScalingDescription {
 }
 
 /// A builder for [`TableAutoScalingDescription`](crate::types::TableAutoScalingDescription).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TableAutoScalingDescriptionBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
     pub(crate) table_status: ::std::option::Option<crate::types::TableStatus>,
-    pub(crate) replicas:
-        ::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingDescription>>,
+    pub(crate) replicas: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingDescription>>,
 }
 impl TableAutoScalingDescriptionBuilder {
     /// <p>The name of the table.</p>
@@ -107,10 +103,7 @@ impl TableAutoScalingDescriptionBuilder {
     /// <li>
     /// <p><code>ACTIVE</code> - The table is ready for use.</p></li>
     /// </ul>
-    pub fn set_table_status(
-        mut self,
-        input: ::std::option::Option<crate::types::TableStatus>,
-    ) -> Self {
+    pub fn set_table_status(mut self, input: ::std::option::Option<crate::types::TableStatus>) -> Self {
         self.table_status = input;
         self
     }
@@ -148,9 +141,7 @@ impl TableAutoScalingDescriptionBuilder {
         self
     }
     /// <p>Represents replicas of the global table.</p>
-    pub fn get_replicas(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingDescription>> {
+    pub fn get_replicas(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingDescription>> {
         &self.replicas
     }
     /// Consumes the builder and constructs a [`TableAutoScalingDescription`](crate::types::TableAutoScalingDescription).

@@ -74,9 +74,7 @@ impl DocumentBlock {
 }
 
 /// A builder for [`DocumentBlock`](crate::types::DocumentBlock).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DocumentBlockBuilder {
     pub(crate) format: ::std::option::Option<crate::types::DocumentFormat>,
@@ -92,10 +90,7 @@ impl DocumentBlockBuilder {
         self
     }
     /// <p>The format of a document, or its extension.</p>
-    pub fn set_format(
-        mut self,
-        input: ::std::option::Option<crate::types::DocumentFormat>,
-    ) -> Self {
+    pub fn set_format(mut self, input: ::std::option::Option<crate::types::DocumentFormat>) -> Self {
         self.format = input;
         self
     }
@@ -167,10 +162,7 @@ impl DocumentBlockBuilder {
         self
     }
     /// <p>Contains the content of the document.</p>
-    pub fn set_source(
-        mut self,
-        input: ::std::option::Option<crate::types::DocumentSource>,
-    ) -> Self {
+    pub fn set_source(mut self, input: ::std::option::Option<crate::types::DocumentSource>) -> Self {
         self.source = input;
         self
     }
@@ -198,10 +190,7 @@ impl DocumentBlockBuilder {
         self
     }
     /// <p>Configuration settings that control how citations should be generated for this specific document.</p>
-    pub fn set_citations(
-        mut self,
-        input: ::std::option::Option<crate::types::CitationsConfig>,
-    ) -> Self {
+    pub fn set_citations(mut self, input: ::std::option::Option<crate::types::CitationsConfig>) -> Self {
         self.citations = input;
         self
     }
@@ -214,10 +203,7 @@ impl DocumentBlockBuilder {
     /// - [`name`](crate::types::builders::DocumentBlockBuilder::name)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::DocumentBlock,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::DocumentBlock, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::DocumentBlock {
             format: self.format.unwrap_or(
                 "txt"

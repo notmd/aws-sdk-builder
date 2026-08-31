@@ -9,8 +9,7 @@ pub struct CapacityProviderScalingConfig {
     /// <p>The scaling mode that determines how the capacity provider responds to changes in demand.</p>
     pub scaling_mode: ::std::option::Option<crate::types::CapacityProviderScalingMode>,
     /// <p>A list of scaling policies that define how the capacity provider scales compute instances based on metrics and thresholds.</p>
-    pub scaling_policies:
-        ::std::option::Option<::std::vec::Vec<crate::types::TargetTrackingScalingPolicy>>,
+    pub scaling_policies: ::std::option::Option<::std::vec::Vec<crate::types::TargetTrackingScalingPolicy>>,
 }
 impl CapacityProviderScalingConfig {
     /// <p>The maximum number of vCPUs that the capacity provider can provision across all compute instances.</p>
@@ -18,9 +17,7 @@ impl CapacityProviderScalingConfig {
         self.max_v_cpu_count
     }
     /// <p>The scaling mode that determines how the capacity provider responds to changes in demand.</p>
-    pub fn scaling_mode(
-        &self,
-    ) -> ::std::option::Option<&crate::types::CapacityProviderScalingMode> {
+    pub fn scaling_mode(&self) -> ::std::option::Option<&crate::types::CapacityProviderScalingMode> {
         self.scaling_mode.as_ref()
     }
     /// <p>A list of scaling policies that define how the capacity provider scales compute instances based on metrics and thresholds.</p>
@@ -38,15 +35,12 @@ impl CapacityProviderScalingConfig {
 }
 
 /// A builder for [`CapacityProviderScalingConfig`](crate::types::CapacityProviderScalingConfig).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CapacityProviderScalingConfigBuilder {
     pub(crate) max_v_cpu_count: ::std::option::Option<i32>,
     pub(crate) scaling_mode: ::std::option::Option<crate::types::CapacityProviderScalingMode>,
-    pub(crate) scaling_policies:
-        ::std::option::Option<::std::vec::Vec<crate::types::TargetTrackingScalingPolicy>>,
+    pub(crate) scaling_policies: ::std::option::Option<::std::vec::Vec<crate::types::TargetTrackingScalingPolicy>>,
 }
 impl CapacityProviderScalingConfigBuilder {
     /// <p>The maximum number of vCPUs that the capacity provider can provision across all compute instances.</p>
@@ -69,17 +63,12 @@ impl CapacityProviderScalingConfigBuilder {
         self
     }
     /// <p>The scaling mode that determines how the capacity provider responds to changes in demand.</p>
-    pub fn set_scaling_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::CapacityProviderScalingMode>,
-    ) -> Self {
+    pub fn set_scaling_mode(mut self, input: ::std::option::Option<crate::types::CapacityProviderScalingMode>) -> Self {
         self.scaling_mode = input;
         self
     }
     /// <p>The scaling mode that determines how the capacity provider responds to changes in demand.</p>
-    pub fn get_scaling_mode(
-        &self,
-    ) -> &::std::option::Option<crate::types::CapacityProviderScalingMode> {
+    pub fn get_scaling_mode(&self) -> &::std::option::Option<crate::types::CapacityProviderScalingMode> {
         &self.scaling_mode
     }
     /// Appends an item to `scaling_policies`.

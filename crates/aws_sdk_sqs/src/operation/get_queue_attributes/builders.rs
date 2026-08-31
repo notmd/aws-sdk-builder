@@ -59,9 +59,7 @@ impl GetQueueAttributesFluentBuilder {
         }
     }
     /// Access the GetQueueAttributes as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_queue_attributes::builders::GetQueueAttributesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_queue_attributes::builders::GetQueueAttributesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,17 +83,12 @@ impl GetQueueAttributesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::get_queue_attributes::GetQueueAttributes::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::get_queue_attributes::GetQueueAttributes::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::get_queue_attributes::GetQueueAttributes::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::get_queue_attributes::GetQueueAttributes::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -450,9 +443,7 @@ impl GetQueueAttributesFluentBuilder {
     /// </ul>
     /// <p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
     /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-    pub fn get_attribute_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>> {
+    pub fn get_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>> {
         self.inner.get_attribute_names()
     }
 }

@@ -54,9 +54,7 @@ impl TagFilter {
 }
 
 /// A builder for [`TagFilter`](crate::types::TagFilter).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TagFilterBuilder {
     pub(crate) key: ::std::option::Option<::std::string::String>,
@@ -114,10 +112,7 @@ impl TagFilterBuilder {
     /// <li>
     /// <p>Exact matching and negation are case-sensitive. Wildcard matching is case-insensitive.</p></li>
     /// </ul>
-    pub fn set_values(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.values = input;
         self
     }
@@ -142,10 +137,7 @@ impl TagFilterBuilder {
     /// - [`key`](crate::types::builders::TagFilterBuilder::key)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::TagFilter,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::TagFilter, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TagFilter {
             key: self.key.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

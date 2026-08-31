@@ -35,16 +35,10 @@ pub use crate::types::error::_packed_policy_too_large_exception::PackedPolicyToo
 ))]
 pub use crate::types::error::_region_disabled_exception::RegionDisabledExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_assume_role_with_saml",
-    feature = "op_assume_role_with_web_identity"
-))]
+#[cfg(any(feature = "op_assume_role_with_saml", feature = "op_assume_role_with_web_identity"))]
 pub use crate::types::error::_idp_rejected_claim_exception::IdpRejectedClaimExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_assume_role_with_saml",
-    feature = "op_assume_role_with_web_identity"
-))]
+#[cfg(any(feature = "op_assume_role_with_saml", feature = "op_assume_role_with_web_identity"))]
 pub use crate::types::error::_invalid_identity_token_exception::InvalidIdentityTokenExceptionBuilder;
 
 #[cfg(feature = "op_assume_role_with_web_identity")]

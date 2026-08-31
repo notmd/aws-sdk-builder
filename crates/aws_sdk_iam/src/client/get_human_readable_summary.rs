@@ -12,8 +12,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetHumanReadableSummaryError>`](crate::operation::get_human_readable_summary::GetHumanReadableSummaryError)
     pub fn get_human_readable_summary(
         &self,
-    ) -> crate::operation::get_human_readable_summary::builders::GetHumanReadableSummaryFluentBuilder
-    {
-        crate::operation::get_human_readable_summary::builders::GetHumanReadableSummaryFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::get_human_readable_summary::builders::GetHumanReadableSummaryFluentBuilder {
+        crate::operation::get_human_readable_summary::builders::GetHumanReadableSummaryFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

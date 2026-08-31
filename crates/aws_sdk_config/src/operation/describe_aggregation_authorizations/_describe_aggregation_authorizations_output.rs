@@ -4,8 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeAggregationAuthorizationsOutput {
     /// <p>Returns a list of authorizations granted to various aggregator accounts and regions.</p>
-    pub aggregation_authorizations:
-        ::std::option::Option<::std::vec::Vec<crate::types::AggregationAuthorization>>,
+    pub aggregation_authorizations: ::std::option::Option<::std::vec::Vec<crate::types::AggregationAuthorization>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -15,9 +14,7 @@ impl DescribeAggregationAuthorizationsOutput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.aggregation_authorizations.is_none()`.
     pub fn aggregation_authorizations(&self) -> &[crate::types::AggregationAuthorization] {
-        self.aggregation_authorizations
-            .as_deref()
-            .unwrap_or_default()
+        self.aggregation_authorizations.as_deref().unwrap_or_default()
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -31,15 +28,15 @@ impl ::aws_types::request_id::RequestId for DescribeAggregationAuthorizationsOut
 }
 impl DescribeAggregationAuthorizationsOutput {
     /// Creates a new builder-style object to manufacture [`DescribeAggregationAuthorizationsOutput`](crate::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsOutput).
-    pub fn builder() -> crate::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsOutputBuilder
+    {
         crate::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeAggregationAuthorizationsOutput`](crate::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeAggregationAuthorizationsOutputBuilder {
     pub(crate) aggregation_authorizations:
@@ -53,10 +50,7 @@ impl DescribeAggregationAuthorizationsOutputBuilder {
     /// To override the contents of this collection use [`set_aggregation_authorizations`](Self::set_aggregation_authorizations).
     ///
     /// <p>Returns a list of authorizations granted to various aggregator accounts and regions.</p>
-    pub fn aggregation_authorizations(
-        mut self,
-        input: crate::types::AggregationAuthorization,
-    ) -> Self {
+    pub fn aggregation_authorizations(mut self, input: crate::types::AggregationAuthorization) -> Self {
         let mut v = self.aggregation_authorizations.unwrap_or_default();
         v.push(input);
         self.aggregation_authorizations = ::std::option::Option::Some(v);
@@ -100,7 +94,9 @@ impl DescribeAggregationAuthorizationsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeAggregationAuthorizationsOutput`](crate::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsOutput).
-    pub fn build(self) -> crate::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsOutput {
         crate::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsOutput {
             aggregation_authorizations: self.aggregation_authorizations,
             next_token: self.next_token,

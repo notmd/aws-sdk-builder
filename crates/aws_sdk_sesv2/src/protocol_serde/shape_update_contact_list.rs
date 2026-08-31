@@ -9,21 +9,14 @@ pub fn de_update_contact_list_http_error(
     crate::operation::update_contact_list::UpdateContactListError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::update_contact_list::UpdateContactListError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::update_contact_list::UpdateContactListError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(
-                crate::operation::update_contact_list::UpdateContactListError::unhandled(generic),
-            )
-        }
+        None => return Err(crate::operation::update_contact_list::UpdateContactListError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -33,22 +26,7 @@ pub fn de_update_contact_list_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::BadRequestExceptionBuilder::default();
-                output = crate::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::update_contact_list::UpdateContactListError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ConcurrentModificationException" => crate::operation::update_contact_list::UpdateContactListError::ConcurrentModificationException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
-                output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
+                output = crate::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(
                     _response_body,
                     output,
                 )
@@ -61,13 +39,36 @@ pub fn de_update_contact_list_http_error(
             }
             tmp
         }),
+        "ConcurrentModificationException" => {
+            crate::operation::update_contact_list::UpdateContactListError::ConcurrentModificationException({
+                #[allow(unused_mut)]
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::update_contact_list::UpdateContactListError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "NotFoundException" => crate::operation::update_contact_list::UpdateContactListError::NotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::update_contact_list::UpdateContactListError::unhandled)?;
+                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::update_contact_list::UpdateContactListError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -76,21 +77,23 @@ pub fn de_update_contact_list_http_error(
             }
             tmp
         }),
-        "TooManyRequestsException" => crate::operation::update_contact_list::UpdateContactListError::TooManyRequestsException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "TooManyRequestsException" => {
+            crate::operation::update_contact_list::UpdateContactListError::TooManyRequestsException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(crate::operation::update_contact_list::UpdateContactListError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => crate::operation::update_contact_list::UpdateContactListError::generic(generic),
     })
 }
@@ -107,25 +110,18 @@ pub fn de_update_contact_list_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::update_contact_list::builders::UpdateContactListOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_update_contact_list_input(
     input: &crate::operation::update_contact_list::UpdateContactListInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_update_contact_list_input::ser_update_contact_list_input_input(
-        &mut object,
-        input,
-    )?;
+    crate::protocol_serde::shape_update_contact_list_input::ser_update_contact_list_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

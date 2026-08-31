@@ -36,7 +36,8 @@ impl ::std::fmt::Debug for ListUserPoolClientSecretsInput {
 }
 impl ListUserPoolClientSecretsInput {
     /// Creates a new builder-style object to manufacture [`ListUserPoolClientSecretsInput`](crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsInput).
-    pub fn builder() -> crate::operation::list_user_pool_client_secrets::builders::ListUserPoolClientSecretsInputBuilder{
+    pub fn builder() -> crate::operation::list_user_pool_client_secrets::builders::ListUserPoolClientSecretsInputBuilder
+    {
         crate::operation::list_user_pool_client_secrets::builders::ListUserPoolClientSecretsInputBuilder::default()
     }
 }

@@ -3,9 +3,7 @@ pub use crate::operation::start_remediation_execution::_start_remediation_execut
 
 pub use crate::operation::start_remediation_execution::_start_remediation_execution_output::StartRemediationExecutionOutputBuilder;
 
-impl
-    crate::operation::start_remediation_execution::builders::StartRemediationExecutionInputBuilder
-{
+impl crate::operation::start_remediation_execution::builders::StartRemediationExecutionInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -60,7 +58,9 @@ impl StartRemediationExecutionFluentBuilder {
         }
     }
     /// Access the StartRemediationExecution as a reference.
-    pub fn as_input(&self) -> &crate::operation::start_remediation_execution::builders::StartRemediationExecutionInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::start_remediation_execution::builders::StartRemediationExecutionInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +84,14 @@ impl StartRemediationExecutionFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::start_remediation_execution::StartRemediationExecution::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::start_remediation_execution::StartRemediationExecution::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::start_remediation_execution::StartRemediationExecution::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::start_remediation_execution::StartRemediationExecution::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -122,18 +120,12 @@ impl StartRemediationExecutionFluentBuilder {
         self
     }
     /// <p>The list of names of Config rules that you want to run remediation execution for.</p>
-    pub fn config_rule_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.config_rule_name(input.into());
         self
     }
     /// <p>The list of names of Config rules that you want to run remediation execution for.</p>
-    pub fn set_config_rule_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_config_rule_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_config_rule_name(input);
         self
     }
@@ -160,9 +152,7 @@ impl StartRemediationExecutionFluentBuilder {
         self
     }
     /// <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.</p>
-    pub fn get_resource_keys(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>> {
+    pub fn get_resource_keys(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>> {
         self.inner.get_resource_keys()
     }
 }

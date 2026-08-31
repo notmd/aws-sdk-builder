@@ -60,8 +60,7 @@ impl ListLogGroupsForQueryFluentBuilder {
     /// Access the ListLogGroupsForQuery as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryInputBuilder
-    {
+    ) -> &crate::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,16 +84,13 @@ impl ListLogGroupsForQueryFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_log_groups_for_query::ListLogGroupsForQuery::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_log_groups_for_query::ListLogGroupsForQuery::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::list_log_groups_for_query::ListLogGroupsForQuery::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_log_groups_for_query::ListLogGroupsForQuery::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -127,8 +123,7 @@ impl ListLogGroupsForQueryFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::list_log_groups_for_query::paginator::ListLogGroupsForQueryPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::list_log_groups_for_query::paginator::ListLogGroupsForQueryPaginator
-    {
+    ) -> crate::operation::list_log_groups_for_query::paginator::ListLogGroupsForQueryPaginator {
         crate::operation::list_log_groups_for_query::paginator::ListLogGroupsForQueryPaginator::new(
             self.handle,
             self.inner,

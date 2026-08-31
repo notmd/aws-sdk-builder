@@ -34,9 +34,7 @@ impl ListConnectorsInput {
 }
 
 /// A builder for [`ListConnectorsInput`](crate::operation::list_connectors::ListConnectorsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListConnectorsInputBuilder {
     pub(crate) max_results: ::std::option::Option<i32>,
@@ -84,17 +82,12 @@ impl ListConnectorsInputBuilder {
         self
     }
     /// <p>Filters the results based on a list of <code>ConnectorFilter</code> objects that you specify.</p>
-    pub fn set_filters(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ConnectorFilter>>,
-    ) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConnectorFilter>>) -> Self {
         self.filters = input;
         self
     }
     /// <p>Filters the results based on a list of <code>ConnectorFilter</code> objects that you specify.</p>
-    pub fn get_filters(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ConnectorFilter>> {
+    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConnectorFilter>> {
         &self.filters
     }
     /// Consumes the builder and constructs a [`ListConnectorsInput`](crate::operation::list_connectors::ListConnectorsInput).

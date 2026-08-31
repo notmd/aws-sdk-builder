@@ -10,8 +10,6 @@ impl super::Client {
     pub fn delete_bucket_policy(
         &self,
     ) -> crate::operation::delete_bucket_policy::builders::DeleteBucketPolicyFluentBuilder {
-        crate::operation::delete_bucket_policy::builders::DeleteBucketPolicyFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_bucket_policy::builders::DeleteBucketPolicyFluentBuilder::new(self.handle.clone())
     }
 }

@@ -8,7 +8,8 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteFunctionCodeSigningConfigError>`](crate::operation::delete_function_code_signing_config::DeleteFunctionCodeSigningConfigError)
     pub fn delete_function_code_signing_config(
         &self,
-    ) -> crate::operation::delete_function_code_signing_config::builders::DeleteFunctionCodeSigningConfigFluentBuilder{
+    ) -> crate::operation::delete_function_code_signing_config::builders::DeleteFunctionCodeSigningConfigFluentBuilder
+    {
         crate::operation::delete_function_code_signing_config::builders::DeleteFunctionCodeSigningConfigFluentBuilder::new(self.handle.clone())
     }
 }

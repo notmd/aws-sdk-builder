@@ -34,9 +34,7 @@ impl JsonSchemaDefinition {
 }
 
 /// A builder for [`JsonSchemaDefinition`](crate::types::JsonSchemaDefinition).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct JsonSchemaDefinitionBuilder {
     pub(crate) schema: ::std::option::Option<::std::string::String>,
@@ -92,10 +90,8 @@ impl JsonSchemaDefinitionBuilder {
     /// - [`schema`](crate::types::builders::JsonSchemaDefinitionBuilder::schema)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::JsonSchemaDefinition,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::JsonSchemaDefinition, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::JsonSchemaDefinition {
             schema: self.schema.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

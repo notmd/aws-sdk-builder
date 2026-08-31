@@ -79,9 +79,9 @@ impl ::std::convert::From<&str> for AnomalyDetectorStatus {
             "INITIALIZING" => AnomalyDetectorStatus::Initializing,
             "PAUSED" => AnomalyDetectorStatus::Paused,
             "TRAINING" => AnomalyDetectorStatus::Training,
-            other => AnomalyDetectorStatus::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => AnomalyDetectorStatus::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -107,14 +107,7 @@ impl AnomalyDetectorStatus {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &[
-            "ANALYZING",
-            "DELETED",
-            "FAILED",
-            "INITIALIZING",
-            "PAUSED",
-            "TRAINING",
-        ]
+        &["ANALYZING", "DELETED", "FAILED", "INITIALIZING", "PAUSED", "TRAINING"]
     }
 }
 impl ::std::convert::AsRef<str> for AnomalyDetectorStatus {
@@ -126,14 +119,10 @@ impl AnomalyDetectorStatus {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }

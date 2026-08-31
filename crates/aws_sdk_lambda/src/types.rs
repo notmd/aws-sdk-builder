@@ -340,10 +340,7 @@ pub use crate::types::_function_code::FunctionCode;
 #[cfg(any(feature = "op_create_function", feature = "op_update_function_code"))]
 pub use crate::types::_function_version_latest_published::FunctionVersionLatestPublished;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
 pub use crate::types::_vpc_config::VpcConfig;
 
 #[cfg(any(
@@ -368,16 +365,10 @@ pub use crate::types::_package_type::PackageType;
 ))]
 pub use crate::types::_dead_letter_config::DeadLetterConfig;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
 pub use crate::types::_environment::Environment;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
 pub use crate::types::_tracing_config::TracingConfig;
 
 #[cfg(any(
@@ -402,10 +393,7 @@ pub use crate::types::_image_config::ImageConfig;
 ))]
 pub use crate::types::_ephemeral_storage::EphemeralStorage;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
 pub use crate::types::_snap_start::SnapStart;
 
 #[cfg(any(
@@ -1527,10 +1515,7 @@ mod _durable_config;
 ))]
 mod _end_point_type;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
 mod _environment;
 
 #[cfg(any(
@@ -2143,10 +2128,7 @@ mod _self_managed_event_source;
 ))]
 mod _self_managed_kafka_event_source_config;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
 mod _snap_start;
 
 #[cfg(any(
@@ -2376,10 +2358,7 @@ mod _throttle_reason;
 #[cfg(feature = "op_get_durable_execution")]
 mod _trace_header;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
 mod _tracing_config;
 
 #[cfg(any(
@@ -2410,10 +2389,7 @@ mod _tracing_mode;
 ))]
 mod _update_runtime_on;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
 mod _vpc_config;
 
 #[cfg(any(

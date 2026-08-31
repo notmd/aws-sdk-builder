@@ -9,8 +9,7 @@ pub struct MetricFilter {
     /// <p>A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.</p>
     pub filter_pattern: ::std::option::Option<::std::string::String>,
     /// <p>The metric transformations.</p>
-    pub metric_transformations:
-        ::std::option::Option<::std::vec::Vec<crate::types::MetricTransformation>>,
+    pub metric_transformations: ::std::option::Option<::std::vec::Vec<crate::types::MetricTransformation>>,
     /// <p>The creation time of the metric filter, expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>.</p>
     pub creation_time: ::std::option::Option<i64>,
     /// <p>The name of the log group.</p>
@@ -59,9 +58,7 @@ impl MetricFilter {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.emit_system_field_dimensions.is_none()`.
     pub fn emit_system_field_dimensions(&self) -> &[::std::string::String] {
-        self.emit_system_field_dimensions
-            .as_deref()
-            .unwrap_or_default()
+        self.emit_system_field_dimensions.as_deref().unwrap_or_default()
     }
 }
 impl MetricFilter {
@@ -72,21 +69,17 @@ impl MetricFilter {
 }
 
 /// A builder for [`MetricFilter`](crate::types::MetricFilter).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct MetricFilterBuilder {
     pub(crate) filter_name: ::std::option::Option<::std::string::String>,
     pub(crate) filter_pattern: ::std::option::Option<::std::string::String>,
-    pub(crate) metric_transformations:
-        ::std::option::Option<::std::vec::Vec<crate::types::MetricTransformation>>,
+    pub(crate) metric_transformations: ::std::option::Option<::std::vec::Vec<crate::types::MetricTransformation>>,
     pub(crate) creation_time: ::std::option::Option<i64>,
     pub(crate) log_group_name: ::std::option::Option<::std::string::String>,
     pub(crate) apply_on_transformed_logs: ::std::option::Option<bool>,
     pub(crate) field_selection_criteria: ::std::option::Option<::std::string::String>,
-    pub(crate) emit_system_field_dimensions:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) emit_system_field_dimensions: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl MetricFilterBuilder {
     /// <p>The name of the metric filter.</p>
@@ -104,18 +97,12 @@ impl MetricFilterBuilder {
         &self.filter_name
     }
     /// <p>A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.</p>
-    pub fn filter_pattern(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn filter_pattern(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.filter_pattern = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.</p>
-    pub fn set_filter_pattern(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_filter_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.filter_pattern = input;
         self
     }
@@ -163,18 +150,12 @@ impl MetricFilterBuilder {
         &self.creation_time
     }
     /// <p>The name of the log group.</p>
-    pub fn log_group_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the log group.</p>
-    pub fn set_log_group_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_name = input;
         self
     }
@@ -200,18 +181,12 @@ impl MetricFilterBuilder {
         &self.apply_on_transformed_logs
     }
     /// <p>The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the <code>fieldSelectionCriteria</code> value if it was specified when the metric filter was created.</p>
-    pub fn field_selection_criteria(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn field_selection_criteria(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.field_selection_criteria = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the <code>fieldSelectionCriteria</code> value if it was specified when the metric filter was created.</p>
-    pub fn set_field_selection_criteria(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_field_selection_criteria(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.field_selection_criteria = input;
         self
     }
@@ -224,10 +199,7 @@ impl MetricFilterBuilder {
     /// To override the contents of this collection use [`set_emit_system_field_dimensions`](Self::set_emit_system_field_dimensions).
     ///
     /// <p>The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the <code>emitSystemFieldDimensions</code> value if it was specified when the metric filter was created.</p>
-    pub fn emit_system_field_dimensions(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn emit_system_field_dimensions(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.emit_system_field_dimensions.unwrap_or_default();
         v.push(input.into());
         self.emit_system_field_dimensions = ::std::option::Option::Some(v);
@@ -242,9 +214,7 @@ impl MetricFilterBuilder {
         self
     }
     /// <p>The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the <code>emitSystemFieldDimensions</code> value if it was specified when the metric filter was created.</p>
-    pub fn get_emit_system_field_dimensions(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_emit_system_field_dimensions(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.emit_system_field_dimensions
     }
     /// Consumes the builder and constructs a [`MetricFilter`](crate::types::MetricFilter).

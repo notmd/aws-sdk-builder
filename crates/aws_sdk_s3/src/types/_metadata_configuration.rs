@@ -7,29 +7,21 @@ pub struct MetadataConfiguration {
     /// <p>The journal table configuration for a metadata configuration.</p>
     pub journal_table_configuration: ::std::option::Option<crate::types::JournalTableConfiguration>,
     /// <p>The inventory table configuration for a metadata configuration.</p>
-    pub inventory_table_configuration:
-        ::std::option::Option<crate::types::InventoryTableConfiguration>,
+    pub inventory_table_configuration: ::std::option::Option<crate::types::InventoryTableConfiguration>,
     /// <p>Optional annotation table configuration to include with the metadata configuration.</p>
-    pub annotation_table_configuration:
-        ::std::option::Option<crate::types::AnnotationTableConfiguration>,
+    pub annotation_table_configuration: ::std::option::Option<crate::types::AnnotationTableConfiguration>,
 }
 impl MetadataConfiguration {
     /// <p>The journal table configuration for a metadata configuration.</p>
-    pub fn journal_table_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::JournalTableConfiguration> {
+    pub fn journal_table_configuration(&self) -> ::std::option::Option<&crate::types::JournalTableConfiguration> {
         self.journal_table_configuration.as_ref()
     }
     /// <p>The inventory table configuration for a metadata configuration.</p>
-    pub fn inventory_table_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::InventoryTableConfiguration> {
+    pub fn inventory_table_configuration(&self) -> ::std::option::Option<&crate::types::InventoryTableConfiguration> {
         self.inventory_table_configuration.as_ref()
     }
     /// <p>Optional annotation table configuration to include with the metadata configuration.</p>
-    pub fn annotation_table_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::AnnotationTableConfiguration> {
+    pub fn annotation_table_configuration(&self) -> ::std::option::Option<&crate::types::AnnotationTableConfiguration> {
         self.annotation_table_configuration.as_ref()
     }
 }
@@ -41,25 +33,17 @@ impl MetadataConfiguration {
 }
 
 /// A builder for [`MetadataConfiguration`](crate::types::MetadataConfiguration).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct MetadataConfigurationBuilder {
-    pub(crate) journal_table_configuration:
-        ::std::option::Option<crate::types::JournalTableConfiguration>,
-    pub(crate) inventory_table_configuration:
-        ::std::option::Option<crate::types::InventoryTableConfiguration>,
-    pub(crate) annotation_table_configuration:
-        ::std::option::Option<crate::types::AnnotationTableConfiguration>,
+    pub(crate) journal_table_configuration: ::std::option::Option<crate::types::JournalTableConfiguration>,
+    pub(crate) inventory_table_configuration: ::std::option::Option<crate::types::InventoryTableConfiguration>,
+    pub(crate) annotation_table_configuration: ::std::option::Option<crate::types::AnnotationTableConfiguration>,
 }
 impl MetadataConfigurationBuilder {
     /// <p>The journal table configuration for a metadata configuration.</p>
     /// This field is required.
-    pub fn journal_table_configuration(
-        mut self,
-        input: crate::types::JournalTableConfiguration,
-    ) -> Self {
+    pub fn journal_table_configuration(mut self, input: crate::types::JournalTableConfiguration) -> Self {
         self.journal_table_configuration = ::std::option::Option::Some(input);
         self
     }
@@ -72,16 +56,11 @@ impl MetadataConfigurationBuilder {
         self
     }
     /// <p>The journal table configuration for a metadata configuration.</p>
-    pub fn get_journal_table_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::JournalTableConfiguration> {
+    pub fn get_journal_table_configuration(&self) -> &::std::option::Option<crate::types::JournalTableConfiguration> {
         &self.journal_table_configuration
     }
     /// <p>The inventory table configuration for a metadata configuration.</p>
-    pub fn inventory_table_configuration(
-        mut self,
-        input: crate::types::InventoryTableConfiguration,
-    ) -> Self {
+    pub fn inventory_table_configuration(mut self, input: crate::types::InventoryTableConfiguration) -> Self {
         self.inventory_table_configuration = ::std::option::Option::Some(input);
         self
     }
@@ -100,10 +79,7 @@ impl MetadataConfigurationBuilder {
         &self.inventory_table_configuration
     }
     /// <p>Optional annotation table configuration to include with the metadata configuration.</p>
-    pub fn annotation_table_configuration(
-        mut self,
-        input: crate::types::AnnotationTableConfiguration,
-    ) -> Self {
+    pub fn annotation_table_configuration(mut self, input: crate::types::AnnotationTableConfiguration) -> Self {
         self.annotation_table_configuration = ::std::option::Option::Some(input);
         self
     }

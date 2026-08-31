@@ -5,14 +5,11 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct EmailAddressInsightsVerdict {
     /// <p>The confidence level of the validation verdict.</p>
-    pub confidence_verdict:
-        ::std::option::Option<crate::types::EmailAddressInsightsConfidenceVerdict>,
+    pub confidence_verdict: ::std::option::Option<crate::types::EmailAddressInsightsConfidenceVerdict>,
 }
 impl EmailAddressInsightsVerdict {
     /// <p>The confidence level of the validation verdict.</p>
-    pub fn confidence_verdict(
-        &self,
-    ) -> ::std::option::Option<&crate::types::EmailAddressInsightsConfidenceVerdict> {
+    pub fn confidence_verdict(&self) -> ::std::option::Option<&crate::types::EmailAddressInsightsConfidenceVerdict> {
         self.confidence_verdict.as_ref()
     }
 }
@@ -24,20 +21,14 @@ impl EmailAddressInsightsVerdict {
 }
 
 /// A builder for [`EmailAddressInsightsVerdict`](crate::types::EmailAddressInsightsVerdict).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EmailAddressInsightsVerdictBuilder {
-    pub(crate) confidence_verdict:
-        ::std::option::Option<crate::types::EmailAddressInsightsConfidenceVerdict>,
+    pub(crate) confidence_verdict: ::std::option::Option<crate::types::EmailAddressInsightsConfidenceVerdict>,
 }
 impl EmailAddressInsightsVerdictBuilder {
     /// <p>The confidence level of the validation verdict.</p>
-    pub fn confidence_verdict(
-        mut self,
-        input: crate::types::EmailAddressInsightsConfidenceVerdict,
-    ) -> Self {
+    pub fn confidence_verdict(mut self, input: crate::types::EmailAddressInsightsConfidenceVerdict) -> Self {
         self.confidence_verdict = ::std::option::Option::Some(input);
         self
     }

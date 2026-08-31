@@ -59,9 +59,7 @@ impl AddPermissionFluentBuilder {
         }
     }
     /// Access the AddPermission as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::add_permission::builders::AddPermissionInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::add_permission::builders::AddPermissionInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,12 +83,11 @@ impl AddPermissionFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::add_permission::AddPermission::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::add_permission::AddPermission::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::add_permission::AddPermission::orchestrate(&runtime_plugins, input).await
     }
 
@@ -153,25 +150,17 @@ impl AddPermissionFluentBuilder {
     /// To override the contents of this collection use [`set_aws_account_id`](Self::set_aws_account_id).
     ///
     /// <p>The Amazon Web Services account IDs of the users (principals) who will be given access to the specified actions. The users must have Amazon Web Services account, but do not need to be signed up for this service.</p>
-    pub fn aws_account_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn aws_account_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.aws_account_id(input.into());
         self
     }
     /// <p>The Amazon Web Services account IDs of the users (principals) who will be given access to the specified actions. The users must have Amazon Web Services account, but do not need to be signed up for this service.</p>
-    pub fn set_aws_account_id(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_aws_account_id(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_aws_account_id(input);
         self
     }
     /// <p>The Amazon Web Services account IDs of the users (principals) who will be given access to the specified actions. The users must have Amazon Web Services account, but do not need to be signed up for this service.</p>
-    pub fn get_aws_account_id(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_aws_account_id(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_aws_account_id()
     }
     ///
@@ -187,18 +176,13 @@ impl AddPermissionFluentBuilder {
     }
     /// <p>The action you want to allow for the specified principal(s).</p>
     /// <p>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</p>
-    pub fn set_action_name(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_action_name(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_action_name(input);
         self
     }
     /// <p>The action you want to allow for the specified principal(s).</p>
     /// <p>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</p>
-    pub fn get_action_name(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_action_name(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_action_name()
     }
 }

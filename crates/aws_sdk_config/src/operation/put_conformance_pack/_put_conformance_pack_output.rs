@@ -20,16 +20,13 @@ impl ::aws_types::request_id::RequestId for PutConformancePackOutput {
 }
 impl PutConformancePackOutput {
     /// Creates a new builder-style object to manufacture [`PutConformancePackOutput`](crate::operation::put_conformance_pack::PutConformancePackOutput).
-    pub fn builder(
-    ) -> crate::operation::put_conformance_pack::builders::PutConformancePackOutputBuilder {
+    pub fn builder() -> crate::operation::put_conformance_pack::builders::PutConformancePackOutputBuilder {
         crate::operation::put_conformance_pack::builders::PutConformancePackOutputBuilder::default()
     }
 }
 
 /// A builder for [`PutConformancePackOutput`](crate::operation::put_conformance_pack::PutConformancePackOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutConformancePackOutputBuilder {
     pub(crate) conformance_pack_arn: ::std::option::Option<::std::string::String>,
@@ -37,18 +34,12 @@ pub struct PutConformancePackOutputBuilder {
 }
 impl PutConformancePackOutputBuilder {
     /// <p>ARN of the conformance pack.</p>
-    pub fn conformance_pack_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn conformance_pack_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.conformance_pack_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>ARN of the conformance pack.</p>
-    pub fn set_conformance_pack_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_conformance_pack_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.conformance_pack_arn = input;
         self
     }

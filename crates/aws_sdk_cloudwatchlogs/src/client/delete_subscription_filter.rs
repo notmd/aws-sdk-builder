@@ -9,8 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteSubscriptionFilterError>`](crate::operation::delete_subscription_filter::DeleteSubscriptionFilterError)
     pub fn delete_subscription_filter(
         &self,
-    ) -> crate::operation::delete_subscription_filter::builders::DeleteSubscriptionFilterFluentBuilder
-    {
-        crate::operation::delete_subscription_filter::builders::DeleteSubscriptionFilterFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::delete_subscription_filter::builders::DeleteSubscriptionFilterFluentBuilder {
+        crate::operation::delete_subscription_filter::builders::DeleteSubscriptionFilterFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

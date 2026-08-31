@@ -23,13 +23,10 @@ impl InstanceRequirementsRequest {
 }
 
 /// A builder for [`InstanceRequirementsRequest`](crate::types::InstanceRequirementsRequest).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InstanceRequirementsRequestBuilder {
-    pub(crate) allowed_instance_types:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) allowed_instance_types: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl InstanceRequirementsRequestBuilder {
     /// Appends an item to `allowed_instance_types`.
@@ -37,10 +34,7 @@ impl InstanceRequirementsRequestBuilder {
     /// To override the contents of this collection use [`set_allowed_instance_types`](Self::set_allowed_instance_types).
     ///
     /// <p>A list of specific instance types or instance families that Amazon ECS can launch (for example, <code>m5.large</code> or <code>g5</code>). When specified, only these instance types are used.</p>
-    pub fn allowed_instance_types(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn allowed_instance_types(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.allowed_instance_types.unwrap_or_default();
         v.push(input.into());
         self.allowed_instance_types = ::std::option::Option::Some(v);
@@ -55,9 +49,7 @@ impl InstanceRequirementsRequestBuilder {
         self
     }
     /// <p>A list of specific instance types or instance families that Amazon ECS can launch (for example, <code>m5.large</code> or <code>g5</code>). When specified, only these instance types are used.</p>
-    pub fn get_allowed_instance_types(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_allowed_instance_types(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.allowed_instance_types
     }
     /// Consumes the builder and constructs a [`InstanceRequirementsRequest`](crate::types::InstanceRequirementsRequest).

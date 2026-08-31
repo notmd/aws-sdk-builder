@@ -69,10 +69,7 @@ impl ListObjectAnnotationsFluentBuilder {
         }
     }
     /// Access the ListObjectAnnotations as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_object_annotations::builders::ListObjectAnnotationsInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::list_object_annotations::builders::ListObjectAnnotationsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -96,16 +93,13 @@ impl ListObjectAnnotationsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_object_annotations::ListObjectAnnotations::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_object_annotations::ListObjectAnnotations::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::list_object_annotations::ListObjectAnnotations::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_object_annotations::ListObjectAnnotations::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -201,18 +195,12 @@ impl ListObjectAnnotationsFluentBuilder {
         self.inner.get_max_annotation_results()
     }
     /// <p>Filter results to annotations whose name begins with the specified prefix.</p>
-    pub fn annotation_prefix(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn annotation_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.annotation_prefix(input.into());
         self
     }
     /// <p>Filter results to annotations whose name begins with the specified prefix.</p>
-    pub fn set_annotation_prefix(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_annotation_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_annotation_prefix(input);
         self
     }
@@ -221,18 +209,12 @@ impl ListObjectAnnotationsFluentBuilder {
         self.inner.get_annotation_prefix()
     }
     /// <p>Continuation token returned by a previous request to retrieve the next page.</p>
-    pub fn continuation_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn continuation_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.continuation_token(input.into());
         self
     }
     /// <p>Continuation token returned by a previous request to retrieve the next page.</p>
-    pub fn set_continuation_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_continuation_token(input);
         self
     }
@@ -250,10 +232,7 @@ impl ListObjectAnnotationsFluentBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(
-        mut self,
-        input: ::std::option::Option<crate::types::RequestPayer>,
-    ) -> Self {
+    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
         self.inner = self.inner.set_request_payer(input);
         self
     }
@@ -264,18 +243,12 @@ impl ListObjectAnnotationsFluentBuilder {
         self.inner.get_request_payer()
     }
     /// <p>The account ID of the expected bucket owner.</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner.</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

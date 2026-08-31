@@ -98,7 +98,7 @@ impl PutBucketNotificationConfigurationFluentBuilder {
             crate::operation::put_bucket_notification_configuration::PutBucketNotificationConfigurationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -108,7 +108,11 @@ impl PutBucketNotificationConfigurationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_bucket_notification_configuration::PutBucketNotificationConfiguration::orchestrate(&runtime_plugins, input).await
+        crate::operation::put_bucket_notification_configuration::PutBucketNotificationConfiguration::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -118,7 +122,7 @@ impl PutBucketNotificationConfigurationFluentBuilder {
         crate::operation::put_bucket_notification_configuration::PutBucketNotificationConfigurationOutput,
         crate::operation::put_bucket_notification_configuration::PutBucketNotificationConfigurationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -151,10 +155,7 @@ impl PutBucketNotificationConfigurationFluentBuilder {
         self.inner.get_bucket()
     }
     /// <p>A container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off for the bucket.</p>
-    pub fn notification_configuration(
-        mut self,
-        input: crate::types::NotificationConfiguration,
-    ) -> Self {
+    pub fn notification_configuration(mut self, input: crate::types::NotificationConfiguration) -> Self {
         self.inner = self.inner.notification_configuration(input);
         self
     }
@@ -167,24 +168,16 @@ impl PutBucketNotificationConfigurationFluentBuilder {
         self
     }
     /// <p>A container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off for the bucket.</p>
-    pub fn get_notification_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::NotificationConfiguration> {
+    pub fn get_notification_configuration(&self) -> &::std::option::Option<crate::types::NotificationConfiguration> {
         self.inner.get_notification_configuration()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

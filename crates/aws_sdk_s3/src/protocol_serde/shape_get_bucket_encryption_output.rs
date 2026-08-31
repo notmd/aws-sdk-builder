@@ -15,10 +15,7 @@ pub(crate) fn de_server_side_encryption_configuration_payload(
 
 pub fn de_server_side_encryption_configuration(
     inp: &[u8],
-) -> std::result::Result<
-    crate::types::ServerSideEncryptionConfiguration,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> std::result::Result<crate::types::ServerSideEncryptionConfiguration, ::aws_smithy_xml::decode::XmlDecodeError> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
     #[allow(unused_mut)]
     let mut decoder = doc.root_element()?;
@@ -30,5 +27,8 @@ pub fn de_server_side_encryption_configuration(
     }
     #[allow(unused_variables)]
     let depth = 0u32;
-    crate::protocol_serde::shape_server_side_encryption_configuration::de_server_side_encryption_configuration(&mut decoder, depth + 1)
+    crate::protocol_serde::shape_server_side_encryption_configuration::de_server_side_encryption_configuration(
+        &mut decoder,
+        depth + 1,
+    )
 }

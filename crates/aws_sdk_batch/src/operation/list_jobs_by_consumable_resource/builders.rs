@@ -57,7 +57,9 @@ impl ListJobsByConsumableResourceFluentBuilder {
         }
     }
     /// Access the ListJobsByConsumableResource as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_jobs_by_consumable_resource::builders::ListJobsByConsumableResourceInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_jobs_by_consumable_resource::builders::ListJobsByConsumableResourceInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,12 +83,17 @@ impl ListJobsByConsumableResourceFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResource::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResource::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResource::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResource::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -117,22 +124,21 @@ impl ListJobsByConsumableResourceFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_jobs_by_consumable_resource::paginator::ListJobsByConsumableResourcePaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_jobs_by_consumable_resource::paginator::ListJobsByConsumableResourcePaginator{
-        crate::operation::list_jobs_by_consumable_resource::paginator::ListJobsByConsumableResourcePaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::list_jobs_by_consumable_resource::paginator::ListJobsByConsumableResourcePaginator {
+        crate::operation::list_jobs_by_consumable_resource::paginator::ListJobsByConsumableResourcePaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The name or ARN of the consumable resource.</p>
-    pub fn consumable_resource(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn consumable_resource(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.consumable_resource(input.into());
         self
     }
     /// <p>The name or ARN of the consumable resource.</p>
-    pub fn set_consumable_resource(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_consumable_resource(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_consumable_resource(input);
         self
     }
@@ -167,10 +173,7 @@ impl ListJobsByConsumableResourceFluentBuilder {
     /// <p>name: <code>JOB_NAME </code></p>
     /// <p>The values are case-insensitive matches for the job name. If a filter value ends with an asterisk (*), it matches any job name that begins with the string before the '*'.</p></li>
     /// </ul>
-    pub fn set_filters(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>>,
-    ) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>>) -> Self {
         self.inner = self.inner.set_filters(input);
         self
     }
@@ -183,9 +186,7 @@ impl ListJobsByConsumableResourceFluentBuilder {
     /// <p>name: <code>JOB_NAME </code></p>
     /// <p>The values are case-insensitive matches for the job name. If a filter value ends with an asterisk (*), it matches any job name that begins with the string before the '*'.</p></li>
     /// </ul>
-    pub fn get_filters(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>> {
+    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>> {
         self.inner.get_filters()
     }
     /// <p>The maximum number of results returned by <code>ListJobsByConsumableResource</code> in paginated output. When this parameter is used, <code>ListJobsByConsumableResource</code> only returns <code>maxResults</code> results in a single page and a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListJobsByConsumableResource</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>ListJobsByConsumableResource</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>

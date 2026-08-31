@@ -99,12 +99,8 @@ where
     E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
 {
     result
-        .map(|output| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output)
-        })
-        .map_err(|error| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error)
-        })
+        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))
+        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))
         .map_err(::std::convert::Into::into)
 }
 
@@ -1394,10 +1390,7 @@ pub fn parse_event_stream_error_metadata(
     ::aws_smithy_types::error::metadata::Builder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    crate::json_errors::parse_error_metadata(
-        payload,
-        &::aws_smithy_runtime_api::http::Headers::new(),
-    )
+    crate::json_errors::parse_error_metadata(payload, &::aws_smithy_runtime_api::http::Headers::new())
 }
 
 #[cfg(feature = "op_get_account_settings")]
@@ -1602,10 +1595,7 @@ pub(crate) mod shape_durable_config;
 #[cfg(feature = "op_list_durable_executions_by_function")]
 pub(crate) mod shape_durable_executions;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_environment;
 
 #[cfg(any(
@@ -1719,10 +1709,7 @@ pub(crate) mod shape_function_configuration;
 #[cfg(feature = "op_list_function_event_invoke_configs")]
 pub(crate) mod shape_function_event_invoke_config_list;
 
-#[cfg(any(
-    feature = "op_list_functions",
-    feature = "op_list_versions_by_function"
-))]
+#[cfg(any(feature = "op_list_functions", feature = "op_list_versions_by_function"))]
 pub(crate) mod shape_function_list;
 
 #[cfg(any(
@@ -1886,10 +1873,7 @@ pub(crate) mod shape_self_managed_event_source;
 ))]
 pub(crate) mod shape_self_managed_kafka_event_source_config;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_snap_start;
 
 #[cfg(any(
@@ -1955,10 +1939,7 @@ pub(crate) mod shape_topics;
 #[cfg(feature = "op_get_durable_execution")]
 pub(crate) mod shape_trace_header;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_tracing_config;
 
 #[cfg(any(
@@ -1972,10 +1953,7 @@ pub(crate) mod shape_tracing_config;
 ))]
 pub(crate) mod shape_tracing_config_response;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
 pub(crate) mod shape_vpc_config;
 
 #[cfg(any(

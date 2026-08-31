@@ -7,9 +7,7 @@ pub fn ser_describe_config_rules_filters(
         object.key("EvaluationMode").string(var_1.as_str());
     }
     if let Some(var_2) = &input.rule_evaluation_visibility {
-        object
-            .key("RuleEvaluationVisibility")
-            .string(var_2.as_str());
+        object.key("RuleEvaluationVisibility").string(var_2.as_str());
     }
     Ok(())
 }

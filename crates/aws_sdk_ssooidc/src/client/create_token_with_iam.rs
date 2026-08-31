@@ -27,8 +27,6 @@ impl super::Client {
     pub fn create_token_with_iam(
         &self,
     ) -> crate::operation::create_token_with_iam::builders::CreateTokenWithIAMFluentBuilder {
-        crate::operation::create_token_with_iam::builders::CreateTokenWithIAMFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::create_token_with_iam::builders::CreateTokenWithIAMFluentBuilder::new(self.handle.clone())
     }
 }

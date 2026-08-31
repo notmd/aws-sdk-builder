@@ -51,9 +51,7 @@ impl ReplicationRuleFilter {
 }
 
 /// A builder for [`ReplicationRuleFilter`](crate::types::ReplicationRuleFilter).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ReplicationRuleFilterBuilder {
     pub(crate) prefix: ::std::option::Option<::std::string::String>,
@@ -116,10 +114,7 @@ impl ReplicationRuleFilterBuilder {
     /// <li>
     /// <p>If you specify a filter based on multiple tags, wrap the <code>Tag</code> elements in an <code>And</code> tag.</p></li>
     /// </ul>
-    pub fn set_and(
-        mut self,
-        input: ::std::option::Option<crate::types::ReplicationRuleAndOperator>,
-    ) -> Self {
+    pub fn set_and(mut self, input: ::std::option::Option<crate::types::ReplicationRuleAndOperator>) -> Self {
         self.and = input;
         self
     }

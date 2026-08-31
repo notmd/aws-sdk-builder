@@ -109,21 +109,15 @@ impl CredentialProcessProvider {
             command.args(["-c", self.command.unredacted()]);
             command
         };
-        let output = tokio::process::Command::from(command)
-            .output()
-            .await
-            .map_err(|e| {
-                CredentialsError::provider_error(format!(
-                    "Error retrieving credentials from external process: {e}",
-                ))
-            })?;
+        let output = tokio::process::Command::from(command).output().await.map_err(|e| {
+            CredentialsError::provider_error(format!("Error retrieving credentials from external process: {e}",))
+        })?;
 
         // Security: command arguments can be logged at trace level
         tracing::trace!(command = ?self.command, status = ?output.status, "executed command (unredacted)");
 
         if !output.status.success() {
-            let reason =
-                std::str::from_utf8(&output.stderr).unwrap_or("could not decode stderr as UTF-8");
+            let reason = std::str::from_utf8(&output.stderr).unwrap_or("could not decode stderr as UTF-8");
             return Err(CredentialsError::provider_error(format!(
                 "Error retrieving credentials: external process exited with code {}. Stderr: {}",
                 output.status, reason
@@ -145,8 +139,8 @@ impl CredentialProcessProvider {
             })
             .map_err(|invalid| {
                 CredentialsError::provider_error(format!(
-                "Error retrieving credentials from external process, could not parse response: {invalid}",
-            ))
+                    "Error retrieving credentials from external process, could not parse response: {invalid}",
+                ))
             })
     }
 }
@@ -197,9 +191,7 @@ pub(crate) fn parse_credential_process_json_credentials(
     let mut secret_access_key = None;
     let mut session_token = None;
     let mut expiration = None;
-    let mut account_id = profile_account_id
-        .as_ref()
-        .map(|id| Cow::Borrowed(id.as_str()));
+    let mut account_id = profile_account_id.as_ref().map(|id| Cow::Borrowed(id.as_str()));
     json_parse_loop(credentials_response.as_bytes(), |key, value| {
         match (key, value) {
             /*
@@ -211,19 +203,17 @@ pub(crate) fn parse_credential_process_json_credentials(
              "AccountId": "111122223333"
             */
             (key, Token::ValueNumber { value, .. }) if key.eq_ignore_ascii_case("Version") => {
-                version = Some(i32::try_from(*value).map_err(|err| {
-                    InvalidJsonCredentials::InvalidField {
+                version = Some(
+                    i32::try_from(*value).map_err(|err| InvalidJsonCredentials::InvalidField {
                         field: "Version",
                         err: err.into(),
-                    }
-                })?);
+                    })?,
+                );
             }
             (key, Token::ValueString { value, .. }) if key.eq_ignore_ascii_case("AccessKeyId") => {
                 access_key_id = Some(value.to_unescaped()?)
             }
-            (key, Token::ValueString { value, .. })
-                if key.eq_ignore_ascii_case("SecretAccessKey") =>
-            {
+            (key, Token::ValueString { value, .. }) if key.eq_ignore_ascii_case("SecretAccessKey") => {
                 secret_access_key = Some(value.to_unescaped()?)
             }
             (key, Token::ValueString { value, .. }) if key.eq_ignore_ascii_case("SessionToken") => {
@@ -253,11 +243,12 @@ pub(crate) fn parse_credential_process_json_credentials(
     }
 
     let access_key_id = access_key_id.ok_or(InvalidJsonCredentials::MissingField("AccessKeyId"))?;
-    let secret_access_key =
-        secret_access_key.ok_or(InvalidJsonCredentials::MissingField("SecretAccessKey"))?;
+    let secret_access_key = secret_access_key.ok_or(InvalidJsonCredentials::MissingField("SecretAccessKey"))?;
     let expiration = expiration.map(parse_expiration).transpose()?;
     if expiration.is_none() {
-        tracing::debug!("no expiration provided for credentials provider credentials. these credentials will never be refreshed.")
+        tracing::debug!(
+            "no expiration provided for credentials provider credentials. these credentials will never be refreshed."
+        )
     }
     let mut builder = Credentials::builder()
         .access_key_id(access_key_id)
@@ -326,8 +317,7 @@ mod test {
         assert_eq!(
             creds.expiry(),
             Some(SystemTime::from(
-                OffsetDateTime::parse("2022-05-02T18:36:00+00:00", &Rfc3339)
-                    .expect("static datetime"),
+                OffsetDateTime::parse("2022-05-02T18:36:00+00:00", &Rfc3339).expect("static datetime"),
             ))
         );
     }

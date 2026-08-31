@@ -12,8 +12,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListCodeSigningConfigsError>`](crate::operation::list_code_signing_configs::ListCodeSigningConfigsError)
     pub fn list_code_signing_configs(
         &self,
-    ) -> crate::operation::list_code_signing_configs::builders::ListCodeSigningConfigsFluentBuilder
-    {
-        crate::operation::list_code_signing_configs::builders::ListCodeSigningConfigsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::list_code_signing_configs::builders::ListCodeSigningConfigsFluentBuilder {
+        crate::operation::list_code_signing_configs::builders::ListCodeSigningConfigsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

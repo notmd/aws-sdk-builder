@@ -34,9 +34,7 @@ impl ListLogGroupsOutput {
 }
 
 /// A builder for [`ListLogGroupsOutput`](crate::operation::list_log_groups::ListLogGroupsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListLogGroupsOutputBuilder {
     pub(crate) log_groups: ::std::option::Option<::std::vec::Vec<crate::types::LogGroupSummary>>,
@@ -64,9 +62,7 @@ impl ListLogGroupsOutputBuilder {
         self
     }
     /// <p>An array of structures, where each structure contains the information about one log group.</p>
-    pub fn get_log_groups(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::LogGroupSummary>> {
+    pub fn get_log_groups(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LogGroupSummary>> {
         &self.log_groups
     }
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>

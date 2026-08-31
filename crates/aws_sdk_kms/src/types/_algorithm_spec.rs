@@ -79,9 +79,9 @@ impl ::std::convert::From<&str> for AlgorithmSpec {
             "RSA_AES_KEY_WRAP_SHA_1" => AlgorithmSpec::RsaAesKeyWrapSha1,
             "RSA_AES_KEY_WRAP_SHA_256" => AlgorithmSpec::RsaAesKeyWrapSha256,
             "SM2PKE" => AlgorithmSpec::Sm2Pke,
-            other => AlgorithmSpec::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => AlgorithmSpec::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -126,14 +126,10 @@ impl AlgorithmSpec {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }

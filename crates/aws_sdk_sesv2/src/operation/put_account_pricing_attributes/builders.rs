@@ -57,7 +57,9 @@ impl PutAccountPricingAttributesFluentBuilder {
         }
     }
     /// Access the PutAccountPricingAttributes as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_account_pricing_attributes::builders::PutAccountPricingAttributesInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::put_account_pricing_attributes::builders::PutAccountPricingAttributesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,11 +83,12 @@ impl PutAccountPricingAttributesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::put_account_pricing_attributes::PutAccountPricingAttributes::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::put_account_pricing_attributes::PutAccountPricingAttributes::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::put_account_pricing_attributes::PutAccountPricingAttributes::orchestrate(
             &runtime_plugins,
             input,

@@ -85,28 +85,22 @@ impl AdminRespondToAuthChallenge {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(
-                crate::config::ConfigOverrideRuntimePlugin::new(
-                    config_override,
-                    client_config.config.clone(),
-                    &client_config.runtime_components,
-                ),
-            );
+            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+                config_override,
+                client_config.config.clone(),
+                &client_config.runtime_components,
+            ));
         }
         runtime_plugins
     }
 }
-impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
-    for AdminRespondToAuthChallenge
-{
+impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for AdminRespondToAuthChallenge {
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("AdminRespondToAuthChallenge");
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                AdminRespondToAuthChallengeRequestSerializer,
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+            AdminRespondToAuthChallengeRequestSerializer,
+        ));
         cfg.store_put(
             ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
                 AdminRespondToAuthChallengeResponseDeserializer,
@@ -123,12 +117,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
         );
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-                "AdminRespondToAuthChallenge",
-                "Cognito Identity Provider",
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+            "AdminRespondToAuthChallenge",
+            "Cognito Identity Provider",
+        ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = true;
         signing_options.content_sha256_header = false;
@@ -146,30 +138,39 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<
-        '_,
-        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    > {
+    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
-        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("AdminRespondToAuthChallenge")
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new(
+            "AdminRespondToAuthChallenge",
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 AdminRespondToAuthChallengeTelemetryInputCaptureInterceptor,
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 AdminRespondToAuthChallengeEndpointParamsInterceptor,
-            ))
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+            ),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                 crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError,
-            >::new())
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+            >::new(),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                 crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError,
-            >::new())
-            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError,
-            >::new());
+            >::new(),
+        )
+        .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+            crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError,
+        >::new());
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -204,9 +205,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) = context
-            .input()
-            .downcast_ref::<AdminRespondToAuthChallengeInput>()
+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<AdminRespondToAuthChallengeInput>()
         else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
@@ -225,9 +224,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
 }
 #[derive(Debug)]
 struct AdminRespondToAuthChallengeResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
-    for AdminRespondToAuthChallengeResponseDeserializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for AdminRespondToAuthChallengeResponseDeserializer {
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -240,7 +237,9 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_admin_respond_to_auth_challenge::de_admin_respond_to_auth_challenge_http_error(status, headers, body)
+            crate::protocol_serde::shape_admin_respond_to_auth_challenge::de_admin_respond_to_auth_challenge_http_error(
+                status, headers, body,
+            )
         } else {
             crate::protocol_serde::shape_admin_respond_to_auth_challenge::de_admin_respond_to_auth_challenge_http_response(status, headers, body)
         };
@@ -249,9 +248,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
 }
 #[derive(Debug)]
 struct AdminRespondToAuthChallengeRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
-    for AdminRespondToAuthChallengeRequestSerializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for AdminRespondToAuthChallengeRequestSerializer {
     #[allow(
         unused_mut,
         clippy::let_and_return,
@@ -278,8 +275,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_base(
                 _input: &crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
                 ::std::write!(output, "/").expect("formatting should succeed");
                 ::std::result::Result::Ok(())
@@ -288,10 +284,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn update_http_builder(
                 input: &crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<
-                ::http_1x::request::Builder,
-                ::aws_smithy_types::error::operation::BuildError,
-            > {
+            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
@@ -310,7 +304,9 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            crate::protocol_serde::shape_admin_respond_to_auth_challenge::ser_admin_respond_to_auth_challenge_input(&input)?,
+            crate::protocol_serde::shape_admin_respond_to_auth_challenge::ser_admin_respond_to_auth_challenge_input(
+                &input,
+            )?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
@@ -320,13 +316,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
                 &content_length,
             );
         }
-        ::std::result::Result::Ok(
-            request_builder
-                .body(body)
-                .expect("valid request")
-                .try_into()
-                .unwrap(),
-        )
+        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
 #[derive(Debug)]
@@ -356,18 +346,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             .ok_or("failed to downcast to AdminRespondToAuthChallengeInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(
-                cfg.load::<::aws_types::region::Region>()
-                    .map(|r| r.as_ref().to_owned()),
-            )
-            .set_use_dual_stack(
-                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
-                    .map(|ty| ty.0),
-            )
-            .set_use_fips(
-                cfg.load::<::aws_types::endpoint_config::UseFips>()
-                    .map(|ty| ty.0),
-            )
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_endpoint(
                 cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
                     .map(|ty| ty.0.clone()),
@@ -379,9 +360,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
                     err,
                 )
             })?;
-        cfg.interceptor_state().store_put(
-            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
-        );
+        cfg.interceptor_state()
+            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(
+                params,
+            ));
         ::std::result::Result::Ok(())
     }
 }
@@ -402,9 +384,7 @@ pub enum AdminRespondToAuthChallengeError {
     /// <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
     InternalErrorException(crate::types::error::InternalErrorException),
     /// <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.</p>
-    InvalidEmailRoleAccessPolicyException(
-        crate::types::error::InvalidEmailRoleAccessPolicyException,
-    ),
+    InvalidEmailRoleAccessPolicyException(crate::types::error::InvalidEmailRoleAccessPolicyException),
     /// <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
     InvalidLambdaResponseException(crate::types::error::InvalidLambdaResponseException),
     /// <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
@@ -414,13 +394,9 @@ pub enum AdminRespondToAuthChallengeError {
     /// <p>This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.</p>
     InvalidSmsRoleAccessPolicyException(crate::types::error::InvalidSmsRoleAccessPolicyException),
     /// <p>This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.</p>
-    InvalidSmsRoleTrustRelationshipException(
-        crate::types::error::InvalidSmsRoleTrustRelationshipException,
-    ),
+    InvalidSmsRoleTrustRelationshipException(crate::types::error::InvalidSmsRoleTrustRelationshipException),
     /// <p>This exception is thrown when the user pool configuration is not valid.</p>
-    InvalidUserPoolConfigurationException(
-        crate::types::error::InvalidUserPoolConfigurationException,
-    ),
+    InvalidUserPoolConfigurationException(crate::types::error::InvalidUserPoolConfigurationException),
     /// <p>This exception is thrown when Amazon Cognito can't find a multi-factor authentication (MFA) method.</p>
     MfaMethodNotFoundException(crate::types::error::MfaMethodNotFoundException),
     /// <p>This exception is thrown when a user isn't authorized.</p>
@@ -428,9 +404,7 @@ pub enum AdminRespondToAuthChallengeError {
     /// <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
     OperationNotEnabledException(crate::types::error::OperationNotEnabledException),
     /// <p>The message returned when a user's new password matches a previous password and doesn't comply with the password-history policy.</p>
-    PasswordHistoryPolicyViolationException(
-        crate::types::error::PasswordHistoryPolicyViolationException,
-    ),
+    PasswordHistoryPolicyViolationException(crate::types::error::PasswordHistoryPolicyViolationException),
     /// <p>This exception is thrown when a password reset is required.</p>
     PasswordResetRequiredException(crate::types::error::PasswordResetRequiredException),
     /// <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
@@ -462,9 +436,7 @@ impl AdminRespondToAuthChallengeError {
     /// Creates the `AdminRespondToAuthChallengeError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -486,30 +458,18 @@ impl AdminRespondToAuthChallengeError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::AliasExistsException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::CodeMismatchException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::ExpiredCodeException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::InternalErrorException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::AliasExistsException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::CodeMismatchException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ExpiredCodeException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InternalErrorException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::InvalidEmailRoleAccessPolicyException(e) => {
                 ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
             }
             Self::InvalidLambdaResponseException(e) => {
                 ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
             }
-            Self::InvalidParameterException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::InvalidPasswordException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::InvalidParameterException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidPasswordException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::InvalidSmsRoleAccessPolicyException(e) => {
                 ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
             }
@@ -519,42 +479,26 @@ impl AdminRespondToAuthChallengeError {
             Self::InvalidUserPoolConfigurationException(e) => {
                 ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
             }
-            Self::MfaMethodNotFoundException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::NotAuthorizedException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::OperationNotEnabledException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::MfaMethodNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::NotAuthorizedException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::OperationNotEnabledException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::PasswordHistoryPolicyViolationException(e) => {
                 ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
             }
             Self::PasswordResetRequiredException(e) => {
                 ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
             }
-            Self::ResourceNotFoundException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::ResourceNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::SoftwareTokenMfaNotFoundException(e) => {
                 ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
             }
-            Self::TooManyRequestsException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::UnexpectedLambdaException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::TooManyRequestsException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::UnexpectedLambdaException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::UserLambdaValidationException(e) => {
                 ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
             }
-            Self::UserNotConfirmedException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::UserNotFoundException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::UserNotConfirmedException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::UserNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -658,27 +602,17 @@ impl ::std::error::Error for AdminRespondToAuthChallengeError {
             Self::CodeMismatchException(_inner) => ::std::option::Option::Some(_inner),
             Self::ExpiredCodeException(_inner) => ::std::option::Option::Some(_inner),
             Self::InternalErrorException(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidEmailRoleAccessPolicyException(_inner) => {
-                ::std::option::Option::Some(_inner)
-            }
+            Self::InvalidEmailRoleAccessPolicyException(_inner) => ::std::option::Option::Some(_inner),
             Self::InvalidLambdaResponseException(_inner) => ::std::option::Option::Some(_inner),
             Self::InvalidParameterException(_inner) => ::std::option::Option::Some(_inner),
             Self::InvalidPasswordException(_inner) => ::std::option::Option::Some(_inner),
-            Self::InvalidSmsRoleAccessPolicyException(_inner) => {
-                ::std::option::Option::Some(_inner)
-            }
-            Self::InvalidSmsRoleTrustRelationshipException(_inner) => {
-                ::std::option::Option::Some(_inner)
-            }
-            Self::InvalidUserPoolConfigurationException(_inner) => {
-                ::std::option::Option::Some(_inner)
-            }
+            Self::InvalidSmsRoleAccessPolicyException(_inner) => ::std::option::Option::Some(_inner),
+            Self::InvalidSmsRoleTrustRelationshipException(_inner) => ::std::option::Option::Some(_inner),
+            Self::InvalidUserPoolConfigurationException(_inner) => ::std::option::Option::Some(_inner),
             Self::MfaMethodNotFoundException(_inner) => ::std::option::Option::Some(_inner),
             Self::NotAuthorizedException(_inner) => ::std::option::Option::Some(_inner),
             Self::OperationNotEnabledException(_inner) => ::std::option::Option::Some(_inner),
-            Self::PasswordHistoryPolicyViolationException(_inner) => {
-                ::std::option::Option::Some(_inner)
-            }
+            Self::PasswordHistoryPolicyViolationException(_inner) => ::std::option::Option::Some(_inner),
             Self::PasswordResetRequiredException(_inner) => ::std::option::Option::Some(_inner),
             Self::ResourceNotFoundException(_inner) => ::std::option::Option::Some(_inner),
             Self::SoftwareTokenMfaNotFoundException(_inner) => ::std::option::Option::Some(_inner),
@@ -737,9 +671,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for AdminRespondToAuthChallenge
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
-    for AdminRespondToAuthChallengeError
-{
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for AdminRespondToAuthChallengeError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::AliasExistsException(_inner) => {
@@ -815,13 +747,9 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
-    for AdminRespondToAuthChallengeError
-{
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for AdminRespondToAuthChallengeError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {

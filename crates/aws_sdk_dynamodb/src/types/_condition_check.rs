@@ -11,22 +11,18 @@ pub struct ConditionCheck {
     /// <p>A condition that must be satisfied in order for a conditional update to succeed. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html">Condition expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub condition_expression: ::std::string::String,
     /// <p>One or more substitution tokens for attribute names in an expression. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeNames.html">Expression attribute names</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub expression_attribute_names: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub expression_attribute_names:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>One or more values that can be substituted in an expression. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html">Condition expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub expression_attribute_values: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    >,
+    pub expression_attribute_values:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     /// <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>ConditionCheck</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>
     pub return_values_on_condition_check_failure:
         ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
 }
 impl ConditionCheck {
     /// <p>The primary key of the item to be checked. Each element consists of an attribute name and a value for that attribute.</p>
-    pub fn key(
-        &self,
-    ) -> &::std::collections::HashMap<::std::string::String, crate::types::AttributeValue> {
+    pub fn key(&self) -> &::std::collections::HashMap<::std::string::String, crate::types::AttributeValue> {
         &self.key
     }
     /// <p>Name of the table for the check item request. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
@@ -42,17 +38,13 @@ impl ConditionCheck {
     /// <p>One or more substitution tokens for attribute names in an expression. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeNames.html">Expression attribute names</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn expression_attribute_names(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.expression_attribute_names.as_ref()
     }
     /// <p>One or more values that can be substituted in an expression. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html">Condition expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn expression_attribute_values(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
         self.expression_attribute_values.as_ref()
     }
     /// <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>ConditionCheck</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>
@@ -70,22 +62,17 @@ impl ConditionCheck {
 }
 
 /// A builder for [`ConditionCheck`](crate::types::ConditionCheck).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ConditionCheckBuilder {
-    pub(crate) key: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    >,
+    pub(crate) key:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
     pub(crate) condition_expression: ::std::option::Option<::std::string::String>,
-    pub(crate) expression_attribute_names: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
-    pub(crate) expression_attribute_values: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    >,
+    pub(crate) expression_attribute_names:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) expression_attribute_values:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     pub(crate) return_values_on_condition_check_failure:
         ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
 }
@@ -95,11 +82,7 @@ impl ConditionCheckBuilder {
     /// To override the contents of this collection use [`set_key`](Self::set_key).
     ///
     /// <p>The primary key of the item to be checked. Each element consists of an attribute name and a value for that attribute.</p>
-    pub fn key(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: crate::types::AttributeValue,
-    ) -> Self {
+    pub fn key(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
         let mut hash_map = self.key.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.key = ::std::option::Option::Some(hash_map);
@@ -108,9 +91,7 @@ impl ConditionCheckBuilder {
     /// <p>The primary key of the item to be checked. Each element consists of an attribute name and a value for that attribute.</p>
     pub fn set_key(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     ) -> Self {
         self.key = input;
         self
@@ -118,9 +99,7 @@ impl ConditionCheckBuilder {
     /// <p>The primary key of the item to be checked. Each element consists of an attribute name and a value for that attribute.</p>
     pub fn get_key(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
         &self.key
     }
     /// <p>Name of the table for the check item request. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
@@ -140,18 +119,12 @@ impl ConditionCheckBuilder {
     }
     /// <p>A condition that must be satisfied in order for a conditional update to succeed. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html">Condition expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     /// This field is required.
-    pub fn condition_expression(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn condition_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.condition_expression = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A condition that must be satisfied in order for a conditional update to succeed. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html">Condition expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn set_condition_expression(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_condition_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.condition_expression = input;
         self
     }
@@ -177,9 +150,7 @@ impl ConditionCheckBuilder {
     /// <p>One or more substitution tokens for attribute names in an expression. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeNames.html">Expression attribute names</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn set_expression_attribute_names(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.expression_attribute_names = input;
         self
@@ -187,9 +158,7 @@ impl ConditionCheckBuilder {
     /// <p>One or more substitution tokens for attribute names in an expression. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeNames.html">Expression attribute names</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn get_expression_attribute_names(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.expression_attribute_names
     }
     /// Adds a key-value pair to `expression_attribute_values`.
@@ -210,9 +179,7 @@ impl ConditionCheckBuilder {
     /// <p>One or more values that can be substituted in an expression. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html">Condition expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn set_expression_attribute_values(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     ) -> Self {
         self.expression_attribute_values = input;
         self
@@ -220,9 +187,7 @@ impl ConditionCheckBuilder {
     /// <p>One or more values that can be substituted in an expression. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html">Condition expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn get_expression_attribute_values(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
         &self.expression_attribute_values
     }
     /// <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>ConditionCheck</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>
@@ -254,10 +219,7 @@ impl ConditionCheckBuilder {
     /// - [`condition_expression`](crate::types::builders::ConditionCheckBuilder::condition_expression)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::ConditionCheck,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::ConditionCheck, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ConditionCheck {
             key: self.key.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

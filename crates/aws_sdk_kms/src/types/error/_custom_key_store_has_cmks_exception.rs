@@ -16,10 +16,7 @@ impl CustomKeyStoreHasCmKsException {
 }
 impl ::std::fmt::Display for CustomKeyStoreHasCmKsException {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        ::std::write!(
-            f,
-            "CustomKeyStoreHasCmKsException [CustomKeyStoreHasCMKsException]"
-        )?;
+        ::std::write!(f, "CustomKeyStoreHasCmKsException [CustomKeyStoreHasCMKsException]")?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
             {
                 ::std::write!(f, ": {inner_1}")?;
@@ -48,9 +45,7 @@ impl CustomKeyStoreHasCmKsException {
 }
 
 /// A builder for [`CustomKeyStoreHasCmKsException`](crate::types::error::CustomKeyStoreHasCmKsException).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CustomKeyStoreHasCmKsExceptionBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
@@ -78,10 +73,7 @@ impl CustomKeyStoreHasCmKsExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(
-        &mut self,
-        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> &mut Self {
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
         self.meta = meta;
         self
     }

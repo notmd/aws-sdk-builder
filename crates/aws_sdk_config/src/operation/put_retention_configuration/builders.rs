@@ -3,9 +3,7 @@ pub use crate::operation::put_retention_configuration::_put_retention_configurat
 
 pub use crate::operation::put_retention_configuration::_put_retention_configuration_output::PutRetentionConfigurationOutputBuilder;
 
-impl
-    crate::operation::put_retention_configuration::builders::PutRetentionConfigurationInputBuilder
-{
+impl crate::operation::put_retention_configuration::builders::PutRetentionConfigurationInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -61,7 +59,9 @@ impl PutRetentionConfigurationFluentBuilder {
         }
     }
     /// Access the PutRetentionConfiguration as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_retention_configuration::builders::PutRetentionConfigurationInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::put_retention_configuration::builders::PutRetentionConfigurationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,16 +85,14 @@ impl PutRetentionConfigurationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::put_retention_configuration::PutRetentionConfiguration::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::put_retention_configuration::PutRetentionConfiguration::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::put_retention_configuration::PutRetentionConfiguration::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::put_retention_configuration::PutRetentionConfiguration::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

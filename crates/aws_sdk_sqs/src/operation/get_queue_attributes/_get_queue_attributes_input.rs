@@ -219,21 +219,17 @@ impl GetQueueAttributesInput {
 }
 impl GetQueueAttributesInput {
     /// Creates a new builder-style object to manufacture [`GetQueueAttributesInput`](crate::operation::get_queue_attributes::GetQueueAttributesInput).
-    pub fn builder(
-    ) -> crate::operation::get_queue_attributes::builders::GetQueueAttributesInputBuilder {
+    pub fn builder() -> crate::operation::get_queue_attributes::builders::GetQueueAttributesInputBuilder {
         crate::operation::get_queue_attributes::builders::GetQueueAttributesInputBuilder::default()
     }
 }
 
 /// A builder for [`GetQueueAttributesInput`](crate::operation::get_queue_attributes::GetQueueAttributesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetQueueAttributesInputBuilder {
     pub(crate) queue_url: ::std::option::Option<::std::string::String>,
-    pub(crate) attribute_names:
-        ::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>>,
+    pub(crate) attribute_names: ::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>>,
 }
 impl GetQueueAttributesInputBuilder {
     /// <p>The URL of the Amazon SQS queue whose attribute information is retrieved.</p>
@@ -565,9 +561,7 @@ impl GetQueueAttributesInputBuilder {
     /// </ul>
     /// <p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
     /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-    pub fn get_attribute_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>> {
+    pub fn get_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>> {
         &self.attribute_names
     }
     /// Consumes the builder and constructs a [`GetQueueAttributesInput`](crate::operation::get_queue_attributes::GetQueueAttributesInput).
@@ -577,11 +571,9 @@ impl GetQueueAttributesInputBuilder {
         crate::operation::get_queue_attributes::GetQueueAttributesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::get_queue_attributes::GetQueueAttributesInput {
-                queue_url: self.queue_url,
-                attribute_names: self.attribute_names,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::get_queue_attributes::GetQueueAttributesInput {
+            queue_url: self.queue_url,
+            attribute_names: self.attribute_names,
+        })
     }
 }

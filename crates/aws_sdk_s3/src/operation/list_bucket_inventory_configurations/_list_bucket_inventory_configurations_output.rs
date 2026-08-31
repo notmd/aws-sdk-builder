@@ -6,8 +6,7 @@ pub struct ListBucketInventoryConfigurationsOutput {
     /// <p>If sent in the request, the marker that is used as a starting point for this inventory configuration list response.</p>
     pub continuation_token: ::std::option::Option<::std::string::String>,
     /// <p>The list of inventory configurations for a bucket.</p>
-    pub inventory_configuration_list:
-        ::std::option::Option<::std::vec::Vec<crate::types::InventoryConfiguration>>,
+    pub inventory_configuration_list: ::std::option::Option<::std::vec::Vec<crate::types::InventoryConfiguration>>,
     /// <p>Tells whether the returned list of inventory configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken is provided for a subsequent request.</p>
     pub is_truncated: ::std::option::Option<bool>,
     /// <p>The marker used to continue this inventory configuration listing. Use the <code>NextContinuationToken</code> from this response to continue the listing in a subsequent request. The continuation token is an opaque value that Amazon S3 understands.</p>
@@ -24,9 +23,7 @@ impl ListBucketInventoryConfigurationsOutput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.inventory_configuration_list.is_none()`.
     pub fn inventory_configuration_list(&self) -> &[crate::types::InventoryConfiguration] {
-        self.inventory_configuration_list
-            .as_deref()
-            .unwrap_or_default()
+        self.inventory_configuration_list.as_deref().unwrap_or_default()
     }
     /// <p>Tells whether the returned list of inventory configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken is provided for a subsequent request.</p>
     pub fn is_truncated(&self) -> ::std::option::Option<bool> {
@@ -49,15 +46,15 @@ impl ::aws_types::request_id::RequestId for ListBucketInventoryConfigurationsOut
 }
 impl ListBucketInventoryConfigurationsOutput {
     /// Creates a new builder-style object to manufacture [`ListBucketInventoryConfigurationsOutput`](crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsOutput).
-    pub fn builder() -> crate::operation::list_bucket_inventory_configurations::builders::ListBucketInventoryConfigurationsOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::list_bucket_inventory_configurations::builders::ListBucketInventoryConfigurationsOutputBuilder
+    {
         crate::operation::list_bucket_inventory_configurations::builders::ListBucketInventoryConfigurationsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListBucketInventoryConfigurationsOutput`](crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListBucketInventoryConfigurationsOutputBuilder {
     pub(crate) continuation_token: ::std::option::Option<::std::string::String>,
@@ -70,18 +67,12 @@ pub struct ListBucketInventoryConfigurationsOutputBuilder {
 }
 impl ListBucketInventoryConfigurationsOutputBuilder {
     /// <p>If sent in the request, the marker that is used as a starting point for this inventory configuration list response.</p>
-    pub fn continuation_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn continuation_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>If sent in the request, the marker that is used as a starting point for this inventory configuration list response.</p>
-    pub fn set_continuation_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.continuation_token = input;
         self
     }
@@ -94,10 +85,7 @@ impl ListBucketInventoryConfigurationsOutputBuilder {
     /// To override the contents of this collection use [`set_inventory_configuration_list`](Self::set_inventory_configuration_list).
     ///
     /// <p>The list of inventory configurations for a bucket.</p>
-    pub fn inventory_configuration_list(
-        mut self,
-        input: crate::types::InventoryConfiguration,
-    ) -> Self {
+    pub fn inventory_configuration_list(mut self, input: crate::types::InventoryConfiguration) -> Self {
         let mut v = self.inventory_configuration_list.unwrap_or_default();
         v.push(input);
         self.inventory_configuration_list = ::std::option::Option::Some(v);
@@ -132,18 +120,12 @@ impl ListBucketInventoryConfigurationsOutputBuilder {
         &self.is_truncated
     }
     /// <p>The marker used to continue this inventory configuration listing. Use the <code>NextContinuationToken</code> from this response to continue the listing in a subsequent request. The continuation token is an opaque value that Amazon S3 understands.</p>
-    pub fn next_continuation_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn next_continuation_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_continuation_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The marker used to continue this inventory configuration listing. Use the <code>NextContinuationToken</code> from this response to continue the listing in a subsequent request. The continuation token is an opaque value that Amazon S3 understands.</p>
-    pub fn set_next_continuation_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_next_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_continuation_token = input;
         self
     }
@@ -156,10 +138,7 @@ impl ListBucketInventoryConfigurationsOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -173,7 +152,9 @@ impl ListBucketInventoryConfigurationsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListBucketInventoryConfigurationsOutput`](crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsOutput).
-    pub fn build(self) -> crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsOutput {
         crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsOutput {
             continuation_token: self.continuation_token,
             inventory_configuration_list: self.inventory_configuration_list,

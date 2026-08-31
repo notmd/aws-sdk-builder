@@ -3,7 +3,9 @@ pub use crate::operation::list_conformance_pack_compliance_scores::_list_conform
 
 pub use crate::operation::list_conformance_pack_compliance_scores::_list_conformance_pack_compliance_scores_output::ListConformancePackComplianceScoresOutputBuilder;
 
-impl crate::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresInputBuilder {
+impl
+    crate::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -78,7 +80,7 @@ impl ListConformancePackComplianceScoresFluentBuilder {
             crate::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -89,7 +91,11 @@ impl ListConformancePackComplianceScoresFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        crate::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScores::orchestrate(&runtime_plugins, input).await
+        crate::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScores::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,7 +105,7 @@ impl ListConformancePackComplianceScoresFluentBuilder {
         crate::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresOutput,
         crate::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -142,9 +148,7 @@ impl ListConformancePackComplianceScoresFluentBuilder {
         self
     }
     /// <p>Filters the results based on the <code>ConformancePackComplianceScoresFilters</code>.</p>
-    pub fn get_filters(
-        &self,
-    ) -> &::std::option::Option<crate::types::ConformancePackComplianceScoresFilters> {
+    pub fn get_filters(&self) -> &::std::option::Option<crate::types::ConformancePackComplianceScoresFilters> {
         self.inner.get_filters()
     }
     /// <p>Determines the order in which conformance pack compliance scores are sorted. Either in ascending or descending order.</p>

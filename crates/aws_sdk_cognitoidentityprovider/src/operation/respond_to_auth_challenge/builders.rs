@@ -32,8 +32,7 @@ impl crate::operation::respond_to_auth_challenge::builders::RespondToAuthChallen
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct RespondToAuthChallengeFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::respond_to_auth_challenge::builders::RespondToAuthChallengeInputBuilder,
+    inner: crate::operation::respond_to_auth_challenge::builders::RespondToAuthChallengeInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -66,8 +65,7 @@ impl RespondToAuthChallengeFluentBuilder {
     /// Access the RespondToAuthChallenge as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::respond_to_auth_challenge::builders::RespondToAuthChallengeInputBuilder
-    {
+    ) -> &crate::operation::respond_to_auth_challenge::builders::RespondToAuthChallengeInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -91,16 +89,13 @@ impl RespondToAuthChallengeFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::respond_to_auth_challenge::RespondToAuthChallenge::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::respond_to_auth_challenge::RespondToAuthChallenge::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::respond_to_auth_challenge::RespondToAuthChallenge::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::respond_to_auth_challenge::RespondToAuthChallenge::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -228,10 +223,7 @@ impl RespondToAuthChallengeFluentBuilder {
     /// <p>To set up time-based one-time password (TOTP) MFA, use the session returned in this challenge from <code>InitiateAuth</code> or <code>AdminInitiateAuth</code> as an input to <code>AssociateSoftwareToken</code>. Then, use the session returned by <code>VerifySoftwareToken</code> as an input to <code>RespondToAuthChallenge</code> or <code>AdminRespondToAuthChallenge</code> with challenge name <code>MFA_SETUP</code> to complete sign-in.</p>
     /// <p>To set up SMS or email MFA, collect a <code>phone_number</code> or <code>email</code> attribute for the user. Then restart the authentication flow with an <code>InitiateAuth</code> or <code>AdminInitiateAuth</code> request.</p></li>
     /// </ul>
-    pub fn set_challenge_name(
-        mut self,
-        input: ::std::option::Option<crate::types::ChallengeNameType>,
-    ) -> Self {
+    pub fn set_challenge_name(mut self, input: ::std::option::Option<crate::types::ChallengeNameType>) -> Self {
         self.inner = self.inner.set_challenge_name(input);
         self
     }
@@ -546,9 +538,7 @@ impl RespondToAuthChallengeFluentBuilder {
     /// <p>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>. For information about <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
     pub fn set_challenge_responses(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_challenge_responses(input);
         self
@@ -674,9 +664,7 @@ impl RespondToAuthChallengeFluentBuilder {
     /// <p>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>. For information about <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
     pub fn get_challenge_responses(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_challenge_responses()
     }
     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
@@ -685,17 +673,12 @@ impl RespondToAuthChallengeFluentBuilder {
         self
     }
     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
-    pub fn set_analytics_metadata(
-        mut self,
-        input: ::std::option::Option<crate::types::AnalyticsMetadataType>,
-    ) -> Self {
+    pub fn set_analytics_metadata(mut self, input: ::std::option::Option<crate::types::AnalyticsMetadataType>) -> Self {
         self.inner = self.inner.set_analytics_metadata(input);
         self
     }
     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
-    pub fn get_analytics_metadata(
-        &self,
-    ) -> &::std::option::Option<crate::types::AnalyticsMetadataType> {
+    pub fn get_analytics_metadata(&self) -> &::std::option::Option<crate::types::AnalyticsMetadataType> {
         self.inner.get_analytics_metadata()
     }
     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
@@ -706,18 +689,13 @@ impl RespondToAuthChallengeFluentBuilder {
     }
     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in applications</a>.</p>
-    pub fn set_user_context_data(
-        mut self,
-        input: ::std::option::Option<crate::types::UserContextDataType>,
-    ) -> Self {
+    pub fn set_user_context_data(mut self, input: ::std::option::Option<crate::types::UserContextDataType>) -> Self {
         self.inner = self.inner.set_user_context_data(input);
         self
     }
     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in applications</a>.</p>
-    pub fn get_user_context_data(
-        &self,
-    ) -> &::std::option::Option<crate::types::UserContextDataType> {
+    pub fn get_user_context_data(&self) -> &::std::option::Option<crate::types::UserContextDataType> {
         self.inner.get_user_context_data()
     }
     ///
@@ -761,9 +739,7 @@ impl RespondToAuthChallengeFluentBuilder {
     /// </note>
     pub fn set_client_metadata(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_client_metadata(input);
         self
@@ -783,9 +759,7 @@ impl RespondToAuthChallengeFluentBuilder {
     /// </note>
     pub fn get_client_metadata(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_client_metadata()
     }
 }

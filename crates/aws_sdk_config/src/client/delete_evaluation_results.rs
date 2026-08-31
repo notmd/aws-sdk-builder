@@ -8,8 +8,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteEvaluationResultsError>`](crate::operation::delete_evaluation_results::DeleteEvaluationResultsError)
     pub fn delete_evaluation_results(
         &self,
-    ) -> crate::operation::delete_evaluation_results::builders::DeleteEvaluationResultsFluentBuilder
-    {
-        crate::operation::delete_evaluation_results::builders::DeleteEvaluationResultsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::delete_evaluation_results::builders::DeleteEvaluationResultsFluentBuilder {
+        crate::operation::delete_evaluation_results::builders::DeleteEvaluationResultsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

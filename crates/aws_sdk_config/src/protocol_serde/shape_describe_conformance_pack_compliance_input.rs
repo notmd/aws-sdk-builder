@@ -9,7 +9,10 @@ pub fn ser_describe_conformance_pack_compliance_input_input(
     if let Some(var_2) = &input.filters {
         #[allow(unused_mut)]
         let mut object_3 = object.key("Filters").start_object();
-        crate::protocol_serde::shape_conformance_pack_compliance_filters::ser_conformance_pack_compliance_filters(&mut object_3, var_2)?;
+        crate::protocol_serde::shape_conformance_pack_compliance_filters::ser_conformance_pack_compliance_filters(
+            &mut object_3,
+            var_2,
+        )?;
         object_3.finish();
     }
     if let Some(var_4) = &input.limit {

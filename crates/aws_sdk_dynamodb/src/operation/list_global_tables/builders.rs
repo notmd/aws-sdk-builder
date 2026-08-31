@@ -60,9 +60,7 @@ impl ListGlobalTablesFluentBuilder {
         }
     }
     /// Access the ListGlobalTables as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_global_tables::builders::ListGlobalTablesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_global_tables::builders::ListGlobalTablesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,14 +84,12 @@ impl ListGlobalTablesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_global_tables::ListGlobalTables::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::list_global_tables::ListGlobalTables::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::list_global_tables::ListGlobalTables::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::list_global_tables::ListGlobalTables::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -138,9 +134,7 @@ impl ListGlobalTablesFluentBuilder {
         self
     }
     /// <p>The first global table name that this operation will evaluate.</p>
-    pub fn get_exclusive_start_global_table_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_exclusive_start_global_table_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_exclusive_start_global_table_name()
     }
     /// <p>The maximum number of table names to return, if the parameter is not specified DynamoDB defaults to 100.</p>

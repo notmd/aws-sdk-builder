@@ -9,7 +9,10 @@ pub fn ser_create_job_queue_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_4 = array_2.value().start_object();
-                crate::protocol_serde::shape_compute_environment_order::ser_compute_environment_order(&mut object_4, item_3)?;
+                crate::protocol_serde::shape_compute_environment_order::ser_compute_environment_order(
+                    &mut object_4,
+                    item_3,
+                )?;
                 object_4.finish();
             }
         }
@@ -27,7 +30,10 @@ pub fn ser_create_job_queue_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_10 = array_8.value().start_object();
-                crate::protocol_serde::shape_job_state_time_limit_action::ser_job_state_time_limit_action(&mut object_10, item_9)?;
+                crate::protocol_serde::shape_job_state_time_limit_action::ser_job_state_time_limit_action(
+                    &mut object_10,
+                    item_9,
+                )?;
                 object_10.finish();
             }
         }
@@ -48,7 +54,10 @@ pub fn ser_create_job_queue_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_16 = array_14.value().start_object();
-                crate::protocol_serde::shape_service_environment_order::ser_service_environment_order(&mut object_16, item_15)?;
+                crate::protocol_serde::shape_service_environment_order::ser_service_environment_order(
+                    &mut object_16,
+                    item_15,
+                )?;
                 object_16.finish();
             }
         }

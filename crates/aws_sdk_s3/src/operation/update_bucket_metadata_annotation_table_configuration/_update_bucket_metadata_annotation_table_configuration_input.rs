@@ -10,8 +10,7 @@ pub struct UpdateBucketMetadataAnnotationTableConfigurationInput {
     /// <p>Checksum algorithm for the request payload.</p>
     pub checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
     /// <p>The annotation table configuration updates to apply.</p>
-    pub annotation_table_configuration:
-        ::std::option::Option<crate::types::AnnotationTableConfigurationUpdates>,
+    pub annotation_table_configuration: ::std::option::Option<crate::types::AnnotationTableConfigurationUpdates>,
     /// <p>The account ID of the expected bucket owner.</p>
     pub expected_bucket_owner: ::std::option::Option<::std::string::String>,
 }
@@ -49,16 +48,13 @@ impl UpdateBucketMetadataAnnotationTableConfigurationInput {
 }
 
 /// A builder for [`UpdateBucketMetadataAnnotationTableConfigurationInput`](crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateBucketMetadataAnnotationTableConfigurationInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
     pub(crate) content_md5: ::std::option::Option<::std::string::String>,
     pub(crate) checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-    pub(crate) annotation_table_configuration:
-        ::std::option::Option<crate::types::AnnotationTableConfigurationUpdates>,
+    pub(crate) annotation_table_configuration: ::std::option::Option<crate::types::AnnotationTableConfigurationUpdates>,
     pub(crate) expected_bucket_owner: ::std::option::Option<::std::string::String>,
 }
 impl UpdateBucketMetadataAnnotationTableConfigurationInputBuilder {
@@ -97,25 +93,17 @@ impl UpdateBucketMetadataAnnotationTableConfigurationInputBuilder {
         self
     }
     /// <p>Checksum algorithm for the request payload.</p>
-    pub fn set_checksum_algorithm(
-        mut self,
-        input: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-    ) -> Self {
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
         self.checksum_algorithm = input;
         self
     }
     /// <p>Checksum algorithm for the request payload.</p>
-    pub fn get_checksum_algorithm(
-        &self,
-    ) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
         &self.checksum_algorithm
     }
     /// <p>The annotation table configuration updates to apply.</p>
     /// This field is required.
-    pub fn annotation_table_configuration(
-        mut self,
-        input: crate::types::AnnotationTableConfigurationUpdates,
-    ) -> Self {
+    pub fn annotation_table_configuration(mut self, input: crate::types::AnnotationTableConfigurationUpdates) -> Self {
         self.annotation_table_configuration = ::std::option::Option::Some(input);
         self
     }
@@ -134,18 +122,12 @@ impl UpdateBucketMetadataAnnotationTableConfigurationInputBuilder {
         &self.annotation_table_configuration
     }
     /// <p>The account ID of the expected bucket owner.</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner.</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }

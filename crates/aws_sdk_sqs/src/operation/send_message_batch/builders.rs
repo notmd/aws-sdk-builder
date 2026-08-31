@@ -64,9 +64,7 @@ impl SendMessageBatchFluentBuilder {
         }
     }
     /// Access the SendMessageBatch as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::send_message_batch::builders::SendMessageBatchInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::send_message_batch::builders::SendMessageBatchInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -90,14 +88,12 @@ impl SendMessageBatchFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::send_message_batch::SendMessageBatch::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::send_message_batch::SendMessageBatch::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::send_message_batch::SendMessageBatch::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::send_message_batch::SendMessageBatch::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -161,9 +157,7 @@ impl SendMessageBatchFluentBuilder {
         self
     }
     /// <p>A list of <code> <code>SendMessageBatchRequestEntry</code> </code> items.</p>
-    pub fn get_entries(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchRequestEntry>> {
+    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchRequestEntry>> {
         self.inner.get_entries()
     }
 }

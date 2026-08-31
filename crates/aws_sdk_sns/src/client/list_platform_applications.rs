@@ -11,8 +11,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListPlatformApplicationsError>`](crate::operation::list_platform_applications::ListPlatformApplicationsError)
     pub fn list_platform_applications(
         &self,
-    ) -> crate::operation::list_platform_applications::builders::ListPlatformApplicationsFluentBuilder
-    {
-        crate::operation::list_platform_applications::builders::ListPlatformApplicationsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::list_platform_applications::builders::ListPlatformApplicationsFluentBuilder {
+        crate::operation::list_platform_applications::builders::ListPlatformApplicationsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

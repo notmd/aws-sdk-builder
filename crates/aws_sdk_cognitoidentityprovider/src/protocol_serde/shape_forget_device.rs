@@ -9,12 +9,9 @@ pub fn de_forget_device_http_error(
     crate::operation::forget_device::ForgetDeviceError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::forget_device::ForgetDeviceError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::forget_device::ForgetDeviceError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
@@ -29,8 +26,11 @@ pub fn de_forget_device_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::ForbiddenExceptionBuilder::default();
-                output = crate::protocol_serde::shape_forbidden_exception::de_forbidden_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::forget_device::ForgetDeviceError::unhandled)?;
+                output = crate::protocol_serde::shape_forbidden_exception::de_forbidden_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::forget_device::ForgetDeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -44,8 +44,11 @@ pub fn de_forget_device_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
-                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::forget_device::ForgetDeviceError::unhandled)?;
+                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::forget_device::ForgetDeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -54,27 +57,30 @@ pub fn de_forget_device_http_error(
             }
             tmp
         }),
-        "InvalidParameterException" => crate::operation::forget_device::ForgetDeviceError::InvalidParameterException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "InvalidParameterException" => {
+            crate::operation::forget_device::ForgetDeviceError::InvalidParameterException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
                     .map_err(crate::operation::forget_device::ForgetDeviceError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "InvalidUserPoolConfigurationException" => {
             crate::operation::forget_device::ForgetDeviceError::InvalidUserPoolConfigurationException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::InvalidUserPoolConfigurationExceptionBuilder::default();
+                    let mut output =
+                        crate::types::error::builders::InvalidUserPoolConfigurationExceptionBuilder::default();
                     output = crate::protocol_serde::shape_invalid_user_pool_configuration_exception::de_invalid_user_pool_configuration_exception_json_err(_response_body, output).map_err(crate::operation::forget_device::ForgetDeviceError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
@@ -90,38 +96,7 @@ pub fn de_forget_device_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
-                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::forget_device::ForgetDeviceError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "OperationNotEnabledException" => crate::operation::forget_device::ForgetDeviceError::OperationNotEnabledException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                output =
-                    crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
-                        .map_err(crate::operation::forget_device::ForgetDeviceError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "PasswordResetRequiredException" => crate::operation::forget_device::ForgetDeviceError::PasswordResetRequiredException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::PasswordResetRequiredExceptionBuilder::default();
-                output = crate::protocol_serde::shape_password_reset_required_exception::de_password_reset_required_exception_json_err(
+                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(
                     _response_body,
                     output,
                 )
@@ -134,6 +109,44 @@ pub fn de_forget_device_http_error(
             }
             tmp
         }),
+        "OperationNotEnabledException" => {
+            crate::operation::forget_device::ForgetDeviceError::OperationNotEnabledException({
+                #[allow(unused_mut)]
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+                    output =
+                    crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(crate::operation::forget_device::ForgetDeviceError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "PasswordResetRequiredException" => {
+            crate::operation::forget_device::ForgetDeviceError::PasswordResetRequiredException({
+                #[allow(unused_mut)]
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::PasswordResetRequiredExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_password_reset_required_exception::de_password_reset_required_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::forget_device::ForgetDeviceError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "ResourceNotFoundException" => crate::operation::forget_device::ForgetDeviceError::ResourceNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -149,21 +162,23 @@ pub fn de_forget_device_http_error(
             }
             tmp
         }),
-        "TooManyRequestsException" => crate::operation::forget_device::ForgetDeviceError::TooManyRequestsException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "TooManyRequestsException" => {
+            crate::operation::forget_device::ForgetDeviceError::TooManyRequestsException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(crate::operation::forget_device::ForgetDeviceError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "UserNotConfirmedException" => crate::operation::forget_device::ForgetDeviceError::UserNotConfirmedException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -184,8 +199,11 @@ pub fn de_forget_device_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::UserNotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::forget_device::ForgetDeviceError::unhandled)?;
+                output = crate::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::forget_device::ForgetDeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -209,27 +227,19 @@ pub fn de_forget_device_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::forget_device::builders::ForgetDeviceOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::forget_device::builders::ForgetDeviceOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_forget_device_input(
     input: &crate::operation::forget_device::ForgetDeviceInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_forget_device_input::ser_forget_device_input_input(
-        &mut object,
-        input,
-    )?;
+    crate::protocol_serde::shape_forget_device_input::ser_forget_device_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

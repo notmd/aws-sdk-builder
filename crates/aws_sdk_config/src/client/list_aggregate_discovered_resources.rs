@@ -15,7 +15,8 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListAggregateDiscoveredResourcesError>`](crate::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesError)
     pub fn list_aggregate_discovered_resources(
         &self,
-    ) -> crate::operation::list_aggregate_discovered_resources::builders::ListAggregateDiscoveredResourcesFluentBuilder{
+    ) -> crate::operation::list_aggregate_discovered_resources::builders::ListAggregateDiscoveredResourcesFluentBuilder
+    {
         crate::operation::list_aggregate_discovered_resources::builders::ListAggregateDiscoveredResourcesFluentBuilder::new(self.handle.clone())
     }
 }

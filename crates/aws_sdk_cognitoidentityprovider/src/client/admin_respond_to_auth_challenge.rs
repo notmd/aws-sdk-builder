@@ -19,7 +19,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<AdminRespondToAuthChallengeError>`](crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeError)
     pub fn admin_respond_to_auth_challenge(
         &self,
-    ) -> crate::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeFluentBuilder{
-        crate::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeFluentBuilder {
+        crate::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

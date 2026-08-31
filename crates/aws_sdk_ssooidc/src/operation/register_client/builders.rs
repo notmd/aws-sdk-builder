@@ -57,9 +57,7 @@ impl RegisterClientFluentBuilder {
         }
     }
     /// Access the RegisterClient as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::register_client::builders::RegisterClientInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::register_client::builders::RegisterClientInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,14 +81,12 @@ impl RegisterClientFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::register_client::RegisterClient::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::register_client::RegisterClient::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::register_client::RegisterClient::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::register_client::RegisterClient::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -157,10 +153,7 @@ impl RegisterClientFluentBuilder {
         self
     }
     /// <p>The list of scopes that are defined by the client. Upon authorization, this list is used to restrict permissions when granting an access token.</p>
-    pub fn set_scopes(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_scopes(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_scopes(input);
         self
     }
@@ -174,25 +167,17 @@ impl RegisterClientFluentBuilder {
     /// To override the contents of this collection use [`set_redirect_uris`](Self::set_redirect_uris).
     ///
     /// <p>The list of redirect URI that are defined by the client. At completion of authorization, this list is used to restrict what locations the user agent can be redirected back to.</p>
-    pub fn redirect_uris(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn redirect_uris(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.redirect_uris(input.into());
         self
     }
     /// <p>The list of redirect URI that are defined by the client. At completion of authorization, this list is used to restrict what locations the user agent can be redirected back to.</p>
-    pub fn set_redirect_uris(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_redirect_uris(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_redirect_uris(input);
         self
     }
     /// <p>The list of redirect URI that are defined by the client. At completion of authorization, this list is used to restrict what locations the user agent can be redirected back to.</p>
-    pub fn get_redirect_uris(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_redirect_uris(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_redirect_uris()
     }
     ///
@@ -212,10 +197,7 @@ impl RegisterClientFluentBuilder {
     /// <p>* Authorization Code - <code>authorization_code</code></p>
     /// <p>* Device Code - <code>urn:ietf:params:oauth:grant-type:device_code</code></p>
     /// <p>* Refresh Token - <code>refresh_token</code></p>
-    pub fn set_grant_types(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_grant_types(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_grant_types(input);
         self
     }
@@ -223,9 +205,7 @@ impl RegisterClientFluentBuilder {
     /// <p>* Authorization Code - <code>authorization_code</code></p>
     /// <p>* Device Code - <code>urn:ietf:params:oauth:grant-type:device_code</code></p>
     /// <p>* Refresh Token - <code>refresh_token</code></p>
-    pub fn get_grant_types(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_grant_types(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_grant_types()
     }
     /// <p>The IAM Identity Center Issuer URL associated with an instance of IAM Identity Center. This value is needed for user access to resources through the client.</p>
@@ -243,18 +223,12 @@ impl RegisterClientFluentBuilder {
         self.inner.get_issuer_url()
     }
     /// <p>This IAM Identity Center application ARN is used to define administrator-managed configuration for public client access to resources. At authorization, the scopes, grants, and redirect URI available to this client will be restricted by this application resource.</p>
-    pub fn entitled_application_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn entitled_application_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.entitled_application_arn(input.into());
         self
     }
     /// <p>This IAM Identity Center application ARN is used to define administrator-managed configuration for public client access to resources. At authorization, the scopes, grants, and redirect URI available to this client will be restricted by this application resource.</p>
-    pub fn set_entitled_application_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_entitled_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_entitled_application_arn(input);
         self
     }

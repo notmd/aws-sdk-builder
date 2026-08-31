@@ -21,17 +21,13 @@ impl ListConfigurationSetsInput {
 }
 impl ListConfigurationSetsInput {
     /// Creates a new builder-style object to manufacture [`ListConfigurationSetsInput`](crate::operation::list_configuration_sets::ListConfigurationSetsInput).
-    pub fn builder(
-    ) -> crate::operation::list_configuration_sets::builders::ListConfigurationSetsInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_configuration_sets::builders::ListConfigurationSetsInputBuilder {
         crate::operation::list_configuration_sets::builders::ListConfigurationSetsInputBuilder::default()
     }
 }
 
 /// A builder for [`ListConfigurationSetsInput`](crate::operation::list_configuration_sets::ListConfigurationSetsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListConfigurationSetsInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
@@ -73,11 +69,9 @@ impl ListConfigurationSetsInputBuilder {
         crate::operation::list_configuration_sets::ListConfigurationSetsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::list_configuration_sets::ListConfigurationSetsInput {
-                next_token: self.next_token,
-                page_size: self.page_size,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::list_configuration_sets::ListConfigurationSetsInput {
+            next_token: self.next_token,
+            page_size: self.page_size,
+        })
     }
 }

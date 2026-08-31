@@ -15,7 +15,10 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListServiceSpecificCredentialsError>`](crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsError)
     pub fn list_service_specific_credentials(
         &self,
-    ) -> crate::operation::list_service_specific_credentials::builders::ListServiceSpecificCredentialsFluentBuilder{
-        crate::operation::list_service_specific_credentials::builders::ListServiceSpecificCredentialsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::list_service_specific_credentials::builders::ListServiceSpecificCredentialsFluentBuilder
+    {
+        crate::operation::list_service_specific_credentials::builders::ListServiceSpecificCredentialsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

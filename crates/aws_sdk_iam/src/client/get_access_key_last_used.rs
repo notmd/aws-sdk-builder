@@ -10,8 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetAccessKeyLastUsedError>`](crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError)
     pub fn get_access_key_last_used(
         &self,
-    ) -> crate::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedFluentBuilder
-    {
+    ) -> crate::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedFluentBuilder {
         crate::operation::get_access_key_last_used::builders::GetAccessKeyLastUsedFluentBuilder::new(
             self.handle.clone(),
         )

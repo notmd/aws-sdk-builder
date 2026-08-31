@@ -29,9 +29,7 @@ impl FederatedUser {
 }
 
 /// A builder for [`FederatedUser`](crate::types::FederatedUser).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct FederatedUserBuilder {
     pub(crate) federated_user_id: ::std::option::Option<::std::string::String>,
@@ -40,18 +38,12 @@ pub struct FederatedUserBuilder {
 impl FederatedUserBuilder {
     /// <p>The string that identifies the federated user associated with the credentials, similar to the unique ID of an IAM user.</p>
     /// This field is required.
-    pub fn federated_user_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn federated_user_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.federated_user_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The string that identifies the federated user associated with the credentials, similar to the unique ID of an IAM user.</p>
-    pub fn set_federated_user_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_federated_user_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.federated_user_id = input;
         self
     }
@@ -80,10 +72,7 @@ impl FederatedUserBuilder {
     /// - [`arn`](crate::types::builders::FederatedUserBuilder::arn)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::FederatedUser,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::FederatedUser, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::FederatedUser {
             federated_user_id: self.federated_user_id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

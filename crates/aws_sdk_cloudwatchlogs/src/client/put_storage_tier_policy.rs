@@ -10,10 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutStorageTierPolicyError>`](crate::operation::put_storage_tier_policy::PutStorageTierPolicyError)
     pub fn put_storage_tier_policy(
         &self,
-    ) -> crate::operation::put_storage_tier_policy::builders::PutStorageTierPolicyFluentBuilder
-    {
-        crate::operation::put_storage_tier_policy::builders::PutStorageTierPolicyFluentBuilder::new(
-            self.handle.clone(),
-        )
+    ) -> crate::operation::put_storage_tier_policy::builders::PutStorageTierPolicyFluentBuilder {
+        crate::operation::put_storage_tier_policy::builders::PutStorageTierPolicyFluentBuilder::new(self.handle.clone())
     }
 }

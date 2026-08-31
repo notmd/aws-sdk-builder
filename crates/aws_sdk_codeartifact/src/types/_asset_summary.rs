@@ -9,9 +9,7 @@ pub struct AssetSummary {
     /// <p>The size of the asset.</p>
     pub size: ::std::option::Option<i64>,
     /// <p>The hashes of the asset.</p>
-    pub hashes: ::std::option::Option<
-        ::std::collections::HashMap<crate::types::HashAlgorithm, ::std::string::String>,
-    >,
+    pub hashes: ::std::option::Option<::std::collections::HashMap<crate::types::HashAlgorithm, ::std::string::String>>,
 }
 impl AssetSummary {
     /// <p>The name of the asset.</p>
@@ -26,9 +24,7 @@ impl AssetSummary {
     /// <p>The hashes of the asset.</p>
     pub fn hashes(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<crate::types::HashAlgorithm, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<crate::types::HashAlgorithm, ::std::string::String>> {
         self.hashes.as_ref()
     }
 }
@@ -40,16 +36,13 @@ impl AssetSummary {
 }
 
 /// A builder for [`AssetSummary`](crate::types::AssetSummary).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AssetSummaryBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
     pub(crate) size: ::std::option::Option<i64>,
-    pub(crate) hashes: ::std::option::Option<
-        ::std::collections::HashMap<crate::types::HashAlgorithm, ::std::string::String>,
-    >,
+    pub(crate) hashes:
+        ::std::option::Option<::std::collections::HashMap<crate::types::HashAlgorithm, ::std::string::String>>,
 }
 impl AssetSummaryBuilder {
     /// <p>The name of the asset.</p>
@@ -99,9 +92,7 @@ impl AssetSummaryBuilder {
     /// <p>The hashes of the asset.</p>
     pub fn set_hashes(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<crate::types::HashAlgorithm, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<crate::types::HashAlgorithm, ::std::string::String>>,
     ) -> Self {
         self.hashes = input;
         self
@@ -109,9 +100,7 @@ impl AssetSummaryBuilder {
     /// <p>The hashes of the asset.</p>
     pub fn get_hashes(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<crate::types::HashAlgorithm, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<crate::types::HashAlgorithm, ::std::string::String>> {
         &self.hashes
     }
     /// Consumes the builder and constructs a [`AssetSummary`](crate::types::AssetSummary).
@@ -119,10 +108,7 @@ impl AssetSummaryBuilder {
     /// - [`name`](crate::types::builders::AssetSummaryBuilder::name)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::AssetSummary,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::AssetSummary, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AssetSummary {
             name: self.name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

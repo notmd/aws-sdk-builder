@@ -11,7 +11,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutAggregationAuthorizationError>`](crate::operation::put_aggregation_authorization::PutAggregationAuthorizationError)
     pub fn put_aggregation_authorization(
         &self,
-    ) -> crate::operation::put_aggregation_authorization::builders::PutAggregationAuthorizationFluentBuilder{
-        crate::operation::put_aggregation_authorization::builders::PutAggregationAuthorizationFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::put_aggregation_authorization::builders::PutAggregationAuthorizationFluentBuilder {
+        crate::operation::put_aggregation_authorization::builders::PutAggregationAuthorizationFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

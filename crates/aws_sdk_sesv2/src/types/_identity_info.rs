@@ -65,9 +65,7 @@ impl IdentityInfo {
 }
 
 /// A builder for [`IdentityInfo`](crate::types::IdentityInfo).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct IdentityInfoBuilder {
     pub(crate) identity_type: ::std::option::Option<crate::types::IdentityType>,
@@ -82,10 +80,7 @@ impl IdentityInfoBuilder {
         self
     }
     /// <p>The email identity type. Note: the <code>MANAGED_DOMAIN</code> type is not supported for email identity types.</p>
-    pub fn set_identity_type(
-        mut self,
-        input: ::std::option::Option<crate::types::IdentityType>,
-    ) -> Self {
+    pub fn set_identity_type(mut self, input: ::std::option::Option<crate::types::IdentityType>) -> Self {
         self.identity_type = input;
         self
     }
@@ -94,18 +89,12 @@ impl IdentityInfoBuilder {
         &self.identity_type
     }
     /// <p>The address or domain of the identity.</p>
-    pub fn identity_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn identity_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.identity_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The address or domain of the identity.</p>
-    pub fn set_identity_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_identity_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.identity_name = input;
         self
     }
@@ -160,10 +149,7 @@ impl IdentityInfoBuilder {
     /// <li>
     /// <p><code>NOT_STARTED</code> – The verification process hasn't been initiated for the identity.</p></li>
     /// </ul>
-    pub fn set_verification_status(
-        mut self,
-        input: ::std::option::Option<crate::types::VerificationStatus>,
-    ) -> Self {
+    pub fn set_verification_status(mut self, input: ::std::option::Option<crate::types::VerificationStatus>) -> Self {
         self.verification_status = input;
         self
     }
@@ -180,9 +166,7 @@ impl IdentityInfoBuilder {
     /// <li>
     /// <p><code>NOT_STARTED</code> – The verification process hasn't been initiated for the identity.</p></li>
     /// </ul>
-    pub fn get_verification_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::VerificationStatus> {
+    pub fn get_verification_status(&self) -> &::std::option::Option<crate::types::VerificationStatus> {
         &self.verification_status
     }
     /// Consumes the builder and constructs a [`IdentityInfo`](crate::types::IdentityInfo).

@@ -58,9 +58,7 @@ impl DeleteAccessKeyFluentBuilder {
         }
     }
     /// Access the DeleteAccessKey as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::delete_access_key::builders::DeleteAccessKeyInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::delete_access_key::builders::DeleteAccessKeyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,14 +82,12 @@ impl DeleteAccessKeyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::delete_access_key::DeleteAccessKey::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::delete_access_key::DeleteAccessKey::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::delete_access_key::DeleteAccessKey::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::delete_access_key::DeleteAccessKey::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -138,19 +134,13 @@ impl DeleteAccessKeyFluentBuilder {
     }
     /// <p>The access key ID for the access key ID and secret access key you want to delete.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
-    pub fn access_key_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn access_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.access_key_id(input.into());
         self
     }
     /// <p>The access key ID for the access key ID and secret access key you want to delete.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
-    pub fn set_access_key_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_access_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_access_key_id(input);
         self
     }

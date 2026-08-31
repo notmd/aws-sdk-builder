@@ -9,12 +9,9 @@ pub fn de_delete_tenant_http_error(
     crate::operation::delete_tenant::DeleteTenantError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::delete_tenant::DeleteTenantError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::delete_tenant::DeleteTenantError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
@@ -24,49 +21,48 @@ pub fn de_delete_tenant_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "BadRequestException" => {
-            crate::operation::delete_tenant::DeleteTenantError::BadRequestException({
+        "BadRequestException" => crate::operation::delete_tenant::DeleteTenantError::BadRequestException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::BadRequestExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::delete_tenant::DeleteTenantError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "NotFoundException" => {
-            crate::operation::delete_tenant::DeleteTenantError::NotFoundException({
+                let mut output = crate::types::error::builders::BadRequestExceptionBuilder::default();
+                output = crate::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::delete_tenant::DeleteTenantError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFoundException" => crate::operation::delete_tenant::DeleteTenantError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::NotFoundExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::delete_tenant::DeleteTenantError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
+                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::delete_tenant::DeleteTenantError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "TooManyRequestsException" => {
             crate::operation::delete_tenant::DeleteTenantError::TooManyRequestsException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
                     output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(crate::operation::delete_tenant::DeleteTenantError::unhandled)?;
                     let output = output.meta(generic);
@@ -93,27 +89,19 @@ pub fn de_delete_tenant_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::delete_tenant::builders::DeleteTenantOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::delete_tenant::builders::DeleteTenantOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_delete_tenant_input(
     input: &crate::operation::delete_tenant::DeleteTenantInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_delete_tenant_input::ser_delete_tenant_input_input(
-        &mut object,
-        input,
-    )?;
+    crate::protocol_serde::shape_delete_tenant_input::ser_delete_tenant_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

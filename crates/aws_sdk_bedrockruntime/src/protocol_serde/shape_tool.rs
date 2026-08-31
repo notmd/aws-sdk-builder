@@ -7,10 +7,7 @@ pub fn ser_tool(
         crate::types::Tool::ToolSpec(inner) => {
             #[allow(unused_mut)]
             let mut object_1 = object_3.key("toolSpec").start_object();
-            crate::protocol_serde::shape_tool_specification::ser_tool_specification(
-                &mut object_1,
-                inner,
-            )?;
+            crate::protocol_serde::shape_tool_specification::ser_tool_specification(&mut object_1, inner)?;
             object_1.finish();
         }
         crate::types::Tool::SystemTool(inner) => {
@@ -22,16 +19,11 @@ pub fn ser_tool(
         crate::types::Tool::CachePoint(inner) => {
             #[allow(unused_mut)]
             let mut object_3 = object_3.key("cachePoint").start_object();
-            crate::protocol_serde::shape_cache_point_block::ser_cache_point_block(
-                &mut object_3,
-                inner,
-            )?;
+            crate::protocol_serde::shape_cache_point_block::ser_cache_point_block(&mut object_3, inner)?;
             object_3.finish();
         }
         crate::types::Tool::Unknown => {
-            return Err(
-                ::aws_smithy_types::error::operation::SerializationError::unknown_variant("Tool"),
-            )
+            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("Tool"))
         }
     }
     Ok(())

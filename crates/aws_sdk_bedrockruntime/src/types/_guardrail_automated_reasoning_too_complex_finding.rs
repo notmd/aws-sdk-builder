@@ -6,16 +6,13 @@
 pub struct GuardrailAutomatedReasoningTooComplexFinding {}
 impl GuardrailAutomatedReasoningTooComplexFinding {
     /// Creates a new builder-style object to manufacture [`GuardrailAutomatedReasoningTooComplexFinding`](crate::types::GuardrailAutomatedReasoningTooComplexFinding).
-    pub fn builder() -> crate::types::builders::GuardrailAutomatedReasoningTooComplexFindingBuilder
-    {
+    pub fn builder() -> crate::types::builders::GuardrailAutomatedReasoningTooComplexFindingBuilder {
         crate::types::builders::GuardrailAutomatedReasoningTooComplexFindingBuilder::default()
     }
 }
 
 /// A builder for [`GuardrailAutomatedReasoningTooComplexFinding`](crate::types::GuardrailAutomatedReasoningTooComplexFinding).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailAutomatedReasoningTooComplexFindingBuilder {}
 impl GuardrailAutomatedReasoningTooComplexFindingBuilder {

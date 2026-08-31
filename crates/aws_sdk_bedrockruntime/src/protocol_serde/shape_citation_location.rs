@@ -13,45 +13,29 @@ pub fn ser_citation_location(
         crate::types::CitationLocation::DocumentChar(inner) => {
             #[allow(unused_mut)]
             let mut object_2 = object_8.key("documentChar").start_object();
-            crate::protocol_serde::shape_document_char_location::ser_document_char_location(
-                &mut object_2,
-                inner,
-            )?;
+            crate::protocol_serde::shape_document_char_location::ser_document_char_location(&mut object_2, inner)?;
             object_2.finish();
         }
         crate::types::CitationLocation::DocumentPage(inner) => {
             #[allow(unused_mut)]
             let mut object_3 = object_8.key("documentPage").start_object();
-            crate::protocol_serde::shape_document_page_location::ser_document_page_location(
-                &mut object_3,
-                inner,
-            )?;
+            crate::protocol_serde::shape_document_page_location::ser_document_page_location(&mut object_3, inner)?;
             object_3.finish();
         }
         crate::types::CitationLocation::DocumentChunk(inner) => {
             #[allow(unused_mut)]
             let mut object_4 = object_8.key("documentChunk").start_object();
-            crate::protocol_serde::shape_document_chunk_location::ser_document_chunk_location(
-                &mut object_4,
-                inner,
-            )?;
+            crate::protocol_serde::shape_document_chunk_location::ser_document_chunk_location(&mut object_4, inner)?;
             object_4.finish();
         }
         crate::types::CitationLocation::SearchResultLocation(inner) => {
             #[allow(unused_mut)]
             let mut object_5 = object_8.key("searchResultLocation").start_object();
-            crate::protocol_serde::shape_search_result_location::ser_search_result_location(
-                &mut object_5,
-                inner,
-            )?;
+            crate::protocol_serde::shape_search_result_location::ser_search_result_location(&mut object_5, inner)?;
             object_5.finish();
         }
         crate::types::CitationLocation::Unknown => {
-            return Err(
-                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                    "CitationLocation",
-                ),
-            )
+            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("CitationLocation"))
         }
     }
     Ok(())
@@ -74,11 +58,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     let mut variant = None;
     match tokens.next().transpose()? {
@@ -100,36 +82,66 @@ where
                         continue;
                     }
                     if variant.is_some() {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                "encountered mixed variants in union",
-                            ),
-                        );
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            "encountered mixed variants in union",
+                        ));
                     }
                     variant = match key.as_ref() {
                         "web" => Some(crate::types::CitationLocation::Web(
                             crate::protocol_serde::shape_web_location::de_web_location(tokens, _value, depth + 1)?
-                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'web' cannot be null"))?,
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                        "value for 'web' cannot be null",
+                                    )
+                                })?,
                         )),
                         "documentChar" => Some(crate::types::CitationLocation::DocumentChar(
-                            crate::protocol_serde::shape_document_char_location::de_document_char_location(tokens, _value, depth + 1)?.ok_or_else(
-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'documentChar' cannot be null"),
-                            )?,
+                            crate::protocol_serde::shape_document_char_location::de_document_char_location(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                    "value for 'documentChar' cannot be null",
+                                )
+                            })?,
                         )),
                         "documentPage" => Some(crate::types::CitationLocation::DocumentPage(
-                            crate::protocol_serde::shape_document_page_location::de_document_page_location(tokens, _value, depth + 1)?.ok_or_else(
-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'documentPage' cannot be null"),
-                            )?,
+                            crate::protocol_serde::shape_document_page_location::de_document_page_location(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                    "value for 'documentPage' cannot be null",
+                                )
+                            })?,
                         )),
                         "documentChunk" => Some(crate::types::CitationLocation::DocumentChunk(
-                            crate::protocol_serde::shape_document_chunk_location::de_document_chunk_location(tokens, _value, depth + 1)?.ok_or_else(
-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'documentChunk' cannot be null"),
-                            )?,
+                            crate::protocol_serde::shape_document_chunk_location::de_document_chunk_location(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                    "value for 'documentChunk' cannot be null",
+                                )
+                            })?,
                         )),
                         "searchResultLocation" => Some(crate::types::CitationLocation::SearchResultLocation(
-                            crate::protocol_serde::shape_search_result_location::de_search_result_location(tokens, _value, depth + 1)?.ok_or_else(
-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'searchResultLocation' cannot be null"),
-                            )?,
+                            crate::protocol_serde::shape_search_result_location::de_search_result_location(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                    "value for 'searchResultLocation' cannot be null",
+                                )
+                            })?,
                         )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
@@ -138,28 +150,22 @@ where
                     };
                 }
                 other => {
-                    return Err(
-                        ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )),
-                    )
+                    return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                        format!("expected object key or end object, found: {other:?}"),
+                    ))
                 }
             }
         },
         _ => {
-            return Err(
-                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                    "expected start object or null",
-                ),
-            )
+            return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ))
         }
     }
     if variant.is_none() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "Union did not contain a valid variant.",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "Union did not contain a valid variant.",
+        ));
     }
     Ok(variant)
 }

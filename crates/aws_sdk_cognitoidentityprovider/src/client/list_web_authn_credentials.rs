@@ -12,8 +12,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListWebAuthnCredentialsError>`](crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsError)
     pub fn list_web_authn_credentials(
         &self,
-    ) -> crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsFluentBuilder
-    {
-        crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsFluentBuilder {
+        crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -9,13 +9,18 @@ pub fn de_get_sms_sandbox_account_status_http_error(
     crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled(generic)),
+        None => {
+            return Err(
+                crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled(generic),
+            )
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -81,13 +86,13 @@ pub fn de_get_sms_sandbox_account_status_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusOutputBuilder::default();
-        output = crate::protocol_serde::shape_get_sms_sandbox_account_status::de_get_sms_sandbox_account_status(_response_body, output)
-            .map_err(crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
-        crate::serde_util::get_sms_sandbox_account_status_output_output_correct_errors(output)
-            .build()
+        output = crate::protocol_serde::shape_get_sms_sandbox_account_status::de_get_sms_sandbox_account_status(
+            _response_body,
+            output,
+        )
+        .map_err(crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        crate::serde_util::get_sms_sandbox_account_status_output_output_correct_errors(output).build()
     })
 }
 
@@ -98,7 +103,7 @@ pub fn de_get_sms_sandbox_account_status(
 ) -> std::result::Result<
     crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusOutputBuilder,
     ::aws_smithy_xml::decode::XmlDecodeError,
->{
+> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

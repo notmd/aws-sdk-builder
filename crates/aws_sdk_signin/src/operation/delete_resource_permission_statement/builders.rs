@@ -26,7 +26,8 @@ impl crate::operation::delete_resource_permission_statement::builders::DeleteRes
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DeleteResourcePermissionStatementFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::delete_resource_permission_statement::builders::DeleteResourcePermissionStatementInputBuilder,
+    inner:
+        crate::operation::delete_resource_permission_statement::builders::DeleteResourcePermissionStatementInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -57,7 +58,10 @@ impl DeleteResourcePermissionStatementFluentBuilder {
         }
     }
     /// Access the DeleteResourcePermissionStatement as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_resource_permission_statement::builders::DeleteResourcePermissionStatementInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::delete_resource_permission_statement::builders::DeleteResourcePermissionStatementInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +80,7 @@ impl DeleteResourcePermissionStatementFluentBuilder {
             crate::operation::delete_resource_permission_statement::DeleteResourcePermissionStatementError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +90,11 @@ impl DeleteResourcePermissionStatementFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_resource_permission_statement::DeleteResourcePermissionStatement::orchestrate(&runtime_plugins, input).await
+        crate::operation::delete_resource_permission_statement::DeleteResourcePermissionStatement::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +104,7 @@ impl DeleteResourcePermissionStatementFluentBuilder {
         crate::operation::delete_resource_permission_statement::DeleteResourcePermissionStatementOutput,
         crate::operation::delete_resource_permission_statement::DeleteResourcePermissionStatementError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(

@@ -16,11 +16,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -30,100 +28,82 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "ReputationEntityReference" => {
-                                builder = builder.set_reputation_entity_reference(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key
+                        .to_unescaped()?
+                        .as_ref()
+                    {
+                        "ReputationEntityReference" => {
+                            builder = builder.set_reputation_entity_reference(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                                );
-                            }
-                            "ReputationEntityType" => {
-                                builder = builder.set_reputation_entity_type(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| {
-                                        s.to_unescaped().map(|u| {
-                                            crate::types::ReputationEntityType::from(u.as_ref())
-                                        })
-                                    })
-                                    .transpose()?,
-                                );
-                            }
-                            "ReputationManagementPolicy" => {
-                                builder = builder.set_reputation_management_policy(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
-                                );
-                            }
-                            "CustomerManagedStatus" => {
-                                builder = builder.set_customer_managed_status(
-                                    crate::protocol_serde::shape_status_record::de_status_record(
-                                        tokens,
-                                        _value,
-                                        depth + 1,
-                                    )?,
-                                );
-                            }
-                            "AwsSesManagedStatus" => {
-                                builder = builder.set_aws_ses_managed_status(
-                                    crate::protocol_serde::shape_status_record::de_status_record(
-                                        tokens,
-                                        _value,
-                                        depth + 1,
-                                    )?,
-                                );
-                            }
-                            "SendingStatusAggregate" => {
-                                builder = builder.set_sending_status_aggregate(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
+                            );
+                        }
+                        "ReputationEntityType" => {
+                            builder = builder.set_reputation_entity_type(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| {
                                         s.to_unescaped()
-                                            .map(|u| crate::types::SendingStatus::from(u.as_ref()))
+                                            .map(|u| crate::types::ReputationEntityType::from(u.as_ref()))
                                     })
                                     .transpose()?,
-                                );
-                            }
-                            "ReputationImpact" => {
-                                builder = builder.set_reputation_impact(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| {
-                                        s.to_unescaped().map(|u| {
-                                            crate::types::RecommendationImpact::from(u.as_ref())
-                                        })
-                                    })
-                                    .transpose()?,
-                                );
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                            );
                         }
-                    }
+                        "ReputationManagementPolicy" => {
+                            builder = builder.set_reputation_management_policy(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "CustomerManagedStatus" => {
+                            builder = builder.set_customer_managed_status(
+                                crate::protocol_serde::shape_status_record::de_status_record(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
+                        "AwsSesManagedStatus" => {
+                            builder = builder.set_aws_ses_managed_status(
+                                crate::protocol_serde::shape_status_record::de_status_record(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
+                        "SendingStatusAggregate" => {
+                            builder = builder.set_sending_status_aggregate(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::SendingStatus::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "ReputationImpact" => {
+                            builder = builder.set_reputation_impact(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| {
+                                        s.to_unescaped()
+                                            .map(|u| crate::types::RecommendationImpact::from(u.as_ref()))
+                                    })
+                                    .transpose()?,
+                            );
+                        }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
             Ok(Some(builder.build()))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

@@ -71,10 +71,7 @@ impl UpdateUserPoolDomainFluentBuilder {
         }
     }
     /// Access the UpdateUserPoolDomain as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::update_user_pool_domain::builders::UpdateUserPoolDomainInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::update_user_pool_domain::builders::UpdateUserPoolDomainInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -98,16 +95,13 @@ impl UpdateUserPoolDomainFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::update_user_pool_domain::UpdateUserPoolDomain::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::update_user_pool_domain::UpdateUserPoolDomain::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::update_user_pool_domain::UpdateUserPoolDomain::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::update_user_pool_domain::UpdateUserPoolDomain::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -194,9 +188,7 @@ impl UpdateUserPoolDomainFluentBuilder {
     }
     /// <p>The configuration for a custom domain that hosts managed login for your application. In an <code>UpdateUserPoolDomain</code> request, this parameter specifies an SSL certificate for the managed login hosted webserver. The certificate must be an ACM ARN in <code>us-east-1</code>.</p>
     /// <p>When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.</p>
-    pub fn get_custom_domain_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::CustomDomainConfigType> {
+    pub fn get_custom_domain_config(&self) -> &::std::option::Option<crate::types::CustomDomainConfigType> {
         self.inner.get_custom_domain_config()
     }
     /// <p>The routing configuration for the user pool domain. Specifies failover settings for multi-region deployments.</p>

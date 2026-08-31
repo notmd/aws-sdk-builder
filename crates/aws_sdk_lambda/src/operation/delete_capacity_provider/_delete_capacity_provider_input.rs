@@ -14,17 +14,13 @@ impl DeleteCapacityProviderInput {
 }
 impl DeleteCapacityProviderInput {
     /// Creates a new builder-style object to manufacture [`DeleteCapacityProviderInput`](crate::operation::delete_capacity_provider::DeleteCapacityProviderInput).
-    pub fn builder(
-    ) -> crate::operation::delete_capacity_provider::builders::DeleteCapacityProviderInputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_capacity_provider::builders::DeleteCapacityProviderInputBuilder {
         crate::operation::delete_capacity_provider::builders::DeleteCapacityProviderInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteCapacityProviderInput`](crate::operation::delete_capacity_provider::DeleteCapacityProviderInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteCapacityProviderInputBuilder {
     pub(crate) capacity_provider_name: ::std::option::Option<::std::string::String>,
@@ -32,18 +28,12 @@ pub struct DeleteCapacityProviderInputBuilder {
 impl DeleteCapacityProviderInputBuilder {
     /// <p>The name of the capacity provider to delete.</p>
     /// This field is required.
-    pub fn capacity_provider_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn capacity_provider_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.capacity_provider_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the capacity provider to delete.</p>
-    pub fn set_capacity_provider_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_capacity_provider_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.capacity_provider_name = input;
         self
     }

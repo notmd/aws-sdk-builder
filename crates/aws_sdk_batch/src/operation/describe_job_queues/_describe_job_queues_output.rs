@@ -28,16 +28,13 @@ impl ::aws_types::request_id::RequestId for DescribeJobQueuesOutput {
 }
 impl DescribeJobQueuesOutput {
     /// Creates a new builder-style object to manufacture [`DescribeJobQueuesOutput`](crate::operation::describe_job_queues::DescribeJobQueuesOutput).
-    pub fn builder(
-    ) -> crate::operation::describe_job_queues::builders::DescribeJobQueuesOutputBuilder {
+    pub fn builder() -> crate::operation::describe_job_queues::builders::DescribeJobQueuesOutputBuilder {
         crate::operation::describe_job_queues::builders::DescribeJobQueuesOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeJobQueuesOutput`](crate::operation::describe_job_queues::DescribeJobQueuesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeJobQueuesOutputBuilder {
     pub(crate) job_queues: ::std::option::Option<::std::vec::Vec<crate::types::JobQueueDetail>>,
@@ -65,9 +62,7 @@ impl DescribeJobQueuesOutputBuilder {
         self
     }
     /// <p>The list of job queues.</p>
-    pub fn get_job_queues(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::JobQueueDetail>> {
+    pub fn get_job_queues(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::JobQueueDetail>> {
         &self.job_queues
     }
     /// <p>The <code>nextToken</code> value to include in a future <code>DescribeJobQueues</code> request. When the results of a <code>DescribeJobQueues</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>

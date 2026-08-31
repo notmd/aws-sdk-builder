@@ -16,8 +16,6 @@ impl super::Client {
     pub fn put_query_definition(
         &self,
     ) -> crate::operation::put_query_definition::builders::PutQueryDefinitionFluentBuilder {
-        crate::operation::put_query_definition::builders::PutQueryDefinitionFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::put_query_definition::builders::PutQueryDefinitionFluentBuilder::new(self.handle.clone())
     }
 }

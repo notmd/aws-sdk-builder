@@ -51,7 +51,8 @@ impl crate::operation::delete_bucket_metadata_configuration::builders::DeleteBuc
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DeleteBucketMetadataConfigurationFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationInputBuilder,
+    inner:
+        crate::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -82,7 +83,10 @@ impl DeleteBucketMetadataConfigurationFluentBuilder {
         }
     }
     /// Access the DeleteBucketMetadataConfiguration as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -101,7 +105,7 @@ impl DeleteBucketMetadataConfigurationFluentBuilder {
             crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -111,7 +115,11 @@ impl DeleteBucketMetadataConfigurationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfiguration::orchestrate(&runtime_plugins, input).await
+        crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfiguration::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -121,7 +129,7 @@ impl DeleteBucketMetadataConfigurationFluentBuilder {
         crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationOutput,
         crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -154,18 +162,12 @@ impl DeleteBucketMetadataConfigurationFluentBuilder {
         self.inner.get_bucket()
     }
     /// <p>The expected bucket owner of the general purpose bucket that you want to remove the metadata table configuration from.</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The expected bucket owner of the general purpose bucket that you want to remove the metadata table configuration from.</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

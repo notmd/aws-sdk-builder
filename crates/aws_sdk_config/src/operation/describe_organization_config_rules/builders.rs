@@ -48,7 +48,7 @@ impl
             crate::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesOutput,
             crate::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -62,7 +62,10 @@ impl DescribeOrganizationConfigRulesFluentBuilder {
         }
     }
     /// Access the DescribeOrganizationConfigRules as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,7 +84,7 @@ impl DescribeOrganizationConfigRulesFluentBuilder {
             crate::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -91,7 +94,11 @@ impl DescribeOrganizationConfigRulesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::describe_organization_config_rules::DescribeOrganizationConfigRules::orchestrate(&runtime_plugins, input).await
+        crate::operation::describe_organization_config_rules::DescribeOrganizationConfigRules::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -122,8 +129,13 @@ impl DescribeOrganizationConfigRulesFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_organization_config_rules::paginator::DescribeOrganizationConfigRulesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::describe_organization_config_rules::paginator::DescribeOrganizationConfigRulesPaginator{
-        crate::operation::describe_organization_config_rules::paginator::DescribeOrganizationConfigRulesPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::describe_organization_config_rules::paginator::DescribeOrganizationConfigRulesPaginator {
+        crate::operation::describe_organization_config_rules::paginator::DescribeOrganizationConfigRulesPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     ///
     /// Appends an item to `OrganizationConfigRuleNames`.
@@ -131,10 +143,7 @@ impl DescribeOrganizationConfigRulesFluentBuilder {
     /// To override the contents of this collection use [`set_organization_config_rule_names`](Self::set_organization_config_rule_names).
     ///
     /// <p>The names of organization Config rules for which you want details. If you do not specify any names, Config returns details for all your organization Config rules.</p>
-    pub fn organization_config_rule_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn organization_config_rule_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.organization_config_rule_names(input.into());
         self
     }
@@ -147,9 +156,7 @@ impl DescribeOrganizationConfigRulesFluentBuilder {
         self
     }
     /// <p>The names of organization Config rules for which you want details. If you do not specify any names, Config returns details for all your organization Config rules.</p>
-    pub fn get_organization_config_rule_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_organization_config_rule_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_organization_config_rule_names()
     }
     /// <p>The maximum number of organization Config rules returned on each page. If you do no specify a number, Config uses the default. The default is 100.</p>

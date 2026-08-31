@@ -92,20 +92,16 @@ impl ::std::convert::From<&str> for BatchStatementErrorCodeEnum {
             "ConditionalCheckFailed" => BatchStatementErrorCodeEnum::ConditionalCheckFailed,
             "DuplicateItem" => BatchStatementErrorCodeEnum::DuplicateItem,
             "InternalServerError" => BatchStatementErrorCodeEnum::InternalServerError,
-            "ItemCollectionSizeLimitExceeded" => {
-                BatchStatementErrorCodeEnum::ItemCollectionSizeLimitExceeded
-            }
-            "ProvisionedThroughputExceeded" => {
-                BatchStatementErrorCodeEnum::ProvisionedThroughputExceeded
-            }
+            "ItemCollectionSizeLimitExceeded" => BatchStatementErrorCodeEnum::ItemCollectionSizeLimitExceeded,
+            "ProvisionedThroughputExceeded" => BatchStatementErrorCodeEnum::ProvisionedThroughputExceeded,
             "RequestLimitExceeded" => BatchStatementErrorCodeEnum::RequestLimitExceeded,
             "ResourceNotFound" => BatchStatementErrorCodeEnum::ResourceNotFound,
             "ThrottlingError" => BatchStatementErrorCodeEnum::ThrottlingError,
             "TransactionConflict" => BatchStatementErrorCodeEnum::TransactionConflict,
             "ValidationError" => BatchStatementErrorCodeEnum::ValidationError,
-            other => BatchStatementErrorCodeEnum::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => BatchStatementErrorCodeEnum::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -124,12 +120,8 @@ impl BatchStatementErrorCodeEnum {
             BatchStatementErrorCodeEnum::ConditionalCheckFailed => "ConditionalCheckFailed",
             BatchStatementErrorCodeEnum::DuplicateItem => "DuplicateItem",
             BatchStatementErrorCodeEnum::InternalServerError => "InternalServerError",
-            BatchStatementErrorCodeEnum::ItemCollectionSizeLimitExceeded => {
-                "ItemCollectionSizeLimitExceeded"
-            }
-            BatchStatementErrorCodeEnum::ProvisionedThroughputExceeded => {
-                "ProvisionedThroughputExceeded"
-            }
+            BatchStatementErrorCodeEnum::ItemCollectionSizeLimitExceeded => "ItemCollectionSizeLimitExceeded",
+            BatchStatementErrorCodeEnum::ProvisionedThroughputExceeded => "ProvisionedThroughputExceeded",
             BatchStatementErrorCodeEnum::RequestLimitExceeded => "RequestLimitExceeded",
             BatchStatementErrorCodeEnum::ResourceNotFound => "ResourceNotFound",
             BatchStatementErrorCodeEnum::ThrottlingError => "ThrottlingError",
@@ -164,14 +156,10 @@ impl BatchStatementErrorCodeEnum {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -180,17 +168,13 @@ impl ::std::fmt::Display for BatchStatementErrorCodeEnum {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
             BatchStatementErrorCodeEnum::AccessDenied => write!(f, "AccessDenied"),
-            BatchStatementErrorCodeEnum::ConditionalCheckFailed => {
-                write!(f, "ConditionalCheckFailed")
-            }
+            BatchStatementErrorCodeEnum::ConditionalCheckFailed => write!(f, "ConditionalCheckFailed"),
             BatchStatementErrorCodeEnum::DuplicateItem => write!(f, "DuplicateItem"),
             BatchStatementErrorCodeEnum::InternalServerError => write!(f, "InternalServerError"),
             BatchStatementErrorCodeEnum::ItemCollectionSizeLimitExceeded => {
                 write!(f, "ItemCollectionSizeLimitExceeded")
             }
-            BatchStatementErrorCodeEnum::ProvisionedThroughputExceeded => {
-                write!(f, "ProvisionedThroughputExceeded")
-            }
+            BatchStatementErrorCodeEnum::ProvisionedThroughputExceeded => write!(f, "ProvisionedThroughputExceeded"),
             BatchStatementErrorCodeEnum::RequestLimitExceeded => write!(f, "RequestLimitExceeded"),
             BatchStatementErrorCodeEnum::ResourceNotFound => write!(f, "ResourceNotFound"),
             BatchStatementErrorCodeEnum::ThrottlingError => write!(f, "ThrottlingError"),

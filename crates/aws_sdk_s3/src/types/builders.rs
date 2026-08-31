@@ -44,10 +44,7 @@ pub use crate::types::_owner::OwnerBuilder;
 ))]
 pub use crate::types::_analytics_configuration::AnalyticsConfigurationBuilder;
 
-#[cfg(any(
-    feature = "op_get_bucket_encryption",
-    feature = "op_put_bucket_encryption"
-))]
+#[cfg(any(feature = "op_get_bucket_encryption", feature = "op_put_bucket_encryption"))]
 pub use crate::types::_server_side_encryption_configuration::ServerSideEncryptionConfigurationBuilder;
 
 #[cfg(any(
@@ -95,10 +92,7 @@ pub use crate::types::_ownership_controls::OwnershipControlsBuilder;
 #[cfg(feature = "op_get_bucket_policy_status")]
 pub use crate::types::_policy_status::PolicyStatusBuilder;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_replication_configuration::ReplicationConfigurationBuilder;
 
 #[cfg(any(feature = "op_get_bucket_website", feature = "op_put_bucket_website"))]
@@ -116,10 +110,7 @@ pub use crate::types::_checksum::ChecksumBuilder;
 #[cfg(feature = "op_get_object_attributes")]
 pub use crate::types::_get_object_attributes_parts::GetObjectAttributesPartsBuilder;
 
-#[cfg(any(
-    feature = "op_get_object_legal_hold",
-    feature = "op_put_object_legal_hold"
-))]
+#[cfg(any(feature = "op_get_object_legal_hold", feature = "op_put_object_legal_hold"))]
 pub use crate::types::_object_lock_legal_hold::ObjectLockLegalHoldBuilder;
 
 #[cfg(any(
@@ -128,16 +119,10 @@ pub use crate::types::_object_lock_legal_hold::ObjectLockLegalHoldBuilder;
 ))]
 pub use crate::types::_object_lock_configuration::ObjectLockConfigurationBuilder;
 
-#[cfg(any(
-    feature = "op_get_object_retention",
-    feature = "op_put_object_retention"
-))]
+#[cfg(any(feature = "op_get_object_retention", feature = "op_put_object_retention"))]
 pub use crate::types::_object_lock_retention::ObjectLockRetentionBuilder;
 
-#[cfg(any(
-    feature = "op_get_public_access_block",
-    feature = "op_put_public_access_block"
-))]
+#[cfg(any(feature = "op_get_public_access_block", feature = "op_put_public_access_block"))]
 pub use crate::types::_public_access_block_configuration::PublicAccessBlockConfigurationBuilder;
 
 #[cfg(any(feature = "op_list_multipart_uploads", feature = "op_list_parts"))]
@@ -462,10 +447,7 @@ pub use crate::types::_analytics_and_operator::AnalyticsAndOperatorBuilder;
 ))]
 pub use crate::types::_storage_class_analysis_data_export::StorageClassAnalysisDataExportBuilder;
 
-#[cfg(any(
-    feature = "op_get_bucket_encryption",
-    feature = "op_put_bucket_encryption"
-))]
+#[cfg(any(feature = "op_get_bucket_encryption", feature = "op_put_bucket_encryption"))]
 pub use crate::types::_server_side_encryption_rule::ServerSideEncryptionRuleBuilder;
 
 #[cfg(any(
@@ -556,10 +538,7 @@ pub use crate::types::_notification_configuration_filter::NotificationConfigurat
 ))]
 pub use crate::types::_ownership_controls_rule::OwnershipControlsRuleBuilder;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_replication_rule::ReplicationRuleBuilder;
 
 #[cfg(any(feature = "op_get_bucket_website", feature = "op_put_bucket_website"))]
@@ -600,16 +579,10 @@ pub use crate::types::_progress::ProgressBuilder;
 ))]
 pub use crate::types::_analytics_export_destination::AnalyticsExportDestinationBuilder;
 
-#[cfg(any(
-    feature = "op_get_bucket_encryption",
-    feature = "op_put_bucket_encryption"
-))]
+#[cfg(any(feature = "op_get_bucket_encryption", feature = "op_put_bucket_encryption"))]
 pub use crate::types::_server_side_encryption_by_default::ServerSideEncryptionByDefaultBuilder;
 
-#[cfg(any(
-    feature = "op_get_bucket_encryption",
-    feature = "op_put_bucket_encryption"
-))]
+#[cfg(any(feature = "op_get_bucket_encryption", feature = "op_put_bucket_encryption"))]
 pub use crate::types::_blocked_encryption_types::BlockedEncryptionTypesBuilder;
 
 #[cfg(any(
@@ -643,34 +616,19 @@ pub use crate::types::_noncurrent_version_transition::NoncurrentVersionTransitio
 ))]
 pub use crate::types::_s3_key_filter::S3KeyFilterBuilder;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_replication_rule_filter::ReplicationRuleFilterBuilder;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_source_selection_criteria::SourceSelectionCriteriaBuilder;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_existing_object_replication::ExistingObjectReplicationBuilder;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_destination::DestinationBuilder;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_delete_marker_replication::DeleteMarkerReplicationBuilder;
 
 #[cfg(feature = "op_restore_object")]
@@ -697,46 +655,25 @@ pub use crate::types::_sses3::Sses3Builder;
 ))]
 pub use crate::types::_ssekms::SsekmsBuilder;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_replication_rule_and_operator::ReplicationRuleAndOperatorBuilder;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_sse_kms_encrypted_objects::SseKmsEncryptedObjectsBuilder;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_replica_modifications::ReplicaModificationsBuilder;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_access_control_translation::AccessControlTranslationBuilder;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_encryption_configuration::EncryptionConfigurationBuilder;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_replication_time::ReplicationTimeBuilder;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_metrics::MetricsBuilder;
 
 #[cfg(feature = "op_restore_object")]
@@ -748,8 +685,5 @@ pub use crate::types::_metadata_entry::MetadataEntryBuilder;
 ))]
 pub use crate::types::_filter_rule::FilterRuleBuilder;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub use crate::types::_replication_time_value::ReplicationTimeValueBuilder;

@@ -8,8 +8,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutAccountVdmAttributesError>`](crate::operation::put_account_vdm_attributes::PutAccountVdmAttributesError)
     pub fn put_account_vdm_attributes(
         &self,
-    ) -> crate::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesFluentBuilder
-    {
-        crate::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesFluentBuilder {
+        crate::operation::put_account_vdm_attributes::builders::PutAccountVdmAttributesFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

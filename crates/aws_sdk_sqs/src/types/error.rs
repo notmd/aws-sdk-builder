@@ -146,10 +146,7 @@ pub use crate::types::error::_resource_not_found_exception::ResourceNotFoundExce
 #[cfg(feature = "op_change_message_visibility")]
 pub use crate::types::error::_message_not_inflight::MessageNotInflight;
 
-#[cfg(any(
-    feature = "op_change_message_visibility",
-    feature = "op_delete_message"
-))]
+#[cfg(any(feature = "op_change_message_visibility", feature = "op_delete_message"))]
 pub use crate::types::error::_receipt_handle_is_invalid::ReceiptHandleIsInvalid;
 
 #[cfg(any(
@@ -441,10 +438,7 @@ mod _queue_does_not_exist;
 #[cfg(feature = "op_create_queue")]
 mod _queue_name_exists;
 
-#[cfg(any(
-    feature = "op_change_message_visibility",
-    feature = "op_delete_message"
-))]
+#[cfg(any(feature = "op_change_message_visibility", feature = "op_delete_message"))]
 mod _receipt_handle_is_invalid;
 
 #[cfg(any(

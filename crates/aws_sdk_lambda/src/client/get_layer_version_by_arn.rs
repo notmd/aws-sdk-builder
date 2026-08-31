@@ -17,8 +17,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetLayerVersionByArnError>`](crate::operation::get_layer_version_by_arn::GetLayerVersionByArnError)
     pub fn get_layer_version_by_arn(
         &self,
-    ) -> crate::operation::get_layer_version_by_arn::builders::GetLayerVersionByArnFluentBuilder
-    {
+    ) -> crate::operation::get_layer_version_by_arn::builders::GetLayerVersionByArnFluentBuilder {
         crate::operation::get_layer_version_by_arn::builders::GetLayerVersionByArnFluentBuilder::new(
             self.handle.clone(),
         )

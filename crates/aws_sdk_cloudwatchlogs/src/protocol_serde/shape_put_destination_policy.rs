@@ -9,73 +9,70 @@ pub fn de_put_destination_policy_http_error(
     crate::operation::put_destination_policy::PutDestinationPolicyError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::put_destination_policy::PutDestinationPolicyError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::put_destination_policy::PutDestinationPolicyError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(
-                crate::operation::put_destination_policy::PutDestinationPolicyError::unhandled(
-                    generic,
-                ),
-            )
-        }
+        None => return Err(crate::operation::put_destination_policy::PutDestinationPolicyError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InvalidParameterException" => crate::operation::put_destination_policy::PutDestinationPolicyError::InvalidParameterException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "InvalidParameterException" => {
+            crate::operation::put_destination_policy::PutDestinationPolicyError::InvalidParameterException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
                     .map_err(crate::operation::put_destination_policy::PutDestinationPolicyError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "OperationAbortedException" => crate::operation::put_destination_policy::PutDestinationPolicyError::OperationAbortedException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "OperationAbortedException" => {
+            crate::operation::put_destination_policy::PutDestinationPolicyError::OperationAbortedException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::OperationAbortedExceptionBuilder::default();
-                output = crate::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::OperationAbortedExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(_response_body, output)
                     .map_err(crate::operation::put_destination_policy::PutDestinationPolicyError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ServiceUnavailableException" => crate::operation::put_destination_policy::PutDestinationPolicyError::ServiceUnavailableException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ServiceUnavailableException" => {
+            crate::operation::put_destination_policy::PutDestinationPolicyError::ServiceUnavailableException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                output =
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::ServiceUnavailableExceptionBuilder::default();
+                    output =
                     crate::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
                         .map_err(crate::operation::put_destination_policy::PutDestinationPolicyError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => crate::operation::put_destination_policy::PutDestinationPolicyError::generic(generic),
     })
 }
@@ -91,23 +88,23 @@ pub fn de_put_destination_policy_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::put_destination_policy::builders::PutDestinationPolicyOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output =
+            crate::operation::put_destination_policy::builders::PutDestinationPolicyOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_put_destination_policy_input(
     input: &crate::operation::put_destination_policy::PutDestinationPolicyInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_put_destination_policy_input::ser_put_destination_policy_input_input(&mut object, input)?;
+    crate::protocol_serde::shape_put_destination_policy_input::ser_put_destination_policy_input_input(
+        &mut object,
+        input,
+    )?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

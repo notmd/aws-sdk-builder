@@ -22,9 +22,7 @@ impl SystemTool {
 }
 
 /// A builder for [`SystemTool`](crate::types::SystemTool).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SystemToolBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
@@ -50,10 +48,7 @@ impl SystemToolBuilder {
     /// - [`name`](crate::types::builders::SystemToolBuilder::name)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::SystemTool,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::SystemTool, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::SystemTool {
             name: self.name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

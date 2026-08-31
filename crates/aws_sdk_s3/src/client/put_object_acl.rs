@@ -20,11 +20,7 @@ impl super::Client {
     /// - On success, responds with [`PutObjectAclOutput`](crate::operation::put_object_acl::PutObjectAclOutput) with field(s):
     ///   - [`request_charged(Option<RequestCharged>)`](crate::operation::put_object_acl::PutObjectAclOutput::request_charged): <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>  <p>This functionality is not supported for directory buckets.</p> </note>
     /// - On failure, responds with [`SdkError<PutObjectAclError>`](crate::operation::put_object_acl::PutObjectAclError)
-    pub fn put_object_acl(
-        &self,
-    ) -> crate::operation::put_object_acl::builders::PutObjectAclFluentBuilder {
-        crate::operation::put_object_acl::builders::PutObjectAclFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn put_object_acl(&self) -> crate::operation::put_object_acl::builders::PutObjectAclFluentBuilder {
+        crate::operation::put_object_acl::builders::PutObjectAclFluentBuilder::new(self.handle.clone())
     }
 }

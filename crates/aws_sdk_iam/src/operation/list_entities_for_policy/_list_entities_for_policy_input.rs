@@ -56,17 +56,13 @@ impl ListEntitiesForPolicyInput {
 }
 impl ListEntitiesForPolicyInput {
     /// Creates a new builder-style object to manufacture [`ListEntitiesForPolicyInput`](crate::operation::list_entities_for_policy::ListEntitiesForPolicyInput).
-    pub fn builder(
-    ) -> crate::operation::list_entities_for_policy::builders::ListEntitiesForPolicyInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_entities_for_policy::builders::ListEntitiesForPolicyInputBuilder {
         crate::operation::list_entities_for_policy::builders::ListEntitiesForPolicyInputBuilder::default()
     }
 }
 
 /// A builder for [`ListEntitiesForPolicyInput`](crate::operation::list_entities_for_policy::ListEntitiesForPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListEntitiesForPolicyInputBuilder {
     pub(crate) policy_arn: ::std::option::Option<::std::string::String>,
@@ -103,10 +99,7 @@ impl ListEntitiesForPolicyInputBuilder {
     }
     /// <p>The entity type to use for filtering the results.</p>
     /// <p>For example, when <code>EntityFilter</code> is <code>Role</code>, only the roles that are attached to the specified policy are returned. This parameter is optional. If it is not included, all attached entities (users, groups, and roles) are returned. The argument for this parameter must be one of the valid values listed below.</p>
-    pub fn set_entity_filter(
-        mut self,
-        input: ::std::option::Option<crate::types::EntityType>,
-    ) -> Self {
+    pub fn set_entity_filter(mut self, input: ::std::option::Option<crate::types::EntityType>) -> Self {
         self.entity_filter = input;
         self
     }
@@ -142,10 +135,7 @@ impl ListEntitiesForPolicyInputBuilder {
     /// <p>The policy usage method to use for filtering the results.</p>
     /// <p>To list only permissions policies, set <code>PolicyUsageFilter</code> to <code>PermissionsPolicy</code>. To list only the policies used to set permissions boundaries, set the value to <code>PermissionsBoundary</code>.</p>
     /// <p>This parameter is optional. If it is not included, all policies are returned.</p>
-    pub fn set_policy_usage_filter(
-        mut self,
-        input: ::std::option::Option<crate::types::PolicyUsageType>,
-    ) -> Self {
+    pub fn set_policy_usage_filter(mut self, input: ::std::option::Option<crate::types::PolicyUsageType>) -> Self {
         self.policy_usage_filter = input;
         self
     }
@@ -193,15 +183,13 @@ impl ListEntitiesForPolicyInputBuilder {
         crate::operation::list_entities_for_policy::ListEntitiesForPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::list_entities_for_policy::ListEntitiesForPolicyInput {
-                policy_arn: self.policy_arn,
-                entity_filter: self.entity_filter,
-                path_prefix: self.path_prefix,
-                policy_usage_filter: self.policy_usage_filter,
-                marker: self.marker,
-                max_items: self.max_items,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::list_entities_for_policy::ListEntitiesForPolicyInput {
+            policy_arn: self.policy_arn,
+            entity_filter: self.entity_filter,
+            path_prefix: self.path_prefix,
+            policy_usage_filter: self.policy_usage_filter,
+            marker: self.marker,
+            max_items: self.max_items,
+        })
     }
 }

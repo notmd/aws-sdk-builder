@@ -37,12 +37,8 @@ where
     E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
 {
     result
-        .map(|output| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output)
-        })
-        .map_err(|error| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error)
-        })
+        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))
+        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))
         .map_err(::std::convert::Into::into)
 }
 
@@ -420,10 +416,7 @@ pub(crate) mod shape_queue_does_not_exist;
 #[cfg(feature = "op_create_queue")]
 pub(crate) mod shape_queue_name_exists;
 
-#[cfg(any(
-    feature = "op_change_message_visibility",
-    feature = "op_delete_message"
-))]
+#[cfg(any(feature = "op_change_message_visibility", feature = "op_delete_message"))]
 pub(crate) mod shape_receipt_handle_is_invalid;
 
 #[cfg(feature = "op_receive_message")]
@@ -556,10 +549,7 @@ pub(crate) mod shape_message_system_attribute_value;
 #[cfg(feature = "op_get_queue_attributes")]
 pub(crate) mod shape_queue_attribute_map;
 
-#[cfg(any(
-    feature = "op_list_dead_letter_source_queues",
-    feature = "op_list_queues"
-))]
+#[cfg(any(feature = "op_list_dead_letter_source_queues", feature = "op_list_queues"))]
 pub(crate) mod shape_queue_url_list;
 
 #[cfg(feature = "op_send_message_batch")]

@@ -57,13 +57,11 @@ pub struct CreateIdentityProviderInput {
     /// <p>Describe response: <code>"ProviderDetails": { "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=", "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email", "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" }</code></p>
     /// </dd>
     /// </dl>
-    pub provider_details: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub provider_details:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>A mapping of IdP attributes to standard and custom user pool attributes. Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.</p>
-    pub attribute_mapping: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub attribute_mapping:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>An array of IdP identifiers, for example <code>"IdPIdentifiers": \[ "MyIdP", "MyIdP2" \]</code>. Identifiers are friendly names that you can pass in the <code>idp_identifier</code> query parameter of requests to the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html">Authorize endpoint</a> to silently redirect to sign-in with the associated IdP. Identifiers in a domain format also enable the use of <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html">email-address matching with SAML providers</a>.</p>
     pub idp_identifiers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
@@ -130,17 +128,13 @@ impl CreateIdentityProviderInput {
     /// </dl>
     pub fn provider_details(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.provider_details.as_ref()
     }
     /// <p>A mapping of IdP attributes to standard and custom user pool attributes. Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.</p>
     pub fn attribute_mapping(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.attribute_mapping.as_ref()
     }
     /// <p>An array of IdP identifiers, for example <code>"IdPIdentifiers": \[ "MyIdP", "MyIdP2" \]</code>. Identifiers are friendly names that you can pass in the <code>idp_identifier</code> query parameter of requests to the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html">Authorize endpoint</a> to silently redirect to sign-in with the associated IdP. Identifiers in a domain format also enable the use of <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html">email-address matching with SAML providers</a>.</p>
@@ -152,28 +146,22 @@ impl CreateIdentityProviderInput {
 }
 impl CreateIdentityProviderInput {
     /// Creates a new builder-style object to manufacture [`CreateIdentityProviderInput`](crate::operation::create_identity_provider::CreateIdentityProviderInput).
-    pub fn builder(
-    ) -> crate::operation::create_identity_provider::builders::CreateIdentityProviderInputBuilder
-    {
+    pub fn builder() -> crate::operation::create_identity_provider::builders::CreateIdentityProviderInputBuilder {
         crate::operation::create_identity_provider::builders::CreateIdentityProviderInputBuilder::default()
     }
 }
 
 /// A builder for [`CreateIdentityProviderInput`](crate::operation::create_identity_provider::CreateIdentityProviderInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateIdentityProviderInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
     pub(crate) provider_name: ::std::option::Option<::std::string::String>,
     pub(crate) provider_type: ::std::option::Option<crate::types::IdentityProviderTypeType>,
-    pub(crate) provider_details: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
-    pub(crate) attribute_mapping: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) provider_details:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) attribute_mapping:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) idp_identifiers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl CreateIdentityProviderInputBuilder {
@@ -194,18 +182,12 @@ impl CreateIdentityProviderInputBuilder {
     }
     /// <p>The name that you want to assign to the IdP. You can pass the identity provider name in the <code>identity_provider</code> query parameter of requests to the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html">Authorize endpoint</a> to silently redirect to sign-in with the associated IdP.</p>
     /// This field is required.
-    pub fn provider_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn provider_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.provider_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name that you want to assign to the IdP. You can pass the identity provider name in the <code>identity_provider</code> query parameter of requests to the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html">Authorize endpoint</a> to silently redirect to sign-in with the associated IdP.</p>
-    pub fn set_provider_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_provider_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.provider_name = input;
         self
     }
@@ -220,17 +202,12 @@ impl CreateIdentityProviderInputBuilder {
         self
     }
     /// <p>The type of IdP that you want to add. Amazon Cognito supports OIDC, SAML 2.0, Login With Amazon, Sign In With Apple, Google, and Facebook IdPs.</p>
-    pub fn set_provider_type(
-        mut self,
-        input: ::std::option::Option<crate::types::IdentityProviderTypeType>,
-    ) -> Self {
+    pub fn set_provider_type(mut self, input: ::std::option::Option<crate::types::IdentityProviderTypeType>) -> Self {
         self.provider_type = input;
         self
     }
     /// <p>The type of IdP that you want to add. Amazon Cognito supports OIDC, SAML 2.0, Login With Amazon, Sign In With Apple, Google, and Facebook IdPs.</p>
-    pub fn get_provider_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::IdentityProviderTypeType> {
+    pub fn get_provider_type(&self) -> &::std::option::Option<crate::types::IdentityProviderTypeType> {
         &self.provider_type
     }
     /// Adds a key-value pair to `provider_details`.
@@ -345,9 +322,7 @@ impl CreateIdentityProviderInputBuilder {
     /// </dl>
     pub fn set_provider_details(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.provider_details = input;
         self
@@ -402,9 +377,7 @@ impl CreateIdentityProviderInputBuilder {
     /// </dl>
     pub fn get_provider_details(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.provider_details
     }
     /// Adds a key-value pair to `attribute_mapping`.
@@ -425,9 +398,7 @@ impl CreateIdentityProviderInputBuilder {
     /// <p>A mapping of IdP attributes to standard and custom user pool attributes. Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.</p>
     pub fn set_attribute_mapping(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.attribute_mapping = input;
         self
@@ -435,9 +406,7 @@ impl CreateIdentityProviderInputBuilder {
     /// <p>A mapping of IdP attributes to standard and custom user pool attributes. Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.</p>
     pub fn get_attribute_mapping(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.attribute_mapping
     }
     /// Appends an item to `idp_identifiers`.
@@ -445,27 +414,19 @@ impl CreateIdentityProviderInputBuilder {
     /// To override the contents of this collection use [`set_idp_identifiers`](Self::set_idp_identifiers).
     ///
     /// <p>An array of IdP identifiers, for example <code>"IdPIdentifiers": \[ "MyIdP", "MyIdP2" \]</code>. Identifiers are friendly names that you can pass in the <code>idp_identifier</code> query parameter of requests to the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html">Authorize endpoint</a> to silently redirect to sign-in with the associated IdP. Identifiers in a domain format also enable the use of <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html">email-address matching with SAML providers</a>.</p>
-    pub fn idp_identifiers(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn idp_identifiers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.idp_identifiers.unwrap_or_default();
         v.push(input.into());
         self.idp_identifiers = ::std::option::Option::Some(v);
         self
     }
     /// <p>An array of IdP identifiers, for example <code>"IdPIdentifiers": \[ "MyIdP", "MyIdP2" \]</code>. Identifiers are friendly names that you can pass in the <code>idp_identifier</code> query parameter of requests to the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html">Authorize endpoint</a> to silently redirect to sign-in with the associated IdP. Identifiers in a domain format also enable the use of <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html">email-address matching with SAML providers</a>.</p>
-    pub fn set_idp_identifiers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_idp_identifiers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.idp_identifiers = input;
         self
     }
     /// <p>An array of IdP identifiers, for example <code>"IdPIdentifiers": \[ "MyIdP", "MyIdP2" \]</code>. Identifiers are friendly names that you can pass in the <code>idp_identifier</code> query parameter of requests to the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html">Authorize endpoint</a> to silently redirect to sign-in with the associated IdP. Identifiers in a domain format also enable the use of <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html">email-address matching with SAML providers</a>.</p>
-    pub fn get_idp_identifiers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_idp_identifiers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.idp_identifiers
     }
     /// Consumes the builder and constructs a [`CreateIdentityProviderInput`](crate::operation::create_identity_provider::CreateIdentityProviderInput).

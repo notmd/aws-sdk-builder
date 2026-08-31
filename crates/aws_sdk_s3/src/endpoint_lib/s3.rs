@@ -41,12 +41,8 @@ fn is_virtual_hostable_segment(host_label: &str) -> bool {
         return false;
     }
     // validate middle chars and reject ".-" / "-." adjacency
-    let valid_chars = middle
-        .iter()
-        .all(|b| is_bucket_char(b) || *b == b'-' || *b == b'.');
-    let no_dot_dash = !bytes
-        .windows(2)
-        .any(|w| matches!(w, [b'.', b'-'] | [b'-', b'.']));
+    let valid_chars = middle.iter().all(|b| is_bucket_char(b) || *b == b'-' || *b == b'.');
+    let no_dot_dash = !bytes.windows(2).any(|w| matches!(w, [b'.', b'-'] | [b'-', b'.']));
     valid_chars && no_dot_dash && !is_ipv4(bytes)
 }
 
@@ -114,15 +110,9 @@ mod test {
         // minimum length
         assert!(is_virtual_hostable("abc", Subdomains::Deny));
         // 63 chars — maximum
-        assert!(is_virtual_hostable(
-            &format!("a{}b", "c".repeat(61)),
-            Subdomains::Deny
-        ));
+        assert!(is_virtual_hostable(&format!("a{}b", "c".repeat(61)), Subdomains::Deny));
         // 64 chars — too long
-        assert!(!is_virtual_hostable(
-            &format!("a{}b", "c".repeat(62)),
-            Subdomains::Deny
-        ));
+        assert!(!is_virtual_hostable(&format!("a{}b", "c".repeat(62)), Subdomains::Deny));
     }
 
     #[test]
@@ -166,10 +156,7 @@ mod test {
         // contains letters — not IPv4
         assert!(is_virtual_hostable("abc.def.ghi.jkl", Subdomains::Allow));
         // more than 4 segments — not IPv4
-        assert!(is_virtual_hostable(
-            "1a2.2b3.3c4.4d5.5e6",
-            Subdomains::Allow
-        ));
+        assert!(is_virtual_hostable("1a2.2b3.3c4.4d5.5e6", Subdomains::Allow));
     }
 
     /// Original regex patterns removed from production code for performance but
@@ -181,9 +168,7 @@ mod test {
     // `Regex::new` isn't const, so regexes in the helpers below are compiled
     // on each call. That's fine for test-only code.
     fn regex_is_virtual_hostable_segment(label: &str) -> bool {
-        Regex::new(REGEX_VIRTUAL_HOSTABLE_SEGMENT)
-            .unwrap()
-            .is_match(label)
+        Regex::new(REGEX_VIRTUAL_HOSTABLE_SEGMENT).unwrap().is_match(label)
             && !Regex::new(REGEX_IPV4).unwrap().is_match(label)
             && !Regex::new(REGEX_DOTS_AND_DASHES).unwrap().is_match(label)
     }

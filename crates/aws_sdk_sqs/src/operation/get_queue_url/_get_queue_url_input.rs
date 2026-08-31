@@ -27,9 +27,7 @@ impl GetQueueUrlInput {
 }
 
 /// A builder for [`GetQueueUrlInput`](crate::operation::get_queue_url::GetQueueUrlInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetQueueUrlInputBuilder {
     pub(crate) queue_name: ::std::option::Option<::std::string::String>,
@@ -52,18 +50,12 @@ impl GetQueueUrlInputBuilder {
         &self.queue_name
     }
     /// <p>(Optional) The Amazon Web Services account ID of the account that created the queue. This is only required when you are attempting to access a queue owned by another Amazon Web Services account.</p>
-    pub fn queue_owner_aws_account_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn queue_owner_aws_account_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.queue_owner_aws_account_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>(Optional) The Amazon Web Services account ID of the account that created the queue. This is only required when you are attempting to access a queue owned by another Amazon Web Services account.</p>
-    pub fn set_queue_owner_aws_account_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_queue_owner_aws_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.queue_owner_aws_account_id = input;
         self
     }

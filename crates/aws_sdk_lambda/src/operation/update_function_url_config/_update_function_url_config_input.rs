@@ -70,17 +70,13 @@ impl UpdateFunctionUrlConfigInput {
 }
 impl UpdateFunctionUrlConfigInput {
     /// Creates a new builder-style object to manufacture [`UpdateFunctionUrlConfigInput`](crate::operation::update_function_url_config::UpdateFunctionUrlConfigInput).
-    pub fn builder(
-    ) -> crate::operation::update_function_url_config::builders::UpdateFunctionUrlConfigInputBuilder
-    {
+    pub fn builder() -> crate::operation::update_function_url_config::builders::UpdateFunctionUrlConfigInputBuilder {
         crate::operation::update_function_url_config::builders::UpdateFunctionUrlConfigInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateFunctionUrlConfigInput`](crate::operation::update_function_url_config::UpdateFunctionUrlConfigInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateFunctionUrlConfigInputBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -102,10 +98,7 @@ impl UpdateFunctionUrlConfigInputBuilder {
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     /// This field is required.
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
@@ -120,10 +113,7 @@ impl UpdateFunctionUrlConfigInputBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
     }
@@ -161,10 +151,7 @@ impl UpdateFunctionUrlConfigInputBuilder {
         self
     }
     /// <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
-    pub fn set_auth_type(
-        mut self,
-        input: ::std::option::Option<crate::types::FunctionUrlAuthType>,
-    ) -> Self {
+    pub fn set_auth_type(mut self, input: ::std::option::Option<crate::types::FunctionUrlAuthType>) -> Self {
         self.auth_type = input;
         self
     }
@@ -204,10 +191,7 @@ impl UpdateFunctionUrlConfigInputBuilder {
     /// <li>
     /// <p><code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p></li>
     /// </ul>
-    pub fn set_invoke_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::InvokeMode>,
-    ) -> Self {
+    pub fn set_invoke_mode(mut self, input: ::std::option::Option<crate::types::InvokeMode>) -> Self {
         self.invoke_mode = input;
         self
     }

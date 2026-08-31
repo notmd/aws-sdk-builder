@@ -16,8 +16,6 @@ impl super::Client {
     pub fn list_layer_versions(
         &self,
     ) -> crate::operation::list_layer_versions::builders::ListLayerVersionsFluentBuilder {
-        crate::operation::list_layer_versions::builders::ListLayerVersionsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::list_layer_versions::builders::ListLayerVersionsFluentBuilder::new(self.handle.clone())
     }
 }

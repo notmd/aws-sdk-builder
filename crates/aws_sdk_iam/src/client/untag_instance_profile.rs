@@ -10,8 +10,6 @@ impl super::Client {
     pub fn untag_instance_profile(
         &self,
     ) -> crate::operation::untag_instance_profile::builders::UntagInstanceProfileFluentBuilder {
-        crate::operation::untag_instance_profile::builders::UntagInstanceProfileFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::untag_instance_profile::builders::UntagInstanceProfileFluentBuilder::new(self.handle.clone())
     }
 }

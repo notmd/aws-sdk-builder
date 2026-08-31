@@ -156,10 +156,7 @@ impl TagPolicyFluentBuilder {
         self
     }
     /// <p>The list of tags that you want to attach to the IAM customer managed policy. Each tag consists of a key name and an associated value.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }

@@ -26,8 +26,7 @@ impl crate::operation::list_consumable_resources::builders::ListConsumableResour
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListConsumableResourcesFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::list_consumable_resources::builders::ListConsumableResourcesInputBuilder,
+    inner: crate::operation::list_consumable_resources::builders::ListConsumableResourcesInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -60,8 +59,7 @@ impl ListConsumableResourcesFluentBuilder {
     /// Access the ListConsumableResources as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::list_consumable_resources::builders::ListConsumableResourcesInputBuilder
-    {
+    ) -> &crate::operation::list_consumable_resources::builders::ListConsumableResourcesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,16 +83,13 @@ impl ListConsumableResourcesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_consumable_resources::ListConsumableResources::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_consumable_resources::ListConsumableResources::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::list_consumable_resources::ListConsumableResources::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_consumable_resources::ListConsumableResources::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -127,9 +122,11 @@ impl ListConsumableResourcesFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::list_consumable_resources::paginator::ListConsumableResourcesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::list_consumable_resources::paginator::ListConsumableResourcesPaginator
-    {
-        crate::operation::list_consumable_resources::paginator::ListConsumableResourcesPaginator::new(self.handle, self.inner)
+    ) -> crate::operation::list_consumable_resources::paginator::ListConsumableResourcesPaginator {
+        crate::operation::list_consumable_resources::paginator::ListConsumableResourcesPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     ///
     /// Appends an item to `filters`.
@@ -152,10 +149,7 @@ impl ListConsumableResourcesFluentBuilder {
     /// <p>name: <code>CONSUMABLE_RESOURCE_NAME </code></p>
     /// <p>values: case-insensitive matches for the consumable resource name. If a filter value ends with an asterisk (*), it matches any consumable resource name that begins with the string before the '*'.</p></li>
     /// </ul>
-    pub fn set_filters(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>>,
-    ) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>>) -> Self {
         self.inner = self.inner.set_filters(input);
         self
     }
@@ -165,9 +159,7 @@ impl ListConsumableResourcesFluentBuilder {
     /// <p>name: <code>CONSUMABLE_RESOURCE_NAME </code></p>
     /// <p>values: case-insensitive matches for the consumable resource name. If a filter value ends with an asterisk (*), it matches any consumable resource name that begins with the string before the '*'.</p></li>
     /// </ul>
-    pub fn get_filters(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>> {
+    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeyValuesPair>> {
         self.inner.get_filters()
     }
     /// <p>The maximum number of results returned by <code>ListConsumableResources</code> in paginated output. When this parameter is used, <code>ListConsumableResources</code> only returns <code>maxResults</code> results in a single page and a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListConsumableResources</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>ListConsumableResources</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>

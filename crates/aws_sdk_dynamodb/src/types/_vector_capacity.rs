@@ -27,9 +27,7 @@ impl VectorCapacity {
 }
 
 /// A builder for [`VectorCapacity`](crate::types::VectorCapacity).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct VectorCapacityBuilder {
     pub(crate) vector_search_request_bytes: ::std::option::Option<f64>,

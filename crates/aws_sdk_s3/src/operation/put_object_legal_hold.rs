@@ -85,13 +85,11 @@ impl PutObjectLegalHold {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(
-                crate::config::ConfigOverrideRuntimePlugin::new(
-                    config_override,
-                    client_config.config.clone(),
-                    &client_config.runtime_components,
-                ),
-            );
+            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+                config_override,
+                client_config.config.clone(),
+                &client_config.runtime_components,
+            ));
         }
         runtime_plugins
     }
@@ -100,11 +98,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutObje
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("PutObjectLegalHold");
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                PutObjectLegalHoldRequestSerializer,
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+            PutObjectLegalHoldRequestSerializer,
+        ));
         cfg.store_put(
             ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
                 PutObjectLegalHoldResponseDeserializer,
@@ -120,12 +116,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutObje
             ),
         );
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-                "PutObjectLegalHold",
-                "S3",
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+            "PutObjectLegalHold",
+            "S3",
+        ));
         cfg.store_put(crate::s3_express::checksum::provide_default_checksum_algorithm());
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = false;
@@ -144,84 +138,126 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutObje
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<
-        '_,
-        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    > {
+    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
-                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("PutObjectLegalHold")
-                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(PutObjectLegalHoldTelemetryInputCaptureInterceptor))
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(PutObjectLegalHoldEndpointParamsInterceptor))
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(crate::http_request_checksum::RequestChecksumInterceptor::new(
-                                |input: &::aws_smithy_runtime_api::client::interceptors::context::Input| {
-                                    let input: &crate::operation::put_object_legal_hold::PutObjectLegalHoldInput = input.downcast_ref().expect("correct type");
-                                    let checksum_algorithm = input.checksum_algorithm();
-                                    let checksum_algorithm = checksum_algorithm.map(|algorithm| algorithm.as_str());
-                                    (checksum_algorithm.map(|s| s.to_string()), true)
-                                },
-                                |request: &mut ::aws_smithy_runtime_api::http::Request, cfg: &::aws_smithy_types::config_bag::ConfigBag| {
-                                    // We check if the user has set any of the checksum values manually
-                                    let mut user_set_checksum_value = false;
-                                    let headers_to_check = request.headers().iter().filter_map(|(name, _val)| {
-                                        if name.starts_with("x-amz-checksum-") {
-                                            Some(name)
-                                        } else {
-                                            None
-                                        }
-                                    });
-                                    for algo_header in headers_to_check {
-                                        if request.headers().get(algo_header).is_some() {
-                                            user_set_checksum_value = true;
-                                        }
-                                    }
+        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new(
+            "PutObjectLegalHold",
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                PutObjectLegalHoldTelemetryInputCaptureInterceptor,
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                PutObjectLegalHoldEndpointParamsInterceptor,
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                crate::http_request_checksum::RequestChecksumInterceptor::new(
+                    |input: &::aws_smithy_runtime_api::client::interceptors::context::Input| {
+                        let input: &crate::operation::put_object_legal_hold::PutObjectLegalHoldInput =
+                            input.downcast_ref().expect("correct type");
+                        let checksum_algorithm = input.checksum_algorithm();
+                        let checksum_algorithm = checksum_algorithm.map(|algorithm| algorithm.as_str());
+                        (checksum_algorithm.map(|s| s.to_string()), true)
+                    },
+                    |request: &mut ::aws_smithy_runtime_api::http::Request,
+                     cfg: &::aws_smithy_types::config_bag::ConfigBag| {
+                        // We check if the user has set any of the checksum values manually
+                        let mut user_set_checksum_value = false;
+                        let headers_to_check = request.headers().iter().filter_map(|(name, _val)| {
+                            if name.starts_with("x-amz-checksum-") {
+                                Some(name)
+                            } else {
+                                None
+                            }
+                        });
+                        for algo_header in headers_to_check {
+                            if request.headers().get(algo_header).is_some() {
+                                user_set_checksum_value = true;
+                            }
+                        }
 
-                                    // We check if the user set the checksum algo manually
-                                    let user_set_checksum_algo = request.headers()
-                                        .get("x-amz-sdk-checksum-algorithm")
-                                        .is_some();
+                        // We check if the user set the checksum algo manually
+                        let user_set_checksum_algo = request.headers().get("x-amz-sdk-checksum-algorithm").is_some();
 
-                                    // This value is set by the user on the SdkConfig to indicate their preference
-                                    let request_checksum_calculation = cfg
-                                        .load::<::aws_smithy_types::checksum_config::RequestChecksumCalculation>()
-                                        .unwrap_or(&::aws_smithy_types::checksum_config::RequestChecksumCalculation::WhenSupported);
+                        // This value is set by the user on the SdkConfig to indicate their preference
+                        let request_checksum_calculation = cfg
+                            .load::<::aws_smithy_types::checksum_config::RequestChecksumCalculation>()
+                            .unwrap_or(&::aws_smithy_types::checksum_config::RequestChecksumCalculation::WhenSupported);
 
-                                    // From the httpChecksum trait
-                                    let http_checksum_required = true;
+                        // From the httpChecksum trait
+                        let http_checksum_required = true;
 
-                                    let is_presigned_req = cfg.load::<crate::presigning::PresigningMarker>().is_some();
+                        let is_presigned_req = cfg.load::<crate::presigning::PresigningMarker>().is_some();
 
-                                    // If the request is presigned we do not set a default.
-                                    // If the RequestChecksumCalculation is WhenSupported and the user has not set a checksum value or algo
-                                    // we set the default. If it is WhenRequired and a checksum is required by the trait and the user has not
-                                    // set a checksum value or algo we also set the default. In all other cases we do nothing.
-                                    match (
-                                        request_checksum_calculation,
-                                        http_checksum_required,
-                                        user_set_checksum_value,
-                                        user_set_checksum_algo,
-                                        is_presigned_req,
-                                    ) {
-                                        (_, _, _, _, true) => {}
-                                        (::aws_smithy_types::checksum_config::RequestChecksumCalculation::WhenSupported, _, false, false, _)
-                                        | (::aws_smithy_types::checksum_config::RequestChecksumCalculation::WhenRequired, true, false, false, _) => {
-                                            request.headers_mut().insert("x-amz-sdk-checksum-algorithm", "CRC32");
-                                        }
-                                        _ => {},
-                                    }
+                        // If the request is presigned we do not set a default.
+                        // If the RequestChecksumCalculation is WhenSupported and the user has not set a checksum value or algo
+                        // we set the default. If it is WhenRequired and a checksum is required by the trait and the user has not
+                        // set a checksum value or algo we also set the default. In all other cases we do nothing.
+                        match (
+                            request_checksum_calculation,
+                            http_checksum_required,
+                            user_set_checksum_value,
+                            user_set_checksum_algo,
+                            is_presigned_req,
+                        ) {
+                            (_, _, _, _, true) => {}
+                            (
+                                ::aws_smithy_types::checksum_config::RequestChecksumCalculation::WhenSupported,
+                                _,
+                                false,
+                                false,
+                                _,
+                            )
+                            | (
+                                ::aws_smithy_types::checksum_config::RequestChecksumCalculation::WhenRequired,
+                                true,
+                                false,
+                                false,
+                                _,
+                            ) => {
+                                request.headers_mut().insert("x-amz-sdk-checksum-algorithm", "CRC32");
+                            }
+                            _ => {}
+                        }
 
-                                    // We return a bool indicating if the user did set the checksum value, if they did
-                                    // we can short circuit and exit the interceptor early.
-                                    Ok(user_set_checksum_value)
-                                }
-                                )))
-                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::put_object_legal_hold::PutObjectLegalHoldError>::new())
-.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::put_object_legal_hold::PutObjectLegalHoldError>::new())
-.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::put_object_legal_hold::PutObjectLegalHoldError>::builder().transient_errors({
-                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-                                            transient_errors.push("InternalError");
-                                            ::std::borrow::Cow::Owned(transient_errors)
-                                            }).build());
+                        // We return a bool indicating if the user did set the checksum value, if they did
+                        // we can short circuit and exit the interceptor early.
+                        Ok(user_set_checksum_value)
+                    },
+                ),
+            ),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+                crate::operation::put_object_legal_hold::PutObjectLegalHoldError,
+            >::new(),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+                crate::operation::put_object_legal_hold::PutObjectLegalHoldError,
+            >::new(),
+        )
+        .with_retry_classifier(
+            ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+                crate::operation::put_object_legal_hold::PutObjectLegalHoldError,
+            >::builder()
+            .transient_errors({
+                let mut transient_errors: Vec<&'static str> =
+                    ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
+                transient_errors.push("InternalError");
+                ::std::borrow::Cow::Owned(transient_errors)
+            })
+            .build(),
+        );
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -231,9 +267,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutObje
 struct PutObjectLegalHoldTelemetryInputCaptureInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for PutObjectLegalHoldTelemetryInputCaptureInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for PutObjectLegalHoldTelemetryInputCaptureInterceptor {
     fn name(&self) -> &'static str {
         "PutObjectLegalHoldTelemetryInputCaptureInterceptor"
     }
@@ -256,9 +290,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) =
-            context.input().downcast_ref::<PutObjectLegalHoldInput>()
-        else {
+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<PutObjectLegalHoldInput>() else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
@@ -296,9 +328,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
 }
 #[derive(Debug)]
 struct PutObjectLegalHoldResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
-    for PutObjectLegalHoldResponseDeserializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for PutObjectLegalHoldResponseDeserializer {
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -310,10 +340,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
         #[allow(unused_mut)]
         let mut force_error = false;
         ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
-        if matches!(
-            crate::rest_xml_unwrapped_errors::body_is_error(body),
-            Ok(true)
-        ) {
+        if matches!(crate::rest_xml_unwrapped_errors::body_is_error(body), Ok(true)) {
             force_error = true;
         }
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
@@ -322,16 +349,16 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
                 status, headers, body,
             )
         } else {
-            crate::protocol_serde::shape_put_object_legal_hold::de_put_object_legal_hold_http_response(status, headers, body)
+            crate::protocol_serde::shape_put_object_legal_hold::de_put_object_legal_hold_http_response(
+                status, headers, body,
+            )
         };
         crate::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
 struct PutObjectLegalHoldRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
-    for PutObjectLegalHoldRequestSerializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PutObjectLegalHoldRequestSerializer {
     #[allow(
         unused_mut,
         clippy::let_and_return,
@@ -358,20 +385,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_base(
                 _input: &crate::operation::put_object_legal_hold::PutObjectLegalHoldInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
                 let input_1 = &_input.key;
                 let input_1 = input_1.as_ref().ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "key",
-                        "cannot be empty or unset",
-                    )
+                    ::aws_smithy_types::error::operation::BuildError::missing_field("key", "cannot be empty or unset")
                 })?;
-                let key = ::aws_smithy_http::label::fmt_string(
-                    input_1,
-                    ::aws_smithy_http::label::EncodingStrategy::Greedy,
-                );
+                let key =
+                    ::aws_smithy_http::label::fmt_string(input_1, ::aws_smithy_http::label::EncodingStrategy::Greedy);
                 if key.is_empty() {
                     return ::std::result::Result::Err(
                         ::aws_smithy_types::error::operation::BuildError::missing_field(
@@ -386,8 +407,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_query(
                 _input: &crate::operation::put_object_legal_hold::PutObjectLegalHoldInput,
                 mut output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 query.push_v("legal-hold");
                 if let ::std::option::Option::Some(inner_2) = &_input.version_id {
@@ -401,14 +421,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn update_http_builder(
                 input: &crate::operation::put_object_legal_hold::PutObjectLegalHoldInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<
-                ::http_1x::request::Builder,
-                ::aws_smithy_types::error::operation::BuildError,
-            > {
+            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
-                let builder = crate::protocol_serde::shape_put_object_legal_hold::ser_put_object_legal_hold_headers(input, builder)?;
+                let builder = crate::protocol_serde::shape_put_object_legal_hold::ser_put_object_legal_hold_headers(
+                    input, builder,
+                )?;
                 ::std::result::Result::Ok(builder.method("PUT").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -420,9 +440,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            crate::protocol_serde::shape_put_object_legal_hold_input::ser_legal_hold_http_payload(
-                &input.legal_hold,
-            )?,
+            crate::protocol_serde::shape_put_object_legal_hold_input::ser_legal_hold_http_payload(&input.legal_hold)?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
@@ -432,22 +450,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
                 &content_length,
             );
         }
-        ::std::result::Result::Ok(
-            request_builder
-                .body(body)
-                .expect("valid request")
-                .try_into()
-                .unwrap(),
-        )
+        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
 #[derive(Debug)]
 struct PutObjectLegalHoldEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for PutObjectLegalHoldEndpointParamsInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for PutObjectLegalHoldEndpointParamsInterceptor {
     fn name(&self) -> &'static str {
         "PutObjectLegalHoldEndpointParamsInterceptor"
     }
@@ -468,18 +478,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             .ok_or("failed to downcast to PutObjectLegalHoldInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(
-                cfg.load::<::aws_types::region::Region>()
-                    .map(|r| r.as_ref().to_owned()),
-            )
-            .set_use_fips(
-                cfg.load::<::aws_types::endpoint_config::UseFips>()
-                    .map(|ty| ty.0),
-            )
-            .set_use_dual_stack(
-                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
-                    .map(|ty| ty.0),
-            )
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_endpoint(
                 cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
                     .map(|ty| ty.0.clone()),
@@ -492,8 +493,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             )
             .set_accelerate(cfg.load::<crate::config::Accelerate>().map(|ty| ty.0))
             .set_disable_s3_express_session_auth(
-                cfg.load::<crate::config::DisableS3ExpressSessionAuth>()
-                    .map(|ty| ty.0),
+                cfg.load::<crate::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0),
             )
             .set_bucket(Some(
                 _input
@@ -514,9 +514,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
                     err,
                 )
             })?;
-        cfg.interceptor_state().store_put(
-            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
-        );
+        cfg.interceptor_state()
+            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(
+                params,
+            ));
         ::std::result::Result::Ok(())
     }
 }
@@ -543,9 +544,7 @@ impl PutObjectLegalHoldError {
     /// Creates the `PutObjectLegalHoldError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -610,9 +609,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for PutObjectLega
 }
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for PutObjectLegalHoldError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -621,16 +618,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for PutObjec
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt
-    for crate::operation::put_object_legal_hold::PutObjectLegalHoldError
-{
+impl crate::s3_request_id::RequestIdExt for crate::operation::put_object_legal_hold::PutObjectLegalHoldError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId
-    for crate::operation::put_object_legal_hold::PutObjectLegalHoldError
-{
+impl ::aws_types::request_id::RequestId for crate::operation::put_object_legal_hold::PutObjectLegalHoldError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

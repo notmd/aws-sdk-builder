@@ -17,8 +17,7 @@ pub struct UpdatePackageGroupOriginConfigurationInput {
         >,
     >,
     /// <p>The repository name and restrictions to add to the allowed repository list of the specified package group.</p>
-    pub add_allowed_repositories:
-        ::std::option::Option<::std::vec::Vec<crate::types::PackageGroupAllowedRepository>>,
+    pub add_allowed_repositories: ::std::option::Option<::std::vec::Vec<crate::types::PackageGroupAllowedRepository>>,
     /// <p>The repository name and restrictions to remove from the allowed repository list of the specified package group.</p>
     pub remove_allowed_repositories:
         ::std::option::Option<::std::vec::Vec<crate::types::PackageGroupAllowedRepository>>,
@@ -57,9 +56,7 @@ impl UpdatePackageGroupOriginConfigurationInput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.remove_allowed_repositories.is_none()`.
     pub fn remove_allowed_repositories(&self) -> &[crate::types::PackageGroupAllowedRepository] {
-        self.remove_allowed_repositories
-            .as_deref()
-            .unwrap_or_default()
+        self.remove_allowed_repositories.as_deref().unwrap_or_default()
     }
 }
 impl UpdatePackageGroupOriginConfigurationInput {
@@ -70,9 +67,7 @@ impl UpdatePackageGroupOriginConfigurationInput {
 }
 
 /// A builder for [`UpdatePackageGroupOriginConfigurationInput`](crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdatePackageGroupOriginConfigurationInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -121,18 +116,12 @@ impl UpdatePackageGroupOriginConfigurationInputBuilder {
     }
     /// <p>The pattern of the package group for which to update the origin configuration.</p>
     /// This field is required.
-    pub fn package_group(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_group(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.package_group = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The pattern of the package group for which to update the origin configuration.</p>
-    pub fn set_package_group(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_group(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.package_group = input;
         self
     }
@@ -184,10 +173,7 @@ impl UpdatePackageGroupOriginConfigurationInputBuilder {
     /// To override the contents of this collection use [`set_add_allowed_repositories`](Self::set_add_allowed_repositories).
     ///
     /// <p>The repository name and restrictions to add to the allowed repository list of the specified package group.</p>
-    pub fn add_allowed_repositories(
-        mut self,
-        input: crate::types::PackageGroupAllowedRepository,
-    ) -> Self {
+    pub fn add_allowed_repositories(mut self, input: crate::types::PackageGroupAllowedRepository) -> Self {
         let mut v = self.add_allowed_repositories.unwrap_or_default();
         v.push(input);
         self.add_allowed_repositories = ::std::option::Option::Some(v);
@@ -212,10 +198,7 @@ impl UpdatePackageGroupOriginConfigurationInputBuilder {
     /// To override the contents of this collection use [`set_remove_allowed_repositories`](Self::set_remove_allowed_repositories).
     ///
     /// <p>The repository name and restrictions to remove from the allowed repository list of the specified package group.</p>
-    pub fn remove_allowed_repositories(
-        mut self,
-        input: crate::types::PackageGroupAllowedRepository,
-    ) -> Self {
+    pub fn remove_allowed_repositories(mut self, input: crate::types::PackageGroupAllowedRepository) -> Self {
         let mut v = self.remove_allowed_repositories.unwrap_or_default();
         v.push(input);
         self.remove_allowed_repositories = ::std::option::Option::Some(v);
@@ -241,7 +224,7 @@ impl UpdatePackageGroupOriginConfigurationInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationInput {
                 domain: self.domain,

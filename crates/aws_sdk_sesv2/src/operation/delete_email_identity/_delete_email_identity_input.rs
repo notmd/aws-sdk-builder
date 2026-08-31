@@ -15,17 +15,13 @@ impl DeleteEmailIdentityInput {
 }
 impl DeleteEmailIdentityInput {
     /// Creates a new builder-style object to manufacture [`DeleteEmailIdentityInput`](crate::operation::delete_email_identity::DeleteEmailIdentityInput).
-    pub fn builder(
-    ) -> crate::operation::delete_email_identity::builders::DeleteEmailIdentityInputBuilder {
-        crate::operation::delete_email_identity::builders::DeleteEmailIdentityInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::delete_email_identity::builders::DeleteEmailIdentityInputBuilder {
+        crate::operation::delete_email_identity::builders::DeleteEmailIdentityInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteEmailIdentityInput`](crate::operation::delete_email_identity::DeleteEmailIdentityInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteEmailIdentityInputBuilder {
     pub(crate) email_identity: ::std::option::Option<::std::string::String>,
@@ -33,18 +29,12 @@ pub struct DeleteEmailIdentityInputBuilder {
 impl DeleteEmailIdentityInputBuilder {
     /// <p>The identity (that is, the email address or domain) to delete.</p>
     /// This field is required.
-    pub fn email_identity(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_identity(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.email_identity = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The identity (that is, the email address or domain) to delete.</p>
-    pub fn set_email_identity(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_identity(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.email_identity = input;
         self
     }
@@ -59,10 +49,8 @@ impl DeleteEmailIdentityInputBuilder {
         crate::operation::delete_email_identity::DeleteEmailIdentityInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_email_identity::DeleteEmailIdentityInput {
-                email_identity: self.email_identity,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::delete_email_identity::DeleteEmailIdentityInput {
+            email_identity: self.email_identity,
+        })
     }
 }

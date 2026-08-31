@@ -9,8 +9,6 @@ impl super::Client {
     pub fn list_saml_providers(
         &self,
     ) -> crate::operation::list_saml_providers::builders::ListSAMLProvidersFluentBuilder {
-        crate::operation::list_saml_providers::builders::ListSAMLProvidersFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::list_saml_providers::builders::ListSAMLProvidersFluentBuilder::new(self.handle.clone())
     }
 }

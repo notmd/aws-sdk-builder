@@ -16,10 +16,7 @@ impl MaxNumberOfOrganizationConformancePacksExceededException {
 }
 impl ::std::fmt::Display for MaxNumberOfOrganizationConformancePacksExceededException {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        ::std::write!(
-            f,
-            "MaxNumberOfOrganizationConformancePacksExceededException"
-        )?;
+        ::std::write!(f, "MaxNumberOfOrganizationConformancePacksExceededException")?;
         if let ::std::option::Option::Some(inner_1) = &self.message {
             {
                 ::std::write!(f, ": {inner_1}")?;
@@ -46,15 +43,13 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
 }
 impl MaxNumberOfOrganizationConformancePacksExceededException {
     /// Creates a new builder-style object to manufacture [`MaxNumberOfOrganizationConformancePacksExceededException`](crate::types::error::MaxNumberOfOrganizationConformancePacksExceededException).
-    pub fn builder() -> crate::types::error::builders::MaxNumberOfOrganizationConformancePacksExceededExceptionBuilder{
+    pub fn builder() -> crate::types::error::builders::MaxNumberOfOrganizationConformancePacksExceededExceptionBuilder {
         crate::types::error::builders::MaxNumberOfOrganizationConformancePacksExceededExceptionBuilder::default()
     }
 }
 
 /// A builder for [`MaxNumberOfOrganizationConformancePacksExceededException`](crate::types::error::MaxNumberOfOrganizationConformancePacksExceededException).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct MaxNumberOfOrganizationConformancePacksExceededExceptionBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
@@ -82,17 +77,12 @@ impl MaxNumberOfOrganizationConformancePacksExceededExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(
-        &mut self,
-        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> &mut Self {
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
         self.meta = meta;
         self
     }
     /// Consumes the builder and constructs a [`MaxNumberOfOrganizationConformancePacksExceededException`](crate::types::error::MaxNumberOfOrganizationConformancePacksExceededException).
-    pub fn build(
-        self,
-    ) -> crate::types::error::MaxNumberOfOrganizationConformancePacksExceededException {
+    pub fn build(self) -> crate::types::error::MaxNumberOfOrganizationConformancePacksExceededException {
         crate::types::error::MaxNumberOfOrganizationConformancePacksExceededException {
             message: self.message,
             meta: self.meta.unwrap_or_default(),

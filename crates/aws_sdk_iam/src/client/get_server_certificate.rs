@@ -10,8 +10,6 @@ impl super::Client {
     pub fn get_server_certificate(
         &self,
     ) -> crate::operation::get_server_certificate::builders::GetServerCertificateFluentBuilder {
-        crate::operation::get_server_certificate::builders::GetServerCertificateFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_server_certificate::builders::GetServerCertificateFluentBuilder::new(self.handle.clone())
     }
 }

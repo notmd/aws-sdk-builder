@@ -10,8 +10,6 @@ impl super::Client {
     pub fn get_instance_profile(
         &self,
     ) -> crate::operation::get_instance_profile::builders::GetInstanceProfileFluentBuilder {
-        crate::operation::get_instance_profile::builders::GetInstanceProfileFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_instance_profile::builders::GetInstanceProfileFluentBuilder::new(self.handle.clone())
     }
 }

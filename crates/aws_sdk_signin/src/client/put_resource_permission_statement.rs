@@ -16,7 +16,10 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutResourcePermissionStatementError>`](crate::operation::put_resource_permission_statement::PutResourcePermissionStatementError)
     pub fn put_resource_permission_statement(
         &self,
-    ) -> crate::operation::put_resource_permission_statement::builders::PutResourcePermissionStatementFluentBuilder{
-        crate::operation::put_resource_permission_statement::builders::PutResourcePermissionStatementFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::put_resource_permission_statement::builders::PutResourcePermissionStatementFluentBuilder
+    {
+        crate::operation::put_resource_permission_statement::builders::PutResourcePermissionStatementFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

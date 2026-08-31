@@ -58,9 +58,7 @@ impl GetLogRecordFluentBuilder {
         }
     }
     /// Access the GetLogRecord as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_log_record::builders::GetLogRecordInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_log_record::builders::GetLogRecordInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,12 +82,11 @@ impl GetLogRecordFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::get_log_record::GetLogRecord::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::get_log_record::GetLogRecord::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::get_log_record::GetLogRecord::orchestrate(&runtime_plugins, input).await
     }
 
@@ -119,18 +116,12 @@ impl GetLogRecordFluentBuilder {
         self
     }
     /// <p>The pointer corresponding to the log event record you want to retrieve. You get this from the response of a <code>GetQueryResults</code> operation. In that response, the value of the <code>@ptr</code> field for a log event is the value to use as <code>logRecordPointer</code> to retrieve that complete log event record.</p>
-    pub fn log_record_pointer(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_record_pointer(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_record_pointer(input.into());
         self
     }
     /// <p>The pointer corresponding to the log event record you want to retrieve. You get this from the response of a <code>GetQueryResults</code> operation. In that response, the value of the <code>@ptr</code> field for a log event is the value to use as <code>logRecordPointer</code> to retrieve that complete log event record.</p>
-    pub fn set_log_record_pointer(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_record_pointer(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_log_record_pointer(input);
         self
     }

@@ -57,9 +57,7 @@ impl DescribeDestinationsFluentBuilder {
         }
     }
     /// Access the DescribeDestinations as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::describe_destinations::builders::DescribeDestinationsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::describe_destinations::builders::DescribeDestinationsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,11 +86,7 @@ impl DescribeDestinationsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::describe_destinations::DescribeDestinations::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::describe_destinations::DescribeDestinations::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -123,27 +117,16 @@ impl DescribeDestinationsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_destinations::paginator::DescribeDestinationsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::describe_destinations::paginator::DescribeDestinationsPaginator {
-        crate::operation::describe_destinations::paginator::DescribeDestinationsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::describe_destinations::paginator::DescribeDestinationsPaginator {
+        crate::operation::describe_destinations::paginator::DescribeDestinationsPaginator::new(self.handle, self.inner)
     }
     /// <p>The prefix to match. If you don't specify a value, no prefix filter is applied.</p>
-    pub fn destination_name_prefix(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn destination_name_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.destination_name_prefix(input.into());
         self
     }
     /// <p>The prefix to match. If you don't specify a value, no prefix filter is applied.</p>
-    pub fn set_destination_name_prefix(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_destination_name_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_destination_name_prefix(input);
         self
     }

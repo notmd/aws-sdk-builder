@@ -22,27 +22,19 @@ impl AnalyticsMetadataType {
 }
 
 /// A builder for [`AnalyticsMetadataType`](crate::types::AnalyticsMetadataType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AnalyticsMetadataTypeBuilder {
     pub(crate) analytics_endpoint_id: ::std::option::Option<::std::string::String>,
 }
 impl AnalyticsMetadataTypeBuilder {
     /// <p>The endpoint ID. Information that you want to pass to Amazon Pinpoint about where to send notifications.</p>
-    pub fn analytics_endpoint_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn analytics_endpoint_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.analytics_endpoint_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The endpoint ID. Information that you want to pass to Amazon Pinpoint about where to send notifications.</p>
-    pub fn set_analytics_endpoint_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_analytics_endpoint_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.analytics_endpoint_id = input;
         self
     }

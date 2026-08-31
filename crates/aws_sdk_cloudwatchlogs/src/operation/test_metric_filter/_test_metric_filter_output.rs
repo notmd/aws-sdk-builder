@@ -22,20 +22,16 @@ impl ::aws_types::request_id::RequestId for TestMetricFilterOutput {
 }
 impl TestMetricFilterOutput {
     /// Creates a new builder-style object to manufacture [`TestMetricFilterOutput`](crate::operation::test_metric_filter::TestMetricFilterOutput).
-    pub fn builder() -> crate::operation::test_metric_filter::builders::TestMetricFilterOutputBuilder
-    {
+    pub fn builder() -> crate::operation::test_metric_filter::builders::TestMetricFilterOutputBuilder {
         crate::operation::test_metric_filter::builders::TestMetricFilterOutputBuilder::default()
     }
 }
 
 /// A builder for [`TestMetricFilterOutput`](crate::operation::test_metric_filter::TestMetricFilterOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TestMetricFilterOutputBuilder {
-    pub(crate) matches:
-        ::std::option::Option<::std::vec::Vec<crate::types::MetricFilterMatchRecord>>,
+    pub(crate) matches: ::std::option::Option<::std::vec::Vec<crate::types::MetricFilterMatchRecord>>,
     _request_id: Option<String>,
 }
 impl TestMetricFilterOutputBuilder {
@@ -59,9 +55,7 @@ impl TestMetricFilterOutputBuilder {
         self
     }
     /// <p>The matched events.</p>
-    pub fn get_matches(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::MetricFilterMatchRecord>> {
+    pub fn get_matches(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MetricFilterMatchRecord>> {
         &self.matches
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

@@ -43,7 +43,7 @@ impl
             crate::operation::describe_configuration_templates::DescribeConfigurationTemplatesOutput,
             crate::operation::describe_configuration_templates::DescribeConfigurationTemplatesError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -57,7 +57,9 @@ impl DescribeConfigurationTemplatesFluentBuilder {
         }
     }
     /// Access the DescribeConfigurationTemplates as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +88,11 @@ impl DescribeConfigurationTemplatesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::describe_configuration_templates::DescribeConfigurationTemplates::orchestrate(&runtime_plugins, input).await
+        crate::operation::describe_configuration_templates::DescribeConfigurationTemplates::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -117,8 +123,13 @@ impl DescribeConfigurationTemplatesFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_configuration_templates::paginator::DescribeConfigurationTemplatesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::describe_configuration_templates::paginator::DescribeConfigurationTemplatesPaginator{
-        crate::operation::describe_configuration_templates::paginator::DescribeConfigurationTemplatesPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::describe_configuration_templates::paginator::DescribeConfigurationTemplatesPaginator {
+        crate::operation::describe_configuration_templates::paginator::DescribeConfigurationTemplatesPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>Use this parameter to filter the response to include only the configuration templates that apply to the Amazon Web Services service that you specify here.</p>
     pub fn service(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -145,10 +156,7 @@ impl DescribeConfigurationTemplatesFluentBuilder {
         self
     }
     /// <p>Use this parameter to filter the response to include only the configuration templates that apply to the log types that you specify here.</p>
-    pub fn set_log_types(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_log_types(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_log_types(input);
         self
     }
@@ -162,25 +170,17 @@ impl DescribeConfigurationTemplatesFluentBuilder {
     /// To override the contents of this collection use [`set_resource_types`](Self::set_resource_types).
     ///
     /// <p>Use this parameter to filter the response to include only the configuration templates that apply to the resource types that you specify here.</p>
-    pub fn resource_types(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_types(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.resource_types(input.into());
         self
     }
     /// <p>Use this parameter to filter the response to include only the configuration templates that apply to the resource types that you specify here.</p>
-    pub fn set_resource_types(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_resource_types(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_resource_types(input);
         self
     }
     /// <p>Use this parameter to filter the response to include only the configuration templates that apply to the resource types that you specify here.</p>
-    pub fn get_resource_types(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_resource_types(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_resource_types()
     }
     ///
@@ -189,10 +189,7 @@ impl DescribeConfigurationTemplatesFluentBuilder {
     /// To override the contents of this collection use [`set_delivery_destination_types`](Self::set_delivery_destination_types).
     ///
     /// <p>Use this parameter to filter the response to include only the configuration templates that apply to the delivery destination types that you specify here.</p>
-    pub fn delivery_destination_types(
-        mut self,
-        input: crate::types::DeliveryDestinationType,
-    ) -> Self {
+    pub fn delivery_destination_types(mut self, input: crate::types::DeliveryDestinationType) -> Self {
         self.inner = self.inner.delivery_destination_types(input);
         self
     }

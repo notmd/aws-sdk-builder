@@ -9,7 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutLogGroupDeletionProtectionError>`](crate::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionError)
     pub fn put_log_group_deletion_protection(
         &self,
-    ) -> crate::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionFluentBuilder{
-        crate::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionFluentBuilder {
+        crate::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -26,9 +26,7 @@ impl DeletePackageOutput {
 }
 
 /// A builder for [`DeletePackageOutput`](crate::operation::delete_package::DeletePackageOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeletePackageOutputBuilder {
     pub(crate) deleted_package: ::std::option::Option<crate::types::PackageSummary>,
@@ -41,10 +39,7 @@ impl DeletePackageOutputBuilder {
         self
     }
     /// <p>Details about a package, including its format, namespace, and name.</p>
-    pub fn set_deleted_package(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageSummary>,
-    ) -> Self {
+    pub fn set_deleted_package(mut self, input: ::std::option::Option<crate::types::PackageSummary>) -> Self {
         self.deleted_package = input;
         self
     }

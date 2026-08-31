@@ -12,16 +12,13 @@ impl ::aws_types::request_id::RequestId for AssociateKmsKeyOutput {
 }
 impl AssociateKmsKeyOutput {
     /// Creates a new builder-style object to manufacture [`AssociateKmsKeyOutput`](crate::operation::associate_kms_key::AssociateKmsKeyOutput).
-    pub fn builder() -> crate::operation::associate_kms_key::builders::AssociateKmsKeyOutputBuilder
-    {
+    pub fn builder() -> crate::operation::associate_kms_key::builders::AssociateKmsKeyOutputBuilder {
         crate::operation::associate_kms_key::builders::AssociateKmsKeyOutputBuilder::default()
     }
 }
 
 /// A builder for [`AssociateKmsKeyOutput`](crate::operation::associate_kms_key::AssociateKmsKeyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AssociateKmsKeyOutputBuilder {
     _request_id: Option<String>,

@@ -43,9 +43,7 @@ impl Bucket {
 }
 
 /// A builder for [`Bucket`](crate::types::Bucket).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct BucketBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
@@ -74,10 +72,7 @@ impl BucketBuilder {
         self
     }
     /// <p>Date the bucket was created. This date can change when making changes to your bucket, such as editing its bucket policy.</p>
-    pub fn set_creation_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.creation_date = input;
         self
     }
@@ -86,18 +81,12 @@ impl BucketBuilder {
         &self.creation_date
     }
     /// <p><code>BucketRegion</code> indicates the Amazon Web Services region where the bucket is located. If the request contains at least one valid parameter, it is included in the response.</p>
-    pub fn bucket_region(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn bucket_region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.bucket_region = ::std::option::Option::Some(input.into());
         self
     }
     /// <p><code>BucketRegion</code> indicates the Amazon Web Services region where the bucket is located. If the request contains at least one valid parameter, it is included in the response.</p>
-    pub fn set_bucket_region(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_bucket_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket_region = input;
         self
     }

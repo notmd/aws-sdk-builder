@@ -29,9 +29,7 @@ impl DomainEntryPoint {
 }
 
 /// A builder for [`DomainEntryPoint`](crate::types::DomainEntryPoint).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DomainEntryPointBuilder {
     pub(crate) repository_name: ::std::option::Option<::std::string::String>,
@@ -39,18 +37,12 @@ pub struct DomainEntryPointBuilder {
 }
 impl DomainEntryPointBuilder {
     /// <p>The name of the repository that a package was originally published to.</p>
-    pub fn repository_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn repository_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.repository_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the repository that a package was originally published to.</p>
-    pub fn set_repository_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_repository_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.repository_name = input;
         self
     }
@@ -59,18 +51,12 @@ impl DomainEntryPointBuilder {
         &self.repository_name
     }
     /// <p>The name of the external connection that a package was ingested from.</p>
-    pub fn external_connection_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn external_connection_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.external_connection_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the external connection that a package was ingested from.</p>
-    pub fn set_external_connection_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_external_connection_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.external_connection_name = input;
         self
     }

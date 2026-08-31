@@ -58,7 +58,9 @@ impl GetFunctionEventInvokeConfigFluentBuilder {
         }
     }
     /// Access the GetFunctionEventInvokeConfig as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_function_event_invoke_config::builders::GetFunctionEventInvokeConfigInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_function_event_invoke_config::builders::GetFunctionEventInvokeConfigInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,12 +84,17 @@ impl GetFunctionEventInvokeConfigFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfig::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfig::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfig::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfig::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -126,10 +133,7 @@ impl GetFunctionEventInvokeConfigFluentBuilder {
     /// <p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -144,10 +148,7 @@ impl GetFunctionEventInvokeConfigFluentBuilder {
     /// <p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }

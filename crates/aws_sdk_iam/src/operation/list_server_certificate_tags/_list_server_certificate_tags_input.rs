@@ -30,15 +30,14 @@ impl ListServerCertificateTagsInput {
 }
 impl ListServerCertificateTagsInput {
     /// Creates a new builder-style object to manufacture [`ListServerCertificateTagsInput`](crate::operation::list_server_certificate_tags::ListServerCertificateTagsInput).
-    pub fn builder() -> crate::operation::list_server_certificate_tags::builders::ListServerCertificateTagsInputBuilder{
+    pub fn builder() -> crate::operation::list_server_certificate_tags::builders::ListServerCertificateTagsInputBuilder
+    {
         crate::operation::list_server_certificate_tags::builders::ListServerCertificateTagsInputBuilder::default()
     }
 }
 
 /// A builder for [`ListServerCertificateTagsInput`](crate::operation::list_server_certificate_tags::ListServerCertificateTagsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListServerCertificateTagsInputBuilder {
     pub(crate) server_certificate_name: ::std::option::Option<::std::string::String>,
@@ -49,19 +48,13 @@ impl ListServerCertificateTagsInputBuilder {
     /// <p>The name of the IAM server certificate whose tags you want to see.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     /// This field is required.
-    pub fn server_certificate_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn server_certificate_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.server_certificate_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the IAM server certificate whose tags you want to see.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn set_server_certificate_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_server_certificate_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.server_certificate_name = input;
         self
     }

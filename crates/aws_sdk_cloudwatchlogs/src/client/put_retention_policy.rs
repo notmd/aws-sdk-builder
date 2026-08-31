@@ -10,8 +10,6 @@ impl super::Client {
     pub fn put_retention_policy(
         &self,
     ) -> crate::operation::put_retention_policy::builders::PutRetentionPolicyFluentBuilder {
-        crate::operation::put_retention_policy::builders::PutRetentionPolicyFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::put_retention_policy::builders::PutRetentionPolicyFluentBuilder::new(self.handle.clone())
     }
 }

@@ -8,10 +8,7 @@ pub struct ListTenantResourcesInput {
     pub tenant_name: ::std::option::Option<::std::string::String>,
     /// <p>A map of filter keys and values for filtering the list of tenant resources. Currently, the only supported filter key is <code>RESOURCE_TYPE</code>.</p>
     pub filter: ::std::option::Option<
-        ::std::collections::HashMap<
-            crate::types::ListTenantResourcesFilterKey,
-            ::std::string::String,
-        >,
+        ::std::collections::HashMap<crate::types::ListTenantResourcesFilterKey, ::std::string::String>,
     >,
     /// <p>The number of results to show in a single call to <code>ListTenantResources</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
     pub page_size: ::std::option::Option<i32>,
@@ -27,10 +24,7 @@ impl ListTenantResourcesInput {
     pub fn filter(
         &self,
     ) -> ::std::option::Option<
-        &::std::collections::HashMap<
-            crate::types::ListTenantResourcesFilterKey,
-            ::std::string::String,
-        >,
+        &::std::collections::HashMap<crate::types::ListTenantResourcesFilterKey, ::std::string::String>,
     > {
         self.filter.as_ref()
     }
@@ -45,25 +39,18 @@ impl ListTenantResourcesInput {
 }
 impl ListTenantResourcesInput {
     /// Creates a new builder-style object to manufacture [`ListTenantResourcesInput`](crate::operation::list_tenant_resources::ListTenantResourcesInput).
-    pub fn builder(
-    ) -> crate::operation::list_tenant_resources::builders::ListTenantResourcesInputBuilder {
-        crate::operation::list_tenant_resources::builders::ListTenantResourcesInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::list_tenant_resources::builders::ListTenantResourcesInputBuilder {
+        crate::operation::list_tenant_resources::builders::ListTenantResourcesInputBuilder::default()
     }
 }
 
 /// A builder for [`ListTenantResourcesInput`](crate::operation::list_tenant_resources::ListTenantResourcesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListTenantResourcesInputBuilder {
     pub(crate) tenant_name: ::std::option::Option<::std::string::String>,
     pub(crate) filter: ::std::option::Option<
-        ::std::collections::HashMap<
-            crate::types::ListTenantResourcesFilterKey,
-            ::std::string::String,
-        >,
+        ::std::collections::HashMap<crate::types::ListTenantResourcesFilterKey, ::std::string::String>,
     >,
     pub(crate) page_size: ::std::option::Option<i32>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
@@ -103,10 +90,7 @@ impl ListTenantResourcesInputBuilder {
     pub fn set_filter(
         mut self,
         input: ::std::option::Option<
-            ::std::collections::HashMap<
-                crate::types::ListTenantResourcesFilterKey,
-                ::std::string::String,
-            >,
+            ::std::collections::HashMap<crate::types::ListTenantResourcesFilterKey, ::std::string::String>,
         >,
     ) -> Self {
         self.filter = input;
@@ -116,10 +100,7 @@ impl ListTenantResourcesInputBuilder {
     pub fn get_filter(
         &self,
     ) -> &::std::option::Option<
-        ::std::collections::HashMap<
-            crate::types::ListTenantResourcesFilterKey,
-            ::std::string::String,
-        >,
+        ::std::collections::HashMap<crate::types::ListTenantResourcesFilterKey, ::std::string::String>,
     > {
         &self.filter
     }
@@ -158,13 +139,11 @@ impl ListTenantResourcesInputBuilder {
         crate::operation::list_tenant_resources::ListTenantResourcesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::list_tenant_resources::ListTenantResourcesInput {
-                tenant_name: self.tenant_name,
-                filter: self.filter,
-                page_size: self.page_size,
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::list_tenant_resources::ListTenantResourcesInput {
+            tenant_name: self.tenant_name,
+            filter: self.filter,
+            page_size: self.page_size,
+            next_token: self.next_token,
+        })
     }
 }

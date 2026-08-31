@@ -33,8 +33,7 @@ impl ::std::fmt::Debug for DeleteUserAttributesInput {
 }
 impl DeleteUserAttributesInput {
     /// Creates a new builder-style object to manufacture [`DeleteUserAttributesInput`](crate::operation::delete_user_attributes::DeleteUserAttributesInput).
-    pub fn builder(
-    ) -> crate::operation::delete_user_attributes::builders::DeleteUserAttributesInputBuilder {
+    pub fn builder() -> crate::operation::delete_user_attributes::builders::DeleteUserAttributesInputBuilder {
         crate::operation::delete_user_attributes::builders::DeleteUserAttributesInputBuilder::default()
     }
 }
@@ -53,10 +52,7 @@ impl DeleteUserAttributesInputBuilder {
     ///
     /// <p>An array of strings representing the user attribute names you want to delete.</p>
     /// <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name, for example <code>custom:department</code>.</p>
-    pub fn user_attribute_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn user_attribute_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.user_attribute_names.unwrap_or_default();
         v.push(input.into());
         self.user_attribute_names = ::std::option::Option::Some(v);
@@ -73,9 +69,7 @@ impl DeleteUserAttributesInputBuilder {
     }
     /// <p>An array of strings representing the user attribute names you want to delete.</p>
     /// <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name, for example <code>custom:department</code>.</p>
-    pub fn get_user_attribute_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_user_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.user_attribute_names
     }
     /// <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>
@@ -100,12 +94,10 @@ impl DeleteUserAttributesInputBuilder {
         crate::operation::delete_user_attributes::DeleteUserAttributesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_user_attributes::DeleteUserAttributesInput {
-                user_attribute_names: self.user_attribute_names,
-                access_token: self.access_token,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::delete_user_attributes::DeleteUserAttributesInput {
+            user_attribute_names: self.user_attribute_names,
+            access_token: self.access_token,
+        })
     }
 }
 impl ::std::fmt::Debug for DeleteUserAttributesInputBuilder {

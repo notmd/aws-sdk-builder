@@ -18,9 +18,7 @@ impl DeleteDeliveryOutput {
 }
 
 /// A builder for [`DeleteDeliveryOutput`](crate::operation::delete_delivery::DeleteDeliveryOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteDeliveryOutputBuilder {
     _request_id: Option<String>,

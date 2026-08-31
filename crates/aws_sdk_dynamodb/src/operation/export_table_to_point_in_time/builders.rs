@@ -3,9 +3,7 @@ pub use crate::operation::export_table_to_point_in_time::_export_table_to_point_
 
 pub use crate::operation::export_table_to_point_in_time::_export_table_to_point_in_time_output::ExportTableToPointInTimeOutputBuilder;
 
-impl
-    crate::operation::export_table_to_point_in_time::builders::ExportTableToPointInTimeInputBuilder
-{
+impl crate::operation::export_table_to_point_in_time::builders::ExportTableToPointInTimeInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -59,7 +57,9 @@ impl ExportTableToPointInTimeFluentBuilder {
         }
     }
     /// Access the ExportTableToPointInTime as a reference.
-    pub fn as_input(&self) -> &crate::operation::export_table_to_point_in_time::builders::ExportTableToPointInTimeInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::export_table_to_point_in_time::builders::ExportTableToPointInTimeInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,16 +83,14 @@ impl ExportTableToPointInTimeFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::export_table_to_point_in_time::ExportTableToPointInTime::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::export_table_to_point_in_time::ExportTableToPointInTime::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::export_table_to_point_in_time::ExportTableToPointInTime::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::export_table_to_point_in_time::ExportTableToPointInTime::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -140,10 +138,7 @@ impl ExportTableToPointInTimeFluentBuilder {
         self
     }
     /// <p>Time in the past from which to export table data, counted in seconds from the start of the Unix epoch. The table export will be a snapshot of the table's state at this point in time.</p>
-    pub fn set_export_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_export_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.inner = self.inner.set_export_time(input);
         self
     }
@@ -188,20 +183,14 @@ impl ExportTableToPointInTimeFluentBuilder {
     /// <p>The ID of the Amazon Web Services account that owns the bucket the export will be stored in.</p><note>
     /// <p>S3BucketOwner is a required parameter when exporting to a S3 bucket in another account.</p>
     /// </note>
-    pub fn s3_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn s3_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.s3_bucket_owner(input.into());
         self
     }
     /// <p>The ID of the Amazon Web Services account that owns the bucket the export will be stored in.</p><note>
     /// <p>S3BucketOwner is a required parameter when exporting to a S3 bucket in another account.</p>
     /// </note>
-    pub fn set_s3_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_s3_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_s3_bucket_owner(input);
         self
     }
@@ -243,10 +232,7 @@ impl ExportTableToPointInTimeFluentBuilder {
     /// <li>
     /// <p><code>KMS</code> - server-side encryption with KMS managed keys</p></li>
     /// </ul>
-    pub fn set_s3_sse_algorithm(
-        mut self,
-        input: ::std::option::Option<crate::types::S3SseAlgorithm>,
-    ) -> Self {
+    pub fn set_s3_sse_algorithm(mut self, input: ::std::option::Option<crate::types::S3SseAlgorithm>) -> Self {
         self.inner = self.inner.set_s3_sse_algorithm(input);
         self
     }
@@ -261,18 +247,12 @@ impl ExportTableToPointInTimeFluentBuilder {
         self.inner.get_s3_sse_algorithm()
     }
     /// <p>The ID of the KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).</p>
-    pub fn s3_sse_kms_key_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn s3_sse_kms_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.s3_sse_kms_key_id(input.into());
         self
     }
     /// <p>The ID of the KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).</p>
-    pub fn set_s3_sse_kms_key_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_s3_sse_kms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_s3_sse_kms_key_id(input);
         self
     }
@@ -286,10 +266,7 @@ impl ExportTableToPointInTimeFluentBuilder {
         self
     }
     /// <p>The format for the exported data. Valid values for <code>ExportFormat</code> are <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
-    pub fn set_export_format(
-        mut self,
-        input: ::std::option::Option<crate::types::ExportFormat>,
-    ) -> Self {
+    pub fn set_export_format(mut self, input: ::std::option::Option<crate::types::ExportFormat>) -> Self {
         self.inner = self.inner.set_export_format(input);
         self
     }
@@ -303,10 +280,7 @@ impl ExportTableToPointInTimeFluentBuilder {
         self
     }
     /// <p>Choice of whether to execute as a full export or incremental export. Valid values are FULL_EXPORT or INCREMENTAL_EXPORT. The default value is FULL_EXPORT. If INCREMENTAL_EXPORT is provided, the IncrementalExportSpecification must also be used.</p>
-    pub fn set_export_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ExportType>,
-    ) -> Self {
+    pub fn set_export_type(mut self, input: ::std::option::Option<crate::types::ExportType>) -> Self {
         self.inner = self.inner.set_export_type(input);
         self
     }
@@ -315,10 +289,7 @@ impl ExportTableToPointInTimeFluentBuilder {
         self.inner.get_export_type()
     }
     /// <p>Optional object containing the parameters specific to an incremental export.</p>
-    pub fn incremental_export_specification(
-        mut self,
-        input: crate::types::IncrementalExportSpecification,
-    ) -> Self {
+    pub fn incremental_export_specification(mut self, input: crate::types::IncrementalExportSpecification) -> Self {
         self.inner = self.inner.incremental_export_specification(input);
         self
     }

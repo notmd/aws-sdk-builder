@@ -37,9 +37,7 @@ impl MetricDataResult {
 }
 
 /// A builder for [`MetricDataResult`](crate::types::MetricDataResult).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct MetricDataResultBuilder {
     pub(crate) id: ::std::option::Option<::std::string::String>,
@@ -81,9 +79,7 @@ impl MetricDataResultBuilder {
         self
     }
     /// <p>A list of timestamps for the metric data results.</p>
-    pub fn get_timestamps(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::aws_smithy_types::DateTime>> {
+    pub fn get_timestamps(&self) -> &::std::option::Option<::std::vec::Vec<::aws_smithy_types::DateTime>> {
         &self.timestamps
     }
     /// Appends an item to `values`.

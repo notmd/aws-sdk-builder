@@ -57,9 +57,7 @@ impl GetEmailIdentityFluentBuilder {
         }
     }
     /// Access the GetEmailIdentity as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_email_identity::builders::GetEmailIdentityInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_email_identity::builders::GetEmailIdentityInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,14 +81,12 @@ impl GetEmailIdentityFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::get_email_identity::GetEmailIdentity::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::get_email_identity::GetEmailIdentity::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::get_email_identity::GetEmailIdentity::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::get_email_identity::GetEmailIdentity::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -119,18 +115,12 @@ impl GetEmailIdentityFluentBuilder {
         self
     }
     /// <p>The email identity.</p>
-    pub fn email_identity(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_identity(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.email_identity(input.into());
         self
     }
     /// <p>The email identity.</p>
-    pub fn set_email_identity(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_identity(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_email_identity(input);
         self
     }

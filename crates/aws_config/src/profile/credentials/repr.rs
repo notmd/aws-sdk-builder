@@ -124,9 +124,7 @@ pub(crate) struct RoleArn<'a> {
 }
 
 /// Resolve a ProfileChain from a ProfileSet or return an error
-pub(crate) fn resolve_chain(
-    profile_set: &ProfileSet,
-) -> Result<ProfileChain<'_>, ProfileFileError> {
+pub(crate) fn resolve_chain(profile_set: &ProfileSet) -> Result<ProfileChain<'_>, ProfileFileError> {
     // If there are no profiles, allow flowing into the next provider
     if profile_set.is_empty() {
         return Err(ProfileFileError::NoProfilesDefined);
@@ -147,8 +145,9 @@ pub(crate) fn resolve_chain(
     let mut chain = vec![];
     let base = loop {
         // Get the next profile in the chain
-        let profile = profile_set.get_profile(source_profile_name).ok_or(
-            ProfileFileError::MissingProfile {
+        let profile = profile_set
+            .get_profile(source_profile_name)
+            .ok_or(ProfileFileError::MissingProfile {
                 profile: source_profile_name.into(),
                 message: format!(
                     "could not find source profile {} referenced from {}",
@@ -156,16 +155,12 @@ pub(crate) fn resolve_chain(
                     visited_profiles.last().unwrap_or(&"the root profile")
                 )
                 .into(),
-            },
-        )?;
+            })?;
         // If the profile we just got is one we've already seen, we're in a loop and
         // need to break out with a CredentialLoop error
         if visited_profiles.contains(&source_profile_name) {
             return Err(ProfileFileError::CredentialLoop {
-                profiles: visited_profiles
-                    .into_iter()
-                    .map(|s| s.to_string())
-                    .collect(),
+                profiles: visited_profiles.into_iter().map(|s| s.to_string()).collect(),
                 next: source_profile_name.to_string(),
             });
         }
@@ -256,10 +251,7 @@ mod login_session {
 
 const PROVIDER_NAME: &str = "ProfileFile";
 
-fn base_provider<'a>(
-    profile_set: &'a ProfileSet,
-    profile: &'a Profile,
-) -> Result<BaseProvider<'a>, ProfileFileError> {
+fn base_provider<'a>(profile_set: &'a ProfileSet, profile: &'a Profile) -> Result<BaseProvider<'a>, ProfileFileError> {
     // the profile must define either a `CredentialsSource` or a concrete set of access keys
     match profile.get(role::CREDENTIAL_SOURCE) {
         Some(source) => Ok(BaseProvider::NamedSource(source)),
@@ -277,10 +269,7 @@ enum NextProfile<'a> {
 }
 
 fn chain_provider(profile: &Profile) -> Result<NextProfile<'_>, ProfileFileError> {
-    let (source_profile, credential_source) = (
-        profile.get(role::SOURCE_PROFILE),
-        profile.get(role::CREDENTIAL_SOURCE),
-    );
+    let (source_profile, credential_source) = (profile.get(role::SOURCE_PROFILE), profile.get(role::CREDENTIAL_SOURCE));
     match (source_profile, credential_source) {
         (Some(_), Some(_)) => Err(ProfileFileError::InvalidCredentialSource {
             profile: profile.name().to_string(),
@@ -290,13 +279,9 @@ fn chain_provider(profile: &Profile) -> Result<NextProfile<'_>, ProfileFileError
         }),
         (None, None) => Err(ProfileFileError::InvalidCredentialSource {
             profile: profile.name().to_string(),
-            message:
-            "profile must contain `source_profile` or `credential_source` but neither were defined"
-                .into(),
+            message: "profile must contain `source_profile` or `credential_source` but neither were defined".into(),
         }),
-        (Some(source_profile), None) if source_profile == profile.name() => {
-            Ok(NextProfile::SelfReference)
-        }
+        (Some(source_profile), None) if source_profile == profile.name() => Ok(NextProfile::SelfReference),
         (Some(source_profile), None) => Ok(NextProfile::Named(source_profile)),
         // we want to loop back into this profile and pick up the credential source
         (None, Some(_credential_source)) => Ok(NextProfile::SelfReference),
@@ -362,10 +347,7 @@ fn sso_from_profile<'a>(
 
     let invalid_sso_config = |s: &str| ProfileFileError::InvalidSsoConfig {
         profile: profile.name().into(),
-        message: format!(
-            "`{s}` can only be specified in the [sso-session] config when a session name is given"
-        )
-        .into(),
+        message: format!("`{s}` can only be specified in the [sso-session] config when a session name is given").into(),
     };
     if let Some(sso_session_name) = sso_session_name {
         if sso_start_url.is_some() {
@@ -407,14 +389,9 @@ fn sso_from_profile<'a>(
     }))
 }
 
-fn web_identity_token_from_profile(
-    profile: &Profile,
-) -> Option<Result<BaseProvider<'_>, ProfileFileError>> {
+fn web_identity_token_from_profile(profile: &Profile) -> Option<Result<BaseProvider<'_>, ProfileFileError>> {
     let session_name = profile.get(role::SESSION_NAME);
-    match (
-        profile.get(role::ROLE_ARN),
-        profile.get(web_identity_token::TOKEN_FILE),
-    ) {
+    match (profile.get(role::ROLE_ARN), profile.get(web_identity_token::TOKEN_FILE)) {
         (Some(role_arn), Some(token_file)) => Some(Ok(BaseProvider::WebIdentityTokenRole {
             role_arn,
             web_identity_token_file: token_file,
@@ -474,9 +451,7 @@ fn static_creds_from_profile(profile: &Profile) -> Result<Credentials, ProfileFi
 /// [profile B]
 /// credential_process = /opt/bin/awscreds-custom --username helen
 /// ```
-fn credential_process_from_profile(
-    profile: &Profile,
-) -> Option<Result<BaseProvider<'_>, ProfileFileError>> {
+fn credential_process_from_profile(profile: &Profile) -> Option<Result<BaseProvider<'_>, ProfileFileError>> {
     let account_id = profile.get(static_credentials::AWS_ACCOUNT_ID);
     profile
         .get(credential_process::CREDENTIAL_PROCESS)
@@ -495,9 +470,7 @@ fn credential_process_from_profile(
 /// [profile console]
 /// login_session = arn:aws:iam::0123456789012:user/Admin
 /// ```
-fn login_session_from_profile(
-    profile: &Profile,
-) -> Option<Result<BaseProvider<'_>, ProfileFileError>> {
+fn login_session_from_profile(profile: &Profile) -> Option<Result<BaseProvider<'_>, ProfileFileError>> {
     profile
         .get(login_session::LOGIN_SESSION)
         .map(|login_session_arn| Ok(BaseProvider::LoginSession { login_session_arn }))
@@ -518,9 +491,8 @@ mod tests {
     #[test]
     #[ignore = "upstream fixture data is intentionally omitted from aws-config"]
     fn run_test_cases() -> Result<(), Box<dyn std::error::Error>> {
-        let test_cases: Vec<TestCase> = serde_json::from_str(&std::fs::read_to_string(
-            "./test-data/assume-role-tests.json",
-        )?)?;
+        let test_cases: Vec<TestCase> =
+            serde_json::from_str(&std::fs::read_to_string("./test-data/assume-role-tests.json")?)?;
         for test_case in test_cases {
             print!("checking: {}...", test_case.docs);
             check(test_case);
@@ -543,12 +515,9 @@ mod tests {
         let actual = resolve_chain(&source);
         let expected = test_case.output;
         match (expected, actual) {
-            (TestOutput::Error(s), Err(e)) => assert!(
-                format!("{}", e).contains(&s),
-                "expected\n{}\nto contain\n{}\n",
-                e,
-                s
-            ),
+            (TestOutput::Error(s), Err(e)) => {
+                assert!(format!("{}", e).contains(&s), "expected\n{}\nto contain\n{}\n", e, s)
+            }
             (TestOutput::ProfileChain(expected), Ok(actual)) => {
                 assert_eq!(to_test_output(actual), expected)
             }
@@ -616,11 +585,9 @@ mod tests {
                 sso_account_id: sso_account_id.map(|s| s.to_string()),
                 sso_role_name: sso_role_name.map(|s| s.to_string()),
             }),
-            BaseProvider::LoginSession { login_session_arn } => {
-                output.push(Provider::LoginSession {
-                    login_session_arn: login_session_arn.into(),
-                })
-            }
+            BaseProvider::LoginSession { login_session_arn } => output.push(Provider::LoginSession {
+                login_session_arn: login_session_arn.into(),
+            }),
         };
         for role in profile_chain.chain {
             output.push(Provider::AssumeRole {
@@ -703,9 +670,7 @@ mod tests {
             format!(
                 "{:?}",
                 BaseProvider::CredentialProcess {
-                    command_with_sensitive_args: CommandWithSensitiveArgs::new(
-                        "program\targ1 arg2"
-                    ),
+                    command_with_sensitive_args: CommandWithSensitiveArgs::new("program\targ1 arg2"),
                     account_id: None
                 }
             )

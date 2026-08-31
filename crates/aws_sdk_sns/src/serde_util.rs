@@ -2,7 +2,7 @@
 #[cfg(feature = "op_get_sms_sandbox_account_status")]
 pub(crate) fn get_sms_sandbox_account_status_output_output_correct_errors(
     mut builder: crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusOutputBuilder,
-) -> crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusOutputBuilder{
+) -> crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusOutputBuilder {
     if builder.is_in_sandbox.is_none() {
         builder.is_in_sandbox = Some(Default::default())
     }
@@ -26,7 +26,7 @@ pub(crate) fn validation_exception_correct_errors(
 #[cfg(feature = "op_list_sms_sandbox_phone_numbers")]
 pub(crate) fn list_sms_sandbox_phone_numbers_output_output_correct_errors(
     mut builder: crate::operation::list_sms_sandbox_phone_numbers::builders::ListSmsSandboxPhoneNumbersOutputBuilder,
-) -> crate::operation::list_sms_sandbox_phone_numbers::builders::ListSmsSandboxPhoneNumbersOutputBuilder{
+) -> crate::operation::list_sms_sandbox_phone_numbers::builders::ListSmsSandboxPhoneNumbersOutputBuilder {
     if builder.phone_numbers.is_none() {
         builder.phone_numbers = Some(Default::default())
     }

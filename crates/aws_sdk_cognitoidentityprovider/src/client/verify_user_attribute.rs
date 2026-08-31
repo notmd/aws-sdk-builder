@@ -11,8 +11,6 @@ impl super::Client {
     pub fn verify_user_attribute(
         &self,
     ) -> crate::operation::verify_user_attribute::builders::VerifyUserAttributeFluentBuilder {
-        crate::operation::verify_user_attribute::builders::VerifyUserAttributeFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::verify_user_attribute::builders::VerifyUserAttributeFluentBuilder::new(self.handle.clone())
     }
 }

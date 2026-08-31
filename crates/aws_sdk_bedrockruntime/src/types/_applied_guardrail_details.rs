@@ -47,16 +47,13 @@ impl AppliedGuardrailDetails {
 }
 
 /// A builder for [`AppliedGuardrailDetails`](crate::types::AppliedGuardrailDetails).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AppliedGuardrailDetailsBuilder {
     pub(crate) guardrail_id: ::std::option::Option<::std::string::String>,
     pub(crate) guardrail_version: ::std::option::Option<::std::string::String>,
     pub(crate) guardrail_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) guardrail_origin:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailOrigin>>,
+    pub(crate) guardrail_origin: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailOrigin>>,
     pub(crate) guardrail_ownership: ::std::option::Option<crate::types::GuardrailOwnership>,
 }
 impl AppliedGuardrailDetailsBuilder {
@@ -75,18 +72,12 @@ impl AppliedGuardrailDetailsBuilder {
         &self.guardrail_id
     }
     /// <p>The version of the guardrail that was applied.</p>
-    pub fn guardrail_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn guardrail_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.guardrail_version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The version of the guardrail that was applied.</p>
-    pub fn set_guardrail_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_guardrail_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.guardrail_version = input;
         self
     }
@@ -95,18 +86,12 @@ impl AppliedGuardrailDetailsBuilder {
         &self.guardrail_version
     }
     /// <p>The ARN of the guardrail that was applied.</p>
-    pub fn guardrail_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn guardrail_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.guardrail_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the guardrail that was applied.</p>
-    pub fn set_guardrail_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_guardrail_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.guardrail_arn = input;
         self
     }
@@ -134,9 +119,7 @@ impl AppliedGuardrailDetailsBuilder {
         self
     }
     /// <p>The origin of how the guardrail was applied. This can be either requested at the API level or enforced at the account or organization level as a default guardrail.</p>
-    pub fn get_guardrail_origin(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailOrigin>> {
+    pub fn get_guardrail_origin(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailOrigin>> {
         &self.guardrail_origin
     }
     /// <p>The ownership type of the guardrail, indicating whether it is owned by the requesting account or is a cross-account guardrail shared from another AWS account.</p>
@@ -145,17 +128,12 @@ impl AppliedGuardrailDetailsBuilder {
         self
     }
     /// <p>The ownership type of the guardrail, indicating whether it is owned by the requesting account or is a cross-account guardrail shared from another AWS account.</p>
-    pub fn set_guardrail_ownership(
-        mut self,
-        input: ::std::option::Option<crate::types::GuardrailOwnership>,
-    ) -> Self {
+    pub fn set_guardrail_ownership(mut self, input: ::std::option::Option<crate::types::GuardrailOwnership>) -> Self {
         self.guardrail_ownership = input;
         self
     }
     /// <p>The ownership type of the guardrail, indicating whether it is owned by the requesting account or is a cross-account guardrail shared from another AWS account.</p>
-    pub fn get_guardrail_ownership(
-        &self,
-    ) -> &::std::option::Option<crate::types::GuardrailOwnership> {
+    pub fn get_guardrail_ownership(&self) -> &::std::option::Option<crate::types::GuardrailOwnership> {
         &self.guardrail_ownership
     }
     /// Consumes the builder and constructs a [`AppliedGuardrailDetails`](crate::types::AppliedGuardrailDetails).

@@ -12,8 +12,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<CreatePlatformEndpointError>`](crate::operation::create_platform_endpoint::CreatePlatformEndpointError)
     pub fn create_platform_endpoint(
         &self,
-    ) -> crate::operation::create_platform_endpoint::builders::CreatePlatformEndpointFluentBuilder
-    {
-        crate::operation::create_platform_endpoint::builders::CreatePlatformEndpointFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::create_platform_endpoint::builders::CreatePlatformEndpointFluentBuilder {
+        crate::operation::create_platform_endpoint::builders::CreatePlatformEndpointFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

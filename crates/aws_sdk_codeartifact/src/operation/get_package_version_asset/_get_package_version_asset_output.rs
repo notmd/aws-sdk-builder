@@ -38,9 +38,7 @@ impl ::aws_types::request_id::RequestId for GetPackageVersionAssetOutput {
 }
 impl GetPackageVersionAssetOutput {
     /// Creates a new builder-style object to manufacture [`GetPackageVersionAssetOutput`](crate::operation::get_package_version_asset::GetPackageVersionAssetOutput).
-    pub fn builder(
-    ) -> crate::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder
-    {
+    pub fn builder() -> crate::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder {
         crate::operation::get_package_version_asset::builders::GetPackageVersionAssetOutputBuilder::default()
     }
 }
@@ -62,10 +60,7 @@ impl GetPackageVersionAssetOutputBuilder {
         self
     }
     /// <p>The binary file, or asset, that is downloaded.</p>
-    pub fn set_asset(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>,
-    ) -> Self {
+    pub fn set_asset(mut self, input: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>) -> Self {
         self.asset = input;
         self
     }
@@ -88,18 +83,12 @@ impl GetPackageVersionAssetOutputBuilder {
         &self.asset_name
     }
     /// <p>A string that contains the package version (for example, <code>3.5.2</code>).</p>
-    pub fn package_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.package_version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A string that contains the package version (for example, <code>3.5.2</code>).</p>
-    pub fn set_package_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.package_version = input;
         self
     }
@@ -108,18 +97,12 @@ impl GetPackageVersionAssetOutputBuilder {
         &self.package_version
     }
     /// <p>The name of the package version revision that contains the downloaded asset.</p>
-    pub fn package_version_revision(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_version_revision(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.package_version_revision = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the package version revision that contains the downloaded asset.</p>
-    pub fn set_package_version_revision(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_version_revision(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.package_version_revision = input;
         self
     }
@@ -137,9 +120,7 @@ impl GetPackageVersionAssetOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetPackageVersionAssetOutput`](crate::operation::get_package_version_asset::GetPackageVersionAssetOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::get_package_version_asset::GetPackageVersionAssetOutput {
+    pub fn build(self) -> crate::operation::get_package_version_asset::GetPackageVersionAssetOutput {
         crate::operation::get_package_version_asset::GetPackageVersionAssetOutput {
             asset: self.asset.unwrap_or_default(),
             asset_name: self.asset_name,

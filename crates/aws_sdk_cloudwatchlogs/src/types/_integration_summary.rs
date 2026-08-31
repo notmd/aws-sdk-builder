@@ -33,9 +33,7 @@ impl IntegrationSummary {
 }
 
 /// A builder for [`IntegrationSummary`](crate::types::IntegrationSummary).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct IntegrationSummaryBuilder {
     pub(crate) integration_name: ::std::option::Option<::std::string::String>,
@@ -44,18 +42,12 @@ pub struct IntegrationSummaryBuilder {
 }
 impl IntegrationSummaryBuilder {
     /// <p>The name of this integration.</p>
-    pub fn integration_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn integration_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.integration_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of this integration.</p>
-    pub fn set_integration_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_integration_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.integration_name = input;
         self
     }
@@ -69,10 +61,7 @@ impl IntegrationSummaryBuilder {
         self
     }
     /// <p>The type of integration. Integrations with OpenSearch Service have the type <code>OPENSEARCH</code>.</p>
-    pub fn set_integration_type(
-        mut self,
-        input: ::std::option::Option<crate::types::IntegrationType>,
-    ) -> Self {
+    pub fn set_integration_type(mut self, input: ::std::option::Option<crate::types::IntegrationType>) -> Self {
         self.integration_type = input;
         self
     }
@@ -86,17 +75,12 @@ impl IntegrationSummaryBuilder {
         self
     }
     /// <p>The current status of this integration.</p>
-    pub fn set_integration_status(
-        mut self,
-        input: ::std::option::Option<crate::types::IntegrationStatus>,
-    ) -> Self {
+    pub fn set_integration_status(mut self, input: ::std::option::Option<crate::types::IntegrationStatus>) -> Self {
         self.integration_status = input;
         self
     }
     /// <p>The current status of this integration.</p>
-    pub fn get_integration_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::IntegrationStatus> {
+    pub fn get_integration_status(&self) -> &::std::option::Option<crate::types::IntegrationStatus> {
         &self.integration_status
     }
     /// Consumes the builder and constructs a [`IntegrationSummary`](crate::types::IntegrationSummary).

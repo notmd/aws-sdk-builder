@@ -14,11 +14,9 @@ pub struct GuardrailAssessment {
     pub sensitive_information_policy:
         ::std::option::Option<crate::types::GuardrailSensitiveInformationPolicyAssessment>,
     /// <p>The contextual grounding policy used for the guardrail assessment.</p>
-    pub contextual_grounding_policy:
-        ::std::option::Option<crate::types::GuardrailContextualGroundingPolicyAssessment>,
+    pub contextual_grounding_policy: ::std::option::Option<crate::types::GuardrailContextualGroundingPolicyAssessment>,
     /// <p>The automated reasoning policy assessment results, including logical validation findings for the input content.</p>
-    pub automated_reasoning_policy:
-        ::std::option::Option<crate::types::GuardrailAutomatedReasoningPolicyAssessment>,
+    pub automated_reasoning_policy: ::std::option::Option<crate::types::GuardrailAutomatedReasoningPolicyAssessment>,
     /// <p>The invocation metrics for the guardrail assessment.</p>
     pub invocation_metrics: ::std::option::Option<crate::types::GuardrailInvocationMetrics>,
     /// <p>Details about the specific guardrail that was applied during this assessment, including its identifier, version, ARN, origin, and ownership information.</p>
@@ -26,21 +24,15 @@ pub struct GuardrailAssessment {
 }
 impl GuardrailAssessment {
     /// <p>The topic policy.</p>
-    pub fn topic_policy(
-        &self,
-    ) -> ::std::option::Option<&crate::types::GuardrailTopicPolicyAssessment> {
+    pub fn topic_policy(&self) -> ::std::option::Option<&crate::types::GuardrailTopicPolicyAssessment> {
         self.topic_policy.as_ref()
     }
     /// <p>The content policy.</p>
-    pub fn content_policy(
-        &self,
-    ) -> ::std::option::Option<&crate::types::GuardrailContentPolicyAssessment> {
+    pub fn content_policy(&self) -> ::std::option::Option<&crate::types::GuardrailContentPolicyAssessment> {
         self.content_policy.as_ref()
     }
     /// <p>The word policy.</p>
-    pub fn word_policy(
-        &self,
-    ) -> ::std::option::Option<&crate::types::GuardrailWordPolicyAssessment> {
+    pub fn word_policy(&self) -> ::std::option::Option<&crate::types::GuardrailWordPolicyAssessment> {
         self.word_policy.as_ref()
     }
     /// <p>The sensitive information policy.</p>
@@ -62,15 +54,11 @@ impl GuardrailAssessment {
         self.automated_reasoning_policy.as_ref()
     }
     /// <p>The invocation metrics for the guardrail assessment.</p>
-    pub fn invocation_metrics(
-        &self,
-    ) -> ::std::option::Option<&crate::types::GuardrailInvocationMetrics> {
+    pub fn invocation_metrics(&self) -> ::std::option::Option<&crate::types::GuardrailInvocationMetrics> {
         self.invocation_metrics.as_ref()
     }
     /// <p>Details about the specific guardrail that was applied during this assessment, including its identifier, version, ARN, origin, and ownership information.</p>
-    pub fn applied_guardrail_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::AppliedGuardrailDetails> {
+    pub fn applied_guardrail_details(&self) -> ::std::option::Option<&crate::types::AppliedGuardrailDetails> {
         self.applied_guardrail_details.as_ref()
     }
 }
@@ -82,14 +70,11 @@ impl GuardrailAssessment {
 }
 
 /// A builder for [`GuardrailAssessment`](crate::types::GuardrailAssessment).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailAssessmentBuilder {
     pub(crate) topic_policy: ::std::option::Option<crate::types::GuardrailTopicPolicyAssessment>,
-    pub(crate) content_policy:
-        ::std::option::Option<crate::types::GuardrailContentPolicyAssessment>,
+    pub(crate) content_policy: ::std::option::Option<crate::types::GuardrailContentPolicyAssessment>,
     pub(crate) word_policy: ::std::option::Option<crate::types::GuardrailWordPolicyAssessment>,
     pub(crate) sensitive_information_policy:
         ::std::option::Option<crate::types::GuardrailSensitiveInformationPolicyAssessment>,
@@ -98,8 +83,7 @@ pub struct GuardrailAssessmentBuilder {
     pub(crate) automated_reasoning_policy:
         ::std::option::Option<crate::types::GuardrailAutomatedReasoningPolicyAssessment>,
     pub(crate) invocation_metrics: ::std::option::Option<crate::types::GuardrailInvocationMetrics>,
-    pub(crate) applied_guardrail_details:
-        ::std::option::Option<crate::types::AppliedGuardrailDetails>,
+    pub(crate) applied_guardrail_details: ::std::option::Option<crate::types::AppliedGuardrailDetails>,
 }
 impl GuardrailAssessmentBuilder {
     /// <p>The topic policy.</p>
@@ -116,9 +100,7 @@ impl GuardrailAssessmentBuilder {
         self
     }
     /// <p>The topic policy.</p>
-    pub fn get_topic_policy(
-        &self,
-    ) -> &::std::option::Option<crate::types::GuardrailTopicPolicyAssessment> {
+    pub fn get_topic_policy(&self) -> &::std::option::Option<crate::types::GuardrailTopicPolicyAssessment> {
         &self.topic_policy
     }
     /// <p>The content policy.</p>
@@ -135,9 +117,7 @@ impl GuardrailAssessmentBuilder {
         self
     }
     /// <p>The content policy.</p>
-    pub fn get_content_policy(
-        &self,
-    ) -> &::std::option::Option<crate::types::GuardrailContentPolicyAssessment> {
+    pub fn get_content_policy(&self) -> &::std::option::Option<crate::types::GuardrailContentPolicyAssessment> {
         &self.content_policy
     }
     /// <p>The word policy.</p>
@@ -154,9 +134,7 @@ impl GuardrailAssessmentBuilder {
         self
     }
     /// <p>The word policy.</p>
-    pub fn get_word_policy(
-        &self,
-    ) -> &::std::option::Option<crate::types::GuardrailWordPolicyAssessment> {
+    pub fn get_word_policy(&self) -> &::std::option::Option<crate::types::GuardrailWordPolicyAssessment> {
         &self.word_policy
     }
     /// <p>The sensitive information policy.</p>
@@ -239,16 +217,11 @@ impl GuardrailAssessmentBuilder {
         self
     }
     /// <p>The invocation metrics for the guardrail assessment.</p>
-    pub fn get_invocation_metrics(
-        &self,
-    ) -> &::std::option::Option<crate::types::GuardrailInvocationMetrics> {
+    pub fn get_invocation_metrics(&self) -> &::std::option::Option<crate::types::GuardrailInvocationMetrics> {
         &self.invocation_metrics
     }
     /// <p>Details about the specific guardrail that was applied during this assessment, including its identifier, version, ARN, origin, and ownership information.</p>
-    pub fn applied_guardrail_details(
-        mut self,
-        input: crate::types::AppliedGuardrailDetails,
-    ) -> Self {
+    pub fn applied_guardrail_details(mut self, input: crate::types::AppliedGuardrailDetails) -> Self {
         self.applied_guardrail_details = ::std::option::Option::Some(input);
         self
     }
@@ -261,9 +234,7 @@ impl GuardrailAssessmentBuilder {
         self
     }
     /// <p>Details about the specific guardrail that was applied during this assessment, including its identifier, version, ARN, origin, and ownership information.</p>
-    pub fn get_applied_guardrail_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::AppliedGuardrailDetails> {
+    pub fn get_applied_guardrail_details(&self) -> &::std::option::Option<crate::types::AppliedGuardrailDetails> {
         &self.applied_guardrail_details
     }
     /// Consumes the builder and constructs a [`GuardrailAssessment`](crate::types::GuardrailAssessment).

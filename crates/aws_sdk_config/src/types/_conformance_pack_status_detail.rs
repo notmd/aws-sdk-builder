@@ -81,9 +81,7 @@ impl ConformancePackStatusDetail {
         &self.last_update_requested_time
     }
     /// <p>Last time when conformation pack creation and update was successful.</p>
-    pub fn last_update_completed_time(
-        &self,
-    ) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn last_update_completed_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.last_update_completed_time.as_ref()
     }
 }
@@ -95,9 +93,7 @@ impl ConformancePackStatusDetail {
 }
 
 /// A builder for [`ConformancePackStatusDetail`](crate::types::ConformancePackStatusDetail).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ConformancePackStatusDetailBuilder {
     pub(crate) conformance_pack_name: ::std::option::Option<::std::string::String>,
@@ -112,18 +108,12 @@ pub struct ConformancePackStatusDetailBuilder {
 impl ConformancePackStatusDetailBuilder {
     /// <p>Name of the conformance pack.</p>
     /// This field is required.
-    pub fn conformance_pack_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn conformance_pack_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.conformance_pack_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Name of the conformance pack.</p>
-    pub fn set_conformance_pack_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_conformance_pack_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.conformance_pack_name = input;
         self
     }
@@ -133,18 +123,12 @@ impl ConformancePackStatusDetailBuilder {
     }
     /// <p>ID of the conformance pack.</p>
     /// This field is required.
-    pub fn conformance_pack_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn conformance_pack_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.conformance_pack_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>ID of the conformance pack.</p>
-    pub fn set_conformance_pack_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_conformance_pack_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.conformance_pack_id = input;
         self
     }
@@ -154,18 +138,12 @@ impl ConformancePackStatusDetailBuilder {
     }
     /// <p>Amazon Resource Name (ARN) of comformance pack.</p>
     /// This field is required.
-    pub fn conformance_pack_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn conformance_pack_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.conformance_pack_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Amazon Resource Name (ARN) of comformance pack.</p>
-    pub fn set_conformance_pack_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_conformance_pack_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.conformance_pack_arn = input;
         self
     }
@@ -227,9 +205,7 @@ impl ConformancePackStatusDetailBuilder {
     /// <li>
     /// <p>DELETE_FAILED when a conformance pack deletion failed in your account.</p></li>
     /// </ul>
-    pub fn get_conformance_pack_state(
-        &self,
-    ) -> &::std::option::Option<crate::types::ConformancePackState> {
+    pub fn get_conformance_pack_state(&self) -> &::std::option::Option<crate::types::ConformancePackState> {
         &self.conformance_pack_state
     }
     /// <p>Amazon Resource Name (ARN) of CloudFormation stack.</p>
@@ -248,25 +224,17 @@ impl ConformancePackStatusDetailBuilder {
         &self.stack_arn
     }
     /// <p>The reason of conformance pack creation failure.</p>
-    pub fn conformance_pack_status_reason(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn conformance_pack_status_reason(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.conformance_pack_status_reason = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The reason of conformance pack creation failure.</p>
-    pub fn set_conformance_pack_status_reason(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_conformance_pack_status_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.conformance_pack_status_reason = input;
         self
     }
     /// <p>The reason of conformance pack creation failure.</p>
-    pub fn get_conformance_pack_status_reason(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_conformance_pack_status_reason(&self) -> &::std::option::Option<::std::string::String> {
         &self.conformance_pack_status_reason
     }
     /// <p>Last time when conformation pack creation and update was requested.</p>
@@ -284,9 +252,7 @@ impl ConformancePackStatusDetailBuilder {
         self
     }
     /// <p>Last time when conformation pack creation and update was requested.</p>
-    pub fn get_last_update_requested_time(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_last_update_requested_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_update_requested_time
     }
     /// <p>Last time when conformation pack creation and update was successful.</p>
@@ -303,9 +269,7 @@ impl ConformancePackStatusDetailBuilder {
         self
     }
     /// <p>Last time when conformation pack creation and update was successful.</p>
-    pub fn get_last_update_completed_time(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_last_update_completed_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_update_completed_time
     }
     /// Consumes the builder and constructs a [`ConformancePackStatusDetail`](crate::types::ConformancePackStatusDetail).

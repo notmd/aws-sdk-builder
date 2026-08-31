@@ -10,7 +10,10 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetBucketMetadataConfigurationError>`](crate::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationError)
     pub fn get_bucket_metadata_configuration(
         &self,
-    ) -> crate::operation::get_bucket_metadata_configuration::builders::GetBucketMetadataConfigurationFluentBuilder{
-        crate::operation::get_bucket_metadata_configuration::builders::GetBucketMetadataConfigurationFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::get_bucket_metadata_configuration::builders::GetBucketMetadataConfigurationFluentBuilder
+    {
+        crate::operation::get_bucket_metadata_configuration::builders::GetBucketMetadataConfigurationFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

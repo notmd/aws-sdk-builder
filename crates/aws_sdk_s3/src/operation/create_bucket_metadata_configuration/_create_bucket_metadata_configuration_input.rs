@@ -28,9 +28,7 @@ impl CreateBucketMetadataConfigurationInput {
         self.checksum_algorithm.as_ref()
     }
     /// <p>The contents of your metadata configuration.</p>
-    pub fn metadata_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::MetadataConfiguration> {
+    pub fn metadata_configuration(&self) -> ::std::option::Option<&crate::types::MetadataConfiguration> {
         self.metadata_configuration.as_ref()
     }
     /// <p>The expected owner of the general purpose bucket that corresponds to your metadata configuration.</p>
@@ -40,15 +38,15 @@ impl CreateBucketMetadataConfigurationInput {
 }
 impl CreateBucketMetadataConfigurationInput {
     /// Creates a new builder-style object to manufacture [`CreateBucketMetadataConfigurationInput`](crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput).
-    pub fn builder() -> crate::operation::create_bucket_metadata_configuration::builders::CreateBucketMetadataConfigurationInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::create_bucket_metadata_configuration::builders::CreateBucketMetadataConfigurationInputBuilder
+    {
         crate::operation::create_bucket_metadata_configuration::builders::CreateBucketMetadataConfigurationInputBuilder::default()
     }
 }
 
 /// A builder for [`CreateBucketMetadataConfigurationInput`](crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateBucketMetadataConfigurationInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -93,17 +91,12 @@ impl CreateBucketMetadataConfigurationInputBuilder {
         self
     }
     /// <p>The checksum algorithm to use with your metadata configuration.</p>
-    pub fn set_checksum_algorithm(
-        mut self,
-        input: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-    ) -> Self {
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
         self.checksum_algorithm = input;
         self
     }
     /// <p>The checksum algorithm to use with your metadata configuration.</p>
-    pub fn get_checksum_algorithm(
-        &self,
-    ) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
         &self.checksum_algorithm
     }
     /// <p>The contents of your metadata configuration.</p>
@@ -121,24 +114,16 @@ impl CreateBucketMetadataConfigurationInputBuilder {
         self
     }
     /// <p>The contents of your metadata configuration.</p>
-    pub fn get_metadata_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::MetadataConfiguration> {
+    pub fn get_metadata_configuration(&self) -> &::std::option::Option<crate::types::MetadataConfiguration> {
         &self.metadata_configuration
     }
     /// <p>The expected owner of the general purpose bucket that corresponds to your metadata configuration.</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The expected owner of the general purpose bucket that corresponds to your metadata configuration.</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -152,7 +137,7 @@ impl CreateBucketMetadataConfigurationInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationInput {
                 bucket: self.bucket,

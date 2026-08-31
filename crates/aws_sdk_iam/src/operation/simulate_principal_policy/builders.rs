@@ -35,8 +35,7 @@ impl crate::operation::simulate_principal_policy::builders::SimulatePrincipalPol
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct SimulatePrincipalPolicyFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyInputBuilder,
+    inner: crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -69,8 +68,7 @@ impl SimulatePrincipalPolicyFluentBuilder {
     /// Access the SimulatePrincipalPolicy as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyInputBuilder
-    {
+    ) -> &crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -94,16 +92,13 @@ impl SimulatePrincipalPolicyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::simulate_principal_policy::SimulatePrincipalPolicy::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::simulate_principal_policy::SimulatePrincipalPolicy::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::simulate_principal_policy::SimulatePrincipalPolicy::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::simulate_principal_policy::SimulatePrincipalPolicy::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -136,27 +131,23 @@ impl SimulatePrincipalPolicyFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::simulate_principal_policy::paginator::SimulatePrincipalPolicyPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::simulate_principal_policy::paginator::SimulatePrincipalPolicyPaginator
-    {
-        crate::operation::simulate_principal_policy::paginator::SimulatePrincipalPolicyPaginator::new(self.handle, self.inner)
+    ) -> crate::operation::simulate_principal_policy::paginator::SimulatePrincipalPolicyPaginator {
+        crate::operation::simulate_principal_policy::paginator::SimulatePrincipalPolicyPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The Amazon Resource Name (ARN) of a user, group, or role whose policies you want to include in the simulation. If you specify a user, group, or role, the simulation includes all policies that are associated with that entity. If you specify a user, the simulation also includes all policies that are attached to any groups the user belongs to.</p>
     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-    pub fn policy_source_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn policy_source_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.policy_source_arn(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of a user, group, or role whose policies you want to include in the simulation. If you specify a user, group, or role, the simulation includes all policies that are associated with that entity. If you specify a user, the simulation also includes all policies that are attached to any groups the user belongs to.</p>
     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-    pub fn set_policy_source_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_policy_source_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_policy_source_arn(input);
         self
     }
@@ -181,10 +172,7 @@ impl SimulatePrincipalPolicyFluentBuilder {
     /// <li>
     /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
     /// </ul>
-    pub fn policy_input_list(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn policy_input_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.policy_input_list(input.into());
         self
     }
@@ -215,9 +203,7 @@ impl SimulatePrincipalPolicyFluentBuilder {
     /// <li>
     /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
     /// </ul>
-    pub fn get_policy_input_list(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_policy_input_list()
     }
     ///
@@ -240,9 +226,7 @@ impl SimulatePrincipalPolicyFluentBuilder {
         mut self,
         input: impl ::std::convert::Into<::std::string::String>,
     ) -> Self {
-        self.inner = self
-            .inner
-            .permissions_boundary_policy_input_list(input.into());
+        self.inner = self.inner.permissions_boundary_policy_input_list(input.into());
         self
     }
     /// <p>The IAM permissions boundary policy to simulate. The permissions boundary sets the maximum permissions that the entity can have. You can input only one permissions boundary when you pass a policy to this operation. An IAM entity can only have one permissions boundary in effect at a time. For example, if a permissions boundary is attached to an entity and you pass in a different permissions boundary policy using this parameter, then the new permissions boundary policy is used for the simulation. For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>. The policy input is specified as a string containing the complete, valid JSON text of a permissions boundary policy.</p>
@@ -304,9 +288,7 @@ impl SimulatePrincipalPolicyFluentBuilder {
     /// <p>A list of policies to exclude from the simulation. Use this parameter to test what the simulation result would be if a policy were removed, without changing which policies are actually attached to the principal identified by <code>PolicySourceArn</code>.</p>
     /// <p>Each entry is a <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_PolicyIdentifier.html">PolicyIdentifier</a> that identifies one or more policies to exclude by policy type, by Amazon Resource Name (ARN), or by the name of an inline policy and the entity it is attached to.</p>
     /// <p>Syntactically invalid identifiers, such as malformed ARNs or wildcards in disallowed positions, cause the request to fail with an <code>InvalidInput</code> error. Syntactically valid identifiers that don't match any attached policy are ignored. Resource control policies (RCPs) are not supported in this release; identifiers that target RCPs are also ignored.</p>
-    pub fn get_policy_exclusion_list(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyIdentifier>> {
+    pub fn get_policy_exclusion_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyIdentifier>> {
         self.inner.get_policy_exclusion_list()
     }
     ///
@@ -320,17 +302,12 @@ impl SimulatePrincipalPolicyFluentBuilder {
         self
     }
     /// <p>A list of names of API operations to evaluate in the simulation. Each operation is evaluated for each resource. Each operation must include the service identifier, such as <code>iam:CreateUser</code>.</p>
-    pub fn set_action_names(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_action_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_action_names(input);
         self
     }
     /// <p>A list of names of API operations to evaluate in the simulation. Each operation is evaluated for each resource. Each operation must include the service identifier, such as <code>iam:CreateUser</code>.</p>
-    pub fn get_action_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_action_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_action_names()
     }
     ///
@@ -343,10 +320,7 @@ impl SimulatePrincipalPolicyFluentBuilder {
     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p><note>
     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
     /// </note>
-    pub fn resource_arns(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_arns(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.resource_arns(input.into());
         self
     }
@@ -355,10 +329,7 @@ impl SimulatePrincipalPolicyFluentBuilder {
     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p><note>
     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
     /// </note>
-    pub fn set_resource_arns(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_resource_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_resource_arns(input);
         self
     }
@@ -367,9 +338,7 @@ impl SimulatePrincipalPolicyFluentBuilder {
     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p><note>
     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
     /// </note>
-    pub fn get_resource_arns(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_resource_arns(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_resource_arns()
     }
     /// <p>A resource-based policy to include in the simulation provided as a string. Each resource in the simulation is treated as if it had this policy attached. You can include only one resource-based policy in a simulation.</p>
@@ -385,10 +354,7 @@ impl SimulatePrincipalPolicyFluentBuilder {
     /// </ul><note>
     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
     /// </note>
-    pub fn resource_policy(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_policy(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.resource_policy(input.into());
         self
     }
@@ -405,10 +371,7 @@ impl SimulatePrincipalPolicyFluentBuilder {
     /// </ul><note>
     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
     /// </note>
-    pub fn set_resource_policy(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_resource_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_resource_policy(input);
         self
     }
@@ -429,18 +392,12 @@ impl SimulatePrincipalPolicyFluentBuilder {
         self.inner.get_resource_policy()
     }
     /// <p>An Amazon Web Services account ID that specifies the owner of any simulated resource that does not identify its owner in the resource ARN. Examples of resource ARNs include an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is also used as the account owner of any <code>ResourcePolicy</code> included in the simulation. If the <code>ResourceOwner</code> parameter is not specified, then the owner of the resources and the resource policy defaults to the account of the identity provided in <code>CallerArn</code>. This parameter is required only if you specify a resource-based policy and account that owns the resource is different from the account that owns the simulated calling user <code>CallerArn</code>.</p>
-    pub fn resource_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.resource_owner(input.into());
         self
     }
     /// <p>An Amazon Web Services account ID that specifies the owner of any simulated resource that does not identify its owner in the resource ARN. Examples of resource ARNs include an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is also used as the account owner of any <code>ResourcePolicy</code> included in the simulation. If the <code>ResourceOwner</code> parameter is not specified, then the owner of the resources and the resource policy defaults to the account of the identity provided in <code>CallerArn</code>. This parameter is required only if you specify a resource-based policy and account that owns the resource is different from the account that owns the simulated calling user <code>CallerArn</code>.</p>
-    pub fn set_resource_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_resource_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_resource_owner(input);
         self
     }
@@ -490,9 +447,7 @@ impl SimulatePrincipalPolicyFluentBuilder {
         self
     }
     /// <p>A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.</p>
-    pub fn get_context_entries(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ContextEntry>> {
+    pub fn get_context_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ContextEntry>> {
         self.inner.get_context_entries()
     }
     /// <p>Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.</p>
@@ -511,10 +466,7 @@ impl SimulatePrincipalPolicyFluentBuilder {
     /// <p><b>EC2-VPC-EBS-Subnet</b></p>
     /// <p>instance, image, security group, network interface, subnet, volume</p></li>
     /// </ul>
-    pub fn resource_handling_option(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_handling_option(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.resource_handling_option(input.into());
         self
     }
@@ -534,10 +486,7 @@ impl SimulatePrincipalPolicyFluentBuilder {
     /// <p><b>EC2-VPC-EBS-Subnet</b></p>
     /// <p>instance, image, security group, network interface, subnet, volume</p></li>
     /// </ul>
-    pub fn set_resource_handling_option(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_resource_handling_option(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_resource_handling_option(input);
         self
     }

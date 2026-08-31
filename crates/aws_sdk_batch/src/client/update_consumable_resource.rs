@@ -14,8 +14,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateConsumableResourceError>`](crate::operation::update_consumable_resource::UpdateConsumableResourceError)
     pub fn update_consumable_resource(
         &self,
-    ) -> crate::operation::update_consumable_resource::builders::UpdateConsumableResourceFluentBuilder
-    {
-        crate::operation::update_consumable_resource::builders::UpdateConsumableResourceFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::update_consumable_resource::builders::UpdateConsumableResourceFluentBuilder {
+        crate::operation::update_consumable_resource::builders::UpdateConsumableResourceFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

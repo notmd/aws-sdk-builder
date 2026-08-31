@@ -69,9 +69,7 @@ impl Import {
 }
 
 /// A builder for [`Import`](crate::types::Import).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ImportBuilder {
     pub(crate) import_id: ::std::option::Option<::std::string::String>,
@@ -100,18 +98,12 @@ impl ImportBuilder {
         &self.import_id
     }
     /// <p>The ARN of the CloudTrail Lake Event Data Store being imported from.</p>
-    pub fn import_source_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn import_source_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.import_source_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the CloudTrail Lake Event Data Store being imported from.</p>
-    pub fn set_import_source_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_import_source_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.import_source_arn = input;
         self
     }
@@ -125,10 +117,7 @@ impl ImportBuilder {
         self
     }
     /// <p>The current status of the import task. Valid values are IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</p>
-    pub fn set_import_status(
-        mut self,
-        input: ::std::option::Option<crate::types::ImportStatus>,
-    ) -> Self {
+    pub fn set_import_status(mut self, input: ::std::option::Option<crate::types::ImportStatus>) -> Self {
         self.import_status = input;
         self
     }
@@ -137,18 +126,12 @@ impl ImportBuilder {
         &self.import_status
     }
     /// <p>The ARN of the managed CloudWatch Logs log group where the events are being imported to.</p>
-    pub fn import_destination_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn import_destination_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.import_destination_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the managed CloudWatch Logs log group where the events are being imported to.</p>
-    pub fn set_import_destination_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_import_destination_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.import_destination_arn = input;
         self
     }
@@ -162,10 +145,7 @@ impl ImportBuilder {
         self
     }
     /// <p>Statistics about the import progress</p>
-    pub fn set_import_statistics(
-        mut self,
-        input: ::std::option::Option<crate::types::ImportStatistics>,
-    ) -> Self {
+    pub fn set_import_statistics(mut self, input: ::std::option::Option<crate::types::ImportStatistics>) -> Self {
         self.import_statistics = input;
         self
     }
@@ -179,10 +159,7 @@ impl ImportBuilder {
         self
     }
     /// <p>The filter criteria used for this import task.</p>
-    pub fn set_import_filter(
-        mut self,
-        input: ::std::option::Option<crate::types::ImportFilter>,
-    ) -> Self {
+    pub fn set_import_filter(mut self, input: ::std::option::Option<crate::types::ImportFilter>) -> Self {
         self.import_filter = input;
         self
     }
@@ -219,18 +196,12 @@ impl ImportBuilder {
         &self.last_updated_time
     }
     /// <p>Error message related to any failed imports</p>
-    pub fn error_message(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn error_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.error_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Error message related to any failed imports</p>
-    pub fn set_error_message(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_error_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.error_message = input;
         self
     }

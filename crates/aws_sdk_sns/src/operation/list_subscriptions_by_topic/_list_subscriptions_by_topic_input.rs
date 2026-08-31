@@ -21,17 +21,13 @@ impl ListSubscriptionsByTopicInput {
 }
 impl ListSubscriptionsByTopicInput {
     /// Creates a new builder-style object to manufacture [`ListSubscriptionsByTopicInput`](crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicInput).
-    pub fn builder(
-    ) -> crate::operation::list_subscriptions_by_topic::builders::ListSubscriptionsByTopicInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_subscriptions_by_topic::builders::ListSubscriptionsByTopicInputBuilder {
         crate::operation::list_subscriptions_by_topic::builders::ListSubscriptionsByTopicInputBuilder::default()
     }
 }
 
 /// A builder for [`ListSubscriptionsByTopicInput`](crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListSubscriptionsByTopicInputBuilder {
     pub(crate) topic_arn: ::std::option::Option<::std::string::String>,

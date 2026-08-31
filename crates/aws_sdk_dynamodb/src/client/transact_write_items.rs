@@ -14,8 +14,6 @@ impl super::Client {
     pub fn transact_write_items(
         &self,
     ) -> crate::operation::transact_write_items::builders::TransactWriteItemsFluentBuilder {
-        crate::operation::transact_write_items::builders::TransactWriteItemsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::transact_write_items::builders::TransactWriteItemsFluentBuilder::new(self.handle.clone())
     }
 }

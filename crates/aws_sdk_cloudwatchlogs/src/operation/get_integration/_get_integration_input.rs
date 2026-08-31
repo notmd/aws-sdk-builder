@@ -20,9 +20,7 @@ impl GetIntegrationInput {
 }
 
 /// A builder for [`GetIntegrationInput`](crate::operation::get_integration::GetIntegrationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetIntegrationInputBuilder {
     pub(crate) integration_name: ::std::option::Option<::std::string::String>,
@@ -30,18 +28,12 @@ pub struct GetIntegrationInputBuilder {
 impl GetIntegrationInputBuilder {
     /// <p>The name of the integration that you want to find information about. To find the name of your integration, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListIntegrations.html">ListIntegrations</a></p>
     /// This field is required.
-    pub fn integration_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn integration_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.integration_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the integration that you want to find information about. To find the name of your integration, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListIntegrations.html">ListIntegrations</a></p>
-    pub fn set_integration_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_integration_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.integration_name = input;
         self
     }

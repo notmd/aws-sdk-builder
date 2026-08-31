@@ -15,8 +15,6 @@ impl super::Client {
     pub fn create_email_identity(
         &self,
     ) -> crate::operation::create_email_identity::builders::CreateEmailIdentityFluentBuilder {
-        crate::operation::create_email_identity::builders::CreateEmailIdentityFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::create_email_identity::builders::CreateEmailIdentityFluentBuilder::new(self.handle.clone())
     }
 }

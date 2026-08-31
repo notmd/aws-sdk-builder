@@ -29,8 +29,7 @@ impl crate::operation::create_virtual_mfa_device::builders::CreateVirtualMfaDevi
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateVirtualMFADeviceFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::create_virtual_mfa_device::builders::CreateVirtualMfaDeviceInputBuilder,
+    inner: crate::operation::create_virtual_mfa_device::builders::CreateVirtualMfaDeviceInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -63,8 +62,7 @@ impl CreateVirtualMFADeviceFluentBuilder {
     /// Access the CreateVirtualMFADevice as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::create_virtual_mfa_device::builders::CreateVirtualMfaDeviceInputBuilder
-    {
+    ) -> &crate::operation::create_virtual_mfa_device::builders::CreateVirtualMfaDeviceInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,16 +86,13 @@ impl CreateVirtualMFADeviceFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_virtual_mfa_device::CreateVirtualMFADevice::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_virtual_mfa_device::CreateVirtualMFADevice::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::create_virtual_mfa_device::CreateVirtualMFADevice::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::create_virtual_mfa_device::CreateVirtualMFADevice::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -147,19 +142,13 @@ impl CreateVirtualMFADeviceFluentBuilder {
     }
     /// <p>The name of the virtual MFA device, which must be unique. Use with path to uniquely identify a virtual MFA device.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn virtual_mfa_device_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn virtual_mfa_device_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.virtual_mfa_device_name(input.into());
         self
     }
     /// <p>The name of the virtual MFA device, which must be unique. Use with path to uniquely identify a virtual MFA device.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn set_virtual_mfa_device_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_virtual_mfa_device_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_virtual_mfa_device_name(input);
         self
     }
@@ -183,10 +172,7 @@ impl CreateVirtualMFADeviceFluentBuilder {
     /// <p>A list of tags that you want to attach to the new IAM virtual MFA device. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
     /// </note>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }

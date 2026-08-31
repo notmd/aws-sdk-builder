@@ -59,7 +59,9 @@ impl GetAggregateResourceConfigFluentBuilder {
         }
     }
     /// Access the GetAggregateResourceConfig as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_aggregate_resource_config::builders::GetAggregateResourceConfigInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_aggregate_resource_config::builders::GetAggregateResourceConfigInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,11 +85,12 @@ impl GetAggregateResourceConfigFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_aggregate_resource_config::GetAggregateResourceConfig::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::get_aggregate_resource_config::GetAggregateResourceConfig::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::get_aggregate_resource_config::GetAggregateResourceConfig::orchestrate(
             &runtime_plugins,
             input,
@@ -121,25 +124,17 @@ impl GetAggregateResourceConfigFluentBuilder {
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn configuration_aggregator_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_aggregator_name(input.into());
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn set_configuration_aggregator_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_aggregator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_aggregator_name(input);
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn get_configuration_aggregator_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_configuration_aggregator_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_configuration_aggregator_name()
     }
     /// <p>An object that identifies aggregate resource.</p>
@@ -156,9 +151,7 @@ impl GetAggregateResourceConfigFluentBuilder {
         self
     }
     /// <p>An object that identifies aggregate resource.</p>
-    pub fn get_resource_identifier(
-        &self,
-    ) -> &::std::option::Option<crate::types::AggregateResourceIdentifier> {
+    pub fn get_resource_identifier(&self) -> &::std::option::Option<crate::types::AggregateResourceIdentifier> {
         self.inner.get_resource_identifier()
     }
 }

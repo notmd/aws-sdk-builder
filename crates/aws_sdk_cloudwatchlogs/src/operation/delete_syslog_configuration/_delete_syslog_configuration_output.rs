@@ -12,15 +12,14 @@ impl ::aws_types::request_id::RequestId for DeleteSyslogConfigurationOutput {
 }
 impl DeleteSyslogConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`DeleteSyslogConfigurationOutput`](crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationOutput).
-    pub fn builder() -> crate::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationOutputBuilder{
+    pub fn builder() -> crate::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationOutputBuilder
+    {
         crate::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteSyslogConfigurationOutput`](crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteSyslogConfigurationOutputBuilder {
     _request_id: Option<String>,
@@ -36,9 +35,7 @@ impl DeleteSyslogConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteSyslogConfigurationOutput`](crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationOutput {
+    pub fn build(self) -> crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationOutput {
         crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationOutput {
             _request_id: self._request_id,
         }

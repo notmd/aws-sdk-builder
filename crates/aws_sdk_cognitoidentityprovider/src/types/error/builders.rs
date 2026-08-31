@@ -1288,22 +1288,13 @@ pub use crate::types::error::_tier_change_not_allowed_exception::TierChangeNotAl
 ))]
 pub use crate::types::error::_user_pool_tagging_exception::UserPoolTaggingExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_create_user_pool_client",
-    feature = "op_update_user_pool_client"
-))]
+#[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
 pub use crate::types::error::_invalid_o_auth_flow_exception::InvalidOAuthFlowExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_create_user_pool_client",
-    feature = "op_update_user_pool_client"
-))]
+#[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
 pub use crate::types::error::_scope_does_not_exist_exception::ScopeDoesNotExistExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_delete_identity_provider",
-    feature = "op_update_identity_provider"
-))]
+#[cfg(any(feature = "op_delete_identity_provider", feature = "op_update_identity_provider"))]
 pub use crate::types::error::_unsupported_identity_provider_exception::UnsupportedIdentityProviderExceptionBuilder;
 
 #[cfg(feature = "op_get_tokens_from_refresh_token")]

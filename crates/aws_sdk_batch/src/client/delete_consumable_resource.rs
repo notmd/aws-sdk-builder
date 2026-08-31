@@ -8,8 +8,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteConsumableResourceError>`](crate::operation::delete_consumable_resource::DeleteConsumableResourceError)
     pub fn delete_consumable_resource(
         &self,
-    ) -> crate::operation::delete_consumable_resource::builders::DeleteConsumableResourceFluentBuilder
-    {
-        crate::operation::delete_consumable_resource::builders::DeleteConsumableResourceFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::delete_consumable_resource::builders::DeleteConsumableResourceFluentBuilder {
+        crate::operation::delete_consumable_resource::builders::DeleteConsumableResourceFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

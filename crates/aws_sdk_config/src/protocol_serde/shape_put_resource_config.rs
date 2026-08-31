@@ -9,49 +9,45 @@ pub fn de_put_resource_config_http_error(
     crate::operation::put_resource_config::PutResourceConfigError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::put_resource_config::PutResourceConfigError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::put_resource_config::PutResourceConfigError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(
-                crate::operation::put_resource_config::PutResourceConfigError::unhandled(generic),
-            )
-        }
+        None => return Err(crate::operation::put_resource_config::PutResourceConfigError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InsufficientPermissionsException" => crate::operation::put_resource_config::PutResourceConfigError::InsufficientPermissionsException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "InsufficientPermissionsException" => {
+            crate::operation::put_resource_config::PutResourceConfigError::InsufficientPermissionsException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InsufficientPermissionsExceptionBuilder::default();
-                output = crate::protocol_serde::shape_insufficient_permissions_exception::de_insufficient_permissions_exception_json_err(
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::InsufficientPermissionsExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_insufficient_permissions_exception::de_insufficient_permissions_exception_json_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::put_resource_config::PutResourceConfigError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "MaxActiveResourcesExceededException" => {
             crate::operation::put_resource_config::PutResourceConfigError::MaxActiveResourcesExceededException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::MaxActiveResourcesExceededExceptionBuilder::default();
+                    let mut output =
+                        crate::types::error::builders::MaxActiveResourcesExceededExceptionBuilder::default();
                     output =
                         crate::protocol_serde::shape_max_active_resources_exceeded_exception::de_max_active_resources_exceeded_exception_json_err(
                             _response_body,
@@ -72,7 +68,8 @@ pub fn de_put_resource_config_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::NoRunningConfigurationRecorderExceptionBuilder::default();
+                    let mut output =
+                        crate::types::error::builders::NoRunningConfigurationRecorderExceptionBuilder::default();
                     output = crate::protocol_serde::shape_no_running_configuration_recorder_exception::de_no_running_configuration_recorder_exception_json_err(_response_body, output).map_err(crate::operation::put_resource_config::PutResourceConfigError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
@@ -88,8 +85,11 @@ pub fn de_put_resource_config_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::ValidationExceptionBuilder::default();
-                output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::put_resource_config::PutResourceConfigError::unhandled)?;
+                output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::put_resource_config::PutResourceConfigError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -114,25 +114,18 @@ pub fn de_put_resource_config_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::put_resource_config::builders::PutResourceConfigOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_put_resource_config_input(
     input: &crate::operation::put_resource_config::PutResourceConfigInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_put_resource_config_input::ser_put_resource_config_input_input(
-        &mut object,
-        input,
-    )?;
+    crate::protocol_serde::shape_put_resource_config_input::ser_put_resource_config_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

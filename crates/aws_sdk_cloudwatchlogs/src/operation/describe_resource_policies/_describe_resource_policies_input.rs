@@ -32,17 +32,13 @@ impl DescribeResourcePoliciesInput {
 }
 impl DescribeResourcePoliciesInput {
     /// Creates a new builder-style object to manufacture [`DescribeResourcePoliciesInput`](crate::operation::describe_resource_policies::DescribeResourcePoliciesInput).
-    pub fn builder(
-    ) -> crate::operation::describe_resource_policies::builders::DescribeResourcePoliciesInputBuilder
-    {
+    pub fn builder() -> crate::operation::describe_resource_policies::builders::DescribeResourcePoliciesInputBuilder {
         crate::operation::describe_resource_policies::builders::DescribeResourcePoliciesInputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeResourcePoliciesInput`](crate::operation::describe_resource_policies::DescribeResourcePoliciesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeResourcePoliciesInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
@@ -99,10 +95,7 @@ impl DescribeResourcePoliciesInputBuilder {
         self
     }
     /// <p>Specifies the scope of the resource policy. Valid values are <code>ACCOUNT</code> or <code>RESOURCE</code>. When not specified, defaults to <code>ACCOUNT</code>.</p>
-    pub fn set_policy_scope(
-        mut self,
-        input: ::std::option::Option<crate::types::PolicyScope>,
-    ) -> Self {
+    pub fn set_policy_scope(mut self, input: ::std::option::Option<crate::types::PolicyScope>) -> Self {
         self.policy_scope = input;
         self
     }

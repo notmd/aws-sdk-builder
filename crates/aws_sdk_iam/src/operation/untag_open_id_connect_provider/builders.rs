@@ -57,7 +57,9 @@ impl UntagOpenIDConnectProviderFluentBuilder {
         }
     }
     /// Access the UntagOpenIDConnectProvider as a reference.
-    pub fn as_input(&self) -> &crate::operation::untag_open_id_connect_provider::builders::UntagOpenIdConnectProviderInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::untag_open_id_connect_provider::builders::UntagOpenIdConnectProviderInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,11 +83,12 @@ impl UntagOpenIDConnectProviderFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProvider::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProvider::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProvider::orchestrate(
             &runtime_plugins,
             input,
@@ -120,27 +123,19 @@ impl UntagOpenIDConnectProviderFluentBuilder {
     }
     /// <p>The ARN of the OIDC provider in IAM from which you want to remove tags.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn open_id_connect_provider_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn open_id_connect_provider_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.open_id_connect_provider_arn(input.into());
         self
     }
     /// <p>The ARN of the OIDC provider in IAM from which you want to remove tags.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn set_open_id_connect_provider_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_open_id_connect_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_open_id_connect_provider_arn(input);
         self
     }
     /// <p>The ARN of the OIDC provider in IAM from which you want to remove tags.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn get_open_id_connect_provider_arn(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_open_id_connect_provider_arn(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_open_id_connect_provider_arn()
     }
     ///
@@ -154,10 +149,7 @@ impl UntagOpenIDConnectProviderFluentBuilder {
         self
     }
     /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified OIDC provider.</p>
-    pub fn set_tag_keys(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_tag_keys(input);
         self
     }

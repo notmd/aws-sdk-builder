@@ -20,15 +20,13 @@ impl ::aws_types::request_id::RequestId for CreateLogAnomalyDetectorOutput {
 }
 impl CreateLogAnomalyDetectorOutput {
     /// Creates a new builder-style object to manufacture [`CreateLogAnomalyDetectorOutput`](crate::operation::create_log_anomaly_detector::CreateLogAnomalyDetectorOutput).
-    pub fn builder() -> crate::operation::create_log_anomaly_detector::builders::CreateLogAnomalyDetectorOutputBuilder{
+    pub fn builder() -> crate::operation::create_log_anomaly_detector::builders::CreateLogAnomalyDetectorOutputBuilder {
         crate::operation::create_log_anomaly_detector::builders::CreateLogAnomalyDetectorOutputBuilder::default()
     }
 }
 
 /// A builder for [`CreateLogAnomalyDetectorOutput`](crate::operation::create_log_anomaly_detector::CreateLogAnomalyDetectorOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateLogAnomalyDetectorOutputBuilder {
     pub(crate) anomaly_detector_arn: ::std::option::Option<::std::string::String>,
@@ -36,18 +34,12 @@ pub struct CreateLogAnomalyDetectorOutputBuilder {
 }
 impl CreateLogAnomalyDetectorOutputBuilder {
     /// <p>The ARN of the log anomaly detector that you just created.</p>
-    pub fn anomaly_detector_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn anomaly_detector_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.anomaly_detector_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the log anomaly detector that you just created.</p>
-    pub fn set_anomaly_detector_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_anomaly_detector_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.anomaly_detector_arn = input;
         self
     }
@@ -65,9 +57,7 @@ impl CreateLogAnomalyDetectorOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateLogAnomalyDetectorOutput`](crate::operation::create_log_anomaly_detector::CreateLogAnomalyDetectorOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::create_log_anomaly_detector::CreateLogAnomalyDetectorOutput {
+    pub fn build(self) -> crate::operation::create_log_anomaly_detector::CreateLogAnomalyDetectorOutput {
         crate::operation::create_log_anomaly_detector::CreateLogAnomalyDetectorOutput {
             anomaly_detector_arn: self.anomaly_detector_arn,
             _request_id: self._request_id,

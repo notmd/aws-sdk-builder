@@ -27,9 +27,7 @@ impl ConverseStreamTrace {
 }
 
 /// A builder for [`ConverseStreamTrace`](crate::types::ConverseStreamTrace).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ConverseStreamTraceBuilder {
     pub(crate) guardrail: ::std::option::Option<crate::types::GuardrailTraceAssessment>,
@@ -42,10 +40,7 @@ impl ConverseStreamTraceBuilder {
         self
     }
     /// <p>The guardrail trace object.</p>
-    pub fn set_guardrail(
-        mut self,
-        input: ::std::option::Option<crate::types::GuardrailTraceAssessment>,
-    ) -> Self {
+    pub fn set_guardrail(mut self, input: ::std::option::Option<crate::types::GuardrailTraceAssessment>) -> Self {
         self.guardrail = input;
         self
     }
@@ -59,10 +54,7 @@ impl ConverseStreamTraceBuilder {
         self
     }
     /// <p>The request's prompt router.</p>
-    pub fn set_prompt_router(
-        mut self,
-        input: ::std::option::Option<crate::types::PromptRouterTrace>,
-    ) -> Self {
+    pub fn set_prompt_router(mut self, input: ::std::option::Option<crate::types::PromptRouterTrace>) -> Self {
         self.prompt_router = input;
         self
     }

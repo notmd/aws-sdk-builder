@@ -29,9 +29,7 @@ impl Grok {
 }
 
 /// A builder for [`Grok`](crate::types::Grok).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GrokBuilder {
     pub(crate) source: ::std::option::Option<::std::string::String>,
@@ -70,10 +68,7 @@ impl GrokBuilder {
     /// Consumes the builder and constructs a [`Grok`](crate::types::Grok).
     /// This method will fail if any of the following fields are not set:
     /// - [`r#match`](crate::types::builders::GrokBuilder::match)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::types::Grok, ::aws_smithy_types::error::operation::BuildError>
-    {
+    pub fn build(self) -> ::std::result::Result<crate::types::Grok, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Grok {
             source: self.source,
             r#match: self.r#match.ok_or_else(|| {

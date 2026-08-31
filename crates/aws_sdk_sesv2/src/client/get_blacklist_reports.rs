@@ -10,8 +10,6 @@ impl super::Client {
     pub fn get_blacklist_reports(
         &self,
     ) -> crate::operation::get_blacklist_reports::builders::GetBlacklistReportsFluentBuilder {
-        crate::operation::get_blacklist_reports::builders::GetBlacklistReportsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_blacklist_reports::builders::GetBlacklistReportsFluentBuilder::new(self.handle.clone())
     }
 }

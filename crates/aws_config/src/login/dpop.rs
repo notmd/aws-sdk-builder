@@ -7,12 +7,10 @@ use aws_sdk_signin::config::auth::Params;
 use aws_smithy_json::serialize::JsonObjectWriter;
 use aws_smithy_runtime_api::box_error::BoxError;
 use aws_smithy_runtime_api::client::auth::{
-    AuthScheme, AuthSchemeEndpointConfig, AuthSchemeId, AuthSchemeOption, AuthSchemeOptionsFuture,
-    Sign,
+    AuthScheme, AuthSchemeEndpointConfig, AuthSchemeId, AuthSchemeOption, AuthSchemeOptionsFuture, Sign,
 };
 use aws_smithy_runtime_api::client::identity::{
-    Identity, IdentityCacheLocation, IdentityCachePartition, IdentityFuture, ResolveIdentity,
-    SharedIdentityResolver,
+    Identity, IdentityCacheLocation, IdentityCachePartition, IdentityFuture, ResolveIdentity, SharedIdentityResolver,
 };
 use aws_smithy_runtime_api::client::orchestrator::HttpRequest;
 use aws_smithy_runtime_api::client::runtime_components::{GetIdentityResolver, RuntimeComponents};
@@ -112,11 +110,7 @@ fn sign(message: &str, private_key: &SecretKey) -> Result<String, LoginTokenErro
 /// Calculate DPoP HTTP header using the private key.
 ///
 /// See [RFC 9449: OAuth 2.0 Demonstrating Proof of Possession (DPoP)](https://datatracker.ietf.org/doc/html/rfc9449)
-pub(super) fn calculate(
-    private_key: &SecretKey,
-    endpoint: &str,
-    now: SystemTime,
-) -> Result<String, LoginTokenError> {
+pub(super) fn calculate(private_key: &SecretKey, endpoint: &str, now: SystemTime) -> Result<String, LoginTokenError> {
     let header = header(private_key)?;
     let jti = uuid::Uuid::new_v4().to_string();
     let iat = now
@@ -163,10 +157,7 @@ impl DPoPAuthScheme {
             .map(Arc::new)
             .map_err(|e| LoginTokenError::other("invalid secret key", Some(e.into())))?;
         let signer = DPoPSigner;
-        Ok(Self {
-            signer,
-            private_key,
-        })
+        Ok(Self { signer, private_key })
     }
 }
 
@@ -175,10 +166,7 @@ impl AuthScheme for DPoPAuthScheme {
         SCHEME_ID
     }
 
-    fn identity_resolver(
-        &self,
-        _identity_resolvers: &dyn GetIdentityResolver,
-    ) -> Option<SharedIdentityResolver> {
+    fn identity_resolver(&self, _identity_resolvers: &dyn GetIdentityResolver) -> Option<SharedIdentityResolver> {
         Some(SharedIdentityResolver::new(DPoPIdentityResolver(
             self.private_key.clone(),
         )))
@@ -202,8 +190,7 @@ struct DPoPIdentityResolver(Arc<SecretKey>);
 // We override the cache partition because by default SharedIdentityResolver will claim a new
 // partition everytime it's created. We aren't caching this identity anyway so avoid claiming cache
 // partitions unnecessarily
-static DPOP_PCACHE_PARTITION: LazyLock<IdentityCachePartition> =
-    LazyLock::new(IdentityCachePartition::new);
+static DPOP_PCACHE_PARTITION: LazyLock<IdentityCachePartition> = LazyLock::new(IdentityCachePartition::new);
 
 impl ResolveIdentity for DPoPIdentityResolver {
     fn resolve_identity<'a>(
@@ -272,30 +259,16 @@ mod tests {
             x_b64: "test_x".to_string(),
             y_b64: "test_y".to_string(),
         };
-        let p = payload(
-            "test-jti".to_string(),
-            1651516560,
-            "https://example.com/token",
-        );
+        let p = payload("test-jti".to_string(), 1651516560, "https://example.com/token");
         let message = build_message(&h, &p);
         let parts: Vec<&str> = message.split('.').collect();
         assert_eq!(parts.len(), 2);
 
-        let header_json = String::from_utf8(
-            base64_simd::URL_SAFE_NO_PAD
-                .decode_to_vec(parts[0])
-                .unwrap(),
-        )
-        .unwrap();
+        let header_json = String::from_utf8(base64_simd::URL_SAFE_NO_PAD.decode_to_vec(parts[0]).unwrap()).unwrap();
         assert!(header_json.contains("dpop+jwt"));
         assert!(header_json.contains("test_x"));
 
-        let payload_json = String::from_utf8(
-            base64_simd::URL_SAFE_NO_PAD
-                .decode_to_vec(parts[1])
-                .unwrap(),
-        )
-        .unwrap();
+        let payload_json = String::from_utf8(base64_simd::URL_SAFE_NO_PAD.decode_to_vec(parts[1]).unwrap()).unwrap();
         assert!(payload_json.contains("test-jti"));
         assert!(payload_json.contains("https://example.com/token"));
     }
@@ -318,9 +291,6 @@ mod tests {
     fn test_calculate_invalid_key() {
         let result = DPoPAuthScheme::new("invalid_key");
         assert!(result.is_err());
-        assert!(result
-            .unwrap_err()
-            .to_string()
-            .contains("invalid secret key"));
+        assert!(result.unwrap_err().to_string().contains("invalid secret key"));
     }
 }

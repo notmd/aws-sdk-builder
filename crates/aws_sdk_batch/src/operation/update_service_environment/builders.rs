@@ -59,8 +59,7 @@ impl UpdateServiceEnvironmentFluentBuilder {
     /// Access the UpdateServiceEnvironment as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::update_service_environment::builders::UpdateServiceEnvironmentInputBuilder
-    {
+    ) -> &crate::operation::update_service_environment::builders::UpdateServiceEnvironmentInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +83,14 @@ impl UpdateServiceEnvironmentFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::update_service_environment::UpdateServiceEnvironment::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::update_service_environment::UpdateServiceEnvironment::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::update_service_environment::UpdateServiceEnvironment::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::update_service_environment::UpdateServiceEnvironment::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -122,18 +119,12 @@ impl UpdateServiceEnvironmentFluentBuilder {
         self
     }
     /// <p>The name or ARN of the service environment to update.</p>
-    pub fn service_environment(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_environment(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.service_environment(input.into());
         self
     }
     /// <p>The name or ARN of the service environment to update.</p>
-    pub fn set_service_environment(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_service_environment(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_service_environment(input);
         self
     }
@@ -147,10 +138,7 @@ impl UpdateServiceEnvironmentFluentBuilder {
         self
     }
     /// <p>The state of the service environment.</p>
-    pub fn set_state(
-        mut self,
-        input: ::std::option::Option<crate::types::ServiceEnvironmentState>,
-    ) -> Self {
+    pub fn set_state(mut self, input: ::std::option::Option<crate::types::ServiceEnvironmentState>) -> Self {
         self.inner = self.inner.set_state(input);
         self
     }
@@ -177,9 +165,7 @@ impl UpdateServiceEnvironmentFluentBuilder {
         self
     }
     /// <p>The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.</p>
-    pub fn get_capacity_limits(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::CapacityLimit>> {
+    pub fn get_capacity_limits(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CapacityLimit>> {
         self.inner.get_capacity_limits()
     }
 }

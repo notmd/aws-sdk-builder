@@ -9,9 +9,7 @@ pub fn ser_prompt_variable_values(
         }
         crate::types::PromptVariableValues::Unknown => {
             return Err(
-                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                    "PromptVariableValues",
-                ),
+                ::aws_smithy_types::error::operation::SerializationError::unknown_variant("PromptVariableValues"),
             )
         }
     }

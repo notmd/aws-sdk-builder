@@ -9,14 +9,10 @@ pub fn de_delete_objects_http_error(
     crate::operation::delete_objects::DeleteObjectsError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::delete_objects::DeleteObjectsError::unhandled)?;
-    generic_builder =
-        crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::delete_objects::DeleteObjectsError::unhandled)?;
+    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     Err(crate::operation::delete_objects::DeleteObjectsError::generic(generic))
@@ -33,28 +29,22 @@ pub fn de_delete_objects_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::delete_objects::builders::DeleteObjectsOutputBuilder::default();
-        output =
-            crate::protocol_serde::shape_delete_objects::de_delete_objects(_response_body, output)
-                .map_err(crate::operation::delete_objects::DeleteObjectsError::unhandled)?;
+        let mut output = crate::operation::delete_objects::builders::DeleteObjectsOutputBuilder::default();
+        output = crate::protocol_serde::shape_delete_objects::de_delete_objects(_response_body, output)
+            .map_err(crate::operation::delete_objects::DeleteObjectsError::unhandled)?;
         output = output.set_request_charged(
-            crate::protocol_serde::shape_delete_objects_output::de_request_charged_header(
-                _response_headers,
-            )
-            .map_err(|_| {
-                crate::operation::delete_objects::DeleteObjectsError::unhandled(
-                    "Failed to parse RequestCharged from header `x-amz-request-charged",
-                )
-            })?,
+            crate::protocol_serde::shape_delete_objects_output::de_request_charged_header(_response_headers).map_err(
+                |_| {
+                    crate::operation::delete_objects::DeleteObjectsError::unhandled(
+                        "Failed to parse RequestCharged from header `x-amz-request-charged",
+                    )
+                },
+            )?,
         );
         output._set_extended_request_id(
-            crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers)
-                .map(str::to_string),
+            crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string),
         );
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -62,20 +52,14 @@ pub fn de_delete_objects_http_response(
 pub fn ser_delete_objects_headers(
     input: &crate::operation::delete_objects::DeleteObjectsInput,
     mut builder: ::http_1x::request::Builder,
-) -> std::result::Result<
-    ::http_1x::request::Builder,
-    ::aws_smithy_types::error::operation::BuildError,
-> {
+) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.mfa {
         let formatted_2 = inner_1.as_str();
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "mfa",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-mfa", header_value);
@@ -86,10 +70,7 @@ pub fn ser_delete_objects_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "request_payer",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-request-payer", header_value);
@@ -101,10 +82,7 @@ pub fn ser_delete_objects_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "bypass_governance_retention",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-bypass-governance-retention", header_value);
@@ -115,10 +93,7 @@ pub fn ser_delete_objects_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "expected_bucket_owner",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-expected-bucket-owner", header_value);
@@ -129,10 +104,7 @@ pub fn ser_delete_objects_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_algorithm",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-sdk-checksum-algorithm", header_value);

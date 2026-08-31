@@ -149,16 +149,11 @@ impl GetOrganizationConformancePackDetailedStatusFluentBuilder {
         self
     }
     /// <p>The name of organization conformance pack for which you want status details for member accounts.</p>
-    pub fn get_organization_conformance_pack_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_organization_conformance_pack_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_organization_conformance_pack_name()
     }
     /// <p>An <code>OrganizationResourceDetailedStatusFilters</code> object.</p>
-    pub fn filters(
-        mut self,
-        input: crate::types::OrganizationResourceDetailedStatusFilters,
-    ) -> Self {
+    pub fn filters(mut self, input: crate::types::OrganizationResourceDetailedStatusFilters) -> Self {
         self.inner = self.inner.filters(input);
         self
     }
@@ -171,9 +166,7 @@ impl GetOrganizationConformancePackDetailedStatusFluentBuilder {
         self
     }
     /// <p>An <code>OrganizationResourceDetailedStatusFilters</code> object.</p>
-    pub fn get_filters(
-        &self,
-    ) -> &::std::option::Option<crate::types::OrganizationResourceDetailedStatusFilters> {
+    pub fn get_filters(&self) -> &::std::option::Option<crate::types::OrganizationResourceDetailedStatusFilters> {
         self.inner.get_filters()
     }
     /// <p>The maximum number of <code>OrganizationConformancePackDetailedStatuses</code> returned on each page. If you do not specify a number, Config uses the default. The default is 100.</p>

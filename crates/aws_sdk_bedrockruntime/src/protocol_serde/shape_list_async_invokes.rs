@@ -9,20 +9,17 @@ pub fn de_list_async_invokes_http_error(
     crate::operation::list_async_invokes::ListAsyncInvokesError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::list_async_invokes::ListAsyncInvokesError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::list_async_invokes::ListAsyncInvokesError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(
-                crate::operation::list_async_invokes::ListAsyncInvokesError::unhandled(generic),
-            )
+            return Err(crate::operation::list_async_invokes::ListAsyncInvokesError::unhandled(
+                generic,
+            ))
         }
     };
 
@@ -33,9 +30,11 @@ pub fn de_list_async_invokes_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::AccessDeniedExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                    let mut output = crate::types::error::builders::AccessDeniedExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(
+                        _response_body,
+                        output,
+                    )
                     .map_err(crate::operation::list_async_invokes::ListAsyncInvokesError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
@@ -51,10 +50,13 @@ pub fn de_list_async_invokes_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InternalServerExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::list_async_invokes::ListAsyncInvokesError::unhandled)?;
+                    let mut output = crate::types::error::builders::InternalServerExceptionBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(crate::operation::list_async_invokes::ListAsyncInvokesError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -64,42 +66,42 @@ pub fn de_list_async_invokes_http_error(
                 tmp
             })
         }
-        "ThrottlingException" => {
-            crate::operation::list_async_invokes::ListAsyncInvokesError::ThrottlingException({
+        "ThrottlingException" => crate::operation::list_async_invokes::ListAsyncInvokesError::ThrottlingException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ThrottlingExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::list_async_invokes::ListAsyncInvokesError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ValidationException" => {
-            crate::operation::list_async_invokes::ListAsyncInvokesError::ValidationException({
+                let mut output = crate::types::error::builders::ThrottlingExceptionBuilder::default();
+                output = crate::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::list_async_invokes::ListAsyncInvokesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ValidationException" => crate::operation::list_async_invokes::ListAsyncInvokesError::ValidationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ValidationExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::list_async_invokes::ListAsyncInvokesError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::ValidationExceptionBuilder::default();
+                output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::list_async_invokes::ListAsyncInvokesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => crate::operation::list_async_invokes::ListAsyncInvokesError::generic(generic),
     })
 }
@@ -115,17 +117,10 @@ pub fn de_list_async_invokes_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::list_async_invokes::builders::ListAsyncInvokesOutputBuilder::default(
-            );
-        output = crate::protocol_serde::shape_list_async_invokes::de_list_async_invokes(
-            _response_body,
-            output,
-        )
-        .map_err(crate::operation::list_async_invokes::ListAsyncInvokesError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::list_async_invokes::builders::ListAsyncInvokesOutputBuilder::default();
+        output = crate::protocol_serde::shape_list_async_invokes::de_list_async_invokes(_response_body, output)
+            .map_err(crate::operation::list_async_invokes::ListAsyncInvokesError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -137,10 +132,8 @@ pub(crate) fn de_list_async_invokes(
     crate::operation::list_async_invokes::builders::ListAsyncInvokesOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -148,42 +141,36 @@ pub(crate) fn de_list_async_invokes(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "asyncInvokeSummaries" => {
-                        builder = builder.set_async_invoke_summaries(crate::protocol_serde::shape_async_invoke_summaries::de_async_invoke_summaries(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                    }
-                    "nextToken" => {
-                        builder = builder.set_next_token(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                tokens.next(),
-                            )?
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "asyncInvokeSummaries" => {
+                    builder = builder.set_async_invoke_summaries(
+                        crate::protocol_serde::shape_async_invoke_summaries::de_async_invoke_summaries(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
+                }
+                "nextToken" => {
+                    builder = builder.set_next_token(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    );
                 }
-            }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

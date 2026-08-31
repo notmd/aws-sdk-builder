@@ -102,17 +102,13 @@ impl ListPackageVersionAssetsInput {
 }
 impl ListPackageVersionAssetsInput {
     /// Creates a new builder-style object to manufacture [`ListPackageVersionAssetsInput`](crate::operation::list_package_version_assets::ListPackageVersionAssetsInput).
-    pub fn builder(
-    ) -> crate::operation::list_package_version_assets::builders::ListPackageVersionAssetsInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_package_version_assets::builders::ListPackageVersionAssetsInputBuilder {
         crate::operation::list_package_version_assets::builders::ListPackageVersionAssetsInputBuilder::default()
     }
 }
 
 /// A builder for [`ListPackageVersionAssetsInput`](crate::operation::list_package_version_assets::ListPackageVersionAssetsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListPackageVersionAssetsInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -276,18 +272,12 @@ impl ListPackageVersionAssetsInputBuilder {
     }
     /// <p>A string that contains the package version (for example, <code>3.5.2</code>).</p>
     /// This field is required.
-    pub fn package_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.package_version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A string that contains the package version (for example, <code>3.5.2</code>).</p>
-    pub fn set_package_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.package_version = input;
         self
     }

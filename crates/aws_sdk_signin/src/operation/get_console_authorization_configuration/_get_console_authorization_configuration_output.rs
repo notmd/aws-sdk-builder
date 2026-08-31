@@ -41,9 +41,7 @@ impl GetConsoleAuthorizationConfigurationOutput {
 }
 
 /// A builder for [`GetConsoleAuthorizationConfigurationOutput`](crate::operation::get_console_authorization_configuration::GetConsoleAuthorizationConfigurationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetConsoleAuthorizationConfigurationOutputBuilder {
     pub(crate) target_id: ::std::option::Option<::std::string::String>,
@@ -116,7 +114,7 @@ impl GetConsoleAuthorizationConfigurationOutputBuilder {
     ) -> ::std::result::Result<
         crate::operation::get_console_authorization_configuration::GetConsoleAuthorizationConfigurationOutput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::get_console_authorization_configuration::GetConsoleAuthorizationConfigurationOutput {
                 target_id: self.target_id.ok_or_else(|| {

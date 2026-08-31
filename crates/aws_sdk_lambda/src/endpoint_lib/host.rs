@@ -6,11 +6,7 @@
 
 use crate::endpoint_lib::diagnostic::DiagnosticCollector;
 
-pub(crate) fn is_valid_host_label(
-    label: &str,
-    allow_dots: bool,
-    e: &mut DiagnosticCollector,
-) -> bool {
+pub(crate) fn is_valid_host_label(label: &str, allow_dots: bool, e: &mut DiagnosticCollector) -> bool {
     let bytes = label.as_bytes();
     if allow_dots {
         let mut start = 0;

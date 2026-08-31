@@ -36,23 +36,20 @@ impl BucketExistsFluentBuilder {
         crate::waiters::bucket_exists::BucketExistsFinalPoll,
         crate::waiters::bucket_exists::WaitUntilBucketExistsError,
     > {
-        let input = self.inner.build().map_err(
-            ::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure,
-        )?;
+        let input = self
+            .inner
+            .build()
+            .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
         let runtime_plugins = crate::operation::head_bucket::HeadBucket::operation_runtime_plugins(
             self.handle.runtime_plugins.clone(),
             &self.handle.conf,
             ::std::option::Option::None,
         )
-        .with_operation_plugin(
-            crate::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new(),
-        );
+        .with_operation_plugin(crate::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new());
         let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();
         let runtime_components_builder = runtime_plugins
             .apply_client_configuration(&mut cfg)
-            .map_err(
-                ::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure,
-            )?;
+            .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
         let time_components = runtime_components_builder.into_time_components();
         let sleep_impl = time_components
             .sleep_impl()
@@ -78,10 +75,7 @@ impl BucketExistsFluentBuilder {
         let operation = move || {
             let input = input.clone();
             let runtime_plugins = runtime_plugins.clone();
-            async move {
-                crate::operation::head_bucket::HeadBucket::orchestrate(&runtime_plugins, input)
-                    .await
-            }
+            async move { crate::operation::head_bucket::HeadBucket::orchestrate(&runtime_plugins, input).await }
         };
         let orchestrator = ::aws_smithy_runtime::client::waiters::WaiterOrchestrator::builder()
             .min_delay(::std::time::Duration::from_secs(5))
@@ -92,10 +86,7 @@ impl BucketExistsFluentBuilder {
             .acceptor(acceptor)
             .operation(operation)
             .build();
-        ::aws_smithy_runtime::client::waiters::attach_waiter_tracing_span(
-            orchestrator.orchestrate(),
-        )
-        .await
+        ::aws_smithy_runtime::client::waiters::attach_waiter_tracing_span(orchestrator.orchestrate()).await
     }
     /// <p>The bucket name.</p>
     /// <p><b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code> <i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>. Path-style requests are not supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must follow the format <code> <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code> <i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -130,18 +121,12 @@ impl BucketExistsFluentBuilder {
         self.inner.get_bucket()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

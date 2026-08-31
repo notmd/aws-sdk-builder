@@ -12,17 +12,13 @@ impl ::aws_types::request_id::RequestId for DeleteIdentityProviderOutput {
 }
 impl DeleteIdentityProviderOutput {
     /// Creates a new builder-style object to manufacture [`DeleteIdentityProviderOutput`](crate::operation::delete_identity_provider::DeleteIdentityProviderOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_identity_provider::builders::DeleteIdentityProviderOutputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_identity_provider::builders::DeleteIdentityProviderOutputBuilder {
         crate::operation::delete_identity_provider::builders::DeleteIdentityProviderOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteIdentityProviderOutput`](crate::operation::delete_identity_provider::DeleteIdentityProviderOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteIdentityProviderOutputBuilder {
     _request_id: Option<String>,

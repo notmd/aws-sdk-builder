@@ -14,9 +14,7 @@ impl DescribeOrganizationConformancePackStatusesOutput {
     /// <p>A list of <code>OrganizationConformancePackStatus</code> objects.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.organization_conformance_pack_statuses.is_none()`.
-    pub fn organization_conformance_pack_statuses(
-        &self,
-    ) -> &[crate::types::OrganizationConformancePackStatus] {
+    pub fn organization_conformance_pack_statuses(&self) -> &[crate::types::OrganizationConformancePackStatus] {
         self.organization_conformance_pack_statuses
             .as_deref()
             .unwrap_or_default()
@@ -41,9 +39,7 @@ impl DescribeOrganizationConformancePackStatusesOutput {
 }
 
 /// A builder for [`DescribeOrganizationConformancePackStatusesOutput`](crate::operation::describe_organization_conformance_pack_statuses::DescribeOrganizationConformancePackStatusesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeOrganizationConformancePackStatusesOutputBuilder {
     pub(crate) organization_conformance_pack_statuses:
@@ -61,9 +57,7 @@ impl DescribeOrganizationConformancePackStatusesOutputBuilder {
         mut self,
         input: crate::types::OrganizationConformancePackStatus,
     ) -> Self {
-        let mut v = self
-            .organization_conformance_pack_statuses
-            .unwrap_or_default();
+        let mut v = self.organization_conformance_pack_statuses.unwrap_or_default();
         v.push(input);
         self.organization_conformance_pack_statuses = ::std::option::Option::Some(v);
         self
@@ -71,9 +65,7 @@ impl DescribeOrganizationConformancePackStatusesOutputBuilder {
     /// <p>A list of <code>OrganizationConformancePackStatus</code> objects.</p>
     pub fn set_organization_conformance_pack_statuses(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::OrganizationConformancePackStatus>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::OrganizationConformancePackStatus>>,
     ) -> Self {
         self.organization_conformance_pack_statuses = input;
         self
@@ -81,8 +73,7 @@ impl DescribeOrganizationConformancePackStatusesOutputBuilder {
     /// <p>A list of <code>OrganizationConformancePackStatus</code> objects.</p>
     pub fn get_organization_conformance_pack_statuses(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::OrganizationConformancePackStatus>>
-    {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::OrganizationConformancePackStatus>> {
         &self.organization_conformance_pack_statuses
     }
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>

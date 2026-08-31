@@ -13,17 +13,13 @@ impl ::aws_types::request_id::RequestId for AdminConfirmSignUpOutput {
 }
 impl AdminConfirmSignUpOutput {
     /// Creates a new builder-style object to manufacture [`AdminConfirmSignUpOutput`](crate::operation::admin_confirm_sign_up::AdminConfirmSignUpOutput).
-    pub fn builder(
-    ) -> crate::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpOutputBuilder {
-        crate::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpOutputBuilder {
+        crate::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpOutputBuilder::default()
     }
 }
 
 /// A builder for [`AdminConfirmSignUpOutput`](crate::operation::admin_confirm_sign_up::AdminConfirmSignUpOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AdminConfirmSignUpOutputBuilder {
     _request_id: Option<String>,

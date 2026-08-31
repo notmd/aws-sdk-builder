@@ -27,9 +27,7 @@ impl Complaint {
 }
 
 /// A builder for [`Complaint`](crate::types::Complaint).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ComplaintBuilder {
     pub(crate) complaint_sub_type: ::std::option::Option<::std::string::String>,
@@ -37,18 +35,12 @@ pub struct ComplaintBuilder {
 }
 impl ComplaintBuilder {
     /// <p>Can either be <code>null</code> or <code>OnAccountSuppressionList</code>. If the value is <code>OnAccountSuppressionList</code>, SES accepted the message, but didn't attempt to send it because it was on the account-level suppression list.</p>
-    pub fn complaint_sub_type(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn complaint_sub_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.complaint_sub_type = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Can either be <code>null</code> or <code>OnAccountSuppressionList</code>. If the value is <code>OnAccountSuppressionList</code>, SES accepted the message, but didn't attempt to send it because it was on the account-level suppression list.</p>
-    pub fn set_complaint_sub_type(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_complaint_sub_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.complaint_sub_type = input;
         self
     }
@@ -57,18 +49,12 @@ impl ComplaintBuilder {
         &self.complaint_sub_type
     }
     /// <p>The value of the <code>Feedback-Type</code> field from the feedback report received from the ISP.</p>
-    pub fn complaint_feedback_type(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn complaint_feedback_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.complaint_feedback_type = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The value of the <code>Feedback-Type</code> field from the feedback report received from the ISP.</p>
-    pub fn set_complaint_feedback_type(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_complaint_feedback_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.complaint_feedback_type = input;
         self
     }

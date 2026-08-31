@@ -11,8 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<BatchExecuteStatementError>`](crate::operation::batch_execute_statement::BatchExecuteStatementError)
     pub fn batch_execute_statement(
         &self,
-    ) -> crate::operation::batch_execute_statement::builders::BatchExecuteStatementFluentBuilder
-    {
+    ) -> crate::operation::batch_execute_statement::builders::BatchExecuteStatementFluentBuilder {
         crate::operation::batch_execute_statement::builders::BatchExecuteStatementFluentBuilder::new(
             self.handle.clone(),
         )

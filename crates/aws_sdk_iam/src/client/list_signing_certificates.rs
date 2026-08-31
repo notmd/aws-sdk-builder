@@ -14,8 +14,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListSigningCertificatesError>`](crate::operation::list_signing_certificates::ListSigningCertificatesError)
     pub fn list_signing_certificates(
         &self,
-    ) -> crate::operation::list_signing_certificates::builders::ListSigningCertificatesFluentBuilder
-    {
-        crate::operation::list_signing_certificates::builders::ListSigningCertificatesFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::list_signing_certificates::builders::ListSigningCertificatesFluentBuilder {
+        crate::operation::list_signing_certificates::builders::ListSigningCertificatesFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

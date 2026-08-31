@@ -107,12 +107,11 @@ impl CreateGrantFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::create_grant::CreateGrant::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::create_grant::CreateGrant::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::create_grant::CreateGrant::orchestrate(&runtime_plugins, input).await
     }
 
@@ -185,20 +184,14 @@ impl CreateGrantFluentBuilder {
     /// <p>The identity that gets the permissions specified in the grant.</p>
     /// <p>To specify the grantee principal, use the Amazon Resource Name (ARN) of an Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles, federated users, and assumed role users. For help with the ARN syntax for a principal, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i> <i>Identity and Access Management User Guide</i> </i>.</p>
     /// <p>You must specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>
-    pub fn grantee_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn grantee_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.grantee_principal(input.into());
         self
     }
     /// <p>The identity that gets the permissions specified in the grant.</p>
     /// <p>To specify the grantee principal, use the Amazon Resource Name (ARN) of an Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles, federated users, and assumed role users. For help with the ARN syntax for a principal, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i> <i>Identity and Access Management User Guide</i> </i>.</p>
     /// <p>You must specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>
-    pub fn set_grantee_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_grantee_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_grantee_principal(input);
         self
     }
@@ -212,10 +205,7 @@ impl CreateGrantFluentBuilder {
     /// <p>To specify the principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles, federated users, and assumed role users. For help with the ARN syntax for a principal, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i> <i>Identity and Access Management User Guide</i> </i>.</p>
     /// <p>The grant determines the retiring principal. Other principals might have permission to retire the grant or revoke the grant. For details, see <code>RevokeGrant</code> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-delete.html">Retiring and revoking grants</a> in the <i>Key Management Service Developer Guide</i>.</p>
     /// <p>You can specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
-    pub fn retiring_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn retiring_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.retiring_principal(input.into());
         self
     }
@@ -223,10 +213,7 @@ impl CreateGrantFluentBuilder {
     /// <p>To specify the principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles, federated users, and assumed role users. For help with the ARN syntax for a principal, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i> <i>Identity and Access Management User Guide</i> </i>.</p>
     /// <p>The grant determines the retiring principal. Other principals might have permission to retire the grant or revoke the grant. For details, see <code>RevokeGrant</code> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-delete.html">Retiring and revoking grants</a> in the <i>Key Management Service Developer Guide</i>.</p>
     /// <p>You can specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
-    pub fn set_retiring_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_retiring_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_retiring_principal(input);
         self
     }
@@ -259,9 +246,7 @@ impl CreateGrantFluentBuilder {
     }
     /// <p>A list of operations that the grant permits.</p>
     /// <p>This list must include only operations that are permitted in a grant. Also, the operation must be supported on the KMS key. For example, you cannot create a grant for a symmetric encryption KMS key that allows the <code>Sign</code> operation, or a grant for an asymmetric KMS key that allows the <code>GenerateDataKey</code> operation. If you try, KMS returns a <code>ValidationError</code> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant operations</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn get_operations(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GrantOperation>> {
+    pub fn get_operations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GrantOperation>> {
         self.inner.get_operations()
     }
     /// <p>Specifies a grant constraint.</p><important>
@@ -294,10 +279,7 @@ impl CreateGrantFluentBuilder {
     /// <p><code>SourceArn</code> — This grant constraint allows the permissions in the grant only when the request is made on behalf of a specific Amazon Web Services resource, identified by its <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a>. This is effectively the same as having the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn">aws:SourceArn</a> global condition key in the grant. The SourceArn constraint is supported on grants for all types of KMS keys and can also be applied to the <code>DescribeKey</code> operation when specified in the request. However, it does not apply to <code>RetireGrant</code> operation.</p></li>
     /// </ul>
     /// <p>For information about grant constraints, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints">Using grant constraints</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn set_constraints(
-        mut self,
-        input: ::std::option::Option<crate::types::GrantConstraints>,
-    ) -> Self {
+    pub fn set_constraints(mut self, input: ::std::option::Option<crate::types::GrantConstraints>) -> Self {
         self.inner = self.inner.set_constraints(input);
         self
     }
@@ -330,18 +312,13 @@ impl CreateGrantFluentBuilder {
     }
     /// <p>A list of grant tokens.</p>
     /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn set_grant_tokens(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_grant_tokens(input);
         self
     }
     /// <p>A list of grant tokens.</p>
     /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn get_grant_tokens(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_grant_tokens()
     }
     /// <p>A friendly name for the grant. Use this value to prevent the unintended creation of duplicate grants when retrying this request.</p><important>
@@ -390,20 +367,14 @@ impl CreateGrantFluentBuilder {
     /// <p>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a> that gets the permissions specified in the grant.</p>
     /// <p>When you specify a <code>GranteeServicePrincipal</code>, you must also specify a <code>SourceArn</code> grant constraint. In addition, you must specify either a <code>RetiringPrincipal</code> or a <code>RetiringServicePrincipal</code>.</p>
     /// <p>You must specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>
-    pub fn grantee_service_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn grantee_service_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.grantee_service_principal(input.into());
         self
     }
     /// <p>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a> that gets the permissions specified in the grant.</p>
     /// <p>When you specify a <code>GranteeServicePrincipal</code>, you must also specify a <code>SourceArn</code> grant constraint. In addition, you must specify either a <code>RetiringPrincipal</code> or a <code>RetiringServicePrincipal</code>.</p>
     /// <p>You must specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>
-    pub fn set_grantee_service_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_grantee_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_grantee_service_principal(input);
         self
     }
@@ -415,19 +386,13 @@ impl CreateGrantFluentBuilder {
     }
     /// <p>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a> that has permission to use the <code>RetireGrant</code> operation to retire the grant.</p>
     /// <p>You can specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
-    pub fn retiring_service_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn retiring_service_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.retiring_service_principal(input.into());
         self
     }
     /// <p>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a> that has permission to use the <code>RetireGrant</code> operation to retire the grant.</p>
     /// <p>You can specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
-    pub fn set_retiring_service_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_retiring_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_retiring_service_principal(input);
         self
     }

@@ -57,7 +57,9 @@ impl GetScheduledQueryHistoryFluentBuilder {
         }
     }
     /// Access the GetScheduledQueryHistory as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_scheduled_query_history::builders::GetScheduledQueryHistoryInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_scheduled_query_history::builders::GetScheduledQueryHistoryInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,16 +83,14 @@ impl GetScheduledQueryHistoryFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_scheduled_query_history::GetScheduledQueryHistory::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::get_scheduled_query_history::GetScheduledQueryHistory::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::get_scheduled_query_history::GetScheduledQueryHistory::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::get_scheduled_query_history::GetScheduledQueryHistory::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -123,9 +123,11 @@ impl GetScheduledQueryHistoryFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::get_scheduled_query_history::paginator::GetScheduledQueryHistoryPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::get_scheduled_query_history::paginator::GetScheduledQueryHistoryPaginator
-    {
-        crate::operation::get_scheduled_query_history::paginator::GetScheduledQueryHistoryPaginator::new(self.handle, self.inner)
+    ) -> crate::operation::get_scheduled_query_history::paginator::GetScheduledQueryHistoryPaginator {
+        crate::operation::get_scheduled_query_history::paginator::GetScheduledQueryHistoryPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The ARN or name of the scheduled query to retrieve history for.</p>
     pub fn identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -188,9 +190,7 @@ impl GetScheduledQueryHistoryFluentBuilder {
         self
     }
     /// <p>An array of execution statuses to filter the history results. Only executions with the specified statuses are returned.</p>
-    pub fn get_execution_statuses(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ExecutionStatus>> {
+    pub fn get_execution_statuses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ExecutionStatus>> {
         self.inner.get_execution_statuses()
     }
     /// <p>The maximum number of history records to return. Valid range is 1 to 1000.</p>

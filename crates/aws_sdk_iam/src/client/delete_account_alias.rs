@@ -9,8 +9,6 @@ impl super::Client {
     pub fn delete_account_alias(
         &self,
     ) -> crate::operation::delete_account_alias::builders::DeleteAccountAliasFluentBuilder {
-        crate::operation::delete_account_alias::builders::DeleteAccountAliasFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_account_alias::builders::DeleteAccountAliasFluentBuilder::new(self.handle.clone())
     }
 }

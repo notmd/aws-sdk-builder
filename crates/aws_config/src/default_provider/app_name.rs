@@ -79,9 +79,8 @@ impl Builder {
             other => other,
         };
 
-        with_fallback.map_err(
-                |err| tracing::warn!(err = %DisplayErrorContext(&err), "invalid value for App Name setting"),
-            )
+        with_fallback
+            .map_err(|err| tracing::warn!(err = %DisplayErrorContext(&err), "invalid value for App Name setting"))
             .unwrap_or(None)
     }
 }
@@ -99,10 +98,7 @@ mod tests {
     #[tokio::test]
     async fn prefer_env_to_profile() {
         let fs = Fs::from_slice(&[("test_config", "[default]\nsdk-ua-app-id = wrong")]);
-        let env = Env::from_slice(&[
-            ("AWS_CONFIG_FILE", "test_config"),
-            ("AWS_SDK_UA_APP_ID", "correct"),
-        ]);
+        let env = Env::from_slice(&[("AWS_CONFIG_FILE", "test_config"), ("AWS_SDK_UA_APP_ID", "correct")]);
         let app_name = Builder::default()
             .configure(
                 &ProviderConfig::no_configuration()

@@ -60,10 +60,7 @@ impl ListVirtualMFADevicesFluentBuilder {
         }
     }
     /// Access the ListVirtualMFADevices as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,16 +84,13 @@ impl ListVirtualMFADevicesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_virtual_mfa_devices::ListVirtualMFADevices::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_virtual_mfa_devices::ListVirtualMFADevices::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::list_virtual_mfa_devices::ListVirtualMFADevices::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_virtual_mfa_devices::ListVirtualMFADevices::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -141,17 +135,12 @@ impl ListVirtualMFADevicesFluentBuilder {
         self
     }
     /// <p>The status (<code>Unassigned</code> or <code>Assigned</code>) of the devices to list. If you do not specify an <code>AssignmentStatus</code>, the operation defaults to <code>Any</code>, which lists both assigned and unassigned virtual MFA devices.,</p>
-    pub fn set_assignment_status(
-        mut self,
-        input: ::std::option::Option<crate::types::AssignmentStatusType>,
-    ) -> Self {
+    pub fn set_assignment_status(mut self, input: ::std::option::Option<crate::types::AssignmentStatusType>) -> Self {
         self.inner = self.inner.set_assignment_status(input);
         self
     }
     /// <p>The status (<code>Unassigned</code> or <code>Assigned</code>) of the devices to list. If you do not specify an <code>AssignmentStatus</code>, the operation defaults to <code>Any</code>, which lists both assigned and unassigned virtual MFA devices.,</p>
-    pub fn get_assignment_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::AssignmentStatusType> {
+    pub fn get_assignment_status(&self) -> &::std::option::Option<crate::types::AssignmentStatusType> {
         self.inner.get_assignment_status()
     }
     /// <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>

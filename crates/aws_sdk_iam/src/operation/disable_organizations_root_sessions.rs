@@ -17,7 +17,7 @@ impl DisableOrganizationsRootSessions {
             crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<
             ::aws_smithy_runtime_api::client::interceptors::context::Error,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -85,29 +85,22 @@ impl DisableOrganizationsRootSessions {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(
-                crate::config::ConfigOverrideRuntimePlugin::new(
-                    config_override,
-                    client_config.config.clone(),
-                    &client_config.runtime_components,
-                ),
-            );
+            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+                config_override,
+                client_config.config.clone(),
+                &client_config.runtime_components,
+            ));
         }
         runtime_plugins
     }
 }
-impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
-    for DisableOrganizationsRootSessions
-{
+impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for DisableOrganizationsRootSessions {
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
-        let mut cfg =
-            ::aws_smithy_types::config_bag::Layer::new("DisableOrganizationsRootSessions");
+        let mut cfg = ::aws_smithy_types::config_bag::Layer::new("DisableOrganizationsRootSessions");
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                DisableOrganizationsRootSessionsRequestSerializer,
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+            DisableOrganizationsRootSessionsRequestSerializer,
+        ));
         cfg.store_put(
             ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
                 DisableOrganizationsRootSessionsResponseDeserializer,
@@ -123,12 +116,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
             ),
         );
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-                "DisableOrganizationsRootSessions",
-                "IAM",
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+            "DisableOrganizationsRootSessions",
+            "IAM",
+        ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = true;
         signing_options.content_sha256_header = false;
@@ -146,27 +137,34 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<
-        '_,
-        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    > {
+    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
-        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DisableOrganizationsRootSessions")
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new(
+            "DisableOrganizationsRootSessions",
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 DisableOrganizationsRootSessionsEndpointParamsInterceptor,
-            ))
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+            ),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                 crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError,
-            >::new())
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+            >::new(),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                 crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError,
-            >::new())
-            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError,
-            >::new());
+            >::new(),
+        )
+        .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+            crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError,
+        >::new());
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -200,9 +198,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
 }
 #[derive(Debug)]
 struct DisableOrganizationsRootSessionsRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
-    for DisableOrganizationsRootSessionsRequestSerializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DisableOrganizationsRootSessionsRequestSerializer {
     #[allow(
         unused_mut,
         clippy::let_and_return,
@@ -229,8 +225,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_base(
                 _input: &crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
                 ::std::write!(output, "/").expect("formatting should succeed");
                 ::std::result::Result::Ok(())
@@ -239,10 +234,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn update_http_builder(
                 input: &crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<
-                ::http_1x::request::Builder,
-                ::aws_smithy_types::error::operation::BuildError,
-            > {
+            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
@@ -261,13 +254,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             )?,
         );
 
-        ::std::result::Result::Ok(
-            request_builder
-                .body(body)
-                .expect("valid request")
-                .try_into()
-                .unwrap(),
-        )
+        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
 #[derive(Debug)]
@@ -297,22 +284,13 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             .ok_or("failed to downcast to DisableOrganizationsRootSessionsInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_use_dual_stack(
-                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
-                    .map(|ty| ty.0),
-            )
-            .set_use_fips(
-                cfg.load::<::aws_types::endpoint_config::UseFips>()
-                    .map(|ty| ty.0),
-            )
+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_endpoint(
                 cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
                     .map(|ty| ty.0.clone()),
             )
-            .set_region(
-                cfg.load::<::aws_types::region::Region>()
-                    .map(|r| r.as_ref().to_owned()),
-            )
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .build()
             .map_err(|err| {
                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(
@@ -320,9 +298,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
                     err,
                 )
             })?;
-        cfg.interceptor_state().store_put(
-            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
-        );
+        cfg.interceptor_state()
+            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(
+                params,
+            ));
         ::std::result::Result::Ok(())
     }
 }
@@ -341,9 +320,7 @@ pub enum DisableOrganizationsRootSessionsError {
     /// <p>The request was rejected because no organization is associated with your account.</p>
     OrganizationNotFoundException(crate::types::error::OrganizationNotFoundException),
     /// <p>The request was rejected because your organization does not have All features enabled. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set">Available feature sets</a> in the <i>Organizations User Guide</i>.</p>
-    OrganizationNotInAllFeaturesModeException(
-        crate::types::error::OrganizationNotInAllFeaturesModeException,
-    ),
+    OrganizationNotInAllFeaturesModeException(crate::types::error::OrganizationNotInAllFeaturesModeException),
     /// <p>The request was rejected because trusted access is not enabled for IAM in Organizations. For details, see IAM and Organizations in the <i>Organizations User Guide</i>.</p>
     ServiceAccessNotEnabledException(crate::types::error::ServiceAccessNotEnabledException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
@@ -361,9 +338,7 @@ impl DisableOrganizationsRootSessionsError {
     /// Creates the `DisableOrganizationsRootSessionsError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -402,10 +377,7 @@ impl DisableOrganizationsRootSessionsError {
     }
     /// Returns `true` if the error kind is `DisableOrganizationsRootSessionsError::AccountNotManagementOrDelegatedAdministratorException`.
     pub fn is_account_not_management_or_delegated_administrator_exception(&self) -> bool {
-        matches!(
-            self,
-            Self::AccountNotManagementOrDelegatedAdministratorException(_)
-        )
+        matches!(self, Self::AccountNotManagementOrDelegatedAdministratorException(_))
     }
     /// Returns `true` if the error kind is `DisableOrganizationsRootSessionsError::OrganizationNotFoundException`.
     pub fn is_organization_not_found_exception(&self) -> bool {
@@ -423,13 +395,9 @@ impl DisableOrganizationsRootSessionsError {
 impl ::std::error::Error for DisableOrganizationsRootSessionsError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
-            Self::AccountNotManagementOrDelegatedAdministratorException(_inner) => {
-                ::std::option::Option::Some(_inner)
-            }
+            Self::AccountNotManagementOrDelegatedAdministratorException(_inner) => ::std::option::Option::Some(_inner),
             Self::OrganizationNotFoundException(_inner) => ::std::option::Option::Some(_inner),
-            Self::OrganizationNotInAllFeaturesModeException(_inner) => {
-                ::std::option::Option::Some(_inner)
-            }
+            Self::OrganizationNotInAllFeaturesModeException(_inner) => ::std::option::Option::Some(_inner),
             Self::ServiceAccessNotEnabledException(_inner) => ::std::option::Option::Some(_inner),
             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
         }
@@ -462,9 +430,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for DisableOrganizationsRootSes
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
-    for DisableOrganizationsRootSessionsError
-{
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DisableOrganizationsRootSessionsError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::AccountNotManagementOrDelegatedAdministratorException(_inner) => {
@@ -483,13 +449,9 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
-    for DisableOrganizationsRootSessionsError
-{
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for DisableOrganizationsRootSessionsError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {

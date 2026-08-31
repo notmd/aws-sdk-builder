@@ -124,9 +124,7 @@ impl Client {
         &self.handle.conf
     }
 
-    fn validate_config(
-        handle: &Handle,
-    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
+    fn validate_config(handle: &Handle) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
         let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();
         handle
             .runtime_plugins
@@ -162,9 +160,7 @@ impl Waiters for Client {
     fn wait_until_instance_profile_exists(
         &self,
     ) -> crate::waiters::instance_profile_exists::InstanceProfileExistsFluentBuilder {
-        crate::waiters::instance_profile_exists::InstanceProfileExistsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::waiters::instance_profile_exists::InstanceProfileExistsFluentBuilder::new(self.handle.clone())
     }
     #[cfg(feature = "op_get_policy")]
     fn wait_until_policy_exists(&self) -> crate::waiters::policy_exists::PolicyExistsFluentBuilder {

@@ -52,8 +52,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<CreateMultipartUploadError>`](crate::operation::create_multipart_upload::CreateMultipartUploadError)
     pub fn create_multipart_upload(
         &self,
-    ) -> crate::operation::create_multipart_upload::builders::CreateMultipartUploadFluentBuilder
-    {
+    ) -> crate::operation::create_multipart_upload::builders::CreateMultipartUploadFluentBuilder {
         crate::operation::create_multipart_upload::builders::CreateMultipartUploadFluentBuilder::new(
             self.handle.clone(),
         )

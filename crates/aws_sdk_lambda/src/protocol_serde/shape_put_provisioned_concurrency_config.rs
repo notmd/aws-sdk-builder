@@ -9,14 +9,21 @@ pub fn de_put_provisioned_concurrency_config_http_error(
     crate::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body).map_err(
+            crate::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::unhandled,
+        )?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    let error_code = match generic.code() {
-        Some(code) => code,
-        None => return Err(crate::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::unhandled(generic)),
-    };
+    let error_code =
+        match generic.code() {
+            Some(code) => code,
+            None => return Err(
+                crate::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::unhandled(
+                    generic,
+                ),
+            ),
+        };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
@@ -132,21 +139,23 @@ pub fn de_put_provisioned_concurrency_config_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::put_provisioned_concurrency_config::builders::PutProvisionedConcurrencyConfigOutputBuilder::default();
-        output = crate::protocol_serde::shape_put_provisioned_concurrency_config::de_put_provisioned_concurrency_config(_response_body, output)
-            .map_err(crate::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output =
+            crate::protocol_serde::shape_put_provisioned_concurrency_config::de_put_provisioned_concurrency_config(
+                _response_body,
+                output,
+            )
+            .map_err(
+                crate::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::unhandled,
+            )?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_put_provisioned_concurrency_config_input(
     input: &crate::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
     crate::protocol_serde::shape_put_provisioned_concurrency_config_input::ser_put_provisioned_concurrency_config_input_input(&mut object, input)?;
@@ -160,11 +169,9 @@ pub(crate) fn de_put_provisioned_concurrency_config(
 ) -> ::std::result::Result<
     crate::operation::put_provisioned_concurrency_config::builders::PutProvisionedConcurrencyConfigOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
->{
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+> {
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -172,84 +179,65 @@ pub(crate) fn de_put_provisioned_concurrency_config(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "AllocatedProvisionedConcurrentExecutions" => {
-                        builder = builder.set_allocated_provisioned_concurrent_executions(
-                            ::aws_smithy_json::deserialize::token::expect_number_or_null(
-                                tokens.next(),
-                            )?
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "AllocatedProvisionedConcurrentExecutions" => {
+                    builder = builder.set_allocated_provisioned_concurrent_executions(
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i32::try_from)
                             .transpose()?,
-                        );
-                    }
-                    "AvailableProvisionedConcurrentExecutions" => {
-                        builder = builder.set_available_provisioned_concurrent_executions(
-                            ::aws_smithy_json::deserialize::token::expect_number_or_null(
-                                tokens.next(),
-                            )?
+                    );
+                }
+                "AvailableProvisionedConcurrentExecutions" => {
+                    builder = builder.set_available_provisioned_concurrent_executions(
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i32::try_from)
                             .transpose()?,
-                        );
-                    }
-                    "LastModified" => {
-                        builder = builder.set_last_modified(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                tokens.next(),
-                            )?
+                    );
+                }
+                "LastModified" => {
+                    builder = builder.set_last_modified(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                        );
-                    }
-                    "RequestedProvisionedConcurrentExecutions" => {
-                        builder = builder.set_requested_provisioned_concurrent_executions(
-                            ::aws_smithy_json::deserialize::token::expect_number_or_null(
-                                tokens.next(),
-                            )?
+                    );
+                }
+                "RequestedProvisionedConcurrentExecutions" => {
+                    builder = builder.set_requested_provisioned_concurrent_executions(
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
                             .map(i32::try_from)
                             .transpose()?,
-                        );
-                    }
-                    "Status" => {
-                        builder = builder.set_status(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                tokens.next(),
-                            )?
+                    );
+                }
+                "Status" => {
+                    builder = builder.set_status(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| {
-                                s.to_unescaped().map(|u| {
-                                    crate::types::ProvisionedConcurrencyStatusEnum::from(u.as_ref())
-                                })
+                                s.to_unescaped()
+                                    .map(|u| crate::types::ProvisionedConcurrencyStatusEnum::from(u.as_ref()))
                             })
                             .transpose()?,
-                        );
-                    }
-                    "StatusReason" => {
-                        builder = builder.set_status_reason(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                tokens.next(),
-                            )?
+                    );
+                }
+                "StatusReason" => {
+                    builder = builder.set_status_reason(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    );
                 }
-            }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

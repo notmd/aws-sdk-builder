@@ -40,9 +40,7 @@ impl GuardrailTopic {
 }
 
 /// A builder for [`GuardrailTopic`](crate::types::GuardrailTopic).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailTopicBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
@@ -73,10 +71,7 @@ impl GuardrailTopicBuilder {
         self
     }
     /// <p>The type behavior that the guardrail should perform when the model detects the topic.</p>
-    pub fn set_type(
-        mut self,
-        input: ::std::option::Option<crate::types::GuardrailTopicType>,
-    ) -> Self {
+    pub fn set_type(mut self, input: ::std::option::Option<crate::types::GuardrailTopicType>) -> Self {
         self.r#type = input;
         self
     }
@@ -91,10 +86,7 @@ impl GuardrailTopicBuilder {
         self
     }
     /// <p>The action the guardrail should take when it intervenes on a topic.</p>
-    pub fn set_action(
-        mut self,
-        input: ::std::option::Option<crate::types::GuardrailTopicPolicyAction>,
-    ) -> Self {
+    pub fn set_action(mut self, input: ::std::option::Option<crate::types::GuardrailTopicPolicyAction>) -> Self {
         self.action = input;
         self
     }
@@ -123,10 +115,7 @@ impl GuardrailTopicBuilder {
     /// - [`action`](crate::types::builders::GuardrailTopicBuilder::action)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::GuardrailTopic,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::GuardrailTopic, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GuardrailTopic {
             name: self.name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -55,10 +55,7 @@ pub(crate) fn parse_url<'a>(url: &'a str, e: &mut DiagnosticCollector) -> Option
         return None;
     }
     if !["http", "https"].contains(&url.scheme()) {
-        e.report_error(format!(
-            "URL scheme must be HTTP or HTTPS (found {})",
-            url.scheme()
-        ));
+        e.report_error(format!("URL scheme must be HTTP or HTTPS (found {})", url.scheme()));
         return None;
     }
     Some(Url { url, uri, raw })

@@ -47,9 +47,7 @@ impl AssociatedPackage {
         self.package.as_deref()
     }
     /// <p>Describes the strength of the association between the package and package group. A strong match can be thought of as an exact match, and a weak match can be thought of as a variation match, for example, the package name matches a variation of the package group pattern. For more information about package group pattern matching, including strong and weak matches, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/package-group-definition-syntax-matching-behavior.html">Package group definition syntax and matching behavior</a> in the <i>CodeArtifact User Guide</i>.</p>
-    pub fn association_type(
-        &self,
-    ) -> ::std::option::Option<&crate::types::PackageGroupAssociationType> {
+    pub fn association_type(&self) -> ::std::option::Option<&crate::types::PackageGroupAssociationType> {
         self.association_type.as_ref()
     }
 }
@@ -61,9 +59,7 @@ impl AssociatedPackage {
 }
 
 /// A builder for [`AssociatedPackage`](crate::types::AssociatedPackage).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AssociatedPackageBuilder {
     pub(crate) format: ::std::option::Option<crate::types::PackageFormat>,
@@ -158,9 +154,7 @@ impl AssociatedPackageBuilder {
         self
     }
     /// <p>Describes the strength of the association between the package and package group. A strong match can be thought of as an exact match, and a weak match can be thought of as a variation match, for example, the package name matches a variation of the package group pattern. For more information about package group pattern matching, including strong and weak matches, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/package-group-definition-syntax-matching-behavior.html">Package group definition syntax and matching behavior</a> in the <i>CodeArtifact User Guide</i>.</p>
-    pub fn get_association_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::PackageGroupAssociationType> {
+    pub fn get_association_type(&self) -> &::std::option::Option<crate::types::PackageGroupAssociationType> {
         &self.association_type
     }
     /// Consumes the builder and constructs a [`AssociatedPackage`](crate::types::AssociatedPackage).

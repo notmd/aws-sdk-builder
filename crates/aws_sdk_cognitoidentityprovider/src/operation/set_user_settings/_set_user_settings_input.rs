@@ -79,9 +79,7 @@ impl SetUserSettingsInputBuilder {
         self
     }
     /// <p>You can use this parameter only to set an SMS configuration that uses SMS for delivery.</p>
-    pub fn get_mfa_options(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::MfaOptionType>> {
+    pub fn get_mfa_options(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MfaOptionType>> {
         &self.mfa_options
     }
     /// Consumes the builder and constructs a [`SetUserSettingsInput`](crate::operation::set_user_settings::SetUserSettingsInput).

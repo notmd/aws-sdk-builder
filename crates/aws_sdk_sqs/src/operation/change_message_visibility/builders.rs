@@ -43,8 +43,7 @@ impl crate::operation::change_message_visibility::builders::ChangeMessageVisibil
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ChangeMessageVisibilityFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::change_message_visibility::builders::ChangeMessageVisibilityInputBuilder,
+    inner: crate::operation::change_message_visibility::builders::ChangeMessageVisibilityInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -77,8 +76,7 @@ impl ChangeMessageVisibilityFluentBuilder {
     /// Access the ChangeMessageVisibility as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::change_message_visibility::builders::ChangeMessageVisibilityInputBuilder
-    {
+    ) -> &crate::operation::change_message_visibility::builders::ChangeMessageVisibilityInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -102,16 +100,13 @@ impl ChangeMessageVisibilityFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::change_message_visibility::ChangeMessageVisibility::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::change_message_visibility::ChangeMessageVisibility::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::change_message_visibility::ChangeMessageVisibility::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::change_message_visibility::ChangeMessageVisibility::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -157,18 +152,12 @@ impl ChangeMessageVisibilityFluentBuilder {
         self.inner.get_queue_url()
     }
     /// <p>The receipt handle associated with the message, whose visibility timeout is changed. This parameter is returned by the <code> <code>ReceiveMessage</code> </code> action.</p>
-    pub fn receipt_handle(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn receipt_handle(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.receipt_handle(input.into());
         self
     }
     /// <p>The receipt handle associated with the message, whose visibility timeout is changed. This parameter is returned by the <code> <code>ReceiveMessage</code> </code> action.</p>
-    pub fn set_receipt_handle(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_receipt_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_receipt_handle(input);
         self
     }

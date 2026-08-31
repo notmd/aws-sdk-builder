@@ -5,16 +5,13 @@
 pub struct GetAccountSummaryInput {}
 impl GetAccountSummaryInput {
     /// Creates a new builder-style object to manufacture [`GetAccountSummaryInput`](crate::operation::get_account_summary::GetAccountSummaryInput).
-    pub fn builder(
-    ) -> crate::operation::get_account_summary::builders::GetAccountSummaryInputBuilder {
+    pub fn builder() -> crate::operation::get_account_summary::builders::GetAccountSummaryInputBuilder {
         crate::operation::get_account_summary::builders::GetAccountSummaryInputBuilder::default()
     }
 }
 
 /// A builder for [`GetAccountSummaryInput`](crate::operation::get_account_summary::GetAccountSummaryInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetAccountSummaryInputBuilder {}
 impl GetAccountSummaryInputBuilder {

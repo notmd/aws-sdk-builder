@@ -16,8 +16,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<StartDeviceAuthorizationError>`](crate::operation::start_device_authorization::StartDeviceAuthorizationError)
     pub fn start_device_authorization(
         &self,
-    ) -> crate::operation::start_device_authorization::builders::StartDeviceAuthorizationFluentBuilder
-    {
-        crate::operation::start_device_authorization::builders::StartDeviceAuthorizationFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::start_device_authorization::builders::StartDeviceAuthorizationFluentBuilder {
+        crate::operation::start_device_authorization::builders::StartDeviceAuthorizationFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

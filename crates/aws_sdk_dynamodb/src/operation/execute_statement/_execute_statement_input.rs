@@ -58,9 +58,7 @@ impl ExecuteStatementInput {
     /// <li>
     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
     /// </ul>
-    pub fn return_consumed_capacity(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ReturnConsumedCapacity> {
+    pub fn return_consumed_capacity(&self) -> ::std::option::Option<&crate::types::ReturnConsumedCapacity> {
         self.return_consumed_capacity.as_ref()
     }
     /// <p>The maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, along with a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation so you can pick up where you left off. Also, if the processed dataset size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation to continue the operation.</p>
@@ -77,24 +75,20 @@ impl ExecuteStatementInput {
 }
 impl ExecuteStatementInput {
     /// Creates a new builder-style object to manufacture [`ExecuteStatementInput`](crate::operation::execute_statement::ExecuteStatementInput).
-    pub fn builder() -> crate::operation::execute_statement::builders::ExecuteStatementInputBuilder
-    {
+    pub fn builder() -> crate::operation::execute_statement::builders::ExecuteStatementInputBuilder {
         crate::operation::execute_statement::builders::ExecuteStatementInputBuilder::default()
     }
 }
 
 /// A builder for [`ExecuteStatementInput`](crate::operation::execute_statement::ExecuteStatementInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ExecuteStatementInputBuilder {
     pub(crate) statement: ::std::option::Option<::std::string::String>,
     pub(crate) parameters: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>,
     pub(crate) consistent_read: ::std::option::Option<bool>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
-    pub(crate) return_consumed_capacity:
-        ::std::option::Option<crate::types::ReturnConsumedCapacity>,
+    pub(crate) return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
     pub(crate) limit: ::std::option::Option<i32>,
     pub(crate) return_values_on_condition_check_failure:
         ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
@@ -135,9 +129,7 @@ impl ExecuteStatementInputBuilder {
         self
     }
     /// <p>The parameters for the PartiQL statement, if any.</p>
-    pub fn get_parameters(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>> {
+    pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>> {
         &self.parameters
     }
     /// <p>The consistency of a read operation. If set to <code>true</code>, then a strongly consistent read is used; otherwise, an eventually consistent read is used.</p>
@@ -209,9 +201,7 @@ impl ExecuteStatementInputBuilder {
     /// <li>
     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
     /// </ul>
-    pub fn get_return_consumed_capacity(
-        &self,
-    ) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
+    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
         &self.return_consumed_capacity
     }
     /// <p>The maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, along with a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation so you can pick up where you left off. Also, if the processed dataset size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation to continue the operation.</p>

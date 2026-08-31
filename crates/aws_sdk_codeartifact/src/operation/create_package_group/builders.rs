@@ -57,9 +57,7 @@ impl CreatePackageGroupFluentBuilder {
         }
     }
     /// Access the CreatePackageGroup as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::create_package_group::builders::CreatePackageGroupInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::create_package_group::builders::CreatePackageGroupInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,17 +81,12 @@ impl CreatePackageGroupFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::create_package_group::CreatePackageGroup::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::create_package_group::CreatePackageGroup::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::create_package_group::CreatePackageGroup::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::create_package_group::CreatePackageGroup::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -150,18 +143,12 @@ impl CreatePackageGroupFluentBuilder {
         self.inner.get_domain_owner()
     }
     /// <p>The pattern of the package group to create. The pattern is also the identifier of the package group.</p>
-    pub fn package_group(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_group(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.package_group(input.into());
         self
     }
     /// <p>The pattern of the package group to create. The pattern is also the identifier of the package group.</p>
-    pub fn set_package_group(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_group(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_package_group(input);
         self
     }
@@ -208,10 +195,7 @@ impl CreatePackageGroupFluentBuilder {
         self
     }
     /// <p>One or more tag key-value pairs for the package group.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }

@@ -14,8 +14,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<AdminListGroupsForUserError>`](crate::operation::admin_list_groups_for_user::AdminListGroupsForUserError)
     pub fn admin_list_groups_for_user(
         &self,
-    ) -> crate::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserFluentBuilder
-    {
-        crate::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserFluentBuilder {
+        crate::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -41,9 +41,7 @@ impl VerificationMessageTemplateType {
     }
     /// <p>The configuration of verification emails to contain a clickable link or a verification code.</p>
     /// <p>For link, your template body must contain link text in the format <code>{##Click here##}</code>. "Click here" in the example is a customizable string. For code, your template body must contain a code placeholder in the format <code>{####}</code>.</p>
-    pub fn default_email_option(
-        &self,
-    ) -> ::std::option::Option<&crate::types::DefaultEmailOptionType> {
+    pub fn default_email_option(&self) -> ::std::option::Option<&crate::types::DefaultEmailOptionType> {
         self.default_email_option.as_ref()
     }
 }
@@ -55,9 +53,7 @@ impl VerificationMessageTemplateType {
 }
 
 /// A builder for [`VerificationMessageTemplateType`](crate::types::VerificationMessageTemplateType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct VerificationMessageTemplateTypeBuilder {
     pub(crate) sms_message: ::std::option::Option<::std::string::String>,
@@ -83,18 +79,12 @@ impl VerificationMessageTemplateTypeBuilder {
         &self.sms_message
     }
     /// <p>The template for email messages that Amazon Cognito sends to your users. You can set an <code>EmailMessage</code> template only if the value of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is <code>DEVELOPER</code>. When your <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is <code>DEVELOPER</code>, your user pool sends email messages with your own Amazon SES configuration.</p>
-    pub fn email_message(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.email_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The template for email messages that Amazon Cognito sends to your users. You can set an <code>EmailMessage</code> template only if the value of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is <code>DEVELOPER</code>. When your <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is <code>DEVELOPER</code>, your user pool sends email messages with your own Amazon SES configuration.</p>
-    pub fn set_email_message(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.email_message = input;
         self
     }
@@ -103,18 +93,12 @@ impl VerificationMessageTemplateTypeBuilder {
         &self.email_message
     }
     /// <p>The subject line for the email message template. You can set an <code>EmailSubject</code> template only if the value of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is <code>DEVELOPER</code>. When your <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is <code>DEVELOPER</code>, your user pool sends email messages with your own Amazon SES configuration.</p>
-    pub fn email_subject(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_subject(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.email_subject = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The subject line for the email message template. You can set an <code>EmailSubject</code> template only if the value of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is <code>DEVELOPER</code>. When your <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is <code>DEVELOPER</code>, your user pool sends email messages with your own Amazon SES configuration.</p>
-    pub fn set_email_subject(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_subject(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.email_subject = input;
         self
     }
@@ -123,18 +107,12 @@ impl VerificationMessageTemplateTypeBuilder {
         &self.email_subject
     }
     /// <p>The email message template for sending a confirmation link to the user. You can set an <code>EmailMessageByLink</code> template only if the value of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is <code>DEVELOPER</code>. When your <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is <code>DEVELOPER</code>, your user pool sends email messages with your own Amazon SES configuration.</p>
-    pub fn email_message_by_link(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_message_by_link(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.email_message_by_link = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The email message template for sending a confirmation link to the user. You can set an <code>EmailMessageByLink</code> template only if the value of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is <code>DEVELOPER</code>. When your <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is <code>DEVELOPER</code>, your user pool sends email messages with your own Amazon SES configuration.</p>
-    pub fn set_email_message_by_link(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_message_by_link(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.email_message_by_link = input;
         self
     }
@@ -143,18 +121,12 @@ impl VerificationMessageTemplateTypeBuilder {
         &self.email_message_by_link
     }
     /// <p>The subject line for the email message template for sending a confirmation link to the user. You can set an <code>EmailSubjectByLink</code> template only if the value of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is <code>DEVELOPER</code>. When your <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is <code>DEVELOPER</code>, your user pool sends email messages with your own Amazon SES configuration.</p>
-    pub fn email_subject_by_link(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_subject_by_link(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.email_subject_by_link = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The subject line for the email message template for sending a confirmation link to the user. You can set an <code>EmailSubjectByLink</code> template only if the value of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is <code>DEVELOPER</code>. When your <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is <code>DEVELOPER</code>, your user pool sends email messages with your own Amazon SES configuration.</p>
-    pub fn set_email_subject_by_link(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_subject_by_link(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.email_subject_by_link = input;
         self
     }
@@ -179,9 +151,7 @@ impl VerificationMessageTemplateTypeBuilder {
     }
     /// <p>The configuration of verification emails to contain a clickable link or a verification code.</p>
     /// <p>For link, your template body must contain link text in the format <code>{##Click here##}</code>. "Click here" in the example is a customizable string. For code, your template body must contain a code placeholder in the format <code>{####}</code>.</p>
-    pub fn get_default_email_option(
-        &self,
-    ) -> &::std::option::Option<crate::types::DefaultEmailOptionType> {
+    pub fn get_default_email_option(&self) -> &::std::option::Option<crate::types::DefaultEmailOptionType> {
         &self.default_email_option
     }
     /// Consumes the builder and constructs a [`VerificationMessageTemplateType`](crate::types::VerificationMessageTemplateType).

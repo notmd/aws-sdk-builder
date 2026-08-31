@@ -63,8 +63,7 @@ impl CreateComputeEnvironmentFluentBuilder {
     /// Access the CreateComputeEnvironment as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::create_compute_environment::builders::CreateComputeEnvironmentInputBuilder
-    {
+    ) -> &crate::operation::create_compute_environment::builders::CreateComputeEnvironmentInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,16 +87,14 @@ impl CreateComputeEnvironmentFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_compute_environment::CreateComputeEnvironment::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_compute_environment::CreateComputeEnvironment::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::create_compute_environment::CreateComputeEnvironment::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::create_compute_environment::CreateComputeEnvironment::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -126,18 +123,12 @@ impl CreateComputeEnvironmentFluentBuilder {
         self
     }
     /// <p>The name for your compute environment. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
-    pub fn compute_environment_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn compute_environment_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.compute_environment_name(input.into());
         self
     }
     /// <p>The name for your compute environment. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
-    pub fn set_compute_environment_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_compute_environment_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_compute_environment_name(input);
         self
     }
@@ -217,10 +208,7 @@ impl CreateComputeEnvironmentFluentBuilder {
         self
     }
     /// <p>Details about the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the <i>Batch User Guide</i>.</p>
-    pub fn set_compute_resources(
-        mut self,
-        input: ::std::option::Option<crate::types::ComputeResource>,
-    ) -> Self {
+    pub fn set_compute_resources(mut self, input: ::std::option::Option<crate::types::ComputeResource>) -> Self {
         self.inner = self.inner.set_compute_resources(input);
         self
     }
@@ -279,9 +267,7 @@ impl CreateComputeEnvironmentFluentBuilder {
     /// <p>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a> API operations. These tags don't propagate to the underlying compute resources.</p>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_tags(input);
         self
@@ -290,9 +276,7 @@ impl CreateComputeEnvironmentFluentBuilder {
     /// <p>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a> API operations. These tags don't propagate to the underlying compute resources.</p>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_tags()
     }
     /// <p>The details for the Amazon EKS cluster that supports the compute environment.</p><note>
@@ -305,10 +289,7 @@ impl CreateComputeEnvironmentFluentBuilder {
     /// <p>The details for the Amazon EKS cluster that supports the compute environment.</p><note>
     /// <p>To create a compute environment that uses EKS resources, the caller must have permissions to call <code>eks:DescribeCluster</code>.</p>
     /// </note>
-    pub fn set_eks_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::EksConfiguration>,
-    ) -> Self {
+    pub fn set_eks_configuration(mut self, input: ::std::option::Option<crate::types::EksConfiguration>) -> Self {
         self.inner = self.inner.set_eks_configuration(input);
         self
     }
@@ -338,10 +319,7 @@ impl CreateComputeEnvironmentFluentBuilder {
         self
     }
     /// <p>The Amazon ECS settings for the compute environment. These settings control CloudWatch Container Insights collection for the compute environment.</p>
-    pub fn set_ecs_settings(
-        mut self,
-        input: ::std::option::Option<crate::types::EcsSettings>,
-    ) -> Self {
+    pub fn set_ecs_settings(mut self, input: ::std::option::Option<crate::types::EcsSettings>) -> Self {
         self.inner = self.inner.set_ecs_settings(input);
         self
     }

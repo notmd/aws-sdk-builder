@@ -9,7 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteRemediationConfigurationError>`](crate::operation::delete_remediation_configuration::DeleteRemediationConfigurationError)
     pub fn delete_remediation_configuration(
         &self,
-    ) -> crate::operation::delete_remediation_configuration::builders::DeleteRemediationConfigurationFluentBuilder{
-        crate::operation::delete_remediation_configuration::builders::DeleteRemediationConfigurationFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::delete_remediation_configuration::builders::DeleteRemediationConfigurationFluentBuilder {
+        crate::operation::delete_remediation_configuration::builders::DeleteRemediationConfigurationFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

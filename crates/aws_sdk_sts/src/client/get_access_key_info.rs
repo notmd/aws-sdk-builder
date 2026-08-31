@@ -10,8 +10,6 @@ impl super::Client {
     pub fn get_access_key_info(
         &self,
     ) -> crate::operation::get_access_key_info::builders::GetAccessKeyInfoFluentBuilder {
-        crate::operation::get_access_key_info::builders::GetAccessKeyInfoFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_access_key_info::builders::GetAccessKeyInfoFluentBuilder::new(self.handle.clone())
     }
 }

@@ -14,17 +14,13 @@ impl DescribeGlobalTableInput {
 }
 impl DescribeGlobalTableInput {
     /// Creates a new builder-style object to manufacture [`DescribeGlobalTableInput`](crate::operation::describe_global_table::DescribeGlobalTableInput).
-    pub fn builder(
-    ) -> crate::operation::describe_global_table::builders::DescribeGlobalTableInputBuilder {
-        crate::operation::describe_global_table::builders::DescribeGlobalTableInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::describe_global_table::builders::DescribeGlobalTableInputBuilder {
+        crate::operation::describe_global_table::builders::DescribeGlobalTableInputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeGlobalTableInput`](crate::operation::describe_global_table::DescribeGlobalTableInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeGlobalTableInputBuilder {
     pub(crate) global_table_name: ::std::option::Option<::std::string::String>,
@@ -32,18 +28,12 @@ pub struct DescribeGlobalTableInputBuilder {
 impl DescribeGlobalTableInputBuilder {
     /// <p>The name of the global table.</p>
     /// This field is required.
-    pub fn global_table_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn global_table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.global_table_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the global table.</p>
-    pub fn set_global_table_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.global_table_name = input;
         self
     }
@@ -58,10 +48,8 @@ impl DescribeGlobalTableInputBuilder {
         crate::operation::describe_global_table::DescribeGlobalTableInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::describe_global_table::DescribeGlobalTableInput {
-                global_table_name: self.global_table_name,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::describe_global_table::DescribeGlobalTableInput {
+            global_table_name: self.global_table_name,
+        })
     }
 }

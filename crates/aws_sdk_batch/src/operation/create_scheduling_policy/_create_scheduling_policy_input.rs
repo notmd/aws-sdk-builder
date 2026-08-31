@@ -12,9 +12,7 @@ pub struct CreateSchedulingPolicyInput {
     pub fairshare_policy: ::std::option::Option<crate::types::FairsharePolicy>,
     /// <p>The tags that you apply to the scheduling policy to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in <i>Amazon Web Services General Reference</i>.</p>
     /// <p>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a> API operations.</p>
-    pub tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl CreateSchedulingPolicyInput {
     /// <p>The name of the fair-share scheduling policy. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
@@ -33,33 +31,25 @@ impl CreateSchedulingPolicyInput {
     /// <p>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a> API operations.</p>
     pub fn tags(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
 }
 impl CreateSchedulingPolicyInput {
     /// Creates a new builder-style object to manufacture [`CreateSchedulingPolicyInput`](crate::operation::create_scheduling_policy::CreateSchedulingPolicyInput).
-    pub fn builder(
-    ) -> crate::operation::create_scheduling_policy::builders::CreateSchedulingPolicyInputBuilder
-    {
+    pub fn builder() -> crate::operation::create_scheduling_policy::builders::CreateSchedulingPolicyInputBuilder {
         crate::operation::create_scheduling_policy::builders::CreateSchedulingPolicyInputBuilder::default()
     }
 }
 
 /// A builder for [`CreateSchedulingPolicyInput`](crate::operation::create_scheduling_policy::CreateSchedulingPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateSchedulingPolicyInputBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
     pub(crate) quota_share_policy: ::std::option::Option<crate::types::QuotaSharePolicy>,
     pub(crate) fairshare_policy: ::std::option::Option<crate::types::FairsharePolicy>,
-    pub(crate) tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl CreateSchedulingPolicyInputBuilder {
     /// <p>The name of the fair-share scheduling policy. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
@@ -83,10 +73,7 @@ impl CreateSchedulingPolicyInputBuilder {
         self
     }
     /// <p>The quota share scheduling policy details. Only one of fairsharePolicy or quotaSharePolicy can be set. Once set, this policy type cannot be removed or changed to a fairSharePolicy.</p>
-    pub fn set_quota_share_policy(
-        mut self,
-        input: ::std::option::Option<crate::types::QuotaSharePolicy>,
-    ) -> Self {
+    pub fn set_quota_share_policy(mut self, input: ::std::option::Option<crate::types::QuotaSharePolicy>) -> Self {
         self.quota_share_policy = input;
         self
     }
@@ -100,10 +87,7 @@ impl CreateSchedulingPolicyInputBuilder {
         self
     }
     /// <p>The fair-share scheduling policy details. Only one of fairsharePolicy or quotaSharePolicy can be set. Once set, this policy type cannot be removed or changed to a quotaSharePolicy.</p>
-    pub fn set_fairshare_policy(
-        mut self,
-        input: ::std::option::Option<crate::types::FairsharePolicy>,
-    ) -> Self {
+    pub fn set_fairshare_policy(mut self, input: ::std::option::Option<crate::types::FairsharePolicy>) -> Self {
         self.fairshare_policy = input;
         self
     }
@@ -131,9 +115,7 @@ impl CreateSchedulingPolicyInputBuilder {
     /// <p>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a> API operations.</p>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.tags = input;
         self
@@ -142,9 +124,7 @@ impl CreateSchedulingPolicyInputBuilder {
     /// <p>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a> API operations.</p>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`CreateSchedulingPolicyInput`](crate::operation::create_scheduling_policy::CreateSchedulingPolicyInput).

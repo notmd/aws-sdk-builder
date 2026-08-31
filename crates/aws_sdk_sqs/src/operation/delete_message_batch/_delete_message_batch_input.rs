@@ -8,8 +8,7 @@ pub struct DeleteMessageBatchInput {
     /// <p>Queue URLs and names are case-sensitive.</p>
     pub queue_url: ::std::option::Option<::std::string::String>,
     /// <p>Lists the receipt handles for the messages to be deleted.</p>
-    pub entries:
-        ::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchRequestEntry>>,
+    pub entries: ::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchRequestEntry>>,
 }
 impl DeleteMessageBatchInput {
     /// <p>The URL of the Amazon SQS queue from which messages are deleted.</p>
@@ -26,21 +25,17 @@ impl DeleteMessageBatchInput {
 }
 impl DeleteMessageBatchInput {
     /// Creates a new builder-style object to manufacture [`DeleteMessageBatchInput`](crate::operation::delete_message_batch::DeleteMessageBatchInput).
-    pub fn builder(
-    ) -> crate::operation::delete_message_batch::builders::DeleteMessageBatchInputBuilder {
+    pub fn builder() -> crate::operation::delete_message_batch::builders::DeleteMessageBatchInputBuilder {
         crate::operation::delete_message_batch::builders::DeleteMessageBatchInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteMessageBatchInput`](crate::operation::delete_message_batch::DeleteMessageBatchInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteMessageBatchInputBuilder {
     pub(crate) queue_url: ::std::option::Option<::std::string::String>,
-    pub(crate) entries:
-        ::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchRequestEntry>>,
+    pub(crate) entries: ::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchRequestEntry>>,
 }
 impl DeleteMessageBatchInputBuilder {
     /// <p>The URL of the Amazon SQS queue from which messages are deleted.</p>
@@ -81,9 +76,7 @@ impl DeleteMessageBatchInputBuilder {
         self
     }
     /// <p>Lists the receipt handles for the messages to be deleted.</p>
-    pub fn get_entries(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchRequestEntry>> {
+    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchRequestEntry>> {
         &self.entries
     }
     /// Consumes the builder and constructs a [`DeleteMessageBatchInput`](crate::operation::delete_message_batch::DeleteMessageBatchInput).
@@ -93,11 +86,9 @@ impl DeleteMessageBatchInputBuilder {
         crate::operation::delete_message_batch::DeleteMessageBatchInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_message_batch::DeleteMessageBatchInput {
-                queue_url: self.queue_url,
-                entries: self.entries,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::delete_message_batch::DeleteMessageBatchInput {
+            queue_url: self.queue_url,
+            entries: self.entries,
+        })
     }
 }

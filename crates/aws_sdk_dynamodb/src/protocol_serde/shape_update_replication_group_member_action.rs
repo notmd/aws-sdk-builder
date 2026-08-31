@@ -12,13 +12,19 @@ pub fn ser_update_replication_group_member_action(
     if let Some(var_2) = &input.provisioned_throughput_override {
         #[allow(unused_mut)]
         let mut object_3 = object.key("ProvisionedThroughputOverride").start_object();
-        crate::protocol_serde::shape_provisioned_throughput_override::ser_provisioned_throughput_override(&mut object_3, var_2)?;
+        crate::protocol_serde::shape_provisioned_throughput_override::ser_provisioned_throughput_override(
+            &mut object_3,
+            var_2,
+        )?;
         object_3.finish();
     }
     if let Some(var_4) = &input.on_demand_throughput_override {
         #[allow(unused_mut)]
         let mut object_5 = object.key("OnDemandThroughputOverride").start_object();
-        crate::protocol_serde::shape_on_demand_throughput_override::ser_on_demand_throughput_override(&mut object_5, var_4)?;
+        crate::protocol_serde::shape_on_demand_throughput_override::ser_on_demand_throughput_override(
+            &mut object_5,
+            var_4,
+        )?;
         object_5.finish();
     }
     if let Some(var_6) = &input.global_secondary_indexes {
@@ -27,7 +33,10 @@ pub fn ser_update_replication_group_member_action(
             {
                 #[allow(unused_mut)]
                 let mut object_9 = array_7.value().start_object();
-                crate::protocol_serde::shape_replica_global_secondary_index::ser_replica_global_secondary_index(&mut object_9, item_8)?;
+                crate::protocol_serde::shape_replica_global_secondary_index::ser_replica_global_secondary_index(
+                    &mut object_9,
+                    item_8,
+                )?;
                 object_9.finish();
             }
         }

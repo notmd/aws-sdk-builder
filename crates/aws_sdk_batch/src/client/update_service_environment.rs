@@ -12,8 +12,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateServiceEnvironmentError>`](crate::operation::update_service_environment::UpdateServiceEnvironmentError)
     pub fn update_service_environment(
         &self,
-    ) -> crate::operation::update_service_environment::builders::UpdateServiceEnvironmentFluentBuilder
-    {
-        crate::operation::update_service_environment::builders::UpdateServiceEnvironmentFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::update_service_environment::builders::UpdateServiceEnvironmentFluentBuilder {
+        crate::operation::update_service_environment::builders::UpdateServiceEnvironmentFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

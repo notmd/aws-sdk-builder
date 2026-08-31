@@ -28,19 +28,16 @@ impl ::aws_types::request_id::RequestId for ListRepositoriesInDomainOutput {
 }
 impl ListRepositoriesInDomainOutput {
     /// Creates a new builder-style object to manufacture [`ListRepositoriesInDomainOutput`](crate::operation::list_repositories_in_domain::ListRepositoriesInDomainOutput).
-    pub fn builder() -> crate::operation::list_repositories_in_domain::builders::ListRepositoriesInDomainOutputBuilder{
+    pub fn builder() -> crate::operation::list_repositories_in_domain::builders::ListRepositoriesInDomainOutputBuilder {
         crate::operation::list_repositories_in_domain::builders::ListRepositoriesInDomainOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListRepositoriesInDomainOutput`](crate::operation::list_repositories_in_domain::ListRepositoriesInDomainOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListRepositoriesInDomainOutputBuilder {
-    pub(crate) repositories:
-        ::std::option::Option<::std::vec::Vec<crate::types::RepositorySummary>>,
+    pub(crate) repositories: ::std::option::Option<::std::vec::Vec<crate::types::RepositorySummary>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -65,9 +62,7 @@ impl ListRepositoriesInDomainOutputBuilder {
         self
     }
     /// <p>The returned list of repositories.</p>
-    pub fn get_repositories(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::RepositorySummary>> {
+    pub fn get_repositories(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RepositorySummary>> {
         &self.repositories
     }
     /// <p>If there are additional results, this is the token for the next set of results.</p>
@@ -94,9 +89,7 @@ impl ListRepositoriesInDomainOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListRepositoriesInDomainOutput`](crate::operation::list_repositories_in_domain::ListRepositoriesInDomainOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::list_repositories_in_domain::ListRepositoriesInDomainOutput {
+    pub fn build(self) -> crate::operation::list_repositories_in_domain::ListRepositoriesInDomainOutput {
         crate::operation::list_repositories_in_domain::ListRepositoriesInDomainOutput {
             repositories: self.repositories,
             next_token: self.next_token,

@@ -35,9 +35,7 @@ impl ListEndpointsByPlatformApplicationOutput {
 }
 
 /// A builder for [`ListEndpointsByPlatformApplicationOutput`](crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListEndpointsByPlatformApplicationOutputBuilder {
     pub(crate) endpoints: ::std::option::Option<::std::vec::Vec<crate::types::Endpoint>>,
@@ -57,10 +55,7 @@ impl ListEndpointsByPlatformApplicationOutputBuilder {
         self
     }
     /// <p>Endpoints returned for <code>ListEndpointsByPlatformApplication</code> action.</p>
-    pub fn set_endpoints(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Endpoint>>,
-    ) -> Self {
+    pub fn set_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Endpoint>>) -> Self {
         self.endpoints = input;
         self
     }
@@ -92,7 +87,9 @@ impl ListEndpointsByPlatformApplicationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListEndpointsByPlatformApplicationOutput`](crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput).
-    pub fn build(self) -> crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput {
         crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput {
             endpoints: self.endpoints,
             next_token: self.next_token,

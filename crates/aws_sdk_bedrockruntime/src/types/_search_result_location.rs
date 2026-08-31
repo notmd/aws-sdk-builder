@@ -33,9 +33,7 @@ impl SearchResultLocation {
 }
 
 /// A builder for [`SearchResultLocation`](crate::types::SearchResultLocation).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SearchResultLocationBuilder {
     pub(crate) search_result_index: ::std::option::Option<i32>,

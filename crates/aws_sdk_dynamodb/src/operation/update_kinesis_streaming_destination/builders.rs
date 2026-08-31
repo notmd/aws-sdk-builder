@@ -26,7 +26,8 @@ impl crate::operation::update_kinesis_streaming_destination::builders::UpdateKin
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct UpdateKinesisStreamingDestinationFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationInputBuilder,
+    inner:
+        crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -57,7 +58,10 @@ impl UpdateKinesisStreamingDestinationFluentBuilder {
         }
     }
     /// Access the UpdateKinesisStreamingDestination as a reference.
-    pub fn as_input(&self) -> &crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +80,7 @@ impl UpdateKinesisStreamingDestinationFluentBuilder {
             crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +90,11 @@ impl UpdateKinesisStreamingDestinationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestination::orchestrate(&runtime_plugins, input).await
+        crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestination::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +104,7 @@ impl UpdateKinesisStreamingDestinationFluentBuilder {
         crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationOutput,
         crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(

@@ -7,8 +7,7 @@ pub struct EksAttemptDetail {
     /// <p>The details for the final status of the containers for this job attempt.</p>
     pub containers: ::std::option::Option<::std::vec::Vec<crate::types::EksAttemptContainerDetail>>,
     /// <p>The details for the init containers.</p>
-    pub init_containers:
-        ::std::option::Option<::std::vec::Vec<crate::types::EksAttemptContainerDetail>>,
+    pub init_containers: ::std::option::Option<::std::vec::Vec<crate::types::EksAttemptContainerDetail>>,
     /// <p>The Amazon Resource Name (ARN) of the Amazon EKS cluster.</p>
     pub eks_cluster_arn: ::std::option::Option<::std::string::String>,
     /// <p>The name of the pod for this job attempt.</p>
@@ -74,15 +73,11 @@ impl EksAttemptDetail {
 }
 
 /// A builder for [`EksAttemptDetail`](crate::types::EksAttemptDetail).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EksAttemptDetailBuilder {
-    pub(crate) containers:
-        ::std::option::Option<::std::vec::Vec<crate::types::EksAttemptContainerDetail>>,
-    pub(crate) init_containers:
-        ::std::option::Option<::std::vec::Vec<crate::types::EksAttemptContainerDetail>>,
+    pub(crate) containers: ::std::option::Option<::std::vec::Vec<crate::types::EksAttemptContainerDetail>>,
+    pub(crate) init_containers: ::std::option::Option<::std::vec::Vec<crate::types::EksAttemptContainerDetail>>,
     pub(crate) eks_cluster_arn: ::std::option::Option<::std::string::String>,
     pub(crate) pod_name: ::std::option::Option<::std::string::String>,
     pub(crate) pod_namespace: ::std::option::Option<::std::string::String>,
@@ -112,9 +107,7 @@ impl EksAttemptDetailBuilder {
         self
     }
     /// <p>The details for the final status of the containers for this job attempt.</p>
-    pub fn get_containers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::EksAttemptContainerDetail>> {
+    pub fn get_containers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EksAttemptContainerDetail>> {
         &self.containers
     }
     /// Appends an item to `init_containers`.
@@ -143,18 +136,12 @@ impl EksAttemptDetailBuilder {
         &self.init_containers
     }
     /// <p>The Amazon Resource Name (ARN) of the Amazon EKS cluster.</p>
-    pub fn eks_cluster_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn eks_cluster_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.eks_cluster_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the Amazon EKS cluster.</p>
-    pub fn set_eks_cluster_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_eks_cluster_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.eks_cluster_arn = input;
         self
     }
@@ -177,18 +164,12 @@ impl EksAttemptDetailBuilder {
         &self.pod_name
     }
     /// <p>The namespace of the Amazon EKS cluster that the pod exists in.</p>
-    pub fn pod_namespace(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn pod_namespace(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.pod_namespace = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The namespace of the Amazon EKS cluster that the pod exists in.</p>
-    pub fn set_pod_namespace(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_pod_namespace(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.pod_namespace = input;
         self
     }
@@ -239,18 +220,12 @@ impl EksAttemptDetailBuilder {
         &self.stopped_at
     }
     /// <p>A short, human-readable string to provide additional details for the current status of the job attempt.</p>
-    pub fn status_reason(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn status_reason(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.status_reason = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A short, human-readable string to provide additional details for the current status of the job attempt.</p>
-    pub fn set_status_reason(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_status_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.status_reason = input;
         self
     }

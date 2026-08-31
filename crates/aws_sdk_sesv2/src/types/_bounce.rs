@@ -33,9 +33,7 @@ impl Bounce {
 }
 
 /// A builder for [`Bounce`](crate::types::Bounce).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct BounceBuilder {
     pub(crate) bounce_type: ::std::option::Option<crate::types::BounceType>,
@@ -49,10 +47,7 @@ impl BounceBuilder {
         self
     }
     /// <p>The type of the bounce, as determined by SES. Can be one of <code>UNDETERMINED</code>, <code>TRANSIENT</code>, or <code>PERMANENT</code></p>
-    pub fn set_bounce_type(
-        mut self,
-        input: ::std::option::Option<crate::types::BounceType>,
-    ) -> Self {
+    pub fn set_bounce_type(mut self, input: ::std::option::Option<crate::types::BounceType>) -> Self {
         self.bounce_type = input;
         self
     }
@@ -61,18 +56,12 @@ impl BounceBuilder {
         &self.bounce_type
     }
     /// <p>The subtype of the bounce, as determined by SES.</p>
-    pub fn bounce_sub_type(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn bounce_sub_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.bounce_sub_type = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The subtype of the bounce, as determined by SES.</p>
-    pub fn set_bounce_sub_type(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_bounce_sub_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bounce_sub_type = input;
         self
     }
@@ -81,18 +70,12 @@ impl BounceBuilder {
         &self.bounce_sub_type
     }
     /// <p>The status code issued by the reporting Message Transfer Authority (MTA). This field only appears if a delivery status notification (DSN) was attached to the bounce and the <code>Diagnostic-Code</code> was provided in the DSN.</p>
-    pub fn diagnostic_code(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn diagnostic_code(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.diagnostic_code = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The status code issued by the reporting Message Transfer Authority (MTA). This field only appears if a delivery status notification (DSN) was attached to the bounce and the <code>Diagnostic-Code</code> was provided in the DSN.</p>
-    pub fn set_diagnostic_code(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_diagnostic_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.diagnostic_code = input;
         self
     }

@@ -14,8 +14,6 @@ impl super::Client {
     pub fn verify_software_token(
         &self,
     ) -> crate::operation::verify_software_token::builders::VerifySoftwareTokenFluentBuilder {
-        crate::operation::verify_software_token::builders::VerifySoftwareTokenFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::verify_software_token::builders::VerifySoftwareTokenFluentBuilder::new(self.handle.clone())
     }
 }

@@ -85,13 +85,11 @@ impl UploadSSHPublicKey {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(
-                crate::config::ConfigOverrideRuntimePlugin::new(
-                    config_override,
-                    client_config.config.clone(),
-                    &client_config.runtime_components,
-                ),
-            );
+            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+                config_override,
+                client_config.config.clone(),
+                &client_config.runtime_components,
+            ));
         }
         runtime_plugins
     }
@@ -100,11 +98,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for UploadS
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("UploadSSHPublicKey");
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                UploadSSHPublicKeyRequestSerializer,
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+            UploadSSHPublicKeyRequestSerializer,
+        ));
         cfg.store_put(
             ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
                 UploadSSHPublicKeyResponseDeserializer,
@@ -120,12 +116,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for UploadS
             ),
         );
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-                "UploadSSHPublicKey",
-                "IAM",
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+            "UploadSSHPublicKey",
+            "IAM",
+        ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = true;
         signing_options.content_sha256_header = false;
@@ -143,30 +137,39 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for UploadS
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<
-        '_,
-        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    > {
+    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
-        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UploadSSHPublicKey")
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new(
+            "UploadSSHPublicKey",
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 UploadSSHPublicKeyTelemetryInputCaptureInterceptor,
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 UploadSSHPublicKeyEndpointParamsInterceptor,
-            ))
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+            ),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                 crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
-            >::new())
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+            >::new(),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                 crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
-            >::new())
-            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
-            >::new());
+            >::new(),
+        )
+        .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+            crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
+        >::new());
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -176,9 +179,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for UploadS
 struct UploadSSHPublicKeyTelemetryInputCaptureInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for UploadSSHPublicKeyTelemetryInputCaptureInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for UploadSSHPublicKeyTelemetryInputCaptureInterceptor {
     fn name(&self) -> &'static str {
         "UploadSSHPublicKeyTelemetryInputCaptureInterceptor"
     }
@@ -201,9 +202,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) =
-            context.input().downcast_ref::<UploadSshPublicKeyInput>()
-        else {
+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<UploadSshPublicKeyInput>() else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
@@ -226,9 +225,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
 }
 #[derive(Debug)]
 struct UploadSSHPublicKeyResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
-    for UploadSSHPublicKeyResponseDeserializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for UploadSSHPublicKeyResponseDeserializer {
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -245,16 +242,16 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
                 status, headers, body,
             )
         } else {
-            crate::protocol_serde::shape_upload_ssh_public_key::de_upload_ssh_public_key_http_response(status, headers, body)
+            crate::protocol_serde::shape_upload_ssh_public_key::de_upload_ssh_public_key_http_response(
+                status, headers, body,
+            )
         };
         crate::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
 struct UploadSSHPublicKeyRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
-    for UploadSSHPublicKeyRequestSerializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UploadSSHPublicKeyRequestSerializer {
     #[allow(
         unused_mut,
         clippy::let_and_return,
@@ -281,8 +278,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_base(
                 _input: &crate::operation::upload_ssh_public_key::UploadSshPublicKeyInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
                 ::std::write!(output, "/").expect("formatting should succeed");
                 ::std::result::Result::Ok(())
@@ -291,10 +287,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn update_http_builder(
                 input: &crate::operation::upload_ssh_public_key::UploadSshPublicKeyInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<
-                ::http_1x::request::Builder,
-                ::aws_smithy_types::error::operation::BuildError,
-            > {
+            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
@@ -308,7 +302,9 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            crate::protocol_serde::shape_upload_ssh_public_key_input::ser_upload_ssh_public_key_input_input_input(&input)?,
+            crate::protocol_serde::shape_upload_ssh_public_key_input::ser_upload_ssh_public_key_input_input_input(
+                &input,
+            )?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
@@ -318,22 +314,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
                 &content_length,
             );
         }
-        ::std::result::Result::Ok(
-            request_builder
-                .body(body)
-                .expect("valid request")
-                .try_into()
-                .unwrap(),
-        )
+        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
 #[derive(Debug)]
 struct UploadSSHPublicKeyEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for UploadSSHPublicKeyEndpointParamsInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for UploadSSHPublicKeyEndpointParamsInterceptor {
     fn name(&self) -> &'static str {
         "UploadSSHPublicKeyEndpointParamsInterceptor"
     }
@@ -354,22 +342,13 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             .ok_or("failed to downcast to UploadSshPublicKeyInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_use_dual_stack(
-                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
-                    .map(|ty| ty.0),
-            )
-            .set_use_fips(
-                cfg.load::<::aws_types::endpoint_config::UseFips>()
-                    .map(|ty| ty.0),
-            )
+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_endpoint(
                 cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
                     .map(|ty| ty.0.clone()),
             )
-            .set_region(
-                cfg.load::<::aws_types::region::Region>()
-                    .map(|r| r.as_ref().to_owned()),
-            )
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .build()
             .map_err(|err| {
                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(
@@ -377,9 +356,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
                     err,
                 )
             })?;
-        cfg.interceptor_state().store_put(
-            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
-        );
+        cfg.interceptor_state()
+            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(
+                params,
+            ));
         ::std::result::Result::Ok(())
     }
 }
@@ -400,9 +380,7 @@ pub enum UploadSSHPublicKeyError {
     /// <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
     NoSuchEntityException(crate::types::error::NoSuchEntityException),
     /// <p>The request was rejected because the public key encoding format is unsupported or unrecognized.</p>
-    UnrecognizedPublicKeyEncodingException(
-        crate::types::error::UnrecognizedPublicKeyEncodingException,
-    ),
+    UnrecognizedPublicKeyEncodingException(crate::types::error::UnrecognizedPublicKeyEncodingException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(
         note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
@@ -418,9 +396,7 @@ impl UploadSSHPublicKeyError {
     /// Creates the `UploadSSHPublicKeyError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -445,15 +421,9 @@ impl UploadSSHPublicKeyError {
             Self::DuplicateSshPublicKeyException(e) => {
                 ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
             }
-            Self::InvalidPublicKeyException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::LimitExceededException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::NoSuchEntityException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::InvalidPublicKeyException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::LimitExceededException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::NoSuchEntityException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::UnrecognizedPublicKeyEncodingException(e) => {
                 ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
             }
@@ -488,9 +458,7 @@ impl ::std::error::Error for UploadSSHPublicKeyError {
             Self::InvalidPublicKeyException(_inner) => ::std::option::Option::Some(_inner),
             Self::LimitExceededException(_inner) => ::std::option::Option::Some(_inner),
             Self::NoSuchEntityException(_inner) => ::std::option::Option::Some(_inner),
-            Self::UnrecognizedPublicKeyEncodingException(_inner) => {
-                ::std::option::Option::Some(_inner)
-            }
+            Self::UnrecognizedPublicKeyEncodingException(_inner) => ::std::option::Option::Some(_inner),
             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
         }
     }
@@ -547,9 +515,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for UploadSSHPubl
 }
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for UploadSSHPublicKeyError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -558,9 +524,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for UploadSS
         })
     }
 }
-impl ::aws_types::request_id::RequestId
-    for crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError
-{
+impl ::aws_types::request_id::RequestId for crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

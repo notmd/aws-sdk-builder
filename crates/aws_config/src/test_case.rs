@@ -147,10 +147,7 @@ where
             }
             (Err(err), GenericTestResult::ErrorContains(substr)) => {
                 let message = format!("{}", DisplayErrorContext(err));
-                assert!(
-                    message.contains(substr),
-                    "`{message}` did not contain `{substr}`"
-                );
+                assert!(message.contains(substr), "`{message}` did not contain `{substr}`");
             }
             (Err(actual_error), GenericTestResult::Ok(expected_creds)) => {
                 panic!(
@@ -178,10 +175,7 @@ pub(crate) trait RunTestProvider {
     type Output: for<'a> Deserialize<'a> + Secrets;
     type Error;
 
-    fn run_provider(
-        &self,
-        provider_config: ProviderConfig,
-    ) -> ResultFuture<Self::Output, Self::Error>;
+    fn run_provider(&self, provider_config: ProviderConfig) -> ResultFuture<Self::Output, Self::Error>;
 }
 
 type ResultFuture<O, E> = Pin<Box<dyn Future<Output = Result<O, E>> + Send + 'static>>;
@@ -227,9 +221,7 @@ where
 }
 
 #[cfg(feature = "sso")]
-pub(crate) fn test_token_provider<F, Fut, E>(
-    run_provider_fn: F,
-) -> impl RunTestProvider<Output = Token, Error = E>
+pub(crate) fn test_token_provider<F, Fut, E>(run_provider_fn: F) -> impl RunTestProvider<Output = Token, Error = E>
 where
     F: Fn(ProviderConfig) -> Fut + Send + Clone + 'static,
     Fut: Future<Output = Result<aws_credential_types::Token, E>> + Send,
@@ -264,8 +256,7 @@ where
         run_provider: impl RunTestProvider<Output = O, Error = E> + 'static,
     ) -> Result<Self, BoxError> {
         let dir = dir.as_ref();
-        let env = std::fs::read_to_string(dir.join("env.json"))
-            .map_err(|e| format!("failed to load env: {}", e))?;
+        let env = std::fs::read_to_string(dir.join("env.json")).map_err(|e| format!("failed to load env: {}", e))?;
         let env: HashMap<String, String> =
             serde_json::from_str(&env).map_err(|e| format!("failed to parse env: {}", e))?;
         let env = Env::from(env);
@@ -330,17 +321,12 @@ where
         // swap out the connector generated from `http-traffic.json` for a real connector:
 
         use std::error::Error;
-        let live_connector = aws_smithy_http_client::default_connector(
-            &Default::default(),
-            self.provider_config.sleep_impl(),
-        )
-        .expect("feature gate on this function makes this always return Some");
+        let live_connector =
+            aws_smithy_http_client::default_connector(&Default::default(), self.provider_config.sleep_impl())
+                .expect("feature gate on this function makes this always return Some");
 
         let live_client = RecordingClient::new(live_connector);
-        let config = self
-            .provider_config
-            .clone()
-            .with_http_client(live_client.clone());
+        let config = self.provider_config.clone().with_http_client(live_client.clone());
         let result = self.run_provider.run_provider(config).await;
         std::fs::write(
             self.base_dir.join("http-traffic-recorded.json"),
@@ -357,10 +343,7 @@ where
     /// Response are generated from the existing http-traffic.json.
     pub(crate) async fn execute_and_update(&self) {
         let recording_client = RecordingClient::new(self.http_client.clone());
-        let config = self
-            .provider_config
-            .clone()
-            .with_http_client(recording_client.clone());
+        let config = self.provider_config.clone().with_http_client(recording_client.clone());
         let result = self.run_provider.run_provider(config).await;
         std::fs::write(
             self.base_dir.join("http-traffic-recorded.json"),
@@ -373,10 +356,7 @@ where
     /// Execute a test case. Failures lead to panics.
     pub(crate) async fn execute(&self) -> Result<O, E> {
         let (_guard, rx) = capture_test_logs();
-        let result = self
-            .run_provider
-            .run_provider(self.provider_config.clone())
-            .await;
+        let result = self.run_provider.run_provider(self.provider_config.clone()).await;
         tokio::time::pause();
         self.log_info();
         self.check_results(result.as_ref());
@@ -384,21 +364,15 @@ where
         match self
             .http_client
             .clone()
-            .validate(
-                &["CONTENT-TYPE", "x-aws-ec2-metadata-token"],
-                |_expected, _actual| Ok(()),
-            )
+            .validate(&["CONTENT-TYPE", "x-aws-ec2-metadata-token"], |_expected, _actual| {
+                Ok(())
+            })
             .await
         {
             Ok(()) => {}
             Err(e) => panic!("{}", DisplayErrorContext(e.as_ref())),
         }
-        if self
-            .provider_config
-            .env()
-            .get("EXPOSE_SECRETS_FOR_TESTS")
-            .is_err()
-        {
+        if self.provider_config.env().get("EXPOSE_SECRETS_FOR_TESTS").is_err() {
             let contents = rx.contents();
             let leaking_lines = self.lines_with_secrets(&contents);
             assert!(
@@ -416,19 +390,14 @@ where
     }
 
     fn lines_with_secrets<'a>(&'a self, logs: &'a str) -> Vec<&'a str> {
-        logs.lines()
-            .filter(|l| self.contains_any_secrets(l))
-            .collect()
+        logs.lines().filter(|l| self.contains_any_secrets(l)).collect()
     }
 
     fn contains_any_secrets(&self, log_line: &str) -> bool {
         assert!(log_line.lines().count() <= 1);
         match &self.metadata.result {
             // NOTE: we aren't currently erroring if the session token is leaked, that is in the canonical request among other things
-            GenericTestResult::Ok(output) => output
-                .secrets()
-                .iter()
-                .any(|secret| log_line.contains(secret)),
+            GenericTestResult::Ok(output) => output.secrets().iter().any(|secret| log_line.contains(secret)),
             GenericTestResult::ErrorContains(_) => false,
         }
     }

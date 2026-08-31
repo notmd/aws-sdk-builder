@@ -40,16 +40,13 @@ impl UpdateRepositoryInput {
 }
 impl UpdateRepositoryInput {
     /// Creates a new builder-style object to manufacture [`UpdateRepositoryInput`](crate::operation::update_repository::UpdateRepositoryInput).
-    pub fn builder() -> crate::operation::update_repository::builders::UpdateRepositoryInputBuilder
-    {
+    pub fn builder() -> crate::operation::update_repository::builders::UpdateRepositoryInputBuilder {
         crate::operation::update_repository::builders::UpdateRepositoryInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateRepositoryInput`](crate::operation::update_repository::UpdateRepositoryInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateRepositoryInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -137,9 +134,7 @@ impl UpdateRepositoryInputBuilder {
         self
     }
     /// <p>A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when CodeArtifact looks for a requested package version. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>.</p>
-    pub fn get_upstreams(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::UpstreamRepository>> {
+    pub fn get_upstreams(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::UpstreamRepository>> {
         &self.upstreams
     }
     /// Consumes the builder and constructs a [`UpdateRepositoryInput`](crate::operation::update_repository::UpdateRepositoryInput).

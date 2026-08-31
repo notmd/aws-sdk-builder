@@ -31,8 +31,13 @@ impl ListOpenIdConnectProviderTagsPaginator {
     ///
     /// This paginator automatically flattens results using `tags`. Queries to the underlying service
     /// are dispatched lazily.
-    pub fn items(self) -> crate::operation::list_open_id_connect_provider_tags::paginator::ListOpenIdConnectProviderTagsPaginatorItems{
-        crate::operation::list_open_id_connect_provider_tags::paginator::ListOpenIdConnectProviderTagsPaginatorItems(self)
+    pub fn items(
+        self,
+    ) -> crate::operation::list_open_id_connect_provider_tags::paginator::ListOpenIdConnectProviderTagsPaginatorItems
+    {
+        crate::operation::list_open_id_connect_provider_tags::paginator::ListOpenIdConnectProviderTagsPaginatorItems(
+            self,
+        )
     }
 
     /// Stop paginating when the service returns the same pagination token twice in a row.
@@ -61,7 +66,7 @@ impl ListOpenIdConnectProviderTagsPaginator {
                 ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
             >,
         >,
-    >{
+    > {
         // Move individual fields out of self for the borrow checker
         let builder = self.builder;
         let handle = self.handle;
@@ -75,9 +80,10 @@ impl ListOpenIdConnectProviderTagsPaginator {
             ::aws_smithy_async::future::pagination_stream::fn_stream::FnStream::new(move |tx| {
                 ::std::boxed::Box::pin(async move {
                     // Build the input for the first time. If required fields are missing, this is where we'll produce an early error.
-                    let mut input = match builder.build().map_err(
-                        ::aws_smithy_runtime_api::client::result::SdkError::construction_failure,
-                    ) {
+                    let mut input = match builder
+                        .build()
+                        .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)
+                    {
                         ::std::result::Result::Ok(input) => input,
                         ::std::result::Result::Err(e) => {
                             let _ = tx.send(::std::result::Result::Err(e)).await;
@@ -93,14 +99,11 @@ impl ListOpenIdConnectProviderTagsPaginator {
                         // If the input member is None or it was an error
                         let done = match resp {
                             ::std::result::Result::Ok(ref resp) => {
-                                let new_token = crate::lens::reflens_list_open_id_connect_provider_tags_output_output_marker(resp);
+                                let new_token =
+                                    crate::lens::reflens_list_open_id_connect_provider_tags_output_output_marker(resp);
                                 // Pagination is exhausted when the next token is an empty string
-                                let is_empty =
-                                    new_token.map(|token| token.is_empty()).unwrap_or(true);
-                                if !is_empty
-                                    && new_token == input.marker.as_ref()
-                                    && self.stop_on_duplicate_token
-                                {
+                                let is_empty = new_token.map(|token| token.is_empty()).unwrap_or(true);
+                                if !is_empty && new_token == input.marker.as_ref() && self.stop_on_duplicate_token {
                                     true
                                 } else {
                                     input.marker = new_token.cloned();
@@ -145,13 +148,11 @@ impl ListOpenIdConnectProviderTagsPaginatorItems {
                 ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
             >,
         >,
-    >{
-        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(
-            |page| {
-                crate::lens::lens_list_open_id_connect_provider_tags_output_output_tags(page)
-                    .unwrap_or_default()
-                    .into_iter()
-            },
-        )
+    > {
+        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(|page| {
+            crate::lens::lens_list_open_id_connect_provider_tags_output_output_tags(page)
+                .unwrap_or_default()
+                .into_iter()
+        })
     }
 }

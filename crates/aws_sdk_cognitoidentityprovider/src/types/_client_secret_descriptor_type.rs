@@ -31,9 +31,7 @@ impl ClientSecretDescriptorType {
         self.client_secret_value.as_deref()
     }
     /// <p>The date and time when the client secret was created.</p>
-    pub fn client_secret_create_date(
-        &self,
-    ) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn client_secret_create_date(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.client_secret_create_date.as_ref()
     }
 }
@@ -68,10 +66,7 @@ impl ClientSecretDescriptorTypeBuilder {
     /// .
     /// </epoch-create-time>
     /// </client-id></p>
-    pub fn client_secret_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn client_secret_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.client_secret_id = ::std::option::Option::Some(input.into());
         self
     }
@@ -81,10 +76,7 @@ impl ClientSecretDescriptorTypeBuilder {
     /// .
     /// </epoch-create-time>
     /// </client-id></p>
-    pub fn set_client_secret_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_client_secret_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.client_secret_id = input;
         self
     }
@@ -98,18 +90,12 @@ impl ClientSecretDescriptorTypeBuilder {
         &self.client_secret_id
     }
     /// <p>The actual secret value. This is only returned when creating a new secret and only if Amazon Cognito generated the secret. For custom secrets that you provide, this field is not included in the response.</p>
-    pub fn client_secret_value(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn client_secret_value(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.client_secret_value = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The actual secret value. This is only returned when creating a new secret and only if Amazon Cognito generated the secret. For custom secrets that you provide, this field is not included in the response.</p>
-    pub fn set_client_secret_value(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_client_secret_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.client_secret_value = input;
         self
     }
@@ -123,17 +109,12 @@ impl ClientSecretDescriptorTypeBuilder {
         self
     }
     /// <p>The date and time when the client secret was created.</p>
-    pub fn set_client_secret_create_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_client_secret_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.client_secret_create_date = input;
         self
     }
     /// <p>The date and time when the client secret was created.</p>
-    pub fn get_client_secret_create_date(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_client_secret_create_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.client_secret_create_date
     }
     /// Consumes the builder and constructs a [`ClientSecretDescriptorType`](crate::types::ClientSecretDescriptorType).

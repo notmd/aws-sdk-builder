@@ -58,9 +58,7 @@ impl GetDelegationRequestFluentBuilder {
         }
     }
     /// Access the GetDelegationRequest as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_delegation_request::builders::GetDelegationRequestInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_delegation_request::builders::GetDelegationRequestInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,11 +87,7 @@ impl GetDelegationRequestFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_delegation_request::GetDelegationRequest::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::get_delegation_request::GetDelegationRequest::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -122,18 +116,12 @@ impl GetDelegationRequestFluentBuilder {
         self
     }
     /// <p>The unique identifier of the delegation request to retrieve.</p>
-    pub fn delegation_request_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delegation_request_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.delegation_request_id(input.into());
         self
     }
     /// <p>The unique identifier of the delegation request to retrieve.</p>
-    pub fn set_delegation_request_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_delegation_request_id(input);
         self
     }

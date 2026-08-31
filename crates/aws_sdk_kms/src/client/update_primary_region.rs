@@ -10,8 +10,6 @@ impl super::Client {
     pub fn update_primary_region(
         &self,
     ) -> crate::operation::update_primary_region::builders::UpdatePrimaryRegionFluentBuilder {
-        crate::operation::update_primary_region::builders::UpdatePrimaryRegionFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::update_primary_region::builders::UpdatePrimaryRegionFluentBuilder::new(self.handle.clone())
     }
 }

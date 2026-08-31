@@ -11,8 +11,6 @@ impl super::Client {
     pub fn get_resource_policy(
         &self,
     ) -> crate::operation::get_resource_policy::builders::GetResourcePolicyFluentBuilder {
-        crate::operation::get_resource_policy::builders::GetResourcePolicyFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_resource_policy::builders::GetResourcePolicyFluentBuilder::new(self.handle.clone())
     }
 }

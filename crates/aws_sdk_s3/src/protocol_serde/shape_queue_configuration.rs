@@ -3,8 +3,7 @@
 pub fn de_queue_configuration(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::QueueConfiguration, ::aws_smithy_xml::decode::XmlDecodeError>
-{
+) -> ::std::result::Result<crate::types::QueueConfiguration, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
             "maximum nesting depth exceeded",
@@ -74,11 +73,9 @@ pub fn de_queue_configuration(
             _ => {}
         }
     }
-    Ok(
-        crate::serde_util::queue_configuration_correct_errors(builder)
-            .build()
-            .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?,
-    )
+    Ok(crate::serde_util::queue_configuration_correct_errors(builder)
+        .build()
+        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
 }
 
 pub fn ser_queue_configuration(
@@ -105,7 +102,10 @@ pub fn ser_queue_configuration(
     }
     if let Some(var_8) = &input.filter {
         let inner_writer = scope.start_el("Filter");
-        crate::protocol_serde::shape_notification_configuration_filter::ser_notification_configuration_filter(var_8, inner_writer)?
+        crate::protocol_serde::shape_notification_configuration_filter::ser_notification_configuration_filter(
+            var_8,
+            inner_writer,
+        )?
     }
     scope.finish();
     Ok(())

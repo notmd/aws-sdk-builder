@@ -9,21 +9,14 @@ pub fn de_update_terms_http_error(
     crate::operation::update_terms::UpdateTermsError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::update_terms::UpdateTermsError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::update_terms::UpdateTermsError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(crate::operation::update_terms::UpdateTermsError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(crate::operation::update_terms::UpdateTermsError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -33,7 +26,7 @@ pub fn de_update_terms_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
                     output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
                     _response_body,
                     output,
@@ -48,31 +41,30 @@ pub fn de_update_terms_http_error(
                 tmp
             })
         }
-        "InternalErrorException" => {
-            crate::operation::update_terms::UpdateTermsError::InternalErrorException({
+        "InternalErrorException" => crate::operation::update_terms::UpdateTermsError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InternalErrorExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::update_terms::UpdateTermsError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::update_terms::UpdateTermsError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidParameterException" => {
             crate::operation::update_terms::UpdateTermsError::InvalidParameterException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
                     output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
                     .map_err(crate::operation::update_terms::UpdateTermsError::unhandled)?;
                     let output = output.meta(generic);
@@ -84,32 +76,30 @@ pub fn de_update_terms_http_error(
                 tmp
             })
         }
-        "NotAuthorizedException" => {
-            crate::operation::update_terms::UpdateTermsError::NotAuthorizedException({
+        "NotAuthorizedException" => crate::operation::update_terms::UpdateTermsError::NotAuthorizedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::update_terms::UpdateTermsError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
+                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::update_terms::UpdateTermsError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "OperationNotEnabledException" => {
             crate::operation::update_terms::UpdateTermsError::OperationNotEnabledException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::OperationNotEnabledExceptionBuilder::default(
-                        );
+                    let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
                     output =
                     crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
                         .map_err(crate::operation::update_terms::UpdateTermsError::unhandled)?;
@@ -122,49 +112,45 @@ pub fn de_update_terms_http_error(
                 tmp
             })
         }
-        "ResourceNotFoundException" => {
-            crate::operation::update_terms::UpdateTermsError::ResourceNotFoundException({
+        "ResourceNotFoundException" => crate::operation::update_terms::UpdateTermsError::ResourceNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(crate::operation::update_terms::UpdateTermsError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "TermsExistsException" => {
-            crate::operation::update_terms::UpdateTermsError::TermsExistsException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "TermsExistsException" => crate::operation::update_terms::UpdateTermsError::TermsExistsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::TermsExistsExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_terms_exists_exception::de_terms_exists_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::update_terms::UpdateTermsError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::TermsExistsExceptionBuilder::default();
+                output = crate::protocol_serde::shape_terms_exists_exception::de_terms_exists_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::update_terms::UpdateTermsError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "TooManyRequestsException" => {
             crate::operation::update_terms::UpdateTermsError::TooManyRequestsException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
                     output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(crate::operation::update_terms::UpdateTermsError::unhandled)?;
                     let output = output.meta(generic);
@@ -191,29 +177,21 @@ pub fn de_update_terms_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::update_terms::builders::UpdateTermsOutputBuilder::default();
+        let mut output = crate::operation::update_terms::builders::UpdateTermsOutputBuilder::default();
         output = crate::protocol_serde::shape_update_terms::de_update_terms(_response_body, output)
             .map_err(crate::operation::update_terms::UpdateTermsError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_update_terms_input(
     input: &crate::operation::update_terms::UpdateTermsInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_update_terms_input::ser_update_terms_input_input(
-        &mut object,
-        input,
-    )?;
+    crate::protocol_serde::shape_update_terms_input::ser_update_terms_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -225,10 +203,8 @@ pub(crate) fn de_update_terms(
     crate::operation::update_terms::builders::UpdateTermsOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -236,35 +212,27 @@ pub(crate) fn de_update_terms(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "Terms" => {
-                        builder = builder.set_terms(
-                            crate::protocol_serde::shape_terms_type::de_terms_type(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "Terms" => {
+                    builder = builder.set_terms(crate::protocol_serde::shape_terms_type::de_terms_type(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
-            }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

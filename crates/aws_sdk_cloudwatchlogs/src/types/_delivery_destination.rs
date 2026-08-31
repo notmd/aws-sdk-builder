@@ -25,12 +25,9 @@ pub struct DeliveryDestination {
     /// <p>The format of the logs that are sent to this delivery destination.</p>
     pub output_format: ::std::option::Option<crate::types::OutputFormat>,
     /// <p>A structure that contains the ARN of the Amazon Web Services resource that will receive the logs.</p>
-    pub delivery_destination_configuration:
-        ::std::option::Option<crate::types::DeliveryDestinationConfiguration>,
+    pub delivery_destination_configuration: ::std::option::Option<crate::types::DeliveryDestinationConfiguration>,
     /// <p>The tags that have been assigned to this delivery destination.</p>
-    pub tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl DeliveryDestination {
     /// <p>The name of this delivery destination.</p>
@@ -42,9 +39,7 @@ impl DeliveryDestination {
         self.arn.as_deref()
     }
     /// <p>Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Firehose, or X-Ray.</p>
-    pub fn delivery_destination_type(
-        &self,
-    ) -> ::std::option::Option<&crate::types::DeliveryDestinationType> {
+    pub fn delivery_destination_type(&self) -> ::std::option::Option<&crate::types::DeliveryDestinationType> {
         self.delivery_destination_type.as_ref()
     }
     /// <p>The format of the logs that are sent to this delivery destination.</p>
@@ -60,9 +55,7 @@ impl DeliveryDestination {
     /// <p>The tags that have been assigned to this delivery destination.</p>
     pub fn tags(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
 }
@@ -74,21 +67,16 @@ impl DeliveryDestination {
 }
 
 /// A builder for [`DeliveryDestination`](crate::types::DeliveryDestination).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeliveryDestinationBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
     pub(crate) arn: ::std::option::Option<::std::string::String>,
-    pub(crate) delivery_destination_type:
-        ::std::option::Option<crate::types::DeliveryDestinationType>,
+    pub(crate) delivery_destination_type: ::std::option::Option<crate::types::DeliveryDestinationType>,
     pub(crate) output_format: ::std::option::Option<crate::types::OutputFormat>,
     pub(crate) delivery_destination_configuration:
         ::std::option::Option<crate::types::DeliveryDestinationConfiguration>,
-    pub(crate) tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl DeliveryDestinationBuilder {
     /// <p>The name of this delivery destination.</p>
@@ -120,10 +108,7 @@ impl DeliveryDestinationBuilder {
         &self.arn
     }
     /// <p>Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Firehose, or X-Ray.</p>
-    pub fn delivery_destination_type(
-        mut self,
-        input: crate::types::DeliveryDestinationType,
-    ) -> Self {
+    pub fn delivery_destination_type(mut self, input: crate::types::DeliveryDestinationType) -> Self {
         self.delivery_destination_type = ::std::option::Option::Some(input);
         self
     }
@@ -136,9 +121,7 @@ impl DeliveryDestinationBuilder {
         self
     }
     /// <p>Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Firehose, or X-Ray.</p>
-    pub fn get_delivery_destination_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::DeliveryDestinationType> {
+    pub fn get_delivery_destination_type(&self) -> &::std::option::Option<crate::types::DeliveryDestinationType> {
         &self.delivery_destination_type
     }
     /// <p>The format of the logs that are sent to this delivery destination.</p>
@@ -147,10 +130,7 @@ impl DeliveryDestinationBuilder {
         self
     }
     /// <p>The format of the logs that are sent to this delivery destination.</p>
-    pub fn set_output_format(
-        mut self,
-        input: ::std::option::Option<crate::types::OutputFormat>,
-    ) -> Self {
+    pub fn set_output_format(mut self, input: ::std::option::Option<crate::types::OutputFormat>) -> Self {
         self.output_format = input;
         self
     }
@@ -159,10 +139,7 @@ impl DeliveryDestinationBuilder {
         &self.output_format
     }
     /// <p>A structure that contains the ARN of the Amazon Web Services resource that will receive the logs.</p>
-    pub fn delivery_destination_configuration(
-        mut self,
-        input: crate::types::DeliveryDestinationConfiguration,
-    ) -> Self {
+    pub fn delivery_destination_configuration(mut self, input: crate::types::DeliveryDestinationConfiguration) -> Self {
         self.delivery_destination_configuration = ::std::option::Option::Some(input);
         self
     }
@@ -198,9 +175,7 @@ impl DeliveryDestinationBuilder {
     /// <p>The tags that have been assigned to this delivery destination.</p>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.tags = input;
         self
@@ -208,9 +183,7 @@ impl DeliveryDestinationBuilder {
     /// <p>The tags that have been assigned to this delivery destination.</p>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`DeliveryDestination`](crate::types::DeliveryDestination).

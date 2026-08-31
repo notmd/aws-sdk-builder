@@ -11,10 +11,7 @@ pub fn ser_metrics(
     }
     if let Some(var_1) = &input.event_threshold {
         let inner_writer = scope.start_el("EventThreshold");
-        crate::protocol_serde::shape_replication_time_value::ser_replication_time_value(
-            var_1,
-            inner_writer,
-        )?
+        crate::protocol_serde::shape_replication_time_value::ser_replication_time_value(var_1, inner_writer)?
     }
     scope.finish();
     Ok(())

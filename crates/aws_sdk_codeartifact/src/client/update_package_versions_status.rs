@@ -19,7 +19,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdatePackageVersionsStatusError>`](crate::operation::update_package_versions_status::UpdatePackageVersionsStatusError)
     pub fn update_package_versions_status(
         &self,
-    ) -> crate::operation::update_package_versions_status::builders::UpdatePackageVersionsStatusFluentBuilder{
-        crate::operation::update_package_versions_status::builders::UpdatePackageVersionsStatusFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::update_package_versions_status::builders::UpdatePackageVersionsStatusFluentBuilder {
+        crate::operation::update_package_versions_status::builders::UpdatePackageVersionsStatusFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

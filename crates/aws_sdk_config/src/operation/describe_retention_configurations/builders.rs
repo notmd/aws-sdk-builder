@@ -45,7 +45,7 @@ impl
             crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsOutput,
             crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -59,7 +59,10 @@ impl DescribeRetentionConfigurationsFluentBuilder {
         }
     }
     /// Access the DescribeRetentionConfigurations as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -78,7 +81,7 @@ impl DescribeRetentionConfigurationsFluentBuilder {
             crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -88,7 +91,11 @@ impl DescribeRetentionConfigurationsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::describe_retention_configurations::DescribeRetentionConfigurations::orchestrate(&runtime_plugins, input).await
+        crate::operation::describe_retention_configurations::DescribeRetentionConfigurations::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -119,8 +126,13 @@ impl DescribeRetentionConfigurationsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_retention_configurations::paginator::DescribeRetentionConfigurationsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::describe_retention_configurations::paginator::DescribeRetentionConfigurationsPaginator{
-        crate::operation::describe_retention_configurations::paginator::DescribeRetentionConfigurationsPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::describe_retention_configurations::paginator::DescribeRetentionConfigurationsPaginator {
+        crate::operation::describe_retention_configurations::paginator::DescribeRetentionConfigurationsPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     ///
     /// Appends an item to `RetentionConfigurationNames`.
@@ -130,10 +142,7 @@ impl DescribeRetentionConfigurationsFluentBuilder {
     /// <p>A list of names of retention configurations for which you want details. If you do not specify a name, Config returns details for all the retention configurations for that account.</p><note>
     /// <p>Currently, Config supports only one retention configuration per region in your account.</p>
     /// </note>
-    pub fn retention_configuration_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn retention_configuration_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.retention_configuration_names(input.into());
         self
     }
@@ -150,9 +159,7 @@ impl DescribeRetentionConfigurationsFluentBuilder {
     /// <p>A list of names of retention configurations for which you want details. If you do not specify a name, Config returns details for all the retention configurations for that account.</p><note>
     /// <p>Currently, Config supports only one retention configuration per region in your account.</p>
     /// </note>
-    pub fn get_retention_configuration_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_retention_configuration_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_retention_configuration_names()
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>

@@ -13,22 +13,18 @@ pub struct Update {
     /// <p>A condition that must be satisfied in order for a conditional update to succeed.</p>
     pub condition_expression: ::std::option::Option<::std::string::String>,
     /// <p>One or more substitution tokens for attribute names in an expression.</p>
-    pub expression_attribute_names: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub expression_attribute_names:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>One or more values that can be substituted in an expression.</p>
-    pub expression_attribute_values: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    >,
+    pub expression_attribute_values:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     /// <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>Update</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>
     pub return_values_on_condition_check_failure:
         ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
 }
 impl Update {
     /// <p>The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.</p>
-    pub fn key(
-        &self,
-    ) -> &::std::collections::HashMap<::std::string::String, crate::types::AttributeValue> {
+    pub fn key(&self) -> &::std::collections::HashMap<::std::string::String, crate::types::AttributeValue> {
         &self.key
     }
     /// <p>An expression that defines one or more attributes to be updated, the action to be performed on them, and new value(s) for them.</p>
@@ -48,17 +44,13 @@ impl Update {
     /// <p>One or more substitution tokens for attribute names in an expression.</p>
     pub fn expression_attribute_names(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.expression_attribute_names.as_ref()
     }
     /// <p>One or more values that can be substituted in an expression.</p>
     pub fn expression_attribute_values(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
         self.expression_attribute_values.as_ref()
     }
     /// <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>Update</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>
@@ -76,23 +68,18 @@ impl Update {
 }
 
 /// A builder for [`Update`](crate::types::Update).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateBuilder {
-    pub(crate) key: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    >,
+    pub(crate) key:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     pub(crate) update_expression: ::std::option::Option<::std::string::String>,
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
     pub(crate) condition_expression: ::std::option::Option<::std::string::String>,
-    pub(crate) expression_attribute_names: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
-    pub(crate) expression_attribute_values: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    >,
+    pub(crate) expression_attribute_names:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) expression_attribute_values:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     pub(crate) return_values_on_condition_check_failure:
         ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
 }
@@ -102,11 +89,7 @@ impl UpdateBuilder {
     /// To override the contents of this collection use [`set_key`](Self::set_key).
     ///
     /// <p>The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.</p>
-    pub fn key(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: crate::types::AttributeValue,
-    ) -> Self {
+    pub fn key(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
         let mut hash_map = self.key.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.key = ::std::option::Option::Some(hash_map);
@@ -115,9 +98,7 @@ impl UpdateBuilder {
     /// <p>The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.</p>
     pub fn set_key(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     ) -> Self {
         self.key = input;
         self
@@ -125,25 +106,17 @@ impl UpdateBuilder {
     /// <p>The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.</p>
     pub fn get_key(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
         &self.key
     }
     /// <p>An expression that defines one or more attributes to be updated, the action to be performed on them, and new value(s) for them.</p>
     /// This field is required.
-    pub fn update_expression(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn update_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.update_expression = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>An expression that defines one or more attributes to be updated, the action to be performed on them, and new value(s) for them.</p>
-    pub fn set_update_expression(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_update_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.update_expression = input;
         self
     }
@@ -167,18 +140,12 @@ impl UpdateBuilder {
         &self.table_name
     }
     /// <p>A condition that must be satisfied in order for a conditional update to succeed.</p>
-    pub fn condition_expression(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn condition_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.condition_expression = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A condition that must be satisfied in order for a conditional update to succeed.</p>
-    pub fn set_condition_expression(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_condition_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.condition_expression = input;
         self
     }
@@ -204,9 +171,7 @@ impl UpdateBuilder {
     /// <p>One or more substitution tokens for attribute names in an expression.</p>
     pub fn set_expression_attribute_names(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.expression_attribute_names = input;
         self
@@ -214,9 +179,7 @@ impl UpdateBuilder {
     /// <p>One or more substitution tokens for attribute names in an expression.</p>
     pub fn get_expression_attribute_names(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.expression_attribute_names
     }
     /// Adds a key-value pair to `expression_attribute_values`.
@@ -237,9 +200,7 @@ impl UpdateBuilder {
     /// <p>One or more values that can be substituted in an expression.</p>
     pub fn set_expression_attribute_values(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     ) -> Self {
         self.expression_attribute_values = input;
         self
@@ -247,9 +208,7 @@ impl UpdateBuilder {
     /// <p>One or more values that can be substituted in an expression.</p>
     pub fn get_expression_attribute_values(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
         &self.expression_attribute_values
     }
     /// <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>Update</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>
@@ -281,8 +240,7 @@ impl UpdateBuilder {
     /// - [`table_name`](crate::types::builders::UpdateBuilder::table_name)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::types::Update, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<crate::types::Update, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Update {
             key: self.key.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

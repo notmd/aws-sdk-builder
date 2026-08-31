@@ -45,8 +45,6 @@ impl super::Client {
     pub fn put_object_annotation(
         &self,
     ) -> crate::operation::put_object_annotation::builders::PutObjectAnnotationFluentBuilder {
-        crate::operation::put_object_annotation::builders::PutObjectAnnotationFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::put_object_annotation::builders::PutObjectAnnotationFluentBuilder::new(self.handle.clone())
     }
 }

@@ -26,7 +26,8 @@ impl crate::operation::describe_aggregation_authorizations::builders::DescribeAg
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DescribeAggregationAuthorizationsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsInputBuilder,
+    inner:
+        crate::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -57,7 +58,10 @@ impl DescribeAggregationAuthorizationsFluentBuilder {
         }
     }
     /// Access the DescribeAggregationAuthorizations as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +80,7 @@ impl DescribeAggregationAuthorizationsFluentBuilder {
             crate::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +90,11 @@ impl DescribeAggregationAuthorizationsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizations::orchestrate(&runtime_plugins, input).await
+        crate::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizations::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +104,7 @@ impl DescribeAggregationAuthorizationsFluentBuilder {
         crate::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsOutput,
         crate::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -117,7 +125,10 @@ impl DescribeAggregationAuthorizationsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_aggregation_authorizations::paginator::DescribeAggregationAuthorizationsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::describe_aggregation_authorizations::paginator::DescribeAggregationAuthorizationsPaginator{
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::describe_aggregation_authorizations::paginator::DescribeAggregationAuthorizationsPaginator
+    {
         crate::operation::describe_aggregation_authorizations::paginator::DescribeAggregationAuthorizationsPaginator::new(self.handle, self.inner)
     }
     /// <p>The maximum number of AggregationAuthorizations returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>

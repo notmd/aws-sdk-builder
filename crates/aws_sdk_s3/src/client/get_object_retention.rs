@@ -14,8 +14,6 @@ impl super::Client {
     pub fn get_object_retention(
         &self,
     ) -> crate::operation::get_object_retention::builders::GetObjectRetentionFluentBuilder {
-        crate::operation::get_object_retention::builders::GetObjectRetentionFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_object_retention::builders::GetObjectRetentionFluentBuilder::new(self.handle.clone())
     }
 }

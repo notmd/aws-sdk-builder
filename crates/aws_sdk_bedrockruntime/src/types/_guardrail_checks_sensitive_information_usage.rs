@@ -21,9 +21,7 @@ impl GuardrailChecksSensitiveInformationUsage {
 }
 
 /// A builder for [`GuardrailChecksSensitiveInformationUsage`](crate::types::GuardrailChecksSensitiveInformationUsage).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailChecksSensitiveInformationUsageBuilder {
     pub(crate) text_units: ::std::option::Option<i32>,

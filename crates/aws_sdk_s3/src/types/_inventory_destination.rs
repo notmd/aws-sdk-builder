@@ -9,9 +9,7 @@ pub struct InventoryDestination {
 }
 impl InventoryDestination {
     /// <p>Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where inventory results are published.</p>
-    pub fn s3_bucket_destination(
-        &self,
-    ) -> ::std::option::Option<&crate::types::InventoryS3BucketDestination> {
+    pub fn s3_bucket_destination(&self) -> ::std::option::Option<&crate::types::InventoryS3BucketDestination> {
         self.s3_bucket_destination.as_ref()
     }
 }
@@ -23,21 +21,15 @@ impl InventoryDestination {
 }
 
 /// A builder for [`InventoryDestination`](crate::types::InventoryDestination).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InventoryDestinationBuilder {
-    pub(crate) s3_bucket_destination:
-        ::std::option::Option<crate::types::InventoryS3BucketDestination>,
+    pub(crate) s3_bucket_destination: ::std::option::Option<crate::types::InventoryS3BucketDestination>,
 }
 impl InventoryDestinationBuilder {
     /// <p>Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where inventory results are published.</p>
     /// This field is required.
-    pub fn s3_bucket_destination(
-        mut self,
-        input: crate::types::InventoryS3BucketDestination,
-    ) -> Self {
+    pub fn s3_bucket_destination(mut self, input: crate::types::InventoryS3BucketDestination) -> Self {
         self.s3_bucket_destination = ::std::option::Option::Some(input);
         self
     }
@@ -50,9 +42,7 @@ impl InventoryDestinationBuilder {
         self
     }
     /// <p>Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where inventory results are published.</p>
-    pub fn get_s3_bucket_destination(
-        &self,
-    ) -> &::std::option::Option<crate::types::InventoryS3BucketDestination> {
+    pub fn get_s3_bucket_destination(&self) -> &::std::option::Option<crate::types::InventoryS3BucketDestination> {
         &self.s3_bucket_destination
     }
     /// Consumes the builder and constructs a [`InventoryDestination`](crate::types::InventoryDestination).

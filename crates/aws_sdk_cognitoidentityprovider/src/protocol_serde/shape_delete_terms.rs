@@ -9,21 +9,14 @@ pub fn de_delete_terms_http_error(
     crate::operation::delete_terms::DeleteTermsError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::delete_terms::DeleteTermsError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::delete_terms::DeleteTermsError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(crate::operation::delete_terms::DeleteTermsError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(crate::operation::delete_terms::DeleteTermsError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -33,7 +26,7 @@ pub fn de_delete_terms_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
                     output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
                     _response_body,
                     output,
@@ -48,31 +41,30 @@ pub fn de_delete_terms_http_error(
                 tmp
             })
         }
-        "InternalErrorException" => {
-            crate::operation::delete_terms::DeleteTermsError::InternalErrorException({
+        "InternalErrorException" => crate::operation::delete_terms::DeleteTermsError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InternalErrorExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::delete_terms::DeleteTermsError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::delete_terms::DeleteTermsError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidParameterException" => {
             crate::operation::delete_terms::DeleteTermsError::InvalidParameterException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
                     output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
                     .map_err(crate::operation::delete_terms::DeleteTermsError::unhandled)?;
                     let output = output.meta(generic);
@@ -84,32 +76,30 @@ pub fn de_delete_terms_http_error(
                 tmp
             })
         }
-        "NotAuthorizedException" => {
-            crate::operation::delete_terms::DeleteTermsError::NotAuthorizedException({
+        "NotAuthorizedException" => crate::operation::delete_terms::DeleteTermsError::NotAuthorizedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::delete_terms::DeleteTermsError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
+                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::delete_terms::DeleteTermsError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "OperationNotEnabledException" => {
             crate::operation::delete_terms::DeleteTermsError::OperationNotEnabledException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::OperationNotEnabledExceptionBuilder::default(
-                        );
+                    let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
                     output =
                     crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
                         .map_err(crate::operation::delete_terms::DeleteTermsError::unhandled)?;
@@ -122,31 +112,27 @@ pub fn de_delete_terms_http_error(
                 tmp
             })
         }
-        "ResourceNotFoundException" => {
-            crate::operation::delete_terms::DeleteTermsError::ResourceNotFoundException({
+        "ResourceNotFoundException" => crate::operation::delete_terms::DeleteTermsError::ResourceNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(crate::operation::delete_terms::DeleteTermsError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "TooManyRequestsException" => {
             crate::operation::delete_terms::DeleteTermsError::TooManyRequestsException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
                     output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(crate::operation::delete_terms::DeleteTermsError::unhandled)?;
                     let output = output.meta(generic);
@@ -173,27 +159,19 @@ pub fn de_delete_terms_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::delete_terms::builders::DeleteTermsOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::delete_terms::builders::DeleteTermsOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_delete_terms_input(
     input: &crate::operation::delete_terms::DeleteTermsInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_delete_terms_input::ser_delete_terms_input_input(
-        &mut object,
-        input,
-    )?;
+    crate::protocol_serde::shape_delete_terms_input::ser_delete_terms_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

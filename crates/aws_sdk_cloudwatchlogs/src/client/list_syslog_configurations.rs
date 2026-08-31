@@ -13,8 +13,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListSyslogConfigurationsError>`](crate::operation::list_syslog_configurations::ListSyslogConfigurationsError)
     pub fn list_syslog_configurations(
         &self,
-    ) -> crate::operation::list_syslog_configurations::builders::ListSyslogConfigurationsFluentBuilder
-    {
-        crate::operation::list_syslog_configurations::builders::ListSyslogConfigurationsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::list_syslog_configurations::builders::ListSyslogConfigurationsFluentBuilder {
+        crate::operation::list_syslog_configurations::builders::ListSyslogConfigurationsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

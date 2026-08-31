@@ -20,8 +20,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetPackageVersionAssetError>`](crate::operation::get_package_version_asset::GetPackageVersionAssetError)
     pub fn get_package_version_asset(
         &self,
-    ) -> crate::operation::get_package_version_asset::builders::GetPackageVersionAssetFluentBuilder
-    {
-        crate::operation::get_package_version_asset::builders::GetPackageVersionAssetFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::get_package_version_asset::builders::GetPackageVersionAssetFluentBuilder {
+        crate::operation::get_package_version_asset::builders::GetPackageVersionAssetFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

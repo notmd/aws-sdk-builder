@@ -29,9 +29,7 @@ impl InboxPlacementTrackingOption {
 }
 
 /// A builder for [`InboxPlacementTrackingOption`](crate::types::InboxPlacementTrackingOption).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InboxPlacementTrackingOptionBuilder {
     pub(crate) global: ::std::option::Option<bool>,
@@ -64,17 +62,12 @@ impl InboxPlacementTrackingOptionBuilder {
         self
     }
     /// <p>An array of strings, one for each major email provider that the inbox placement data applies to.</p>
-    pub fn set_tracked_isps(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_tracked_isps(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.tracked_isps = input;
         self
     }
     /// <p>An array of strings, one for each major email provider that the inbox placement data applies to.</p>
-    pub fn get_tracked_isps(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_tracked_isps(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.tracked_isps
     }
     /// Consumes the builder and constructs a [`InboxPlacementTrackingOption`](crate::types::InboxPlacementTrackingOption).

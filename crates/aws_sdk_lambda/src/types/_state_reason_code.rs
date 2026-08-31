@@ -175,9 +175,7 @@ pub enum StateReasonCode {
 impl ::std::convert::From<&str> for StateReasonCode {
     fn from(s: &str) -> Self {
         match s {
-            "CapacityProviderScalingLimitExceeded" => {
-                StateReasonCode::CapacityProviderScalingLimitExceeded
-            }
+            "CapacityProviderScalingLimitExceeded" => StateReasonCode::CapacityProviderScalingLimitExceeded,
             "Creating" => StateReasonCode::Creating,
             "DependencyError" => StateReasonCode::DependencyError,
             "DisabledKMSKey" => StateReasonCode::DisabledKmsKey,
@@ -191,14 +189,10 @@ impl ::std::convert::From<&str> for StateReasonCode {
             "EniLimitExceeded" => StateReasonCode::EniLimitExceeded,
             "FunctionError" => StateReasonCode::FunctionError,
             "FunctionError.ExtensionInitError" => StateReasonCode::FunctionErrorExtensionInitError,
-            "FunctionError.InitResourceExhausted" => {
-                StateReasonCode::FunctionErrorInitResourceExhausted
-            }
+            "FunctionError.InitResourceExhausted" => StateReasonCode::FunctionErrorInitResourceExhausted,
             "FunctionError.InitTimeout" => StateReasonCode::FunctionErrorInitTimeout,
             "FunctionError.InvalidEntryPoint" => StateReasonCode::FunctionErrorInvalidEntryPoint,
-            "FunctionError.InvalidWorkingDirectory" => {
-                StateReasonCode::FunctionErrorInvalidWorkingDirectory
-            }
+            "FunctionError.InvalidWorkingDirectory" => StateReasonCode::FunctionErrorInvalidWorkingDirectory,
             "FunctionError.PermissionDenied" => StateReasonCode::FunctionErrorPermissionDenied,
             "FunctionError.RuntimeInitError" => StateReasonCode::FunctionErrorRuntimeInitError,
             "FunctionError.TooManyExtensions" => StateReasonCode::FunctionErrorTooManyExtensions,
@@ -221,9 +215,9 @@ impl ::std::convert::From<&str> for StateReasonCode {
             "ServiceQuotaExceededException" => StateReasonCode::ServiceQuotaExceededException,
             "SubnetOutOfIPAddresses" => StateReasonCode::SubnetOutOfIpAddresses,
             "VcpuLimitExceeded" => StateReasonCode::VcpuLimitExceeded,
-            other => StateReasonCode::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => StateReasonCode::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -238,9 +232,7 @@ impl StateReasonCode {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
-            StateReasonCode::CapacityProviderScalingLimitExceeded => {
-                "CapacityProviderScalingLimitExceeded"
-            }
+            StateReasonCode::CapacityProviderScalingLimitExceeded => "CapacityProviderScalingLimitExceeded",
             StateReasonCode::Creating => "Creating",
             StateReasonCode::DependencyError => "DependencyError",
             StateReasonCode::DisabledKmsKey => "DisabledKMSKey",
@@ -254,14 +246,10 @@ impl StateReasonCode {
             StateReasonCode::EniLimitExceeded => "EniLimitExceeded",
             StateReasonCode::FunctionError => "FunctionError",
             StateReasonCode::FunctionErrorExtensionInitError => "FunctionError.ExtensionInitError",
-            StateReasonCode::FunctionErrorInitResourceExhausted => {
-                "FunctionError.InitResourceExhausted"
-            }
+            StateReasonCode::FunctionErrorInitResourceExhausted => "FunctionError.InitResourceExhausted",
             StateReasonCode::FunctionErrorInitTimeout => "FunctionError.InitTimeout",
             StateReasonCode::FunctionErrorInvalidEntryPoint => "FunctionError.InvalidEntryPoint",
-            StateReasonCode::FunctionErrorInvalidWorkingDirectory => {
-                "FunctionError.InvalidWorkingDirectory"
-            }
+            StateReasonCode::FunctionErrorInvalidWorkingDirectory => "FunctionError.InvalidWorkingDirectory",
             StateReasonCode::FunctionErrorPermissionDenied => "FunctionError.PermissionDenied",
             StateReasonCode::FunctionErrorRuntimeInitError => "FunctionError.RuntimeInitError",
             StateReasonCode::FunctionErrorTooManyExtensions => "FunctionError.TooManyExtensions",
@@ -342,14 +330,10 @@ impl StateReasonCode {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -357,15 +341,11 @@ impl StateReasonCode {
 impl ::std::fmt::Display for StateReasonCode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
-            StateReasonCode::CapacityProviderScalingLimitExceeded => {
-                write!(f, "CapacityProviderScalingLimitExceeded")
-            }
+            StateReasonCode::CapacityProviderScalingLimitExceeded => write!(f, "CapacityProviderScalingLimitExceeded"),
             StateReasonCode::Creating => write!(f, "Creating"),
             StateReasonCode::DependencyError => write!(f, "DependencyError"),
             StateReasonCode::DisabledKmsKey => write!(f, "DisabledKMSKey"),
-            StateReasonCode::DisallowedByVpcEncryptionControl => {
-                write!(f, "DisallowedByVpcEncryptionControl")
-            }
+            StateReasonCode::DisallowedByVpcEncryptionControl => write!(f, "DisallowedByVpcEncryptionControl"),
             StateReasonCode::DrainingDurableExecutions => write!(f, "DrainingDurableExecutions"),
             StateReasonCode::Ec2RequestLimitExceeded => write!(f, "EC2RequestLimitExceeded"),
             StateReasonCode::EfsioError => write!(f, "EFSIOError"),
@@ -374,35 +354,19 @@ impl ::std::fmt::Display for StateReasonCode {
             StateReasonCode::EfsMountTimeout => write!(f, "EFSMountTimeout"),
             StateReasonCode::EniLimitExceeded => write!(f, "EniLimitExceeded"),
             StateReasonCode::FunctionError => write!(f, "FunctionError"),
-            StateReasonCode::FunctionErrorExtensionInitError => {
-                write!(f, "FunctionError.ExtensionInitError")
-            }
-            StateReasonCode::FunctionErrorInitResourceExhausted => {
-                write!(f, "FunctionError.InitResourceExhausted")
-            }
+            StateReasonCode::FunctionErrorExtensionInitError => write!(f, "FunctionError.ExtensionInitError"),
+            StateReasonCode::FunctionErrorInitResourceExhausted => write!(f, "FunctionError.InitResourceExhausted"),
             StateReasonCode::FunctionErrorInitTimeout => write!(f, "FunctionError.InitTimeout"),
-            StateReasonCode::FunctionErrorInvalidEntryPoint => {
-                write!(f, "FunctionError.InvalidEntryPoint")
-            }
-            StateReasonCode::FunctionErrorInvalidWorkingDirectory => {
-                write!(f, "FunctionError.InvalidWorkingDirectory")
-            }
-            StateReasonCode::FunctionErrorPermissionDenied => {
-                write!(f, "FunctionError.PermissionDenied")
-            }
-            StateReasonCode::FunctionErrorRuntimeInitError => {
-                write!(f, "FunctionError.RuntimeInitError")
-            }
-            StateReasonCode::FunctionErrorTooManyExtensions => {
-                write!(f, "FunctionError.TooManyExtensions")
-            }
+            StateReasonCode::FunctionErrorInvalidEntryPoint => write!(f, "FunctionError.InvalidEntryPoint"),
+            StateReasonCode::FunctionErrorInvalidWorkingDirectory => write!(f, "FunctionError.InvalidWorkingDirectory"),
+            StateReasonCode::FunctionErrorPermissionDenied => write!(f, "FunctionError.PermissionDenied"),
+            StateReasonCode::FunctionErrorRuntimeInitError => write!(f, "FunctionError.RuntimeInitError"),
+            StateReasonCode::FunctionErrorTooManyExtensions => write!(f, "FunctionError.TooManyExtensions"),
             StateReasonCode::Idle => write!(f, "Idle"),
             StateReasonCode::ImageAccessDenied => write!(f, "ImageAccessDenied"),
             StateReasonCode::ImageDeleted => write!(f, "ImageDeleted"),
             StateReasonCode::InsufficientCapacity => write!(f, "InsufficientCapacity"),
-            StateReasonCode::InsufficientRolePermissions => {
-                write!(f, "InsufficientRolePermissions")
-            }
+            StateReasonCode::InsufficientRolePermissions => write!(f, "InsufficientRolePermissions"),
             StateReasonCode::InternalError => write!(f, "InternalError"),
             StateReasonCode::InvalidConfiguration => write!(f, "InvalidConfiguration"),
             StateReasonCode::InvalidImage => write!(f, "InvalidImage"),
@@ -414,9 +378,7 @@ impl ::std::fmt::Display for StateReasonCode {
             StateReasonCode::KmsKeyAccessDenied => write!(f, "KMSKeyAccessDenied"),
             StateReasonCode::KmsKeyNotFound => write!(f, "KMSKeyNotFound"),
             StateReasonCode::Restoring => write!(f, "Restoring"),
-            StateReasonCode::ServiceQuotaExceededException => {
-                write!(f, "ServiceQuotaExceededException")
-            }
+            StateReasonCode::ServiceQuotaExceededException => write!(f, "ServiceQuotaExceededException"),
             StateReasonCode::SubnetOutOfIpAddresses => write!(f, "SubnetOutOfIPAddresses"),
             StateReasonCode::VcpuLimitExceeded => write!(f, "VcpuLimitExceeded"),
             StateReasonCode::Unknown(value) => write!(f, "{value}"),

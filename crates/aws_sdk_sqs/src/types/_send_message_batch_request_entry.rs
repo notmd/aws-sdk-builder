@@ -16,9 +16,8 @@ pub struct SendMessageBatchRequestEntry {
     /// </note>
     pub delay_seconds: ::std::option::Option<i32>,
     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-    pub message_attributes: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>,
-    >,
+    pub message_attributes:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>,
     /// <p>The message system attribute to send Each message system attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.</p><important>
     /// <ul>
     /// <li>
@@ -96,9 +95,8 @@ impl SendMessageBatchRequestEntry {
     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
     pub fn message_attributes(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>
+    {
         self.message_attributes.as_ref()
     }
     /// <p>The message system attribute to send Each message system attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.</p><important>
@@ -171,17 +169,14 @@ impl SendMessageBatchRequestEntry {
 }
 
 /// A builder for [`SendMessageBatchRequestEntry`](crate::types::SendMessageBatchRequestEntry).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SendMessageBatchRequestEntryBuilder {
     pub(crate) id: ::std::option::Option<::std::string::String>,
     pub(crate) message_body: ::std::option::Option<::std::string::String>,
     pub(crate) delay_seconds: ::std::option::Option<i32>,
-    pub(crate) message_attributes: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>,
-    >,
+    pub(crate) message_attributes:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>,
     pub(crate) message_system_attributes: ::std::option::Option<
         ::std::collections::HashMap<
             crate::types::MessageSystemAttributeNameForSends,
@@ -279,9 +274,8 @@ impl SendMessageBatchRequestEntryBuilder {
     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
     pub fn get_message_attributes(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>
+    {
         &self.message_attributes
     }
     /// Adds a key-value pair to `message_system_attributes`.
@@ -370,10 +364,7 @@ impl SendMessageBatchRequestEntryBuilder {
     /// </note>
     /// <p>The length of <code>MessageDeduplicationId</code> is 128 characters. <code>MessageDeduplicationId</code> can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>) and punctuation (<code>!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~</code>).</p>
     /// <p>For best practices of using <code>MessageDeduplicationId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">Using the MessageDeduplicationId Property</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-    pub fn message_deduplication_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn message_deduplication_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.message_deduplication_id = ::std::option::Option::Some(input.into());
         self
     }
@@ -403,10 +394,7 @@ impl SendMessageBatchRequestEntryBuilder {
     /// </note>
     /// <p>The length of <code>MessageDeduplicationId</code> is 128 characters. <code>MessageDeduplicationId</code> can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>) and punctuation (<code>!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~</code>).</p>
     /// <p>For best practices of using <code>MessageDeduplicationId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">Using the MessageDeduplicationId Property</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-    pub fn set_message_deduplication_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_message_deduplication_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message_deduplication_id = input;
         self
     }
@@ -450,10 +438,7 @@ impl SendMessageBatchRequestEntryBuilder {
     /// </ul>
     /// <p>The length of <code>MessageGroupId</code> is 128 characters. Valid values: alphanumeric characters and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p>
     /// <p>For best practices of using <code>MessageGroupId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html">Using the MessageGroupId Property</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-    pub fn message_group_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn message_group_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.message_group_id = ::std::option::Option::Some(input.into());
         self
     }
@@ -468,10 +453,7 @@ impl SendMessageBatchRequestEntryBuilder {
     /// </ul>
     /// <p>The length of <code>MessageGroupId</code> is 128 characters. Valid values: alphanumeric characters and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p>
     /// <p>For best practices of using <code>MessageGroupId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html">Using the MessageGroupId Property</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-    pub fn set_message_group_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_message_group_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message_group_id = input;
         self
     }

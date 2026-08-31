@@ -120,10 +120,8 @@ impl Builder {
         };
         let conf = self.conf.unwrap_or_default().with_region(region);
 
-        let provider_chain = TokenProviderChain::first_try(
-            "Profile",
-            self.profile_file_builder.configure(&conf).build(),
-        );
+        let provider_chain =
+            TokenProviderChain::first_try("Profile", self.profile_file_builder.configure(&conf).build());
         DefaultTokenChain { provider_chain }
     }
 }

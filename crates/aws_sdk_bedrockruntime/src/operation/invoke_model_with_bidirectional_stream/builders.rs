@@ -3,7 +3,9 @@ pub use crate::operation::invoke_model_with_bidirectional_stream::_invoke_model_
 
 pub use crate::operation::invoke_model_with_bidirectional_stream::_invoke_model_with_bidirectional_stream_output::InvokeModelWithBidirectionalStreamOutputBuilder;
 
-impl crate::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamInputBuilder {
+impl
+    crate::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -77,7 +79,7 @@ impl InvokeModelWithBidirectionalStreamFluentBuilder {
             crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -87,7 +89,11 @@ impl InvokeModelWithBidirectionalStreamFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStream::orchestrate(&runtime_plugins, input).await
+        crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStream::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -97,7 +103,7 @@ impl InvokeModelWithBidirectionalStreamFluentBuilder {
         crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput,
         crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(

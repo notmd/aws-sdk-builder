@@ -26,9 +26,7 @@ impl ErrorDocument {
 }
 
 /// A builder for [`ErrorDocument`](crate::types::ErrorDocument).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ErrorDocumentBuilder {
     pub(crate) key: ::std::option::Option<::std::string::String>,
@@ -60,10 +58,7 @@ impl ErrorDocumentBuilder {
     /// - [`key`](crate::types::builders::ErrorDocumentBuilder::key)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::ErrorDocument,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::ErrorDocument, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ErrorDocument {
             key: self.key.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

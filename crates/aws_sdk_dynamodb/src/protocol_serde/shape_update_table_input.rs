@@ -9,10 +9,7 @@ pub fn ser_update_table_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_4 = array_2.value().start_object();
-                crate::protocol_serde::shape_attribute_definition::ser_attribute_definition(
-                    &mut object_4,
-                    item_3,
-                )?;
+                crate::protocol_serde::shape_attribute_definition::ser_attribute_definition(&mut object_4, item_3)?;
                 object_4.finish();
             }
         }
@@ -27,10 +24,7 @@ pub fn ser_update_table_input_input(
     if let Some(var_7) = &input.provisioned_throughput {
         #[allow(unused_mut)]
         let mut object_8 = object.key("ProvisionedThroughput").start_object();
-        crate::protocol_serde::shape_provisioned_throughput::ser_provisioned_throughput(
-            &mut object_8,
-            var_7,
-        )?;
+        crate::protocol_serde::shape_provisioned_throughput::ser_provisioned_throughput(&mut object_8, var_7)?;
         object_8.finish();
     }
     if let Some(var_9) = &input.global_secondary_index_updates {
@@ -39,7 +33,10 @@ pub fn ser_update_table_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_12 = array_10.value().start_object();
-                crate::protocol_serde::shape_global_secondary_index_update::ser_global_secondary_index_update(&mut object_12, item_11)?;
+                crate::protocol_serde::shape_global_secondary_index_update::ser_global_secondary_index_update(
+                    &mut object_12,
+                    item_11,
+                )?;
                 object_12.finish();
             }
         }
@@ -48,19 +45,13 @@ pub fn ser_update_table_input_input(
     if let Some(var_13) = &input.stream_specification {
         #[allow(unused_mut)]
         let mut object_14 = object.key("StreamSpecification").start_object();
-        crate::protocol_serde::shape_stream_specification::ser_stream_specification(
-            &mut object_14,
-            var_13,
-        )?;
+        crate::protocol_serde::shape_stream_specification::ser_stream_specification(&mut object_14, var_13)?;
         object_14.finish();
     }
     if let Some(var_15) = &input.sse_specification {
         #[allow(unused_mut)]
         let mut object_16 = object.key("SSESpecification").start_object();
-        crate::protocol_serde::shape_sse_specification::ser_sse_specification(
-            &mut object_16,
-            var_15,
-        )?;
+        crate::protocol_serde::shape_sse_specification::ser_sse_specification(&mut object_16, var_15)?;
         object_16.finish();
     }
     if let Some(var_17) = &input.replica_updates {
@@ -69,7 +60,10 @@ pub fn ser_update_table_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_20 = array_18.value().start_object();
-                crate::protocol_serde::shape_replication_group_update::ser_replication_group_update(&mut object_20, item_19)?;
+                crate::protocol_serde::shape_replication_group_update::ser_replication_group_update(
+                    &mut object_20,
+                    item_19,
+                )?;
                 object_20.finish();
             }
         }
@@ -90,7 +84,10 @@ pub fn ser_update_table_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_27 = array_25.value().start_object();
-                crate::protocol_serde::shape_global_table_witness_group_update::ser_global_table_witness_group_update(&mut object_27, item_26)?;
+                crate::protocol_serde::shape_global_table_witness_group_update::ser_global_table_witness_group_update(
+                    &mut object_27,
+                    item_26,
+                )?;
                 object_27.finish();
             }
         }
@@ -99,10 +96,7 @@ pub fn ser_update_table_input_input(
     if let Some(var_28) = &input.on_demand_throughput {
         #[allow(unused_mut)]
         let mut object_29 = object.key("OnDemandThroughput").start_object();
-        crate::protocol_serde::shape_on_demand_throughput::ser_on_demand_throughput(
-            &mut object_29,
-            var_28,
-        )?;
+        crate::protocol_serde::shape_on_demand_throughput::ser_on_demand_throughput(&mut object_29, var_28)?;
         object_29.finish();
     }
     if let Some(var_30) = &input.warm_throughput {
@@ -112,9 +106,7 @@ pub fn ser_update_table_input_input(
         object_31.finish();
     }
     if let Some(var_32) = &input.global_table_settings_replication_mode {
-        object
-            .key("GlobalTableSettingsReplicationMode")
-            .string(var_32.as_str());
+        object.key("GlobalTableSettingsReplicationMode").string(var_32.as_str());
     }
     if let Some(var_33) = &input.vector_index_updates {
         let mut array_34 = object.key("VectorIndexUpdates").start_array();
@@ -122,10 +114,7 @@ pub fn ser_update_table_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_36 = array_34.value().start_object();
-                crate::protocol_serde::shape_vector_index_update::ser_vector_index_update(
-                    &mut object_36,
-                    item_35,
-                )?;
+                crate::protocol_serde::shape_vector_index_update::ser_vector_index_update(&mut object_36, item_35)?;
                 object_36.finish();
             }
         }

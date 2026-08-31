@@ -12,16 +12,13 @@ impl ::aws_types::request_id::RequestId for DeleteQuotaShareOutput {
 }
 impl DeleteQuotaShareOutput {
     /// Creates a new builder-style object to manufacture [`DeleteQuotaShareOutput`](crate::operation::delete_quota_share::DeleteQuotaShareOutput).
-    pub fn builder() -> crate::operation::delete_quota_share::builders::DeleteQuotaShareOutputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_quota_share::builders::DeleteQuotaShareOutputBuilder {
         crate::operation::delete_quota_share::builders::DeleteQuotaShareOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteQuotaShareOutput`](crate::operation::delete_quota_share::DeleteQuotaShareOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteQuotaShareOutputBuilder {
     _request_id: Option<String>,

@@ -60,9 +60,7 @@ impl ConfirmDeviceFluentBuilder {
         }
     }
     /// Access the ConfirmDevice as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::confirm_device::builders::ConfirmDeviceInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::confirm_device::builders::ConfirmDeviceInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,12 +84,11 @@ impl ConfirmDeviceFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::confirm_device::ConfirmDevice::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::confirm_device::ConfirmDevice::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::confirm_device::ConfirmDevice::orchestrate(&runtime_plugins, input).await
     }
 
@@ -149,10 +146,7 @@ impl ConfirmDeviceFluentBuilder {
         self.inner.get_device_key()
     }
     /// <p>The configuration of the device secret verifier.</p>
-    pub fn device_secret_verifier_config(
-        mut self,
-        input: crate::types::DeviceSecretVerifierConfigType,
-    ) -> Self {
+    pub fn device_secret_verifier_config(mut self, input: crate::types::DeviceSecretVerifierConfigType) -> Self {
         self.inner = self.inner.device_secret_verifier_config(input);
         self
     }

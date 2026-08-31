@@ -29,13 +29,11 @@ pub struct SimulatePrincipalPolicyInput {
     /// <li>
     /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
     /// </ul>
-    pub permissions_boundary_policy_input_list:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub permissions_boundary_policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>A list of policies to exclude from the simulation. Use this parameter to test what the simulation result would be if a policy were removed, without changing which policies are actually attached to the principal identified by <code>PolicySourceArn</code>.</p>
     /// <p>Each entry is a <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_PolicyIdentifier.html">PolicyIdentifier</a> that identifies one or more policies to exclude by policy type, by Amazon Resource Name (ARN), or by the name of an inline policy and the entity it is attached to.</p>
     /// <p>Syntactically invalid identifiers, such as malformed ARNs or wildcards in disallowed positions, cause the request to fail with an <code>InvalidInput</code> error. Syntactically valid identifiers that don't match any attached policy are ignored. Resource control policies (RCPs) are not supported in this release; identifiers that target RCPs are also ignored.</p>
-    pub policy_exclusion_list:
-        ::std::option::Option<::std::vec::Vec<crate::types::PolicyIdentifier>>,
+    pub policy_exclusion_list: ::std::option::Option<::std::vec::Vec<crate::types::PolicyIdentifier>>,
     /// <p>A list of names of API operations to evaluate in the simulation. Each operation is evaluated for each resource. Each operation must include the service identifier, such as <code>iam:CreateUser</code>.</p>
     pub action_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>A list of ARNs of Amazon Web Services resources to include in the simulation. If this parameter is not provided, then the value defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is evaluated for each resource in this list. The simulation determines the access result (allowed or denied) of each combination and reports it in the response. You can simulate resources that don't exist in your account.</p>
@@ -218,25 +216,19 @@ impl SimulatePrincipalPolicyInput {
 }
 impl SimulatePrincipalPolicyInput {
     /// Creates a new builder-style object to manufacture [`SimulatePrincipalPolicyInput`](crate::operation::simulate_principal_policy::SimulatePrincipalPolicyInput).
-    pub fn builder(
-    ) -> crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyInputBuilder
-    {
+    pub fn builder() -> crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyInputBuilder {
         crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyInputBuilder::default()
     }
 }
 
 /// A builder for [`SimulatePrincipalPolicyInput`](crate::operation::simulate_principal_policy::SimulatePrincipalPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SimulatePrincipalPolicyInputBuilder {
     pub(crate) policy_source_arn: ::std::option::Option<::std::string::String>,
     pub(crate) policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) permissions_boundary_policy_input_list:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) policy_exclusion_list:
-        ::std::option::Option<::std::vec::Vec<crate::types::PolicyIdentifier>>,
+    pub(crate) permissions_boundary_policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) policy_exclusion_list: ::std::option::Option<::std::vec::Vec<crate::types::PolicyIdentifier>>,
     pub(crate) action_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) resource_arns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) resource_policy: ::std::option::Option<::std::string::String>,
@@ -252,20 +244,14 @@ impl SimulatePrincipalPolicyInputBuilder {
     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     /// This field is required.
-    pub fn policy_source_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn policy_source_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.policy_source_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of a user, group, or role whose policies you want to include in the simulation. If you specify a user, group, or role, the simulation includes all policies that are associated with that entity. If you specify a user, the simulation also includes all policies that are attached to any groups the user belongs to.</p>
     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-    pub fn set_policy_source_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_policy_source_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy_source_arn = input;
         self
     }
@@ -289,10 +275,7 @@ impl SimulatePrincipalPolicyInputBuilder {
     /// <li>
     /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
     /// </ul>
-    pub fn policy_input_list(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn policy_input_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.policy_input_list.unwrap_or_default();
         v.push(input.into());
         self.policy_input_list = ::std::option::Option::Some(v);
@@ -325,9 +308,7 @@ impl SimulatePrincipalPolicyInputBuilder {
     /// <li>
     /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
     /// </ul>
-    pub fn get_policy_input_list(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.policy_input_list
     }
     /// Appends an item to `permissions_boundary_policy_input_list`.
@@ -349,9 +330,7 @@ impl SimulatePrincipalPolicyInputBuilder {
         mut self,
         input: impl ::std::convert::Into<::std::string::String>,
     ) -> Self {
-        let mut v = self
-            .permissions_boundary_policy_input_list
-            .unwrap_or_default();
+        let mut v = self.permissions_boundary_policy_input_list.unwrap_or_default();
         v.push(input.into());
         self.permissions_boundary_policy_input_list = ::std::option::Option::Some(v);
         self
@@ -416,9 +395,7 @@ impl SimulatePrincipalPolicyInputBuilder {
     /// <p>A list of policies to exclude from the simulation. Use this parameter to test what the simulation result would be if a policy were removed, without changing which policies are actually attached to the principal identified by <code>PolicySourceArn</code>.</p>
     /// <p>Each entry is a <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_PolicyIdentifier.html">PolicyIdentifier</a> that identifies one or more policies to exclude by policy type, by Amazon Resource Name (ARN), or by the name of an inline policy and the entity it is attached to.</p>
     /// <p>Syntactically invalid identifiers, such as malformed ARNs or wildcards in disallowed positions, cause the request to fail with an <code>InvalidInput</code> error. Syntactically valid identifiers that don't match any attached policy are ignored. Resource control policies (RCPs) are not supported in this release; identifiers that target RCPs are also ignored.</p>
-    pub fn get_policy_exclusion_list(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyIdentifier>> {
+    pub fn get_policy_exclusion_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyIdentifier>> {
         &self.policy_exclusion_list
     }
     /// Appends an item to `action_names`.
@@ -433,17 +410,12 @@ impl SimulatePrincipalPolicyInputBuilder {
         self
     }
     /// <p>A list of names of API operations to evaluate in the simulation. Each operation is evaluated for each resource. Each operation must include the service identifier, such as <code>iam:CreateUser</code>.</p>
-    pub fn set_action_names(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_action_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.action_names = input;
         self
     }
     /// <p>A list of names of API operations to evaluate in the simulation. Each operation is evaluated for each resource. Each operation must include the service identifier, such as <code>iam:CreateUser</code>.</p>
-    pub fn get_action_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_action_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.action_names
     }
     /// Appends an item to `resource_arns`.
@@ -455,10 +427,7 @@ impl SimulatePrincipalPolicyInputBuilder {
     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p><note>
     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
     /// </note>
-    pub fn resource_arns(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_arns(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.resource_arns.unwrap_or_default();
         v.push(input.into());
         self.resource_arns = ::std::option::Option::Some(v);
@@ -469,10 +438,7 @@ impl SimulatePrincipalPolicyInputBuilder {
     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p><note>
     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
     /// </note>
-    pub fn set_resource_arns(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_resource_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.resource_arns = input;
         self
     }
@@ -481,9 +447,7 @@ impl SimulatePrincipalPolicyInputBuilder {
     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p><note>
     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
     /// </note>
-    pub fn get_resource_arns(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_resource_arns(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.resource_arns
     }
     /// <p>A resource-based policy to include in the simulation provided as a string. Each resource in the simulation is treated as if it had this policy attached. You can include only one resource-based policy in a simulation.</p>
@@ -499,10 +463,7 @@ impl SimulatePrincipalPolicyInputBuilder {
     /// </ul><note>
     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
     /// </note>
-    pub fn resource_policy(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_policy(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.resource_policy = ::std::option::Option::Some(input.into());
         self
     }
@@ -519,10 +480,7 @@ impl SimulatePrincipalPolicyInputBuilder {
     /// </ul><note>
     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
     /// </note>
-    pub fn set_resource_policy(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_resource_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.resource_policy = input;
         self
     }
@@ -543,18 +501,12 @@ impl SimulatePrincipalPolicyInputBuilder {
         &self.resource_policy
     }
     /// <p>An Amazon Web Services account ID that specifies the owner of any simulated resource that does not identify its owner in the resource ARN. Examples of resource ARNs include an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is also used as the account owner of any <code>ResourcePolicy</code> included in the simulation. If the <code>ResourceOwner</code> parameter is not specified, then the owner of the resources and the resource policy defaults to the account of the identity provided in <code>CallerArn</code>. This parameter is required only if you specify a resource-based policy and account that owns the resource is different from the account that owns the simulated calling user <code>CallerArn</code>.</p>
-    pub fn resource_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.resource_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>An Amazon Web Services account ID that specifies the owner of any simulated resource that does not identify its owner in the resource ARN. Examples of resource ARNs include an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is also used as the account owner of any <code>ResourcePolicy</code> included in the simulation. If the <code>ResourceOwner</code> parameter is not specified, then the owner of the resources and the resource policy defaults to the account of the identity provided in <code>CallerArn</code>. This parameter is required only if you specify a resource-based policy and account that owns the resource is different from the account that owns the simulated calling user <code>CallerArn</code>.</p>
-    pub fn set_resource_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_resource_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.resource_owner = input;
         self
     }
@@ -605,9 +557,7 @@ impl SimulatePrincipalPolicyInputBuilder {
         self
     }
     /// <p>A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.</p>
-    pub fn get_context_entries(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ContextEntry>> {
+    pub fn get_context_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ContextEntry>> {
         &self.context_entries
     }
     /// <p>Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.</p>
@@ -626,10 +576,7 @@ impl SimulatePrincipalPolicyInputBuilder {
     /// <p><b>EC2-VPC-EBS-Subnet</b></p>
     /// <p>instance, image, security group, network interface, subnet, volume</p></li>
     /// </ul>
-    pub fn resource_handling_option(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_handling_option(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.resource_handling_option = ::std::option::Option::Some(input.into());
         self
     }
@@ -649,10 +596,7 @@ impl SimulatePrincipalPolicyInputBuilder {
     /// <p><b>EC2-VPC-EBS-Subnet</b></p>
     /// <p>instance, image, security group, network interface, subnet, volume</p></li>
     /// </ul>
-    pub fn set_resource_handling_option(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_resource_handling_option(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.resource_handling_option = input;
         self
     }

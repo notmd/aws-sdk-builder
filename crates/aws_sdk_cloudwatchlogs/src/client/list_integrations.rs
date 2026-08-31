@@ -9,11 +9,7 @@ impl super::Client {
     /// - On success, responds with [`ListIntegrationsOutput`](crate::operation::list_integrations::ListIntegrationsOutput) with field(s):
     ///   - [`integration_summaries(Option<Vec::<IntegrationSummary>>)`](crate::operation::list_integrations::ListIntegrationsOutput::integration_summaries): <p>An array, where each object in the array contains information about one CloudWatch Logs integration in this account.</p>
     /// - On failure, responds with [`SdkError<ListIntegrationsError>`](crate::operation::list_integrations::ListIntegrationsError)
-    pub fn list_integrations(
-        &self,
-    ) -> crate::operation::list_integrations::builders::ListIntegrationsFluentBuilder {
-        crate::operation::list_integrations::builders::ListIntegrationsFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn list_integrations(&self) -> crate::operation::list_integrations::builders::ListIntegrationsFluentBuilder {
+        crate::operation::list_integrations::builders::ListIntegrationsFluentBuilder::new(self.handle.clone())
     }
 }

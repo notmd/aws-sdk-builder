@@ -27,21 +27,16 @@ impl ::aws_types::request_id::RequestId for ListWebAuthnCredentialsOutput {
 }
 impl ListWebAuthnCredentialsOutput {
     /// Creates a new builder-style object to manufacture [`ListWebAuthnCredentialsOutput`](crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsOutput).
-    pub fn builder(
-    ) -> crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsOutputBuilder
-    {
+    pub fn builder() -> crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsOutputBuilder {
         crate::operation::list_web_authn_credentials::builders::ListWebAuthnCredentialsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListWebAuthnCredentialsOutput`](crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListWebAuthnCredentialsOutputBuilder {
-    pub(crate) credentials:
-        ::std::option::Option<::std::vec::Vec<crate::types::WebAuthnCredentialDescription>>,
+    pub(crate) credentials: ::std::option::Option<::std::vec::Vec<crate::types::WebAuthnCredentialDescription>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -103,15 +98,17 @@ impl ListWebAuthnCredentialsOutputBuilder {
         crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsOutput {
-            credentials: self.credentials.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "credentials",
-                    "credentials was not specified but it is required when building ListWebAuthnCredentialsOutput",
-                )
-            })?,
-            next_token: self.next_token,
-            _request_id: self._request_id,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::list_web_authn_credentials::ListWebAuthnCredentialsOutput {
+                credentials: self.credentials.ok_or_else(|| {
+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
+                        "credentials",
+                        "credentials was not specified but it is required when building ListWebAuthnCredentialsOutput",
+                    )
+                })?,
+                next_token: self.next_token,
+                _request_id: self._request_id,
+            },
+        )
     }
 }

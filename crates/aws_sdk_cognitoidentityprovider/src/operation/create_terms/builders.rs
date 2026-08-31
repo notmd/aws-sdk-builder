@@ -93,12 +93,11 @@ impl CreateTermsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::create_terms::CreateTerms::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::create_terms::CreateTerms::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::create_terms::CreateTerms::orchestrate(&runtime_plugins, input).await
     }
 
@@ -175,10 +174,7 @@ impl CreateTermsFluentBuilder {
         self
     }
     /// <p>This parameter is reserved for future use and currently accepts only one value.</p>
-    pub fn set_terms_source(
-        mut self,
-        input: ::std::option::Option<crate::types::TermsSourceType>,
-    ) -> Self {
+    pub fn set_terms_source(mut self, input: ::std::option::Option<crate::types::TermsSourceType>) -> Self {
         self.inner = self.inner.set_terms_source(input);
         self
     }
@@ -192,10 +188,7 @@ impl CreateTermsFluentBuilder {
         self
     }
     /// <p>This parameter is reserved for future use and currently accepts only one value.</p>
-    pub fn set_enforcement(
-        mut self,
-        input: ::std::option::Option<crate::types::TermsEnforcementType>,
-    ) -> Self {
+    pub fn set_enforcement(mut self, input: ::std::option::Option<crate::types::TermsEnforcementType>) -> Self {
         self.inner = self.inner.set_enforcement(input);
         self
     }
@@ -222,9 +215,7 @@ impl CreateTermsFluentBuilder {
     /// <p>For example, <code>"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"</code>.</p>
     pub fn set_links(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_links(input);
         self
@@ -233,9 +224,7 @@ impl CreateTermsFluentBuilder {
     /// <p>For example, <code>"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"</code>.</p>
     pub fn get_links(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_links()
     }
 }

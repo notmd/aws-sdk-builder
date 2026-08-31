@@ -81,9 +81,7 @@ mod test {
     #[allow(deprecated)]
     use crate::profile::profile_file::{ProfileFileKind, ProfileFiles};
     use crate::provider_config::ProviderConfig;
-    use aws_smithy_types::checksum_config::{
-        RequestChecksumCalculation, ResponseChecksumValidation,
-    };
+    use aws_smithy_types::checksum_config::{RequestChecksumCalculation, ResponseChecksumValidation};
     use aws_types::os_shim_internal::{Env, Fs};
     use tracing_test::traced_test;
 
@@ -98,9 +96,7 @@ mod test {
             request_checksum_calculation_provider(&conf).await,
             Some(RequestChecksumCalculation::WhenSupported)
         );
-        assert!(logs_contain(
-            "invalid value for request_checksum_calculation setting"
-        ));
+        assert!(logs_contain("invalid value for request_checksum_calculation setting"));
         assert!(logs_contain("AWS_REQUEST_CHECKSUM_CALCULATION"));
     }
 
@@ -183,9 +179,7 @@ mod test {
             response_checksum_validation_provider(&conf).await,
             Some(ResponseChecksumValidation::WhenSupported)
         );
-        assert!(logs_contain(
-            "invalid value for response_checksum_validation setting"
-        ));
+        assert!(logs_contain("invalid value for response_checksum_validation setting"));
         assert!(logs_contain("AWS_RESPONSE_CHECKSUM_VALIDATION"));
     }
 

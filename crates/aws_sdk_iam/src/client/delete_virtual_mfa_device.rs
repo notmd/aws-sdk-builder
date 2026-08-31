@@ -8,8 +8,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteVirtualMFADeviceError>`](crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError)
     pub fn delete_virtual_mfa_device(
         &self,
-    ) -> crate::operation::delete_virtual_mfa_device::builders::DeleteVirtualMFADeviceFluentBuilder
-    {
-        crate::operation::delete_virtual_mfa_device::builders::DeleteVirtualMFADeviceFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::delete_virtual_mfa_device::builders::DeleteVirtualMFADeviceFluentBuilder {
+        crate::operation::delete_virtual_mfa_device::builders::DeleteVirtualMFADeviceFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -14,16 +14,11 @@ pub fn de_start_live_tail_http_response(
     let _response_headers = response.headers();
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::start_live_tail::builders::StartLiveTailOutputBuilder::default();
+        let mut output = crate::operation::start_live_tail::builders::StartLiveTailOutputBuilder::default();
         output = output.set_response_stream(Some(
-            crate::protocol_serde::shape_start_live_tail_output::de_response_stream_payload(
-                _response_body,
-            )?,
+            crate::protocol_serde::shape_start_live_tail_output::de_response_stream_payload(_response_body)?,
         ));
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output
             .build()
             .map_err(crate::operation::start_live_tail::StartLiveTailError::unhandled)?
@@ -40,48 +35,46 @@ pub fn de_start_live_tail_http_error(
     crate::operation::start_live_tail::StartLiveTailError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::start_live_tail::StartLiveTailError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::start_live_tail::StartLiveTailError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(crate::operation::start_live_tail::StartLiveTailError::unhandled(generic))
+            return Err(crate::operation::start_live_tail::StartLiveTailError::unhandled(
+                generic,
+            ))
         }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AccessDeniedException" => {
-            crate::operation::start_live_tail::StartLiveTailError::AccessDeniedException({
+        "AccessDeniedException" => crate::operation::start_live_tail::StartLiveTailError::AccessDeniedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::AccessDeniedExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::start_live_tail::StartLiveTailError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::AccessDeniedExceptionBuilder::default();
+                output = crate::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::start_live_tail::StartLiveTailError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidOperationException" => {
             crate::operation::start_live_tail::StartLiveTailError::InvalidOperationException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InvalidOperationExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::InvalidOperationExceptionBuilder::default();
                     output = crate::protocol_serde::shape_invalid_operation_exception::de_invalid_operation_exception_json_err(_response_body, output)
                     .map_err(crate::operation::start_live_tail::StartLiveTailError::unhandled)?;
                     let output = output.meta(generic);
@@ -98,8 +91,7 @@ pub fn de_start_live_tail_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
                     output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
                     .map_err(crate::operation::start_live_tail::StartLiveTailError::unhandled)?;
                     let output = output.meta(generic);
@@ -111,31 +103,30 @@ pub fn de_start_live_tail_http_error(
                 tmp
             })
         }
-        "LimitExceededException" => {
-            crate::operation::start_live_tail::StartLiveTailError::LimitExceededException({
+        "LimitExceededException" => crate::operation::start_live_tail::StartLiveTailError::LimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::LimitExceededExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::start_live_tail::StartLiveTailError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
+                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::start_live_tail::StartLiveTailError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ResourceNotFoundException" => {
             crate::operation::start_live_tail::StartLiveTailError::ResourceNotFoundException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                     output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(crate::operation::start_live_tail::StartLiveTailError::unhandled)?;
                     let output = output.meta(generic);
@@ -147,31 +138,30 @@ pub fn de_start_live_tail_http_error(
                 tmp
             })
         }
-        "SessionTimeoutException" => {
-            crate::operation::start_live_tail::StartLiveTailError::SessionTimeoutException({
+        "SessionTimeoutException" => crate::operation::start_live_tail::StartLiveTailError::SessionTimeoutException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::SessionTimeoutExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_session_timeout_exception::de_session_timeout_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::start_live_tail::StartLiveTailError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::SessionTimeoutExceptionBuilder::default();
+                output = crate::protocol_serde::shape_session_timeout_exception::de_session_timeout_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::start_live_tail::StartLiveTailError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "SessionStreamingException" => {
             crate::operation::start_live_tail::StartLiveTailError::SessionStreamingException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::SessionStreamingExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::SessionStreamingExceptionBuilder::default();
                     output = crate::protocol_serde::shape_session_streaming_exception::de_session_streaming_exception_json_err(_response_body, output)
                     .map_err(crate::operation::start_live_tail::StartLiveTailError::unhandled)?;
                     let output = output.meta(generic);
@@ -189,16 +179,11 @@ pub fn de_start_live_tail_http_error(
 
 pub fn ser_start_live_tail_input(
     input: &crate::operation::start_live_tail::StartLiveTailInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_start_live_tail_input::ser_start_live_tail_input_input(
-        &mut object,
-        input,
-    )?;
+    crate::protocol_serde::shape_start_live_tail_input::ser_start_live_tail_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

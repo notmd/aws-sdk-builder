@@ -15,28 +15,19 @@ pub fn ser_notify_configuration_type(
     if let Some(var_3) = &input.block_email {
         #[allow(unused_mut)]
         let mut object_4 = object.key("BlockEmail").start_object();
-        crate::protocol_serde::shape_notify_email_type::ser_notify_email_type(
-            &mut object_4,
-            var_3,
-        )?;
+        crate::protocol_serde::shape_notify_email_type::ser_notify_email_type(&mut object_4, var_3)?;
         object_4.finish();
     }
     if let Some(var_5) = &input.no_action_email {
         #[allow(unused_mut)]
         let mut object_6 = object.key("NoActionEmail").start_object();
-        crate::protocol_serde::shape_notify_email_type::ser_notify_email_type(
-            &mut object_6,
-            var_5,
-        )?;
+        crate::protocol_serde::shape_notify_email_type::ser_notify_email_type(&mut object_6, var_5)?;
         object_6.finish();
     }
     if let Some(var_7) = &input.mfa_email {
         #[allow(unused_mut)]
         let mut object_8 = object.key("MfaEmail").start_object();
-        crate::protocol_serde::shape_notify_email_type::ser_notify_email_type(
-            &mut object_8,
-            var_7,
-        )?;
+        crate::protocol_serde::shape_notify_email_type::ser_notify_email_type(&mut object_8, var_7)?;
         object_8.finish();
     }
     Ok(())
@@ -59,11 +50,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -77,61 +66,59 @@ where
                         match key.to_unescaped()?.as_ref() {
                             "From" => {
                                 builder = builder.set_from(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "ReplyTo" => {
                                 builder = builder.set_reply_to(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "SourceArn" => {
                                 builder = builder.set_source_arn(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "BlockEmail" => {
-                                builder = builder.set_block_email(crate::protocol_serde::shape_notify_email_type::de_notify_email_type(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                                builder = builder.set_block_email(
+                                    crate::protocol_serde::shape_notify_email_type::de_notify_email_type(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "NoActionEmail" => {
-                                builder = builder.set_no_action_email(crate::protocol_serde::shape_notify_email_type::de_notify_email_type(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                                builder = builder.set_no_action_email(
+                                    crate::protocol_serde::shape_notify_email_type::de_notify_email_type(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "MfaEmail" => {
-                                builder = builder.set_mfa_email(crate::protocol_serde::shape_notify_email_type::de_notify_email_type(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                                builder = builder.set_mfa_email(
+                                    crate::protocol_serde::shape_notify_email_type::de_notify_email_type(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
@@ -146,10 +133,8 @@ where
                     })?,
             ))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

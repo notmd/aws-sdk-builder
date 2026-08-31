@@ -41,9 +41,7 @@ impl ParameterizedStatement {
 }
 
 /// A builder for [`ParameterizedStatement`](crate::types::ParameterizedStatement).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ParameterizedStatementBuilder {
     pub(crate) statement: ::std::option::Option<::std::string::String>,
@@ -87,9 +85,7 @@ impl ParameterizedStatementBuilder {
         self
     }
     /// <p>The parameter values.</p>
-    pub fn get_parameters(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>> {
+    pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>> {
         &self.parameters
     }
     /// <p>An optional parameter that returns the item attributes for a PartiQL <code>ParameterizedStatement</code> operation that failed a condition check.</p>
@@ -122,10 +118,8 @@ impl ParameterizedStatementBuilder {
     /// - [`statement`](crate::types::builders::ParameterizedStatementBuilder::statement)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::ParameterizedStatement,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::ParameterizedStatement, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::ParameterizedStatement {
             statement: self.statement.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

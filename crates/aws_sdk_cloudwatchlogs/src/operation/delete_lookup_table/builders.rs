@@ -58,9 +58,7 @@ impl DeleteLookupTableFluentBuilder {
         }
     }
     /// Access the DeleteLookupTable as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::delete_lookup_table::builders::DeleteLookupTableInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::delete_lookup_table::builders::DeleteLookupTableInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,17 +82,12 @@ impl DeleteLookupTableFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::delete_lookup_table::DeleteLookupTable::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::delete_lookup_table::DeleteLookupTable::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::delete_lookup_table::DeleteLookupTable::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::delete_lookup_table::DeleteLookupTable::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -123,18 +116,12 @@ impl DeleteLookupTableFluentBuilder {
         self
     }
     /// <p>The ARN of the lookup table to delete.</p>
-    pub fn lookup_table_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn lookup_table_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.lookup_table_arn(input.into());
         self
     }
     /// <p>The ARN of the lookup table to delete.</p>
-    pub fn set_lookup_table_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_lookup_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_lookup_table_arn(input);
         self
     }

@@ -12,10 +12,7 @@ pub fn ser_table_creation_parameters(
             {
                 #[allow(unused_mut)]
                 let mut object_3 = array_1.value().start_object();
-                crate::protocol_serde::shape_attribute_definition::ser_attribute_definition(
-                    &mut object_3,
-                    item_2,
-                )?;
+                crate::protocol_serde::shape_attribute_definition::ser_attribute_definition(&mut object_3, item_2)?;
                 object_3.finish();
             }
         }
@@ -27,10 +24,7 @@ pub fn ser_table_creation_parameters(
             {
                 #[allow(unused_mut)]
                 let mut object_6 = array_4.value().start_object();
-                crate::protocol_serde::shape_key_schema_element::ser_key_schema_element(
-                    &mut object_6,
-                    item_5,
-                )?;
+                crate::protocol_serde::shape_key_schema_element::ser_key_schema_element(&mut object_6, item_5)?;
                 object_6.finish();
             }
         }
@@ -42,28 +36,19 @@ pub fn ser_table_creation_parameters(
     if let Some(var_8) = &input.provisioned_throughput {
         #[allow(unused_mut)]
         let mut object_9 = object.key("ProvisionedThroughput").start_object();
-        crate::protocol_serde::shape_provisioned_throughput::ser_provisioned_throughput(
-            &mut object_9,
-            var_8,
-        )?;
+        crate::protocol_serde::shape_provisioned_throughput::ser_provisioned_throughput(&mut object_9, var_8)?;
         object_9.finish();
     }
     if let Some(var_10) = &input.on_demand_throughput {
         #[allow(unused_mut)]
         let mut object_11 = object.key("OnDemandThroughput").start_object();
-        crate::protocol_serde::shape_on_demand_throughput::ser_on_demand_throughput(
-            &mut object_11,
-            var_10,
-        )?;
+        crate::protocol_serde::shape_on_demand_throughput::ser_on_demand_throughput(&mut object_11, var_10)?;
         object_11.finish();
     }
     if let Some(var_12) = &input.sse_specification {
         #[allow(unused_mut)]
         let mut object_13 = object.key("SSESpecification").start_object();
-        crate::protocol_serde::shape_sse_specification::ser_sse_specification(
-            &mut object_13,
-            var_12,
-        )?;
+        crate::protocol_serde::shape_sse_specification::ser_sse_specification(&mut object_13, var_12)?;
         object_13.finish();
     }
     if let Some(var_14) = &input.global_secondary_indexes {
@@ -87,10 +72,7 @@ pub fn ser_table_creation_parameters(
             {
                 #[allow(unused_mut)]
                 let mut object_21 = array_19.value().start_object();
-                crate::protocol_serde::shape_vector_index::ser_vector_index(
-                    &mut object_21,
-                    item_20,
-                )?;
+                crate::protocol_serde::shape_vector_index::ser_vector_index(&mut object_21, item_20)?;
                 object_21.finish();
             }
         }
@@ -116,11 +98,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -134,57 +114,58 @@ where
                         match key.to_unescaped()?.as_ref() {
                             "TableName" => {
                                 builder = builder.set_table_name(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "AttributeDefinitions" => {
                                 builder = builder.set_attribute_definitions(
-                                crate::protocol_serde::shape_attribute_definitions::de_attribute_definitions(tokens, _value, depth + 1)?,
-                            );
-                            }
-                            "KeySchema" => {
-                                builder = builder.set_key_schema(
-                                    crate::protocol_serde::shape_key_schema::de_key_schema(
+                                    crate::protocol_serde::shape_attribute_definitions::de_attribute_definitions(
                                         tokens,
                                         _value,
                                         depth + 1,
                                     )?,
                                 );
                             }
+                            "KeySchema" => {
+                                builder = builder.set_key_schema(
+                                    crate::protocol_serde::shape_key_schema::de_key_schema(tokens, _value, depth + 1)?,
+                                );
+                            }
                             "BillingMode" => {
                                 builder = builder.set_billing_mode(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| crate::types::BillingMode::from(u.as_ref()))
-                                    })
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| crate::types::BillingMode::from(u.as_ref())))
+                                        .transpose()?,
                                 );
                             }
                             "ProvisionedThroughput" => {
                                 builder = builder.set_provisioned_throughput(
-                                crate::protocol_serde::shape_provisioned_throughput::de_provisioned_throughput(tokens, _value, depth + 1)?,
-                            );
+                                    crate::protocol_serde::shape_provisioned_throughput::de_provisioned_throughput(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "OnDemandThroughput" => {
-                                builder = builder.set_on_demand_throughput(crate::protocol_serde::shape_on_demand_throughput::de_on_demand_throughput(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                                builder = builder.set_on_demand_throughput(
+                                    crate::protocol_serde::shape_on_demand_throughput::de_on_demand_throughput(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "SSESpecification" => {
-                                builder = builder.set_sse_specification(crate::protocol_serde::shape_sse_specification::de_sse_specification(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                                builder = builder.set_sse_specification(
+                                    crate::protocol_serde::shape_sse_specification::de_sse_specification(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "GlobalSecondaryIndexes" => {
                                 builder = builder.set_global_secondary_indexes(
@@ -192,21 +173,21 @@ where
                             );
                             }
                             "VectorIndexes" => {
-                                builder = builder.set_vector_indexes(crate::protocol_serde::shape_vector_index_list::de_vector_index_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                                builder = builder.set_vector_indexes(
+                                    crate::protocol_serde::shape_vector_index_list::de_vector_index_list(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
@@ -221,10 +202,8 @@ where
                     })?,
             ))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

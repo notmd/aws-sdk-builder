@@ -34,17 +34,13 @@ impl ::aws_types::request_id::RequestId for ListServerCertificatesOutput {
 }
 impl ListServerCertificatesOutput {
     /// Creates a new builder-style object to manufacture [`ListServerCertificatesOutput`](crate::operation::list_server_certificates::ListServerCertificatesOutput).
-    pub fn builder(
-    ) -> crate::operation::list_server_certificates::builders::ListServerCertificatesOutputBuilder
-    {
+    pub fn builder() -> crate::operation::list_server_certificates::builders::ListServerCertificatesOutputBuilder {
         crate::operation::list_server_certificates::builders::ListServerCertificatesOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListServerCertificatesOutput`](crate::operation::list_server_certificates::ListServerCertificatesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListServerCertificatesOutputBuilder {
     pub(crate) server_certificate_metadata_list:
@@ -59,10 +55,7 @@ impl ListServerCertificatesOutputBuilder {
     /// To override the contents of this collection use [`set_server_certificate_metadata_list`](Self::set_server_certificate_metadata_list).
     ///
     /// <p>A list of server certificates.</p>
-    pub fn server_certificate_metadata_list(
-        mut self,
-        input: crate::types::ServerCertificateMetadata,
-    ) -> Self {
+    pub fn server_certificate_metadata_list(mut self, input: crate::types::ServerCertificateMetadata) -> Self {
         let mut v = self.server_certificate_metadata_list.unwrap_or_default();
         v.push(input);
         self.server_certificate_metadata_list = ::std::option::Option::Some(v);

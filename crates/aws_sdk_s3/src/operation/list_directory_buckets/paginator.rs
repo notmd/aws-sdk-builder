@@ -31,13 +31,8 @@ impl ListDirectoryBucketsPaginator {
     ///
     /// This paginator automatically flattens results using `buckets`. Queries to the underlying service
     /// are dispatched lazily.
-    pub fn items(
-        self,
-    ) -> crate::operation::list_directory_buckets::paginator::ListDirectoryBucketsPaginatorItems
-    {
-        crate::operation::list_directory_buckets::paginator::ListDirectoryBucketsPaginatorItems(
-            self,
-        )
+    pub fn items(self) -> crate::operation::list_directory_buckets::paginator::ListDirectoryBucketsPaginatorItems {
+        crate::operation::list_directory_buckets::paginator::ListDirectoryBucketsPaginatorItems(self)
     }
 
     /// Stop paginating when the service returns the same pagination token twice in a row.
@@ -70,19 +65,21 @@ impl ListDirectoryBucketsPaginator {
         // Move individual fields out of self for the borrow checker
         let builder = self.builder;
         let handle = self.handle;
-        let runtime_plugins = crate::operation::list_directory_buckets::ListDirectoryBuckets::operation_runtime_plugins(
-            handle.runtime_plugins.clone(),
-            &handle.conf,
-            ::std::option::Option::None,
-        )
-        .with_operation_plugin(crate::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
+        let runtime_plugins =
+            crate::operation::list_directory_buckets::ListDirectoryBuckets::operation_runtime_plugins(
+                handle.runtime_plugins.clone(),
+                &handle.conf,
+                ::std::option::Option::None,
+            )
+            .with_operation_plugin(crate::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
         ::aws_smithy_async::future::pagination_stream::PaginationStream::new(
             ::aws_smithy_async::future::pagination_stream::fn_stream::FnStream::new(move |tx| {
                 ::std::boxed::Box::pin(async move {
                     // Build the input for the first time. If required fields are missing, this is where we'll produce an early error.
-                    let mut input = match builder.build().map_err(
-                        ::aws_smithy_runtime_api::client::result::SdkError::construction_failure,
-                    ) {
+                    let mut input = match builder
+                        .build()
+                        .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)
+                    {
                         ::std::result::Result::Ok(input) => input,
                         ::std::result::Result::Err(e) => {
                             let _ = tx.send(::std::result::Result::Err(e)).await;
@@ -90,14 +87,18 @@ impl ListDirectoryBucketsPaginator {
                         }
                     };
                     loop {
-                        let resp = crate::operation::list_directory_buckets::ListDirectoryBuckets::orchestrate(&runtime_plugins, input.clone()).await;
+                        let resp = crate::operation::list_directory_buckets::ListDirectoryBuckets::orchestrate(
+                            &runtime_plugins,
+                            input.clone(),
+                        )
+                        .await;
                         // If the input member is None or it was an error
                         let done = match resp {
                             ::std::result::Result::Ok(ref resp) => {
-                                let new_token = crate::lens::reflens_list_directory_buckets_output_output_continuation_token(resp);
+                                let new_token =
+                                    crate::lens::reflens_list_directory_buckets_output_output_continuation_token(resp);
                                 // Pagination is exhausted when the next token is an empty string
-                                let is_empty =
-                                    new_token.map(|token| token.is_empty()).unwrap_or(true);
+                                let is_empty = new_token.map(|token| token.is_empty()).unwrap_or(true);
                                 if !is_empty
                                     && new_token == input.continuation_token.as_ref()
                                     && self.stop_on_duplicate_token
@@ -147,12 +148,10 @@ impl ListDirectoryBucketsPaginatorItems {
             >,
         >,
     > {
-        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(
-            |page| {
-                crate::lens::lens_list_directory_buckets_output_output_buckets(page)
-                    .unwrap_or_default()
-                    .into_iter()
-            },
-        )
+        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(|page| {
+            crate::lens::lens_list_directory_buckets_output_output_buckets(page)
+                .unwrap_or_default()
+                .into_iter()
+        })
     }
 }

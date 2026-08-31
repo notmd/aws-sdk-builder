@@ -34,9 +34,7 @@ impl NotifyEmailType {
 }
 
 /// A builder for [`NotifyEmailType`](crate::types::NotifyEmailType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct NotifyEmailTypeBuilder {
     pub(crate) subject: ::std::option::Option<::std::string::String>,
@@ -92,10 +90,7 @@ impl NotifyEmailTypeBuilder {
     /// - [`subject`](crate::types::builders::NotifyEmailTypeBuilder::subject)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::NotifyEmailType,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::NotifyEmailType, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::NotifyEmailType {
             subject: self.subject.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

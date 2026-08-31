@@ -21,9 +21,7 @@ impl GuardrailChecksContentFilterCategoryConfig {
 }
 
 /// A builder for [`GuardrailChecksContentFilterCategoryConfig`](crate::types::GuardrailChecksContentFilterCategoryConfig).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailChecksContentFilterCategoryConfigBuilder {
     pub(crate) category: ::std::option::Option<crate::types::GuardrailChecksContentFilterCategory>,
@@ -44,9 +42,7 @@ impl GuardrailChecksContentFilterCategoryConfigBuilder {
         self
     }
     /// <p>The content filter category to evaluate.</p>
-    pub fn get_category(
-        &self,
-    ) -> &::std::option::Option<crate::types::GuardrailChecksContentFilterCategory> {
+    pub fn get_category(&self) -> &::std::option::Option<crate::types::GuardrailChecksContentFilterCategory> {
         &self.category
     }
     /// Consumes the builder and constructs a [`GuardrailChecksContentFilterCategoryConfig`](crate::types::GuardrailChecksContentFilterCategoryConfig).

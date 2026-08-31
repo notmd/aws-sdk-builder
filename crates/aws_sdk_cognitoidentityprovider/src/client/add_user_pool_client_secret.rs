@@ -11,8 +11,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<AddUserPoolClientSecretError>`](crate::operation::add_user_pool_client_secret::AddUserPoolClientSecretError)
     pub fn add_user_pool_client_secret(
         &self,
-    ) -> crate::operation::add_user_pool_client_secret::builders::AddUserPoolClientSecretFluentBuilder
-    {
-        crate::operation::add_user_pool_client_secret::builders::AddUserPoolClientSecretFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::add_user_pool_client_secret::builders::AddUserPoolClientSecretFluentBuilder {
+        crate::operation::add_user_pool_client_secret::builders::AddUserPoolClientSecretFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

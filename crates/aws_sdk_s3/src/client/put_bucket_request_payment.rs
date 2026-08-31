@@ -12,8 +12,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutBucketRequestPaymentError>`](crate::operation::put_bucket_request_payment::PutBucketRequestPaymentError)
     pub fn put_bucket_request_payment(
         &self,
-    ) -> crate::operation::put_bucket_request_payment::builders::PutBucketRequestPaymentFluentBuilder
-    {
-        crate::operation::put_bucket_request_payment::builders::PutBucketRequestPaymentFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::put_bucket_request_payment::builders::PutBucketRequestPaymentFluentBuilder {
+        crate::operation::put_bucket_request_payment::builders::PutBucketRequestPaymentFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

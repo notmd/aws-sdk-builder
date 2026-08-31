@@ -79,7 +79,9 @@ impl DisconnectCustomKeyStoreFluentBuilder {
         }
     }
     /// Access the DisconnectCustomKeyStore as a reference.
-    pub fn as_input(&self) -> &crate::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -103,16 +105,14 @@ impl DisconnectCustomKeyStoreFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStore::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStore::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStore::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStore::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -141,18 +141,12 @@ impl DisconnectCustomKeyStoreFluentBuilder {
         self
     }
     /// <p>Enter the ID of the custom key store you want to disconnect. To find the ID of a custom key store, use the <code>DescribeCustomKeyStores</code> operation.</p>
-    pub fn custom_key_store_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn custom_key_store_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.custom_key_store_id(input.into());
         self
     }
     /// <p>Enter the ID of the custom key store you want to disconnect. To find the ID of a custom key store, use the <code>DescribeCustomKeyStores</code> operation.</p>
-    pub fn set_custom_key_store_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_custom_key_store_id(input);
         self
     }

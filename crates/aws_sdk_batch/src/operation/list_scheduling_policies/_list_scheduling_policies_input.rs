@@ -25,17 +25,13 @@ impl ListSchedulingPoliciesInput {
 }
 impl ListSchedulingPoliciesInput {
     /// Creates a new builder-style object to manufacture [`ListSchedulingPoliciesInput`](crate::operation::list_scheduling_policies::ListSchedulingPoliciesInput).
-    pub fn builder(
-    ) -> crate::operation::list_scheduling_policies::builders::ListSchedulingPoliciesInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_scheduling_policies::builders::ListSchedulingPoliciesInputBuilder {
         crate::operation::list_scheduling_policies::builders::ListSchedulingPoliciesInputBuilder::default()
     }
 }
 
 /// A builder for [`ListSchedulingPoliciesInput`](crate::operation::list_scheduling_policies::ListSchedulingPoliciesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListSchedulingPoliciesInputBuilder {
     pub(crate) max_results: ::std::option::Option<i32>,

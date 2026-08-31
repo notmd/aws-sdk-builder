@@ -10,8 +10,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetRoleTemplateVersionError>`](crate::operation::get_role_template_version::GetRoleTemplateVersionError)
     pub fn get_role_template_version(
         &self,
-    ) -> crate::operation::get_role_template_version::builders::GetRoleTemplateVersionFluentBuilder
-    {
-        crate::operation::get_role_template_version::builders::GetRoleTemplateVersionFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::get_role_template_version::builders::GetRoleTemplateVersionFluentBuilder {
+        crate::operation::get_role_template_version::builders::GetRoleTemplateVersionFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

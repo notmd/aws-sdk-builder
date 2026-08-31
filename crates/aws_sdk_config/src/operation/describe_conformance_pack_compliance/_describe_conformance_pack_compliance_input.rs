@@ -18,9 +18,7 @@ impl DescribeConformancePackComplianceInput {
         self.conformance_pack_name.as_deref()
     }
     /// <p>A <code>ConformancePackComplianceFilters</code> object.</p>
-    pub fn filters(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ConformancePackComplianceFilters> {
+    pub fn filters(&self) -> ::std::option::Option<&crate::types::ConformancePackComplianceFilters> {
         self.filters.as_ref()
     }
     /// <p>The maximum number of Config rules within a conformance pack are returned on each page.</p>
@@ -34,15 +32,15 @@ impl DescribeConformancePackComplianceInput {
 }
 impl DescribeConformancePackComplianceInput {
     /// Creates a new builder-style object to manufacture [`DescribeConformancePackComplianceInput`](crate::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceInput).
-    pub fn builder() -> crate::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceInputBuilder
+    {
         crate::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceInputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeConformancePackComplianceInput`](crate::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeConformancePackComplianceInputBuilder {
     pub(crate) conformance_pack_name: ::std::option::Option<::std::string::String>,
@@ -53,18 +51,12 @@ pub struct DescribeConformancePackComplianceInputBuilder {
 impl DescribeConformancePackComplianceInputBuilder {
     /// <p>Name of the conformance pack.</p>
     /// This field is required.
-    pub fn conformance_pack_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn conformance_pack_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.conformance_pack_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Name of the conformance pack.</p>
-    pub fn set_conformance_pack_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_conformance_pack_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.conformance_pack_name = input;
         self
     }
@@ -78,17 +70,12 @@ impl DescribeConformancePackComplianceInputBuilder {
         self
     }
     /// <p>A <code>ConformancePackComplianceFilters</code> object.</p>
-    pub fn set_filters(
-        mut self,
-        input: ::std::option::Option<crate::types::ConformancePackComplianceFilters>,
-    ) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<crate::types::ConformancePackComplianceFilters>) -> Self {
         self.filters = input;
         self
     }
     /// <p>A <code>ConformancePackComplianceFilters</code> object.</p>
-    pub fn get_filters(
-        &self,
-    ) -> &::std::option::Option<crate::types::ConformancePackComplianceFilters> {
+    pub fn get_filters(&self) -> &::std::option::Option<crate::types::ConformancePackComplianceFilters> {
         &self.filters
     }
     /// <p>The maximum number of Config rules within a conformance pack are returned on each page.</p>
@@ -125,7 +112,7 @@ impl DescribeConformancePackComplianceInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceInput {
                 conformance_pack_name: self.conformance_pack_name,

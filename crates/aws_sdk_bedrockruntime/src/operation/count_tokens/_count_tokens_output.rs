@@ -26,9 +26,7 @@ impl CountTokensOutput {
 }
 
 /// A builder for [`CountTokensOutput`](crate::operation::count_tokens::CountTokensOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CountTokensOutputBuilder {
     pub(crate) input_tokens: ::std::option::Option<i32>,

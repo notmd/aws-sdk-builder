@@ -57,10 +57,7 @@ impl GetLogAnomalyDetectorFluentBuilder {
         }
     }
     /// Access the GetLogAnomalyDetector as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_log_anomaly_detector::builders::GetLogAnomalyDetectorInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::get_log_anomaly_detector::builders::GetLogAnomalyDetectorInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +81,13 @@ impl GetLogAnomalyDetectorFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_log_anomaly_detector::GetLogAnomalyDetector::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::get_log_anomaly_detector::GetLogAnomalyDetector::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::get_log_anomaly_detector::GetLogAnomalyDetector::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::get_log_anomaly_detector::GetLogAnomalyDetector::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -122,18 +116,12 @@ impl GetLogAnomalyDetectorFluentBuilder {
         self
     }
     /// <p>The ARN of the anomaly detector to retrieve information about. You can find the ARNs of log anomaly detectors in your account by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListLogAnomalyDetectors.html">ListLogAnomalyDetectors</a> operation.</p>
-    pub fn anomaly_detector_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn anomaly_detector_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.anomaly_detector_arn(input.into());
         self
     }
     /// <p>The ARN of the anomaly detector to retrieve information about. You can find the ARNs of log anomaly detectors in your account by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListLogAnomalyDetectors.html">ListLogAnomalyDetectors</a> operation.</p>
-    pub fn set_anomaly_detector_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_anomaly_detector_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_anomaly_detector_arn(input);
         self
     }

@@ -19,8 +19,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<CreateComputeEnvironmentError>`](crate::operation::create_compute_environment::CreateComputeEnvironmentError)
     pub fn create_compute_environment(
         &self,
-    ) -> crate::operation::create_compute_environment::builders::CreateComputeEnvironmentFluentBuilder
-    {
-        crate::operation::create_compute_environment::builders::CreateComputeEnvironmentFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::create_compute_environment::builders::CreateComputeEnvironmentFluentBuilder {
+        crate::operation::create_compute_environment::builders::CreateComputeEnvironmentFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

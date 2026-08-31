@@ -11,8 +11,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetDelegatedAccessTokenError>`](crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError)
     pub fn get_delegated_access_token(
         &self,
-    ) -> crate::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenFluentBuilder
-    {
-        crate::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenFluentBuilder {
+        crate::operation::get_delegated_access_token::builders::GetDelegatedAccessTokenFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

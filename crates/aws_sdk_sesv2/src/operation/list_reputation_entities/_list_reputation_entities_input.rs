@@ -18,10 +18,7 @@ impl ListReputationEntitiesInput {
     pub fn filter(
         &self,
     ) -> ::std::option::Option<
-        &::std::collections::HashMap<
-            crate::types::ReputationEntityFilterKey,
-            ::std::string::String,
-        >,
+        &::std::collections::HashMap<crate::types::ReputationEntityFilterKey, ::std::string::String>,
     > {
         self.filter.as_ref()
     }
@@ -36,17 +33,13 @@ impl ListReputationEntitiesInput {
 }
 impl ListReputationEntitiesInput {
     /// Creates a new builder-style object to manufacture [`ListReputationEntitiesInput`](crate::operation::list_reputation_entities::ListReputationEntitiesInput).
-    pub fn builder(
-    ) -> crate::operation::list_reputation_entities::builders::ListReputationEntitiesInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_reputation_entities::builders::ListReputationEntitiesInputBuilder {
         crate::operation::list_reputation_entities::builders::ListReputationEntitiesInputBuilder::default()
     }
 }
 
 /// A builder for [`ListReputationEntitiesInput`](crate::operation::list_reputation_entities::ListReputationEntitiesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListReputationEntitiesInputBuilder {
     pub(crate) filter: ::std::option::Option<
@@ -75,10 +68,7 @@ impl ListReputationEntitiesInputBuilder {
     pub fn set_filter(
         mut self,
         input: ::std::option::Option<
-            ::std::collections::HashMap<
-                crate::types::ReputationEntityFilterKey,
-                ::std::string::String,
-            >,
+            ::std::collections::HashMap<crate::types::ReputationEntityFilterKey, ::std::string::String>,
         >,
     ) -> Self {
         self.filter = input;

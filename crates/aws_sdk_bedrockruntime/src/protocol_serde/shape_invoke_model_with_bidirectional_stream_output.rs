@@ -7,12 +7,10 @@ pub fn de_body_payload(
         crate::types::error::InvokeModelWithBidirectionalStreamOutputError,
     >,
     crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError,
->{
-    let unmarshaller =
-        crate::event_stream_serde::InvokeModelWithBidirectionalStreamOutputUnmarshaller::new();
+> {
+    let unmarshaller = crate::event_stream_serde::InvokeModelWithBidirectionalStreamOutputUnmarshaller::new();
     let body = std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());
-    let receiver = crate::event_receiver::EventReceiver::new(
-        ::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body),
-    );
+    let receiver =
+        crate::event_receiver::EventReceiver::new(::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body));
     Ok(receiver)
 }

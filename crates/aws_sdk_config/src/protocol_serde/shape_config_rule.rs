@@ -31,9 +31,7 @@ pub fn ser_config_rule(
         object.key("InputParameters").string(var_9.as_str());
     }
     if let Some(var_10) = &input.maximum_execution_frequency {
-        object
-            .key("MaximumExecutionFrequency")
-            .string(var_10.as_str());
+        object.key("MaximumExecutionFrequency").string(var_10.as_str());
     }
     if let Some(var_11) = &input.config_rule_state {
         object.key("ConfigRuleState").string(var_11.as_str());
@@ -47,16 +45,17 @@ pub fn ser_config_rule(
             {
                 #[allow(unused_mut)]
                 let mut object_16 = array_14.value().start_object();
-                crate::protocol_serde::shape_evaluation_mode_configuration::ser_evaluation_mode_configuration(&mut object_16, item_15)?;
+                crate::protocol_serde::shape_evaluation_mode_configuration::ser_evaluation_mode_configuration(
+                    &mut object_16,
+                    item_15,
+                )?;
                 object_16.finish();
             }
         }
         array_14.finish();
     }
     if let Some(var_17) = &input.rule_evaluation_visibility {
-        object
-            .key("RuleEvaluationVisibility")
-            .string(var_17.as_str());
+        object.key("RuleEvaluationVisibility").string(var_17.as_str());
     }
     Ok(())
 }
@@ -65,10 +64,7 @@ pub(crate) fn de_config_rule<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<
-    Option<crate::types::ConfigRule>,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
->
+) -> ::std::result::Result<Option<crate::types::ConfigRule>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<
         Item = Result<
@@ -78,11 +74,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -92,146 +86,117 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key
-                        .to_unescaped()?
-                        .as_ref()
-                    {
-                        "ConfigRuleName" => {
-                            builder = builder.set_config_rule_name(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                    tokens.next(),
-                                )?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                            );
-                        }
-                        "ConfigRuleArn" => {
-                            builder = builder.set_config_rule_arn(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                    tokens.next(),
-                                )?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                            );
-                        }
-                        "ConfigRuleId" => {
-                            builder = builder.set_config_rule_id(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                    tokens.next(),
-                                )?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                            );
-                        }
-                        "Description" => {
-                            builder = builder.set_description(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                    tokens.next(),
-                                )?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                            );
-                        }
-                        "Scope" => {
-                            builder =
-                                builder.set_scope(crate::protocol_serde::shape_scope::de_scope(
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "ConfigRuleName" => {
+                                builder = builder.set_config_rule_name(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
+                                );
+                            }
+                            "ConfigRuleArn" => {
+                                builder = builder.set_config_rule_arn(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
+                                );
+                            }
+                            "ConfigRuleId" => {
+                                builder = builder.set_config_rule_id(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
+                                );
+                            }
+                            "Description" => {
+                                builder = builder.set_description(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
+                                );
+                            }
+                            "Scope" => {
+                                builder = builder.set_scope(crate::protocol_serde::shape_scope::de_scope(
                                     tokens,
                                     _value,
                                     depth + 1,
                                 )?);
-                        }
-                        "Source" => {
-                            builder =
-                                builder.set_source(crate::protocol_serde::shape_source::de_source(
+                            }
+                            "Source" => {
+                                builder = builder.set_source(crate::protocol_serde::shape_source::de_source(
                                     tokens,
                                     _value,
                                     depth + 1,
                                 )?);
+                            }
+                            "InputParameters" => {
+                                builder = builder.set_input_parameters(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
+                                );
+                            }
+                            "MaximumExecutionFrequency" => {
+                                builder = builder.set_maximum_execution_frequency(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| {
+                                            s.to_unescaped()
+                                                .map(|u| crate::types::MaximumExecutionFrequency::from(u.as_ref()))
+                                        })
+                                        .transpose()?,
+                                );
+                            }
+                            "ConfigRuleState" => {
+                                builder = builder.set_config_rule_state(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| {
+                                            s.to_unescaped()
+                                                .map(|u| crate::types::ConfigRuleState::from(u.as_ref()))
+                                        })
+                                        .transpose()?,
+                                );
+                            }
+                            "CreatedBy" => {
+                                builder = builder.set_created_by(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
+                                );
+                            }
+                            "EvaluationModes" => {
+                                builder = builder.set_evaluation_modes(
+                                    crate::protocol_serde::shape_evaluation_modes::de_evaluation_modes(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
+                            }
+                            "RuleEvaluationVisibility" => {
+                                builder = builder.set_rule_evaluation_visibility(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| {
+                                            s.to_unescaped()
+                                                .map(|u| crate::types::RuleEvaluationVisibility::from(u.as_ref()))
+                                        })
+                                        .transpose()?,
+                                );
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        "InputParameters" => {
-                            builder = builder.set_input_parameters(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                    tokens.next(),
-                                )?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                            );
-                        }
-                        "MaximumExecutionFrequency" => {
-                            builder = builder.set_maximum_execution_frequency(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                    tokens.next(),
-                                )?
-                                .map(|s| {
-                                    s.to_unescaped().map(|u| {
-                                        crate::types::MaximumExecutionFrequency::from(u.as_ref())
-                                    })
-                                })
-                                .transpose()?,
-                            );
-                        }
-                        "ConfigRuleState" => {
-                            builder = builder.set_config_rule_state(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                    tokens.next(),
-                                )?
-                                .map(|s| {
-                                    s.to_unescaped()
-                                        .map(|u| crate::types::ConfigRuleState::from(u.as_ref()))
-                                })
-                                .transpose()?,
-                            );
-                        }
-                        "CreatedBy" => {
-                            builder = builder.set_created_by(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                    tokens.next(),
-                                )?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                            );
-                        }
-                        "EvaluationModes" => {
-                            builder = builder.set_evaluation_modes(
-                                crate::protocol_serde::shape_evaluation_modes::de_evaluation_modes(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
-                            );
-                        }
-                        "RuleEvaluationVisibility" => {
-                            builder = builder.set_rule_evaluation_visibility(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                    tokens.next(),
-                                )?
-                                .map(|s| {
-                                    s.to_unescaped().map(|u| {
-                                        crate::types::RuleEvaluationVisibility::from(u.as_ref())
-                                    })
-                                })
-                                .transpose()?,
-                            );
-                        }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
-            Ok(Some(
-                crate::serde_util::config_rule_correct_errors(builder).build(),
-            ))
+            Ok(Some(crate::serde_util::config_rule_correct_errors(builder).build()))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

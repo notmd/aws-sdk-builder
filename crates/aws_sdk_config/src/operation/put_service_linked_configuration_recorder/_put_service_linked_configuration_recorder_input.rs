@@ -28,9 +28,7 @@ impl PutServiceLinkedConfigurationRecorderInput {
 }
 
 /// A builder for [`PutServiceLinkedConfigurationRecorderInput`](crate::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutServiceLinkedConfigurationRecorderInputBuilder {
     pub(crate) service_principal: ::std::option::Option<::std::string::String>,
@@ -39,18 +37,12 @@ pub struct PutServiceLinkedConfigurationRecorderInputBuilder {
 impl PutServiceLinkedConfigurationRecorderInputBuilder {
     /// <p>The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to create.</p>
     /// This field is required.
-    pub fn service_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.service_principal = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to create.</p>
-    pub fn set_service_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.service_principal = input;
         self
     }
@@ -70,10 +62,7 @@ impl PutServiceLinkedConfigurationRecorderInputBuilder {
         self
     }
     /// <p>The tags for a service-linked configuration recorder. Each tag consists of a key and an optional value, both of which you define.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
@@ -87,7 +76,7 @@ impl PutServiceLinkedConfigurationRecorderInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderInput {
                 service_principal: self.service_principal,

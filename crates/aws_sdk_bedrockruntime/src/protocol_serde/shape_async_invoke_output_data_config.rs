@@ -16,11 +16,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     let mut variant = None;
     match tokens.next().transpose()? {
@@ -42,11 +40,9 @@ where
                         continue;
                     }
                     if variant.is_some() {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                "encountered mixed variants in union",
-                            ),
-                        );
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            "encountered mixed variants in union",
+                        ));
                     }
                     variant = match key.as_ref() {
                         "s3OutputDataConfig" => Some(crate::types::AsyncInvokeOutputDataConfig::S3OutputDataConfig(
@@ -66,28 +62,22 @@ where
                     };
                 }
                 other => {
-                    return Err(
-                        ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )),
-                    )
+                    return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                        format!("expected object key or end object, found: {other:?}"),
+                    ))
                 }
             }
         },
         _ => {
-            return Err(
-                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                    "expected start object or null",
-                ),
-            )
+            return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ))
         }
     }
     if variant.is_none() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "Union did not contain a valid variant.",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "Union did not contain a valid variant.",
+        ));
     }
     Ok(variant)
 }
@@ -100,7 +90,10 @@ pub fn ser_async_invoke_output_data_config(
         crate::types::AsyncInvokeOutputDataConfig::S3OutputDataConfig(inner) => {
             #[allow(unused_mut)]
             let mut object_1 = object_5.key("s3OutputDataConfig").start_object();
-            crate::protocol_serde::shape_async_invoke_s3_output_data_config::ser_async_invoke_s3_output_data_config(&mut object_1, inner)?;
+            crate::protocol_serde::shape_async_invoke_s3_output_data_config::ser_async_invoke_s3_output_data_config(
+                &mut object_1,
+                inner,
+            )?;
             object_1.finish();
         }
         crate::types::AsyncInvokeOutputDataConfig::Unknown => {

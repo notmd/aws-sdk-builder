@@ -12,8 +12,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutRemediationExceptionsError>`](crate::operation::put_remediation_exceptions::PutRemediationExceptionsError)
     pub fn put_remediation_exceptions(
         &self,
-    ) -> crate::operation::put_remediation_exceptions::builders::PutRemediationExceptionsFluentBuilder
-    {
-        crate::operation::put_remediation_exceptions::builders::PutRemediationExceptionsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::put_remediation_exceptions::builders::PutRemediationExceptionsFluentBuilder {
+        crate::operation::put_remediation_exceptions::builders::PutRemediationExceptionsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

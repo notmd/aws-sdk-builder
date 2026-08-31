@@ -5,8 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListSamlProvidersOutput {
     /// <p>The list of SAML provider resource objects defined in IAM for this Amazon Web Services account.</p>
-    pub saml_provider_list:
-        ::std::option::Option<::std::vec::Vec<crate::types::SamlProviderListEntry>>,
+    pub saml_provider_list: ::std::option::Option<::std::vec::Vec<crate::types::SamlProviderListEntry>>,
     _request_id: Option<String>,
 }
 impl ListSamlProvidersOutput {
@@ -24,20 +23,16 @@ impl ::aws_types::request_id::RequestId for ListSamlProvidersOutput {
 }
 impl ListSamlProvidersOutput {
     /// Creates a new builder-style object to manufacture [`ListSamlProvidersOutput`](crate::operation::list_saml_providers::ListSamlProvidersOutput).
-    pub fn builder(
-    ) -> crate::operation::list_saml_providers::builders::ListSamlProvidersOutputBuilder {
+    pub fn builder() -> crate::operation::list_saml_providers::builders::ListSamlProvidersOutputBuilder {
         crate::operation::list_saml_providers::builders::ListSamlProvidersOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListSamlProvidersOutput`](crate::operation::list_saml_providers::ListSamlProvidersOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListSamlProvidersOutputBuilder {
-    pub(crate) saml_provider_list:
-        ::std::option::Option<::std::vec::Vec<crate::types::SamlProviderListEntry>>,
+    pub(crate) saml_provider_list: ::std::option::Option<::std::vec::Vec<crate::types::SamlProviderListEntry>>,
     _request_id: Option<String>,
 }
 impl ListSamlProvidersOutputBuilder {

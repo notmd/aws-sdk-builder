@@ -15,10 +15,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateUserPoolDomainError>`](crate::operation::update_user_pool_domain::UpdateUserPoolDomainError)
     pub fn update_user_pool_domain(
         &self,
-    ) -> crate::operation::update_user_pool_domain::builders::UpdateUserPoolDomainFluentBuilder
-    {
-        crate::operation::update_user_pool_domain::builders::UpdateUserPoolDomainFluentBuilder::new(
-            self.handle.clone(),
-        )
+    ) -> crate::operation::update_user_pool_domain::builders::UpdateUserPoolDomainFluentBuilder {
+        crate::operation::update_user_pool_domain::builders::UpdateUserPoolDomainFluentBuilder::new(self.handle.clone())
     }
 }

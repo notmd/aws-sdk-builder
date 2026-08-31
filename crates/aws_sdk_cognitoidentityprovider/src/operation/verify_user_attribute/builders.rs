@@ -61,9 +61,7 @@ impl VerifyUserAttributeFluentBuilder {
         }
     }
     /// Access the VerifyUserAttribute as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::verify_user_attribute::builders::VerifyUserAttributeInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::verify_user_attribute::builders::VerifyUserAttributeInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,17 +85,12 @@ impl VerifyUserAttributeFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::verify_user_attribute::VerifyUserAttribute::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::verify_user_attribute::VerifyUserAttribute::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::verify_user_attribute::VerifyUserAttribute::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::verify_user_attribute::VerifyUserAttribute::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -140,18 +133,12 @@ impl VerifyUserAttributeFluentBuilder {
         self.inner.get_access_token()
     }
     /// <p>The name of the attribute that you want to verify.</p>
-    pub fn attribute_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn attribute_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.attribute_name(input.into());
         self
     }
     /// <p>The name of the attribute that you want to verify.</p>
-    pub fn set_attribute_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_attribute_name(input);
         self
     }

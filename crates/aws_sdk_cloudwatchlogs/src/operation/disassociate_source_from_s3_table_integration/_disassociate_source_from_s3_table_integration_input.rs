@@ -21,9 +21,7 @@ impl DisassociateSourceFromS3TableIntegrationInput {
 }
 
 /// A builder for [`DisassociateSourceFromS3TableIntegrationInput`](crate::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DisassociateSourceFromS3TableIntegrationInputBuilder {
     pub(crate) identifier: ::std::option::Option<::std::string::String>,
@@ -50,7 +48,7 @@ impl DisassociateSourceFromS3TableIntegrationInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationInput {
                 identifier: self.identifier,

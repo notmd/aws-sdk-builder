@@ -18,8 +18,6 @@ impl super::Client {
     pub fn import_key_material(
         &self,
     ) -> crate::operation::import_key_material::builders::ImportKeyMaterialFluentBuilder {
-        crate::operation::import_key_material::builders::ImportKeyMaterialFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::import_key_material::builders::ImportKeyMaterialFluentBuilder::new(self.handle.clone())
     }
 }

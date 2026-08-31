@@ -27,16 +27,13 @@ impl ConfirmSubscriptionInput {
 }
 impl ConfirmSubscriptionInput {
     /// Creates a new builder-style object to manufacture [`ConfirmSubscriptionInput`](crate::operation::confirm_subscription::ConfirmSubscriptionInput).
-    pub fn builder(
-    ) -> crate::operation::confirm_subscription::builders::ConfirmSubscriptionInputBuilder {
+    pub fn builder() -> crate::operation::confirm_subscription::builders::ConfirmSubscriptionInputBuilder {
         crate::operation::confirm_subscription::builders::ConfirmSubscriptionInputBuilder::default()
     }
 }
 
 /// A builder for [`ConfirmSubscriptionInput`](crate::operation::confirm_subscription::ConfirmSubscriptionInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ConfirmSubscriptionInputBuilder {
     pub(crate) topic_arn: ::std::option::Option<::std::string::String>,
@@ -75,18 +72,12 @@ impl ConfirmSubscriptionInputBuilder {
         &self.token
     }
     /// <p>Disallows unauthenticated unsubscribes of the subscription. If the value of this parameter is <code>true</code> and the request has an Amazon Web Services signature, then only the topic owner and the subscription owner can unsubscribe the endpoint. The unsubscribe action requires Amazon Web Services authentication.</p>
-    pub fn authenticate_on_unsubscribe(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn authenticate_on_unsubscribe(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.authenticate_on_unsubscribe = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Disallows unauthenticated unsubscribes of the subscription. If the value of this parameter is <code>true</code> and the request has an Amazon Web Services signature, then only the topic owner and the subscription owner can unsubscribe the endpoint. The unsubscribe action requires Amazon Web Services authentication.</p>
-    pub fn set_authenticate_on_unsubscribe(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_authenticate_on_unsubscribe(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.authenticate_on_unsubscribe = input;
         self
     }
@@ -101,12 +92,10 @@ impl ConfirmSubscriptionInputBuilder {
         crate::operation::confirm_subscription::ConfirmSubscriptionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::confirm_subscription::ConfirmSubscriptionInput {
-                topic_arn: self.topic_arn,
-                token: self.token,
-                authenticate_on_unsubscribe: self.authenticate_on_unsubscribe,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::confirm_subscription::ConfirmSubscriptionInput {
+            topic_arn: self.topic_arn,
+            token: self.token,
+            authenticate_on_unsubscribe: self.authenticate_on_unsubscribe,
+        })
     }
 }

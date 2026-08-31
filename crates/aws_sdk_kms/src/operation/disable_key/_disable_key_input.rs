@@ -38,9 +38,7 @@ impl DisableKeyInput {
 }
 
 /// A builder for [`DisableKeyInput`](crate::operation::disable_key::DisableKeyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DisableKeyInputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
@@ -95,8 +93,6 @@ impl DisableKeyInputBuilder {
         crate::operation::disable_key::DisableKeyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::disable_key::DisableKeyInput {
-            key_id: self.key_id,
-        })
+        ::std::result::Result::Ok(crate::operation::disable_key::DisableKeyInput { key_id: self.key_id })
     }
 }

@@ -10,8 +10,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteUserPoolReplicaError>`](crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaError)
     pub fn delete_user_pool_replica(
         &self,
-    ) -> crate::operation::delete_user_pool_replica::builders::DeleteUserPoolReplicaFluentBuilder
-    {
-        crate::operation::delete_user_pool_replica::builders::DeleteUserPoolReplicaFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::delete_user_pool_replica::builders::DeleteUserPoolReplicaFluentBuilder {
+        crate::operation::delete_user_pool_replica::builders::DeleteUserPoolReplicaFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -20,17 +20,13 @@ impl DeleteUserPoolReplicaInput {
 }
 impl DeleteUserPoolReplicaInput {
     /// Creates a new builder-style object to manufacture [`DeleteUserPoolReplicaInput`](crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaInput).
-    pub fn builder(
-    ) -> crate::operation::delete_user_pool_replica::builders::DeleteUserPoolReplicaInputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_user_pool_replica::builders::DeleteUserPoolReplicaInputBuilder {
         crate::operation::delete_user_pool_replica::builders::DeleteUserPoolReplicaInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteUserPoolReplicaInput`](crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteUserPoolReplicaInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
@@ -74,11 +70,9 @@ impl DeleteUserPoolReplicaInputBuilder {
         crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaInput {
-                user_pool_id: self.user_pool_id,
-                region_name: self.region_name,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaInput {
+            user_pool_id: self.user_pool_id,
+            region_name: self.region_name,
+        })
     }
 }

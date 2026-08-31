@@ -31,9 +31,7 @@ impl PutEmailIdentityFeedbackAttributesInput {
 }
 
 /// A builder for [`PutEmailIdentityFeedbackAttributesInput`](crate::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutEmailIdentityFeedbackAttributesInputBuilder {
     pub(crate) email_identity: ::std::option::Option<::std::string::String>,
@@ -42,18 +40,12 @@ pub struct PutEmailIdentityFeedbackAttributesInputBuilder {
 impl PutEmailIdentityFeedbackAttributesInputBuilder {
     /// <p>The email identity.</p>
     /// This field is required.
-    pub fn email_identity(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_identity(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.email_identity = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The email identity.</p>
-    pub fn set_email_identity(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_identity(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.email_identity = input;
         self
     }
@@ -87,7 +79,7 @@ impl PutEmailIdentityFeedbackAttributesInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesInput {
                 email_identity: self.email_identity,

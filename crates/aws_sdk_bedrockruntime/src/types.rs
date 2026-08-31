@@ -50,11 +50,7 @@ pub use crate::types::_guardrail_checks_usage_results::GuardrailChecksUsageResul
 #[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 pub use crate::types::_inference_configuration::InferenceConfiguration;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_tool_configuration::ToolConfiguration;
 
 #[cfg(feature = "op_converse")]
@@ -90,10 +86,7 @@ pub use crate::types::_guardrail_stream_configuration::GuardrailStreamConfigurat
 #[cfg(feature = "op_converse_stream")]
 pub use crate::types::_converse_stream_output::ConverseStreamOutput;
 
-#[cfg(any(
-    feature = "op_invoke_model",
-    feature = "op_invoke_model_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke_model", feature = "op_invoke_model_with_response_stream"))]
 pub use crate::types::_trace::Trace;
 
 #[cfg(any(
@@ -194,25 +187,13 @@ pub use crate::types::_guardrail_checks_prompt_attack_usage::GuardrailChecksProm
 #[cfg(feature = "op_invoke_guardrail_checks")]
 pub use crate::types::_guardrail_checks_sensitive_information_usage::GuardrailChecksSensitiveInformationUsage;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_message::Message;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_system_content_block::SystemContentBlock;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_tool_choice::ToolChoice;
 
 #[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
@@ -331,53 +312,25 @@ pub use crate::types::_applied_guardrail_details::AppliedGuardrailDetails;
 #[cfg(feature = "op_invoke_guardrail_checks")]
 pub use crate::types::_guardrail_checks_role::GuardrailChecksRole;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_conversation_role::ConversationRole;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_guardrail_converse_content_block::GuardrailConverseContentBlock;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_cache_point_block::CachePointBlock;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_tool::Tool;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_auto_tool_choice::AutoToolChoice;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_any_tool_choice::AnyToolChoice;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_specific_tool_choice::SpecificToolChoice;
 
 #[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
@@ -435,53 +388,25 @@ pub use crate::types::_guardrail_checks_prompt_attack_result_entry::GuardrailChe
 #[cfg(feature = "op_invoke_guardrail_checks")]
 pub use crate::types::_guardrail_checks_sensitive_information_result_entry::GuardrailChecksSensitiveInformationResultEntry;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_content_block::ContentBlock;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_guardrail_converse_text_block::GuardrailConverseTextBlock;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_guardrail_converse_image_block::GuardrailConverseImageBlock;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_cache_point_type::CachePointType;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_cache_ttl::CacheTtl;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_tool_specification::ToolSpecification;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_system_tool::SystemTool;
 
 #[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
@@ -583,147 +508,67 @@ pub use crate::types::_guardrail_checks_prompt_attack_category::GuardrailChecksP
 #[cfg(feature = "op_invoke_guardrail_checks")]
 pub use crate::types::_guardrail_checks_sensitive_information_entity_type::GuardrailChecksSensitiveInformationEntityType;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_image_block::ImageBlock;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_document_block::DocumentBlock;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_video_block::VideoBlock;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_audio_block::AudioBlock;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_tool_use_block::ToolUseBlock;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_tool_result_block::ToolResultBlock;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_reasoning_content_block::ReasoningContentBlock;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_citations_content_block::CitationsContentBlock;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_search_result_block::SearchResultBlock;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_tool_addition_block::ToolAdditionBlock;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_tool_removal_block::ToolRemovalBlock;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_guardrail_converse_image_format::GuardrailConverseImageFormat;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_guardrail_converse_image_source::GuardrailConverseImageSource;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_tool_input_schema::ToolInputSchema;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_tool_use_type::ToolUseType;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_tool_result_status::ToolResultStatus;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_image_format::ImageFormat;
 
 #[cfg(feature = "op_converse_stream")]
 pub use crate::types::_tool_result_block_delta::ToolResultBlockDelta;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_citation_location::CitationLocation;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_image_source::ImageSource;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_error_block::ErrorBlock;
 
 #[cfg(any(
@@ -859,119 +704,55 @@ pub use crate::types::_guardrail_automated_reasoning_too_complex_finding::Guardr
 ))]
 pub use crate::types::_guardrail_automated_reasoning_no_translations_finding::GuardrailAutomatedReasoningNoTranslationsFinding;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_document_format::DocumentFormat;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_document_source::DocumentSource;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_citations_config::CitationsConfig;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_video_format::VideoFormat;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_video_source::VideoSource;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_audio_format::AudioFormat;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_audio_source::AudioSource;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_reasoning_text_block::ReasoningTextBlock;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_tool_reference::ToolReference;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_guardrail_converse_content_qualifier::GuardrailConverseContentQualifier;
 
 #[cfg(feature = "op_converse_stream")]
 pub use crate::types::_citation_source_content_delta::CitationSourceContentDelta;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_web_location::WebLocation;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_document_char_location::DocumentCharLocation;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_document_page_location::DocumentPageLocation;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_document_chunk_location::DocumentChunkLocation;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_search_result_location::SearchResultLocation;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_s3_location::S3Location;
 
 #[cfg(any(
@@ -995,32 +776,16 @@ pub use crate::types::_guardrail_automated_reasoning_scenario::GuardrailAutomate
 ))]
 pub use crate::types::_guardrail_automated_reasoning_logic_warning::GuardrailAutomatedReasoningLogicWarning;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_tool_result_content_block::ToolResultContentBlock;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_citation_generated_content::CitationGeneratedContent;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_citation::Citation;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_search_result_content_block::SearchResultContentBlock;
 
 #[cfg(any(
@@ -1044,11 +809,7 @@ pub use crate::types::_guardrail_automated_reasoning_logic_warning_type::Guardra
 ))]
 pub use crate::types::_guardrail_automated_reasoning_translation_option::GuardrailAutomatedReasoningTranslationOption;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_document_content_block::DocumentContentBlock;
 
 #[cfg(any(
@@ -1065,18 +826,10 @@ pub use crate::types::_guardrail_automated_reasoning_statement::GuardrailAutomat
 ))]
 pub use crate::types::_guardrail_automated_reasoning_input_text_reference::GuardrailAutomatedReasoningInputTextReference;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub use crate::types::_citation_source_content::CitationSourceContent;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _any_tool_choice;
 
 #[cfg(any(
@@ -1106,32 +859,16 @@ mod _async_invoke_status;
 #[cfg(feature = "op_list_async_invokes")]
 mod _async_invoke_summary;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _audio_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _audio_format;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _audio_source;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _auto_tool_choice;
 
 #[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
@@ -1143,80 +880,40 @@ mod _bidirectional_output_payload_part;
 #[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 mod _cache_detail;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _cache_point_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _cache_point_type;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _cache_ttl;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _citation;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _citation_generated_content;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _citation_location;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _citation_source_content;
 
 #[cfg(feature = "op_converse_stream")]
 mod _citation_source_content_delta;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _citations_config;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _citations_content_block;
 
 #[cfg(feature = "op_converse_stream")]
 mod _citations_delta;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _content_block;
 
 #[cfg(feature = "op_converse_stream")]
@@ -1234,11 +931,7 @@ mod _content_block_start_event;
 #[cfg(feature = "op_converse_stream")]
 mod _content_block_stop_event;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _conversation_role;
 
 #[cfg(feature = "op_converse")]
@@ -1268,60 +961,28 @@ mod _converse_trace;
 #[cfg(feature = "op_count_tokens")]
 mod _count_tokens_input;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _document_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _document_char_location;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _document_chunk_location;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _document_content_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _document_format;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _document_page_location;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _document_source;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _error_block;
 
 #[cfg(feature = "op_apply_guardrail")]
@@ -1607,46 +1268,22 @@ mod _guardrail_contextual_grounding_policy_action;
 ))]
 mod _guardrail_contextual_grounding_policy_assessment;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _guardrail_converse_content_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _guardrail_converse_content_qualifier;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _guardrail_converse_image_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _guardrail_converse_image_format;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _guardrail_converse_image_source;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _guardrail_converse_text_block;
 
 #[cfg(any(
@@ -1826,11 +1463,7 @@ mod _guardrail_word_policy_action;
 ))]
 mod _guardrail_word_policy_assessment;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _image_block;
 
 #[cfg(feature = "op_converse_stream")]
@@ -1839,18 +1472,10 @@ mod _image_block_delta;
 #[cfg(feature = "op_converse_stream")]
 mod _image_block_start;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _image_format;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _image_source;
 
 #[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
@@ -1868,11 +1493,7 @@ mod _invoke_model_with_bidirectional_stream_output;
 #[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 mod _json_schema_definition;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _message;
 
 #[cfg(feature = "op_converse_stream")]
@@ -1913,52 +1534,28 @@ mod _prompt_router_trace;
 #[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 mod _prompt_variable_values;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _reasoning_content_block;
 
 #[cfg(feature = "op_converse_stream")]
 mod _reasoning_content_block_delta;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _reasoning_text_block;
 
 #[cfg(feature = "op_invoke_model_with_response_stream")]
 mod _response_stream;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _s3_location;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _search_result_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _search_result_content_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _search_result_location;
 
 #[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
@@ -1978,28 +1575,16 @@ mod _sort_async_invocation_by;
 #[cfg(feature = "op_list_async_invokes")]
 mod _sort_order;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _specific_tool_choice;
 
 #[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 mod _stop_reason;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _system_content_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _system_tool;
 
 #[cfg(feature = "op_start_async_invoke")]
@@ -2008,60 +1593,28 @@ mod _tag;
 #[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 mod _token_usage;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _tool;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _tool_addition_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _tool_choice;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _tool_configuration;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _tool_input_schema;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _tool_reference;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _tool_removal_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _tool_result_block;
 
 #[cfg(feature = "op_converse_stream")]
@@ -2070,32 +1623,16 @@ mod _tool_result_block_delta;
 #[cfg(feature = "op_converse_stream")]
 mod _tool_result_block_start;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _tool_result_content_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _tool_result_status;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _tool_specification;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _tool_use_block;
 
 #[cfg(feature = "op_converse_stream")]
@@ -2104,45 +1641,22 @@ mod _tool_use_block_delta;
 #[cfg(feature = "op_converse_stream")]
 mod _tool_use_block_start;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _tool_use_type;
 
-#[cfg(any(
-    feature = "op_invoke_model",
-    feature = "op_invoke_model_with_response_stream"
-))]
+#[cfg(any(feature = "op_invoke_model", feature = "op_invoke_model_with_response_stream"))]
 mod _trace;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _video_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _video_format;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _video_source;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 mod _web_location;
 
 /// Builders

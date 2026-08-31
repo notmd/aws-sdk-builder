@@ -87,9 +87,9 @@ impl ::std::convert::From<&str> for SourceAccessType {
             "VIRTUAL_HOST" => SourceAccessType::VirtualHost,
             "VPC_SECURITY_GROUP" => SourceAccessType::VpcSecurityGroup,
             "VPC_SUBNET" => SourceAccessType::VpcSubnet,
-            other => SourceAccessType::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => SourceAccessType::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -138,14 +138,10 @@ impl SourceAccessType {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }

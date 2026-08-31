@@ -14,8 +14,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ResendConfirmationCodeError>`](crate::operation::resend_confirmation_code::ResendConfirmationCodeError)
     pub fn resend_confirmation_code(
         &self,
-    ) -> crate::operation::resend_confirmation_code::builders::ResendConfirmationCodeFluentBuilder
-    {
-        crate::operation::resend_confirmation_code::builders::ResendConfirmationCodeFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::resend_confirmation_code::builders::ResendConfirmationCodeFluentBuilder {
+        crate::operation::resend_confirmation_code::builders::ResendConfirmationCodeFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

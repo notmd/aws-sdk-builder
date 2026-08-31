@@ -123,12 +123,8 @@ impl ::std::convert::From<&str> for QueueAttributeName {
         match s {
             "All" => QueueAttributeName::All,
             "ApproximateNumberOfMessages" => QueueAttributeName::ApproximateNumberOfMessages,
-            "ApproximateNumberOfMessagesDelayed" => {
-                QueueAttributeName::ApproximateNumberOfMessagesDelayed
-            }
-            "ApproximateNumberOfMessagesNotVisible" => {
-                QueueAttributeName::ApproximateNumberOfMessagesNotVisible
-            }
+            "ApproximateNumberOfMessagesDelayed" => QueueAttributeName::ApproximateNumberOfMessagesDelayed,
+            "ApproximateNumberOfMessagesNotVisible" => QueueAttributeName::ApproximateNumberOfMessagesNotVisible,
             "ContentBasedDeduplication" => QueueAttributeName::ContentBasedDeduplication,
             "CreatedTimestamp" => QueueAttributeName::CreatedTimestamp,
             "DeduplicationScope" => QueueAttributeName::DeduplicationScope,
@@ -147,9 +143,9 @@ impl ::std::convert::From<&str> for QueueAttributeName {
             "RedrivePolicy" => QueueAttributeName::RedrivePolicy,
             "SqsManagedSseEnabled" => QueueAttributeName::SqsManagedSseEnabled,
             "VisibilityTimeout" => QueueAttributeName::VisibilityTimeout,
-            other => QueueAttributeName::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => QueueAttributeName::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -166,12 +162,8 @@ impl QueueAttributeName {
         match self {
             QueueAttributeName::All => "All",
             QueueAttributeName::ApproximateNumberOfMessages => "ApproximateNumberOfMessages",
-            QueueAttributeName::ApproximateNumberOfMessagesDelayed => {
-                "ApproximateNumberOfMessagesDelayed"
-            }
-            QueueAttributeName::ApproximateNumberOfMessagesNotVisible => {
-                "ApproximateNumberOfMessagesNotVisible"
-            }
+            QueueAttributeName::ApproximateNumberOfMessagesDelayed => "ApproximateNumberOfMessagesDelayed",
+            QueueAttributeName::ApproximateNumberOfMessagesNotVisible => "ApproximateNumberOfMessagesNotVisible",
             QueueAttributeName::ContentBasedDeduplication => "ContentBasedDeduplication",
             QueueAttributeName::CreatedTimestamp => "CreatedTimestamp",
             QueueAttributeName::DeduplicationScope => "DeduplicationScope",
@@ -230,14 +222,10 @@ impl QueueAttributeName {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -246,12 +234,8 @@ impl ::std::fmt::Display for QueueAttributeName {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
             QueueAttributeName::All => write!(f, "All"),
-            QueueAttributeName::ApproximateNumberOfMessages => {
-                write!(f, "ApproximateNumberOfMessages")
-            }
-            QueueAttributeName::ApproximateNumberOfMessagesDelayed => {
-                write!(f, "ApproximateNumberOfMessagesDelayed")
-            }
+            QueueAttributeName::ApproximateNumberOfMessages => write!(f, "ApproximateNumberOfMessages"),
+            QueueAttributeName::ApproximateNumberOfMessagesDelayed => write!(f, "ApproximateNumberOfMessagesDelayed"),
             QueueAttributeName::ApproximateNumberOfMessagesNotVisible => {
                 write!(f, "ApproximateNumberOfMessagesNotVisible")
             }
@@ -261,18 +245,14 @@ impl ::std::fmt::Display for QueueAttributeName {
             QueueAttributeName::DelaySeconds => write!(f, "DelaySeconds"),
             QueueAttributeName::FifoQueue => write!(f, "FifoQueue"),
             QueueAttributeName::FifoThroughputLimit => write!(f, "FifoThroughputLimit"),
-            QueueAttributeName::KmsDataKeyReusePeriodSeconds => {
-                write!(f, "KmsDataKeyReusePeriodSeconds")
-            }
+            QueueAttributeName::KmsDataKeyReusePeriodSeconds => write!(f, "KmsDataKeyReusePeriodSeconds"),
             QueueAttributeName::KmsMasterKeyId => write!(f, "KmsMasterKeyId"),
             QueueAttributeName::LastModifiedTimestamp => write!(f, "LastModifiedTimestamp"),
             QueueAttributeName::MaximumMessageSize => write!(f, "MaximumMessageSize"),
             QueueAttributeName::MessageRetentionPeriod => write!(f, "MessageRetentionPeriod"),
             QueueAttributeName::Policy => write!(f, "Policy"),
             QueueAttributeName::QueueArn => write!(f, "QueueArn"),
-            QueueAttributeName::ReceiveMessageWaitTimeSeconds => {
-                write!(f, "ReceiveMessageWaitTimeSeconds")
-            }
+            QueueAttributeName::ReceiveMessageWaitTimeSeconds => write!(f, "ReceiveMessageWaitTimeSeconds"),
             QueueAttributeName::RedriveAllowPolicy => write!(f, "RedriveAllowPolicy"),
             QueueAttributeName::RedrivePolicy => write!(f, "RedrivePolicy"),
             QueueAttributeName::SqsManagedSseEnabled => write!(f, "SqsManagedSseEnabled"),

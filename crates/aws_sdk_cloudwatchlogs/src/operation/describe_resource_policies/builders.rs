@@ -59,8 +59,7 @@ impl DescribeResourcePoliciesFluentBuilder {
     /// Access the DescribeResourcePolicies as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::describe_resource_policies::builders::DescribeResourcePoliciesInputBuilder
-    {
+    ) -> &crate::operation::describe_resource_policies::builders::DescribeResourcePoliciesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +83,14 @@ impl DescribeResourcePoliciesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::describe_resource_policies::DescribeResourcePolicies::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::describe_resource_policies::DescribeResourcePolicies::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::describe_resource_policies::DescribeResourcePolicies::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::describe_resource_policies::DescribeResourcePolicies::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -169,10 +166,7 @@ impl DescribeResourcePoliciesFluentBuilder {
         self
     }
     /// <p>Specifies the scope of the resource policy. Valid values are <code>ACCOUNT</code> or <code>RESOURCE</code>. When not specified, defaults to <code>ACCOUNT</code>.</p>
-    pub fn set_policy_scope(
-        mut self,
-        input: ::std::option::Option<crate::types::PolicyScope>,
-    ) -> Self {
+    pub fn set_policy_scope(mut self, input: ::std::option::Option<crate::types::PolicyScope>) -> Self {
         self.inner = self.inner.set_policy_scope(input);
         self
     }

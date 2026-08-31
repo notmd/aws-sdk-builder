@@ -47,20 +47,15 @@ pub struct Event {
     /// <p>Details about a step that failed.</p>
     pub step_failed_details: ::std::option::Option<crate::types::StepFailedDetails>,
     /// <p>Contains details about a chained function invocation that has started execution, including start time and execution context.</p>
-    pub chained_invoke_started_details:
-        ::std::option::Option<crate::types::ChainedInvokeStartedDetails>,
+    pub chained_invoke_started_details: ::std::option::Option<crate::types::ChainedInvokeStartedDetails>,
     /// <p>Details about a chained invocation that succeeded.</p>
-    pub chained_invoke_succeeded_details:
-        ::std::option::Option<crate::types::ChainedInvokeSucceededDetails>,
+    pub chained_invoke_succeeded_details: ::std::option::Option<crate::types::ChainedInvokeSucceededDetails>,
     /// <p>Contains details about a failed chained function invocation, including error information and failure reason.</p>
-    pub chained_invoke_failed_details:
-        ::std::option::Option<crate::types::ChainedInvokeFailedDetails>,
+    pub chained_invoke_failed_details: ::std::option::Option<crate::types::ChainedInvokeFailedDetails>,
     /// <p>Details about a chained invocation that timed out.</p>
-    pub chained_invoke_timed_out_details:
-        ::std::option::Option<crate::types::ChainedInvokeTimedOutDetails>,
+    pub chained_invoke_timed_out_details: ::std::option::Option<crate::types::ChainedInvokeTimedOutDetails>,
     /// <p>Details about a chained invocation that was stopped.</p>
-    pub chained_invoke_stopped_details:
-        ::std::option::Option<crate::types::ChainedInvokeStoppedDetails>,
+    pub chained_invoke_stopped_details: ::std::option::Option<crate::types::ChainedInvokeStoppedDetails>,
     /// <p>Contains details about a callback operation that has started, including timing information and callback metadata.</p>
     pub callback_started_details: ::std::option::Option<crate::types::CallbackStartedDetails>,
     /// <p>Contains details about a successfully completed callback operation, including the result data and completion timestamp.</p>
@@ -70,8 +65,7 @@ pub struct Event {
     /// <p>Contains details about a callback operation that timed out, including timeout duration and any partial results.</p>
     pub callback_timed_out_details: ::std::option::Option<crate::types::CallbackTimedOutDetails>,
     /// <p>Details about a function invocation that completed.</p>
-    pub invocation_completed_details:
-        ::std::option::Option<crate::types::InvocationCompletedDetails>,
+    pub invocation_completed_details: ::std::option::Option<crate::types::InvocationCompletedDetails>,
 }
 impl Event {
     /// <p>The type of event that occurred.</p>
@@ -103,51 +97,35 @@ impl Event {
         self.parent_id.as_deref()
     }
     /// <p>Details about an execution that started.</p>
-    pub fn execution_started_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ExecutionStartedDetails> {
+    pub fn execution_started_details(&self) -> ::std::option::Option<&crate::types::ExecutionStartedDetails> {
         self.execution_started_details.as_ref()
     }
     /// <p>Details about an execution that succeeded.</p>
-    pub fn execution_succeeded_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ExecutionSucceededDetails> {
+    pub fn execution_succeeded_details(&self) -> ::std::option::Option<&crate::types::ExecutionSucceededDetails> {
         self.execution_succeeded_details.as_ref()
     }
     /// <p>Details about an execution that failed.</p>
-    pub fn execution_failed_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ExecutionFailedDetails> {
+    pub fn execution_failed_details(&self) -> ::std::option::Option<&crate::types::ExecutionFailedDetails> {
         self.execution_failed_details.as_ref()
     }
     /// <p>Details about an execution that timed out.</p>
-    pub fn execution_timed_out_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ExecutionTimedOutDetails> {
+    pub fn execution_timed_out_details(&self) -> ::std::option::Option<&crate::types::ExecutionTimedOutDetails> {
         self.execution_timed_out_details.as_ref()
     }
     /// <p>Details about an execution that was stopped.</p>
-    pub fn execution_stopped_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ExecutionStoppedDetails> {
+    pub fn execution_stopped_details(&self) -> ::std::option::Option<&crate::types::ExecutionStoppedDetails> {
         self.execution_stopped_details.as_ref()
     }
     /// <p>Details about a context that started.</p>
-    pub fn context_started_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ContextStartedDetails> {
+    pub fn context_started_details(&self) -> ::std::option::Option<&crate::types::ContextStartedDetails> {
         self.context_started_details.as_ref()
     }
     /// <p>Details about a context that succeeded.</p>
-    pub fn context_succeeded_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ContextSucceededDetails> {
+    pub fn context_succeeded_details(&self) -> ::std::option::Option<&crate::types::ContextSucceededDetails> {
         self.context_succeeded_details.as_ref()
     }
     /// <p>Details about a context that failed.</p>
-    pub fn context_failed_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ContextFailedDetails> {
+    pub fn context_failed_details(&self) -> ::std::option::Option<&crate::types::ContextFailedDetails> {
         self.context_failed_details.as_ref()
     }
     /// <p>Details about a wait operation that started.</p>
@@ -155,15 +133,11 @@ impl Event {
         self.wait_started_details.as_ref()
     }
     /// <p>Details about a wait operation that succeeded.</p>
-    pub fn wait_succeeded_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::WaitSucceededDetails> {
+    pub fn wait_succeeded_details(&self) -> ::std::option::Option<&crate::types::WaitSucceededDetails> {
         self.wait_succeeded_details.as_ref()
     }
     /// <p>Details about a wait operation that was cancelled.</p>
-    pub fn wait_cancelled_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::WaitCancelledDetails> {
+    pub fn wait_cancelled_details(&self) -> ::std::option::Option<&crate::types::WaitCancelledDetails> {
         self.wait_cancelled_details.as_ref()
     }
     /// <p>Details about a step that started.</p>
@@ -171,9 +145,7 @@ impl Event {
         self.step_started_details.as_ref()
     }
     /// <p>Details about a step that succeeded.</p>
-    pub fn step_succeeded_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::StepSucceededDetails> {
+    pub fn step_succeeded_details(&self) -> ::std::option::Option<&crate::types::StepSucceededDetails> {
         self.step_succeeded_details.as_ref()
     }
     /// <p>Details about a step that failed.</p>
@@ -181,9 +153,7 @@ impl Event {
         self.step_failed_details.as_ref()
     }
     /// <p>Contains details about a chained function invocation that has started execution, including start time and execution context.</p>
-    pub fn chained_invoke_started_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ChainedInvokeStartedDetails> {
+    pub fn chained_invoke_started_details(&self) -> ::std::option::Option<&crate::types::ChainedInvokeStartedDetails> {
         self.chained_invoke_started_details.as_ref()
     }
     /// <p>Details about a chained invocation that succeeded.</p>
@@ -193,9 +163,7 @@ impl Event {
         self.chained_invoke_succeeded_details.as_ref()
     }
     /// <p>Contains details about a failed chained function invocation, including error information and failure reason.</p>
-    pub fn chained_invoke_failed_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ChainedInvokeFailedDetails> {
+    pub fn chained_invoke_failed_details(&self) -> ::std::option::Option<&crate::types::ChainedInvokeFailedDetails> {
         self.chained_invoke_failed_details.as_ref()
     }
     /// <p>Details about a chained invocation that timed out.</p>
@@ -205,39 +173,27 @@ impl Event {
         self.chained_invoke_timed_out_details.as_ref()
     }
     /// <p>Details about a chained invocation that was stopped.</p>
-    pub fn chained_invoke_stopped_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ChainedInvokeStoppedDetails> {
+    pub fn chained_invoke_stopped_details(&self) -> ::std::option::Option<&crate::types::ChainedInvokeStoppedDetails> {
         self.chained_invoke_stopped_details.as_ref()
     }
     /// <p>Contains details about a callback operation that has started, including timing information and callback metadata.</p>
-    pub fn callback_started_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::CallbackStartedDetails> {
+    pub fn callback_started_details(&self) -> ::std::option::Option<&crate::types::CallbackStartedDetails> {
         self.callback_started_details.as_ref()
     }
     /// <p>Contains details about a successfully completed callback operation, including the result data and completion timestamp.</p>
-    pub fn callback_succeeded_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::CallbackSucceededDetails> {
+    pub fn callback_succeeded_details(&self) -> ::std::option::Option<&crate::types::CallbackSucceededDetails> {
         self.callback_succeeded_details.as_ref()
     }
     /// <p>Contains details about a failed callback operation, including error information and the reason for failure.</p>
-    pub fn callback_failed_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::CallbackFailedDetails> {
+    pub fn callback_failed_details(&self) -> ::std::option::Option<&crate::types::CallbackFailedDetails> {
         self.callback_failed_details.as_ref()
     }
     /// <p>Contains details about a callback operation that timed out, including timeout duration and any partial results.</p>
-    pub fn callback_timed_out_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::CallbackTimedOutDetails> {
+    pub fn callback_timed_out_details(&self) -> ::std::option::Option<&crate::types::CallbackTimedOutDetails> {
         self.callback_timed_out_details.as_ref()
     }
     /// <p>Details about a function invocation that completed.</p>
-    pub fn invocation_completed_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::InvocationCompletedDetails> {
+    pub fn invocation_completed_details(&self) -> ::std::option::Option<&crate::types::InvocationCompletedDetails> {
         self.invocation_completed_details.as_ref()
     }
 }
@@ -249,9 +205,7 @@ impl Event {
 }
 
 /// A builder for [`Event`](crate::types::Event).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EventBuilder {
     pub(crate) event_type: ::std::option::Option<crate::types::EventType>,
@@ -261,19 +215,13 @@ pub struct EventBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
     pub(crate) event_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) parent_id: ::std::option::Option<::std::string::String>,
-    pub(crate) execution_started_details:
-        ::std::option::Option<crate::types::ExecutionStartedDetails>,
-    pub(crate) execution_succeeded_details:
-        ::std::option::Option<crate::types::ExecutionSucceededDetails>,
-    pub(crate) execution_failed_details:
-        ::std::option::Option<crate::types::ExecutionFailedDetails>,
-    pub(crate) execution_timed_out_details:
-        ::std::option::Option<crate::types::ExecutionTimedOutDetails>,
-    pub(crate) execution_stopped_details:
-        ::std::option::Option<crate::types::ExecutionStoppedDetails>,
+    pub(crate) execution_started_details: ::std::option::Option<crate::types::ExecutionStartedDetails>,
+    pub(crate) execution_succeeded_details: ::std::option::Option<crate::types::ExecutionSucceededDetails>,
+    pub(crate) execution_failed_details: ::std::option::Option<crate::types::ExecutionFailedDetails>,
+    pub(crate) execution_timed_out_details: ::std::option::Option<crate::types::ExecutionTimedOutDetails>,
+    pub(crate) execution_stopped_details: ::std::option::Option<crate::types::ExecutionStoppedDetails>,
     pub(crate) context_started_details: ::std::option::Option<crate::types::ContextStartedDetails>,
-    pub(crate) context_succeeded_details:
-        ::std::option::Option<crate::types::ContextSucceededDetails>,
+    pub(crate) context_succeeded_details: ::std::option::Option<crate::types::ContextSucceededDetails>,
     pub(crate) context_failed_details: ::std::option::Option<crate::types::ContextFailedDetails>,
     pub(crate) wait_started_details: ::std::option::Option<crate::types::WaitStartedDetails>,
     pub(crate) wait_succeeded_details: ::std::option::Option<crate::types::WaitSucceededDetails>,
@@ -281,25 +229,16 @@ pub struct EventBuilder {
     pub(crate) step_started_details: ::std::option::Option<crate::types::StepStartedDetails>,
     pub(crate) step_succeeded_details: ::std::option::Option<crate::types::StepSucceededDetails>,
     pub(crate) step_failed_details: ::std::option::Option<crate::types::StepFailedDetails>,
-    pub(crate) chained_invoke_started_details:
-        ::std::option::Option<crate::types::ChainedInvokeStartedDetails>,
-    pub(crate) chained_invoke_succeeded_details:
-        ::std::option::Option<crate::types::ChainedInvokeSucceededDetails>,
-    pub(crate) chained_invoke_failed_details:
-        ::std::option::Option<crate::types::ChainedInvokeFailedDetails>,
-    pub(crate) chained_invoke_timed_out_details:
-        ::std::option::Option<crate::types::ChainedInvokeTimedOutDetails>,
-    pub(crate) chained_invoke_stopped_details:
-        ::std::option::Option<crate::types::ChainedInvokeStoppedDetails>,
-    pub(crate) callback_started_details:
-        ::std::option::Option<crate::types::CallbackStartedDetails>,
-    pub(crate) callback_succeeded_details:
-        ::std::option::Option<crate::types::CallbackSucceededDetails>,
+    pub(crate) chained_invoke_started_details: ::std::option::Option<crate::types::ChainedInvokeStartedDetails>,
+    pub(crate) chained_invoke_succeeded_details: ::std::option::Option<crate::types::ChainedInvokeSucceededDetails>,
+    pub(crate) chained_invoke_failed_details: ::std::option::Option<crate::types::ChainedInvokeFailedDetails>,
+    pub(crate) chained_invoke_timed_out_details: ::std::option::Option<crate::types::ChainedInvokeTimedOutDetails>,
+    pub(crate) chained_invoke_stopped_details: ::std::option::Option<crate::types::ChainedInvokeStoppedDetails>,
+    pub(crate) callback_started_details: ::std::option::Option<crate::types::CallbackStartedDetails>,
+    pub(crate) callback_succeeded_details: ::std::option::Option<crate::types::CallbackSucceededDetails>,
     pub(crate) callback_failed_details: ::std::option::Option<crate::types::CallbackFailedDetails>,
-    pub(crate) callback_timed_out_details:
-        ::std::option::Option<crate::types::CallbackTimedOutDetails>,
-    pub(crate) invocation_completed_details:
-        ::std::option::Option<crate::types::InvocationCompletedDetails>,
+    pub(crate) callback_timed_out_details: ::std::option::Option<crate::types::CallbackTimedOutDetails>,
+    pub(crate) invocation_completed_details: ::std::option::Option<crate::types::InvocationCompletedDetails>,
 }
 impl EventBuilder {
     /// <p>The type of event that occurred.</p>
@@ -378,10 +317,7 @@ impl EventBuilder {
         self
     }
     /// <p>The date and time when this event occurred, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    pub fn set_event_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_event_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.event_timestamp = input;
         self
     }
@@ -404,10 +340,7 @@ impl EventBuilder {
         &self.parent_id
     }
     /// <p>Details about an execution that started.</p>
-    pub fn execution_started_details(
-        mut self,
-        input: crate::types::ExecutionStartedDetails,
-    ) -> Self {
+    pub fn execution_started_details(mut self, input: crate::types::ExecutionStartedDetails) -> Self {
         self.execution_started_details = ::std::option::Option::Some(input);
         self
     }
@@ -420,16 +353,11 @@ impl EventBuilder {
         self
     }
     /// <p>Details about an execution that started.</p>
-    pub fn get_execution_started_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::ExecutionStartedDetails> {
+    pub fn get_execution_started_details(&self) -> &::std::option::Option<crate::types::ExecutionStartedDetails> {
         &self.execution_started_details
     }
     /// <p>Details about an execution that succeeded.</p>
-    pub fn execution_succeeded_details(
-        mut self,
-        input: crate::types::ExecutionSucceededDetails,
-    ) -> Self {
+    pub fn execution_succeeded_details(mut self, input: crate::types::ExecutionSucceededDetails) -> Self {
         self.execution_succeeded_details = ::std::option::Option::Some(input);
         self
     }
@@ -442,9 +370,7 @@ impl EventBuilder {
         self
     }
     /// <p>Details about an execution that succeeded.</p>
-    pub fn get_execution_succeeded_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::ExecutionSucceededDetails> {
+    pub fn get_execution_succeeded_details(&self) -> &::std::option::Option<crate::types::ExecutionSucceededDetails> {
         &self.execution_succeeded_details
     }
     /// <p>Details about an execution that failed.</p>
@@ -461,16 +387,11 @@ impl EventBuilder {
         self
     }
     /// <p>Details about an execution that failed.</p>
-    pub fn get_execution_failed_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::ExecutionFailedDetails> {
+    pub fn get_execution_failed_details(&self) -> &::std::option::Option<crate::types::ExecutionFailedDetails> {
         &self.execution_failed_details
     }
     /// <p>Details about an execution that timed out.</p>
-    pub fn execution_timed_out_details(
-        mut self,
-        input: crate::types::ExecutionTimedOutDetails,
-    ) -> Self {
+    pub fn execution_timed_out_details(mut self, input: crate::types::ExecutionTimedOutDetails) -> Self {
         self.execution_timed_out_details = ::std::option::Option::Some(input);
         self
     }
@@ -483,16 +404,11 @@ impl EventBuilder {
         self
     }
     /// <p>Details about an execution that timed out.</p>
-    pub fn get_execution_timed_out_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::ExecutionTimedOutDetails> {
+    pub fn get_execution_timed_out_details(&self) -> &::std::option::Option<crate::types::ExecutionTimedOutDetails> {
         &self.execution_timed_out_details
     }
     /// <p>Details about an execution that was stopped.</p>
-    pub fn execution_stopped_details(
-        mut self,
-        input: crate::types::ExecutionStoppedDetails,
-    ) -> Self {
+    pub fn execution_stopped_details(mut self, input: crate::types::ExecutionStoppedDetails) -> Self {
         self.execution_stopped_details = ::std::option::Option::Some(input);
         self
     }
@@ -505,9 +421,7 @@ impl EventBuilder {
         self
     }
     /// <p>Details about an execution that was stopped.</p>
-    pub fn get_execution_stopped_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::ExecutionStoppedDetails> {
+    pub fn get_execution_stopped_details(&self) -> &::std::option::Option<crate::types::ExecutionStoppedDetails> {
         &self.execution_stopped_details
     }
     /// <p>Details about a context that started.</p>
@@ -524,16 +438,11 @@ impl EventBuilder {
         self
     }
     /// <p>Details about a context that started.</p>
-    pub fn get_context_started_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::ContextStartedDetails> {
+    pub fn get_context_started_details(&self) -> &::std::option::Option<crate::types::ContextStartedDetails> {
         &self.context_started_details
     }
     /// <p>Details about a context that succeeded.</p>
-    pub fn context_succeeded_details(
-        mut self,
-        input: crate::types::ContextSucceededDetails,
-    ) -> Self {
+    pub fn context_succeeded_details(mut self, input: crate::types::ContextSucceededDetails) -> Self {
         self.context_succeeded_details = ::std::option::Option::Some(input);
         self
     }
@@ -546,9 +455,7 @@ impl EventBuilder {
         self
     }
     /// <p>Details about a context that succeeded.</p>
-    pub fn get_context_succeeded_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::ContextSucceededDetails> {
+    pub fn get_context_succeeded_details(&self) -> &::std::option::Option<crate::types::ContextSucceededDetails> {
         &self.context_succeeded_details
     }
     /// <p>Details about a context that failed.</p>
@@ -565,9 +472,7 @@ impl EventBuilder {
         self
     }
     /// <p>Details about a context that failed.</p>
-    pub fn get_context_failed_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::ContextFailedDetails> {
+    pub fn get_context_failed_details(&self) -> &::std::option::Option<crate::types::ContextFailedDetails> {
         &self.context_failed_details
     }
     /// <p>Details about a wait operation that started.</p>
@@ -576,17 +481,12 @@ impl EventBuilder {
         self
     }
     /// <p>Details about a wait operation that started.</p>
-    pub fn set_wait_started_details(
-        mut self,
-        input: ::std::option::Option<crate::types::WaitStartedDetails>,
-    ) -> Self {
+    pub fn set_wait_started_details(mut self, input: ::std::option::Option<crate::types::WaitStartedDetails>) -> Self {
         self.wait_started_details = input;
         self
     }
     /// <p>Details about a wait operation that started.</p>
-    pub fn get_wait_started_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::WaitStartedDetails> {
+    pub fn get_wait_started_details(&self) -> &::std::option::Option<crate::types::WaitStartedDetails> {
         &self.wait_started_details
     }
     /// <p>Details about a wait operation that succeeded.</p>
@@ -603,9 +503,7 @@ impl EventBuilder {
         self
     }
     /// <p>Details about a wait operation that succeeded.</p>
-    pub fn get_wait_succeeded_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::WaitSucceededDetails> {
+    pub fn get_wait_succeeded_details(&self) -> &::std::option::Option<crate::types::WaitSucceededDetails> {
         &self.wait_succeeded_details
     }
     /// <p>Details about a wait operation that was cancelled.</p>
@@ -622,9 +520,7 @@ impl EventBuilder {
         self
     }
     /// <p>Details about a wait operation that was cancelled.</p>
-    pub fn get_wait_cancelled_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::WaitCancelledDetails> {
+    pub fn get_wait_cancelled_details(&self) -> &::std::option::Option<crate::types::WaitCancelledDetails> {
         &self.wait_cancelled_details
     }
     /// <p>Details about a step that started.</p>
@@ -633,17 +529,12 @@ impl EventBuilder {
         self
     }
     /// <p>Details about a step that started.</p>
-    pub fn set_step_started_details(
-        mut self,
-        input: ::std::option::Option<crate::types::StepStartedDetails>,
-    ) -> Self {
+    pub fn set_step_started_details(mut self, input: ::std::option::Option<crate::types::StepStartedDetails>) -> Self {
         self.step_started_details = input;
         self
     }
     /// <p>Details about a step that started.</p>
-    pub fn get_step_started_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::StepStartedDetails> {
+    pub fn get_step_started_details(&self) -> &::std::option::Option<crate::types::StepStartedDetails> {
         &self.step_started_details
     }
     /// <p>Details about a step that succeeded.</p>
@@ -660,9 +551,7 @@ impl EventBuilder {
         self
     }
     /// <p>Details about a step that succeeded.</p>
-    pub fn get_step_succeeded_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::StepSucceededDetails> {
+    pub fn get_step_succeeded_details(&self) -> &::std::option::Option<crate::types::StepSucceededDetails> {
         &self.step_succeeded_details
     }
     /// <p>Details about a step that failed.</p>
@@ -671,24 +560,16 @@ impl EventBuilder {
         self
     }
     /// <p>Details about a step that failed.</p>
-    pub fn set_step_failed_details(
-        mut self,
-        input: ::std::option::Option<crate::types::StepFailedDetails>,
-    ) -> Self {
+    pub fn set_step_failed_details(mut self, input: ::std::option::Option<crate::types::StepFailedDetails>) -> Self {
         self.step_failed_details = input;
         self
     }
     /// <p>Details about a step that failed.</p>
-    pub fn get_step_failed_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::StepFailedDetails> {
+    pub fn get_step_failed_details(&self) -> &::std::option::Option<crate::types::StepFailedDetails> {
         &self.step_failed_details
     }
     /// <p>Contains details about a chained function invocation that has started execution, including start time and execution context.</p>
-    pub fn chained_invoke_started_details(
-        mut self,
-        input: crate::types::ChainedInvokeStartedDetails,
-    ) -> Self {
+    pub fn chained_invoke_started_details(mut self, input: crate::types::ChainedInvokeStartedDetails) -> Self {
         self.chained_invoke_started_details = ::std::option::Option::Some(input);
         self
     }
@@ -707,10 +588,7 @@ impl EventBuilder {
         &self.chained_invoke_started_details
     }
     /// <p>Details about a chained invocation that succeeded.</p>
-    pub fn chained_invoke_succeeded_details(
-        mut self,
-        input: crate::types::ChainedInvokeSucceededDetails,
-    ) -> Self {
+    pub fn chained_invoke_succeeded_details(mut self, input: crate::types::ChainedInvokeSucceededDetails) -> Self {
         self.chained_invoke_succeeded_details = ::std::option::Option::Some(input);
         self
     }
@@ -729,10 +607,7 @@ impl EventBuilder {
         &self.chained_invoke_succeeded_details
     }
     /// <p>Contains details about a failed chained function invocation, including error information and failure reason.</p>
-    pub fn chained_invoke_failed_details(
-        mut self,
-        input: crate::types::ChainedInvokeFailedDetails,
-    ) -> Self {
+    pub fn chained_invoke_failed_details(mut self, input: crate::types::ChainedInvokeFailedDetails) -> Self {
         self.chained_invoke_failed_details = ::std::option::Option::Some(input);
         self
     }
@@ -751,10 +626,7 @@ impl EventBuilder {
         &self.chained_invoke_failed_details
     }
     /// <p>Details about a chained invocation that timed out.</p>
-    pub fn chained_invoke_timed_out_details(
-        mut self,
-        input: crate::types::ChainedInvokeTimedOutDetails,
-    ) -> Self {
+    pub fn chained_invoke_timed_out_details(mut self, input: crate::types::ChainedInvokeTimedOutDetails) -> Self {
         self.chained_invoke_timed_out_details = ::std::option::Option::Some(input);
         self
     }
@@ -773,10 +645,7 @@ impl EventBuilder {
         &self.chained_invoke_timed_out_details
     }
     /// <p>Details about a chained invocation that was stopped.</p>
-    pub fn chained_invoke_stopped_details(
-        mut self,
-        input: crate::types::ChainedInvokeStoppedDetails,
-    ) -> Self {
+    pub fn chained_invoke_stopped_details(mut self, input: crate::types::ChainedInvokeStoppedDetails) -> Self {
         self.chained_invoke_stopped_details = ::std::option::Option::Some(input);
         self
     }
@@ -808,16 +677,11 @@ impl EventBuilder {
         self
     }
     /// <p>Contains details about a callback operation that has started, including timing information and callback metadata.</p>
-    pub fn get_callback_started_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::CallbackStartedDetails> {
+    pub fn get_callback_started_details(&self) -> &::std::option::Option<crate::types::CallbackStartedDetails> {
         &self.callback_started_details
     }
     /// <p>Contains details about a successfully completed callback operation, including the result data and completion timestamp.</p>
-    pub fn callback_succeeded_details(
-        mut self,
-        input: crate::types::CallbackSucceededDetails,
-    ) -> Self {
+    pub fn callback_succeeded_details(mut self, input: crate::types::CallbackSucceededDetails) -> Self {
         self.callback_succeeded_details = ::std::option::Option::Some(input);
         self
     }
@@ -830,9 +694,7 @@ impl EventBuilder {
         self
     }
     /// <p>Contains details about a successfully completed callback operation, including the result data and completion timestamp.</p>
-    pub fn get_callback_succeeded_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::CallbackSucceededDetails> {
+    pub fn get_callback_succeeded_details(&self) -> &::std::option::Option<crate::types::CallbackSucceededDetails> {
         &self.callback_succeeded_details
     }
     /// <p>Contains details about a failed callback operation, including error information and the reason for failure.</p>
@@ -849,16 +711,11 @@ impl EventBuilder {
         self
     }
     /// <p>Contains details about a failed callback operation, including error information and the reason for failure.</p>
-    pub fn get_callback_failed_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::CallbackFailedDetails> {
+    pub fn get_callback_failed_details(&self) -> &::std::option::Option<crate::types::CallbackFailedDetails> {
         &self.callback_failed_details
     }
     /// <p>Contains details about a callback operation that timed out, including timeout duration and any partial results.</p>
-    pub fn callback_timed_out_details(
-        mut self,
-        input: crate::types::CallbackTimedOutDetails,
-    ) -> Self {
+    pub fn callback_timed_out_details(mut self, input: crate::types::CallbackTimedOutDetails) -> Self {
         self.callback_timed_out_details = ::std::option::Option::Some(input);
         self
     }
@@ -871,16 +728,11 @@ impl EventBuilder {
         self
     }
     /// <p>Contains details about a callback operation that timed out, including timeout duration and any partial results.</p>
-    pub fn get_callback_timed_out_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::CallbackTimedOutDetails> {
+    pub fn get_callback_timed_out_details(&self) -> &::std::option::Option<crate::types::CallbackTimedOutDetails> {
         &self.callback_timed_out_details
     }
     /// <p>Details about a function invocation that completed.</p>
-    pub fn invocation_completed_details(
-        mut self,
-        input: crate::types::InvocationCompletedDetails,
-    ) -> Self {
+    pub fn invocation_completed_details(mut self, input: crate::types::InvocationCompletedDetails) -> Self {
         self.invocation_completed_details = ::std::option::Option::Some(input);
         self
     }
@@ -893,9 +745,7 @@ impl EventBuilder {
         self
     }
     /// <p>Details about a function invocation that completed.</p>
-    pub fn get_invocation_completed_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::InvocationCompletedDetails> {
+    pub fn get_invocation_completed_details(&self) -> &::std::option::Option<crate::types::InvocationCompletedDetails> {
         &self.invocation_completed_details
     }
     /// Consumes the builder and constructs a [`Event`](crate::types::Event).

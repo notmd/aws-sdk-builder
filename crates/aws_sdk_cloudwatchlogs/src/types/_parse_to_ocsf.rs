@@ -40,9 +40,7 @@ impl ParseToOcsf {
 }
 
 /// A builder for [`ParseToOcsf`](crate::types::ParseToOcsf).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ParseToOcsfBuilder {
     pub(crate) source: ::std::option::Option<::std::string::String>,
@@ -72,10 +70,7 @@ impl ParseToOcsfBuilder {
         self
     }
     /// <p>Specify the service or process that produces the log events that will be converted with this processor.</p>
-    pub fn set_event_source(
-        mut self,
-        input: ::std::option::Option<crate::types::EventSource>,
-    ) -> Self {
+    pub fn set_event_source(mut self, input: ::std::option::Option<crate::types::EventSource>) -> Self {
         self.event_source = input;
         self
     }
@@ -90,10 +85,7 @@ impl ParseToOcsfBuilder {
         self
     }
     /// <p>Specify which version of the OCSF schema to use for the transformed log events.</p>
-    pub fn set_ocsf_version(
-        mut self,
-        input: ::std::option::Option<crate::types::OcsfVersion>,
-    ) -> Self {
+    pub fn set_ocsf_version(mut self, input: ::std::option::Option<crate::types::OcsfVersion>) -> Self {
         self.ocsf_version = input;
         self
     }
@@ -102,18 +94,12 @@ impl ParseToOcsfBuilder {
         &self.ocsf_version
     }
     /// <p>The version of the OCSF mapping to use for parsing log data.</p>
-    pub fn mapping_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn mapping_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.mapping_version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The version of the OCSF mapping to use for parsing log data.</p>
-    pub fn set_mapping_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_mapping_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.mapping_version = input;
         self
     }
@@ -127,10 +113,7 @@ impl ParseToOcsfBuilder {
     /// - [`ocsf_version`](crate::types::builders::ParseToOcsfBuilder::ocsf_version)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::ParseToOcsf,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::ParseToOcsf, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ParseToOcsf {
             source: self.source,
             event_source: self.event_source.ok_or_else(|| {

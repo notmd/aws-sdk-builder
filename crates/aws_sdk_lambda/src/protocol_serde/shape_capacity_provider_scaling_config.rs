@@ -18,7 +18,10 @@ pub fn ser_capacity_provider_scaling_config(
             {
                 #[allow(unused_mut)]
                 let mut object_6 = array_4.value().start_object();
-                crate::protocol_serde::shape_target_tracking_scaling_policy::ser_target_tracking_scaling_policy(&mut object_6, item_5)?;
+                crate::protocol_serde::shape_target_tracking_scaling_policy::ser_target_tracking_scaling_policy(
+                    &mut object_6,
+                    item_5,
+                )?;
                 object_6.finish();
             }
         }
@@ -44,73 +47,60 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder =
-                crate::types::builders::CapacityProviderScalingConfigBuilder::default();
+            let mut builder = crate::types::builders::CapacityProviderScalingConfigBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key
-                        .to_unescaped()?
-                        .as_ref()
-                    {
-                        "MaxVCpuCount" => {
-                            builder = builder.set_max_v_cpu_count(
-                                ::aws_smithy_json::deserialize::token::expect_number_or_null(
-                                    tokens.next(),
-                                )?
-                                .map(i32::try_from)
-                                .transpose()?,
-                            );
-                        }
-                        "ScalingMode" => {
-                            builder = builder.set_scaling_mode(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                    tokens.next(),
-                                )?
-                                .map(|s| {
-                                    s.to_unescaped().map(|u| {
-                                        crate::types::CapacityProviderScalingMode::from(u.as_ref())
-                                    })
-                                })
-                                .transpose()?,
-                            );
-                        }
-                        "ScalingPolicies" => {
-                            builder = builder.set_scaling_policies(
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "MaxVCpuCount" => {
+                                builder = builder.set_max_v_cpu_count(
+                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                        .map(i32::try_from)
+                                        .transpose()?,
+                                );
+                            }
+                            "ScalingMode" => {
+                                builder = builder.set_scaling_mode(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| {
+                                            s.to_unescaped()
+                                                .map(|u| crate::types::CapacityProviderScalingMode::from(u.as_ref()))
+                                        })
+                                        .transpose()?,
+                                );
+                            }
+                            "ScalingPolicies" => {
+                                builder = builder.set_scaling_policies(
                                 crate::protocol_serde::shape_capacity_provider_scaling_policies_list::de_capacity_provider_scaling_policies_list(
                                     tokens,
                                     _value,
                                     depth + 1,
                                 )?,
                             );
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
             Ok(Some(builder.build()))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

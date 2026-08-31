@@ -20,17 +20,13 @@ impl DeleteBucketWebsiteInput {
 }
 impl DeleteBucketWebsiteInput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketWebsiteInput`](crate::operation::delete_bucket_website::DeleteBucketWebsiteInput).
-    pub fn builder(
-    ) -> crate::operation::delete_bucket_website::builders::DeleteBucketWebsiteInputBuilder {
-        crate::operation::delete_bucket_website::builders::DeleteBucketWebsiteInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::delete_bucket_website::builders::DeleteBucketWebsiteInputBuilder {
+        crate::operation::delete_bucket_website::builders::DeleteBucketWebsiteInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteBucketWebsiteInput`](crate::operation::delete_bucket_website::DeleteBucketWebsiteInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteBucketWebsiteInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -53,18 +49,12 @@ impl DeleteBucketWebsiteInputBuilder {
         &self.bucket
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -79,11 +69,9 @@ impl DeleteBucketWebsiteInputBuilder {
         crate::operation::delete_bucket_website::DeleteBucketWebsiteInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_bucket_website::DeleteBucketWebsiteInput {
-                bucket: self.bucket,
-                expected_bucket_owner: self.expected_bucket_owner,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::delete_bucket_website::DeleteBucketWebsiteInput {
+            bucket: self.bucket,
+            expected_bucket_owner: self.expected_bucket_owner,
+        })
     }
 }

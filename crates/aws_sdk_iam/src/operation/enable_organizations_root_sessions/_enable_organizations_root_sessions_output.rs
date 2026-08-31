@@ -28,15 +28,15 @@ impl ::aws_types::request_id::RequestId for EnableOrganizationsRootSessionsOutpu
 }
 impl EnableOrganizationsRootSessionsOutput {
     /// Creates a new builder-style object to manufacture [`EnableOrganizationsRootSessionsOutput`](crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsOutput).
-    pub fn builder() -> crate::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsOutputBuilder
+    {
         crate::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsOutputBuilder::default()
     }
 }
 
 /// A builder for [`EnableOrganizationsRootSessionsOutput`](crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EnableOrganizationsRootSessionsOutputBuilder {
     pub(crate) organization_id: ::std::option::Option<::std::string::String>,
@@ -45,18 +45,12 @@ pub struct EnableOrganizationsRootSessionsOutputBuilder {
 }
 impl EnableOrganizationsRootSessionsOutputBuilder {
     /// <p>The unique identifier (ID) of an organization.</p>
-    pub fn organization_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn organization_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.organization_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier (ID) of an organization.</p>
-    pub fn set_organization_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_organization_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.organization_id = input;
         self
     }
@@ -84,9 +78,7 @@ impl EnableOrganizationsRootSessionsOutputBuilder {
         self
     }
     /// <p>The features you have enabled for centralized root access.</p>
-    pub fn get_enabled_features(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::FeatureType>> {
+    pub fn get_enabled_features(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FeatureType>> {
         &self.enabled_features
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -99,10 +91,7 @@ impl EnableOrganizationsRootSessionsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`EnableOrganizationsRootSessionsOutput`](crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsOutput
-    {
+    pub fn build(self) -> crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsOutput {
         crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsOutput {
             organization_id: self.organization_id,
             enabled_features: self.enabled_features,

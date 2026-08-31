@@ -27,9 +27,7 @@ impl GuardrailChecksPromptAttackResultEntry {
 }
 
 /// A builder for [`GuardrailChecksPromptAttackResultEntry`](crate::types::GuardrailChecksPromptAttackResultEntry).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailChecksPromptAttackResultEntryBuilder {
     pub(crate) category: ::std::option::Option<crate::types::GuardrailChecksPromptAttackCategory>,
@@ -51,9 +49,7 @@ impl GuardrailChecksPromptAttackResultEntryBuilder {
         self
     }
     /// <p>The prompt attack category that was evaluated.</p>
-    pub fn get_category(
-        &self,
-    ) -> &::std::option::Option<crate::types::GuardrailChecksPromptAttackCategory> {
+    pub fn get_category(&self) -> &::std::option::Option<crate::types::GuardrailChecksPromptAttackCategory> {
         &self.category
     }
     /// <p>The severity score for the category, ranging from 0.0 to 1.0. Higher values indicate greater severity.</p>

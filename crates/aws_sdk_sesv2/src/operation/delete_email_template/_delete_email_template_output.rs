@@ -13,17 +13,13 @@ impl ::aws_types::request_id::RequestId for DeleteEmailTemplateOutput {
 }
 impl DeleteEmailTemplateOutput {
     /// Creates a new builder-style object to manufacture [`DeleteEmailTemplateOutput`](crate::operation::delete_email_template::DeleteEmailTemplateOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_email_template::builders::DeleteEmailTemplateOutputBuilder {
-        crate::operation::delete_email_template::builders::DeleteEmailTemplateOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::delete_email_template::builders::DeleteEmailTemplateOutputBuilder {
+        crate::operation::delete_email_template::builders::DeleteEmailTemplateOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteEmailTemplateOutput`](crate::operation::delete_email_template::DeleteEmailTemplateOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteEmailTemplateOutputBuilder {
     _request_id: Option<String>,

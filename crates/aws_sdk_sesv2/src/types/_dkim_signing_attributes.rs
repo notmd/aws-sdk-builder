@@ -90,8 +90,7 @@ pub struct DkimSigningAttributes {
     /// <li>
     /// <p><code>AWS_SES_US_GOV_WEST_1</code> – Configure DKIM for the identity by replicating from a parent identity in AWS GovCloud (US-West) region using Deterministic Easy-DKIM (DEED).</p></li>
     /// </ul>
-    pub domain_signing_attributes_origin:
-        ::std::option::Option<crate::types::DkimSigningAttributesOrigin>,
+    pub domain_signing_attributes_origin: ::std::option::Option<crate::types::DkimSigningAttributesOrigin>,
 }
 impl DkimSigningAttributes {
     /// <p>\[Bring Your Own DKIM\] A string that's used to identify a public key in the DNS configuration for a domain.</p>
@@ -104,9 +103,7 @@ impl DkimSigningAttributes {
         self.domain_signing_private_key.as_deref()
     }
     /// <p>\[Easy DKIM\] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.</p>
-    pub fn next_signing_key_length(
-        &self,
-    ) -> ::std::option::Option<&crate::types::DkimSigningKeyLength> {
+    pub fn next_signing_key_length(&self) -> ::std::option::Option<&crate::types::DkimSigningKeyLength> {
         self.next_signing_key_length.as_ref()
     }
     /// <p>The attribute to use for configuring DKIM for the identity depends on the operation:</p>
@@ -198,10 +195,7 @@ impl ::std::fmt::Debug for DkimSigningAttributes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("DkimSigningAttributes");
         formatter.field("domain_signing_selector", &self.domain_signing_selector);
-        formatter.field(
-            "domain_signing_private_key",
-            &"*** Sensitive Data Redacted ***",
-        );
+        formatter.field("domain_signing_private_key", &"*** Sensitive Data Redacted ***");
         formatter.field("next_signing_key_length", &self.next_signing_key_length);
         formatter.field(
             "domain_signing_attributes_origin",
@@ -224,23 +218,16 @@ pub struct DkimSigningAttributesBuilder {
     pub(crate) domain_signing_selector: ::std::option::Option<::std::string::String>,
     pub(crate) domain_signing_private_key: ::std::option::Option<::std::string::String>,
     pub(crate) next_signing_key_length: ::std::option::Option<crate::types::DkimSigningKeyLength>,
-    pub(crate) domain_signing_attributes_origin:
-        ::std::option::Option<crate::types::DkimSigningAttributesOrigin>,
+    pub(crate) domain_signing_attributes_origin: ::std::option::Option<crate::types::DkimSigningAttributesOrigin>,
 }
 impl DkimSigningAttributesBuilder {
     /// <p>\[Bring Your Own DKIM\] A string that's used to identify a public key in the DNS configuration for a domain.</p>
-    pub fn domain_signing_selector(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn domain_signing_selector(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.domain_signing_selector = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>\[Bring Your Own DKIM\] A string that's used to identify a public key in the DNS configuration for a domain.</p>
-    pub fn set_domain_signing_selector(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_domain_signing_selector(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.domain_signing_selector = input;
         self
     }
@@ -250,19 +237,13 @@ impl DkimSigningAttributesBuilder {
     }
     /// <p>\[Bring Your Own DKIM\] A private key that's used to generate a DKIM signature.</p>
     /// <p>The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.</p>
-    pub fn domain_signing_private_key(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn domain_signing_private_key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.domain_signing_private_key = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>\[Bring Your Own DKIM\] A private key that's used to generate a DKIM signature.</p>
     /// <p>The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.</p>
-    pub fn set_domain_signing_private_key(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_domain_signing_private_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.domain_signing_private_key = input;
         self
     }
@@ -285,9 +266,7 @@ impl DkimSigningAttributesBuilder {
         self
     }
     /// <p>\[Easy DKIM\] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.</p>
-    pub fn get_next_signing_key_length(
-        &self,
-    ) -> &::std::option::Option<crate::types::DkimSigningKeyLength> {
+    pub fn get_next_signing_key_length(&self) -> &::std::option::Option<crate::types::DkimSigningKeyLength> {
         &self.next_signing_key_length
     }
     /// <p>The attribute to use for configuring DKIM for the identity depends on the operation:</p>
@@ -369,10 +348,7 @@ impl DkimSigningAttributesBuilder {
     /// <li>
     /// <p><code>AWS_SES_US_GOV_WEST_1</code> – Configure DKIM for the identity by replicating from a parent identity in AWS GovCloud (US-West) region using Deterministic Easy-DKIM (DEED).</p></li>
     /// </ul>
-    pub fn domain_signing_attributes_origin(
-        mut self,
-        input: crate::types::DkimSigningAttributesOrigin,
-    ) -> Self {
+    pub fn domain_signing_attributes_origin(mut self, input: crate::types::DkimSigningAttributesOrigin) -> Self {
         self.domain_signing_attributes_origin = ::std::option::Option::Some(input);
         self
     }
@@ -560,10 +536,7 @@ impl ::std::fmt::Debug for DkimSigningAttributesBuilder {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("DkimSigningAttributesBuilder");
         formatter.field("domain_signing_selector", &self.domain_signing_selector);
-        formatter.field(
-            "domain_signing_private_key",
-            &"*** Sensitive Data Redacted ***",
-        );
+        formatter.field("domain_signing_private_key", &"*** Sensitive Data Redacted ***");
         formatter.field("next_signing_key_length", &self.next_signing_key_length);
         formatter.field(
             "domain_signing_attributes_origin",

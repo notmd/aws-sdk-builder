@@ -10,8 +10,6 @@ impl super::Client {
     pub fn get_account_settings(
         &self,
     ) -> crate::operation::get_account_settings::builders::GetAccountSettingsFluentBuilder {
-        crate::operation::get_account_settings::builders::GetAccountSettingsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_account_settings::builders::GetAccountSettingsFluentBuilder::new(self.handle.clone())
     }
 }

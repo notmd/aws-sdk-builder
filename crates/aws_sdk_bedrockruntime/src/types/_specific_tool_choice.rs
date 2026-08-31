@@ -24,9 +24,7 @@ impl SpecificToolChoice {
 }
 
 /// A builder for [`SpecificToolChoice`](crate::types::SpecificToolChoice).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SpecificToolChoiceBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
@@ -52,10 +50,7 @@ impl SpecificToolChoiceBuilder {
     /// - [`name`](crate::types::builders::SpecificToolChoiceBuilder::name)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::SpecificToolChoice,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::SpecificToolChoice, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::SpecificToolChoice {
             name: self.name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

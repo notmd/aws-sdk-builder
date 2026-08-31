@@ -17,15 +17,11 @@ impl GetJobQueueSnapshotOutput {
         self.front_of_queue.as_ref()
     }
     /// <p>The first <code>RUNNABLE</code> job in each quota share. Jobs are ordered based on their job priority and share usage.</p>
-    pub fn front_of_quota_shares(
-        &self,
-    ) -> ::std::option::Option<&crate::types::FrontOfQuotaSharesDetail> {
+    pub fn front_of_quota_shares(&self) -> ::std::option::Option<&crate::types::FrontOfQuotaSharesDetail> {
         self.front_of_quota_shares.as_ref()
     }
     /// <p>The job queue's capacity utilization, including total usage and breakdown per given share.</p>
-    pub fn queue_utilization(
-        &self,
-    ) -> ::std::option::Option<&crate::types::QueueSnapshotUtilizationDetail> {
+    pub fn queue_utilization(&self) -> ::std::option::Option<&crate::types::QueueSnapshotUtilizationDetail> {
         self.queue_utilization.as_ref()
     }
 }
@@ -36,22 +32,18 @@ impl ::aws_types::request_id::RequestId for GetJobQueueSnapshotOutput {
 }
 impl GetJobQueueSnapshotOutput {
     /// Creates a new builder-style object to manufacture [`GetJobQueueSnapshotOutput`](crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotOutput).
-    pub fn builder(
-    ) -> crate::operation::get_job_queue_snapshot::builders::GetJobQueueSnapshotOutputBuilder {
+    pub fn builder() -> crate::operation::get_job_queue_snapshot::builders::GetJobQueueSnapshotOutputBuilder {
         crate::operation::get_job_queue_snapshot::builders::GetJobQueueSnapshotOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetJobQueueSnapshotOutput`](crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetJobQueueSnapshotOutputBuilder {
     pub(crate) front_of_queue: ::std::option::Option<crate::types::FrontOfQueueDetail>,
     pub(crate) front_of_quota_shares: ::std::option::Option<crate::types::FrontOfQuotaSharesDetail>,
-    pub(crate) queue_utilization:
-        ::std::option::Option<crate::types::QueueSnapshotUtilizationDetail>,
+    pub(crate) queue_utilization: ::std::option::Option<crate::types::QueueSnapshotUtilizationDetail>,
     _request_id: Option<String>,
 }
 impl GetJobQueueSnapshotOutputBuilder {
@@ -61,10 +53,7 @@ impl GetJobQueueSnapshotOutputBuilder {
         self
     }
     /// <p>The list of the first 100 <code>RUNNABLE</code> jobs in each job queue. For first-in-first-out (FIFO) job queues, jobs are ordered based on their submission time. For job queues with an attached fair-share scheduling (FSS) or quota-share policy, jobs are ordered based on their job priority and share usage.</p>
-    pub fn set_front_of_queue(
-        mut self,
-        input: ::std::option::Option<crate::types::FrontOfQueueDetail>,
-    ) -> Self {
+    pub fn set_front_of_queue(mut self, input: ::std::option::Option<crate::types::FrontOfQueueDetail>) -> Self {
         self.front_of_queue = input;
         self
     }
@@ -86,16 +75,11 @@ impl GetJobQueueSnapshotOutputBuilder {
         self
     }
     /// <p>The first <code>RUNNABLE</code> job in each quota share. Jobs are ordered based on their job priority and share usage.</p>
-    pub fn get_front_of_quota_shares(
-        &self,
-    ) -> &::std::option::Option<crate::types::FrontOfQuotaSharesDetail> {
+    pub fn get_front_of_quota_shares(&self) -> &::std::option::Option<crate::types::FrontOfQuotaSharesDetail> {
         &self.front_of_quota_shares
     }
     /// <p>The job queue's capacity utilization, including total usage and breakdown per given share.</p>
-    pub fn queue_utilization(
-        mut self,
-        input: crate::types::QueueSnapshotUtilizationDetail,
-    ) -> Self {
+    pub fn queue_utilization(mut self, input: crate::types::QueueSnapshotUtilizationDetail) -> Self {
         self.queue_utilization = ::std::option::Option::Some(input);
         self
     }
@@ -108,9 +92,7 @@ impl GetJobQueueSnapshotOutputBuilder {
         self
     }
     /// <p>The job queue's capacity utilization, including total usage and breakdown per given share.</p>
-    pub fn get_queue_utilization(
-        &self,
-    ) -> &::std::option::Option<crate::types::QueueSnapshotUtilizationDetail> {
+    pub fn get_queue_utilization(&self) -> &::std::option::Option<crate::types::QueueSnapshotUtilizationDetail> {
         &self.queue_utilization
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

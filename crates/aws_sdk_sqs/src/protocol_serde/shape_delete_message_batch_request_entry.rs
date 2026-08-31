@@ -7,9 +7,7 @@ pub fn ser_delete_message_batch_request_entry(
         object.key("Id").string(input.id.as_str());
     }
     {
-        object
-            .key("ReceiptHandle")
-            .string(input.receipt_handle.as_str());
+        object.key("ReceiptHandle").string(input.receipt_handle.as_str());
     }
     Ok(())
 }

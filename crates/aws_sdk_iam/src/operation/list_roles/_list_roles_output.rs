@@ -40,9 +40,7 @@ impl ListRolesOutput {
 }
 
 /// A builder for [`ListRolesOutput`](crate::operation::list_roles::ListRolesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListRolesOutputBuilder {
     pub(crate) roles: ::std::option::Option<::std::vec::Vec<crate::types::Role>>,
@@ -63,10 +61,7 @@ impl ListRolesOutputBuilder {
         self
     }
     /// <p>A list of roles.</p>
-    pub fn set_roles(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Role>>,
-    ) -> Self {
+    pub fn set_roles(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Role>>) -> Self {
         self.roles = input;
         self
     }

@@ -99,9 +99,8 @@ pub struct InitiateAuthInput {
     /// </dd>
     /// </dl>
     /// <p>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>. For information about <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
-    pub auth_parameters: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub auth_parameters:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p>
     /// <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute that provides the data that you assigned to the ClientMetadata parameter in your request. In your function code, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p>
     /// <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event"> Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
@@ -141,9 +140,8 @@ pub struct InitiateAuthInput {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub client_metadata: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub client_metadata:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>The ID of the app client that your user wants to sign in to.</p>
     pub client_id: ::std::option::Option<::std::string::String>,
     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
@@ -254,9 +252,7 @@ impl InitiateAuthInput {
     /// <p>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>. For information about <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
     pub fn auth_parameters(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.auth_parameters.as_ref()
     }
     /// <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning Lambda functions to user pool triggers.</p>
@@ -300,9 +296,7 @@ impl InitiateAuthInput {
     /// </note>
     pub fn client_metadata(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.client_metadata.as_ref()
     }
     /// <p>The ID of the app client that your user wants to sign in to.</p>
@@ -310,9 +304,7 @@ impl InitiateAuthInput {
         self.client_id.as_deref()
     }
     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
-    pub fn analytics_metadata(
-        &self,
-    ) -> ::std::option::Option<&crate::types::AnalyticsMetadataType> {
+    pub fn analytics_metadata(&self) -> ::std::option::Option<&crate::types::AnalyticsMetadataType> {
         self.analytics_metadata.as_ref()
     }
     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
@@ -350,12 +342,10 @@ impl InitiateAuthInput {
 #[non_exhaustive]
 pub struct InitiateAuthInputBuilder {
     pub(crate) auth_flow: ::std::option::Option<crate::types::AuthFlowType>,
-    pub(crate) auth_parameters: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
-    pub(crate) client_metadata: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) auth_parameters:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) client_metadata:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) client_id: ::std::option::Option<::std::string::String>,
     pub(crate) analytics_metadata: ::std::option::Option<crate::types::AnalyticsMetadataType>,
     pub(crate) user_context_data: ::std::option::Option<crate::types::UserContextDataType>,
@@ -435,10 +425,7 @@ impl InitiateAuthInputBuilder {
     /// </dd>
     /// </dl>
     /// <p><code>ADMIN_USER_PASSWORD_AUTH</code> is a flow type of <code>AdminInitiateAuth</code> and isn't valid for InitiateAuth. <code>ADMIN_NO_SRP_AUTH</code> is a legacy server-side username-password flow and isn't valid for InitiateAuth.</p>
-    pub fn set_auth_flow(
-        mut self,
-        input: ::std::option::Option<crate::types::AuthFlowType>,
-    ) -> Self {
+    pub fn set_auth_flow(mut self, input: ::std::option::Option<crate::types::AuthFlowType>) -> Self {
         self.auth_flow = input;
         self
     }
@@ -615,9 +602,7 @@ impl InitiateAuthInputBuilder {
     /// <p>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>. For information about <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
     pub fn set_auth_parameters(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.auth_parameters = input;
         self
@@ -684,9 +669,7 @@ impl InitiateAuthInputBuilder {
     /// <p>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>. For information about <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
     pub fn get_auth_parameters(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.auth_parameters
     }
     /// Adds a key-value pair to `client_metadata`.
@@ -783,9 +766,7 @@ impl InitiateAuthInputBuilder {
     /// </note>
     pub fn set_client_metadata(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.client_metadata = input;
         self
@@ -831,9 +812,7 @@ impl InitiateAuthInputBuilder {
     /// </note>
     pub fn get_client_metadata(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.client_metadata
     }
     /// <p>The ID of the app client that your user wants to sign in to.</p>
@@ -857,17 +836,12 @@ impl InitiateAuthInputBuilder {
         self
     }
     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
-    pub fn set_analytics_metadata(
-        mut self,
-        input: ::std::option::Option<crate::types::AnalyticsMetadataType>,
-    ) -> Self {
+    pub fn set_analytics_metadata(mut self, input: ::std::option::Option<crate::types::AnalyticsMetadataType>) -> Self {
         self.analytics_metadata = input;
         self
     }
     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
-    pub fn get_analytics_metadata(
-        &self,
-    ) -> &::std::option::Option<crate::types::AnalyticsMetadataType> {
+    pub fn get_analytics_metadata(&self) -> &::std::option::Option<crate::types::AnalyticsMetadataType> {
         &self.analytics_metadata
     }
     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
@@ -878,18 +852,13 @@ impl InitiateAuthInputBuilder {
     }
     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in applications</a>.</p>
-    pub fn set_user_context_data(
-        mut self,
-        input: ::std::option::Option<crate::types::UserContextDataType>,
-    ) -> Self {
+    pub fn set_user_context_data(mut self, input: ::std::option::Option<crate::types::UserContextDataType>) -> Self {
         self.user_context_data = input;
         self
     }
     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in applications</a>.</p>
-    pub fn get_user_context_data(
-        &self,
-    ) -> &::std::option::Option<crate::types::UserContextDataType> {
+    pub fn get_user_context_data(&self) -> &::std::option::Option<crate::types::UserContextDataType> {
         &self.user_context_data
     }
     /// <p>The optional session ID from a <code>ConfirmSignUp</code> API request. You can sign in a user directly from the sign-up process with the <code>USER_AUTH</code> authentication flow. When you pass the session ID to <code>InitiateAuth</code>, Amazon Cognito assumes the SMS or email message one-time verification password from <code>ConfirmSignUp</code> as the primary authentication factor. You're not required to submit this code a second time. This option is only valid for users who have confirmed their sign-up and are signing in for the first time within the authentication flow session duration of the session ID.</p>

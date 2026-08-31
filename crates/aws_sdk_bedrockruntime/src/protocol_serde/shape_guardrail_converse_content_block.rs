@@ -7,13 +7,19 @@ pub fn ser_guardrail_converse_content_block(
         crate::types::GuardrailConverseContentBlock::Text(inner) => {
             #[allow(unused_mut)]
             let mut object_1 = object_1.key("text").start_object();
-            crate::protocol_serde::shape_guardrail_converse_text_block::ser_guardrail_converse_text_block(&mut object_1, inner)?;
+            crate::protocol_serde::shape_guardrail_converse_text_block::ser_guardrail_converse_text_block(
+                &mut object_1,
+                inner,
+            )?;
             object_1.finish();
         }
         crate::types::GuardrailConverseContentBlock::Image(inner) => {
             #[allow(unused_mut)]
             let mut object_2 = object_1.key("image").start_object();
-            crate::protocol_serde::shape_guardrail_converse_image_block::ser_guardrail_converse_image_block(&mut object_2, inner)?;
+            crate::protocol_serde::shape_guardrail_converse_image_block::ser_guardrail_converse_image_block(
+                &mut object_2,
+                inner,
+            )?;
             object_2.finish();
         }
         crate::types::GuardrailConverseContentBlock::Unknown => {
@@ -44,11 +50,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     let mut variant = None;
     match tokens.next().transpose()? {
@@ -70,11 +74,9 @@ where
                         continue;
                     }
                     if variant.is_some() {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                "encountered mixed variants in union",
-                            ),
-                        );
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            "encountered mixed variants in union",
+                        ));
                     }
                     variant = match key.as_ref() {
                         "text" => Some(crate::types::GuardrailConverseContentBlock::Text(
@@ -96,28 +98,22 @@ where
                     };
                 }
                 other => {
-                    return Err(
-                        ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )),
-                    )
+                    return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                        format!("expected object key or end object, found: {other:?}"),
+                    ))
                 }
             }
         },
         _ => {
-            return Err(
-                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                    "expected start object or null",
-                ),
-            )
+            return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ))
         }
     }
     if variant.is_none() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "Union did not contain a valid variant.",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "Union did not contain a valid variant.",
+        ));
     }
     Ok(variant)
 }

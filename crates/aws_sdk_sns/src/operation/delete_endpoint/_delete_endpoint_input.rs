@@ -21,9 +21,7 @@ impl DeleteEndpointInput {
 }
 
 /// A builder for [`DeleteEndpointInput`](crate::operation::delete_endpoint::DeleteEndpointInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteEndpointInputBuilder {
     pub(crate) endpoint_arn: ::std::option::Option<::std::string::String>,

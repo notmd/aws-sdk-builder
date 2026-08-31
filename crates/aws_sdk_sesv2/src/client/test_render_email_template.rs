@@ -10,8 +10,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<TestRenderEmailTemplateError>`](crate::operation::test_render_email_template::TestRenderEmailTemplateError)
     pub fn test_render_email_template(
         &self,
-    ) -> crate::operation::test_render_email_template::builders::TestRenderEmailTemplateFluentBuilder
-    {
-        crate::operation::test_render_email_template::builders::TestRenderEmailTemplateFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::test_render_email_template::builders::TestRenderEmailTemplateFluentBuilder {
+        crate::operation::test_render_email_template::builders::TestRenderEmailTemplateFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

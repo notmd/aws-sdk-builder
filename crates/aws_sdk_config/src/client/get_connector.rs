@@ -7,11 +7,7 @@ impl super::Client {
     /// - On success, responds with [`GetConnectorOutput`](crate::operation::get_connector::GetConnectorOutput) with field(s):
     ///   - [`connector(Option<Connector>)`](crate::operation::get_connector::GetConnectorOutput::connector): <p>The details of the specified connector.</p>
     /// - On failure, responds with [`SdkError<GetConnectorError>`](crate::operation::get_connector::GetConnectorError)
-    pub fn get_connector(
-        &self,
-    ) -> crate::operation::get_connector::builders::GetConnectorFluentBuilder {
-        crate::operation::get_connector::builders::GetConnectorFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn get_connector(&self) -> crate::operation::get_connector::builders::GetConnectorFluentBuilder {
+        crate::operation::get_connector::builders::GetConnectorFluentBuilder::new(self.handle.clone())
     }
 }

@@ -135,41 +135,28 @@ impl GetAggregateConformancePackComplianceSummaryFluentBuilder {
         )
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn configuration_aggregator_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_aggregator_name(input.into());
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn set_configuration_aggregator_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_aggregator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_aggregator_name(input);
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn get_configuration_aggregator_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_configuration_aggregator_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_configuration_aggregator_name()
     }
     /// <p>Filters the results based on the <code>AggregateConformancePackComplianceSummaryFilters</code> object.</p>
-    pub fn filters(
-        mut self,
-        input: crate::types::AggregateConformancePackComplianceSummaryFilters,
-    ) -> Self {
+    pub fn filters(mut self, input: crate::types::AggregateConformancePackComplianceSummaryFilters) -> Self {
         self.inner = self.inner.filters(input);
         self
     }
     /// <p>Filters the results based on the <code>AggregateConformancePackComplianceSummaryFilters</code> object.</p>
     pub fn set_filters(
         mut self,
-        input: ::std::option::Option<
-            crate::types::AggregateConformancePackComplianceSummaryFilters,
-        >,
+        input: ::std::option::Option<crate::types::AggregateConformancePackComplianceSummaryFilters>,
     ) -> Self {
         self.inner = self.inner.set_filters(input);
         self
@@ -177,24 +164,18 @@ impl GetAggregateConformancePackComplianceSummaryFluentBuilder {
     /// <p>Filters the results based on the <code>AggregateConformancePackComplianceSummaryFilters</code> object.</p>
     pub fn get_filters(
         &self,
-    ) -> &::std::option::Option<crate::types::AggregateConformancePackComplianceSummaryFilters>
-    {
+    ) -> &::std::option::Option<crate::types::AggregateConformancePackComplianceSummaryFilters> {
         self.inner.get_filters()
     }
     /// <p>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</p>
-    pub fn group_by_key(
-        mut self,
-        input: crate::types::AggregateConformancePackComplianceSummaryGroupKey,
-    ) -> Self {
+    pub fn group_by_key(mut self, input: crate::types::AggregateConformancePackComplianceSummaryGroupKey) -> Self {
         self.inner = self.inner.group_by_key(input);
         self
     }
     /// <p>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</p>
     pub fn set_group_by_key(
         mut self,
-        input: ::std::option::Option<
-            crate::types::AggregateConformancePackComplianceSummaryGroupKey,
-        >,
+        input: ::std::option::Option<crate::types::AggregateConformancePackComplianceSummaryGroupKey>,
     ) -> Self {
         self.inner = self.inner.set_group_by_key(input);
         self
@@ -202,8 +183,7 @@ impl GetAggregateConformancePackComplianceSummaryFluentBuilder {
     /// <p>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</p>
     pub fn get_group_by_key(
         &self,
-    ) -> &::std::option::Option<crate::types::AggregateConformancePackComplianceSummaryGroupKey>
-    {
+    ) -> &::std::option::Option<crate::types::AggregateConformancePackComplianceSummaryGroupKey> {
         self.inner.get_group_by_key()
     }
     /// <p>The maximum number of results returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>

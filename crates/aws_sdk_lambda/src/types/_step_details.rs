@@ -78,17 +78,12 @@ impl StepDetailsBuilder {
         self
     }
     /// <p>The date and time when the next attempt is scheduled, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD). Only populated when the step is in a pending state.</p>
-    pub fn set_next_attempt_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_next_attempt_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.next_attempt_timestamp = input;
         self
     }
     /// <p>The date and time when the next attempt is scheduled, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD). Only populated when the step is in a pending state.</p>
-    pub fn get_next_attempt_timestamp(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_next_attempt_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.next_attempt_timestamp
     }
     /// <p>The JSON response payload from the step operation.</p>

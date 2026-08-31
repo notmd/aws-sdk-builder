@@ -3,10 +3,7 @@
 pub fn de_analytics_export_destination(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<
-    crate::types::AnalyticsExportDestination,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<crate::types::AnalyticsExportDestination, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
             "maximum nesting depth exceeded",
@@ -40,7 +37,10 @@ pub fn ser_analytics_export_destination(
     let mut scope = writer.finish();
     if let Some(var_2) = &input.s3_bucket_destination {
         let inner_writer = scope.start_el("S3BucketDestination");
-        crate::protocol_serde::shape_analytics_s3_bucket_destination::ser_analytics_s3_bucket_destination(var_2, inner_writer)?
+        crate::protocol_serde::shape_analytics_s3_bucket_destination::ser_analytics_s3_bucket_destination(
+            var_2,
+            inner_writer,
+        )?
     }
     scope.finish();
     Ok(())

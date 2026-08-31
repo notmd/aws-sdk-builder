@@ -12,8 +12,6 @@ impl super::Client {
     pub fn delete_package_group(
         &self,
     ) -> crate::operation::delete_package_group::builders::DeletePackageGroupFluentBuilder {
-        crate::operation::delete_package_group::builders::DeletePackageGroupFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_package_group::builders::DeletePackageGroupFluentBuilder::new(self.handle.clone())
     }
 }

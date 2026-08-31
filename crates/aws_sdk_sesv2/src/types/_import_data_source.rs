@@ -30,9 +30,7 @@ impl ImportDataSource {
 }
 
 /// A builder for [`ImportDataSource`](crate::types::ImportDataSource).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ImportDataSourceBuilder {
     pub(crate) s3_url: ::std::option::Option<::std::string::String>,
@@ -64,10 +62,7 @@ impl ImportDataSourceBuilder {
         self
     }
     /// <p>The data format of the import job's data source.</p>
-    pub fn set_data_format(
-        mut self,
-        input: ::std::option::Option<crate::types::DataFormat>,
-    ) -> Self {
+    pub fn set_data_format(mut self, input: ::std::option::Option<crate::types::DataFormat>) -> Self {
         self.data_format = input;
         self
     }
@@ -81,10 +76,7 @@ impl ImportDataSourceBuilder {
     /// - [`data_format`](crate::types::builders::ImportDataSourceBuilder::data_format)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::ImportDataSource,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::ImportDataSource, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ImportDataSource {
             s3_url: self.s3_url.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

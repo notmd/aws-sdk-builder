@@ -5,9 +5,7 @@
 
 //! Token providers that augment existing token providers to add functionality
 
-use aws_credential_types::provider::{
-    error::TokenError, future, token::ProvideToken, token::Result,
-};
+use aws_credential_types::provider::{error::TokenError, future, token::ProvideToken, token::Result};
 use aws_smithy_types::error::display::DisplayErrorContext;
 use std::borrow::Cow;
 use tracing::Instrument;
@@ -46,21 +44,14 @@ pub struct TokenProviderChain {
 
 impl TokenProviderChain {
     /// Create a `TokenProviderChain` that begins by evaluating this provider
-    pub fn first_try(
-        name: impl Into<Cow<'static, str>>,
-        provider: impl ProvideToken + 'static,
-    ) -> Self {
+    pub fn first_try(name: impl Into<Cow<'static, str>>, provider: impl ProvideToken + 'static) -> Self {
         TokenProviderChain {
             providers: vec![(name.into(), Box::new(provider))],
         }
     }
 
     /// Add a fallback provider to the token provider chain
-    pub fn or_else(
-        mut self,
-        name: impl Into<Cow<'static, str>>,
-        provider: impl ProvideToken + 'static,
-    ) -> Self {
+    pub fn or_else(mut self, name: impl Into<Cow<'static, str>>, provider: impl ProvideToken + 'static) -> Self {
         self.providers.push((name.into(), Box::new(provider)));
         self
     }

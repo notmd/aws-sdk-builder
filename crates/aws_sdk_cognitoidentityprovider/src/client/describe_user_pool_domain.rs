@@ -9,8 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeUserPoolDomainError>`](crate::operation::describe_user_pool_domain::DescribeUserPoolDomainError)
     pub fn describe_user_pool_domain(
         &self,
-    ) -> crate::operation::describe_user_pool_domain::builders::DescribeUserPoolDomainFluentBuilder
-    {
-        crate::operation::describe_user_pool_domain::builders::DescribeUserPoolDomainFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::describe_user_pool_domain::builders::DescribeUserPoolDomainFluentBuilder {
+        crate::operation::describe_user_pool_domain::builders::DescribeUserPoolDomainFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

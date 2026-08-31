@@ -126,12 +126,8 @@ where
     E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
 {
     result
-        .map(|output| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output)
-        })
-        .map_err(|error| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error)
-        })
+        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))
+        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))
         .map_err(::std::convert::Into::into)
 }
 
@@ -253,10 +249,7 @@ pub fn parse_http_error_metadata(
     response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     response_body: &[u8],
-) -> ::std::result::Result<
-    ::aws_smithy_types::error::metadata::Builder,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_xml::decode::XmlDecodeError> {
     // S3 HEAD responses have no response body to for an error code. Therefore,
     // check the HTTP response status and populate an error code for 404s.
     if response_body.is_empty() {
@@ -602,10 +595,7 @@ pub(crate) mod shape_put_bucket_cors_input;
 #[cfg(feature = "op_put_bucket_encryption")]
 pub(crate) mod shape_put_bucket_encryption;
 
-#[cfg(any(
-    feature = "op_get_bucket_encryption",
-    feature = "op_put_bucket_encryption"
-))]
+#[cfg(any(feature = "op_get_bucket_encryption", feature = "op_put_bucket_encryption"))]
 pub(crate) mod shape_put_bucket_encryption_input;
 
 #[cfg(feature = "op_put_bucket_intelligent_tiering_configuration")]
@@ -674,10 +664,7 @@ pub(crate) mod shape_put_bucket_policy_input;
 #[cfg(feature = "op_put_bucket_replication")]
 pub(crate) mod shape_put_bucket_replication;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) mod shape_put_bucket_replication_input;
 
 #[cfg(feature = "op_put_bucket_request_payment")]
@@ -729,10 +716,7 @@ pub(crate) mod shape_put_object_input;
 #[cfg(feature = "op_put_object_legal_hold")]
 pub(crate) mod shape_put_object_legal_hold;
 
-#[cfg(any(
-    feature = "op_get_object_legal_hold",
-    feature = "op_put_object_legal_hold"
-))]
+#[cfg(any(feature = "op_get_object_legal_hold", feature = "op_put_object_legal_hold"))]
 pub(crate) mod shape_put_object_legal_hold_input;
 
 #[cfg(feature = "op_put_object_lock_configuration")]
@@ -747,10 +731,7 @@ pub(crate) mod shape_put_object_lock_configuration_input;
 #[cfg(feature = "op_put_object_retention")]
 pub(crate) mod shape_put_object_retention;
 
-#[cfg(any(
-    feature = "op_get_object_retention",
-    feature = "op_put_object_retention"
-))]
+#[cfg(any(feature = "op_get_object_retention", feature = "op_put_object_retention"))]
 pub(crate) mod shape_put_object_retention_input;
 
 #[cfg(feature = "op_put_object_tagging")]
@@ -766,10 +747,7 @@ pub(crate) mod shape_put_object_tagging_input;
 #[cfg(feature = "op_put_public_access_block")]
 pub(crate) mod shape_put_public_access_block;
 
-#[cfg(any(
-    feature = "op_get_public_access_block",
-    feature = "op_put_public_access_block"
-))]
+#[cfg(any(feature = "op_get_public_access_block", feature = "op_put_public_access_block"))]
 pub(crate) mod shape_put_public_access_block_input;
 
 #[cfg(feature = "op_rename_object")]
@@ -1084,10 +1062,7 @@ pub(crate) mod shape_upload_part_output;
 #[cfg(feature = "op_select_object_content")]
 pub fn parse_event_stream_error_metadata(
     payload: &::bytes::Bytes,
-) -> ::std::result::Result<
-    ::aws_smithy_types::error::metadata::Builder,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_xml::decode::XmlDecodeError> {
     crate::rest_xml_unwrapped_errors::parse_error_metadata(payload.as_ref())
 }
 
@@ -1244,16 +1219,10 @@ pub(crate) mod shape_object_encryption;
 ))]
 pub(crate) mod shape_object_lock_configuration;
 
-#[cfg(any(
-    feature = "op_get_object_legal_hold",
-    feature = "op_put_object_legal_hold"
-))]
+#[cfg(any(feature = "op_get_object_legal_hold", feature = "op_put_object_legal_hold"))]
 pub(crate) mod shape_object_lock_legal_hold;
 
-#[cfg(any(
-    feature = "op_get_object_retention",
-    feature = "op_put_object_retention"
-))]
+#[cfg(any(feature = "op_get_object_retention", feature = "op_put_object_retention"))]
 pub(crate) mod shape_object_lock_retention;
 
 #[cfg(feature = "op_list_object_versions")]
@@ -1285,10 +1254,7 @@ pub(crate) mod shape_ownership_controls;
 #[cfg(feature = "op_list_parts")]
 pub(crate) mod shape_part;
 
-#[cfg(any(
-    feature = "op_get_public_access_block",
-    feature = "op_put_public_access_block"
-))]
+#[cfg(any(feature = "op_get_public_access_block", feature = "op_put_public_access_block"))]
 pub(crate) mod shape_public_access_block_configuration;
 
 #[cfg(any(
@@ -1300,10 +1266,7 @@ pub(crate) mod shape_queue_configuration;
 #[cfg(any(feature = "op_get_bucket_website", feature = "op_put_bucket_website"))]
 pub(crate) mod shape_redirect_all_requests_to;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) mod shape_replication_configuration;
 
 #[cfg(feature = "op_put_bucket_request_payment")]
@@ -1321,10 +1284,7 @@ pub(crate) mod shape_routing_rules;
 #[cfg(feature = "op_select_object_content")]
 pub(crate) mod shape_scan_range;
 
-#[cfg(any(
-    feature = "op_get_bucket_encryption",
-    feature = "op_put_bucket_encryption"
-))]
+#[cfg(any(feature = "op_get_bucket_encryption", feature = "op_put_bucket_encryption"))]
 pub(crate) mod shape_server_side_encryption_configuration;
 
 #[cfg(feature = "op_create_session")]
@@ -1538,10 +1498,7 @@ pub(crate) mod shape_progress_event;
 ))]
 pub(crate) mod shape_record_expiration;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) mod shape_replication_rule;
 
 #[cfg(any(
@@ -1560,10 +1517,7 @@ pub(crate) mod shape_s3_tables_destination;
 #[cfg(feature = "op_restore_object")]
 pub(crate) mod shape_select_parameters;
 
-#[cfg(any(
-    feature = "op_get_bucket_encryption",
-    feature = "op_put_bucket_encryption"
-))]
+#[cfg(any(feature = "op_get_bucket_encryption", feature = "op_put_bucket_encryption"))]
 pub(crate) mod shape_server_side_encryption_rule;
 
 #[cfg(feature = "op_update_object_encryption")]
@@ -1628,10 +1582,7 @@ pub(crate) mod shape_transition;
 ))]
 pub(crate) mod shape_analytics_and_operator;
 
-#[cfg(any(
-    feature = "op_get_bucket_encryption",
-    feature = "op_put_bucket_encryption"
-))]
+#[cfg(any(feature = "op_get_bucket_encryption", feature = "op_put_bucket_encryption"))]
 pub(crate) mod shape_blocked_encryption_types;
 
 #[cfg(any(feature = "op_get_bucket_website", feature = "op_put_bucket_website"))]
@@ -1643,16 +1594,10 @@ pub(crate) mod shape_condition;
 ))]
 pub(crate) mod shape_default_retention;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) mod shape_delete_marker_replication;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) mod shape_destination;
 
 #[cfg(any(
@@ -1661,10 +1606,7 @@ pub(crate) mod shape_destination;
 ))]
 pub(crate) mod shape_error_details;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) mod shape_existing_object_replication;
 
 #[cfg(any(
@@ -1720,10 +1662,7 @@ pub(crate) mod shape_progress;
 #[cfg(any(feature = "op_get_bucket_website", feature = "op_put_bucket_website"))]
 pub(crate) mod shape_redirect;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) mod shape_replication_rule_filter;
 
 #[cfg(any(
@@ -1735,19 +1674,13 @@ pub(crate) mod shape_s3_key_filter;
 #[cfg(feature = "op_restore_object")]
 pub(crate) mod shape_s3_location;
 
-#[cfg(any(
-    feature = "op_get_bucket_encryption",
-    feature = "op_put_bucket_encryption"
-))]
+#[cfg(any(feature = "op_get_bucket_encryption", feature = "op_put_bucket_encryption"))]
 pub(crate) mod shape_server_side_encryption_by_default;
 
 #[cfg(any(feature = "op_get_bucket_logging", feature = "op_put_bucket_logging"))]
 pub(crate) mod shape_simple_prefix;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) mod shape_source_selection_criteria;
 
 #[cfg(feature = "op_select_object_content")]
@@ -1763,10 +1696,7 @@ pub(crate) mod shape_storage_class_analysis_data_export;
 #[cfg(any(feature = "op_get_bucket_logging", feature = "op_put_bucket_logging"))]
 pub(crate) mod shape_target_grant;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) mod shape_access_control_translation;
 
 #[cfg(any(
@@ -1785,10 +1715,7 @@ pub(crate) mod shape_destination_result;
 #[cfg(feature = "op_restore_object")]
 pub(crate) mod shape_encryption;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) mod shape_encryption_configuration;
 
 #[cfg(any(
@@ -1813,37 +1740,22 @@ pub(crate) mod shape_journal_table_configuration_result;
 #[cfg(feature = "op_restore_object")]
 pub(crate) mod shape_metadata_entry;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) mod shape_metrics;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) mod shape_replica_modifications;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) mod shape_replication_rule_and_operator;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) mod shape_replication_time;
 
 #[cfg(feature = "op_get_bucket_metadata_table_configuration")]
 pub(crate) mod shape_s3_tables_destination_result;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) mod shape_sse_kms_encrypted_objects;
 
 #[cfg(any(
@@ -1853,10 +1765,7 @@ pub(crate) mod shape_sse_kms_encrypted_objects;
 ))]
 pub(crate) mod shape_analytics_s3_bucket_destination;
 
-#[cfg(any(
-    feature = "op_get_bucket_replication",
-    feature = "op_put_bucket_replication"
-))]
+#[cfg(any(feature = "op_get_bucket_replication", feature = "op_put_bucket_replication"))]
 pub(crate) mod shape_replication_time_value;
 
 #[cfg(any(

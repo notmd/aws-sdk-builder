@@ -4,8 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeComputeEnvironmentsOutput {
     /// <p>The list of compute environments.</p>
-    pub compute_environments:
-        ::std::option::Option<::std::vec::Vec<crate::types::ComputeEnvironmentDetail>>,
+    pub compute_environments: ::std::option::Option<::std::vec::Vec<crate::types::ComputeEnvironmentDetail>>,
     /// <p>The <code>nextToken</code> value to include in a future <code>DescribeComputeEnvironments</code> request. When the results of a <code>DescribeComputeEnvironments</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -29,19 +28,17 @@ impl ::aws_types::request_id::RequestId for DescribeComputeEnvironmentsOutput {
 }
 impl DescribeComputeEnvironmentsOutput {
     /// Creates a new builder-style object to manufacture [`DescribeComputeEnvironmentsOutput`](crate::operation::describe_compute_environments::DescribeComputeEnvironmentsOutput).
-    pub fn builder() -> crate::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsOutputBuilder {
         crate::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeComputeEnvironmentsOutput`](crate::operation::describe_compute_environments::DescribeComputeEnvironmentsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeComputeEnvironmentsOutputBuilder {
-    pub(crate) compute_environments:
-        ::std::option::Option<::std::vec::Vec<crate::types::ComputeEnvironmentDetail>>,
+    pub(crate) compute_environments: ::std::option::Option<::std::vec::Vec<crate::types::ComputeEnvironmentDetail>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -95,9 +92,7 @@ impl DescribeComputeEnvironmentsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeComputeEnvironmentsOutput`](crate::operation::describe_compute_environments::DescribeComputeEnvironmentsOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::describe_compute_environments::DescribeComputeEnvironmentsOutput {
+    pub fn build(self) -> crate::operation::describe_compute_environments::DescribeComputeEnvironmentsOutput {
         crate::operation::describe_compute_environments::DescribeComputeEnvironmentsOutput {
             compute_environments: self.compute_environments,
             next_token: self.next_token,

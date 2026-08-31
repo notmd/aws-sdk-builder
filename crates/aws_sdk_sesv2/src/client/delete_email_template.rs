@@ -9,8 +9,6 @@ impl super::Client {
     pub fn delete_email_template(
         &self,
     ) -> crate::operation::delete_email_template::builders::DeleteEmailTemplateFluentBuilder {
-        crate::operation::delete_email_template::builders::DeleteEmailTemplateFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_email_template::builders::DeleteEmailTemplateFluentBuilder::new(self.handle.clone())
     }
 }

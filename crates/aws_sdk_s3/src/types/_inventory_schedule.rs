@@ -21,9 +21,7 @@ impl InventorySchedule {
 }
 
 /// A builder for [`InventorySchedule`](crate::types::InventorySchedule).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InventoryScheduleBuilder {
     pub(crate) frequency: ::std::option::Option<crate::types::InventoryFrequency>,
@@ -36,10 +34,7 @@ impl InventoryScheduleBuilder {
         self
     }
     /// <p>Specifies how frequently inventory results are produced.</p>
-    pub fn set_frequency(
-        mut self,
-        input: ::std::option::Option<crate::types::InventoryFrequency>,
-    ) -> Self {
+    pub fn set_frequency(mut self, input: ::std::option::Option<crate::types::InventoryFrequency>) -> Self {
         self.frequency = input;
         self
     }
@@ -52,10 +47,7 @@ impl InventoryScheduleBuilder {
     /// - [`frequency`](crate::types::builders::InventoryScheduleBuilder::frequency)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::InventorySchedule,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::InventorySchedule, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::InventorySchedule {
             frequency: self.frequency.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

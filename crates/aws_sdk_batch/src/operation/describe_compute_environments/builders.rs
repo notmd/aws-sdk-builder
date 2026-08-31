@@ -58,7 +58,9 @@ impl DescribeComputeEnvironmentsFluentBuilder {
         }
     }
     /// Access the DescribeComputeEnvironments as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_compute_environments::builders::DescribeComputeEnvironmentsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,11 +84,12 @@ impl DescribeComputeEnvironmentsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::describe_compute_environments::DescribeComputeEnvironments::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::describe_compute_environments::DescribeComputeEnvironments::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::describe_compute_environments::DescribeComputeEnvironments::orchestrate(
             &runtime_plugins,
             input,
@@ -122,8 +125,13 @@ impl DescribeComputeEnvironmentsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_compute_environments::paginator::DescribeComputeEnvironmentsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::describe_compute_environments::paginator::DescribeComputeEnvironmentsPaginator{
-        crate::operation::describe_compute_environments::paginator::DescribeComputeEnvironmentsPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::describe_compute_environments::paginator::DescribeComputeEnvironmentsPaginator {
+        crate::operation::describe_compute_environments::paginator::DescribeComputeEnvironmentsPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     ///
     /// Appends an item to `computeEnvironments`.
@@ -131,10 +139,7 @@ impl DescribeComputeEnvironmentsFluentBuilder {
     /// To override the contents of this collection use [`set_compute_environments`](Self::set_compute_environments).
     ///
     /// <p>A list of up to 100 compute environment names or full Amazon Resource Name (ARN) entries.</p>
-    pub fn compute_environments(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn compute_environments(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.compute_environments(input.into());
         self
     }
@@ -147,9 +152,7 @@ impl DescribeComputeEnvironmentsFluentBuilder {
         self
     }
     /// <p>A list of up to 100 compute environment names or full Amazon Resource Name (ARN) entries.</p>
-    pub fn get_compute_environments(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_compute_environments(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_compute_environments()
     }
     /// <p>The maximum number of cluster results returned by <code>DescribeComputeEnvironments</code> in paginated output. When this parameter is used, <code>DescribeComputeEnvironments</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribeComputeEnvironments</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter isn't used, then <code>DescribeComputeEnvironments</code> returns up to 100 results and a <code>nextToken</code> value if applicable.</p>

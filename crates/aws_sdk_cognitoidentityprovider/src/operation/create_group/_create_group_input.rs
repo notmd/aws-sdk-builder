@@ -48,9 +48,7 @@ impl CreateGroupInput {
 }
 
 /// A builder for [`CreateGroupInput`](crate::operation::create_group::CreateGroupInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateGroupInputBuilder {
     pub(crate) group_name: ::std::option::Option<::std::string::String>,

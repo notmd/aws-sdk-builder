@@ -22,9 +22,7 @@ impl InventoryFilter {
 }
 
 /// A builder for [`InventoryFilter`](crate::types::InventoryFilter).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InventoryFilterBuilder {
     pub(crate) prefix: ::std::option::Option<::std::string::String>,
@@ -50,10 +48,7 @@ impl InventoryFilterBuilder {
     /// - [`prefix`](crate::types::builders::InventoryFilterBuilder::prefix)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::InventoryFilter,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::InventoryFilter, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::InventoryFilter {
             prefix: self.prefix.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

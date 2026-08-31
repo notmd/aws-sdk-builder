@@ -26,8 +26,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListObjectAnnotationsError>`](crate::operation::list_object_annotations::ListObjectAnnotationsError)
     pub fn list_object_annotations(
         &self,
-    ) -> crate::operation::list_object_annotations::builders::ListObjectAnnotationsFluentBuilder
-    {
+    ) -> crate::operation::list_object_annotations::builders::ListObjectAnnotationsFluentBuilder {
         crate::operation::list_object_annotations::builders::ListObjectAnnotationsFluentBuilder::new(
             self.handle.clone(),
         )

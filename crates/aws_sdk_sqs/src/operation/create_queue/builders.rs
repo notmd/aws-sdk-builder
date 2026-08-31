@@ -104,12 +104,11 @@ impl CreateQueueFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::create_queue::CreateQueue::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::create_queue::CreateQueue::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::create_queue::CreateQueue::orchestrate(&runtime_plugins, input).await
     }
 
@@ -491,9 +490,8 @@ impl CreateQueueFluentBuilder {
     /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
     pub fn get_attributes(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>>
+    {
         self.inner.get_attributes()
     }
     ///
@@ -543,9 +541,7 @@ impl CreateQueueFluentBuilder {
     /// </note>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_tags(input);
         self
@@ -568,9 +564,7 @@ impl CreateQueueFluentBuilder {
     /// </note>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_tags()
     }
 }

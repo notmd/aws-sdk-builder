@@ -5,8 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListUserPoolClientSecretsOutput {
     /// <p>A list of client secret descriptors containing the identifier and creation date for each secret. For security reasons, the response never reveals the actual secret value in ClientSecretValue.</p>
-    pub client_secrets:
-        ::std::option::Option<::std::vec::Vec<crate::types::ClientSecretDescriptorType>>,
+    pub client_secrets: ::std::option::Option<::std::vec::Vec<crate::types::ClientSecretDescriptorType>>,
     /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -30,19 +29,17 @@ impl ::aws_types::request_id::RequestId for ListUserPoolClientSecretsOutput {
 }
 impl ListUserPoolClientSecretsOutput {
     /// Creates a new builder-style object to manufacture [`ListUserPoolClientSecretsOutput`](crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsOutput).
-    pub fn builder() -> crate::operation::list_user_pool_client_secrets::builders::ListUserPoolClientSecretsOutputBuilder{
+    pub fn builder() -> crate::operation::list_user_pool_client_secrets::builders::ListUserPoolClientSecretsOutputBuilder
+    {
         crate::operation::list_user_pool_client_secrets::builders::ListUserPoolClientSecretsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListUserPoolClientSecretsOutput`](crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListUserPoolClientSecretsOutputBuilder {
-    pub(crate) client_secrets:
-        ::std::option::Option<::std::vec::Vec<crate::types::ClientSecretDescriptorType>>,
+    pub(crate) client_secrets: ::std::option::Option<::std::vec::Vec<crate::types::ClientSecretDescriptorType>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -96,9 +93,7 @@ impl ListUserPoolClientSecretsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListUserPoolClientSecretsOutput`](crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsOutput {
+    pub fn build(self) -> crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsOutput {
         crate::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsOutput {
             client_secrets: self.client_secrets,
             next_token: self.next_token,

@@ -15,9 +15,7 @@ impl DescribeOrganizationConformancePacksOutput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.organization_conformance_packs.is_none()`.
     pub fn organization_conformance_packs(&self) -> &[crate::types::OrganizationConformancePack] {
-        self.organization_conformance_packs
-            .as_deref()
-            .unwrap_or_default()
+        self.organization_conformance_packs.as_deref().unwrap_or_default()
     }
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -37,9 +35,7 @@ impl DescribeOrganizationConformancePacksOutput {
 }
 
 /// A builder for [`DescribeOrganizationConformancePacksOutput`](crate::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeOrganizationConformancePacksOutputBuilder {
     pub(crate) organization_conformance_packs:
@@ -53,10 +49,7 @@ impl DescribeOrganizationConformancePacksOutputBuilder {
     /// To override the contents of this collection use [`set_organization_conformance_packs`](Self::set_organization_conformance_packs).
     ///
     /// <p>Returns a list of OrganizationConformancePacks objects.</p>
-    pub fn organization_conformance_packs(
-        mut self,
-        input: crate::types::OrganizationConformancePack,
-    ) -> Self {
+    pub fn organization_conformance_packs(mut self, input: crate::types::OrganizationConformancePack) -> Self {
         let mut v = self.organization_conformance_packs.unwrap_or_default();
         v.push(input);
         self.organization_conformance_packs = ::std::option::Option::Some(v);
@@ -100,7 +93,9 @@ impl DescribeOrganizationConformancePacksOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeOrganizationConformancePacksOutput`](crate::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksOutput).
-    pub fn build(self) -> crate::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksOutput {
         crate::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksOutput {
             organization_conformance_packs: self.organization_conformance_packs,
             next_token: self.next_token,

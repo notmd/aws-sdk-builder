@@ -8,8 +8,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteServerCertificateError>`](crate::operation::delete_server_certificate::DeleteServerCertificateError)
     pub fn delete_server_certificate(
         &self,
-    ) -> crate::operation::delete_server_certificate::builders::DeleteServerCertificateFluentBuilder
-    {
-        crate::operation::delete_server_certificate::builders::DeleteServerCertificateFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::delete_server_certificate::builders::DeleteServerCertificateFluentBuilder {
+        crate::operation::delete_server_certificate::builders::DeleteServerCertificateFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

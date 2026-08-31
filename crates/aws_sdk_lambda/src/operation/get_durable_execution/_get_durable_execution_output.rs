@@ -116,10 +116,8 @@ impl ::aws_types::request_id::RequestId for GetDurableExecutionOutput {
 }
 impl GetDurableExecutionOutput {
     /// Creates a new builder-style object to manufacture [`GetDurableExecutionOutput`](crate::operation::get_durable_execution::GetDurableExecutionOutput).
-    pub fn builder(
-    ) -> crate::operation::get_durable_execution::builders::GetDurableExecutionOutputBuilder {
-        crate::operation::get_durable_execution::builders::GetDurableExecutionOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::get_durable_execution::builders::GetDurableExecutionOutputBuilder {
+        crate::operation::get_durable_execution::builders::GetDurableExecutionOutputBuilder::default()
     }
 }
 
@@ -145,18 +143,12 @@ pub struct GetDurableExecutionOutputBuilder {
 impl GetDurableExecutionOutputBuilder {
     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
     /// This field is required.
-    pub fn durable_execution_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn durable_execution_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.durable_execution_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-    pub fn set_durable_execution_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.durable_execution_arn = input;
         self
     }
@@ -166,18 +158,12 @@ impl GetDurableExecutionOutputBuilder {
     }
     /// <p>The name of the durable execution. This is either the name you provided when invoking the function, or a system-generated unique identifier if no name was provided.</p>
     /// This field is required.
-    pub fn durable_execution_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn durable_execution_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.durable_execution_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the durable execution. This is either the name you provided when invoking the function, or a system-generated unique identifier if no name was provided.</p>
-    pub fn set_durable_execution_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_durable_execution_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.durable_execution_name = input;
         self
     }
@@ -201,18 +187,12 @@ impl GetDurableExecutionOutputBuilder {
         &self.function_arn
     }
     /// <p>The JSON input payload that was provided when the durable execution was started. For asynchronous invocations, this is limited to 256 KB. For synchronous invocations, this can be up to 6 MB.</p>
-    pub fn input_payload(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn input_payload(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.input_payload = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The JSON input payload that was provided when the durable execution was started. For asynchronous invocations, this is limited to 256 KB. For synchronous invocations, this can be up to 6 MB.</p>
-    pub fn set_input_payload(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_input_payload(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.input_payload = input;
         self
     }
@@ -255,10 +235,7 @@ impl GetDurableExecutionOutputBuilder {
         self
     }
     /// <p>The date and time when the durable execution started, in Unix timestamp format.</p>
-    pub fn set_start_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_start_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.start_timestamp = input;
         self
     }
@@ -273,10 +250,7 @@ impl GetDurableExecutionOutputBuilder {
         self
     }
     /// <p>The current status of the durable execution. Valid values are <code>RUNNING</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, and <code>STOPPED</code>.</p>
-    pub fn set_status(
-        mut self,
-        input: ::std::option::Option<crate::types::ExecutionStatus>,
-    ) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ExecutionStatus>) -> Self {
         self.status = input;
         self
     }
@@ -290,10 +264,7 @@ impl GetDurableExecutionOutputBuilder {
         self
     }
     /// <p>The date and time when the durable execution ended, in Unix timestamp format. This field is only present if the execution has completed (status is <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>).</p>
-    pub fn set_end_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.end_timestamp = input;
         self
     }
@@ -321,10 +292,7 @@ impl GetDurableExecutionOutputBuilder {
         self
     }
     /// <p>The trace headers associated with the durable execution.</p>
-    pub fn set_trace_header(
-        mut self,
-        input: ::std::option::Option<crate::types::TraceHeader>,
-    ) -> Self {
+    pub fn set_trace_header(mut self, input: ::std::option::Option<crate::types::TraceHeader>) -> Self {
         self.trace_header = input;
         self
     }
@@ -352,10 +320,7 @@ impl GetDurableExecutionOutputBuilder {
         self
     }
     /// <p>Configuration settings for the durable execution, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
-    pub fn set_durable_config(
-        mut self,
-        input: ::std::option::Option<crate::types::DurableConfig>,
-    ) -> Self {
+    pub fn set_durable_config(mut self, input: ::std::option::Option<crate::types::DurableConfig>) -> Self {
         self.durable_config = input;
         self
     }

@@ -9,20 +9,15 @@ pub struct GuardrailChecksUsageResults {
     /// <p>The text unit usage for the prompt attack check.</p>
     pub prompt_attack: ::std::option::Option<crate::types::GuardrailChecksPromptAttackUsage>,
     /// <p>The text unit usage for the sensitive information check.</p>
-    pub sensitive_information:
-        ::std::option::Option<crate::types::GuardrailChecksSensitiveInformationUsage>,
+    pub sensitive_information: ::std::option::Option<crate::types::GuardrailChecksSensitiveInformationUsage>,
 }
 impl GuardrailChecksUsageResults {
     /// <p>The text unit usage for the content filter check.</p>
-    pub fn content_filter(
-        &self,
-    ) -> ::std::option::Option<&crate::types::GuardrailChecksContentFilterUsage> {
+    pub fn content_filter(&self) -> ::std::option::Option<&crate::types::GuardrailChecksContentFilterUsage> {
         self.content_filter.as_ref()
     }
     /// <p>The text unit usage for the prompt attack check.</p>
-    pub fn prompt_attack(
-        &self,
-    ) -> ::std::option::Option<&crate::types::GuardrailChecksPromptAttackUsage> {
+    pub fn prompt_attack(&self) -> ::std::option::Option<&crate::types::GuardrailChecksPromptAttackUsage> {
         self.prompt_attack.as_ref()
     }
     /// <p>The text unit usage for the sensitive information check.</p>
@@ -40,23 +35,16 @@ impl GuardrailChecksUsageResults {
 }
 
 /// A builder for [`GuardrailChecksUsageResults`](crate::types::GuardrailChecksUsageResults).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailChecksUsageResultsBuilder {
-    pub(crate) content_filter:
-        ::std::option::Option<crate::types::GuardrailChecksContentFilterUsage>,
+    pub(crate) content_filter: ::std::option::Option<crate::types::GuardrailChecksContentFilterUsage>,
     pub(crate) prompt_attack: ::std::option::Option<crate::types::GuardrailChecksPromptAttackUsage>,
-    pub(crate) sensitive_information:
-        ::std::option::Option<crate::types::GuardrailChecksSensitiveInformationUsage>,
+    pub(crate) sensitive_information: ::std::option::Option<crate::types::GuardrailChecksSensitiveInformationUsage>,
 }
 impl GuardrailChecksUsageResultsBuilder {
     /// <p>The text unit usage for the content filter check.</p>
-    pub fn content_filter(
-        mut self,
-        input: crate::types::GuardrailChecksContentFilterUsage,
-    ) -> Self {
+    pub fn content_filter(mut self, input: crate::types::GuardrailChecksContentFilterUsage) -> Self {
         self.content_filter = ::std::option::Option::Some(input);
         self
     }
@@ -69,9 +57,7 @@ impl GuardrailChecksUsageResultsBuilder {
         self
     }
     /// <p>The text unit usage for the content filter check.</p>
-    pub fn get_content_filter(
-        &self,
-    ) -> &::std::option::Option<crate::types::GuardrailChecksContentFilterUsage> {
+    pub fn get_content_filter(&self) -> &::std::option::Option<crate::types::GuardrailChecksContentFilterUsage> {
         &self.content_filter
     }
     /// <p>The text unit usage for the prompt attack check.</p>
@@ -88,16 +74,11 @@ impl GuardrailChecksUsageResultsBuilder {
         self
     }
     /// <p>The text unit usage for the prompt attack check.</p>
-    pub fn get_prompt_attack(
-        &self,
-    ) -> &::std::option::Option<crate::types::GuardrailChecksPromptAttackUsage> {
+    pub fn get_prompt_attack(&self) -> &::std::option::Option<crate::types::GuardrailChecksPromptAttackUsage> {
         &self.prompt_attack
     }
     /// <p>The text unit usage for the sensitive information check.</p>
-    pub fn sensitive_information(
-        mut self,
-        input: crate::types::GuardrailChecksSensitiveInformationUsage,
-    ) -> Self {
+    pub fn sensitive_information(mut self, input: crate::types::GuardrailChecksSensitiveInformationUsage) -> Self {
         self.sensitive_information = ::std::option::Option::Some(input);
         self
     }

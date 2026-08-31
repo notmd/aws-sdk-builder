@@ -212,10 +212,7 @@ pub use crate::types::_filter_criteria_error::FilterCriteriaErrorBuilder;
 #[cfg(feature = "op_create_function")]
 pub use crate::types::_function_code::FunctionCodeBuilder;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
 pub use crate::types::_vpc_config::VpcConfigBuilder;
 
 #[cfg(any(
@@ -229,16 +226,10 @@ pub use crate::types::_vpc_config::VpcConfigBuilder;
 ))]
 pub use crate::types::_dead_letter_config::DeadLetterConfigBuilder;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
 pub use crate::types::_environment::EnvironmentBuilder;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
 pub use crate::types::_tracing_config::TracingConfigBuilder;
 
 #[cfg(any(
@@ -263,10 +254,7 @@ pub use crate::types::_image_config::ImageConfigBuilder;
 ))]
 pub use crate::types::_ephemeral_storage::EphemeralStorageBuilder;
 
-#[cfg(any(
-    feature = "op_create_function",
-    feature = "op_update_function_configuration"
-))]
+#[cfg(any(feature = "op_create_function", feature = "op_update_function_configuration"))]
 pub use crate::types::_snap_start::SnapStartBuilder;
 
 #[cfg(any(

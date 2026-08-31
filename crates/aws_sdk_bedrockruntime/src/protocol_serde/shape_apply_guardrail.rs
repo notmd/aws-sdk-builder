@@ -9,66 +9,64 @@ pub fn de_apply_guardrail_http_error(
     crate::operation::apply_guardrail::ApplyGuardrailError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(crate::operation::apply_guardrail::ApplyGuardrailError::unhandled(generic))
+            return Err(crate::operation::apply_guardrail::ApplyGuardrailError::unhandled(
+                generic,
+            ))
         }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AccessDeniedException" => {
-            crate::operation::apply_guardrail::ApplyGuardrailError::AccessDeniedException({
+        "AccessDeniedException" => crate::operation::apply_guardrail::ApplyGuardrailError::AccessDeniedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::AccessDeniedExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "InternalServerException" => {
-            crate::operation::apply_guardrail::ApplyGuardrailError::InternalServerException({
+                let mut output = crate::types::error::builders::AccessDeniedExceptionBuilder::default();
+                output = crate::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalServerException" => crate::operation::apply_guardrail::ApplyGuardrailError::InternalServerException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InternalServerExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::InternalServerExceptionBuilder::default();
+                output = crate::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ResourceNotFoundException" => {
             crate::operation::apply_guardrail::ApplyGuardrailError::ResourceNotFoundException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                     output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(crate::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
                     let output = output.meta(generic);
@@ -85,7 +83,7 @@ pub fn de_apply_guardrail_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
                     output = crate::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(
                     _response_body,
                     output,
@@ -105,9 +103,7 @@ pub fn de_apply_guardrail_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ServiceUnavailableExceptionBuilder::default(
-                        );
+                    let mut output = crate::types::error::builders::ServiceUnavailableExceptionBuilder::default();
                     output =
                     crate::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
                         .map_err(crate::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
@@ -120,42 +116,42 @@ pub fn de_apply_guardrail_http_error(
                 tmp
             })
         }
-        "ThrottlingException" => {
-            crate::operation::apply_guardrail::ApplyGuardrailError::ThrottlingException({
+        "ThrottlingException" => crate::operation::apply_guardrail::ApplyGuardrailError::ThrottlingException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ThrottlingExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ValidationException" => {
-            crate::operation::apply_guardrail::ApplyGuardrailError::ValidationException({
+                let mut output = crate::types::error::builders::ThrottlingExceptionBuilder::default();
+                output = crate::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ValidationException" => crate::operation::apply_guardrail::ApplyGuardrailError::ValidationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ValidationExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::ValidationExceptionBuilder::default();
+                output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => crate::operation::apply_guardrail::ApplyGuardrailError::generic(generic),
     })
 }
@@ -171,16 +167,10 @@ pub fn de_apply_guardrail_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::apply_guardrail::builders::ApplyGuardrailOutputBuilder::default();
-        output = crate::protocol_serde::shape_apply_guardrail::de_apply_guardrail(
-            _response_body,
-            output,
-        )
-        .map_err(crate::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::apply_guardrail::builders::ApplyGuardrailOutputBuilder::default();
+        output = crate::protocol_serde::shape_apply_guardrail::de_apply_guardrail(_response_body, output)
+            .map_err(crate::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         crate::serde_util::apply_guardrail_output_output_correct_errors(output)
             .build()
             .map_err(crate::operation::apply_guardrail::ApplyGuardrailError::unhandled)?
@@ -189,16 +179,11 @@ pub fn de_apply_guardrail_http_response(
 
 pub fn ser_apply_guardrail_input(
     input: &crate::operation::apply_guardrail::ApplyGuardrailInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_apply_guardrail_input::ser_apply_guardrail_input_input(
-        &mut object,
-        input,
-    )?;
+    crate::protocol_serde::shape_apply_guardrail_input::ser_apply_guardrail_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -210,10 +195,8 @@ pub(crate) fn de_apply_guardrail(
     crate::operation::apply_guardrail::builders::ApplyGuardrailOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -225,31 +208,29 @@ pub(crate) fn de_apply_guardrail(
                 match key.to_unescaped()?.as_ref() {
                     "action" => {
                         builder = builder.set_action(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                tokens.next(),
-                            )?
-                            .map(|s| {
-                                s.to_unescaped()
-                                    .map(|u| crate::types::GuardrailAction::from(u.as_ref()))
-                            })
-                            .transpose()?,
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| {
+                                    s.to_unescaped()
+                                        .map(|u| crate::types::GuardrailAction::from(u.as_ref()))
+                                })
+                                .transpose()?,
                         );
                     }
                     "actionReason" => {
                         builder = builder.set_action_reason(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                tokens.next(),
-                            )?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                .transpose()?,
                         );
                     }
                     "assessments" => {
-                        builder = builder.set_assessments(crate::protocol_serde::shape_guardrail_assessment_list::de_guardrail_assessment_list(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                        builder = builder.set_assessments(
+                            crate::protocol_serde::shape_guardrail_assessment_list::de_guardrail_assessment_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?,
+                        );
                     }
                     "guardrailCoverage" => {
                         builder = builder.set_guardrail_coverage(
@@ -266,32 +247,26 @@ pub(crate) fn de_apply_guardrail(
                     );
                     }
                     "usage" => {
-                        builder = builder.set_usage(
-                            crate::protocol_serde::shape_guardrail_usage::de_guardrail_usage(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?,
-                        );
+                        builder = builder.set_usage(crate::protocol_serde::shape_guardrail_usage::de_guardrail_usage(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?);
                     }
                     _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
             }
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

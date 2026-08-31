@@ -14,8 +14,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListInstanceProfileTagsError>`](crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError)
     pub fn list_instance_profile_tags(
         &self,
-    ) -> crate::operation::list_instance_profile_tags::builders::ListInstanceProfileTagsFluentBuilder
-    {
-        crate::operation::list_instance_profile_tags::builders::ListInstanceProfileTagsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::list_instance_profile_tags::builders::ListInstanceProfileTagsFluentBuilder {
+        crate::operation::list_instance_profile_tags::builders::ListInstanceProfileTagsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -18,8 +18,6 @@ impl super::Client {
     pub fn describe_log_streams(
         &self,
     ) -> crate::operation::describe_log_streams::builders::DescribeLogStreamsFluentBuilder {
-        crate::operation::describe_log_streams::builders::DescribeLogStreamsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::describe_log_streams::builders::DescribeLogStreamsFluentBuilder::new(self.handle.clone())
     }
 }

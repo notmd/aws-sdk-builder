@@ -42,8 +42,7 @@ impl ::std::fmt::Debug for AdminSetUserPasswordInput {
 }
 impl AdminSetUserPasswordInput {
     /// Creates a new builder-style object to manufacture [`AdminSetUserPasswordInput`](crate::operation::admin_set_user_password::AdminSetUserPasswordInput).
-    pub fn builder(
-    ) -> crate::operation::admin_set_user_password::builders::AdminSetUserPasswordInputBuilder {
+    pub fn builder() -> crate::operation::admin_set_user_password::builders::AdminSetUserPasswordInputBuilder {
         crate::operation::admin_set_user_password::builders::AdminSetUserPasswordInputBuilder::default()
     }
 }
@@ -124,14 +123,12 @@ impl AdminSetUserPasswordInputBuilder {
         crate::operation::admin_set_user_password::AdminSetUserPasswordInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::admin_set_user_password::AdminSetUserPasswordInput {
-                user_pool_id: self.user_pool_id,
-                username: self.username,
-                password: self.password,
-                permanent: self.permanent,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::admin_set_user_password::AdminSetUserPasswordInput {
+            user_pool_id: self.user_pool_id,
+            username: self.username,
+            password: self.password,
+            permanent: self.permanent,
+        })
     }
 }
 impl ::std::fmt::Debug for AdminSetUserPasswordInputBuilder {

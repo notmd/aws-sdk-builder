@@ -10,8 +10,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateContinuousBackupsError>`](crate::operation::update_continuous_backups::UpdateContinuousBackupsError)
     pub fn update_continuous_backups(
         &self,
-    ) -> crate::operation::update_continuous_backups::builders::UpdateContinuousBackupsFluentBuilder
-    {
-        crate::operation::update_continuous_backups::builders::UpdateContinuousBackupsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::update_continuous_backups::builders::UpdateContinuousBackupsFluentBuilder {
+        crate::operation::update_continuous_backups::builders::UpdateContinuousBackupsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

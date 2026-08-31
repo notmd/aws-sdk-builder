@@ -57,7 +57,9 @@ impl DeleteSuppressedDestinationFluentBuilder {
         }
     }
     /// Access the DeleteSuppressedDestination as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_suppressed_destination::builders::DeleteSuppressedDestinationInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::delete_suppressed_destination::builders::DeleteSuppressedDestinationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,11 +83,12 @@ impl DeleteSuppressedDestinationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::delete_suppressed_destination::DeleteSuppressedDestination::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::delete_suppressed_destination::DeleteSuppressedDestination::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::delete_suppressed_destination::DeleteSuppressedDestination::orchestrate(
             &runtime_plugins,
             input,
@@ -119,18 +122,12 @@ impl DeleteSuppressedDestinationFluentBuilder {
         self
     }
     /// <p>The suppressed email destination to remove from the suppression list for your account or for the specified tenant.</p>
-    pub fn email_address(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.email_address(input.into());
         self
     }
     /// <p>The suppressed email destination to remove from the suppression list for your account or for the specified tenant.</p>
-    pub fn set_email_address(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_email_address(input);
         self
     }

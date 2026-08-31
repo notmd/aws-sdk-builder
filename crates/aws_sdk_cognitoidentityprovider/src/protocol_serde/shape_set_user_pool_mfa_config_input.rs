@@ -9,25 +9,22 @@ pub fn ser_set_user_pool_mfa_config_input_input(
     if let Some(var_2) = &input.sms_mfa_configuration {
         #[allow(unused_mut)]
         let mut object_3 = object.key("SmsMfaConfiguration").start_object();
-        crate::protocol_serde::shape_sms_mfa_config_type::ser_sms_mfa_config_type(
-            &mut object_3,
-            var_2,
-        )?;
+        crate::protocol_serde::shape_sms_mfa_config_type::ser_sms_mfa_config_type(&mut object_3, var_2)?;
         object_3.finish();
     }
     if let Some(var_4) = &input.software_token_mfa_configuration {
         #[allow(unused_mut)]
         let mut object_5 = object.key("SoftwareTokenMfaConfiguration").start_object();
-        crate::protocol_serde::shape_software_token_mfa_config_type::ser_software_token_mfa_config_type(&mut object_5, var_4)?;
+        crate::protocol_serde::shape_software_token_mfa_config_type::ser_software_token_mfa_config_type(
+            &mut object_5,
+            var_4,
+        )?;
         object_5.finish();
     }
     if let Some(var_6) = &input.email_mfa_configuration {
         #[allow(unused_mut)]
         let mut object_7 = object.key("EmailMfaConfiguration").start_object();
-        crate::protocol_serde::shape_email_mfa_config_type::ser_email_mfa_config_type(
-            &mut object_7,
-            var_6,
-        )?;
+        crate::protocol_serde::shape_email_mfa_config_type::ser_email_mfa_config_type(&mut object_7, var_6)?;
         object_7.finish();
     }
     if let Some(var_8) = &input.mfa_configuration {
@@ -36,7 +33,10 @@ pub fn ser_set_user_pool_mfa_config_input_input(
     if let Some(var_9) = &input.web_authn_configuration {
         #[allow(unused_mut)]
         let mut object_10 = object.key("WebAuthnConfiguration").start_object();
-        crate::protocol_serde::shape_web_authn_configuration_type::ser_web_authn_configuration_type(&mut object_10, var_9)?;
+        crate::protocol_serde::shape_web_authn_configuration_type::ser_web_authn_configuration_type(
+            &mut object_10,
+            var_9,
+        )?;
         object_10.finish();
     }
     Ok(())

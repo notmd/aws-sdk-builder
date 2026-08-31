@@ -89,21 +89,17 @@ impl ::std::convert::From<&str> for VerificationError {
             "HOST_NOT_FOUND" => VerificationError::HostNotFound,
             "INVALID_VALUE" => VerificationError::InvalidValue,
             "REPLICATION_ACCESS_DENIED" => VerificationError::ReplicationAccessDenied,
-            "REPLICATION_PRIMARY_BYO_DKIM_NOT_SUPPORTED" => {
-                VerificationError::ReplicationPrimaryByoDkimNotSupported
-            }
-            "REPLICATION_PRIMARY_INVALID_REGION" => {
-                VerificationError::ReplicationPrimaryInvalidRegion
-            }
+            "REPLICATION_PRIMARY_BYO_DKIM_NOT_SUPPORTED" => VerificationError::ReplicationPrimaryByoDkimNotSupported,
+            "REPLICATION_PRIMARY_INVALID_REGION" => VerificationError::ReplicationPrimaryInvalidRegion,
             "REPLICATION_PRIMARY_NOT_FOUND" => VerificationError::ReplicationPrimaryNotFound,
             "REPLICATION_REPLICA_AS_PRIMARY_NOT_SUPPORTED" => {
                 VerificationError::ReplicationReplicaAsPrimaryNotSupported
             }
             "SERVICE_ERROR" => VerificationError::ServiceError,
             "TYPE_NOT_FOUND" => VerificationError::TypeNotFound,
-            other => VerificationError::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => VerificationError::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -122,12 +118,8 @@ impl VerificationError {
             VerificationError::HostNotFound => "HOST_NOT_FOUND",
             VerificationError::InvalidValue => "INVALID_VALUE",
             VerificationError::ReplicationAccessDenied => "REPLICATION_ACCESS_DENIED",
-            VerificationError::ReplicationPrimaryByoDkimNotSupported => {
-                "REPLICATION_PRIMARY_BYO_DKIM_NOT_SUPPORTED"
-            }
-            VerificationError::ReplicationPrimaryInvalidRegion => {
-                "REPLICATION_PRIMARY_INVALID_REGION"
-            }
+            VerificationError::ReplicationPrimaryByoDkimNotSupported => "REPLICATION_PRIMARY_BYO_DKIM_NOT_SUPPORTED",
+            VerificationError::ReplicationPrimaryInvalidRegion => "REPLICATION_PRIMARY_INVALID_REGION",
             VerificationError::ReplicationPrimaryNotFound => "REPLICATION_PRIMARY_NOT_FOUND",
             VerificationError::ReplicationReplicaAsPrimaryNotSupported => {
                 "REPLICATION_REPLICA_AS_PRIMARY_NOT_SUPPORTED"
@@ -162,14 +154,10 @@ impl VerificationError {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -184,12 +172,8 @@ impl ::std::fmt::Display for VerificationError {
             VerificationError::ReplicationPrimaryByoDkimNotSupported => {
                 write!(f, "REPLICATION_PRIMARY_BYO_DKIM_NOT_SUPPORTED")
             }
-            VerificationError::ReplicationPrimaryInvalidRegion => {
-                write!(f, "REPLICATION_PRIMARY_INVALID_REGION")
-            }
-            VerificationError::ReplicationPrimaryNotFound => {
-                write!(f, "REPLICATION_PRIMARY_NOT_FOUND")
-            }
+            VerificationError::ReplicationPrimaryInvalidRegion => write!(f, "REPLICATION_PRIMARY_INVALID_REGION"),
+            VerificationError::ReplicationPrimaryNotFound => write!(f, "REPLICATION_PRIMARY_NOT_FOUND"),
             VerificationError::ReplicationReplicaAsPrimaryNotSupported => {
                 write!(f, "REPLICATION_REPLICA_AS_PRIMARY_NOT_SUPPORTED")
             }

@@ -64,9 +64,7 @@ fn smithy_snake_case(value: &str) -> String {
         let word_in_progress = complete_word_in_progress
             && COMPLETE_WORDS.iter().any(|word| {
                 word.starts_with(&current.to_lowercase())
-                    && format!("{current}{remaining}")
-                        .to_lowercase()
-                        .starts_with(word)
+                    && format!("{current}{remaining}").to_lowercase().starts_with(word)
                     && !word.eq_ignore_ascii_case(&current)
             });
         let boundary = (!word_in_progress && lowered_followed_by_upper(&current, next))
@@ -117,16 +115,8 @@ fn digit_followed_by_lower(current: &str, next: char) -> bool {
         && next.is_lowercase()
 }
 
-fn end_of_acronym(
-    current: &str,
-    next: char,
-    peek: Option<char>,
-    double_peek: Option<char>,
-) -> bool {
-    if !current
-        .chars()
-        .last()
-        .is_some_and(|character| character.is_uppercase())
+fn end_of_acronym(current: &str, next: char, peek: Option<char>, double_peek: Option<char>) -> bool {
+    if !current.chars().last().is_some_and(|character| character.is_uppercase())
         || !next.is_uppercase()
         || !peek.is_some_and(|character| character.is_lowercase())
     {

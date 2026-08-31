@@ -24,16 +24,13 @@ impl AttachRolePolicyInput {
 }
 impl AttachRolePolicyInput {
     /// Creates a new builder-style object to manufacture [`AttachRolePolicyInput`](crate::operation::attach_role_policy::AttachRolePolicyInput).
-    pub fn builder() -> crate::operation::attach_role_policy::builders::AttachRolePolicyInputBuilder
-    {
+    pub fn builder() -> crate::operation::attach_role_policy::builders::AttachRolePolicyInputBuilder {
         crate::operation::attach_role_policy::builders::AttachRolePolicyInputBuilder::default()
     }
 }
 
 /// A builder for [`AttachRolePolicyInput`](crate::operation::attach_role_policy::AttachRolePolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AttachRolePolicyInputBuilder {
     pub(crate) role_name: ::std::option::Option<::std::string::String>,
@@ -83,11 +80,9 @@ impl AttachRolePolicyInputBuilder {
         crate::operation::attach_role_policy::AttachRolePolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::attach_role_policy::AttachRolePolicyInput {
-                role_name: self.role_name,
-                policy_arn: self.policy_arn,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::attach_role_policy::AttachRolePolicyInput {
+            role_name: self.role_name,
+            policy_arn: self.policy_arn,
+        })
     }
 }

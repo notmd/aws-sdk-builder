@@ -57,9 +57,7 @@ impl UpdateContactListFluentBuilder {
         }
     }
     /// Access the UpdateContactList as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::update_contact_list::builders::UpdateContactListInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::update_contact_list::builders::UpdateContactListInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,17 +81,12 @@ impl UpdateContactListFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::update_contact_list::UpdateContactList::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::update_contact_list::UpdateContactList::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::update_contact_list::UpdateContactList::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::update_contact_list::UpdateContactList::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -122,18 +115,12 @@ impl UpdateContactListFluentBuilder {
         self
     }
     /// <p>The name of the contact list.</p>
-    pub fn contact_list_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn contact_list_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.contact_list_name(input.into());
         self
     }
     /// <p>The name of the contact list.</p>
-    pub fn set_contact_list_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_contact_list_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_contact_list_name(input);
         self
     }
@@ -152,10 +139,7 @@ impl UpdateContactListFluentBuilder {
         self
     }
     /// <p>An interest group, theme, or label within a list. A contact list can have multiple topics.</p>
-    pub fn set_topics(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Topic>>,
-    ) -> Self {
+    pub fn set_topics(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Topic>>) -> Self {
         self.inner = self.inner.set_topics(input);
         self
     }

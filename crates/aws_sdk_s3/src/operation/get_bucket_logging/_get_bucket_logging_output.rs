@@ -26,16 +26,13 @@ impl ::aws_types::request_id::RequestId for GetBucketLoggingOutput {
 }
 impl GetBucketLoggingOutput {
     /// Creates a new builder-style object to manufacture [`GetBucketLoggingOutput`](crate::operation::get_bucket_logging::GetBucketLoggingOutput).
-    pub fn builder() -> crate::operation::get_bucket_logging::builders::GetBucketLoggingOutputBuilder
-    {
+    pub fn builder() -> crate::operation::get_bucket_logging::builders::GetBucketLoggingOutputBuilder {
         crate::operation::get_bucket_logging::builders::GetBucketLoggingOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetBucketLoggingOutput`](crate::operation::get_bucket_logging::GetBucketLoggingOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketLoggingOutputBuilder {
     pub(crate) logging_enabled: ::std::option::Option<crate::types::LoggingEnabled>,
@@ -49,10 +46,7 @@ impl GetBucketLoggingOutputBuilder {
         self
     }
     /// <p>Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys for a bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html">PUT Bucket logging</a> in the <i>Amazon S3 API Reference</i>.</p>
-    pub fn set_logging_enabled(
-        mut self,
-        input: ::std::option::Option<crate::types::LoggingEnabled>,
-    ) -> Self {
+    pub fn set_logging_enabled(mut self, input: ::std::option::Option<crate::types::LoggingEnabled>) -> Self {
         self.logging_enabled = input;
         self
     }
@@ -65,10 +59,7 @@ impl GetBucketLoggingOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

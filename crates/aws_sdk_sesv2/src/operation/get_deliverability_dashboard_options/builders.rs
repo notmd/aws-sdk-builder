@@ -27,7 +27,8 @@ impl crate::operation::get_deliverability_dashboard_options::builders::GetDelive
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GetDeliverabilityDashboardOptionsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsInputBuilder,
+    inner:
+        crate::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -58,7 +59,10 @@ impl GetDeliverabilityDashboardOptionsFluentBuilder {
         }
     }
     /// Access the GetDeliverabilityDashboardOptions as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -77,7 +81,7 @@ impl GetDeliverabilityDashboardOptionsFluentBuilder {
             crate::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -87,7 +91,11 @@ impl GetDeliverabilityDashboardOptionsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptions::orchestrate(&runtime_plugins, input).await
+        crate::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptions::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -97,7 +105,7 @@ impl GetDeliverabilityDashboardOptionsFluentBuilder {
         crate::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsOutput,
         crate::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(

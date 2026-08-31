@@ -14,17 +14,13 @@ impl DeleteQueryDefinitionInput {
 }
 impl DeleteQueryDefinitionInput {
     /// Creates a new builder-style object to manufacture [`DeleteQueryDefinitionInput`](crate::operation::delete_query_definition::DeleteQueryDefinitionInput).
-    pub fn builder(
-    ) -> crate::operation::delete_query_definition::builders::DeleteQueryDefinitionInputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_query_definition::builders::DeleteQueryDefinitionInputBuilder {
         crate::operation::delete_query_definition::builders::DeleteQueryDefinitionInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteQueryDefinitionInput`](crate::operation::delete_query_definition::DeleteQueryDefinitionInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteQueryDefinitionInputBuilder {
     pub(crate) query_definition_id: ::std::option::Option<::std::string::String>,
@@ -32,18 +28,12 @@ pub struct DeleteQueryDefinitionInputBuilder {
 impl DeleteQueryDefinitionInputBuilder {
     /// <p>The ID of the query definition that you want to delete. You can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html">DescribeQueryDefinitions</a> to retrieve the IDs of your saved query definitions.</p>
     /// This field is required.
-    pub fn query_definition_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn query_definition_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.query_definition_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ID of the query definition that you want to delete. You can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html">DescribeQueryDefinitions</a> to retrieve the IDs of your saved query definitions.</p>
-    pub fn set_query_definition_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_query_definition_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.query_definition_id = input;
         self
     }
@@ -58,10 +48,8 @@ impl DeleteQueryDefinitionInputBuilder {
         crate::operation::delete_query_definition::DeleteQueryDefinitionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_query_definition::DeleteQueryDefinitionInput {
-                query_definition_id: self.query_definition_id,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::delete_query_definition::DeleteQueryDefinitionInput {
+            query_definition_id: self.query_definition_id,
+        })
     }
 }

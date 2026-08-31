@@ -6,7 +6,10 @@ pub fn ser_update_capacity_provider_input_input(
     if let Some(var_1) = &input.capacity_provider_scaling_config {
         #[allow(unused_mut)]
         let mut object_2 = object.key("CapacityProviderScalingConfig").start_object();
-        crate::protocol_serde::shape_capacity_provider_scaling_config::ser_capacity_provider_scaling_config(&mut object_2, var_1)?;
+        crate::protocol_serde::shape_capacity_provider_scaling_config::ser_capacity_provider_scaling_config(
+            &mut object_2,
+            var_1,
+        )?;
         object_2.finish();
     }
     if let Some(var_3) = &input.propagate_tags {
@@ -18,7 +21,10 @@ pub fn ser_update_capacity_provider_input_input(
     if let Some(var_5) = &input.telemetry_config {
         #[allow(unused_mut)]
         let mut object_6 = object.key("TelemetryConfig").start_object();
-        crate::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(&mut object_6, var_5)?;
+        crate::protocol_serde::shape_capacity_provider_telemetry_config::ser_capacity_provider_telemetry_config(
+            &mut object_6,
+            var_5,
+        )?;
         object_6.finish();
     }
     Ok(())

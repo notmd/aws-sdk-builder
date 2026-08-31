@@ -9,7 +9,11 @@ impl super::Client {
     /// - On success, responds with [`PutFunctionScalingConfigOutput`](crate::operation::put_function_scaling_config::PutFunctionScalingConfigOutput) with field(s):
     ///   - [`function_state(Option<State>)`](crate::operation::put_function_scaling_config::PutFunctionScalingConfigOutput::function_state): <p>The current state of the function after applying the scaling configuration.</p>
     /// - On failure, responds with [`SdkError<PutFunctionScalingConfigError>`](crate::operation::put_function_scaling_config::PutFunctionScalingConfigError)
-    pub fn put_function_scaling_config(&self) -> crate::operation::put_function_scaling_config::builders::PutFunctionScalingConfigFluentBuilder{
-        crate::operation::put_function_scaling_config::builders::PutFunctionScalingConfigFluentBuilder::new(self.handle.clone())
+    pub fn put_function_scaling_config(
+        &self,
+    ) -> crate::operation::put_function_scaling_config::builders::PutFunctionScalingConfigFluentBuilder {
+        crate::operation::put_function_scaling_config::builders::PutFunctionScalingConfigFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

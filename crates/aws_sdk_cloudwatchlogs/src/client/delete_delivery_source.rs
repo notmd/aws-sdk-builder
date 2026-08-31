@@ -9,8 +9,6 @@ impl super::Client {
     pub fn delete_delivery_source(
         &self,
     ) -> crate::operation::delete_delivery_source::builders::DeleteDeliverySourceFluentBuilder {
-        crate::operation::delete_delivery_source::builders::DeleteDeliverySourceFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_delivery_source::builders::DeleteDeliverySourceFluentBuilder::new(self.handle.clone())
     }
 }

@@ -12,9 +12,7 @@ impl AnyToolChoice {
 }
 
 /// A builder for [`AnyToolChoice`](crate::types::AnyToolChoice).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AnyToolChoiceBuilder {}
 impl AnyToolChoiceBuilder {

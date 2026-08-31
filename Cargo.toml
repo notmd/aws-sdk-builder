@@ -39,6 +39,6 @@ opt-level = 3
 debug = 0
 
 [workspace.package]
-edition = "2024"
+edition = "2021"
 license = "Apache-2.0"
 repository = "https://github.com/notmd/aws-sdk-modular"

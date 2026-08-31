@@ -9,8 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutDedicatedIpInPoolError>`](crate::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolError)
     pub fn put_dedicated_ip_in_pool(
         &self,
-    ) -> crate::operation::put_dedicated_ip_in_pool::builders::PutDedicatedIpInPoolFluentBuilder
-    {
+    ) -> crate::operation::put_dedicated_ip_in_pool::builders::PutDedicatedIpInPoolFluentBuilder {
         crate::operation::put_dedicated_ip_in_pool::builders::PutDedicatedIpInPoolFluentBuilder::new(
             self.handle.clone(),
         )

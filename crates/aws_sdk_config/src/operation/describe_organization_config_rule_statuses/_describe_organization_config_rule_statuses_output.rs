@@ -14,12 +14,8 @@ impl DescribeOrganizationConfigRuleStatusesOutput {
     /// <p>A list of <code>OrganizationConfigRuleStatus</code> objects.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.organization_config_rule_statuses.is_none()`.
-    pub fn organization_config_rule_statuses(
-        &self,
-    ) -> &[crate::types::OrganizationConfigRuleStatus] {
-        self.organization_config_rule_statuses
-            .as_deref()
-            .unwrap_or_default()
+    pub fn organization_config_rule_statuses(&self) -> &[crate::types::OrganizationConfigRuleStatus] {
+        self.organization_config_rule_statuses.as_deref().unwrap_or_default()
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -39,9 +35,7 @@ impl DescribeOrganizationConfigRuleStatusesOutput {
 }
 
 /// A builder for [`DescribeOrganizationConfigRuleStatusesOutput`](crate::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeOrganizationConfigRuleStatusesOutputBuilder {
     pub(crate) organization_config_rule_statuses:
@@ -55,10 +49,7 @@ impl DescribeOrganizationConfigRuleStatusesOutputBuilder {
     /// To override the contents of this collection use [`set_organization_config_rule_statuses`](Self::set_organization_config_rule_statuses).
     ///
     /// <p>A list of <code>OrganizationConfigRuleStatus</code> objects.</p>
-    pub fn organization_config_rule_statuses(
-        mut self,
-        input: crate::types::OrganizationConfigRuleStatus,
-    ) -> Self {
+    pub fn organization_config_rule_statuses(mut self, input: crate::types::OrganizationConfigRuleStatus) -> Self {
         let mut v = self.organization_config_rule_statuses.unwrap_or_default();
         v.push(input);
         self.organization_config_rule_statuses = ::std::option::Option::Some(v);
@@ -102,7 +93,10 @@ impl DescribeOrganizationConfigRuleStatusesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeOrganizationConfigRuleStatusesOutput`](crate::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesOutput).
-    pub fn build(self) -> crate::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesOutput
+    {
         crate::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesOutput {
             organization_config_rule_statuses: self.organization_config_rule_statuses,
             next_token: self.next_token,

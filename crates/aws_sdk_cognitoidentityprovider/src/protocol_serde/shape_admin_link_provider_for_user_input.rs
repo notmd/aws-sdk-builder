@@ -9,13 +9,19 @@ pub fn ser_admin_link_provider_for_user_input_input(
     if let Some(var_2) = &input.destination_user {
         #[allow(unused_mut)]
         let mut object_3 = object.key("DestinationUser").start_object();
-        crate::protocol_serde::shape_provider_user_identifier_type::ser_provider_user_identifier_type(&mut object_3, var_2)?;
+        crate::protocol_serde::shape_provider_user_identifier_type::ser_provider_user_identifier_type(
+            &mut object_3,
+            var_2,
+        )?;
         object_3.finish();
     }
     if let Some(var_4) = &input.source_user {
         #[allow(unused_mut)]
         let mut object_5 = object.key("SourceUser").start_object();
-        crate::protocol_serde::shape_provider_user_identifier_type::ser_provider_user_identifier_type(&mut object_5, var_4)?;
+        crate::protocol_serde::shape_provider_user_identifier_type::ser_provider_user_identifier_type(
+            &mut object_5,
+            var_4,
+        )?;
         object_5.finish();
     }
     Ok(())

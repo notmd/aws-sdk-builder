@@ -9,66 +9,66 @@ pub fn de_create_account_alias_http_error(
     crate::operation::create_account_alias::CreateAccountAliasError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::create_account_alias::CreateAccountAliasError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::create_account_alias::CreateAccountAliasError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(
-                crate::operation::create_account_alias::CreateAccountAliasError::unhandled(generic),
-            )
-        }
+        None => return Err(crate::operation::create_account_alias::CreateAccountAliasError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "ConcurrentModification" => crate::operation::create_account_alias::CreateAccountAliasError::ConcurrentModificationException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "ConcurrentModification" => {
+            crate::operation::create_account_alias::CreateAccountAliasError::ConcurrentModificationException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
-                output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_xml_err(
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_xml_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::create_account_alias::CreateAccountAliasError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "EntityAlreadyExists" => crate::operation::create_account_alias::CreateAccountAliasError::EntityAlreadyExistsException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "EntityAlreadyExists" => {
+            crate::operation::create_account_alias::CreateAccountAliasError::EntityAlreadyExistsException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::EntityAlreadyExistsExceptionBuilder::default();
-                output =
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::EntityAlreadyExistsExceptionBuilder::default();
+                    output =
                     crate::protocol_serde::shape_entity_already_exists_exception::de_entity_already_exists_exception_xml_err(_response_body, output)
                         .map_err(crate::operation::create_account_alias::CreateAccountAliasError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "LimitExceeded" => crate::operation::create_account_alias::CreateAccountAliasError::LimitExceededException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
-                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::create_account_alias::CreateAccountAliasError::unhandled)?;
+                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::create_account_alias::CreateAccountAliasError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -82,8 +82,11 @@ pub fn de_create_account_alias_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
-                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::create_account_alias::CreateAccountAliasError::unhandled)?;
+                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::create_account_alias::CreateAccountAliasError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -108,9 +111,7 @@ pub fn de_create_account_alias_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::create_account_alias::builders::CreateAccountAliasOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }

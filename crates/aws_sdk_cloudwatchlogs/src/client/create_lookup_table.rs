@@ -16,8 +16,6 @@ impl super::Client {
     pub fn create_lookup_table(
         &self,
     ) -> crate::operation::create_lookup_table::builders::CreateLookupTableFluentBuilder {
-        crate::operation::create_lookup_table::builders::CreateLookupTableFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::create_lookup_table::builders::CreateLookupTableFluentBuilder::new(self.handle.clone())
     }
 }

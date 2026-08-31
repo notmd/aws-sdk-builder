@@ -8,8 +8,7 @@ pub struct AggregateLogGroupSummary {
     pub log_group_count: ::std::option::Option<i32>,
     /// <p>An array of key-value pairs that identify the data source characteristics used to group the log groups.</p>
     /// <p>The size and content of this array depends on the <code>groupBy</code> parameter specified in the request.</p>
-    pub grouping_identifiers:
-        ::std::option::Option<::std::vec::Vec<crate::types::GroupingIdentifier>>,
+    pub grouping_identifiers: ::std::option::Option<::std::vec::Vec<crate::types::GroupingIdentifier>>,
 }
 impl AggregateLogGroupSummary {
     /// <p>The number of log groups in this aggregate summary group.</p>
@@ -32,14 +31,11 @@ impl AggregateLogGroupSummary {
 }
 
 /// A builder for [`AggregateLogGroupSummary`](crate::types::AggregateLogGroupSummary).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AggregateLogGroupSummaryBuilder {
     pub(crate) log_group_count: ::std::option::Option<i32>,
-    pub(crate) grouping_identifiers:
-        ::std::option::Option<::std::vec::Vec<crate::types::GroupingIdentifier>>,
+    pub(crate) grouping_identifiers: ::std::option::Option<::std::vec::Vec<crate::types::GroupingIdentifier>>,
 }
 impl AggregateLogGroupSummaryBuilder {
     /// <p>The number of log groups in this aggregate summary group.</p>

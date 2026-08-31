@@ -11,9 +11,7 @@ pub struct DisassociateResourceTypesOutput {
 impl DisassociateResourceTypesOutput {
     /// <p>Records configuration changes to the resource types in scope.</p>
     /// <p>For more information about the configuration recorder, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html"> <b>Working with the Configuration Recorder</b> </a> in the <i>Config Developer Guide</i>.</p>
-    pub fn configuration_recorder(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ConfigurationRecorder> {
+    pub fn configuration_recorder(&self) -> ::std::option::Option<&crate::types::ConfigurationRecorder> {
         self.configuration_recorder.as_ref()
     }
 }
@@ -24,15 +22,14 @@ impl ::aws_types::request_id::RequestId for DisassociateResourceTypesOutput {
 }
 impl DisassociateResourceTypesOutput {
     /// Creates a new builder-style object to manufacture [`DisassociateResourceTypesOutput`](crate::operation::disassociate_resource_types::DisassociateResourceTypesOutput).
-    pub fn builder() -> crate::operation::disassociate_resource_types::builders::DisassociateResourceTypesOutputBuilder{
+    pub fn builder() -> crate::operation::disassociate_resource_types::builders::DisassociateResourceTypesOutputBuilder
+    {
         crate::operation::disassociate_resource_types::builders::DisassociateResourceTypesOutputBuilder::default()
     }
 }
 
 /// A builder for [`DisassociateResourceTypesOutput`](crate::operation::disassociate_resource_types::DisassociateResourceTypesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DisassociateResourceTypesOutputBuilder {
     pub(crate) configuration_recorder: ::std::option::Option<crate::types::ConfigurationRecorder>,
@@ -57,9 +54,7 @@ impl DisassociateResourceTypesOutputBuilder {
     }
     /// <p>Records configuration changes to the resource types in scope.</p>
     /// <p>For more information about the configuration recorder, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html"> <b>Working with the Configuration Recorder</b> </a> in the <i>Config Developer Guide</i>.</p>
-    pub fn get_configuration_recorder(
-        &self,
-    ) -> &::std::option::Option<crate::types::ConfigurationRecorder> {
+    pub fn get_configuration_recorder(&self) -> &::std::option::Option<crate::types::ConfigurationRecorder> {
         &self.configuration_recorder
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -72,9 +67,7 @@ impl DisassociateResourceTypesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DisassociateResourceTypesOutput`](crate::operation::disassociate_resource_types::DisassociateResourceTypesOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::disassociate_resource_types::DisassociateResourceTypesOutput {
+    pub fn build(self) -> crate::operation::disassociate_resource_types::DisassociateResourceTypesOutput {
         crate::operation::disassociate_resource_types::DisassociateResourceTypesOutput {
             configuration_recorder: self.configuration_recorder,
             _request_id: self._request_id,

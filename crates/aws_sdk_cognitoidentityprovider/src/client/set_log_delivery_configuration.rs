@@ -10,7 +10,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<SetLogDeliveryConfigurationError>`](crate::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationError)
     pub fn set_log_delivery_configuration(
         &self,
-    ) -> crate::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationFluentBuilder{
-        crate::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationFluentBuilder {
+        crate::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -79,9 +79,7 @@ pub(crate) fn import_batch_correct_errors(
         builder.batch_id = Some(Default::default())
     }
     if builder.status.is_none() {
-        builder.status = "no value was set"
-            .parse::<crate::types::ImportStatus>()
-            .ok()
+        builder.status = "no value was set".parse::<crate::types::ImportStatus>().ok()
     }
     builder
 }
@@ -375,10 +373,7 @@ pub(crate) fn delivery_source_configuration_schema_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_describe_metric_filters",
-    feature = "op_put_metric_filter"
-))]
+#[cfg(any(feature = "op_describe_metric_filters", feature = "op_put_metric_filter"))]
 pub(crate) fn metric_transformation_correct_errors(
     mut builder: crate::types::builders::MetricTransformationBuilder,
 ) -> crate::types::builders::MetricTransformationBuilder {
@@ -394,10 +389,7 @@ pub(crate) fn metric_transformation_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_describe_query_definitions",
-    feature = "op_put_query_definition"
-))]
+#[cfg(any(feature = "op_describe_query_definitions", feature = "op_put_query_definition"))]
 pub(crate) fn query_parameter_correct_errors(
     mut builder: crate::types::builders::QueryParameterBuilder,
 ) -> crate::types::builders::QueryParameterBuilder {

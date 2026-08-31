@@ -7,15 +7,21 @@ pub fn de_list_policies_granting_service_access_http_error(
 ) -> std::result::Result<
     crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessOutput,
     crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessError,
->{
+> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body).map_err(
+            crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessError::unhandled,
+        )?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessError::unhandled(generic)),
+        None => return Err(
+            crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessError::unhandled(
+                generic,
+            ),
+        ),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -62,15 +68,13 @@ pub fn de_list_policies_granting_service_access_http_response(
 ) -> std::result::Result<
     crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessOutput,
     crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessError,
->{
+> {
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessOutputBuilder::default();
         output = crate::protocol_serde::shape_list_policies_granting_service_access::de_list_policies_granting_service_access(_response_body, output)
             .map_err(crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         crate::serde_util::list_policies_granting_service_access_output_output_correct_errors(output)
             .build()
             .map_err(crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessError::unhandled)?
@@ -84,7 +88,7 @@ pub fn de_list_policies_granting_service_access(
 ) -> std::result::Result<
     crate::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessOutputBuilder,
     ::aws_smithy_xml::decode::XmlDecodeError,
->{
+> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

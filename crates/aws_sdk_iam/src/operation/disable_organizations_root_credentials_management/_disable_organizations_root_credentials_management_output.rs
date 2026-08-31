@@ -36,9 +36,7 @@ impl DisableOrganizationsRootCredentialsManagementOutput {
 }
 
 /// A builder for [`DisableOrganizationsRootCredentialsManagementOutput`](crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DisableOrganizationsRootCredentialsManagementOutputBuilder {
     pub(crate) organization_id: ::std::option::Option<::std::string::String>,
@@ -47,18 +45,12 @@ pub struct DisableOrganizationsRootCredentialsManagementOutputBuilder {
 }
 impl DisableOrganizationsRootCredentialsManagementOutputBuilder {
     /// <p>The unique identifier (ID) of an organization.</p>
-    pub fn organization_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn organization_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.organization_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier (ID) of an organization.</p>
-    pub fn set_organization_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_organization_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.organization_id = input;
         self
     }
@@ -86,9 +78,7 @@ impl DisableOrganizationsRootCredentialsManagementOutputBuilder {
         self
     }
     /// <p>The features enabled for centralized root access for member accounts in your organization.</p>
-    pub fn get_enabled_features(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::FeatureType>> {
+    pub fn get_enabled_features(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FeatureType>> {
         &self.enabled_features
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

@@ -11,9 +11,7 @@ pub fn ser_guardrail_image_source(
         }
         crate::types::GuardrailImageSource::Unknown => {
             return Err(
-                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                    "GuardrailImageSource",
-                ),
+                ::aws_smithy_types::error::operation::SerializationError::unknown_variant("GuardrailImageSource"),
             )
         }
     }

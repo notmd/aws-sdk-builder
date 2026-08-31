@@ -58,9 +58,7 @@ impl UploadSSHPublicKeyFluentBuilder {
         }
     }
     /// Access the UploadSSHPublicKey as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::upload_ssh_public_key::builders::UploadSshPublicKeyInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::upload_ssh_public_key::builders::UploadSshPublicKeyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,17 +82,12 @@ impl UploadSSHPublicKeyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::upload_ssh_public_key::UploadSSHPublicKey::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::upload_ssh_public_key::UploadSSHPublicKey::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::upload_ssh_public_key::UploadSSHPublicKey::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::upload_ssh_public_key::UploadSSHPublicKey::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -149,10 +142,7 @@ impl UploadSSHPublicKeyFluentBuilder {
     /// <li>
     /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
     /// </ul>
-    pub fn ssh_public_key_body(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn ssh_public_key_body(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.ssh_public_key_body(input.into());
         self
     }
@@ -166,10 +156,7 @@ impl UploadSSHPublicKeyFluentBuilder {
     /// <li>
     /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
     /// </ul>
-    pub fn set_ssh_public_key_body(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_ssh_public_key_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_ssh_public_key_body(input);
         self
     }

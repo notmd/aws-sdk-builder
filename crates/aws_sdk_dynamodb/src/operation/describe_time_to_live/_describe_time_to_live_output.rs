@@ -9,9 +9,7 @@ pub struct DescribeTimeToLiveOutput {
 }
 impl DescribeTimeToLiveOutput {
     /// <p></p>
-    pub fn time_to_live_description(
-        &self,
-    ) -> ::std::option::Option<&crate::types::TimeToLiveDescription> {
+    pub fn time_to_live_description(&self) -> ::std::option::Option<&crate::types::TimeToLiveDescription> {
         self.time_to_live_description.as_ref()
     }
 }
@@ -22,17 +20,13 @@ impl ::aws_types::request_id::RequestId for DescribeTimeToLiveOutput {
 }
 impl DescribeTimeToLiveOutput {
     /// Creates a new builder-style object to manufacture [`DescribeTimeToLiveOutput`](crate::operation::describe_time_to_live::DescribeTimeToLiveOutput).
-    pub fn builder(
-    ) -> crate::operation::describe_time_to_live::builders::DescribeTimeToLiveOutputBuilder {
-        crate::operation::describe_time_to_live::builders::DescribeTimeToLiveOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::describe_time_to_live::builders::DescribeTimeToLiveOutputBuilder {
+        crate::operation::describe_time_to_live::builders::DescribeTimeToLiveOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeTimeToLiveOutput`](crate::operation::describe_time_to_live::DescribeTimeToLiveOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeTimeToLiveOutputBuilder {
     pub(crate) time_to_live_description: ::std::option::Option<crate::types::TimeToLiveDescription>,
@@ -53,9 +47,7 @@ impl DescribeTimeToLiveOutputBuilder {
         self
     }
     /// <p></p>
-    pub fn get_time_to_live_description(
-        &self,
-    ) -> &::std::option::Option<crate::types::TimeToLiveDescription> {
+    pub fn get_time_to_live_description(&self) -> &::std::option::Option<crate::types::TimeToLiveDescription> {
         &self.time_to_live_description
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

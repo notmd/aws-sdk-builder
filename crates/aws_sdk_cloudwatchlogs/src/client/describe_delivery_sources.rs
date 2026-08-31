@@ -12,8 +12,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeDeliverySourcesError>`](crate::operation::describe_delivery_sources::DescribeDeliverySourcesError)
     pub fn describe_delivery_sources(
         &self,
-    ) -> crate::operation::describe_delivery_sources::builders::DescribeDeliverySourcesFluentBuilder
-    {
-        crate::operation::describe_delivery_sources::builders::DescribeDeliverySourcesFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::describe_delivery_sources::builders::DescribeDeliverySourcesFluentBuilder {
+        crate::operation::describe_delivery_sources::builders::DescribeDeliverySourcesFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -12,7 +12,10 @@ pub fn ser_confirm_device_input_input(
     if let Some(var_3) = &input.device_secret_verifier_config {
         #[allow(unused_mut)]
         let mut object_4 = object.key("DeviceSecretVerifierConfig").start_object();
-        crate::protocol_serde::shape_device_secret_verifier_config_type::ser_device_secret_verifier_config_type(&mut object_4, var_3)?;
+        crate::protocol_serde::shape_device_secret_verifier_config_type::ser_device_secret_verifier_config_type(
+            &mut object_4,
+            var_3,
+        )?;
         object_4.finish();
     }
     if let Some(var_5) = &input.device_name {

@@ -26,16 +26,13 @@ impl DeleteResourcePolicyInput {
 }
 impl DeleteResourcePolicyInput {
     /// Creates a new builder-style object to manufacture [`DeleteResourcePolicyInput`](crate::operation::delete_resource_policy::DeleteResourcePolicyInput).
-    pub fn builder(
-    ) -> crate::operation::delete_resource_policy::builders::DeleteResourcePolicyInputBuilder {
+    pub fn builder() -> crate::operation::delete_resource_policy::builders::DeleteResourcePolicyInputBuilder {
         crate::operation::delete_resource_policy::builders::DeleteResourcePolicyInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteResourcePolicyInput`](crate::operation::delete_resource_policy::DeleteResourcePolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteResourcePolicyInputBuilder {
     pub(crate) policy_name: ::std::option::Option<::std::string::String>,
@@ -72,18 +69,12 @@ impl DeleteResourcePolicyInputBuilder {
         &self.resource_arn
     }
     /// <p>The expected revision ID of the resource policy. Required when deleting a resource-scoped policy to prevent concurrent modifications.</p>
-    pub fn expected_revision_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_revision_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_revision_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The expected revision ID of the resource policy. Required when deleting a resource-scoped policy to prevent concurrent modifications.</p>
-    pub fn set_expected_revision_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_revision_id = input;
         self
     }
@@ -98,12 +89,10 @@ impl DeleteResourcePolicyInputBuilder {
         crate::operation::delete_resource_policy::DeleteResourcePolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_resource_policy::DeleteResourcePolicyInput {
-                policy_name: self.policy_name,
-                resource_arn: self.resource_arn,
-                expected_revision_id: self.expected_revision_id,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::delete_resource_policy::DeleteResourcePolicyInput {
+            policy_name: self.policy_name,
+            resource_arn: self.resource_arn,
+            expected_revision_id: self.expected_revision_id,
+        })
     }
 }

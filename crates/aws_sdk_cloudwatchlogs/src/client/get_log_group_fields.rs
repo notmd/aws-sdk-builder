@@ -12,8 +12,6 @@ impl super::Client {
     pub fn get_log_group_fields(
         &self,
     ) -> crate::operation::get_log_group_fields::builders::GetLogGroupFieldsFluentBuilder {
-        crate::operation::get_log_group_fields::builders::GetLogGroupFieldsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_log_group_fields::builders::GetLogGroupFieldsFluentBuilder::new(self.handle.clone())
     }
 }

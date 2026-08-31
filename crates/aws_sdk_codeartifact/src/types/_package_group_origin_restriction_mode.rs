@@ -68,9 +68,7 @@ impl ::std::convert::From<&str> for PackageGroupOriginRestrictionMode {
     fn from(s: &str) -> Self {
         match s {
             "ALLOW" => PackageGroupOriginRestrictionMode::Allow,
-            "ALLOW_SPECIFIC_REPOSITORIES" => {
-                PackageGroupOriginRestrictionMode::AllowSpecificRepositories
-            }
+            "ALLOW_SPECIFIC_REPOSITORIES" => PackageGroupOriginRestrictionMode::AllowSpecificRepositories,
             "BLOCK" => PackageGroupOriginRestrictionMode::Block,
             "INHERIT" => PackageGroupOriginRestrictionMode::Inherit,
             other => PackageGroupOriginRestrictionMode::Unknown(
@@ -91,9 +89,7 @@ impl PackageGroupOriginRestrictionMode {
     pub fn as_str(&self) -> &str {
         match self {
             PackageGroupOriginRestrictionMode::Allow => "ALLOW",
-            PackageGroupOriginRestrictionMode::AllowSpecificRepositories => {
-                "ALLOW_SPECIFIC_REPOSITORIES"
-            }
+            PackageGroupOriginRestrictionMode::AllowSpecificRepositories => "ALLOW_SPECIFIC_REPOSITORIES",
             PackageGroupOriginRestrictionMode::Block => "BLOCK",
             PackageGroupOriginRestrictionMode::Inherit => "INHERIT",
             PackageGroupOriginRestrictionMode::Unknown(value) => value.as_str(),
@@ -113,14 +109,10 @@ impl PackageGroupOriginRestrictionMode {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -129,9 +121,7 @@ impl ::std::fmt::Display for PackageGroupOriginRestrictionMode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
             PackageGroupOriginRestrictionMode::Allow => write!(f, "ALLOW"),
-            PackageGroupOriginRestrictionMode::AllowSpecificRepositories => {
-                write!(f, "ALLOW_SPECIFIC_REPOSITORIES")
-            }
+            PackageGroupOriginRestrictionMode::AllowSpecificRepositories => write!(f, "ALLOW_SPECIFIC_REPOSITORIES"),
             PackageGroupOriginRestrictionMode::Block => write!(f, "BLOCK"),
             PackageGroupOriginRestrictionMode::Inherit => write!(f, "INHERIT"),
             PackageGroupOriginRestrictionMode::Unknown(value) => write!(f, "{value}"),

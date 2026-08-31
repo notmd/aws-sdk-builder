@@ -8,11 +8,7 @@ impl super::Client {
     /// - On success, responds with [`CreateExportJobOutput`](crate::operation::create_export_job::CreateExportJobOutput) with field(s):
     ///   - [`job_id(Option<String>)`](crate::operation::create_export_job::CreateExportJobOutput::job_id): <p>A string that represents the export job ID.</p>
     /// - On failure, responds with [`SdkError<CreateExportJobError>`](crate::operation::create_export_job::CreateExportJobError)
-    pub fn create_export_job(
-        &self,
-    ) -> crate::operation::create_export_job::builders::CreateExportJobFluentBuilder {
-        crate::operation::create_export_job::builders::CreateExportJobFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn create_export_job(&self) -> crate::operation::create_export_job::builders::CreateExportJobFluentBuilder {
+        crate::operation::create_export_job::builders::CreateExportJobFluentBuilder::new(self.handle.clone())
     }
 }

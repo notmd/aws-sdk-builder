@@ -39,9 +39,7 @@ impl GetOrganizationConfigRuleDetailedStatusInput {
 }
 
 /// A builder for [`GetOrganizationConfigRuleDetailedStatusInput`](crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetOrganizationConfigRuleDetailedStatusInputBuilder {
     pub(crate) organization_config_rule_name: ::std::option::Option<::std::string::String>,
@@ -52,25 +50,17 @@ pub struct GetOrganizationConfigRuleDetailedStatusInputBuilder {
 impl GetOrganizationConfigRuleDetailedStatusInputBuilder {
     /// <p>The name of your organization Config rule for which you want status details for member accounts.</p>
     /// This field is required.
-    pub fn organization_config_rule_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn organization_config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.organization_config_rule_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of your organization Config rule for which you want status details for member accounts.</p>
-    pub fn set_organization_config_rule_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_organization_config_rule_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.organization_config_rule_name = input;
         self
     }
     /// <p>The name of your organization Config rule for which you want status details for member accounts.</p>
-    pub fn get_organization_config_rule_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_organization_config_rule_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.organization_config_rule_name
     }
     /// <p>A <code>StatusDetailFilters</code> object.</p>
@@ -79,10 +69,7 @@ impl GetOrganizationConfigRuleDetailedStatusInputBuilder {
         self
     }
     /// <p>A <code>StatusDetailFilters</code> object.</p>
-    pub fn set_filters(
-        mut self,
-        input: ::std::option::Option<crate::types::StatusDetailFilters>,
-    ) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<crate::types::StatusDetailFilters>) -> Self {
         self.filters = input;
         self
     }
@@ -124,7 +111,7 @@ impl GetOrganizationConfigRuleDetailedStatusInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusInput {
                 organization_config_rule_name: self.organization_config_rule_name,

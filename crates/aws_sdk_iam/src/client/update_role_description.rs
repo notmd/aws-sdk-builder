@@ -10,8 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateRoleDescriptionError>`](crate::operation::update_role_description::UpdateRoleDescriptionError)
     pub fn update_role_description(
         &self,
-    ) -> crate::operation::update_role_description::builders::UpdateRoleDescriptionFluentBuilder
-    {
+    ) -> crate::operation::update_role_description::builders::UpdateRoleDescriptionFluentBuilder {
         crate::operation::update_role_description::builders::UpdateRoleDescriptionFluentBuilder::new(
             self.handle.clone(),
         )

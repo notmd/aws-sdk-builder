@@ -4,8 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeServiceEnvironmentsOutput {
     /// <p>The list of service environments that match the request.</p>
-    pub service_environments:
-        ::std::option::Option<::std::vec::Vec<crate::types::ServiceEnvironmentDetail>>,
+    pub service_environments: ::std::option::Option<::std::vec::Vec<crate::types::ServiceEnvironmentDetail>>,
     /// <p>The <code>nextToken</code> value to include in a future <code>DescribeServiceEnvironments</code> request. When the results of a <code>DescribeServiceEnvironments</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -29,19 +28,17 @@ impl ::aws_types::request_id::RequestId for DescribeServiceEnvironmentsOutput {
 }
 impl DescribeServiceEnvironmentsOutput {
     /// Creates a new builder-style object to manufacture [`DescribeServiceEnvironmentsOutput`](crate::operation::describe_service_environments::DescribeServiceEnvironmentsOutput).
-    pub fn builder() -> crate::operation::describe_service_environments::builders::DescribeServiceEnvironmentsOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::describe_service_environments::builders::DescribeServiceEnvironmentsOutputBuilder {
         crate::operation::describe_service_environments::builders::DescribeServiceEnvironmentsOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeServiceEnvironmentsOutput`](crate::operation::describe_service_environments::DescribeServiceEnvironmentsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeServiceEnvironmentsOutputBuilder {
-    pub(crate) service_environments:
-        ::std::option::Option<::std::vec::Vec<crate::types::ServiceEnvironmentDetail>>,
+    pub(crate) service_environments: ::std::option::Option<::std::vec::Vec<crate::types::ServiceEnvironmentDetail>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -95,9 +92,7 @@ impl DescribeServiceEnvironmentsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeServiceEnvironmentsOutput`](crate::operation::describe_service_environments::DescribeServiceEnvironmentsOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::describe_service_environments::DescribeServiceEnvironmentsOutput {
+    pub fn build(self) -> crate::operation::describe_service_environments::DescribeServiceEnvironmentsOutput {
         crate::operation::describe_service_environments::DescribeServiceEnvironmentsOutput {
             service_environments: self.service_environments,
             next_token: self.next_token,

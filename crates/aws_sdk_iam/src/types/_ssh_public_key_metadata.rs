@@ -42,9 +42,7 @@ impl SshPublicKeyMetadata {
 }
 
 /// A builder for [`SshPublicKeyMetadata`](crate::types::SshPublicKeyMetadata).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SshPublicKeyMetadataBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -70,18 +68,12 @@ impl SshPublicKeyMetadataBuilder {
     }
     /// <p>The unique identifier for the SSH public key.</p>
     /// This field is required.
-    pub fn ssh_public_key_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn ssh_public_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.ssh_public_key_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier for the SSH public key.</p>
-    pub fn set_ssh_public_key_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_ssh_public_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.ssh_public_key_id = input;
         self
     }
@@ -111,10 +103,7 @@ impl SshPublicKeyMetadataBuilder {
         self
     }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the SSH public key was uploaded.</p>
-    pub fn set_upload_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_upload_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.upload_date = input;
         self
     }
@@ -130,10 +119,8 @@ impl SshPublicKeyMetadataBuilder {
     /// - [`upload_date`](crate::types::builders::SshPublicKeyMetadataBuilder::upload_date)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::SshPublicKeyMetadata,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::SshPublicKeyMetadata, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::SshPublicKeyMetadata {
             user_name: self.user_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -18,7 +18,10 @@ pub fn ser_put_configuration_set_suppression_options_input_input(
     if let Some(var_5) = &input.validation_options {
         #[allow(unused_mut)]
         let mut object_6 = object.key("ValidationOptions").start_object();
-        crate::protocol_serde::shape_suppression_validation_options::ser_suppression_validation_options(&mut object_6, var_5)?;
+        crate::protocol_serde::shape_suppression_validation_options::ser_suppression_validation_options(
+            &mut object_6,
+            var_5,
+        )?;
         object_6.finish();
     }
     Ok(())

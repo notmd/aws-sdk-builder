@@ -14,8 +14,6 @@ impl super::Client {
     pub fn describe_export_tasks(
         &self,
     ) -> crate::operation::describe_export_tasks::builders::DescribeExportTasksFluentBuilder {
-        crate::operation::describe_export_tasks::builders::DescribeExportTasksFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::describe_export_tasks::builders::DescribeExportTasksFluentBuilder::new(self.handle.clone())
     }
 }

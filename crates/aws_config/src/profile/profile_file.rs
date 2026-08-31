@@ -17,8 +17,5 @@ pub type ProfileFiles = aws_runtime::env_config::file::EnvConfigFiles;
 pub type Builder = aws_runtime::env_config::file::Builder;
 
 /// Use aws_runtime::env_config::file::EnvConfigFileKind instead.
-#[deprecated(
-    since = "1.1.11",
-    note = "Use aws_runtime::env_config::file::EnvConfigFileKind."
-)]
+#[deprecated(since = "1.1.11", note = "Use aws_runtime::env_config::file::EnvConfigFileKind.")]
 pub type ProfileFileKind = aws_runtime::env_config::file::EnvConfigFileKind;

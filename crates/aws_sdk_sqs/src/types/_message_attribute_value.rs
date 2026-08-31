@@ -53,9 +53,7 @@ impl MessageAttributeValue {
 }
 
 /// A builder for [`MessageAttributeValue`](crate::types::MessageAttributeValue).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct MessageAttributeValueBuilder {
     pub(crate) string_value: ::std::option::Option<::std::string::String>,
@@ -85,10 +83,7 @@ impl MessageAttributeValueBuilder {
         self
     }
     /// <p>Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.</p>
-    pub fn set_binary_value(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::Blob>,
-    ) -> Self {
+    pub fn set_binary_value(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.binary_value = input;
         self
     }
@@ -101,10 +96,7 @@ impl MessageAttributeValueBuilder {
     /// To override the contents of this collection use [`set_string_list_values`](Self::set_string_list_values).
     ///
     /// <p>Not implemented. Reserved for future use.</p>
-    pub fn string_list_values(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn string_list_values(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.string_list_values.unwrap_or_default();
         v.push(input.into());
         self.string_list_values = ::std::option::Option::Some(v);
@@ -119,9 +111,7 @@ impl MessageAttributeValueBuilder {
         self
     }
     /// <p>Not implemented. Reserved for future use.</p>
-    pub fn get_string_list_values(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_string_list_values(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.string_list_values
     }
     /// Appends an item to `binary_list_values`.
@@ -144,9 +134,7 @@ impl MessageAttributeValueBuilder {
         self
     }
     /// <p>Not implemented. Reserved for future use.</p>
-    pub fn get_binary_list_values(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::aws_smithy_types::Blob>> {
+    pub fn get_binary_list_values(&self) -> &::std::option::Option<::std::vec::Vec<::aws_smithy_types::Blob>> {
         &self.binary_list_values
     }
     /// <p>Amazon SQS supports the following logical data types: <code>String</code>, <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type, you must use <code>StringValue</code>.</p>
@@ -172,10 +160,8 @@ impl MessageAttributeValueBuilder {
     /// - [`data_type`](crate::types::builders::MessageAttributeValueBuilder::data_type)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::MessageAttributeValue,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::MessageAttributeValue, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::MessageAttributeValue {
             string_value: self.string_value,
             binary_value: self.binary_value,

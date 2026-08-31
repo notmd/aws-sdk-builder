@@ -21,15 +21,14 @@ impl CreateOAuth2TokenWithIamInput {
 }
 impl CreateOAuth2TokenWithIamInput {
     /// Creates a new builder-style object to manufacture [`CreateOAuth2TokenWithIamInput`](crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIamInput).
-    pub fn builder() -> crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIamInputBuilder{
+    pub fn builder() -> crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIamInputBuilder
+    {
         crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIamInputBuilder::default()
     }
 }
 
 /// A builder for [`CreateOAuth2TokenWithIamInput`](crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIamInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateOAuth2TokenWithIamInputBuilder {
     pub(crate) grant_type: ::std::option::Option<::std::string::String>,

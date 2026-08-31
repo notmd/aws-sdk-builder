@@ -85,13 +85,11 @@ impl ListOrganizationsFeatures {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(
-                crate::config::ConfigOverrideRuntimePlugin::new(
-                    config_override,
-                    client_config.config.clone(),
-                    &client_config.runtime_components,
-                ),
-            );
+            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+                config_override,
+                client_config.config.clone(),
+                &client_config.runtime_components,
+            ));
         }
         runtime_plugins
     }
@@ -100,11 +98,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListOrg
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("ListOrganizationsFeatures");
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                ListOrganizationsFeaturesRequestSerializer,
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+            ListOrganizationsFeaturesRequestSerializer,
+        ));
         cfg.store_put(
             ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
                 ListOrganizationsFeaturesResponseDeserializer,
@@ -120,12 +116,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListOrg
             ),
         );
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-                "ListOrganizationsFeatures",
-                "IAM",
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+            "ListOrganizationsFeatures",
+            "IAM",
+        ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = true;
         signing_options.content_sha256_header = false;
@@ -143,27 +137,34 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListOrg
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<
-        '_,
-        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    > {
+    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
-        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListOrganizationsFeatures")
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new(
+            "ListOrganizationsFeatures",
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 ListOrganizationsFeaturesEndpointParamsInterceptor,
-            ))
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+            ),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                 crate::operation::list_organizations_features::ListOrganizationsFeaturesError,
-            >::new())
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+            >::new(),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                 crate::operation::list_organizations_features::ListOrganizationsFeaturesError,
-            >::new())
-            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::list_organizations_features::ListOrganizationsFeaturesError,
-            >::new());
+            >::new(),
+        )
+        .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+            crate::operation::list_organizations_features::ListOrganizationsFeaturesError,
+        >::new());
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -171,9 +172,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListOrg
 
 #[derive(Debug)]
 struct ListOrganizationsFeaturesResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
-    for ListOrganizationsFeaturesResponseDeserializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for ListOrganizationsFeaturesResponseDeserializer {
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -186,18 +185,20 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_list_organizations_features::de_list_organizations_features_http_error(status, headers, body)
+            crate::protocol_serde::shape_list_organizations_features::de_list_organizations_features_http_error(
+                status, headers, body,
+            )
         } else {
-            crate::protocol_serde::shape_list_organizations_features::de_list_organizations_features_http_response(status, headers, body)
+            crate::protocol_serde::shape_list_organizations_features::de_list_organizations_features_http_response(
+                status, headers, body,
+            )
         };
         crate::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
 struct ListOrganizationsFeaturesRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
-    for ListOrganizationsFeaturesRequestSerializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListOrganizationsFeaturesRequestSerializer {
     #[allow(
         unused_mut,
         clippy::let_and_return,
@@ -224,8 +225,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_base(
                 _input: &crate::operation::list_organizations_features::ListOrganizationsFeaturesInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
                 ::std::write!(output, "/").expect("formatting should succeed");
                 ::std::result::Result::Ok(())
@@ -234,10 +234,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn update_http_builder(
                 input: &crate::operation::list_organizations_features::ListOrganizationsFeaturesInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<
-                ::http_1x::request::Builder,
-                ::aws_smithy_types::error::operation::BuildError,
-            > {
+            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
@@ -254,22 +252,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             crate::protocol_serde::shape_list_organizations_features_input::ser_list_organizations_features_input_input_input(&input)?,
         );
 
-        ::std::result::Result::Ok(
-            request_builder
-                .body(body)
-                .expect("valid request")
-                .try_into()
-                .unwrap(),
-        )
+        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
 #[derive(Debug)]
 struct ListOrganizationsFeaturesEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for ListOrganizationsFeaturesEndpointParamsInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListOrganizationsFeaturesEndpointParamsInterceptor {
     fn name(&self) -> &'static str {
         "ListOrganizationsFeaturesEndpointParamsInterceptor"
     }
@@ -290,22 +280,13 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             .ok_or("failed to downcast to ListOrganizationsFeaturesInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_use_dual_stack(
-                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
-                    .map(|ty| ty.0),
-            )
-            .set_use_fips(
-                cfg.load::<::aws_types::endpoint_config::UseFips>()
-                    .map(|ty| ty.0),
-            )
+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_endpoint(
                 cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
                     .map(|ty| ty.0.clone()),
             )
-            .set_region(
-                cfg.load::<::aws_types::region::Region>()
-                    .map(|r| r.as_ref().to_owned()),
-            )
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
             .build()
             .map_err(|err| {
                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(
@@ -313,9 +294,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
                     err,
                 )
             })?;
-        cfg.interceptor_state().store_put(
-            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
-        );
+        cfg.interceptor_state()
+            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(
+                params,
+            ));
         ::std::result::Result::Ok(())
     }
 }
@@ -334,9 +316,7 @@ pub enum ListOrganizationsFeaturesError {
     /// <p>The request was rejected because no organization is associated with your account.</p>
     OrganizationNotFoundException(crate::types::error::OrganizationNotFoundException),
     /// <p>The request was rejected because your organization does not have All features enabled. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set">Available feature sets</a> in the <i>Organizations User Guide</i>.</p>
-    OrganizationNotInAllFeaturesModeException(
-        crate::types::error::OrganizationNotInAllFeaturesModeException,
-    ),
+    OrganizationNotInAllFeaturesModeException(crate::types::error::OrganizationNotInAllFeaturesModeException),
     /// <p>The request was rejected because trusted access is not enabled for IAM in Organizations. For details, see IAM and Organizations in the <i>Organizations User Guide</i>.</p>
     ServiceAccessNotEnabledException(crate::types::error::ServiceAccessNotEnabledException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
@@ -354,9 +334,7 @@ impl ListOrganizationsFeaturesError {
     /// Creates the `ListOrganizationsFeaturesError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -395,10 +373,7 @@ impl ListOrganizationsFeaturesError {
     }
     /// Returns `true` if the error kind is `ListOrganizationsFeaturesError::AccountNotManagementOrDelegatedAdministratorException`.
     pub fn is_account_not_management_or_delegated_administrator_exception(&self) -> bool {
-        matches!(
-            self,
-            Self::AccountNotManagementOrDelegatedAdministratorException(_)
-        )
+        matches!(self, Self::AccountNotManagementOrDelegatedAdministratorException(_))
     }
     /// Returns `true` if the error kind is `ListOrganizationsFeaturesError::OrganizationNotFoundException`.
     pub fn is_organization_not_found_exception(&self) -> bool {
@@ -416,13 +391,9 @@ impl ListOrganizationsFeaturesError {
 impl ::std::error::Error for ListOrganizationsFeaturesError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
-            Self::AccountNotManagementOrDelegatedAdministratorException(_inner) => {
-                ::std::option::Option::Some(_inner)
-            }
+            Self::AccountNotManagementOrDelegatedAdministratorException(_inner) => ::std::option::Option::Some(_inner),
             Self::OrganizationNotFoundException(_inner) => ::std::option::Option::Some(_inner),
-            Self::OrganizationNotInAllFeaturesModeException(_inner) => {
-                ::std::option::Option::Some(_inner)
-            }
+            Self::OrganizationNotInAllFeaturesModeException(_inner) => ::std::option::Option::Some(_inner),
             Self::ServiceAccessNotEnabledException(_inner) => ::std::option::Option::Some(_inner),
             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
         }
@@ -474,13 +445,9 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ListOrganizat
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
-    for ListOrganizationsFeaturesError
-{
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ListOrganizationsFeaturesError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {

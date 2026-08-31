@@ -20,9 +20,7 @@ impl ListQueueTagsInput {
 }
 
 /// A builder for [`ListQueueTagsInput`](crate::operation::list_queue_tags::ListQueueTagsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListQueueTagsInputBuilder {
     pub(crate) queue_url: ::std::option::Option<::std::string::String>,

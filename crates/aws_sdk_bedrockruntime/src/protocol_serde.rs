@@ -25,12 +25,8 @@ where
     E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
 {
     result
-        .map(|output| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output)
-        })
-        .map_err(|error| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error)
-        })
+        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))
+        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))
         .map_err(::std::convert::Into::into)
 }
 
@@ -293,10 +289,7 @@ pub fn parse_event_stream_error_metadata(
     ::aws_smithy_types::error::metadata::Builder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    crate::json_errors::parse_error_metadata(
-        payload,
-        &::aws_smithy_runtime_api::http::Headers::new(),
-    )
+    crate::json_errors::parse_error_metadata(payload, &::aws_smithy_runtime_api::http::Headers::new())
 }
 
 #[cfg(any(
@@ -369,11 +362,7 @@ pub(crate) mod shape_guardrail_usage;
 #[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 pub(crate) mod shape_inference_configuration;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_message;
 
 #[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
@@ -388,11 +377,7 @@ pub(crate) mod shape_prompt_variable_values;
 #[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 pub(crate) mod shape_service_tier;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_system_content_block;
 
 #[cfg(feature = "op_start_async_invoke")]
@@ -401,11 +386,7 @@ pub(crate) mod shape_tag;
 #[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 pub(crate) mod shape_token_usage;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_tool_configuration;
 
 #[cfg(any(
@@ -424,18 +405,10 @@ pub(crate) mod shape_bidirectional_output_payload_part;
 #[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 pub(crate) mod shape_cache_details_list;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_cache_point_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_content_block;
 
 #[cfg(feature = "op_converse_stream")]
@@ -490,11 +463,7 @@ pub(crate) mod shape_guardrail_checks_sensitive_information_result;
 #[cfg(feature = "op_invoke_guardrail_checks")]
 pub(crate) mod shape_guardrail_checks_sensitive_information_usage;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_guardrail_converse_content_block;
 
 #[cfg(feature = "op_apply_guardrail")]
@@ -541,25 +510,13 @@ pub(crate) mod shape_payload_part;
 #[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 pub(crate) mod shape_prompt_router_trace;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_tool;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_tool_choice;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_any_tool_choice;
 
 #[cfg(any(
@@ -569,42 +526,22 @@ pub(crate) mod shape_any_tool_choice;
 ))]
 pub(crate) mod shape_applied_guardrail_details;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_audio_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_auto_tool_choice;
 
 #[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 pub(crate) mod shape_cache_detail;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_citations_content_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_content_blocks;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_document_block;
 
 #[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
@@ -652,18 +589,10 @@ pub(crate) mod shape_guardrail_content_policy_assessment;
 ))]
 pub(crate) mod shape_guardrail_contextual_grounding_policy_assessment;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_guardrail_converse_image_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_guardrail_converse_text_block;
 
 #[cfg(feature = "op_apply_guardrail")]
@@ -697,11 +626,7 @@ pub(crate) mod shape_guardrail_topic_policy_assessment;
 ))]
 pub(crate) mod shape_guardrail_word_policy_assessment;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_image_block;
 
 #[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
@@ -710,102 +635,46 @@ pub(crate) mod shape_model_outputs;
 #[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 pub(crate) mod shape_output_format_structure;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_reasoning_content_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_search_result_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_specific_tool_choice;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_system_tool;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_tool_addition_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_tool_removal_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_tool_result_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_tool_specification;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_tool_use_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_video_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_audio_source;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_citation;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_citation_generated_content;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_citations_config;
 
 #[cfg(feature = "op_converse_stream")]
@@ -820,18 +689,10 @@ pub(crate) mod shape_converse_stream_metrics;
 #[cfg(feature = "op_converse_stream")]
 pub(crate) mod shape_converse_stream_trace;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_document_source;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_error_block;
 
 #[cfg(any(
@@ -864,11 +725,7 @@ pub(crate) mod shape_guardrail_content_filter_list;
 ))]
 pub(crate) mod shape_guardrail_contextual_grounding_filters;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_guardrail_converse_image_source;
 
 #[cfg(any(
@@ -913,80 +770,40 @@ pub(crate) mod shape_guardrail_regex_filter_list;
 ))]
 pub(crate) mod shape_guardrail_topic_list;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_image_source;
 
 #[cfg(any(feature = "op_converse", feature = "op_converse_stream"))]
 pub(crate) mod shape_json_schema_definition;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_reasoning_text_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_search_result_content_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_tool_input_schema;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_tool_reference;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_tool_result_content_block;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_video_source;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_citation_location;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_citation_source_content;
 
 #[cfg(feature = "op_converse_stream")]
 pub(crate) mod shape_citations_delta;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_document_content_block;
 
 #[cfg(any(
@@ -1054,11 +871,7 @@ pub(crate) mod shape_image_block_start;
 #[cfg(feature = "op_converse_stream")]
 pub(crate) mod shape_reasoning_content_block_delta;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_s3_location;
 
 #[cfg(feature = "op_converse_stream")]
@@ -1073,42 +886,22 @@ pub(crate) mod shape_tool_use_block_delta;
 #[cfg(feature = "op_converse_stream")]
 pub(crate) mod shape_tool_use_block_start;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_citation_generated_content_list;
 
 #[cfg(feature = "op_converse_stream")]
 pub(crate) mod shape_citation_source_content_list_delta;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_citations;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_document_char_location;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_document_chunk_location;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_document_page_location;
 
 #[cfg(any(
@@ -1160,45 +953,25 @@ pub(crate) mod shape_guardrail_automated_reasoning_translation_ambiguous_finding
 ))]
 pub(crate) mod shape_guardrail_automated_reasoning_valid_finding;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_search_result_content_blocks;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_search_result_location;
 
 #[cfg(feature = "op_converse_stream")]
 pub(crate) mod shape_tool_result_block_delta;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_tool_result_content_blocks;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_web_location;
 
 #[cfg(feature = "op_converse_stream")]
 pub(crate) mod shape_citation_source_content_delta;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_document_content_blocks;
 
 #[cfg(any(
@@ -1243,18 +1016,10 @@ pub(crate) mod shape_guardrail_automated_reasoning_translation;
 ))]
 pub(crate) mod shape_guardrail_automated_reasoning_translation_option_list;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_guardrail_converse_content_qualifier_list;
 
-#[cfg(any(
-    feature = "op_converse",
-    feature = "op_converse_stream",
-    feature = "op_count_tokens"
-))]
+#[cfg(any(feature = "op_converse", feature = "op_converse_stream", feature = "op_count_tokens"))]
 pub(crate) mod shape_citation_source_content_list;
 
 #[cfg(any(

@@ -31,70 +31,49 @@ pub(crate) fn de_copy_object_result_payload(
 
 pub(crate) fn de_copy_source_version_id_header(
     header_map: &::aws_smithy_runtime_api::http::Headers,
-) -> ::std::result::Result<
-    ::std::option::Option<::std::string::String>,
-    ::aws_smithy_http::header::ParseError,
-> {
+) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
     let headers = header_map.get_all("x-amz-copy-source-version-id");
     ::aws_smithy_http::header::one_or_none(headers)
 }
 
 pub(crate) fn de_expiration_header(
     header_map: &::aws_smithy_runtime_api::http::Headers,
-) -> ::std::result::Result<
-    ::std::option::Option<::std::string::String>,
-    ::aws_smithy_http::header::ParseError,
-> {
+) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
     let headers = header_map.get_all("x-amz-expiration");
     ::aws_smithy_http::header::one_or_none(headers)
 }
 
 pub(crate) fn de_request_charged_header(
     header_map: &::aws_smithy_runtime_api::http::Headers,
-) -> ::std::result::Result<
-    ::std::option::Option<crate::types::RequestCharged>,
-    ::aws_smithy_http::header::ParseError,
-> {
+) -> ::std::result::Result<::std::option::Option<crate::types::RequestCharged>, ::aws_smithy_http::header::ParseError> {
     let headers = header_map.get_all("x-amz-request-charged");
     ::aws_smithy_http::header::one_or_none(headers)
 }
 
 pub(crate) fn de_sse_customer_algorithm_header(
     header_map: &::aws_smithy_runtime_api::http::Headers,
-) -> ::std::result::Result<
-    ::std::option::Option<::std::string::String>,
-    ::aws_smithy_http::header::ParseError,
-> {
+) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
     let headers = header_map.get_all("x-amz-server-side-encryption-customer-algorithm");
     ::aws_smithy_http::header::one_or_none(headers)
 }
 
 pub(crate) fn de_sse_customer_key_md5_header(
     header_map: &::aws_smithy_runtime_api::http::Headers,
-) -> ::std::result::Result<
-    ::std::option::Option<::std::string::String>,
-    ::aws_smithy_http::header::ParseError,
-> {
+) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
     let headers = header_map.get_all("x-amz-server-side-encryption-customer-key-MD5");
     ::aws_smithy_http::header::one_or_none(headers)
 }
 
 pub(crate) fn de_ssekms_encryption_context_header(
     header_map: &::aws_smithy_runtime_api::http::Headers,
-) -> ::std::result::Result<
-    ::std::option::Option<::std::string::String>,
-    ::aws_smithy_http::header::ParseError,
-> {
+) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
     let headers = header_map.get_all("x-amz-server-side-encryption-context");
     ::aws_smithy_http::header::one_or_none(headers)
 }
 
 pub(crate) fn de_ssekms_key_id_header(
     header_map: &::aws_smithy_runtime_api::http::Headers,
-) -> ::std::result::Result<
-    ::std::option::Option<::std::string::String>,
-    ::aws_smithy_http::header::ParseError,
-> {
+) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
     let headers = header_map.get_all("x-amz-server-side-encryption-aws-kms-key-id");
     ::aws_smithy_http::header::one_or_none(headers)
 }
@@ -111,10 +90,7 @@ pub(crate) fn de_server_side_encryption_header(
 
 pub(crate) fn de_version_id_header(
     header_map: &::aws_smithy_runtime_api::http::Headers,
-) -> ::std::result::Result<
-    ::std::option::Option<::std::string::String>,
-    ::aws_smithy_http::header::ParseError,
-> {
+) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
     let headers = header_map.get_all("x-amz-version-id");
     ::aws_smithy_http::header::one_or_none(headers)
 }

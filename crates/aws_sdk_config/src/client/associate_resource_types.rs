@@ -10,8 +10,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<AssociateResourceTypesError>`](crate::operation::associate_resource_types::AssociateResourceTypesError)
     pub fn associate_resource_types(
         &self,
-    ) -> crate::operation::associate_resource_types::builders::AssociateResourceTypesFluentBuilder
-    {
-        crate::operation::associate_resource_types::builders::AssociateResourceTypesFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::associate_resource_types::builders::AssociateResourceTypesFluentBuilder {
+        crate::operation::associate_resource_types::builders::AssociateResourceTypesFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

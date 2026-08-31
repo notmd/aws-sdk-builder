@@ -14,10 +14,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListSAMLProviderTagsError>`](crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError)
     pub fn list_saml_provider_tags(
         &self,
-    ) -> crate::operation::list_saml_provider_tags::builders::ListSAMLProviderTagsFluentBuilder
-    {
-        crate::operation::list_saml_provider_tags::builders::ListSAMLProviderTagsFluentBuilder::new(
-            self.handle.clone(),
-        )
+    ) -> crate::operation::list_saml_provider_tags::builders::ListSAMLProviderTagsFluentBuilder {
+        crate::operation::list_saml_provider_tags::builders::ListSAMLProviderTagsFluentBuilder::new(self.handle.clone())
     }
 }

@@ -22,9 +22,7 @@ impl SnsDestination {
 }
 
 /// A builder for [`SnsDestination`](crate::types::SnsDestination).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SnsDestinationBuilder {
     pub(crate) topic_arn: ::std::option::Option<::std::string::String>,
@@ -50,10 +48,7 @@ impl SnsDestinationBuilder {
     /// - [`topic_arn`](crate::types::builders::SnsDestinationBuilder::topic_arn)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::SnsDestination,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::SnsDestination, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::SnsDestination {
             topic_arn: self.topic_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

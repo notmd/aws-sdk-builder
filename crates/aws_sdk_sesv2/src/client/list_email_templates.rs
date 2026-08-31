@@ -13,8 +13,6 @@ impl super::Client {
     pub fn list_email_templates(
         &self,
     ) -> crate::operation::list_email_templates::builders::ListEmailTemplatesFluentBuilder {
-        crate::operation::list_email_templates::builders::ListEmailTemplatesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::list_email_templates::builders::ListEmailTemplatesFluentBuilder::new(self.handle.clone())
     }
 }

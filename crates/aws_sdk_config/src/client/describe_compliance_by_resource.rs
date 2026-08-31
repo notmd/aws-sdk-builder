@@ -15,7 +15,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeComplianceByResourceError>`](crate::operation::describe_compliance_by_resource::DescribeComplianceByResourceError)
     pub fn describe_compliance_by_resource(
         &self,
-    ) -> crate::operation::describe_compliance_by_resource::builders::DescribeComplianceByResourceFluentBuilder{
-        crate::operation::describe_compliance_by_resource::builders::DescribeComplianceByResourceFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::describe_compliance_by_resource::builders::DescribeComplianceByResourceFluentBuilder {
+        crate::operation::describe_compliance_by_resource::builders::DescribeComplianceByResourceFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

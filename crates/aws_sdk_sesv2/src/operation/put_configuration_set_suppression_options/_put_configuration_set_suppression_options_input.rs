@@ -21,8 +21,7 @@ pub struct PutConfigurationSetSuppressionOptionsInput {
     /// <li>
     /// <p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account or for a specific tenant when a message sent to that address results in a hard bounce.</p></li>
     /// </ul>
-    pub suppressed_reasons:
-        ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>,
+    pub suppressed_reasons: ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>,
     /// <p>An object that contains information about the email address suppression preferences for the configuration set in the current Amazon Web Services Region.</p>
     pub validation_options: ::std::option::Option<crate::types::SuppressionValidationOptions>,
 }
@@ -54,9 +53,7 @@ impl PutConfigurationSetSuppressionOptionsInput {
         self.suppressed_reasons.as_deref().unwrap_or_default()
     }
     /// <p>An object that contains information about the email address suppression preferences for the configuration set in the current Amazon Web Services Region.</p>
-    pub fn validation_options(
-        &self,
-    ) -> ::std::option::Option<&crate::types::SuppressionValidationOptions> {
+    pub fn validation_options(&self) -> ::std::option::Option<&crate::types::SuppressionValidationOptions> {
         self.validation_options.as_ref()
     }
 }
@@ -68,33 +65,23 @@ impl PutConfigurationSetSuppressionOptionsInput {
 }
 
 /// A builder for [`PutConfigurationSetSuppressionOptionsInput`](crate::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutConfigurationSetSuppressionOptionsInputBuilder {
     pub(crate) configuration_set_name: ::std::option::Option<::std::string::String>,
     pub(crate) suppression_scope: ::std::option::Option<crate::types::SuppressionListScope>,
-    pub(crate) suppressed_reasons:
-        ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>,
-    pub(crate) validation_options:
-        ::std::option::Option<crate::types::SuppressionValidationOptions>,
+    pub(crate) suppressed_reasons: ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>,
+    pub(crate) validation_options: ::std::option::Option<crate::types::SuppressionValidationOptions>,
 }
 impl PutConfigurationSetSuppressionOptionsInputBuilder {
     /// <p>The name of the configuration set to change the suppression list preferences for.</p>
     /// This field is required.
-    pub fn configuration_set_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.configuration_set_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the configuration set to change the suppression list preferences for.</p>
-    pub fn set_configuration_set_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.configuration_set_name = input;
         self
     }
@@ -120,10 +107,7 @@ impl PutConfigurationSetSuppressionOptionsInputBuilder {
     /// <li>
     /// <p><code>ACCOUNT</code> – Use the account-level suppression list.</p></li>
     /// </ul>
-    pub fn set_suppression_scope(
-        mut self,
-        input: ::std::option::Option<crate::types::SuppressionListScope>,
-    ) -> Self {
+    pub fn set_suppression_scope(mut self, input: ::std::option::Option<crate::types::SuppressionListScope>) -> Self {
         self.suppression_scope = input;
         self
     }
@@ -134,9 +118,7 @@ impl PutConfigurationSetSuppressionOptionsInputBuilder {
     /// <li>
     /// <p><code>ACCOUNT</code> – Use the account-level suppression list.</p></li>
     /// </ul>
-    pub fn get_suppression_scope(
-        &self,
-    ) -> &::std::option::Option<crate::types::SuppressionListScope> {
+    pub fn get_suppression_scope(&self) -> &::std::option::Option<crate::types::SuppressionListScope> {
         &self.suppression_scope
     }
     /// Appends an item to `suppressed_reasons`.
@@ -196,9 +178,7 @@ impl PutConfigurationSetSuppressionOptionsInputBuilder {
         self
     }
     /// <p>An object that contains information about the email address suppression preferences for the configuration set in the current Amazon Web Services Region.</p>
-    pub fn get_validation_options(
-        &self,
-    ) -> &::std::option::Option<crate::types::SuppressionValidationOptions> {
+    pub fn get_validation_options(&self) -> &::std::option::Option<crate::types::SuppressionValidationOptions> {
         &self.validation_options
     }
     /// Consumes the builder and constructs a [`PutConfigurationSetSuppressionOptionsInput`](crate::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsInput).
@@ -207,7 +187,7 @@ impl PutConfigurationSetSuppressionOptionsInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsInput {
                 configuration_set_name: self.configuration_set_name,

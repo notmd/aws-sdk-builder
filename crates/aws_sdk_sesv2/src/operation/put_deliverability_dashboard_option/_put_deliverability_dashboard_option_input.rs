@@ -8,8 +8,7 @@ pub struct PutDeliverabilityDashboardOptionInput {
     /// <p>Specifies whether to enable the Deliverability dashboard. To enable the dashboard, set this value to <code>true</code>.</p>
     pub dashboard_enabled: ::std::option::Option<bool>,
     /// <p>An array of objects, one for each verified domain that you use to send email and enabled the Deliverability dashboard for.</p>
-    pub subscribed_domains:
-        ::std::option::Option<::std::vec::Vec<crate::types::DomainDeliverabilityTrackingOption>>,
+    pub subscribed_domains: ::std::option::Option<::std::vec::Vec<crate::types::DomainDeliverabilityTrackingOption>>,
 }
 impl PutDeliverabilityDashboardOptionInput {
     /// <p>Specifies whether to enable the Deliverability dashboard. To enable the dashboard, set this value to <code>true</code>.</p>
@@ -25,15 +24,15 @@ impl PutDeliverabilityDashboardOptionInput {
 }
 impl PutDeliverabilityDashboardOptionInput {
     /// Creates a new builder-style object to manufacture [`PutDeliverabilityDashboardOptionInput`](crate::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionInput).
-    pub fn builder() -> crate::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionInputBuilder
+    {
         crate::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionInputBuilder::default()
     }
 }
 
 /// A builder for [`PutDeliverabilityDashboardOptionInput`](crate::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutDeliverabilityDashboardOptionInputBuilder {
     pub(crate) dashboard_enabled: ::std::option::Option<bool>,
@@ -61,10 +60,7 @@ impl PutDeliverabilityDashboardOptionInputBuilder {
     /// To override the contents of this collection use [`set_subscribed_domains`](Self::set_subscribed_domains).
     ///
     /// <p>An array of objects, one for each verified domain that you use to send email and enabled the Deliverability dashboard for.</p>
-    pub fn subscribed_domains(
-        mut self,
-        input: crate::types::DomainDeliverabilityTrackingOption,
-    ) -> Self {
+    pub fn subscribed_domains(mut self, input: crate::types::DomainDeliverabilityTrackingOption) -> Self {
         let mut v = self.subscribed_domains.unwrap_or_default();
         v.push(input);
         self.subscribed_domains = ::std::option::Option::Some(v);
@@ -73,9 +69,7 @@ impl PutDeliverabilityDashboardOptionInputBuilder {
     /// <p>An array of objects, one for each verified domain that you use to send email and enabled the Deliverability dashboard for.</p>
     pub fn set_subscribed_domains(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::DomainDeliverabilityTrackingOption>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::DomainDeliverabilityTrackingOption>>,
     ) -> Self {
         self.subscribed_domains = input;
         self
@@ -83,8 +77,7 @@ impl PutDeliverabilityDashboardOptionInputBuilder {
     /// <p>An array of objects, one for each verified domain that you use to send email and enabled the Deliverability dashboard for.</p>
     pub fn get_subscribed_domains(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::DomainDeliverabilityTrackingOption>>
-    {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::DomainDeliverabilityTrackingOption>> {
         &self.subscribed_domains
     }
     /// Consumes the builder and constructs a [`PutDeliverabilityDashboardOptionInput`](crate::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionInput).
@@ -93,7 +86,7 @@ impl PutDeliverabilityDashboardOptionInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionInput {
                 dashboard_enabled: self.dashboard_enabled,

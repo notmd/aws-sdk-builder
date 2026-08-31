@@ -13,8 +13,6 @@ impl super::Client {
     pub fn describe_deliveries(
         &self,
     ) -> crate::operation::describe_deliveries::builders::DescribeDeliveriesFluentBuilder {
-        crate::operation::describe_deliveries::builders::DescribeDeliveriesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::describe_deliveries::builders::DescribeDeliveriesFluentBuilder::new(self.handle.clone())
     }
 }

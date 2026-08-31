@@ -52,9 +52,7 @@ impl UpdateAliasInput {
 }
 
 /// A builder for [`UpdateAliasInput`](crate::operation::update_alias::UpdateAliasInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateAliasInputBuilder {
     pub(crate) alias_name: ::std::option::Option<::std::string::String>,
@@ -95,10 +93,7 @@ impl UpdateAliasInputBuilder {
     /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
     /// <p>To verify that the alias is mapped to the correct KMS key, use <code>ListAliases</code>.</p>
     /// This field is required.
-    pub fn target_key_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn target_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.target_key_id = ::std::option::Option::Some(input.into());
         self
     }
@@ -114,10 +109,7 @@ impl UpdateAliasInputBuilder {
     /// </ul>
     /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
     /// <p>To verify that the alias is mapped to the correct KMS key, use <code>ListAliases</code>.</p>
-    pub fn set_target_key_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_target_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.target_key_id = input;
         self
     }

@@ -99,14 +99,10 @@ impl TransitionDefaultMinimumObjectSize {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -114,12 +110,8 @@ impl TransitionDefaultMinimumObjectSize {
 impl ::std::fmt::Display for TransitionDefaultMinimumObjectSize {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
-            TransitionDefaultMinimumObjectSize::AllStorageClasses128K => {
-                write!(f, "all_storage_classes_128K")
-            }
-            TransitionDefaultMinimumObjectSize::VariesByStorageClass => {
-                write!(f, "varies_by_storage_class")
-            }
+            TransitionDefaultMinimumObjectSize::AllStorageClasses128K => write!(f, "all_storage_classes_128K"),
+            TransitionDefaultMinimumObjectSize::VariesByStorageClass => write!(f, "varies_by_storage_class"),
             TransitionDefaultMinimumObjectSize::Unknown(value) => write!(f, "{value}"),
         }
     }

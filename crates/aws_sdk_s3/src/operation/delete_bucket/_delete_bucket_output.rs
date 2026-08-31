@@ -24,9 +24,7 @@ impl DeleteBucketOutput {
 }
 
 /// A builder for [`DeleteBucketOutput`](crate::operation::delete_bucket::DeleteBucketOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteBucketOutputBuilder {
     _extended_request_id: Option<String>,
@@ -38,10 +36,7 @@ impl DeleteBucketOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

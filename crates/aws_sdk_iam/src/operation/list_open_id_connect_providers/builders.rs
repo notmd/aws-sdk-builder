@@ -59,7 +59,9 @@ impl ListOpenIDConnectProvidersFluentBuilder {
         }
     }
     /// Access the ListOpenIDConnectProviders as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_open_id_connect_providers::builders::ListOpenIdConnectProvidersInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_open_id_connect_providers::builders::ListOpenIdConnectProvidersInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,11 +85,12 @@ impl ListOpenIDConnectProvidersFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_open_id_connect_providers::ListOpenIDConnectProviders::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::list_open_id_connect_providers::ListOpenIDConnectProviders::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::list_open_id_connect_providers::ListOpenIDConnectProviders::orchestrate(
             &runtime_plugins,
             input,

@@ -21,9 +21,7 @@ mod profile_key {
 ///
 /// Checks `AWS_SIGV4A_SIGNING_REGION_SET` env var, then `sigv4a_signing_region_set` profile key.
 /// The value is a comma-delimited list of region names.
-pub(crate) async fn sigv4a_signing_region_set_provider(
-    provider_config: &ProviderConfig,
-) -> Option<SigningRegionSet> {
+pub(crate) async fn sigv4a_signing_region_set_provider(provider_config: &ProviderConfig) -> Option<SigningRegionSet> {
     let env = provider_config.env();
     let profiles = provider_config.profile().await;
 
@@ -41,11 +39,7 @@ pub(crate) async fn sigv4a_signing_region_set_provider(
 }
 
 fn parse_signing_region_set(csv: &str) -> Result<SigningRegionSet, InvalidSigningRegionSet> {
-    let region_set: SigningRegionSet = csv
-        .split(',')
-        .map(|s| s.trim())
-        .filter(|s| !s.is_empty())
-        .collect();
+    let region_set: SigningRegionSet = csv.split(',').map(|s| s.trim()).filter(|s| !s.is_empty()).collect();
     if region_set.as_ref().is_empty() {
         return Err(InvalidSigningRegionSet {
             value: format!("Empty value in `{csv}`."),
@@ -80,8 +74,7 @@ mod test {
 
     #[tokio::test]
     async fn load_from_env_var() {
-        let conf = ProviderConfig::empty()
-            .with_env(Env::from_slice(&[(env::SIGV4A_SIGNING_REGION_SET, "*")]));
+        let conf = ProviderConfig::empty().with_env(Env::from_slice(&[(env::SIGV4A_SIGNING_REGION_SET, "*")]));
         let result = sigv4a_signing_region_set_provider(&conf).await;
         assert_eq!(result, Some(SigningRegionSet::from("*")));
     }
@@ -113,10 +106,7 @@ mod test {
                 ),
                 None,
             )
-            .with_fs(Fs::from_slice(&[(
-                "conf",
-                "[default]\nsigv4a_signing_region_set = *",
-            )]));
+            .with_fs(Fs::from_slice(&[("conf", "[default]\nsigv4a_signing_region_set = *")]));
         let result = sigv4a_signing_region_set_provider(&conf).await;
         assert_eq!(result, Some(SigningRegionSet::from("*")));
     }
@@ -124,10 +114,7 @@ mod test {
     #[tokio::test]
     async fn env_var_wins_over_profile() {
         let conf = ProviderConfig::empty()
-            .with_env(Env::from_slice(&[(
-                env::SIGV4A_SIGNING_REGION_SET,
-                "us-east-1",
-            )]))
+            .with_env(Env::from_slice(&[(env::SIGV4A_SIGNING_REGION_SET, "us-east-1")]))
             .with_profile_config(
                 Some(
                     #[allow(deprecated)]
@@ -141,10 +128,7 @@ mod test {
                 ),
                 None,
             )
-            .with_fs(Fs::from_slice(&[(
-                "conf",
-                "[default]\nsigv4a_signing_region_set = *",
-            )]));
+            .with_fs(Fs::from_slice(&[("conf", "[default]\nsigv4a_signing_region_set = *")]));
         let result = sigv4a_signing_region_set_provider(&conf).await;
         assert_eq!(result, Some(SigningRegionSet::from("us-east-1")));
     }
@@ -159,8 +143,7 @@ mod test {
     #[tokio::test]
     #[traced_test]
     async fn log_error_on_empty_value() {
-        let conf = ProviderConfig::empty()
-            .with_env(Env::from_slice(&[(env::SIGV4A_SIGNING_REGION_SET, "")]));
+        let conf = ProviderConfig::empty().with_env(Env::from_slice(&[(env::SIGV4A_SIGNING_REGION_SET, "")]));
         let result = sigv4a_signing_region_set_provider(&conf).await;
         assert_eq!(result, None);
         assert!(logs_contain("invalid value for sigv4a signing region set"));

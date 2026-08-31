@@ -15,15 +15,15 @@ impl GetPlatformApplicationAttributesInput {
 }
 impl GetPlatformApplicationAttributesInput {
     /// Creates a new builder-style object to manufacture [`GetPlatformApplicationAttributesInput`](crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesInput).
-    pub fn builder() -> crate::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesInputBuilder
+    {
         crate::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesInputBuilder::default()
     }
 }
 
 /// A builder for [`GetPlatformApplicationAttributesInput`](crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetPlatformApplicationAttributesInputBuilder {
     pub(crate) platform_application_arn: ::std::option::Option<::std::string::String>,
@@ -31,18 +31,12 @@ pub struct GetPlatformApplicationAttributesInputBuilder {
 impl GetPlatformApplicationAttributesInputBuilder {
     /// <p><code>PlatformApplicationArn</code> for GetPlatformApplicationAttributesInput.</p>
     /// This field is required.
-    pub fn platform_application_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn platform_application_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.platform_application_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p><code>PlatformApplicationArn</code> for GetPlatformApplicationAttributesInput.</p>
-    pub fn set_platform_application_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.platform_application_arn = input;
         self
     }
@@ -56,7 +50,7 @@ impl GetPlatformApplicationAttributesInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesInput {
                 platform_application_arn: self.platform_application_arn,

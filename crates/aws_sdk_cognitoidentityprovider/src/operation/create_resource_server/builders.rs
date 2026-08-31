@@ -66,9 +66,7 @@ impl CreateResourceServerFluentBuilder {
         }
     }
     /// Access the CreateResourceServer as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::create_resource_server::builders::CreateResourceServerInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::create_resource_server::builders::CreateResourceServerInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -97,11 +95,7 @@ impl CreateResourceServerFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::create_resource_server::CreateResourceServer::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::create_resource_server::CreateResourceServer::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -193,9 +187,7 @@ impl CreateResourceServerFluentBuilder {
         self
     }
     /// <p>A list of custom scopes. Each scope is a key-value map with the keys <code>ScopeName</code> and <code>ScopeDescription</code>. The name of a custom scope is a combination of <code>ScopeName</code> and the resource server <code>Name</code> in this request, for example <code>MyResourceServerName/MyScopeName</code>.</p>
-    pub fn get_scopes(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceServerScopeType>> {
+    pub fn get_scopes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceServerScopeType>> {
         self.inner.get_scopes()
     }
 }

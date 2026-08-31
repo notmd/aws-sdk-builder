@@ -23,9 +23,7 @@ impl AwsAdditionalDetails {
 }
 
 /// A builder for [`AwsAdditionalDetails`](crate::types::AwsAdditionalDetails).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AwsAdditionalDetailsBuilder {
     pub(crate) identity_context: ::std::option::Option<::std::string::String>,
@@ -33,19 +31,13 @@ pub struct AwsAdditionalDetailsBuilder {
 impl AwsAdditionalDetailsBuilder {
     /// <p>The trusted context assertion is signed and encrypted by STS. It provides access to <code>sts:identity_context</code> claim in the <code>idToken</code> without JWT parsing</p>
     /// <p>Identity context comprises information that Amazon Web Services services use to make authorization decisions when they receive requests.</p>
-    pub fn identity_context(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn identity_context(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.identity_context = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The trusted context assertion is signed and encrypted by STS. It provides access to <code>sts:identity_context</code> claim in the <code>idToken</code> without JWT parsing</p>
     /// <p>Identity context comprises information that Amazon Web Services services use to make authorization decisions when they receive requests.</p>
-    pub fn set_identity_context(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_identity_context(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.identity_context = input;
         self
     }

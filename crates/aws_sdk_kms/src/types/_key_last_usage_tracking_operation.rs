@@ -96,12 +96,8 @@ impl ::std::convert::From<&str> for KeyLastUsageTrackingOperation {
             "Encrypt" => KeyLastUsageTrackingOperation::Encrypt,
             "GenerateDataKey" => KeyLastUsageTrackingOperation::GenerateDataKey,
             "GenerateDataKeyPair" => KeyLastUsageTrackingOperation::GenerateDataKeyPair,
-            "GenerateDataKeyPairWithoutPlaintext" => {
-                KeyLastUsageTrackingOperation::GenerateDataKeyPairWithoutPlaintext
-            }
-            "GenerateDataKeyWithoutPlaintext" => {
-                KeyLastUsageTrackingOperation::GenerateDataKeyWithoutPlaintext
-            }
+            "GenerateDataKeyPairWithoutPlaintext" => KeyLastUsageTrackingOperation::GenerateDataKeyPairWithoutPlaintext,
+            "GenerateDataKeyWithoutPlaintext" => KeyLastUsageTrackingOperation::GenerateDataKeyWithoutPlaintext,
             "GenerateMac" => KeyLastUsageTrackingOperation::GenerateMac,
             "ReEncrypt" => KeyLastUsageTrackingOperation::ReEncrypt,
             "Sign" => KeyLastUsageTrackingOperation::Sign,
@@ -129,12 +125,8 @@ impl KeyLastUsageTrackingOperation {
             KeyLastUsageTrackingOperation::Encrypt => "Encrypt",
             KeyLastUsageTrackingOperation::GenerateDataKey => "GenerateDataKey",
             KeyLastUsageTrackingOperation::GenerateDataKeyPair => "GenerateDataKeyPair",
-            KeyLastUsageTrackingOperation::GenerateDataKeyPairWithoutPlaintext => {
-                "GenerateDataKeyPairWithoutPlaintext"
-            }
-            KeyLastUsageTrackingOperation::GenerateDataKeyWithoutPlaintext => {
-                "GenerateDataKeyWithoutPlaintext"
-            }
+            KeyLastUsageTrackingOperation::GenerateDataKeyPairWithoutPlaintext => "GenerateDataKeyPairWithoutPlaintext",
+            KeyLastUsageTrackingOperation::GenerateDataKeyWithoutPlaintext => "GenerateDataKeyWithoutPlaintext",
             KeyLastUsageTrackingOperation::GenerateMac => "GenerateMac",
             KeyLastUsageTrackingOperation::ReEncrypt => "ReEncrypt",
             KeyLastUsageTrackingOperation::Sign => "Sign",
@@ -170,14 +162,10 @@ impl KeyLastUsageTrackingOperation {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }

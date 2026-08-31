@@ -3,9 +3,7 @@ pub use crate::operation::revoke_o_auth2_token_with_iam::_revoke_o_auth2_token_w
 
 pub use crate::operation::revoke_o_auth2_token_with_iam::_revoke_o_auth2_token_with_iam_output::RevokeOAuth2TokenWithIamOutputBuilder;
 
-impl
-    crate::operation::revoke_o_auth2_token_with_iam::builders::RevokeOAuth2TokenWithIamInputBuilder
-{
+impl crate::operation::revoke_o_auth2_token_with_iam::builders::RevokeOAuth2TokenWithIamInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -59,7 +57,9 @@ impl RevokeOAuth2TokenWithIAMFluentBuilder {
         }
     }
     /// Access the RevokeOAuth2TokenWithIAM as a reference.
-    pub fn as_input(&self) -> &crate::operation::revoke_o_auth2_token_with_iam::builders::RevokeOAuth2TokenWithIamInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::revoke_o_auth2_token_with_iam::builders::RevokeOAuth2TokenWithIamInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,16 +83,14 @@ impl RevokeOAuth2TokenWithIAMFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAM::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAM::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAM::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::revoke_o_auth2_token_with_iam::RevokeOAuth2TokenWithIAM::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

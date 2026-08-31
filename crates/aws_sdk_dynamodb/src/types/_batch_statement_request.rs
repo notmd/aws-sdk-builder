@@ -47,9 +47,7 @@ impl BatchStatementRequest {
 }
 
 /// A builder for [`BatchStatementRequest`](crate::types::BatchStatementRequest).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct BatchStatementRequestBuilder {
     pub(crate) statement: ::std::option::Option<::std::string::String>,
@@ -94,9 +92,7 @@ impl BatchStatementRequestBuilder {
         self
     }
     /// <p>The parameters associated with a PartiQL statement in the batch request.</p>
-    pub fn get_parameters(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>> {
+    pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>> {
         &self.parameters
     }
     /// <p>The read consistency of the PartiQL batch request.</p>
@@ -143,10 +139,8 @@ impl BatchStatementRequestBuilder {
     /// - [`statement`](crate::types::builders::BatchStatementRequestBuilder::statement)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::BatchStatementRequest,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::BatchStatementRequest, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::BatchStatementRequest {
             statement: self.statement.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

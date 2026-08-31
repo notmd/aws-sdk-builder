@@ -58,9 +58,7 @@ impl PutAccountPropertiesFluentBuilder {
         }
     }
     /// Access the PutAccountProperties as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::put_account_properties::builders::PutAccountPropertiesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_account_properties::builders::PutAccountPropertiesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,11 +87,7 @@ impl PutAccountPropertiesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_account_properties::PutAccountProperties::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::put_account_properties::PutAccountProperties::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -142,9 +136,7 @@ impl PutAccountPropertiesFluentBuilder {
     /// <p>The service validates each value based on the property key's expected type. For example, boolean properties expect <code>true</code> or <code>false</code>.</p>
     pub fn set_properties(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_properties(input);
         self
@@ -154,9 +146,7 @@ impl PutAccountPropertiesFluentBuilder {
     /// <p>The service validates each value based on the property key's expected type. For example, boolean properties expect <code>true</code> or <code>false</code>.</p>
     pub fn get_properties(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_properties()
     }
 }

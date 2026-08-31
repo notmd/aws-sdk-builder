@@ -11,8 +11,6 @@ impl super::Client {
     pub fn get_bucket_encryption(
         &self,
     ) -> crate::operation::get_bucket_encryption::builders::GetBucketEncryptionFluentBuilder {
-        crate::operation::get_bucket_encryption::builders::GetBucketEncryptionFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_bucket_encryption::builders::GetBucketEncryptionFluentBuilder::new(self.handle.clone())
     }
 }

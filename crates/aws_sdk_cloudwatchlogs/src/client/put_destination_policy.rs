@@ -11,8 +11,6 @@ impl super::Client {
     pub fn put_destination_policy(
         &self,
     ) -> crate::operation::put_destination_policy::builders::PutDestinationPolicyFluentBuilder {
-        crate::operation::put_destination_policy::builders::PutDestinationPolicyFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::put_destination_policy::builders::PutDestinationPolicyFluentBuilder::new(self.handle.clone())
     }
 }

@@ -22,9 +22,7 @@ impl OwnershipControls {
 }
 
 /// A builder for [`OwnershipControls`](crate::types::OwnershipControls).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct OwnershipControlsBuilder {
     pub(crate) rules: ::std::option::Option<::std::vec::Vec<crate::types::OwnershipControlsRule>>,
@@ -50,9 +48,7 @@ impl OwnershipControlsBuilder {
         self
     }
     /// <p>The container element for an ownership control rule.</p>
-    pub fn get_rules(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::OwnershipControlsRule>> {
+    pub fn get_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OwnershipControlsRule>> {
         &self.rules
     }
     /// Consumes the builder and constructs a [`OwnershipControls`](crate::types::OwnershipControls).
@@ -60,10 +56,7 @@ impl OwnershipControlsBuilder {
     /// - [`rules`](crate::types::builders::OwnershipControlsBuilder::rules)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::OwnershipControls,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::OwnershipControls, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::OwnershipControls {
             rules: self.rules.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

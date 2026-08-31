@@ -59,9 +59,7 @@ impl ListUserPoliciesFluentBuilder {
         }
     }
     /// Access the ListUserPolicies as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_user_policies::builders::ListUserPoliciesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_user_policies::builders::ListUserPoliciesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,14 +83,12 @@ impl ListUserPoliciesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_user_policies::ListUserPolicies::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::list_user_policies::ListUserPolicies::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::list_user_policies::ListUserPolicies::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::list_user_policies::ListUserPolicies::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -123,13 +119,8 @@ impl ListUserPoliciesFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_user_policies::paginator::ListUserPoliciesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_user_policies::paginator::ListUserPoliciesPaginator {
-        crate::operation::list_user_policies::paginator::ListUserPoliciesPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_user_policies::paginator::ListUserPoliciesPaginator {
+        crate::operation::list_user_policies::paginator::ListUserPoliciesPaginator::new(self.handle, self.inner)
     }
     /// <p>The name of the user to list policies for.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>

@@ -4,9 +4,7 @@ pub fn ser_xks_proxy_authentication_credential_type(
     input: &crate::types::XksProxyAuthenticationCredentialType,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     {
-        object
-            .key("AccessKeyId")
-            .string(input.access_key_id.as_str());
+        object.key("AccessKeyId").string(input.access_key_id.as_str());
     }
     {
         object

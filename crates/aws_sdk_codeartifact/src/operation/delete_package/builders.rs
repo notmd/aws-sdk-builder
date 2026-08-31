@@ -57,9 +57,7 @@ impl DeletePackageFluentBuilder {
         }
     }
     /// Access the DeletePackage as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::delete_package::builders::DeletePackageInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::delete_package::builders::DeletePackageInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,12 +81,11 @@ impl DeletePackageFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::delete_package::DeletePackage::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::delete_package::DeletePackage::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::delete_package::DeletePackage::orchestrate(&runtime_plugins, input).await
     }
 

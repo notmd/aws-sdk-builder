@@ -36,16 +36,13 @@ impl ::aws_types::request_id::RequestId for GetEmailTemplateOutput {
 }
 impl GetEmailTemplateOutput {
     /// Creates a new builder-style object to manufacture [`GetEmailTemplateOutput`](crate::operation::get_email_template::GetEmailTemplateOutput).
-    pub fn builder() -> crate::operation::get_email_template::builders::GetEmailTemplateOutputBuilder
-    {
+    pub fn builder() -> crate::operation::get_email_template::builders::GetEmailTemplateOutputBuilder {
         crate::operation::get_email_template::builders::GetEmailTemplateOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetEmailTemplateOutput`](crate::operation::get_email_template::GetEmailTemplateOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetEmailTemplateOutputBuilder {
     pub(crate) template_name: ::std::option::Option<::std::string::String>,
@@ -56,18 +53,12 @@ pub struct GetEmailTemplateOutputBuilder {
 impl GetEmailTemplateOutputBuilder {
     /// <p>The name of the template.</p>
     /// This field is required.
-    pub fn template_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn template_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.template_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the template.</p>
-    pub fn set_template_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_template_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.template_name = input;
         self
     }
@@ -82,17 +73,12 @@ impl GetEmailTemplateOutputBuilder {
         self
     }
     /// <p>The content of the email template, composed of a subject line, an HTML part, and a text-only part.</p>
-    pub fn set_template_content(
-        mut self,
-        input: ::std::option::Option<crate::types::EmailTemplateContent>,
-    ) -> Self {
+    pub fn set_template_content(mut self, input: ::std::option::Option<crate::types::EmailTemplateContent>) -> Self {
         self.template_content = input;
         self
     }
     /// <p>The content of the email template, composed of a subject line, an HTML part, and a text-only part.</p>
-    pub fn get_template_content(
-        &self,
-    ) -> &::std::option::Option<crate::types::EmailTemplateContent> {
+    pub fn get_template_content(&self) -> &::std::option::Option<crate::types::EmailTemplateContent> {
         &self.template_content
     }
     /// Appends an item to `tags`.
@@ -107,10 +93,7 @@ impl GetEmailTemplateOutputBuilder {
         self
     }
     /// <p>An array of objects that define the tags (keys and values) that are associated with the email template.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self
     }

@@ -14,7 +14,8 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetComplianceDetailsByConfigRuleError>`](crate::operation::get_compliance_details_by_config_rule::GetComplianceDetailsByConfigRuleError)
     pub fn get_compliance_details_by_config_rule(
         &self,
-    ) -> crate::operation::get_compliance_details_by_config_rule::builders::GetComplianceDetailsByConfigRuleFluentBuilder{
+    ) -> crate::operation::get_compliance_details_by_config_rule::builders::GetComplianceDetailsByConfigRuleFluentBuilder
+    {
         crate::operation::get_compliance_details_by_config_rule::builders::GetComplianceDetailsByConfigRuleFluentBuilder::new(self.handle.clone())
     }
 }

@@ -82,10 +82,7 @@ impl AttributeTypeBuilder {
     /// - [`name`](crate::types::builders::AttributeTypeBuilder::name)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::AttributeType,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::AttributeType, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AttributeType {
             name: self.name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

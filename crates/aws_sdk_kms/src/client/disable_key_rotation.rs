@@ -9,8 +9,6 @@ impl super::Client {
     pub fn disable_key_rotation(
         &self,
     ) -> crate::operation::disable_key_rotation::builders::DisableKeyRotationFluentBuilder {
-        crate::operation::disable_key_rotation::builders::DisableKeyRotationFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::disable_key_rotation::builders::DisableKeyRotationFluentBuilder::new(self.handle.clone())
     }
 }

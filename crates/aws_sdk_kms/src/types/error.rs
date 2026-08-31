@@ -288,73 +288,40 @@ pub use crate::types::error::_limit_exceeded_exception::LimitExceededException;
 #[cfg(feature = "op_create_custom_key_store")]
 pub use crate::types::error::_cloud_hsm_cluster_in_use_exception::CloudHsmClusterInUseException;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub use crate::types::error::_cloud_hsm_cluster_not_found_exception::CloudHsmClusterNotFoundException;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub use crate::types::error::_custom_key_store_name_in_use_exception::CustomKeyStoreNameInUseException;
 
 #[cfg(feature = "op_create_custom_key_store")]
 pub use crate::types::error::_incorrect_trust_anchor_exception::IncorrectTrustAnchorException;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub use crate::types::error::_xks_proxy_incorrect_authentication_credential_exception::XksProxyIncorrectAuthenticationCredentialException;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub use crate::types::error::_xks_proxy_invalid_configuration_exception::XksProxyInvalidConfigurationException;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub use crate::types::error::_xks_proxy_invalid_response_exception::XksProxyInvalidResponseException;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub use crate::types::error::_xks_proxy_uri_endpoint_in_use_exception::XksProxyUriEndpointInUseException;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub use crate::types::error::_xks_proxy_uri_in_use_exception::XksProxyUriInUseException;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub use crate::types::error::_xks_proxy_uri_unreachable_exception::XksProxyUriUnreachableException;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub use crate::types::error::_xks_proxy_vpc_endpoint_service_in_use_exception::XksProxyVpcEndpointServiceInUseException;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub use crate::types::error::_xks_proxy_vpc_endpoint_service_invalid_configuration_exception::XksProxyVpcEndpointServiceInvalidConfigurationException;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub use crate::types::error::_xks_proxy_vpc_endpoint_service_not_found_exception::XksProxyVpcEndpointServiceNotFoundException;
 
 #[cfg(any(
@@ -529,11 +496,7 @@ pub use crate::types::error::_incorrect_key_material_exception::IncorrectKeyMate
 #[cfg(feature = "op_import_key_material")]
 pub use crate::types::error::_invalid_import_token_exception::InvalidImportTokenException;
 
-#[cfg(any(
-    feature = "op_list_grants",
-    feature = "op_retire_grant",
-    feature = "op_revoke_grant"
-))]
+#[cfg(any(feature = "op_list_grants", feature = "op_retire_grant", feature = "op_revoke_grant"))]
 pub use crate::types::error::_invalid_grant_id_exception::InvalidGrantIdException;
 
 #[cfg(feature = "op_rotate_key_on_demand")]
@@ -569,10 +532,7 @@ mod _cloud_hsm_cluster_invalid_configuration_exception;
 ))]
 mod _cloud_hsm_cluster_not_active_exception;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 mod _cloud_hsm_cluster_not_found_exception;
 
 #[cfg(feature = "op_update_custom_key_store")]
@@ -594,10 +554,7 @@ mod _custom_key_store_has_cmks_exception;
 ))]
 mod _custom_key_store_invalid_state_exception;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 mod _custom_key_store_name_in_use_exception;
 
 #[cfg(any(
@@ -754,11 +711,7 @@ mod _invalid_arn_exception;
 ))]
 mod _invalid_ciphertext_exception;
 
-#[cfg(any(
-    feature = "op_list_grants",
-    feature = "op_retire_grant",
-    feature = "op_revoke_grant"
-))]
+#[cfg(any(feature = "op_list_grants", feature = "op_retire_grant", feature = "op_revoke_grant"))]
 mod _invalid_grant_id_exception;
 
 #[cfg(any(
@@ -1043,58 +996,31 @@ mod _xks_key_invalid_configuration_exception;
 #[cfg(feature = "op_create_key")]
 mod _xks_key_not_found_exception;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 mod _xks_proxy_incorrect_authentication_credential_exception;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 mod _xks_proxy_invalid_configuration_exception;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 mod _xks_proxy_invalid_response_exception;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 mod _xks_proxy_uri_endpoint_in_use_exception;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 mod _xks_proxy_uri_in_use_exception;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 mod _xks_proxy_uri_unreachable_exception;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 mod _xks_proxy_vpc_endpoint_service_in_use_exception;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 mod _xks_proxy_vpc_endpoint_service_invalid_configuration_exception;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 mod _xks_proxy_vpc_endpoint_service_not_found_exception;
 
 /// Builders

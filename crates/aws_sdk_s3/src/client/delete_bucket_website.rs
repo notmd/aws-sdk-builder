@@ -10,8 +10,6 @@ impl super::Client {
     pub fn delete_bucket_website(
         &self,
     ) -> crate::operation::delete_bucket_website::builders::DeleteBucketWebsiteFluentBuilder {
-        crate::operation::delete_bucket_website::builders::DeleteBucketWebsiteFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_bucket_website::builders::DeleteBucketWebsiteFluentBuilder::new(self.handle.clone())
     }
 }

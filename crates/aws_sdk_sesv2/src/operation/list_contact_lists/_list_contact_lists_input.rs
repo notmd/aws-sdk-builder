@@ -20,16 +20,13 @@ impl ListContactListsInput {
 }
 impl ListContactListsInput {
     /// Creates a new builder-style object to manufacture [`ListContactListsInput`](crate::operation::list_contact_lists::ListContactListsInput).
-    pub fn builder() -> crate::operation::list_contact_lists::builders::ListContactListsInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_contact_lists::builders::ListContactListsInputBuilder {
         crate::operation::list_contact_lists::builders::ListContactListsInputBuilder::default()
     }
 }
 
 /// A builder for [`ListContactListsInput`](crate::operation::list_contact_lists::ListContactListsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListContactListsInputBuilder {
     pub(crate) page_size: ::std::option::Option<i32>,
@@ -71,11 +68,9 @@ impl ListContactListsInputBuilder {
         crate::operation::list_contact_lists::ListContactListsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::list_contact_lists::ListContactListsInput {
-                page_size: self.page_size,
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::list_contact_lists::ListContactListsInput {
+            page_size: self.page_size,
+            next_token: self.next_token,
+        })
     }
 }

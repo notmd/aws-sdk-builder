@@ -91,9 +91,9 @@ impl ::std::convert::From<&str> for ExplicitAuthFlowsType {
             "ALLOW_USER_SRP_AUTH" => ExplicitAuthFlowsType::AllowUserSrpAuth,
             "CUSTOM_AUTH_FLOW_ONLY" => ExplicitAuthFlowsType::CustomAuthFlowOnly,
             "USER_PASSWORD_AUTH" => ExplicitAuthFlowsType::UserPasswordAuth,
-            other => ExplicitAuthFlowsType::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => ExplicitAuthFlowsType::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -144,14 +144,10 @@ impl ExplicitAuthFlowsType {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -160,9 +156,7 @@ impl ::std::fmt::Display for ExplicitAuthFlowsType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
             ExplicitAuthFlowsType::AdminNoSrpAuth => write!(f, "ADMIN_NO_SRP_AUTH"),
-            ExplicitAuthFlowsType::AllowAdminUserPasswordAuth => {
-                write!(f, "ALLOW_ADMIN_USER_PASSWORD_AUTH")
-            }
+            ExplicitAuthFlowsType::AllowAdminUserPasswordAuth => write!(f, "ALLOW_ADMIN_USER_PASSWORD_AUTH"),
             ExplicitAuthFlowsType::AllowCustomAuth => write!(f, "ALLOW_CUSTOM_AUTH"),
             ExplicitAuthFlowsType::AllowRefreshTokenAuth => write!(f, "ALLOW_REFRESH_TOKEN_AUTH"),
             ExplicitAuthFlowsType::AllowUserAuth => write!(f, "ALLOW_USER_AUTH"),

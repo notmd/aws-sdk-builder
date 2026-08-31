@@ -76,7 +76,7 @@ impl DisableKinesisStreamingDestinationFluentBuilder {
             crate::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestinationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +86,11 @@ impl DisableKinesisStreamingDestinationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestination::orchestrate(&runtime_plugins, input).await
+        crate::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestination::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +100,7 @@ impl DisableKinesisStreamingDestinationFluentBuilder {
         crate::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestinationOutput,
         crate::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestinationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(

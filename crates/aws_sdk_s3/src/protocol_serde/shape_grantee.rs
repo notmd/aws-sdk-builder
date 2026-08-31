@@ -45,10 +45,11 @@ pub fn de_grantee(
         let s = decoder.start_el().attr("xsi:type");
         match s {
             None => None,
-            Some(s) => Some(Result::<
-                crate::types::Type,
-                ::aws_smithy_xml::decode::XmlDecodeError,
-            >::Ok(crate::types::Type::from(s))?),
+            Some(s) => Some(
+                Result::<crate::types::Type, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(crate::types::Type::from(
+                    s,
+                ))?,
+            ),
         }
     };
     builder.r#type = attrib_5;

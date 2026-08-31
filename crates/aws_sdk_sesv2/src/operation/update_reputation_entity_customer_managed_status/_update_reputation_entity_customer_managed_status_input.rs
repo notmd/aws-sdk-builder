@@ -21,9 +21,7 @@ pub struct UpdateReputationEntityCustomerManagedStatusInput {
 }
 impl UpdateReputationEntityCustomerManagedStatusInput {
     /// <p>The type of reputation entity. Currently, only <code>RESOURCE</code> type entities are supported.</p>
-    pub fn reputation_entity_type(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ReputationEntityType> {
+    pub fn reputation_entity_type(&self) -> ::std::option::Option<&crate::types::ReputationEntityType> {
         self.reputation_entity_type.as_ref()
     }
     /// <p>The unique identifier for the reputation entity. For resource-type entities, this is the Amazon Resource Name (ARN) of the resource.</p>
@@ -53,9 +51,7 @@ impl UpdateReputationEntityCustomerManagedStatusInput {
 }
 
 /// A builder for [`UpdateReputationEntityCustomerManagedStatusInput`](crate::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateReputationEntityCustomerManagedStatusInputBuilder {
     pub(crate) reputation_entity_type: ::std::option::Option<crate::types::ReputationEntityType>,
@@ -78,25 +74,17 @@ impl UpdateReputationEntityCustomerManagedStatusInputBuilder {
         self
     }
     /// <p>The type of reputation entity. Currently, only <code>RESOURCE</code> type entities are supported.</p>
-    pub fn get_reputation_entity_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::ReputationEntityType> {
+    pub fn get_reputation_entity_type(&self) -> &::std::option::Option<crate::types::ReputationEntityType> {
         &self.reputation_entity_type
     }
     /// <p>The unique identifier for the reputation entity. For resource-type entities, this is the Amazon Resource Name (ARN) of the resource.</p>
     /// This field is required.
-    pub fn reputation_entity_reference(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn reputation_entity_reference(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.reputation_entity_reference = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier for the reputation entity. For resource-type entities, this is the Amazon Resource Name (ARN) of the resource.</p>
-    pub fn set_reputation_entity_reference(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_reputation_entity_reference(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.reputation_entity_reference = input;
         self
     }
@@ -127,10 +115,7 @@ impl UpdateReputationEntityCustomerManagedStatusInputBuilder {
     /// <li>
     /// <p><code>REINSTATED</code> – Allow sending even if there are active reputation findings.</p></li>
     /// </ul>
-    pub fn set_sending_status(
-        mut self,
-        input: ::std::option::Option<crate::types::SendingStatus>,
-    ) -> Self {
+    pub fn set_sending_status(mut self, input: ::std::option::Option<crate::types::SendingStatus>) -> Self {
         self.sending_status = input;
         self
     }

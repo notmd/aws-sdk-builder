@@ -20,16 +20,13 @@ impl ::aws_types::request_id::RequestId for DescribePackageGroupOutput {
 }
 impl DescribePackageGroupOutput {
     /// Creates a new builder-style object to manufacture [`DescribePackageGroupOutput`](crate::operation::describe_package_group::DescribePackageGroupOutput).
-    pub fn builder(
-    ) -> crate::operation::describe_package_group::builders::DescribePackageGroupOutputBuilder {
+    pub fn builder() -> crate::operation::describe_package_group::builders::DescribePackageGroupOutputBuilder {
         crate::operation::describe_package_group::builders::DescribePackageGroupOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribePackageGroupOutput`](crate::operation::describe_package_group::DescribePackageGroupOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribePackageGroupOutputBuilder {
     pub(crate) package_group: ::std::option::Option<crate::types::PackageGroupDescription>,
@@ -42,17 +39,12 @@ impl DescribePackageGroupOutputBuilder {
         self
     }
     /// <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageGroupDescription.html">PackageGroupDescription</a> object that contains information about the requested package group.</p>
-    pub fn set_package_group(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageGroupDescription>,
-    ) -> Self {
+    pub fn set_package_group(mut self, input: ::std::option::Option<crate::types::PackageGroupDescription>) -> Self {
         self.package_group = input;
         self
     }
     /// <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageGroupDescription.html">PackageGroupDescription</a> object that contains information about the requested package group.</p>
-    pub fn get_package_group(
-        &self,
-    ) -> &::std::option::Option<crate::types::PackageGroupDescription> {
+    pub fn get_package_group(&self) -> &::std::option::Option<crate::types::PackageGroupDescription> {
         &self.package_group
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

@@ -59,8 +59,7 @@ impl UpdateCapacityProviderFluentBuilder {
     /// Access the UpdateCapacityProvider as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::update_capacity_provider::builders::UpdateCapacityProviderInputBuilder
-    {
+    ) -> &crate::operation::update_capacity_provider::builders::UpdateCapacityProviderInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +83,13 @@ impl UpdateCapacityProviderFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::update_capacity_provider::UpdateCapacityProvider::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::update_capacity_provider::UpdateCapacityProvider::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::update_capacity_provider::UpdateCapacityProvider::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::update_capacity_provider::UpdateCapacityProvider::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -122,18 +118,12 @@ impl UpdateCapacityProviderFluentBuilder {
         self
     }
     /// <p>The name of the capacity provider to update.</p>
-    pub fn capacity_provider_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn capacity_provider_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.capacity_provider_name(input.into());
         self
     }
     /// <p>The name of the capacity provider to update.</p>
-    pub fn set_capacity_provider_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_capacity_provider_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_capacity_provider_name(input);
         self
     }
@@ -142,10 +132,7 @@ impl UpdateCapacityProviderFluentBuilder {
         self.inner.get_capacity_provider_name()
     }
     /// <p>The updated scaling configuration for the capacity provider.</p>
-    pub fn capacity_provider_scaling_config(
-        mut self,
-        input: crate::types::CapacityProviderScalingConfig,
-    ) -> Self {
+    pub fn capacity_provider_scaling_config(mut self, input: crate::types::CapacityProviderScalingConfig) -> Self {
         self.inner = self.inner.capacity_provider_scaling_config(input);
         self
     }
@@ -169,10 +156,7 @@ impl UpdateCapacityProviderFluentBuilder {
         self
     }
     /// <p>Configuration for tag propagation to managed resources launched by the capacity provider.</p>
-    pub fn set_propagate_tags(
-        mut self,
-        input: ::std::option::Option<crate::types::PropagateTags>,
-    ) -> Self {
+    pub fn set_propagate_tags(mut self, input: ::std::option::Option<crate::types::PropagateTags>) -> Self {
         self.inner = self.inner.set_propagate_tags(input);
         self
     }
@@ -181,10 +165,7 @@ impl UpdateCapacityProviderFluentBuilder {
         self.inner.get_propagate_tags()
     }
     /// <p>The updated telemetry configuration for the capacity provider.</p>
-    pub fn telemetry_config(
-        mut self,
-        input: crate::types::CapacityProviderTelemetryConfig,
-    ) -> Self {
+    pub fn telemetry_config(mut self, input: crate::types::CapacityProviderTelemetryConfig) -> Self {
         self.inner = self.inner.telemetry_config(input);
         self
     }
@@ -197,9 +178,7 @@ impl UpdateCapacityProviderFluentBuilder {
         self
     }
     /// <p>The updated telemetry configuration for the capacity provider.</p>
-    pub fn get_telemetry_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::CapacityProviderTelemetryConfig> {
+    pub fn get_telemetry_config(&self) -> &::std::option::Option<crate::types::CapacityProviderTelemetryConfig> {
         self.inner.get_telemetry_config()
     }
 }

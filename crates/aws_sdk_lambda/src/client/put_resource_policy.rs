@@ -13,8 +13,6 @@ impl super::Client {
     pub fn put_resource_policy(
         &self,
     ) -> crate::operation::put_resource_policy::builders::PutResourcePolicyFluentBuilder {
-        crate::operation::put_resource_policy::builders::PutResourcePolicyFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::put_resource_policy::builders::PutResourcePolicyFluentBuilder::new(self.handle.clone())
     }
 }

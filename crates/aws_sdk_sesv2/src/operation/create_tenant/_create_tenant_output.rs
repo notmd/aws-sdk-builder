@@ -48,9 +48,7 @@ impl CreateTenantOutput {
         self.sending_status.as_ref()
     }
     /// <p>An object that contains the suppression list preferences for a tenant.</p>
-    pub fn suppression_attributes(
-        &self,
-    ) -> ::std::option::Option<&crate::types::TenantSuppressionAttributes> {
+    pub fn suppression_attributes(&self) -> ::std::option::Option<&crate::types::TenantSuppressionAttributes> {
         self.suppression_attributes.as_ref()
     }
 }
@@ -67,9 +65,7 @@ impl CreateTenantOutput {
 }
 
 /// A builder for [`CreateTenantOutput`](crate::operation::create_tenant::CreateTenantOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateTenantOutputBuilder {
     pub(crate) tenant_name: ::std::option::Option<::std::string::String>,
@@ -78,8 +74,7 @@ pub struct CreateTenantOutputBuilder {
     pub(crate) created_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
     pub(crate) sending_status: ::std::option::Option<crate::types::SendingStatus>,
-    pub(crate) suppression_attributes:
-        ::std::option::Option<crate::types::TenantSuppressionAttributes>,
+    pub(crate) suppression_attributes: ::std::option::Option<crate::types::TenantSuppressionAttributes>,
     _request_id: Option<String>,
 }
 impl CreateTenantOutputBuilder {
@@ -131,10 +126,7 @@ impl CreateTenantOutputBuilder {
         self
     }
     /// <p>The date and time when the tenant was created.</p>
-    pub fn set_created_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_created_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.created_timestamp = input;
         self
     }
@@ -154,10 +146,7 @@ impl CreateTenantOutputBuilder {
         self
     }
     /// <p>An array of objects that define the tags (keys and values) associated with the tenant.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
@@ -171,10 +160,7 @@ impl CreateTenantOutputBuilder {
         self
     }
     /// <p>The status of email sending capability for the tenant.</p>
-    pub fn set_sending_status(
-        mut self,
-        input: ::std::option::Option<crate::types::SendingStatus>,
-    ) -> Self {
+    pub fn set_sending_status(mut self, input: ::std::option::Option<crate::types::SendingStatus>) -> Self {
         self.sending_status = input;
         self
     }
@@ -183,10 +169,7 @@ impl CreateTenantOutputBuilder {
         &self.sending_status
     }
     /// <p>An object that contains the suppression list preferences for a tenant.</p>
-    pub fn suppression_attributes(
-        mut self,
-        input: crate::types::TenantSuppressionAttributes,
-    ) -> Self {
+    pub fn suppression_attributes(mut self, input: crate::types::TenantSuppressionAttributes) -> Self {
         self.suppression_attributes = ::std::option::Option::Some(input);
         self
     }
@@ -199,9 +182,7 @@ impl CreateTenantOutputBuilder {
         self
     }
     /// <p>An object that contains the suppression list preferences for a tenant.</p>
-    pub fn get_suppression_attributes(
-        &self,
-    ) -> &::std::option::Option<crate::types::TenantSuppressionAttributes> {
+    pub fn get_suppression_attributes(&self) -> &::std::option::Option<crate::types::TenantSuppressionAttributes> {
         &self.suppression_attributes
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

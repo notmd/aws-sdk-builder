@@ -10,8 +10,6 @@ impl super::Client {
     pub fn get_capacity_provider(
         &self,
     ) -> crate::operation::get_capacity_provider::builders::GetCapacityProviderFluentBuilder {
-        crate::operation::get_capacity_provider::builders::GetCapacityProviderFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_capacity_provider::builders::GetCapacityProviderFluentBuilder::new(self.handle.clone())
     }
 }

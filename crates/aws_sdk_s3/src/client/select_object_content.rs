@@ -21,8 +21,6 @@ impl super::Client {
     pub fn select_object_content(
         &self,
     ) -> crate::operation::select_object_content::builders::SelectObjectContentFluentBuilder {
-        crate::operation::select_object_content::builders::SelectObjectContentFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::select_object_content::builders::SelectObjectContentFluentBuilder::new(self.handle.clone())
     }
 }

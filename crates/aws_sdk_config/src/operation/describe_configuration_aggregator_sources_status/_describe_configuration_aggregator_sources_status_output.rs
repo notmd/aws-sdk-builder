@@ -4,8 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeConfigurationAggregatorSourcesStatusOutput {
     /// <p>Returns an AggregatedSourceStatus object.</p>
-    pub aggregated_source_status_list:
-        ::std::option::Option<::std::vec::Vec<crate::types::AggregatedSourceStatus>>,
+    pub aggregated_source_status_list: ::std::option::Option<::std::vec::Vec<crate::types::AggregatedSourceStatus>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -15,9 +14,7 @@ impl DescribeConfigurationAggregatorSourcesStatusOutput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.aggregated_source_status_list.is_none()`.
     pub fn aggregated_source_status_list(&self) -> &[crate::types::AggregatedSourceStatus] {
-        self.aggregated_source_status_list
-            .as_deref()
-            .unwrap_or_default()
+        self.aggregated_source_status_list.as_deref().unwrap_or_default()
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -38,9 +35,7 @@ impl DescribeConfigurationAggregatorSourcesStatusOutput {
 }
 
 /// A builder for [`DescribeConfigurationAggregatorSourcesStatusOutput`](crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeConfigurationAggregatorSourcesStatusOutputBuilder {
     pub(crate) aggregated_source_status_list:
@@ -54,10 +49,7 @@ impl DescribeConfigurationAggregatorSourcesStatusOutputBuilder {
     /// To override the contents of this collection use [`set_aggregated_source_status_list`](Self::set_aggregated_source_status_list).
     ///
     /// <p>Returns an AggregatedSourceStatus object.</p>
-    pub fn aggregated_source_status_list(
-        mut self,
-        input: crate::types::AggregatedSourceStatus,
-    ) -> Self {
+    pub fn aggregated_source_status_list(mut self, input: crate::types::AggregatedSourceStatus) -> Self {
         let mut v = self.aggregated_source_status_list.unwrap_or_default();
         v.push(input);
         self.aggregated_source_status_list = ::std::option::Option::Some(v);

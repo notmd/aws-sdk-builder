@@ -29,21 +29,16 @@ impl ::aws_types::request_id::RequestId for ListRecommendationsOutput {
 }
 impl ListRecommendationsOutput {
     /// Creates a new builder-style object to manufacture [`ListRecommendationsOutput`](crate::operation::list_recommendations::ListRecommendationsOutput).
-    pub fn builder(
-    ) -> crate::operation::list_recommendations::builders::ListRecommendationsOutputBuilder {
-        crate::operation::list_recommendations::builders::ListRecommendationsOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::list_recommendations::builders::ListRecommendationsOutputBuilder {
+        crate::operation::list_recommendations::builders::ListRecommendationsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListRecommendationsOutput`](crate::operation::list_recommendations::ListRecommendationsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListRecommendationsOutputBuilder {
-    pub(crate) recommendations:
-        ::std::option::Option<::std::vec::Vec<crate::types::Recommendation>>,
+    pub(crate) recommendations: ::std::option::Option<::std::vec::Vec<crate::types::Recommendation>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -68,9 +63,7 @@ impl ListRecommendationsOutputBuilder {
         self
     }
     /// <p>The recommendations applicable to your account.</p>
-    pub fn get_recommendations(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Recommendation>> {
+    pub fn get_recommendations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Recommendation>> {
         &self.recommendations
     }
     /// <p>A string token indicating that there might be additional recommendations available to be listed. Use the token provided in the <code>ListRecommendationsResponse</code> to use in the subsequent call to <code>ListRecommendations</code> with the same parameters to retrieve the next page of recommendations.</p>

@@ -9,8 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutSyslogConfigurationError>`](crate::operation::put_syslog_configuration::PutSyslogConfigurationError)
     pub fn put_syslog_configuration(
         &self,
-    ) -> crate::operation::put_syslog_configuration::builders::PutSyslogConfigurationFluentBuilder
-    {
-        crate::operation::put_syslog_configuration::builders::PutSyslogConfigurationFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::put_syslog_configuration::builders::PutSyslogConfigurationFluentBuilder {
+        crate::operation::put_syslog_configuration::builders::PutSyslogConfigurationFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

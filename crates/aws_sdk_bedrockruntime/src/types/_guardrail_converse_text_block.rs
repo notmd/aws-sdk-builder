@@ -7,8 +7,7 @@ pub struct GuardrailConverseTextBlock {
     /// <p>The text that you want to guard.</p>
     pub text: ::std::string::String,
     /// <p>The qualifier details for the guardrails contextual grounding filter.</p>
-    pub qualifiers:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailConverseContentQualifier>>,
+    pub qualifiers: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailConverseContentQualifier>>,
 }
 impl GuardrailConverseTextBlock {
     /// <p>The text that you want to guard.</p>
@@ -31,14 +30,11 @@ impl GuardrailConverseTextBlock {
 }
 
 /// A builder for [`GuardrailConverseTextBlock`](crate::types::GuardrailConverseTextBlock).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailConverseTextBlockBuilder {
     pub(crate) text: ::std::option::Option<::std::string::String>,
-    pub(crate) qualifiers:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailConverseContentQualifier>>,
+    pub(crate) qualifiers: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailConverseContentQualifier>>,
 }
 impl GuardrailConverseTextBlockBuilder {
     /// <p>The text that you want to guard.</p>
@@ -70,9 +66,7 @@ impl GuardrailConverseTextBlockBuilder {
     /// <p>The qualifier details for the guardrails contextual grounding filter.</p>
     pub fn set_qualifiers(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GuardrailConverseContentQualifier>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailConverseContentQualifier>>,
     ) -> Self {
         self.qualifiers = input;
         self
@@ -80,8 +74,7 @@ impl GuardrailConverseTextBlockBuilder {
     /// <p>The qualifier details for the guardrails contextual grounding filter.</p>
     pub fn get_qualifiers(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailConverseContentQualifier>>
-    {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailConverseContentQualifier>> {
         &self.qualifiers
     }
     /// Consumes the builder and constructs a [`GuardrailConverseTextBlock`](crate::types::GuardrailConverseTextBlock).
@@ -89,10 +82,8 @@ impl GuardrailConverseTextBlockBuilder {
     /// - [`text`](crate::types::builders::GuardrailConverseTextBlockBuilder::text)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::GuardrailConverseTextBlock,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::GuardrailConverseTextBlock, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::GuardrailConverseTextBlock {
             text: self.text.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

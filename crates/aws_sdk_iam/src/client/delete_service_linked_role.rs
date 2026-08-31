@@ -9,8 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteServiceLinkedRoleError>`](crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError)
     pub fn delete_service_linked_role(
         &self,
-    ) -> crate::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleFluentBuilder
-    {
-        crate::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleFluentBuilder {
+        crate::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

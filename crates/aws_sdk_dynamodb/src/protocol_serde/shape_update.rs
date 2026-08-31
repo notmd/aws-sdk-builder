@@ -10,19 +10,14 @@ pub fn ser_update(
             {
                 #[allow(unused_mut)]
                 let mut object_4 = object_1.key(key_2.as_str()).start_object();
-                crate::protocol_serde::shape_attribute_value::ser_attribute_value(
-                    &mut object_4,
-                    value_3,
-                )?;
+                crate::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_4, value_3)?;
                 object_4.finish();
             }
         }
         object_1.finish();
     }
     {
-        object
-            .key("UpdateExpression")
-            .string(input.update_expression.as_str());
+        object.key("UpdateExpression").string(input.update_expression.as_str());
     }
     {
         object.key("TableName").string(input.table_name.as_str());
@@ -47,10 +42,7 @@ pub fn ser_update(
             {
                 #[allow(unused_mut)]
                 let mut object_14 = object_11.key(key_12.as_str()).start_object();
-                crate::protocol_serde::shape_attribute_value::ser_attribute_value(
-                    &mut object_14,
-                    value_13,
-                )?;
+                crate::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_14, value_13)?;
                 object_14.finish();
             }
         }

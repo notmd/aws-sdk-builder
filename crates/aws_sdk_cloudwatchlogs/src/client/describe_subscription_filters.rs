@@ -14,7 +14,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeSubscriptionFiltersError>`](crate::operation::describe_subscription_filters::DescribeSubscriptionFiltersError)
     pub fn describe_subscription_filters(
         &self,
-    ) -> crate::operation::describe_subscription_filters::builders::DescribeSubscriptionFiltersFluentBuilder{
-        crate::operation::describe_subscription_filters::builders::DescribeSubscriptionFiltersFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::describe_subscription_filters::builders::DescribeSubscriptionFiltersFluentBuilder {
+        crate::operation::describe_subscription_filters::builders::DescribeSubscriptionFiltersFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

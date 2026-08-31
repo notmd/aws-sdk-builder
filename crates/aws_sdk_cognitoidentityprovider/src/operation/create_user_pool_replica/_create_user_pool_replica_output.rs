@@ -20,17 +20,13 @@ impl ::aws_types::request_id::RequestId for CreateUserPoolReplicaOutput {
 }
 impl CreateUserPoolReplicaOutput {
     /// Creates a new builder-style object to manufacture [`CreateUserPoolReplicaOutput`](crate::operation::create_user_pool_replica::CreateUserPoolReplicaOutput).
-    pub fn builder(
-    ) -> crate::operation::create_user_pool_replica::builders::CreateUserPoolReplicaOutputBuilder
-    {
+    pub fn builder() -> crate::operation::create_user_pool_replica::builders::CreateUserPoolReplicaOutputBuilder {
         crate::operation::create_user_pool_replica::builders::CreateUserPoolReplicaOutputBuilder::default()
     }
 }
 
 /// A builder for [`CreateUserPoolReplicaOutput`](crate::operation::create_user_pool_replica::CreateUserPoolReplicaOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateUserPoolReplicaOutputBuilder {
     pub(crate) user_pool_replica: ::std::option::Option<crate::types::UserPoolReplicaType>,
@@ -43,17 +39,12 @@ impl CreateUserPoolReplicaOutputBuilder {
         self
     }
     /// <p>Information about the created user pool replica, including its status and role.</p>
-    pub fn set_user_pool_replica(
-        mut self,
-        input: ::std::option::Option<crate::types::UserPoolReplicaType>,
-    ) -> Self {
+    pub fn set_user_pool_replica(mut self, input: ::std::option::Option<crate::types::UserPoolReplicaType>) -> Self {
         self.user_pool_replica = input;
         self
     }
     /// <p>Information about the created user pool replica, including its status and role.</p>
-    pub fn get_user_pool_replica(
-        &self,
-    ) -> &::std::option::Option<crate::types::UserPoolReplicaType> {
+    pub fn get_user_pool_replica(&self) -> &::std::option::Option<crate::types::UserPoolReplicaType> {
         &self.user_pool_replica
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

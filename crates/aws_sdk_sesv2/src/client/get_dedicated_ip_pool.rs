@@ -10,8 +10,6 @@ impl super::Client {
     pub fn get_dedicated_ip_pool(
         &self,
     ) -> crate::operation::get_dedicated_ip_pool::builders::GetDedicatedIpPoolFluentBuilder {
-        crate::operation::get_dedicated_ip_pool::builders::GetDedicatedIpPoolFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_dedicated_ip_pool::builders::GetDedicatedIpPoolFluentBuilder::new(self.handle.clone())
     }
 }

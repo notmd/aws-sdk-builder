@@ -76,7 +76,7 @@ impl AssociateSourceToS3TableIntegrationFluentBuilder {
             crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -87,7 +87,11 @@ impl AssociateSourceToS3TableIntegrationFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegration::orchestrate(&runtime_plugins, input).await
+        crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegration::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -97,7 +101,7 @@ impl AssociateSourceToS3TableIntegrationFluentBuilder {
         crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationOutput,
         crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -116,18 +120,12 @@ impl AssociateSourceToS3TableIntegrationFluentBuilder {
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the S3 Table Integration to associate the data source with.</p>
-    pub fn integration_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn integration_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.integration_arn(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the S3 Table Integration to associate the data source with.</p>
-    pub fn set_integration_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_integration_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_integration_arn(input);
         self
     }
@@ -141,10 +139,7 @@ impl AssociateSourceToS3TableIntegrationFluentBuilder {
         self
     }
     /// <p>The data source to associate with the S3 Table Integration. Contains the name and type of the data source.</p>
-    pub fn set_data_source(
-        mut self,
-        input: ::std::option::Option<crate::types::DataSource>,
-    ) -> Self {
+    pub fn set_data_source(mut self, input: ::std::option::Option<crate::types::DataSource>) -> Self {
         self.inner = self.inner.set_data_source(input);
         self
     }

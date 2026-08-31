@@ -85,13 +85,11 @@ impl ListObjectVersions {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(
-                crate::config::ConfigOverrideRuntimePlugin::new(
-                    config_override,
-                    client_config.config.clone(),
-                    &client_config.runtime_components,
-                ),
-            );
+            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+                config_override,
+                client_config.config.clone(),
+                &client_config.runtime_components,
+            ));
         }
         runtime_plugins
     }
@@ -100,11 +98,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListObj
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("ListObjectVersions");
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                ListObjectVersionsRequestSerializer,
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+            ListObjectVersionsRequestSerializer,
+        ));
         cfg.store_put(
             ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
                 ListObjectVersionsResponseDeserializer,
@@ -120,12 +116,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListObj
             ),
         );
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-                "ListObjectVersions",
-                "S3",
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+            "ListObjectVersions",
+            "S3",
+        ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = false;
         signing_options.content_sha256_header = true;
@@ -143,22 +137,48 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListObj
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<
-        '_,
-        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    > {
+    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
-                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListObjectVersions")
-                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListObjectVersionsTelemetryInputCaptureInterceptor))
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListObjectVersionsEndpointParamsInterceptor))
-                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::list_object_versions::ListObjectVersionsError>::new())
-.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::list_object_versions::ListObjectVersionsError>::new())
-.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_object_versions::ListObjectVersionsError>::builder().transient_errors({
-                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-                                            transient_errors.push("InternalError");
-                                            ::std::borrow::Cow::Owned(transient_errors)
-                                            }).build());
+        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new(
+            "ListObjectVersions",
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                ListObjectVersionsTelemetryInputCaptureInterceptor,
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                ListObjectVersionsEndpointParamsInterceptor,
+            ),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+                crate::operation::list_object_versions::ListObjectVersionsError,
+            >::new(),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+                crate::operation::list_object_versions::ListObjectVersionsError,
+            >::new(),
+        )
+        .with_retry_classifier(
+            ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+                crate::operation::list_object_versions::ListObjectVersionsError,
+            >::builder()
+            .transient_errors({
+                let mut transient_errors: Vec<&'static str> =
+                    ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
+                transient_errors.push("InternalError");
+                ::std::borrow::Cow::Owned(transient_errors)
+            })
+            .build(),
+        );
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -168,9 +188,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListObj
 struct ListObjectVersionsTelemetryInputCaptureInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for ListObjectVersionsTelemetryInputCaptureInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListObjectVersionsTelemetryInputCaptureInterceptor {
     fn name(&self) -> &'static str {
         "ListObjectVersionsTelemetryInputCaptureInterceptor"
     }
@@ -193,9 +211,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) =
-            context.input().downcast_ref::<ListObjectVersionsInput>()
-        else {
+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<ListObjectVersionsInput>() else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
@@ -238,9 +254,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
 }
 #[derive(Debug)]
 struct ListObjectVersionsResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
-    for ListObjectVersionsResponseDeserializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for ListObjectVersionsResponseDeserializer {
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -252,17 +266,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
         #[allow(unused_mut)]
         let mut force_error = false;
         ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
-        if matches!(
-            crate::rest_xml_unwrapped_errors::body_is_error(body),
-            Ok(true)
-        ) {
+        if matches!(crate::rest_xml_unwrapped_errors::body_is_error(body), Ok(true)) {
             force_error = true;
         }
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_list_object_versions::de_list_object_versions_http_error(
-                status, headers, body,
-            )
+            crate::protocol_serde::shape_list_object_versions::de_list_object_versions_http_error(status, headers, body)
         } else {
             crate::protocol_serde::shape_list_object_versions::de_list_object_versions_http_response(
                 status, headers, body,
@@ -273,9 +282,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
 }
 #[derive(Debug)]
 struct ListObjectVersionsRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
-    for ListObjectVersionsRequestSerializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListObjectVersionsRequestSerializer {
     #[allow(
         unused_mut,
         clippy::let_and_return,
@@ -302,8 +309,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_base(
                 _input: &crate::operation::list_object_versions::ListObjectVersionsInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
                 ::std::write!(output, "/").expect("formatting should succeed");
                 ::std::result::Result::Ok(())
@@ -311,8 +317,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_query(
                 _input: &crate::operation::list_object_versions::ListObjectVersionsInput,
                 mut output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 query.push_v("versions");
                 if let ::std::option::Option::Some(inner_1) = &_input.delimiter {
@@ -322,10 +327,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
                 }
                 if let ::std::option::Option::Some(inner_2) = &_input.encoding_type {
                     {
-                        query.push_kv(
-                            "encoding-type",
-                            &::aws_smithy_http::query::fmt_string(inner_2.as_str()),
-                        );
+                        query.push_kv("encoding-type", &::aws_smithy_http::query::fmt_string(inner_2.as_str()));
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.key_marker {
@@ -348,10 +350,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
                 }
                 if let ::std::option::Option::Some(inner_6) = &_input.version_id_marker {
                     {
-                        query.push_kv(
-                            "version-id-marker",
-                            &::aws_smithy_http::query::fmt_string(inner_6),
-                        );
+                        query.push_kv("version-id-marker", &::aws_smithy_http::query::fmt_string(inner_6));
                     }
                 }
                 ::std::result::Result::Ok(())
@@ -360,14 +359,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn update_http_builder(
                 input: &crate::operation::list_object_versions::ListObjectVersionsInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<
-                ::http_1x::request::Builder,
-                ::aws_smithy_types::error::operation::BuildError,
-            > {
+            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
-                let builder = crate::protocol_serde::shape_list_object_versions::ser_list_object_versions_headers(input, builder)?;
+                let builder = crate::protocol_serde::shape_list_object_versions::ser_list_object_versions_headers(
+                    input, builder,
+                )?;
                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -375,22 +374,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
         };
         let body = ::aws_smithy_types::body::SdkBody::from("");
 
-        ::std::result::Result::Ok(
-            request_builder
-                .body(body)
-                .expect("valid request")
-                .try_into()
-                .unwrap(),
-        )
+        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
 #[derive(Debug)]
 struct ListObjectVersionsEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for ListObjectVersionsEndpointParamsInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListObjectVersionsEndpointParamsInterceptor {
     fn name(&self) -> &'static str {
         "ListObjectVersionsEndpointParamsInterceptor"
     }
@@ -411,18 +402,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             .ok_or("failed to downcast to ListObjectVersionsInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(
-                cfg.load::<::aws_types::region::Region>()
-                    .map(|r| r.as_ref().to_owned()),
-            )
-            .set_use_fips(
-                cfg.load::<::aws_types::endpoint_config::UseFips>()
-                    .map(|ty| ty.0),
-            )
-            .set_use_dual_stack(
-                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
-                    .map(|ty| ty.0),
-            )
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_endpoint(
                 cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
                     .map(|ty| ty.0.clone()),
@@ -435,8 +417,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             )
             .set_accelerate(cfg.load::<crate::config::Accelerate>().map(|ty| ty.0))
             .set_disable_s3_express_session_auth(
-                cfg.load::<crate::config::DisableS3ExpressSessionAuth>()
-                    .map(|ty| ty.0),
+                cfg.load::<crate::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0),
             )
             .set_bucket(Some(
                 _input
@@ -458,9 +439,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
                     err,
                 )
             })?;
-        cfg.interceptor_state().store_put(
-            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
-        );
+        cfg.interceptor_state()
+            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(
+                params,
+            ));
         ::std::result::Result::Ok(())
     }
 }
@@ -489,9 +471,9 @@ mod list_object_versions_test {
                     .set_key(::std::option::Option::Some("build.gradle.kts".to_owned()))
                     .set_version_id(::std::option::Option::Some("null".to_owned()))
                     .set_is_latest(::std::option::Option::Some(true))
-                    .set_last_modified(::std::option::Option::Some(::aws_smithy_types::DateTime::from_fractional_secs(
-                        1234567890, 0_f64,
-                    )))
+                    .set_last_modified(::std::option::Option::Some(
+                        ::aws_smithy_types::DateTime::from_fractional_secs(1234567890, 0_f64),
+                    ))
                     .set_owner(::std::option::Option::Some(
                         crate::types::Owner::builder()
                             .set_id(::std::option::Option::Some(
@@ -503,11 +485,13 @@ mod list_object_versions_test {
                     .build(),
                 crate::types::DeleteMarkerEntry::builder()
                     .set_key(::std::option::Option::Some("file-2".to_owned()))
-                    .set_version_id(::std::option::Option::Some("o98RL6vmlOYiymftbX7wgy_4XWQG4AmY".to_owned()))
+                    .set_version_id(::std::option::Option::Some(
+                        "o98RL6vmlOYiymftbX7wgy_4XWQG4AmY".to_owned(),
+                    ))
                     .set_is_latest(::std::option::Option::Some(true))
-                    .set_last_modified(::std::option::Option::Some(::aws_smithy_types::DateTime::from_fractional_secs(
-                        1234567890, 0_f64,
-                    )))
+                    .set_last_modified(::std::option::Option::Some(
+                        ::aws_smithy_types::DateTime::from_fractional_secs(1234567890, 0_f64),
+                    ))
                     .set_owner(::std::option::Option::Some(
                         crate::types::Owner::builder()
                             .set_id(::std::option::Option::Some(
@@ -521,12 +505,16 @@ mod list_object_versions_test {
             .set_versions(::std::option::Option::Some(vec![
                 crate::types::ObjectVersion::builder()
                     .set_key(::std::option::Option::Some("build.gradle.kts".to_owned()))
-                    .set_version_id(::std::option::Option::Some("IfK9Z4.H5TLAtMxFrxN_C7rFEZbufF3V".to_owned()))
+                    .set_version_id(::std::option::Option::Some(
+                        "IfK9Z4.H5TLAtMxFrxN_C7rFEZbufF3V".to_owned(),
+                    ))
                     .set_is_latest(::std::option::Option::Some(false))
-                    .set_last_modified(::std::option::Option::Some(::aws_smithy_types::DateTime::from_fractional_secs(
-                        1234567890, 0_f64,
-                    )))
-                    .set_e_tag(::std::option::Option::Some("\"99613b85e3f38b222c4ee548cde1e59d\"".to_owned()))
+                    .set_last_modified(::std::option::Option::Some(
+                        ::aws_smithy_types::DateTime::from_fractional_secs(1234567890, 0_f64),
+                    ))
+                    .set_e_tag(::std::option::Option::Some(
+                        "\"99613b85e3f38b222c4ee548cde1e59d\"".to_owned(),
+                    ))
                     .set_size(::std::option::Option::Some(6903))
                     .set_owner(::std::option::Option::Some(
                         crate::types::Owner::builder()
@@ -544,12 +532,16 @@ mod list_object_versions_test {
                     .build(),
                 crate::types::ObjectVersion::builder()
                     .set_key(::std::option::Option::Some("file-2".to_owned()))
-                    .set_version_id(::std::option::Option::Some("PSVAbvQihRdsNiktGothjGng7q.5ou9Q".to_owned()))
+                    .set_version_id(::std::option::Option::Some(
+                        "PSVAbvQihRdsNiktGothjGng7q.5ou9Q".to_owned(),
+                    ))
                     .set_is_latest(::std::option::Option::Some(false))
-                    .set_last_modified(::std::option::Option::Some(::aws_smithy_types::DateTime::from_fractional_secs(
-                        1234567890, 0_f64,
-                    )))
-                    .set_e_tag(::std::option::Option::Some("\"1727d9cb38dd325d9c12c973ef3675fc\"".to_owned()))
+                    .set_last_modified(::std::option::Option::Some(
+                        ::aws_smithy_types::DateTime::from_fractional_secs(1234567890, 0_f64),
+                    ))
+                    .set_e_tag(::std::option::Option::Some(
+                        "\"1727d9cb38dd325d9c12c973ef3675fc\"".to_owned(),
+                    ))
                     .set_size(::std::option::Option::Some(14))
                     .set_owner(::std::option::Option::Some(
                         crate::types::Owner::builder()
@@ -636,16 +628,8 @@ mod list_object_versions_test {
             expected_output.delete_markers,
             "Unexpected value for `delete_markers`"
         );
-        ::pretty_assertions::assert_eq!(
-            parsed.name,
-            expected_output.name,
-            "Unexpected value for `name`"
-        );
-        ::pretty_assertions::assert_eq!(
-            parsed.prefix,
-            expected_output.prefix,
-            "Unexpected value for `prefix`"
-        );
+        ::pretty_assertions::assert_eq!(parsed.name, expected_output.name, "Unexpected value for `name`");
+        ::pretty_assertions::assert_eq!(parsed.prefix, expected_output.prefix, "Unexpected value for `prefix`");
         ::pretty_assertions::assert_eq!(
             parsed.delimiter,
             expected_output.delimiter,
@@ -693,9 +677,7 @@ impl ListObjectVersionsError {
     /// Creates the `ListObjectVersionsError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -760,9 +742,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ListObjectVer
 }
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ListObjectVersionsError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -771,16 +751,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ListObje
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt
-    for crate::operation::list_object_versions::ListObjectVersionsError
-{
+impl crate::s3_request_id::RequestIdExt for crate::operation::list_object_versions::ListObjectVersionsError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId
-    for crate::operation::list_object_versions::ListObjectVersionsError
-{
+impl ::aws_types::request_id::RequestId for crate::operation::list_object_versions::ListObjectVersionsError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

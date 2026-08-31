@@ -19,9 +19,7 @@ impl UpdateCustomVerificationEmailTemplateOutput {
 }
 
 /// A builder for [`UpdateCustomVerificationEmailTemplateOutput`](crate::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateCustomVerificationEmailTemplateOutputBuilder {
     _request_id: Option<String>,
@@ -37,7 +35,9 @@ impl UpdateCustomVerificationEmailTemplateOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateCustomVerificationEmailTemplateOutput`](crate::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateOutput).
-    pub fn build(self) -> crate::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateOutput {
         crate::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateOutput {
             _request_id: self._request_id,
         }

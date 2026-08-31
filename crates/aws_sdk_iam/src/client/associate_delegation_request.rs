@@ -6,7 +6,11 @@ impl super::Client {
     ///   - [`delegation_request_id(impl Into<String>)`](crate::operation::associate_delegation_request::builders::AssociateDelegationRequestFluentBuilder::delegation_request_id) / [`set_delegation_request_id(Option<String>)`](crate::operation::associate_delegation_request::builders::AssociateDelegationRequestFluentBuilder::set_delegation_request_id):<br>required: **true**<br><p>The unique identifier of the delegation request to associate.</p><br>
     /// - On success, responds with [`AssociateDelegationRequestOutput`](crate::operation::associate_delegation_request::AssociateDelegationRequestOutput)
     /// - On failure, responds with [`SdkError<AssociateDelegationRequestError>`](crate::operation::associate_delegation_request::AssociateDelegationRequestError)
-    pub fn associate_delegation_request(&self) -> crate::operation::associate_delegation_request::builders::AssociateDelegationRequestFluentBuilder{
-        crate::operation::associate_delegation_request::builders::AssociateDelegationRequestFluentBuilder::new(self.handle.clone())
+    pub fn associate_delegation_request(
+        &self,
+    ) -> crate::operation::associate_delegation_request::builders::AssociateDelegationRequestFluentBuilder {
+        crate::operation::associate_delegation_request::builders::AssociateDelegationRequestFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -39,15 +39,15 @@ impl ListDomainDeliverabilityCampaignsInput {
 }
 impl ListDomainDeliverabilityCampaignsInput {
     /// Creates a new builder-style object to manufacture [`ListDomainDeliverabilityCampaignsInput`](crate::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsInput).
-    pub fn builder() -> crate::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsInputBuilder
+    {
         crate::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsInputBuilder::default()
     }
 }
 
 /// A builder for [`ListDomainDeliverabilityCampaignsInput`](crate::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListDomainDeliverabilityCampaignsInputBuilder {
     pub(crate) start_date: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -64,10 +64,7 @@ impl ListDomainDeliverabilityCampaignsInputBuilder {
         self
     }
     /// <p>The first day that you want to obtain deliverability data for.</p>
-    pub fn set_start_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_start_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.start_date = input;
         self
     }
@@ -82,10 +79,7 @@ impl ListDomainDeliverabilityCampaignsInputBuilder {
         self
     }
     /// <p>The last day that you want to obtain deliverability data for. This value has to be less than or equal to 30 days after the value of the <code>StartDate</code> parameter.</p>
-    pub fn set_end_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_end_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.end_date = input;
         self
     }
@@ -95,18 +89,12 @@ impl ListDomainDeliverabilityCampaignsInputBuilder {
     }
     /// <p>The domain to obtain deliverability data for.</p>
     /// This field is required.
-    pub fn subscribed_domain(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn subscribed_domain(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.subscribed_domain = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The domain to obtain deliverability data for.</p>
-    pub fn set_subscribed_domain(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_subscribed_domain(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.subscribed_domain = input;
         self
     }
@@ -148,7 +136,7 @@ impl ListDomainDeliverabilityCampaignsInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsInput {
                 start_date: self.start_date,

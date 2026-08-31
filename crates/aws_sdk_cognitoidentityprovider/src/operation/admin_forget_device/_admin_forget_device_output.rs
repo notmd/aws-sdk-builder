@@ -12,16 +12,13 @@ impl ::aws_types::request_id::RequestId for AdminForgetDeviceOutput {
 }
 impl AdminForgetDeviceOutput {
     /// Creates a new builder-style object to manufacture [`AdminForgetDeviceOutput`](crate::operation::admin_forget_device::AdminForgetDeviceOutput).
-    pub fn builder(
-    ) -> crate::operation::admin_forget_device::builders::AdminForgetDeviceOutputBuilder {
+    pub fn builder() -> crate::operation::admin_forget_device::builders::AdminForgetDeviceOutputBuilder {
         crate::operation::admin_forget_device::builders::AdminForgetDeviceOutputBuilder::default()
     }
 }
 
 /// A builder for [`AdminForgetDeviceOutput`](crate::operation::admin_forget_device::AdminForgetDeviceOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AdminForgetDeviceOutputBuilder {
     _request_id: Option<String>,

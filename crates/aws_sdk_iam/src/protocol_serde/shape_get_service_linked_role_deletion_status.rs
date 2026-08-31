@@ -7,10 +7,16 @@ pub fn de_get_service_linked_role_deletion_status_http_error(
 ) -> std::result::Result<
     crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusOutput,
     crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError,
->{
+> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(
+        crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError::unhandled,
+    )?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
@@ -83,7 +89,7 @@ pub fn de_get_service_linked_role_deletion_status_http_response(
 ) -> std::result::Result<
     crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusOutput,
     crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError,
->{
+> {
     Ok({
         #[allow(unused_mut)]
         let mut output =
@@ -91,9 +97,7 @@ pub fn de_get_service_linked_role_deletion_status_http_response(
         output =
             crate::protocol_serde::shape_get_service_linked_role_deletion_status::de_get_service_linked_role_deletion_status(_response_body, output)
                 .map_err(crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         crate::serde_util::get_service_linked_role_deletion_status_output_output_correct_errors(output)
             .build()
             .map_err(crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError::unhandled)?

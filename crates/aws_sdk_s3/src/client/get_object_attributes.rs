@@ -28,8 +28,6 @@ impl super::Client {
     pub fn get_object_attributes(
         &self,
     ) -> crate::operation::get_object_attributes::builders::GetObjectAttributesFluentBuilder {
-        crate::operation::get_object_attributes::builders::GetObjectAttributesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_object_attributes::builders::GetObjectAttributesFluentBuilder::new(self.handle.clone())
     }
 }

@@ -13,10 +13,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetKeyRotationStatusError>`](crate::operation::get_key_rotation_status::GetKeyRotationStatusError)
     pub fn get_key_rotation_status(
         &self,
-    ) -> crate::operation::get_key_rotation_status::builders::GetKeyRotationStatusFluentBuilder
-    {
-        crate::operation::get_key_rotation_status::builders::GetKeyRotationStatusFluentBuilder::new(
-            self.handle.clone(),
-        )
+    ) -> crate::operation::get_key_rotation_status::builders::GetKeyRotationStatusFluentBuilder {
+        crate::operation::get_key_rotation_status::builders::GetKeyRotationStatusFluentBuilder::new(self.handle.clone())
     }
 }

@@ -16,14 +16,10 @@ use aws_credential_types::provider::{self, error::CredentialsError};
 use aws_credential_types::Credentials;
 use aws_smithy_runtime::client::metrics::MetricsRuntimePlugin;
 use aws_smithy_runtime::client::orchestrator::operation::Operation;
-use aws_smithy_runtime::client::retries::classifiers::{
-    HttpStatusCodeClassifier, TransientErrorClassifier,
-};
+use aws_smithy_runtime::client::retries::classifiers::{HttpStatusCodeClassifier, TransientErrorClassifier};
 use aws_smithy_runtime_api::client::http::HttpConnectorSettings;
 use aws_smithy_runtime_api::client::interceptors::context::{Error, InterceptorContext};
-use aws_smithy_runtime_api::client::orchestrator::{
-    HttpResponse, Metadata, OrchestratorError, SensitiveOutput,
-};
+use aws_smithy_runtime_api::client::orchestrator::{HttpResponse, Metadata, OrchestratorError, SensitiveOutput};
 use aws_smithy_runtime_api::client::result::SdkError;
 use aws_smithy_runtime_api::client::retries::classifiers::ClassifyRetry;
 use aws_smithy_runtime_api::client::retries::classifiers::RetryAction;
@@ -55,16 +51,12 @@ impl HttpCredentialProvider {
     }
 
     pub(crate) async fn credentials(&self, auth: Option<HeaderValue>) -> provider::Result {
-        let credentials =
-            self.operation
-                .invoke(HttpProviderAuth { auth })
-                .await
-                .map(|mut creds| {
-                    creds
-                        .get_property_mut_or_default::<Vec<AwsCredentialFeature>>()
-                        .push(AwsCredentialFeature::CredentialsHttp);
-                    creds
-                });
+        let credentials = self.operation.invoke(HttpProviderAuth { auth }).await.map(|mut creds| {
+            creds
+                .get_property_mut_or_default::<Vec<AwsCredentialFeature>>()
+                .push(AwsCredentialFeature::CredentialsHttp);
+            creds
+        });
         match credentials {
             Ok(creds) => Ok(creds),
             Err(SdkError::ServiceError(context)) => Err(context.into_err()),
@@ -85,10 +77,7 @@ impl Builder {
         self
     }
 
-    pub(crate) fn http_connector_settings(
-        mut self,
-        http_connector_settings: HttpConnectorSettings,
-    ) -> Self {
+    pub(crate) fn http_connector_settings(mut self, http_connector_settings: HttpConnectorSettings) -> Self {
         self.http_connector_settings = Some(http_connector_settings);
         self
     }
@@ -172,12 +161,10 @@ fn parse_response(
     response: &HttpResponse,
 ) -> Result<Credentials, OrchestratorError<CredentialsError>> {
     if !response.status().is_success() {
-        return Err(OrchestratorError::operation(
-            CredentialsError::provider_error(format!(
-                "Non-success status from HTTP credential provider: {:?}",
-                response.status()
-            )),
-        ));
+        return Err(OrchestratorError::operation(CredentialsError::provider_error(format!(
+            "Non-success status from HTTP credential provider: {:?}",
+            response.status()
+        ))));
     }
     let resp_bytes = response.body().bytes().expect("non-streaming deserializer");
     let str_resp = std::str::from_utf8(resp_bytes)
@@ -202,9 +189,7 @@ fn parse_response(
             Ok(builder.build())
         }
         JsonCredentials::Error { code, message } => Err(OrchestratorError::operation(
-            CredentialsError::provider_error(format!(
-                "failed to load credentials [{code}]: {message}",
-            )),
+            CredentialsError::provider_error(format!("failed to load credentials [{code}]: {message}",)),
         )),
     }
 }
@@ -249,13 +234,13 @@ mod test {
     use http::{Request, Response, Uri};
     use std::time::SystemTime;
 
-    async fn provide_creds(
-        http_client: StaticReplayClient,
-    ) -> Result<Credentials, CredentialsError> {
+    async fn provide_creds(http_client: StaticReplayClient) -> Result<Credentials, CredentialsError> {
         let provider_config = ProviderConfig::default().with_http_client(http_client.clone());
-        let provider = HttpCredentialProvider::builder()
-            .configure(&provider_config)
-            .build("test", "http://localhost:1234/", "/some-creds");
+        let provider = HttpCredentialProvider::builder().configure(&provider_config).build(
+            "test",
+            "http://localhost:1234/",
+            "/some-creds",
+        );
         provider.credentials(None).await
     }
 
@@ -347,9 +332,7 @@ mod test {
                 ))
                 .unwrap(),
         )]);
-        let err = provide_creds(http_client.clone())
-            .await
-            .expect_err("it should fail");
+        let err = provide_creds(http_client.clone()).await.expect_err("it should fail");
         assert!(
             matches!(err, CredentialsError::ProviderError { .. }),
             "should be CredentialsError::ProviderError: {err}",

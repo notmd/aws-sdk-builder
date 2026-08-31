@@ -75,9 +75,9 @@ impl ::std::convert::From<&str> for ResourceType {
             "package" => ResourceType::Package,
             "package-version" => ResourceType::PackageVersion,
             "repository" => ResourceType::Repository,
-            other => ResourceType::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => ResourceType::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -102,13 +102,7 @@ impl ResourceType {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &[
-            "asset",
-            "domain",
-            "package",
-            "package-version",
-            "repository",
-        ]
+        &["asset", "domain", "package", "package-version", "repository"]
     }
 }
 impl ::std::convert::AsRef<str> for ResourceType {
@@ -120,14 +114,10 @@ impl ResourceType {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }

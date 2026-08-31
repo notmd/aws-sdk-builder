@@ -4,17 +4,11 @@ pub fn de_encrypt_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::encrypt::EncryptOutput,
-    crate::operation::encrypt::EncryptError,
-> {
+) -> std::result::Result<crate::operation::encrypt::EncryptOutput, crate::operation::encrypt::EncryptError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::encrypt::EncryptError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::encrypt::EncryptError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
@@ -24,31 +18,31 @@ pub fn de_encrypt_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "DependencyTimeoutException" => {
-            crate::operation::encrypt::EncryptError::DependencyTimeoutException({
+        "DependencyTimeoutException" => crate::operation::encrypt::EncryptError::DependencyTimeoutException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                let mut output = crate::types::error::builders::DependencyTimeoutExceptionBuilder::default();
+                output = crate::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
                     .map_err(crate::operation::encrypt::EncryptError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "DisabledException" => crate::operation::encrypt::EncryptError::DisabledException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::DisabledExceptionBuilder::default();
-                output = crate::protocol_serde::shape_disabled_exception::de_disabled_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::encrypt::EncryptError::unhandled)?;
+                output = crate::protocol_serde::shape_disabled_exception::de_disabled_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::encrypt::EncryptError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -62,8 +56,7 @@ pub fn de_encrypt_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::DryRunOperationExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::DryRunOperationExceptionBuilder::default();
                     output = crate::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
                     .map_err(crate::operation::encrypt::EncryptError::unhandled)?;
                     let output = output.meta(generic);
@@ -75,32 +68,28 @@ pub fn de_encrypt_http_error(
                 tmp
             })
         }
-        "InvalidGrantTokenException" => {
-            crate::operation::encrypt::EncryptError::InvalidGrantTokenException({
+        "InvalidGrantTokenException" => crate::operation::encrypt::EncryptError::InvalidGrantTokenException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InvalidGrantTokenExceptionBuilder::default();
-                    output =
+                let mut output = crate::types::error::builders::InvalidGrantTokenExceptionBuilder::default();
+                output =
                     crate::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(_response_body, output)
                         .map_err(crate::operation::encrypt::EncryptError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidKeyUsageException" => {
             crate::operation::encrypt::EncryptError::InvalidKeyUsageException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InvalidKeyUsageExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::InvalidKeyUsageExceptionBuilder::default();
                     output = crate::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(_response_body, output)
                     .map_err(crate::operation::encrypt::EncryptError::unhandled)?;
                     let output = output.meta(generic);
@@ -112,32 +101,34 @@ pub fn de_encrypt_http_error(
                 tmp
             })
         }
-        "KeyUnavailableException" => {
-            crate::operation::encrypt::EncryptError::KeyUnavailableException({
+        "KeyUnavailableException" => crate::operation::encrypt::EncryptError::KeyUnavailableException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::KeyUnavailableExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_key_unavailable_exception::de_key_unavailable_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::encrypt::EncryptError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::KeyUnavailableExceptionBuilder::default();
+                output = crate::protocol_serde::shape_key_unavailable_exception::de_key_unavailable_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::encrypt::EncryptError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "KMSInternalException" => crate::operation::encrypt::EncryptError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output =
-                    crate::types::error::builders::KmsInternalExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::encrypt::EncryptError::unhandled)?;
+                let mut output = crate::types::error::builders::KmsInternalExceptionBuilder::default();
+                output = crate::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::encrypt::EncryptError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -151,8 +142,7 @@ pub fn de_encrypt_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
                     output = crate::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
                     .map_err(crate::operation::encrypt::EncryptError::unhandled)?;
                     let output = output.meta(generic);
@@ -169,8 +159,11 @@ pub fn de_encrypt_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::encrypt::EncryptError::unhandled)?;
+                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::encrypt::EncryptError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -188,28 +181,21 @@ pub fn de_encrypt_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::encrypt::EncryptOutput,
-    crate::operation::encrypt::EncryptError,
-> {
+) -> std::result::Result<crate::operation::encrypt::EncryptOutput, crate::operation::encrypt::EncryptError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::encrypt::builders::EncryptOutputBuilder::default();
         output = crate::protocol_serde::shape_encrypt::de_encrypt(_response_body, output)
             .map_err(crate::operation::encrypt::EncryptError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_encrypt_input(
     input: &crate::operation::encrypt::EncryptInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
     crate::protocol_serde::shape_encrypt_input::ser_encrypt_input_input(&mut object, input)?;
@@ -224,10 +210,8 @@ pub(crate) fn de_encrypt(
     crate::operation::encrypt::builders::EncryptOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -235,53 +219,42 @@ pub(crate) fn de_encrypt(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key
-                .to_unescaped()?
-                .as_ref()
-            {
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "CiphertextBlob" => {
-                    builder = builder.set_ciphertext_blob(
-                        ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?,
-                    );
+                    builder = builder.set_ciphertext_blob(::aws_smithy_json::deserialize::token::expect_blob_or_null(
+                        tokens.next(),
+                    )?);
                 }
                 "KeyId" => {
                     builder = builder.set_key_id(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                            tokens.next(),
-                        )?
-                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                        .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
                     );
                 }
                 "EncryptionAlgorithm" => {
                     builder = builder.set_encryption_algorithm(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                            tokens.next(),
-                        )?
-                        .map(|s| {
-                            s.to_unescaped()
-                                .map(|u| crate::types::EncryptionAlgorithmSpec::from(u.as_ref()))
-                        })
-                        .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| {
+                                s.to_unescaped()
+                                    .map(|u| crate::types::EncryptionAlgorithmSpec::from(u.as_ref()))
+                            })
+                            .transpose()?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

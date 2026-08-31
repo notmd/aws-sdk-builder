@@ -22,13 +22,10 @@ impl GuardrailContentPolicyAssessment {
 }
 
 /// A builder for [`GuardrailContentPolicyAssessment`](crate::types::GuardrailContentPolicyAssessment).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailContentPolicyAssessmentBuilder {
-    pub(crate) filters:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentFilter>>,
+    pub(crate) filters: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentFilter>>,
 }
 impl GuardrailContentPolicyAssessmentBuilder {
     /// Appends an item to `filters`.
@@ -51,9 +48,7 @@ impl GuardrailContentPolicyAssessmentBuilder {
         self
     }
     /// <p>The content policy filters.</p>
-    pub fn get_filters(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentFilter>> {
+    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailContentFilter>> {
         &self.filters
     }
     /// Consumes the builder and constructs a [`GuardrailContentPolicyAssessment`](crate::types::GuardrailContentPolicyAssessment).

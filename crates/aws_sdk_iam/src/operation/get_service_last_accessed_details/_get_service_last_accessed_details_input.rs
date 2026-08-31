@@ -28,15 +28,14 @@ impl GetServiceLastAccessedDetailsInput {
 }
 impl GetServiceLastAccessedDetailsInput {
     /// Creates a new builder-style object to manufacture [`GetServiceLastAccessedDetailsInput`](crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsInput).
-    pub fn builder() -> crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsInputBuilder {
         crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsInputBuilder::default()
     }
 }
 
 /// A builder for [`GetServiceLastAccessedDetailsInput`](crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetServiceLastAccessedDetailsInputBuilder {
     pub(crate) job_id: ::std::option::Option<::std::string::String>,
@@ -97,10 +96,12 @@ impl GetServiceLastAccessedDetailsInputBuilder {
         crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsInput {
-            job_id: self.job_id,
-            max_items: self.max_items,
-            marker: self.marker,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsInput {
+                job_id: self.job_id,
+                max_items: self.max_items,
+                marker: self.marker,
+            },
+        )
     }
 }

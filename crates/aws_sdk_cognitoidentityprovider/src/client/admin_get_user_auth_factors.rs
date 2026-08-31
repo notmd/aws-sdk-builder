@@ -13,8 +13,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<AdminGetUserAuthFactorsError>`](crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsError)
     pub fn admin_get_user_auth_factors(
         &self,
-    ) -> crate::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsFluentBuilder
-    {
-        crate::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsFluentBuilder {
+        crate::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -7,11 +7,7 @@ impl super::Client {
     ///   - [`email_address(impl Into<String>)`](crate::operation::delete_contact::builders::DeleteContactFluentBuilder::email_address) / [`set_email_address(Option<String>)`](crate::operation::delete_contact::builders::DeleteContactFluentBuilder::set_email_address):<br>required: **true**<br><p>The contact's email address.</p><br>
     /// - On success, responds with [`DeleteContactOutput`](crate::operation::delete_contact::DeleteContactOutput)
     /// - On failure, responds with [`SdkError<DeleteContactError>`](crate::operation::delete_contact::DeleteContactError)
-    pub fn delete_contact(
-        &self,
-    ) -> crate::operation::delete_contact::builders::DeleteContactFluentBuilder {
-        crate::operation::delete_contact::builders::DeleteContactFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn delete_contact(&self) -> crate::operation::delete_contact::builders::DeleteContactFluentBuilder {
+        crate::operation::delete_contact::builders::DeleteContactFluentBuilder::new(self.handle.clone())
     }
 }

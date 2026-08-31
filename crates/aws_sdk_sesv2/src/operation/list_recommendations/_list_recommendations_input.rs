@@ -6,10 +6,7 @@
 pub struct ListRecommendationsInput {
     /// <p>Filters applied when retrieving recommendations. Can eiter be an individual filter, or combinations of <code>STATUS</code> and <code>IMPACT</code> or <code>STATUS</code> and <code>TYPE</code></p>
     pub filter: ::std::option::Option<
-        ::std::collections::HashMap<
-            crate::types::ListRecommendationsFilterKey,
-            ::std::string::String,
-        >,
+        ::std::collections::HashMap<crate::types::ListRecommendationsFilterKey, ::std::string::String>,
     >,
     /// <p>A token returned from a previous call to <code>ListRecommendations</code> to indicate the position in the list of recommendations.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
@@ -22,10 +19,7 @@ impl ListRecommendationsInput {
     pub fn filter(
         &self,
     ) -> ::std::option::Option<
-        &::std::collections::HashMap<
-            crate::types::ListRecommendationsFilterKey,
-            ::std::string::String,
-        >,
+        &::std::collections::HashMap<crate::types::ListRecommendationsFilterKey, ::std::string::String>,
     > {
         self.filter.as_ref()
     }
@@ -41,23 +35,17 @@ impl ListRecommendationsInput {
 }
 impl ListRecommendationsInput {
     /// Creates a new builder-style object to manufacture [`ListRecommendationsInput`](crate::operation::list_recommendations::ListRecommendationsInput).
-    pub fn builder(
-    ) -> crate::operation::list_recommendations::builders::ListRecommendationsInputBuilder {
+    pub fn builder() -> crate::operation::list_recommendations::builders::ListRecommendationsInputBuilder {
         crate::operation::list_recommendations::builders::ListRecommendationsInputBuilder::default()
     }
 }
 
 /// A builder for [`ListRecommendationsInput`](crate::operation::list_recommendations::ListRecommendationsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListRecommendationsInputBuilder {
     pub(crate) filter: ::std::option::Option<
-        ::std::collections::HashMap<
-            crate::types::ListRecommendationsFilterKey,
-            ::std::string::String,
-        >,
+        ::std::collections::HashMap<crate::types::ListRecommendationsFilterKey, ::std::string::String>,
     >,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     pub(crate) page_size: ::std::option::Option<i32>,
@@ -82,10 +70,7 @@ impl ListRecommendationsInputBuilder {
     pub fn set_filter(
         mut self,
         input: ::std::option::Option<
-            ::std::collections::HashMap<
-                crate::types::ListRecommendationsFilterKey,
-                ::std::string::String,
-            >,
+            ::std::collections::HashMap<crate::types::ListRecommendationsFilterKey, ::std::string::String>,
         >,
     ) -> Self {
         self.filter = input;
@@ -95,10 +80,7 @@ impl ListRecommendationsInputBuilder {
     pub fn get_filter(
         &self,
     ) -> &::std::option::Option<
-        ::std::collections::HashMap<
-            crate::types::ListRecommendationsFilterKey,
-            ::std::string::String,
-        >,
+        ::std::collections::HashMap<crate::types::ListRecommendationsFilterKey, ::std::string::String>,
     > {
         &self.filter
     }
@@ -140,12 +122,10 @@ impl ListRecommendationsInputBuilder {
         crate::operation::list_recommendations::ListRecommendationsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::list_recommendations::ListRecommendationsInput {
-                filter: self.filter,
-                next_token: self.next_token,
-                page_size: self.page_size,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::list_recommendations::ListRecommendationsInput {
+            filter: self.filter,
+            next_token: self.next_token,
+            page_size: self.page_size,
+        })
     }
 }

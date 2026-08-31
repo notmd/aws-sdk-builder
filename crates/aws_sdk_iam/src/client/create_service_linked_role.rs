@@ -11,8 +11,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<CreateServiceLinkedRoleError>`](crate::operation::create_service_linked_role::CreateServiceLinkedRoleError)
     pub fn create_service_linked_role(
         &self,
-    ) -> crate::operation::create_service_linked_role::builders::CreateServiceLinkedRoleFluentBuilder
-    {
-        crate::operation::create_service_linked_role::builders::CreateServiceLinkedRoleFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::create_service_linked_role::builders::CreateServiceLinkedRoleFluentBuilder {
+        crate::operation::create_service_linked_role::builders::CreateServiceLinkedRoleFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

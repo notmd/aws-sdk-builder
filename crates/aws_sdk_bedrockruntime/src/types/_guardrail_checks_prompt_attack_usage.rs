@@ -21,9 +21,7 @@ impl GuardrailChecksPromptAttackUsage {
 }
 
 /// A builder for [`GuardrailChecksPromptAttackUsage`](crate::types::GuardrailChecksPromptAttackUsage).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailChecksPromptAttackUsageBuilder {
     pub(crate) text_units: ::std::option::Option<i32>,

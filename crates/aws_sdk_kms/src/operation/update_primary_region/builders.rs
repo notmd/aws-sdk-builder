@@ -80,9 +80,7 @@ impl UpdatePrimaryRegionFluentBuilder {
         }
     }
     /// Access the UpdatePrimaryRegion as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::update_primary_region::builders::UpdatePrimaryRegionInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::update_primary_region::builders::UpdatePrimaryRegionInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -106,17 +104,12 @@ impl UpdatePrimaryRegionFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::update_primary_region::UpdatePrimaryRegion::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::update_primary_region::UpdatePrimaryRegion::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::update_primary_region::UpdatePrimaryRegion::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::update_primary_region::UpdatePrimaryRegion::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -187,19 +180,13 @@ impl UpdatePrimaryRegionFluentBuilder {
     }
     /// <p>The Amazon Web Services Region of the new primary key. Enter the Region ID, such as <code>us-east-1</code> or <code>ap-southeast-2</code>. There must be an existing replica key in this Region.</p>
     /// <p>When the operation completes, the multi-Region key in this Region will be the primary key.</p>
-    pub fn primary_region(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn primary_region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.primary_region(input.into());
         self
     }
     /// <p>The Amazon Web Services Region of the new primary key. Enter the Region ID, such as <code>us-east-1</code> or <code>ap-southeast-2</code>. There must be an existing replica key in this Region.</p>
     /// <p>When the operation completes, the multi-Region key in this Region will be the primary key.</p>
-    pub fn set_primary_region(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_primary_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_primary_region(input);
         self
     }

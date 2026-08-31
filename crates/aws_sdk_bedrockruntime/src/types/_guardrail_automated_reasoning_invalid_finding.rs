@@ -7,16 +7,13 @@ pub struct GuardrailAutomatedReasoningInvalidFinding {
     /// <p>The logical translation of the input that this finding invalidates.</p>
     pub translation: ::std::option::Option<crate::types::GuardrailAutomatedReasoningTranslation>,
     /// <p>The automated reasoning policy rules that contradict the claims in the input.</p>
-    pub contradicting_rules:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningRule>>,
+    pub contradicting_rules: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningRule>>,
     /// <p>Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.</p>
     pub logic_warning: ::std::option::Option<crate::types::GuardrailAutomatedReasoningLogicWarning>,
 }
 impl GuardrailAutomatedReasoningInvalidFinding {
     /// <p>The logical translation of the input that this finding invalidates.</p>
-    pub fn translation(
-        &self,
-    ) -> ::std::option::Option<&crate::types::GuardrailAutomatedReasoningTranslation> {
+    pub fn translation(&self) -> ::std::option::Option<&crate::types::GuardrailAutomatedReasoningTranslation> {
         self.translation.as_ref()
     }
     /// <p>The automated reasoning policy rules that contradict the claims in the input.</p>
@@ -26,9 +23,7 @@ impl GuardrailAutomatedReasoningInvalidFinding {
         self.contradicting_rules.as_deref().unwrap_or_default()
     }
     /// <p>Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.</p>
-    pub fn logic_warning(
-        &self,
-    ) -> ::std::option::Option<&crate::types::GuardrailAutomatedReasoningLogicWarning> {
+    pub fn logic_warning(&self) -> ::std::option::Option<&crate::types::GuardrailAutomatedReasoningLogicWarning> {
         self.logic_warning.as_ref()
     }
 }
@@ -40,24 +35,17 @@ impl GuardrailAutomatedReasoningInvalidFinding {
 }
 
 /// A builder for [`GuardrailAutomatedReasoningInvalidFinding`](crate::types::GuardrailAutomatedReasoningInvalidFinding).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailAutomatedReasoningInvalidFindingBuilder {
-    pub(crate) translation:
-        ::std::option::Option<crate::types::GuardrailAutomatedReasoningTranslation>,
+    pub(crate) translation: ::std::option::Option<crate::types::GuardrailAutomatedReasoningTranslation>,
     pub(crate) contradicting_rules:
         ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningRule>>,
-    pub(crate) logic_warning:
-        ::std::option::Option<crate::types::GuardrailAutomatedReasoningLogicWarning>,
+    pub(crate) logic_warning: ::std::option::Option<crate::types::GuardrailAutomatedReasoningLogicWarning>,
 }
 impl GuardrailAutomatedReasoningInvalidFindingBuilder {
     /// <p>The logical translation of the input that this finding invalidates.</p>
-    pub fn translation(
-        mut self,
-        input: crate::types::GuardrailAutomatedReasoningTranslation,
-    ) -> Self {
+    pub fn translation(mut self, input: crate::types::GuardrailAutomatedReasoningTranslation) -> Self {
         self.translation = ::std::option::Option::Some(input);
         self
     }
@@ -70,9 +58,7 @@ impl GuardrailAutomatedReasoningInvalidFindingBuilder {
         self
     }
     /// <p>The logical translation of the input that this finding invalidates.</p>
-    pub fn get_translation(
-        &self,
-    ) -> &::std::option::Option<crate::types::GuardrailAutomatedReasoningTranslation> {
+    pub fn get_translation(&self) -> &::std::option::Option<crate::types::GuardrailAutomatedReasoningTranslation> {
         &self.translation
     }
     /// Appends an item to `contradicting_rules`.
@@ -80,10 +66,7 @@ impl GuardrailAutomatedReasoningInvalidFindingBuilder {
     /// To override the contents of this collection use [`set_contradicting_rules`](Self::set_contradicting_rules).
     ///
     /// <p>The automated reasoning policy rules that contradict the claims in the input.</p>
-    pub fn contradicting_rules(
-        mut self,
-        input: crate::types::GuardrailAutomatedReasoningRule,
-    ) -> Self {
+    pub fn contradicting_rules(mut self, input: crate::types::GuardrailAutomatedReasoningRule) -> Self {
         let mut v = self.contradicting_rules.unwrap_or_default();
         v.push(input);
         self.contradicting_rules = ::std::option::Option::Some(v);
@@ -92,9 +75,7 @@ impl GuardrailAutomatedReasoningInvalidFindingBuilder {
     /// <p>The automated reasoning policy rules that contradict the claims in the input.</p>
     pub fn set_contradicting_rules(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningRule>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningRule>>,
     ) -> Self {
         self.contradicting_rules = input;
         self
@@ -102,15 +83,11 @@ impl GuardrailAutomatedReasoningInvalidFindingBuilder {
     /// <p>The automated reasoning policy rules that contradict the claims in the input.</p>
     pub fn get_contradicting_rules(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningRule>>
-    {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningRule>> {
         &self.contradicting_rules
     }
     /// <p>Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.</p>
-    pub fn logic_warning(
-        mut self,
-        input: crate::types::GuardrailAutomatedReasoningLogicWarning,
-    ) -> Self {
+    pub fn logic_warning(mut self, input: crate::types::GuardrailAutomatedReasoningLogicWarning) -> Self {
         self.logic_warning = ::std::option::Option::Some(input);
         self
     }
@@ -123,9 +100,7 @@ impl GuardrailAutomatedReasoningInvalidFindingBuilder {
         self
     }
     /// <p>Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.</p>
-    pub fn get_logic_warning(
-        &self,
-    ) -> &::std::option::Option<crate::types::GuardrailAutomatedReasoningLogicWarning> {
+    pub fn get_logic_warning(&self) -> &::std::option::Option<crate::types::GuardrailAutomatedReasoningLogicWarning> {
         &self.logic_warning
     }
     /// Consumes the builder and constructs a [`GuardrailAutomatedReasoningInvalidFinding`](crate::types::GuardrailAutomatedReasoningInvalidFinding).

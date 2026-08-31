@@ -15,8 +15,6 @@ impl super::Client {
     pub fn list_ssh_public_keys(
         &self,
     ) -> crate::operation::list_ssh_public_keys::builders::ListSSHPublicKeysFluentBuilder {
-        crate::operation::list_ssh_public_keys::builders::ListSSHPublicKeysFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::list_ssh_public_keys::builders::ListSSHPublicKeysFluentBuilder::new(self.handle.clone())
     }
 }

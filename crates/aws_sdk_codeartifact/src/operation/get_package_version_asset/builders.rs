@@ -26,8 +26,7 @@ impl crate::operation::get_package_version_asset::builders::GetPackageVersionAss
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GetPackageVersionAssetFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::get_package_version_asset::builders::GetPackageVersionAssetInputBuilder,
+    inner: crate::operation::get_package_version_asset::builders::GetPackageVersionAssetInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -60,8 +59,7 @@ impl GetPackageVersionAssetFluentBuilder {
     /// Access the GetPackageVersionAsset as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::get_package_version_asset::builders::GetPackageVersionAssetInputBuilder
-    {
+    ) -> &crate::operation::get_package_version_asset::builders::GetPackageVersionAssetInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,16 +83,13 @@ impl GetPackageVersionAssetFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_package_version_asset::GetPackageVersionAsset::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::get_package_version_asset::GetPackageVersionAsset::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::get_package_version_asset::GetPackageVersionAsset::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::get_package_version_asset::GetPackageVersionAsset::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -267,18 +262,12 @@ impl GetPackageVersionAssetFluentBuilder {
         self.inner.get_package()
     }
     /// <p>A string that contains the package version (for example, <code>3.5.2</code>).</p>
-    pub fn package_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.package_version(input.into());
         self
     }
     /// <p>A string that contains the package version (for example, <code>3.5.2</code>).</p>
-    pub fn set_package_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_package_version(input);
         self
     }
@@ -301,18 +290,12 @@ impl GetPackageVersionAssetFluentBuilder {
         self.inner.get_asset()
     }
     /// <p>The name of the package version revision that contains the requested asset.</p>
-    pub fn package_version_revision(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_version_revision(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.package_version_revision(input.into());
         self
     }
     /// <p>The name of the package version revision that contains the requested asset.</p>
-    pub fn set_package_version_revision(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_version_revision(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_package_version_revision(input);
         self
     }

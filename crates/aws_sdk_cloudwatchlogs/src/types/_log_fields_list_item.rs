@@ -27,9 +27,7 @@ impl LogFieldsListItem {
 }
 
 /// A builder for [`LogFieldsListItem`](crate::types::LogFieldsListItem).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct LogFieldsListItemBuilder {
     pub(crate) log_field_name: ::std::option::Option<::std::string::String>,
@@ -37,18 +35,12 @@ pub struct LogFieldsListItemBuilder {
 }
 impl LogFieldsListItemBuilder {
     /// <p>The name of the log field.</p>
-    pub fn log_field_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_field_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_field_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the log field.</p>
-    pub fn set_log_field_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_field_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_field_name = input;
         self
     }
@@ -62,10 +54,7 @@ impl LogFieldsListItemBuilder {
         self
     }
     /// <p>The data type information for the log field.</p>
-    pub fn set_log_field_type(
-        mut self,
-        input: ::std::option::Option<crate::types::LogFieldType>,
-    ) -> Self {
+    pub fn set_log_field_type(mut self, input: ::std::option::Option<crate::types::LogFieldType>) -> Self {
         self.log_field_type = input;
         self
     }

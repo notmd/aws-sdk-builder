@@ -9,13 +9,11 @@ use aws_runtime::env_config::EnvConfigValue;
 use aws_smithy_types::error::display::DisplayErrorContext;
 
 mod env {
-    pub(super) const REQUEST_MIN_COMPRESSION_SIZE_BYTES: &str =
-        "AWS_REQUEST_MIN_COMPRESSION_SIZE_BYTES";
+    pub(super) const REQUEST_MIN_COMPRESSION_SIZE_BYTES: &str = "AWS_REQUEST_MIN_COMPRESSION_SIZE_BYTES";
 }
 
 mod profile_key {
-    pub(super) const REQUEST_MIN_COMPRESSION_SIZE_BYTES: &str =
-        "request_min_compression_size_bytes";
+    pub(super) const REQUEST_MIN_COMPRESSION_SIZE_BYTES: &str = "request_min_compression_size_bytes";
 }
 
 /// Load the value for "request minimum compression size bytes".
@@ -25,9 +23,7 @@ mod profile_key {
 /// 2. The profile key `request_min_compression_size_bytes=10240`
 ///
 /// If invalid values are found, the provider will return None and an error will be logged.
-pub(crate) async fn request_min_compression_size_bytes_provider(
-    provider_config: &ProviderConfig,
-) -> Option<u32> {
+pub(crate) async fn request_min_compression_size_bytes_provider(provider_config: &ProviderConfig) -> Option<u32> {
     let env = provider_config.env();
     let profiles = provider_config.profile().await;
 
@@ -57,10 +53,7 @@ mod test {
             "AWS_REQUEST_MIN_COMPRESSION_SIZE_BYTES",
             "not-a-uint",
         )]));
-        assert_eq!(
-            request_min_compression_size_bytes_provider(&conf).await,
-            None
-        );
+        assert_eq!(request_min_compression_size_bytes_provider(&conf).await, None);
         assert!(logs_contain(
             "invalid value for `request minimum compression size bytes` setting"
         ));
@@ -71,10 +64,7 @@ mod test {
     #[traced_test]
     async fn environment_priority() {
         let conf = ProviderConfig::empty()
-            .with_env(Env::from_slice(&[(
-                "AWS_REQUEST_MIN_COMPRESSION_SIZE_BYTES",
-                "99",
-            )]))
+            .with_env(Env::from_slice(&[("AWS_REQUEST_MIN_COMPRESSION_SIZE_BYTES", "99")]))
             .with_profile_config(
                 Some(
                     #[allow(deprecated)]
@@ -92,10 +82,7 @@ mod test {
                 "conf",
                 "[default]\nrequest_min_compression_size_bytes = 100",
             )]));
-        assert_eq!(
-            request_min_compression_size_bytes_provider(&conf).await,
-            Some(99)
-        );
+        assert_eq!(request_min_compression_size_bytes_provider(&conf).await, Some(99));
     }
 
     #[tokio::test]
@@ -119,9 +106,6 @@ mod test {
                 "conf",
                 "[default]\nrequest_min_compression_size_bytes = 22",
             )]));
-        assert_eq!(
-            request_min_compression_size_bytes_provider(&conf).await,
-            Some(22)
-        );
+        assert_eq!(request_min_compression_size_bytes_provider(&conf).await, Some(22));
     }
 }

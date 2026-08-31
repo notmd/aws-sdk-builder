@@ -8,17 +8,16 @@ pub(crate) fn de_inventory_configuration_payload(
     (!body.is_empty())
         .then(|| {
             crate::protocol_serde::shape_get_bucket_inventory_configuration_output::de_inventory_configuration(body)
-                .map_err(crate::operation::get_bucket_inventory_configuration::GetBucketInventoryConfigurationError::unhandled)
+                .map_err(
+                crate::operation::get_bucket_inventory_configuration::GetBucketInventoryConfigurationError::unhandled,
+            )
         })
         .transpose()
 }
 
 pub fn de_inventory_configuration(
     inp: &[u8],
-) -> std::result::Result<
-    crate::types::InventoryConfiguration,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> std::result::Result<crate::types::InventoryConfiguration, ::aws_smithy_xml::decode::XmlDecodeError> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
     #[allow(unused_mut)]
     let mut decoder = doc.root_element()?;
@@ -30,8 +29,5 @@ pub fn de_inventory_configuration(
     }
     #[allow(unused_variables)]
     let depth = 0u32;
-    crate::protocol_serde::shape_inventory_configuration::de_inventory_configuration(
-        &mut decoder,
-        depth + 1,
-    )
+    crate::protocol_serde::shape_inventory_configuration::de_inventory_configuration(&mut decoder, depth + 1)
 }

@@ -23,9 +23,7 @@ mod profile_key {
 /// 2. The profile key `ignore_configured_endpoint_urls=true/false`
 ///
 /// If invalid values are found, the provider will return None and an error will be logged.
-pub async fn ignore_configured_endpoint_urls_provider(
-    provider_config: &ProviderConfig,
-) -> Option<bool> {
+pub async fn ignore_configured_endpoint_urls_provider(provider_config: &ProviderConfig) -> Option<bool> {
     let env = provider_config.env();
     let profiles = provider_config.profile().await;
 
@@ -67,10 +65,7 @@ mod test {
     #[traced_test]
     async fn environment_priority() {
         let conf = ProviderConfig::empty()
-            .with_env(Env::from_slice(&[(
-                env::IGNORE_CONFIGURED_ENDPOINT_URLS,
-                "TRUE",
-            )]))
+            .with_env(Env::from_slice(&[(env::IGNORE_CONFIGURED_ENDPOINT_URLS, "TRUE")]))
             .with_profile_config(
                 Some(
                     #[allow(deprecated)]
@@ -88,9 +83,6 @@ mod test {
                 "conf",
                 "[default]\nignore_configured_endpoint_urls = false",
             )]));
-        assert_eq!(
-            Some(true),
-            ignore_configured_endpoint_urls_provider(&conf).await,
-        );
+        assert_eq!(Some(true), ignore_configured_endpoint_urls_provider(&conf).await,);
     }
 }

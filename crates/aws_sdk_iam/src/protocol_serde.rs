@@ -194,12 +194,8 @@ where
     E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
 {
     result
-        .map(|output| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output)
-        })
-        .map_err(|error| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error)
-        })
+        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))
+        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))
         .map_err(::std::convert::Into::into)
 }
 
@@ -389,10 +385,7 @@ pub fn parse_http_error_metadata(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     response_body: &[u8],
-) -> ::std::result::Result<
-    ::aws_smithy_types::error::metadata::Builder,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_xml::decode::XmlDecodeError> {
     crate::rest_xml_wrapped_errors::parse_error_metadata(response_body)
 }
 
@@ -1542,10 +1535,7 @@ pub(crate) mod shape_caller_is_not_management_account_exception;
 ))]
 pub(crate) mod shape_concurrent_modification_exception;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub(crate) mod shape_context_entry;
 
 #[cfg(feature = "op_get_credential_report")]
@@ -1798,10 +1788,7 @@ pub(crate) mod shape_key_pair_mismatch_exception;
 ))]
 pub(crate) mod shape_limit_exceeded_exception;
 
-#[cfg(any(
-    feature = "op_upload_server_certificate",
-    feature = "op_upload_signing_certificate"
-))]
+#[cfg(any(feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
 pub(crate) mod shape_malformed_certificate_exception;
 
 #[cfg(any(
@@ -1997,10 +1984,7 @@ pub(crate) mod shape_organization_not_in_all_features_mode_exception;
 ))]
 pub(crate) mod shape_password_policy_violation_exception;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub(crate) mod shape_policy_evaluation_exception;
 
 #[cfg(feature = "op_simulate_principal_policy")]
@@ -2258,10 +2242,7 @@ pub(crate) mod shape_tag;
 ))]
 pub(crate) mod shape_unmodifiable_entity_exception;
 
-#[cfg(any(
-    feature = "op_get_ssh_public_key",
-    feature = "op_upload_ssh_public_key"
-))]
+#[cfg(any(feature = "op_get_ssh_public_key", feature = "op_upload_ssh_public_key"))]
 pub(crate) mod shape_unrecognized_public_key_encoding_exception;
 
 #[cfg(feature = "op_get_organizations_access_report")]
@@ -2307,10 +2288,7 @@ pub(crate) mod shape_client_id_list_type;
 ))]
 pub(crate) mod shape_context_key_names_result_list_type;
 
-#[cfg(any(
-    feature = "op_get_delegation_request",
-    feature = "op_list_delegation_requests"
-))]
+#[cfg(any(feature = "op_get_delegation_request", feature = "op_list_delegation_requests"))]
 pub(crate) mod shape_delegation_request;
 
 #[cfg(feature = "op_list_delegation_requests")]
@@ -2329,10 +2307,7 @@ pub(crate) mod shape_entity_details_list_type;
 ))]
 pub(crate) mod shape_error_details;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub(crate) mod shape_evaluation_results_list_type;
 
 #[cfg(any(
@@ -2504,16 +2479,10 @@ pub(crate) mod shape_service_specific_credentials_list_type;
 #[cfg(feature = "op_get_service_last_accessed_details")]
 pub(crate) mod shape_services_last_accessed;
 
-#[cfg(any(
-    feature = "op_list_signing_certificates",
-    feature = "op_upload_signing_certificate"
-))]
+#[cfg(any(feature = "op_list_signing_certificates", feature = "op_upload_signing_certificate"))]
 pub(crate) mod shape_signing_certificate;
 
-#[cfg(any(
-    feature = "op_get_ssh_public_key",
-    feature = "op_upload_ssh_public_key"
-))]
+#[cfg(any(feature = "op_get_ssh_public_key", feature = "op_upload_ssh_public_key"))]
 pub(crate) mod shape_ssh_public_key;
 
 #[cfg(feature = "op_list_ssh_public_keys")]
@@ -2579,10 +2548,7 @@ pub(crate) mod shape_user_detail_list_type;
 #[cfg(any(feature = "op_get_group", feature = "op_list_users"))]
 pub(crate) mod shape_user_list_type;
 
-#[cfg(any(
-    feature = "op_create_virtual_mfa_device",
-    feature = "op_list_virtual_mfa_devices"
-))]
+#[cfg(any(feature = "op_create_virtual_mfa_device", feature = "op_list_virtual_mfa_devices"))]
 pub(crate) mod shape_virtual_mfa_device;
 
 #[cfg(feature = "op_list_virtual_mfa_devices")]
@@ -2626,10 +2592,7 @@ pub(crate) mod shape_attached_policy;
 #[cfg(feature = "op_get_service_last_accessed_details_with_entities")]
 pub(crate) mod shape_entity_details;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub(crate) mod shape_evaluation_result;
 
 #[cfg(feature = "op_get_account_authorization_details")]
@@ -2683,10 +2646,7 @@ pub(crate) mod shape_role_detail;
 ))]
 pub(crate) mod shape_role_last_used;
 
-#[cfg(any(
-    feature = "op_get_delegation_request",
-    feature = "op_list_delegation_requests"
-))]
+#[cfg(any(feature = "op_get_delegation_request", feature = "op_list_delegation_requests"))]
 pub(crate) mod shape_role_permission_restriction_arn_list_type;
 
 #[cfg(feature = "op_get_service_linked_role_deletion_status")]
@@ -2731,10 +2691,7 @@ pub(crate) mod shape_user_detail;
 #[cfg(feature = "op_get_service_last_accessed_details_with_entities")]
 pub(crate) mod shape_entity_info;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub(crate) mod shape_eval_decision_details_type;
 
 #[cfg(feature = "op_get_account_authorization_details")]
@@ -2743,19 +2700,13 @@ pub(crate) mod shape_group_name_list_type;
 #[cfg(feature = "op_get_role_template_version")]
 pub(crate) mod shape_inline_policy;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub(crate) mod shape_organizations_decision_detail;
 
 #[cfg(feature = "op_get_role_template_version")]
 pub(crate) mod shape_parameter_definition;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub(crate) mod shape_permissions_boundary_decision_detail;
 
 #[cfg(feature = "op_get_account_authorization_details")]
@@ -2771,19 +2722,13 @@ pub(crate) mod shape_policy_granting_service_access_list_type;
 ))]
 pub(crate) mod shape_policy_parameter_list_type;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub(crate) mod shape_resource_specific_result_list_type;
 
 #[cfg(feature = "op_get_service_linked_role_deletion_status")]
 pub(crate) mod shape_role_usage_type;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub(crate) mod shape_statement_list_type;
 
 #[cfg(feature = "op_get_role_template_version")]
@@ -2801,16 +2746,10 @@ pub(crate) mod shape_policy_detail;
 #[cfg(feature = "op_list_policies_granting_service_access")]
 pub(crate) mod shape_policy_granting_service_access;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub(crate) mod shape_resource_specific_result;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub(crate) mod shape_statement;
 
 #[cfg(feature = "op_get_service_last_accessed_details")]
@@ -2823,8 +2762,5 @@ pub(crate) mod shape_tracked_action_last_accessed;
 ))]
 pub(crate) mod shape_policy_parameter_values_list_type;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub(crate) mod shape_position;

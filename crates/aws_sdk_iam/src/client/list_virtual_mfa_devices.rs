@@ -14,8 +14,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListVirtualMFADevicesError>`](crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError)
     pub fn list_virtual_mfa_devices(
         &self,
-    ) -> crate::operation::list_virtual_mfa_devices::builders::ListVirtualMFADevicesFluentBuilder
-    {
-        crate::operation::list_virtual_mfa_devices::builders::ListVirtualMFADevicesFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::list_virtual_mfa_devices::builders::ListVirtualMFADevicesFluentBuilder {
+        crate::operation::list_virtual_mfa_devices::builders::ListVirtualMFADevicesFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

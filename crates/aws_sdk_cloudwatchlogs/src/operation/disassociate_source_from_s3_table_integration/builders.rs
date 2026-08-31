@@ -43,7 +43,7 @@ impl
             crate::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationOutput,
             crate::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError,
         >,
-    > {
+    >{
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -103,7 +103,7 @@ impl DisassociateSourceFromS3TableIntegrationFluentBuilder {
         crate::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationOutput,
         crate::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(

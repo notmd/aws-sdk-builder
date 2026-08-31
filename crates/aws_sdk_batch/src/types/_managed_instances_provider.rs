@@ -17,8 +17,7 @@ pub struct ManagedInstancesProvider {
     /// <p>The instance launch configuration for the Amazon ECS Managed Instances capacity provider. Contains networking, instance profile, instance requirements, capacity type, storage, and monitoring configuration.</p>
     pub instance_launch_template: ::std::option::Option<crate::types::InstanceLaunchTemplate>,
     /// <p>The infrastructure optimization configuration for the capacity provider. Specifies the idle-instance scale-in behavior.</p>
-    pub infrastructure_optimization:
-        ::std::option::Option<crate::types::InfrastructureOptimization>,
+    pub infrastructure_optimization: ::std::option::Option<crate::types::InfrastructureOptimization>,
 }
 impl ManagedInstancesProvider {
     /// <p>Specifies whether tags on the capacity provider are propagated to the Amazon EC2 instances it launches. Valid values:</p>
@@ -36,15 +35,11 @@ impl ManagedInstancesProvider {
         self.infrastructure_role_arn.as_deref()
     }
     /// <p>The instance launch configuration for the Amazon ECS Managed Instances capacity provider. Contains networking, instance profile, instance requirements, capacity type, storage, and monitoring configuration.</p>
-    pub fn instance_launch_template(
-        &self,
-    ) -> ::std::option::Option<&crate::types::InstanceLaunchTemplate> {
+    pub fn instance_launch_template(&self) -> ::std::option::Option<&crate::types::InstanceLaunchTemplate> {
         self.instance_launch_template.as_ref()
     }
     /// <p>The infrastructure optimization configuration for the capacity provider. Specifies the idle-instance scale-in behavior.</p>
-    pub fn infrastructure_optimization(
-        &self,
-    ) -> ::std::option::Option<&crate::types::InfrastructureOptimization> {
+    pub fn infrastructure_optimization(&self) -> ::std::option::Option<&crate::types::InfrastructureOptimization> {
         self.infrastructure_optimization.as_ref()
     }
 }
@@ -56,17 +51,13 @@ impl ManagedInstancesProvider {
 }
 
 /// A builder for [`ManagedInstancesProvider`](crate::types::ManagedInstancesProvider).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ManagedInstancesProviderBuilder {
     pub(crate) propagate_tags: ::std::option::Option<::std::string::String>,
     pub(crate) infrastructure_role_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) instance_launch_template:
-        ::std::option::Option<crate::types::InstanceLaunchTemplate>,
-    pub(crate) infrastructure_optimization:
-        ::std::option::Option<crate::types::InfrastructureOptimization>,
+    pub(crate) instance_launch_template: ::std::option::Option<crate::types::InstanceLaunchTemplate>,
+    pub(crate) infrastructure_optimization: ::std::option::Option<crate::types::InfrastructureOptimization>,
 }
 impl ManagedInstancesProviderBuilder {
     /// <p>Specifies whether tags on the capacity provider are propagated to the Amazon EC2 instances it launches. Valid values:</p>
@@ -76,10 +67,7 @@ impl ManagedInstancesProviderBuilder {
     /// <li>
     /// <p><code>NONE</code> (default) — Does not propagate tags to instances.</p></li>
     /// </ul>
-    pub fn propagate_tags(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn propagate_tags(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.propagate_tags = ::std::option::Option::Some(input.into());
         self
     }
@@ -90,10 +78,7 @@ impl ManagedInstancesProviderBuilder {
     /// <li>
     /// <p><code>NONE</code> (default) — Does not propagate tags to instances.</p></li>
     /// </ul>
-    pub fn set_propagate_tags(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_propagate_tags(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.propagate_tags = input;
         self
     }
@@ -109,18 +94,12 @@ impl ManagedInstancesProviderBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the IAM role that Amazon ECS assumes to manage Amazon EC2 instances on your behalf. This role must have a trust policy for <code>ecs.amazonaws.com</code>. You must have the <code>iam:PassRole</code> permission for this role with the condition <code>iam:PassedToService: ecs.amazonaws.com</code>.</p>
     /// This field is required.
-    pub fn infrastructure_role_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn infrastructure_role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.infrastructure_role_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the IAM role that Amazon ECS assumes to manage Amazon EC2 instances on your behalf. This role must have a trust policy for <code>ecs.amazonaws.com</code>. You must have the <code>iam:PassRole</code> permission for this role with the condition <code>iam:PassedToService: ecs.amazonaws.com</code>.</p>
-    pub fn set_infrastructure_role_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_infrastructure_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.infrastructure_role_arn = input;
         self
     }
@@ -143,16 +122,11 @@ impl ManagedInstancesProviderBuilder {
         self
     }
     /// <p>The instance launch configuration for the Amazon ECS Managed Instances capacity provider. Contains networking, instance profile, instance requirements, capacity type, storage, and monitoring configuration.</p>
-    pub fn get_instance_launch_template(
-        &self,
-    ) -> &::std::option::Option<crate::types::InstanceLaunchTemplate> {
+    pub fn get_instance_launch_template(&self) -> &::std::option::Option<crate::types::InstanceLaunchTemplate> {
         &self.instance_launch_template
     }
     /// <p>The infrastructure optimization configuration for the capacity provider. Specifies the idle-instance scale-in behavior.</p>
-    pub fn infrastructure_optimization(
-        mut self,
-        input: crate::types::InfrastructureOptimization,
-    ) -> Self {
+    pub fn infrastructure_optimization(mut self, input: crate::types::InfrastructureOptimization) -> Self {
         self.infrastructure_optimization = ::std::option::Option::Some(input);
         self
     }
@@ -165,9 +139,7 @@ impl ManagedInstancesProviderBuilder {
         self
     }
     /// <p>The infrastructure optimization configuration for the capacity provider. Specifies the idle-instance scale-in behavior.</p>
-    pub fn get_infrastructure_optimization(
-        &self,
-    ) -> &::std::option::Option<crate::types::InfrastructureOptimization> {
+    pub fn get_infrastructure_optimization(&self) -> &::std::option::Option<crate::types::InfrastructureOptimization> {
         &self.infrastructure_optimization
     }
     /// Consumes the builder and constructs a [`ManagedInstancesProvider`](crate::types::ManagedInstancesProvider).

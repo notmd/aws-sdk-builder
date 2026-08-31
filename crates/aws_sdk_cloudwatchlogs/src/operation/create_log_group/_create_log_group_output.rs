@@ -18,9 +18,7 @@ impl CreateLogGroupOutput {
 }
 
 /// A builder for [`CreateLogGroupOutput`](crate::operation::create_log_group::CreateLogGroupOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateLogGroupOutputBuilder {
     _request_id: Option<String>,

@@ -3,10 +3,7 @@
 pub fn de_metrics_configuration(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<
-    crate::types::MetricsConfiguration,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<crate::types::MetricsConfiguration, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
             "maximum nesting depth exceeded",
@@ -42,11 +39,9 @@ pub fn de_metrics_configuration(
             _ => {}
         }
     }
-    Ok(
-        crate::serde_util::metrics_configuration_correct_errors(builder)
-            .build()
-            .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?,
-    )
+    Ok(crate::serde_util::metrics_configuration_correct_errors(builder)
+        .build()
+        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
 }
 
 pub fn ser_metrics_configuration(

@@ -69,9 +69,7 @@ impl GuardrailUsage {
 }
 
 /// A builder for [`GuardrailUsage`](crate::types::GuardrailUsage).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailUsageBuilder {
     pub(crate) topic_policy_units: ::std::option::Option<i32>,
@@ -137,10 +135,7 @@ impl GuardrailUsageBuilder {
         self
     }
     /// <p>The sensitive information policy units processed by the guardrail.</p>
-    pub fn set_sensitive_information_policy_units(
-        mut self,
-        input: ::std::option::Option<i32>,
-    ) -> Self {
+    pub fn set_sensitive_information_policy_units(mut self, input: ::std::option::Option<i32>) -> Self {
         self.sensitive_information_policy_units = input;
         self
     }
@@ -155,10 +150,7 @@ impl GuardrailUsageBuilder {
         self
     }
     /// <p>The sensitive information policy free units processed by the guardrail.</p>
-    pub fn set_sensitive_information_policy_free_units(
-        mut self,
-        input: ::std::option::Option<i32>,
-    ) -> Self {
+    pub fn set_sensitive_information_policy_free_units(mut self, input: ::std::option::Option<i32>) -> Self {
         self.sensitive_information_policy_free_units = input;
         self
     }
@@ -173,10 +165,7 @@ impl GuardrailUsageBuilder {
         self
     }
     /// <p>The contextual grounding policy units processed by the guardrail.</p>
-    pub fn set_contextual_grounding_policy_units(
-        mut self,
-        input: ::std::option::Option<i32>,
-    ) -> Self {
+    pub fn set_contextual_grounding_policy_units(mut self, input: ::std::option::Option<i32>) -> Self {
         self.contextual_grounding_policy_units = input;
         self
     }
@@ -204,10 +193,7 @@ impl GuardrailUsageBuilder {
         self
     }
     /// <p>The number of text units processed by the automated reasoning policy.</p>
-    pub fn set_automated_reasoning_policy_units(
-        mut self,
-        input: ::std::option::Option<i32>,
-    ) -> Self {
+    pub fn set_automated_reasoning_policy_units(mut self, input: ::std::option::Option<i32>) -> Self {
         self.automated_reasoning_policy_units = input;
         self
     }
@@ -239,10 +225,7 @@ impl GuardrailUsageBuilder {
     /// - [`contextual_grounding_policy_units`](crate::types::builders::GuardrailUsageBuilder::contextual_grounding_policy_units)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::GuardrailUsage,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::GuardrailUsage, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GuardrailUsage {
             topic_policy_units: self.topic_policy_units.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

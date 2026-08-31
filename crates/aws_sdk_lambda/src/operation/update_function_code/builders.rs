@@ -63,9 +63,7 @@ impl UpdateFunctionCodeFluentBuilder {
         }
     }
     /// Access the UpdateFunctionCode as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::update_function_code::builders::UpdateFunctionCodeInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::update_function_code::builders::UpdateFunctionCodeInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,17 +87,12 @@ impl UpdateFunctionCodeFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::update_function_code::UpdateFunctionCode::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::update_function_code::UpdateFunctionCode::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::update_function_code::UpdateFunctionCode::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::update_function_code::UpdateFunctionCode::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -138,10 +131,7 @@ impl UpdateFunctionCodeFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -156,10 +146,7 @@ impl UpdateFunctionCodeFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }
@@ -220,18 +207,12 @@ impl UpdateFunctionCodeFluentBuilder {
         self.inner.get_s3_key()
     }
     /// <p>For versioned objects, the version of the deployment package object to use.</p>
-    pub fn s3_object_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn s3_object_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.s3_object_version(input.into());
         self
     }
     /// <p>For versioned objects, the version of the deployment package object to use.</p>
-    pub fn set_s3_object_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_s3_object_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_s3_object_version(input);
         self
     }
@@ -271,9 +252,7 @@ impl UpdateFunctionCodeFluentBuilder {
     /// <li>
     /// <p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li>
     /// </ul>
-    pub fn get_s3_object_storage_mode(
-        &self,
-    ) -> &::std::option::Option<crate::types::S3ObjectStorageMode> {
+    pub fn get_s3_object_storage_mode(&self) -> &::std::option::Option<crate::types::S3ObjectStorageMode> {
         self.inner.get_s3_object_storage_mode()
     }
     /// <p>URI of a container image in the Amazon ECR registry. Do not use for a function defined with a .zip file archive.</p>
@@ -309,9 +288,7 @@ impl UpdateFunctionCodeFluentBuilder {
         self
     }
     /// <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
-    pub fn get_architectures(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Architecture>> {
+    pub fn get_architectures(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Architecture>> {
         self.inner.get_architectures()
     }
     /// <p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <code>PublishVersion</code> separately.</p>
@@ -342,9 +319,7 @@ impl UpdateFunctionCodeFluentBuilder {
         self
     }
     /// <p>Specifies where to publish the function version or configuration.</p>
-    pub fn get_publish_to(
-        &self,
-    ) -> &::std::option::Option<crate::types::FunctionVersionLatestPublished> {
+    pub fn get_publish_to(&self) -> &::std::option::Option<crate::types::FunctionVersionLatestPublished> {
         self.inner.get_publish_to()
     }
     /// <p>Set to true to validate the request parameters and access permissions without modifying the function code.</p>
@@ -376,18 +351,12 @@ impl UpdateFunctionCodeFluentBuilder {
         self.inner.get_revision_id()
     }
     /// <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an Amazon Web Services managed key.</p>
-    pub fn source_kms_key_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn source_kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.source_kms_key_arn(input.into());
         self
     }
     /// <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an Amazon Web Services managed key.</p>
-    pub fn set_source_kms_key_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_source_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_source_kms_key_arn(input);
         self
     }

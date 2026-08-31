@@ -12,11 +12,9 @@ pub struct SetRiskConfigurationInput {
     pub compromised_credentials_risk_configuration:
         ::std::option::Option<crate::types::CompromisedCredentialsRiskConfigurationType>,
     /// <p>The settings for automated responses and notification templates for adaptive authentication with threat protection.</p>
-    pub account_takeover_risk_configuration:
-        ::std::option::Option<crate::types::AccountTakeoverRiskConfigurationType>,
+    pub account_takeover_risk_configuration: ::std::option::Option<crate::types::AccountTakeoverRiskConfigurationType>,
     /// <p>A set of IP-address overrides to threat protection. You can set up IP-address always-block and always-allow lists.</p>
-    pub risk_exception_configuration:
-        ::std::option::Option<crate::types::RiskExceptionConfigurationType>,
+    pub risk_exception_configuration: ::std::option::Option<crate::types::RiskExceptionConfigurationType>,
 }
 impl SetRiskConfigurationInput {
     /// <p>The ID of the user pool where you want to set a risk configuration. If you include <code>UserPoolId</code> in your request, don't include <code>ClientId</code>. When the client ID is null, the same risk configuration is applied to all the clients in the userPool. When you include both <code>ClientId</code> and <code>UserPoolId</code>, Amazon Cognito maps the configuration to the app client only.</p>
@@ -41,9 +39,7 @@ impl SetRiskConfigurationInput {
         self.account_takeover_risk_configuration.as_ref()
     }
     /// <p>A set of IP-address overrides to threat protection. You can set up IP-address always-block and always-allow lists.</p>
-    pub fn risk_exception_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::RiskExceptionConfigurationType> {
+    pub fn risk_exception_configuration(&self) -> ::std::option::Option<&crate::types::RiskExceptionConfigurationType> {
         self.risk_exception_configuration.as_ref()
     }
 }
@@ -60,17 +56,13 @@ impl ::std::fmt::Debug for SetRiskConfigurationInput {
             "account_takeover_risk_configuration",
             &self.account_takeover_risk_configuration,
         );
-        formatter.field(
-            "risk_exception_configuration",
-            &self.risk_exception_configuration,
-        );
+        formatter.field("risk_exception_configuration", &self.risk_exception_configuration);
         formatter.finish()
     }
 }
 impl SetRiskConfigurationInput {
     /// Creates a new builder-style object to manufacture [`SetRiskConfigurationInput`](crate::operation::set_risk_configuration::SetRiskConfigurationInput).
-    pub fn builder(
-    ) -> crate::operation::set_risk_configuration::builders::SetRiskConfigurationInputBuilder {
+    pub fn builder() -> crate::operation::set_risk_configuration::builders::SetRiskConfigurationInputBuilder {
         crate::operation::set_risk_configuration::builders::SetRiskConfigurationInputBuilder::default()
     }
 }
@@ -85,8 +77,7 @@ pub struct SetRiskConfigurationInputBuilder {
         ::std::option::Option<crate::types::CompromisedCredentialsRiskConfigurationType>,
     pub(crate) account_takeover_risk_configuration:
         ::std::option::Option<crate::types::AccountTakeoverRiskConfigurationType>,
-    pub(crate) risk_exception_configuration:
-        ::std::option::Option<crate::types::RiskExceptionConfigurationType>,
+    pub(crate) risk_exception_configuration: ::std::option::Option<crate::types::RiskExceptionConfigurationType>,
 }
 impl SetRiskConfigurationInputBuilder {
     /// <p>The ID of the user pool where you want to set a risk configuration. If you include <code>UserPoolId</code> in your request, don't include <code>ClientId</code>. When the client ID is null, the same risk configuration is applied to all the clients in the userPool. When you include both <code>ClientId</code> and <code>UserPoolId</code>, Amazon Cognito maps the configuration to the app client only.</p>
@@ -166,10 +157,7 @@ impl SetRiskConfigurationInputBuilder {
         &self.account_takeover_risk_configuration
     }
     /// <p>A set of IP-address overrides to threat protection. You can set up IP-address always-block and always-allow lists.</p>
-    pub fn risk_exception_configuration(
-        mut self,
-        input: crate::types::RiskExceptionConfigurationType,
-    ) -> Self {
+    pub fn risk_exception_configuration(mut self, input: crate::types::RiskExceptionConfigurationType) -> Self {
         self.risk_exception_configuration = ::std::option::Option::Some(input);
         self
     }
@@ -194,16 +182,13 @@ impl SetRiskConfigurationInputBuilder {
         crate::operation::set_risk_configuration::SetRiskConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::set_risk_configuration::SetRiskConfigurationInput {
-                user_pool_id: self.user_pool_id,
-                client_id: self.client_id,
-                compromised_credentials_risk_configuration: self
-                    .compromised_credentials_risk_configuration,
-                account_takeover_risk_configuration: self.account_takeover_risk_configuration,
-                risk_exception_configuration: self.risk_exception_configuration,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::set_risk_configuration::SetRiskConfigurationInput {
+            user_pool_id: self.user_pool_id,
+            client_id: self.client_id,
+            compromised_credentials_risk_configuration: self.compromised_credentials_risk_configuration,
+            account_takeover_risk_configuration: self.account_takeover_risk_configuration,
+            risk_exception_configuration: self.risk_exception_configuration,
+        })
     }
 }
 impl ::std::fmt::Debug for SetRiskConfigurationInputBuilder {
@@ -219,10 +204,7 @@ impl ::std::fmt::Debug for SetRiskConfigurationInputBuilder {
             "account_takeover_risk_configuration",
             &self.account_takeover_risk_configuration,
         );
-        formatter.field(
-            "risk_exception_configuration",
-            &self.risk_exception_configuration,
-        );
+        formatter.field("risk_exception_configuration", &self.risk_exception_configuration);
         formatter.finish()
     }
 }

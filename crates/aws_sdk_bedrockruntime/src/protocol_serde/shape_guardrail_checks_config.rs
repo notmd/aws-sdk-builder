@@ -12,7 +12,10 @@ pub fn ser_guardrail_checks_config(
     if let Some(var_3) = &input.prompt_attack {
         #[allow(unused_mut)]
         let mut object_4 = object.key("promptAttack").start_object();
-        crate::protocol_serde::shape_guardrail_checks_prompt_attack_config::ser_guardrail_checks_prompt_attack_config(&mut object_4, var_3)?;
+        crate::protocol_serde::shape_guardrail_checks_prompt_attack_config::ser_guardrail_checks_prompt_attack_config(
+            &mut object_4,
+            var_3,
+        )?;
         object_4.finish();
     }
     if let Some(var_5) = &input.sensitive_information {

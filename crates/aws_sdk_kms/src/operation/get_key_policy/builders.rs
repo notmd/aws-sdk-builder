@@ -61,9 +61,7 @@ impl GetKeyPolicyFluentBuilder {
         }
     }
     /// Access the GetKeyPolicy as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_key_policy::builders::GetKeyPolicyInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_key_policy::builders::GetKeyPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,12 +85,11 @@ impl GetKeyPolicyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::get_key_policy::GetKeyPolicy::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::get_key_policy::GetKeyPolicy::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::get_key_policy::GetKeyPolicy::orchestrate(&runtime_plugins, input).await
     }
 

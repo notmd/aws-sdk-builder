@@ -65,10 +65,7 @@ impl DeliverConfigSnapshotFluentBuilder {
         }
     }
     /// Access the DeliverConfigSnapshot as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::deliver_config_snapshot::builders::DeliverConfigSnapshotInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::deliver_config_snapshot::builders::DeliverConfigSnapshotInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -92,16 +89,13 @@ impl DeliverConfigSnapshotFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::deliver_config_snapshot::DeliverConfigSnapshot::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::deliver_config_snapshot::DeliverConfigSnapshot::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::deliver_config_snapshot::DeliverConfigSnapshot::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::deliver_config_snapshot::DeliverConfigSnapshot::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -130,18 +124,12 @@ impl DeliverConfigSnapshotFluentBuilder {
         self
     }
     /// <p>The name of the delivery channel through which the snapshot is delivered.</p>
-    pub fn delivery_channel_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delivery_channel_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.delivery_channel_name(input.into());
         self
     }
     /// <p>The name of the delivery channel through which the snapshot is delivered.</p>
-    pub fn set_delivery_channel_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delivery_channel_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_delivery_channel_name(input);
         self
     }

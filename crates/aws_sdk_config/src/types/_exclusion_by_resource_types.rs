@@ -31,9 +31,7 @@ impl ExclusionByResourceTypes {
 }
 
 /// A builder for [`ExclusionByResourceTypes`](crate::types::ExclusionByResourceTypes).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ExclusionByResourceTypesBuilder {
     pub(crate) resource_types: ::std::option::Option<::std::vec::Vec<crate::types::ResourceType>>,
@@ -59,9 +57,7 @@ impl ExclusionByResourceTypesBuilder {
         self
     }
     /// <p>A comma-separated list of resource types to exclude from recording by the configuration recorder.</p>
-    pub fn get_resource_types(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceType>> {
+    pub fn get_resource_types(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceType>> {
         &self.resource_types
     }
     /// Consumes the builder and constructs a [`ExclusionByResourceTypes`](crate::types::ExclusionByResourceTypes).

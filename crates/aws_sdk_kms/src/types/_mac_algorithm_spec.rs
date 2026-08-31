@@ -71,9 +71,9 @@ impl ::std::convert::From<&str> for MacAlgorithmSpec {
             "HMAC_SHA_256" => MacAlgorithmSpec::HmacSha256,
             "HMAC_SHA_384" => MacAlgorithmSpec::HmacSha384,
             "HMAC_SHA_512" => MacAlgorithmSpec::HmacSha512,
-            other => MacAlgorithmSpec::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => MacAlgorithmSpec::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -97,12 +97,7 @@ impl MacAlgorithmSpec {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &[
-            "HMAC_SHA_224",
-            "HMAC_SHA_256",
-            "HMAC_SHA_384",
-            "HMAC_SHA_512",
-        ]
+        &["HMAC_SHA_224", "HMAC_SHA_256", "HMAC_SHA_384", "HMAC_SHA_512"]
     }
 }
 impl ::std::convert::AsRef<str> for MacAlgorithmSpec {
@@ -114,14 +109,10 @@ impl MacAlgorithmSpec {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }

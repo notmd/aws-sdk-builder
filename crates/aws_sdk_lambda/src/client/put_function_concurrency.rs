@@ -10,8 +10,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutFunctionConcurrencyError>`](crate::operation::put_function_concurrency::PutFunctionConcurrencyError)
     pub fn put_function_concurrency(
         &self,
-    ) -> crate::operation::put_function_concurrency::builders::PutFunctionConcurrencyFluentBuilder
-    {
-        crate::operation::put_function_concurrency::builders::PutFunctionConcurrencyFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::put_function_concurrency::builders::PutFunctionConcurrencyFluentBuilder {
+        crate::operation::put_function_concurrency::builders::PutFunctionConcurrencyFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

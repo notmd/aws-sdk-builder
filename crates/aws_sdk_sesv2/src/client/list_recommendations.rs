@@ -14,8 +14,6 @@ impl super::Client {
     pub fn list_recommendations(
         &self,
     ) -> crate::operation::list_recommendations::builders::ListRecommendationsFluentBuilder {
-        crate::operation::list_recommendations::builders::ListRecommendationsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::list_recommendations::builders::ListRecommendationsFluentBuilder::new(self.handle.clone())
     }
 }

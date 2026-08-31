@@ -10,8 +10,6 @@ impl super::Client {
     pub fn attach_group_policy(
         &self,
     ) -> crate::operation::attach_group_policy::builders::AttachGroupPolicyFluentBuilder {
-        crate::operation::attach_group_policy::builders::AttachGroupPolicyFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::attach_group_policy::builders::AttachGroupPolicyFluentBuilder::new(self.handle.clone())
     }
 }

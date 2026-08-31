@@ -33,9 +33,7 @@ impl GetDedicatedIpsInput {
 }
 
 /// A builder for [`GetDedicatedIpsInput`](crate::operation::get_dedicated_ips::GetDedicatedIpsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetDedicatedIpsInputBuilder {
     pub(crate) pool_name: ::std::option::Option<::std::string::String>,

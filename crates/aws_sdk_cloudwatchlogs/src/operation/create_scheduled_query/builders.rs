@@ -57,9 +57,7 @@ impl CreateScheduledQueryFluentBuilder {
         }
     }
     /// Access the CreateScheduledQuery as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::create_scheduled_query::builders::CreateScheduledQueryInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::create_scheduled_query::builders::CreateScheduledQueryInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,11 +86,7 @@ impl CreateScheduledQueryFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::create_scheduled_query::CreateScheduledQuery::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::create_scheduled_query::CreateScheduledQuery::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -154,10 +148,7 @@ impl CreateScheduledQueryFluentBuilder {
         self
     }
     /// <p>The query language to use for the scheduled query. Valid values are <code>CWLI</code>, <code>PPL</code>, and <code>SQL</code>.</p>
-    pub fn set_query_language(
-        mut self,
-        input: ::std::option::Option<crate::types::QueryLanguage>,
-    ) -> Self {
+    pub fn set_query_language(mut self, input: ::std::option::Option<crate::types::QueryLanguage>) -> Self {
         self.inner = self.inner.set_query_language(input);
         self
     }
@@ -185,10 +176,7 @@ impl CreateScheduledQueryFluentBuilder {
     /// To override the contents of this collection use [`set_log_group_identifiers`](Self::set_log_group_identifiers).
     ///
     /// <p>An array of log group names or ARNs to query. You can specify between 1 and 50 log groups. Log groups can be identified by name or full ARN.</p>
-    pub fn log_group_identifiers(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifiers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_group_identifiers(input.into());
         self
     }
@@ -201,24 +189,16 @@ impl CreateScheduledQueryFluentBuilder {
         self
     }
     /// <p>An array of log group names or ARNs to query. You can specify between 1 and 50 log groups. Log groups can be identified by name or full ARN.</p>
-    pub fn get_log_group_identifiers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_group_identifiers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_log_group_identifiers()
     }
     /// <p>A cron expression that defines when the scheduled query runs. The expression uses standard cron syntax and supports minute-level precision. Maximum length is 256 characters.</p>
-    pub fn schedule_expression(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn schedule_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.schedule_expression(input.into());
         self
     }
     /// <p>A cron expression that defines when the scheduled query runs. The expression uses standard cron syntax and supports minute-level precision. Maximum length is 256 characters.</p>
-    pub fn set_schedule_expression(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_schedule_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_schedule_expression(input);
         self
     }
@@ -269,10 +249,7 @@ impl CreateScheduledQueryFluentBuilder {
         self.inner.get_end_time_offset()
     }
     /// <p>Configuration for where to deliver query results. Supports Amazon S3 destinations for storing query output and lookup table destinations for automatically refreshing lookup tables with query results. You can configure one or both destination types.</p>
-    pub fn destination_configuration(
-        mut self,
-        input: crate::types::DestinationConfiguration,
-    ) -> Self {
+    pub fn destination_configuration(mut self, input: crate::types::DestinationConfiguration) -> Self {
         self.inner = self.inner.destination_configuration(input);
         self
     }
@@ -285,9 +262,7 @@ impl CreateScheduledQueryFluentBuilder {
         self
     }
     /// <p>Configuration for where to deliver query results. Supports Amazon S3 destinations for storing query output and lookup table destinations for automatically refreshing lookup tables with query results. You can configure one or both destination types.</p>
-    pub fn get_destination_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::DestinationConfiguration> {
+    pub fn get_destination_configuration(&self) -> &::std::option::Option<crate::types::DestinationConfiguration> {
         self.inner.get_destination_configuration()
     }
     /// <p>The start time for the scheduled query in Unix epoch format. The query will not execute before this time.</p>
@@ -319,18 +294,12 @@ impl CreateScheduledQueryFluentBuilder {
         self.inner.get_schedule_end_time()
     }
     /// <p>The ARN of the IAM role that grants permissions to execute the query and deliver results to the specified destination. The role must have permissions to read from the specified log groups and write to the destination.</p>
-    pub fn execution_role_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn execution_role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.execution_role_arn(input.into());
         self
     }
     /// <p>The ARN of the IAM role that grants permissions to execute the query and deliver results to the specified destination. The role must have permissions to read from the specified log groups and write to the destination.</p>
-    pub fn set_execution_role_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_execution_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_execution_role_arn(input);
         self
     }
@@ -344,10 +313,7 @@ impl CreateScheduledQueryFluentBuilder {
         self
     }
     /// <p>The initial state of the scheduled query. Valid values are <code>ENABLED</code> and <code>DISABLED</code>. Default is <code>ENABLED</code>.</p>
-    pub fn set_state(
-        mut self,
-        input: ::std::option::Option<crate::types::ScheduledQueryState>,
-    ) -> Self {
+    pub fn set_state(mut self, input: ::std::option::Option<crate::types::ScheduledQueryState>) -> Self {
         self.inner = self.inner.set_state(input);
         self
     }
@@ -372,9 +338,7 @@ impl CreateScheduledQueryFluentBuilder {
     /// <p>Key-value pairs to associate with the scheduled query for resource management and cost allocation.</p>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_tags(input);
         self
@@ -382,9 +346,7 @@ impl CreateScheduledQueryFluentBuilder {
     /// <p>Key-value pairs to associate with the scheduled query for resource management and cost allocation.</p>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_tags()
     }
 }

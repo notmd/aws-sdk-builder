@@ -10,8 +10,6 @@ impl super::Client {
     pub fn describe_time_to_live(
         &self,
     ) -> crate::operation::describe_time_to_live::builders::DescribeTimeToLiveFluentBuilder {
-        crate::operation::describe_time_to_live::builders::DescribeTimeToLiveFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::describe_time_to_live::builders::DescribeTimeToLiveFluentBuilder::new(self.handle.clone())
     }
 }

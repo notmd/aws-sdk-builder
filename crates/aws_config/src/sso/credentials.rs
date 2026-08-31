@@ -49,10 +49,7 @@ impl SsoCredentialsProvider {
         Builder::new()
     }
 
-    pub(crate) fn new(
-        provider_config: &ProviderConfig,
-        sso_provider_config: SsoProviderConfig,
-    ) -> Self {
+    pub(crate) fn new(provider_config: &ProviderConfig, sso_provider_config: SsoProviderConfig) -> Self {
         let fs = provider_config.fs();
         let env = provider_config.env();
 
@@ -283,9 +280,7 @@ async fn load_sso_credentials(
     let expiration = DateTime::from_millis(credentials.expiration)
         .try_into()
         .map_err(|err| {
-            CredentialsError::unhandled(format!(
-                "expiration could not be converted into a system time: {err}",
-            ))
+            CredentialsError::unhandled(format!("expiration could not be converted into a system time: {err}",))
         })?;
     let mut builder = Credentials::builder()
         .access_key_id(akid)

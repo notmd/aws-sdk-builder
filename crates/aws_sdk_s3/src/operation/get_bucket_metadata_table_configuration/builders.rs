@@ -3,7 +3,9 @@ pub use crate::operation::get_bucket_metadata_table_configuration::_get_bucket_m
 
 pub use crate::operation::get_bucket_metadata_table_configuration::_get_bucket_metadata_table_configuration_output::GetBucketMetadataTableConfigurationOutputBuilder;
 
-impl crate::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationInputBuilder {
+impl
+    crate::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -100,7 +102,7 @@ impl GetBucketMetadataTableConfigurationFluentBuilder {
             crate::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -111,7 +113,11 @@ impl GetBucketMetadataTableConfigurationFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        crate::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfiguration::orchestrate(&runtime_plugins, input).await
+        crate::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfiguration::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -121,7 +127,7 @@ impl GetBucketMetadataTableConfigurationFluentBuilder {
         crate::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationOutput,
         crate::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -154,18 +160,12 @@ impl GetBucketMetadataTableConfigurationFluentBuilder {
         self.inner.get_bucket()
     }
     /// <p>The expected owner of the general purpose bucket that you want to retrieve the metadata table configuration for.</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The expected owner of the general purpose bucket that you want to retrieve the metadata table configuration for.</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

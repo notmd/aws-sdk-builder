@@ -9,7 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<RemoveRoleFromInstanceProfileError>`](crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileError)
     pub fn remove_role_from_instance_profile(
         &self,
-    ) -> crate::operation::remove_role_from_instance_profile::builders::RemoveRoleFromInstanceProfileFluentBuilder{
-        crate::operation::remove_role_from_instance_profile::builders::RemoveRoleFromInstanceProfileFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::remove_role_from_instance_profile::builders::RemoveRoleFromInstanceProfileFluentBuilder {
+        crate::operation::remove_role_from_instance_profile::builders::RemoveRoleFromInstanceProfileFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

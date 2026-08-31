@@ -59,7 +59,9 @@ impl SendCustomVerificationEmailFluentBuilder {
         }
     }
     /// Access the SendCustomVerificationEmail as a reference.
-    pub fn as_input(&self) -> &crate::operation::send_custom_verification_email::builders::SendCustomVerificationEmailInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::send_custom_verification_email::builders::SendCustomVerificationEmailInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,11 +85,12 @@ impl SendCustomVerificationEmailFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::send_custom_verification_email::SendCustomVerificationEmail::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::send_custom_verification_email::SendCustomVerificationEmail::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::send_custom_verification_email::SendCustomVerificationEmail::orchestrate(
             &runtime_plugins,
             input,
@@ -121,18 +124,12 @@ impl SendCustomVerificationEmailFluentBuilder {
         self
     }
     /// <p>The email address to verify.</p>
-    pub fn email_address(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.email_address(input.into());
         self
     }
     /// <p>The email address to verify.</p>
-    pub fn set_email_address(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_email_address(input);
         self
     }
@@ -141,18 +138,12 @@ impl SendCustomVerificationEmailFluentBuilder {
         self.inner.get_email_address()
     }
     /// <p>The name of the custom verification email template to use when sending the verification email.</p>
-    pub fn template_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn template_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.template_name(input.into());
         self
     }
     /// <p>The name of the custom verification email template to use when sending the verification email.</p>
-    pub fn set_template_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_template_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_template_name(input);
         self
     }
@@ -161,18 +152,12 @@ impl SendCustomVerificationEmailFluentBuilder {
         self.inner.get_template_name()
     }
     /// <p>Name of a configuration set to use when sending the verification email.</p>
-    pub fn configuration_set_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_set_name(input.into());
         self
     }
     /// <p>Name of a configuration set to use when sending the verification email.</p>
-    pub fn set_configuration_set_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_set_name(input);
         self
     }

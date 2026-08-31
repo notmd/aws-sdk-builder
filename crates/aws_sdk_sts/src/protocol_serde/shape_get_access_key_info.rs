@@ -9,15 +9,14 @@ pub fn de_get_access_key_info_http_error(
     crate::operation::get_access_key_info::GetAccessKeyInfoError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::get_access_key_info::GetAccessKeyInfoError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::get_access_key_info::GetAccessKeyInfoError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    Err(crate::operation::get_access_key_info::GetAccessKeyInfoError::generic(generic))
+    Err(crate::operation::get_access_key_info::GetAccessKeyInfoError::generic(
+        generic,
+    ))
 }
 
 #[allow(clippy::unnecessary_wraps)]
@@ -31,17 +30,10 @@ pub fn de_get_access_key_info_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::get_access_key_info::builders::GetAccessKeyInfoOutputBuilder::default(
-            );
-        output = crate::protocol_serde::shape_get_access_key_info::de_get_access_key_info(
-            _response_body,
-            output,
-        )
-        .map_err(crate::operation::get_access_key_info::GetAccessKeyInfoError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::get_access_key_info::builders::GetAccessKeyInfoOutputBuilder::default();
+        output = crate::protocol_serde::shape_get_access_key_info::de_get_access_key_info(_response_body, output)
+            .map_err(crate::operation::get_access_key_info::GetAccessKeyInfoError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }

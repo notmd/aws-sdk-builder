@@ -26,17 +26,13 @@ impl ::aws_types::request_id::RequestId for GetObjectLegalHoldOutput {
 }
 impl GetObjectLegalHoldOutput {
     /// Creates a new builder-style object to manufacture [`GetObjectLegalHoldOutput`](crate::operation::get_object_legal_hold::GetObjectLegalHoldOutput).
-    pub fn builder(
-    ) -> crate::operation::get_object_legal_hold::builders::GetObjectLegalHoldOutputBuilder {
-        crate::operation::get_object_legal_hold::builders::GetObjectLegalHoldOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::get_object_legal_hold::builders::GetObjectLegalHoldOutputBuilder {
+        crate::operation::get_object_legal_hold::builders::GetObjectLegalHoldOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetObjectLegalHoldOutput`](crate::operation::get_object_legal_hold::GetObjectLegalHoldOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetObjectLegalHoldOutputBuilder {
     pub(crate) legal_hold: ::std::option::Option<crate::types::ObjectLockLegalHold>,
@@ -50,10 +46,7 @@ impl GetObjectLegalHoldOutputBuilder {
         self
     }
     /// <p>The current legal hold status for the specified object.</p>
-    pub fn set_legal_hold(
-        mut self,
-        input: ::std::option::Option<crate::types::ObjectLockLegalHold>,
-    ) -> Self {
+    pub fn set_legal_hold(mut self, input: ::std::option::Option<crate::types::ObjectLockLegalHold>) -> Self {
         self.legal_hold = input;
         self
     }
@@ -66,10 +59,7 @@ impl GetObjectLegalHoldOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

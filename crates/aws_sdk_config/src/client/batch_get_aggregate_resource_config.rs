@@ -11,7 +11,8 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<BatchGetAggregateResourceConfigError>`](crate::operation::batch_get_aggregate_resource_config::BatchGetAggregateResourceConfigError)
     pub fn batch_get_aggregate_resource_config(
         &self,
-    ) -> crate::operation::batch_get_aggregate_resource_config::builders::BatchGetAggregateResourceConfigFluentBuilder{
+    ) -> crate::operation::batch_get_aggregate_resource_config::builders::BatchGetAggregateResourceConfigFluentBuilder
+    {
         crate::operation::batch_get_aggregate_resource_config::builders::BatchGetAggregateResourceConfigFluentBuilder::new(self.handle.clone())
     }
 }

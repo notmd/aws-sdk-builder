@@ -75,10 +75,7 @@ pub use crate::types::_service_specific_credential::ServiceSpecificCredentialBui
 ))]
 pub use crate::types::_user::UserBuilder;
 
-#[cfg(any(
-    feature = "op_create_virtual_mfa_device",
-    feature = "op_list_virtual_mfa_devices"
-))]
+#[cfg(any(feature = "op_create_virtual_mfa_device", feature = "op_list_virtual_mfa_devices"))]
 pub use crate::types::_virtual_mfa_device::VirtualMfaDeviceBuilder;
 
 #[cfg(feature = "op_get_access_key_last_used")]
@@ -87,10 +84,7 @@ pub use crate::types::_access_key_last_used::AccessKeyLastUsedBuilder;
 #[cfg(feature = "op_get_account_password_policy")]
 pub use crate::types::_password_policy::PasswordPolicyBuilder;
 
-#[cfg(any(
-    feature = "op_get_delegation_request",
-    feature = "op_list_delegation_requests"
-))]
+#[cfg(any(feature = "op_get_delegation_request", feature = "op_list_delegation_requests"))]
 pub use crate::types::_delegation_request::DelegationRequestBuilder;
 
 #[cfg(any(
@@ -109,10 +103,7 @@ pub use crate::types::_server_certificate::ServerCertificateBuilder;
 #[cfg(feature = "op_get_service_linked_role_deletion_status")]
 pub use crate::types::_deletion_task_failure_reason_type::DeletionTaskFailureReasonTypeBuilder;
 
-#[cfg(any(
-    feature = "op_get_ssh_public_key",
-    feature = "op_upload_ssh_public_key"
-))]
+#[cfg(any(feature = "op_get_ssh_public_key", feature = "op_upload_ssh_public_key"))]
 pub use crate::types::_ssh_public_key::SshPublicKeyBuilder;
 
 #[cfg(any(
@@ -122,10 +113,7 @@ pub use crate::types::_ssh_public_key::SshPublicKeyBuilder;
 ))]
 pub use crate::types::_server_certificate_metadata::ServerCertificateMetadataBuilder;
 
-#[cfg(any(
-    feature = "op_list_signing_certificates",
-    feature = "op_upload_signing_certificate"
-))]
+#[cfg(any(feature = "op_list_signing_certificates", feature = "op_upload_signing_certificate"))]
 pub use crate::types::_signing_certificate::SigningCertificateBuilder;
 
 #[cfg(feature = "op_acquire_role")]
@@ -293,16 +281,10 @@ pub use crate::types::_ssh_public_key_metadata::SshPublicKeyMetadataBuilder;
 #[cfg(feature = "op_simulate_custom_policy")]
 pub use crate::types::_ordered_organization_policy_type::OrderedOrganizationPolicyTypeBuilder;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub use crate::types::_context_entry::ContextEntryBuilder;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub use crate::types::_evaluation_result::EvaluationResultBuilder;
 
 #[cfg(any(
@@ -327,16 +309,10 @@ pub use crate::types::_entity_info::EntityInfoBuilder;
 #[cfg(feature = "op_get_service_linked_role_deletion_status")]
 pub use crate::types::_role_usage_type::RoleUsageTypeBuilder;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub use crate::types::_organizations_decision_detail::OrganizationsDecisionDetailBuilder;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub use crate::types::_permissions_boundary_decision_detail::PermissionsBoundaryDecisionDetailBuilder;
 
 #[cfg(feature = "op_simulate_principal_policy")]
@@ -351,20 +327,11 @@ pub use crate::types::_tracked_action_last_accessed::TrackedActionLastAccessedBu
 #[cfg(feature = "op_list_policies_granting_service_access")]
 pub use crate::types::_policy_granting_service_access::PolicyGrantingServiceAccessBuilder;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub use crate::types::_statement::StatementBuilder;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub use crate::types::_resource_specific_result::ResourceSpecificResultBuilder;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub use crate::types::_position::PositionBuilder;

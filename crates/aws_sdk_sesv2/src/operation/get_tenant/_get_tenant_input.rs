@@ -21,9 +21,7 @@ impl GetTenantInput {
 }
 
 /// A builder for [`GetTenantInput`](crate::operation::get_tenant::GetTenantInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetTenantInputBuilder {
     pub(crate) tenant_name: ::std::option::Option<::std::string::String>,

@@ -9,8 +9,7 @@ pub struct ConfirmDeviceInput {
     /// <p>The unique identifier, or device key, of the device that you want to update the status for.</p>
     pub device_key: ::std::option::Option<::std::string::String>,
     /// <p>The configuration of the device secret verifier.</p>
-    pub device_secret_verifier_config:
-        ::std::option::Option<crate::types::DeviceSecretVerifierConfigType>,
+    pub device_secret_verifier_config: ::std::option::Option<crate::types::DeviceSecretVerifierConfigType>,
     /// <p>A friendly name for the device, for example <code>MyMobilePhone</code>.</p>
     pub device_name: ::std::option::Option<::std::string::String>,
 }
@@ -39,10 +38,7 @@ impl ::std::fmt::Debug for ConfirmDeviceInput {
         let mut formatter = f.debug_struct("ConfirmDeviceInput");
         formatter.field("access_token", &"*** Sensitive Data Redacted ***");
         formatter.field("device_key", &self.device_key);
-        formatter.field(
-            "device_secret_verifier_config",
-            &self.device_secret_verifier_config,
-        );
+        formatter.field("device_secret_verifier_config", &self.device_secret_verifier_config);
         formatter.field("device_name", &self.device_name);
         formatter.finish()
     }
@@ -60,8 +56,7 @@ impl ConfirmDeviceInput {
 pub struct ConfirmDeviceInputBuilder {
     pub(crate) access_token: ::std::option::Option<::std::string::String>,
     pub(crate) device_key: ::std::option::Option<::std::string::String>,
-    pub(crate) device_secret_verifier_config:
-        ::std::option::Option<crate::types::DeviceSecretVerifierConfigType>,
+    pub(crate) device_secret_verifier_config: ::std::option::Option<crate::types::DeviceSecretVerifierConfigType>,
     pub(crate) device_name: ::std::option::Option<::std::string::String>,
 }
 impl ConfirmDeviceInputBuilder {
@@ -96,10 +91,7 @@ impl ConfirmDeviceInputBuilder {
         &self.device_key
     }
     /// <p>The configuration of the device secret verifier.</p>
-    pub fn device_secret_verifier_config(
-        mut self,
-        input: crate::types::DeviceSecretVerifierConfigType,
-    ) -> Self {
+    pub fn device_secret_verifier_config(mut self, input: crate::types::DeviceSecretVerifierConfigType) -> Self {
         self.device_secret_verifier_config = ::std::option::Option::Some(input);
         self
     }
@@ -151,10 +143,7 @@ impl ::std::fmt::Debug for ConfirmDeviceInputBuilder {
         let mut formatter = f.debug_struct("ConfirmDeviceInputBuilder");
         formatter.field("access_token", &"*** Sensitive Data Redacted ***");
         formatter.field("device_key", &self.device_key);
-        formatter.field(
-            "device_secret_verifier_config",
-            &self.device_secret_verifier_config,
-        );
+        formatter.field("device_secret_verifier_config", &self.device_secret_verifier_config);
         formatter.field("device_name", &self.device_name);
         formatter.finish()
     }

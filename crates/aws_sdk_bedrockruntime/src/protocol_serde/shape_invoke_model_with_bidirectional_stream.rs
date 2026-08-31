@@ -5,7 +5,7 @@ pub fn de_invoke_model_with_bidirectional_stream_http_response(
 ) -> std::result::Result<
     crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput,
     crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError,
->{
+> {
     let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
     std::mem::swap(&mut _response_body, response.body_mut());
     let _response_body = &mut _response_body;
@@ -17,11 +17,11 @@ pub fn de_invoke_model_with_bidirectional_stream_http_response(
         let mut output =
             crate::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder::default();
         output = output.set_body(Some(
-            crate::protocol_serde::shape_invoke_model_with_bidirectional_stream_output::de_body_payload(_response_body)?,
+            crate::protocol_serde::shape_invoke_model_with_bidirectional_stream_output::de_body_payload(
+                _response_body,
+            )?,
         ));
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output
             .build()
             .map_err(crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?
@@ -36,10 +36,16 @@ pub fn de_invoke_model_with_bidirectional_stream_http_error(
 ) -> std::result::Result<
     crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput,
     crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError,
->{
+> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(
+        crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled,
+    )?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {

@@ -79,9 +79,7 @@ impl SubscriptionFilter {
 }
 
 /// A builder for [`SubscriptionFilter`](crate::types::SubscriptionFilter).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SubscriptionFilterBuilder {
     pub(crate) filter_name: ::std::option::Option<::std::string::String>,
@@ -111,18 +109,12 @@ impl SubscriptionFilterBuilder {
         &self.filter_name
     }
     /// <p>The name of the log group.</p>
-    pub fn log_group_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the log group.</p>
-    pub fn set_log_group_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_name = input;
         self
     }
@@ -131,18 +123,12 @@ impl SubscriptionFilterBuilder {
         &self.log_group_name
     }
     /// <p>A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.</p>
-    pub fn filter_pattern(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn filter_pattern(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.filter_pattern = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.</p>
-    pub fn set_filter_pattern(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_filter_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.filter_pattern = input;
         self
     }
@@ -151,18 +137,12 @@ impl SubscriptionFilterBuilder {
         &self.filter_pattern
     }
     /// <p>The Amazon Resource Name (ARN) of the destination.</p>
-    pub fn destination_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn destination_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.destination_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the destination.</p>
-    pub fn set_destination_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_destination_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.destination_arn = input;
         self
     }
@@ -190,10 +170,7 @@ impl SubscriptionFilterBuilder {
         self
     }
     /// <p>The method used to distribute log data to the destination, which can be either random or grouped by log stream.</p>
-    pub fn set_distribution(
-        mut self,
-        input: ::std::option::Option<crate::types::Distribution>,
-    ) -> Self {
+    pub fn set_distribution(mut self, input: ::std::option::Option<crate::types::Distribution>) -> Self {
         self.distribution = input;
         self
     }
@@ -233,18 +210,12 @@ impl SubscriptionFilterBuilder {
         &self.creation_time
     }
     /// <p>The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the <code>fieldSelectionCriteria</code> value if it was specified when the subscription filter was created.</p>
-    pub fn field_selection_criteria(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn field_selection_criteria(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.field_selection_criteria = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the <code>fieldSelectionCriteria</code> value if it was specified when the subscription filter was created.</p>
-    pub fn set_field_selection_criteria(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_field_selection_criteria(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.field_selection_criteria = input;
         self
     }
@@ -257,10 +228,7 @@ impl SubscriptionFilterBuilder {
     /// To override the contents of this collection use [`set_emit_system_fields`](Self::set_emit_system_fields).
     ///
     /// <p>The list of system fields that are included in the log events sent to the subscription destination. Returns the <code>emitSystemFields</code> value if it was specified when the subscription filter was created.</p>
-    pub fn emit_system_fields(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn emit_system_fields(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.emit_system_fields.unwrap_or_default();
         v.push(input.into());
         self.emit_system_fields = ::std::option::Option::Some(v);
@@ -275,9 +243,7 @@ impl SubscriptionFilterBuilder {
         self
     }
     /// <p>The list of system fields that are included in the log events sent to the subscription destination. Returns the <code>emitSystemFields</code> value if it was specified when the subscription filter was created.</p>
-    pub fn get_emit_system_fields(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_emit_system_fields(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.emit_system_fields
     }
     /// Consumes the builder and constructs a [`SubscriptionFilter`](crate::types::SubscriptionFilter).

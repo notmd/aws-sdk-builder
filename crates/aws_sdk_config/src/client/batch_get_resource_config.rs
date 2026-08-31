@@ -10,8 +10,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<BatchGetResourceConfigError>`](crate::operation::batch_get_resource_config::BatchGetResourceConfigError)
     pub fn batch_get_resource_config(
         &self,
-    ) -> crate::operation::batch_get_resource_config::builders::BatchGetResourceConfigFluentBuilder
-    {
-        crate::operation::batch_get_resource_config::builders::BatchGetResourceConfigFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::batch_get_resource_config::builders::BatchGetResourceConfigFluentBuilder {
+        crate::operation::batch_get_resource_config::builders::BatchGetResourceConfigFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

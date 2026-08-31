@@ -14,17 +14,13 @@ impl AcceptDelegationRequestInput {
 }
 impl AcceptDelegationRequestInput {
     /// Creates a new builder-style object to manufacture [`AcceptDelegationRequestInput`](crate::operation::accept_delegation_request::AcceptDelegationRequestInput).
-    pub fn builder(
-    ) -> crate::operation::accept_delegation_request::builders::AcceptDelegationRequestInputBuilder
-    {
+    pub fn builder() -> crate::operation::accept_delegation_request::builders::AcceptDelegationRequestInputBuilder {
         crate::operation::accept_delegation_request::builders::AcceptDelegationRequestInputBuilder::default()
     }
 }
 
 /// A builder for [`AcceptDelegationRequestInput`](crate::operation::accept_delegation_request::AcceptDelegationRequestInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AcceptDelegationRequestInputBuilder {
     pub(crate) delegation_request_id: ::std::option::Option<::std::string::String>,
@@ -32,18 +28,12 @@ pub struct AcceptDelegationRequestInputBuilder {
 impl AcceptDelegationRequestInputBuilder {
     /// <p>The unique identifier of the delegation request to accept.</p>
     /// This field is required.
-    pub fn delegation_request_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delegation_request_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.delegation_request_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier of the delegation request to accept.</p>
-    pub fn set_delegation_request_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delegation_request_id = input;
         self
     }

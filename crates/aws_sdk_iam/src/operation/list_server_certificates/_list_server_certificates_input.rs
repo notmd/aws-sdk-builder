@@ -30,17 +30,13 @@ impl ListServerCertificatesInput {
 }
 impl ListServerCertificatesInput {
     /// Creates a new builder-style object to manufacture [`ListServerCertificatesInput`](crate::operation::list_server_certificates::ListServerCertificatesInput).
-    pub fn builder(
-    ) -> crate::operation::list_server_certificates::builders::ListServerCertificatesInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_server_certificates::builders::ListServerCertificatesInputBuilder {
         crate::operation::list_server_certificates::builders::ListServerCertificatesInputBuilder::default()
     }
 }
 
 /// A builder for [`ListServerCertificatesInput`](crate::operation::list_server_certificates::ListServerCertificatesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListServerCertificatesInputBuilder {
     pub(crate) path_prefix: ::std::option::Option<::std::string::String>,

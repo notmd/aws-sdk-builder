@@ -9,53 +9,48 @@ pub fn de_put_evaluations_http_error(
     crate::operation::put_evaluations::PutEvaluationsError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::put_evaluations::PutEvaluationsError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::put_evaluations::PutEvaluationsError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(crate::operation::put_evaluations::PutEvaluationsError::unhandled(generic))
+            return Err(crate::operation::put_evaluations::PutEvaluationsError::unhandled(
+                generic,
+            ))
         }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
         "InvalidParameterValueException" => {
-            crate::operation::put_evaluations::PutEvaluationsError::InvalidParameterValueException(
-                {
+            crate::operation::put_evaluations::PutEvaluationsError::InvalidParameterValueException({
+                #[allow(unused_mut)]
+                let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut tmp = {
-                        #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                        output = crate::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
+                    let mut output = crate::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::put_evaluations::PutEvaluationsError::unhandled)?;
-                        let output = output.meta(generic);
-                        output.build()
-                    };
-                    if tmp.message.is_none() {
-                        tmp.message = _error_message;
-                    }
-                    tmp
-                },
-            )
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
         }
         "InvalidResultTokenException" => {
             crate::operation::put_evaluations::PutEvaluationsError::InvalidResultTokenException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InvalidResultTokenExceptionBuilder::default(
-                        );
+                    let mut output = crate::types::error::builders::InvalidResultTokenExceptionBuilder::default();
                     output =
                     crate::protocol_serde::shape_invalid_result_token_exception::de_invalid_result_token_exception_json_err(_response_body, output)
                         .map_err(crate::operation::put_evaluations::PutEvaluationsError::unhandled)?;
@@ -73,8 +68,7 @@ pub fn de_put_evaluations_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::NoSuchConfigRuleExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::NoSuchConfigRuleExceptionBuilder::default();
                     output =
                     crate::protocol_serde::shape_no_such_config_rule_exception::de_no_such_config_rule_exception_json_err(_response_body, output)
                         .map_err(crate::operation::put_evaluations::PutEvaluationsError::unhandled)?;
@@ -102,32 +96,21 @@ pub fn de_put_evaluations_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::put_evaluations::builders::PutEvaluationsOutputBuilder::default();
-        output = crate::protocol_serde::shape_put_evaluations::de_put_evaluations(
-            _response_body,
-            output,
-        )
-        .map_err(crate::operation::put_evaluations::PutEvaluationsError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::put_evaluations::builders::PutEvaluationsOutputBuilder::default();
+        output = crate::protocol_serde::shape_put_evaluations::de_put_evaluations(_response_body, output)
+            .map_err(crate::operation::put_evaluations::PutEvaluationsError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_put_evaluations_input(
     input: &crate::operation::put_evaluations::PutEvaluationsInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_put_evaluations_input::ser_put_evaluations_input_input(
-        &mut object,
-        input,
-    )?;
+    crate::protocol_serde::shape_put_evaluations_input::ser_put_evaluations_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -139,10 +122,8 @@ pub(crate) fn de_put_evaluations(
     crate::operation::put_evaluations::builders::PutEvaluationsOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -154,31 +135,23 @@ pub(crate) fn de_put_evaluations(
                 match key.to_unescaped()?.as_ref() {
                     "FailedEvaluations" => {
                         builder = builder.set_failed_evaluations(
-                            crate::protocol_serde::shape_evaluations::de_evaluations(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?,
+                            crate::protocol_serde::shape_evaluations::de_evaluations(tokens, _value, depth + 1)?,
                         );
                     }
                     _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
             }
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

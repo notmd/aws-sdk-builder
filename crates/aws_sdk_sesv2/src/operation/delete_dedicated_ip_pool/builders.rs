@@ -57,10 +57,7 @@ impl DeleteDedicatedIpPoolFluentBuilder {
         }
     }
     /// Access the DeleteDedicatedIpPool as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::delete_dedicated_ip_pool::builders::DeleteDedicatedIpPoolInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::delete_dedicated_ip_pool::builders::DeleteDedicatedIpPoolInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +81,13 @@ impl DeleteDedicatedIpPoolFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPool::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPool::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPool::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPool::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

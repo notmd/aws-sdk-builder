@@ -13,8 +13,6 @@ impl super::Client {
     pub fn describe_field_indexes(
         &self,
     ) -> crate::operation::describe_field_indexes::builders::DescribeFieldIndexesFluentBuilder {
-        crate::operation::describe_field_indexes::builders::DescribeFieldIndexesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::describe_field_indexes::builders::DescribeFieldIndexesFluentBuilder::new(self.handle.clone())
     }
 }

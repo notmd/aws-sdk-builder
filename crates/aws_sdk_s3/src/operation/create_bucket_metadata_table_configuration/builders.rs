@@ -113,7 +113,7 @@ impl CreateBucketMetadataTableConfigurationFluentBuilder {
             crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -135,7 +135,7 @@ impl CreateBucketMetadataTableConfigurationFluentBuilder {
         crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationOutput,
         crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -187,24 +187,16 @@ impl CreateBucketMetadataTableConfigurationFluentBuilder {
         self
     }
     /// <p>The checksum algorithm to use with your metadata table configuration.</p>
-    pub fn set_checksum_algorithm(
-        mut self,
-        input: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-    ) -> Self {
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
         self.inner = self.inner.set_checksum_algorithm(input);
         self
     }
     /// <p>The checksum algorithm to use with your metadata table configuration.</p>
-    pub fn get_checksum_algorithm(
-        &self,
-    ) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
         self.inner.get_checksum_algorithm()
     }
     /// <p>The contents of your metadata table configuration.</p>
-    pub fn metadata_table_configuration(
-        mut self,
-        input: crate::types::MetadataTableConfiguration,
-    ) -> Self {
+    pub fn metadata_table_configuration(mut self, input: crate::types::MetadataTableConfiguration) -> Self {
         self.inner = self.inner.metadata_table_configuration(input);
         self
     }
@@ -217,24 +209,16 @@ impl CreateBucketMetadataTableConfigurationFluentBuilder {
         self
     }
     /// <p>The contents of your metadata table configuration.</p>
-    pub fn get_metadata_table_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::MetadataTableConfiguration> {
+    pub fn get_metadata_table_configuration(&self) -> &::std::option::Option<crate::types::MetadataTableConfiguration> {
         self.inner.get_metadata_table_configuration()
     }
     /// <p>The expected owner of the general purpose bucket that corresponds to your metadata table configuration.</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The expected owner of the general purpose bucket that corresponds to your metadata table configuration.</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

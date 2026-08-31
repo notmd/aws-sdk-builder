@@ -14,8 +14,6 @@ impl super::Client {
     pub fn list_user_pool_clients(
         &self,
     ) -> crate::operation::list_user_pool_clients::builders::ListUserPoolClientsFluentBuilder {
-        crate::operation::list_user_pool_clients::builders::ListUserPoolClientsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::list_user_pool_clients::builders::ListUserPoolClientsFluentBuilder::new(self.handle.clone())
     }
 }

@@ -11,8 +11,6 @@ impl super::Client {
     pub fn update_ssh_public_key(
         &self,
     ) -> crate::operation::update_ssh_public_key::builders::UpdateSSHPublicKeyFluentBuilder {
-        crate::operation::update_ssh_public_key::builders::UpdateSSHPublicKeyFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::update_ssh_public_key::builders::UpdateSSHPublicKeyFluentBuilder::new(self.handle.clone())
     }
 }

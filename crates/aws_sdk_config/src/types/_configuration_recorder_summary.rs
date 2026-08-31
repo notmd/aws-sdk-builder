@@ -47,9 +47,7 @@ impl ConfigurationRecorderSummary {
 }
 
 /// A builder for [`ConfigurationRecorderSummary`](crate::types::ConfigurationRecorderSummary).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ConfigurationRecorderSummaryBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,
@@ -90,18 +88,12 @@ impl ConfigurationRecorderSummaryBuilder {
         &self.name
     }
     /// <p>For service-linked configuration recorders, indicates which Amazon Web Services service the configuration recorder is linked to.</p>
-    pub fn service_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.service_principal = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>For service-linked configuration recorders, indicates which Amazon Web Services service the configuration recorder is linked to.</p>
-    pub fn set_service_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.service_principal = input;
         self
     }
@@ -116,10 +108,7 @@ impl ConfigurationRecorderSummaryBuilder {
         self
     }
     /// <p>Indicates whether the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigurationItem.html">ConfigurationItems</a> in scope for the configuration recorder are recorded for free (<code>INTERNAL</code>) or if you are charged a service fee for recording (<code>PAID</code>).</p>
-    pub fn set_recording_scope(
-        mut self,
-        input: ::std::option::Option<crate::types::RecordingScope>,
-    ) -> Self {
+    pub fn set_recording_scope(mut self, input: ::std::option::Option<crate::types::RecordingScope>) -> Self {
         self.recording_scope = input;
         self
     }

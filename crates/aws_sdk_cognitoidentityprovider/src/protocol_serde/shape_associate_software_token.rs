@@ -9,23 +9,17 @@ pub fn de_associate_software_token_http_error(
     crate::operation::associate_software_token::AssociateSoftwareTokenError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    let error_code =
-        match generic.code() {
-            Some(code) => code,
-            None => return Err(
-                crate::operation::associate_software_token::AssociateSoftwareTokenError::unhandled(
-                    generic,
-                ),
-            ),
-        };
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => {
+            return Err(crate::operation::associate_software_token::AssociateSoftwareTokenError::unhandled(generic))
+        }
+    };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
@@ -49,104 +43,13 @@ pub fn de_associate_software_token_http_error(
                 tmp
             })
         }
-        "ForbiddenException" => crate::operation::associate_software_token::AssociateSoftwareTokenError::ForbiddenException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ForbiddenExceptionBuilder::default();
-                output = crate::protocol_serde::shape_forbidden_exception::de_forbidden_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InternalErrorException" => crate::operation::associate_software_token::AssociateSoftwareTokenError::InternalErrorException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
-                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidParameterException" => crate::operation::associate_software_token::AssociateSoftwareTokenError::InvalidParameterException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "NotAuthorizedException" => crate::operation::associate_software_token::AssociateSoftwareTokenError::NotAuthorizedException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
-                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "OperationNotEnabledException" => crate::operation::associate_software_token::AssociateSoftwareTokenError::OperationNotEnabledException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                output =
-                    crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
-                        .map_err(crate::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ResourceNotFoundException" => crate::operation::associate_software_token::AssociateSoftwareTokenError::ResourceNotFoundException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "SoftwareTokenMFANotFoundException" => {
-            crate::operation::associate_software_token::AssociateSoftwareTokenError::SoftwareTokenMfaNotFoundException({
+        "ForbiddenException" => {
+            crate::operation::associate_software_token::AssociateSoftwareTokenError::ForbiddenException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::SoftwareTokenMfaNotFoundExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_software_token_mfa_not_found_exception::de_software_token_mfa_not_found_exception_json_err(
+                    let mut output = crate::types::error::builders::ForbiddenExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_forbidden_exception::de_forbidden_exception_json_err(
                         _response_body,
                         output,
                     )
@@ -159,6 +62,123 @@ pub fn de_associate_software_token_http_error(
                 }
                 tmp
             })
+        }
+        "InternalErrorException" => {
+            crate::operation::associate_software_token::AssociateSoftwareTokenError::InternalErrorException({
+                #[allow(unused_mut)]
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(crate::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidParameterException" => {
+            crate::operation::associate_software_token::AssociateSoftwareTokenError::InvalidParameterException({
+                #[allow(unused_mut)]
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(crate::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "NotAuthorizedException" => {
+            crate::operation::associate_software_token::AssociateSoftwareTokenError::NotAuthorizedException({
+                #[allow(unused_mut)]
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(crate::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "OperationNotEnabledException" => {
+            crate::operation::associate_software_token::AssociateSoftwareTokenError::OperationNotEnabledException({
+                #[allow(unused_mut)]
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+                    output =
+                    crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(crate::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ResourceNotFoundException" => {
+            crate::operation::associate_software_token::AssociateSoftwareTokenError::ResourceNotFoundException({
+                #[allow(unused_mut)]
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(crate::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "SoftwareTokenMFANotFoundException" => {
+            crate::operation::associate_software_token::AssociateSoftwareTokenError::SoftwareTokenMfaNotFoundException(
+                {
+                    #[allow(unused_mut)]
+                    let mut tmp = {
+                        #[allow(unused_mut)]
+                        let mut output =
+                            crate::types::error::builders::SoftwareTokenMfaNotFoundExceptionBuilder::default();
+                        output = crate::protocol_serde::shape_software_token_mfa_not_found_exception::de_software_token_mfa_not_found_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(crate::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
+                        let output = output.meta(generic);
+                        output.build()
+                    };
+                    if tmp.message.is_none() {
+                        tmp.message = _error_message;
+                    }
+                    tmp
+                },
+            )
         }
         _ => crate::operation::associate_software_token::AssociateSoftwareTokenError::generic(generic),
     })
@@ -175,31 +195,26 @@ pub fn de_associate_software_token_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::associate_software_token::builders::AssociateSoftwareTokenOutputBuilder::default();
+        let mut output =
+            crate::operation::associate_software_token::builders::AssociateSoftwareTokenOutputBuilder::default();
         output =
-            crate::protocol_serde::shape_associate_software_token::de_associate_software_token(
-                _response_body,
-                output,
-            )
-            .map_err(
-                crate::operation::associate_software_token::AssociateSoftwareTokenError::unhandled,
-            )?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+            crate::protocol_serde::shape_associate_software_token::de_associate_software_token(_response_body, output)
+                .map_err(crate::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_associate_software_token_input(
     input: &crate::operation::associate_software_token::AssociateSoftwareTokenInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_associate_software_token_input::ser_associate_software_token_input_input(&mut object, input)?;
+    crate::protocol_serde::shape_associate_software_token_input::ser_associate_software_token_input_input(
+        &mut object,
+        input,
+    )?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -211,10 +226,8 @@ pub(crate) fn de_associate_software_token(
     crate::operation::associate_software_token::builders::AssociateSoftwareTokenOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -222,44 +235,34 @@ pub(crate) fn de_associate_software_token(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "SecretCode" => {
-                        builder = builder.set_secret_code(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                tokens.next(),
-                            )?
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "SecretCode" => {
+                    builder = builder.set_secret_code(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                        );
-                    }
-                    "Session" => {
-                        builder = builder.set_session(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                tokens.next(),
-                            )?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    );
                 }
-            }
+                "Session" => {
+                    builder = builder.set_session(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

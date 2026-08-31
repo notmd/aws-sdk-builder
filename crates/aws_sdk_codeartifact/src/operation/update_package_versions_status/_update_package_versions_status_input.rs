@@ -28,9 +28,8 @@ pub struct UpdatePackageVersionsStatusInput {
     /// <p>An array of strings that specify the versions of the package with the statuses to update.</p>
     pub versions: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>A map of package versions and package version revisions. The map <code>key</code> is the package version (for example, <code>3.5.2</code>), and the map <code>value</code> is the package version revision.</p>
-    pub version_revisions: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub version_revisions:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>The package version’s expected status before it is updated. If <code>expectedStatus</code> is provided, the package version's status is updated only if its status at the time <code>UpdatePackageVersionsStatus</code> is called matches <code>expectedStatus</code>.</p>
     pub expected_status: ::std::option::Option<crate::types::PackageVersionStatus>,
     /// <p>The status you want to change the package version status to.</p>
@@ -80,9 +79,7 @@ impl UpdatePackageVersionsStatusInput {
     /// <p>A map of package versions and package version revisions. The map <code>key</code> is the package version (for example, <code>3.5.2</code>), and the map <code>value</code> is the package version revision.</p>
     pub fn version_revisions(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.version_revisions.as_ref()
     }
     /// <p>The package version’s expected status before it is updated. If <code>expectedStatus</code> is provided, the package version's status is updated only if its status at the time <code>UpdatePackageVersionsStatus</code> is called matches <code>expectedStatus</code>.</p>
@@ -96,15 +93,14 @@ impl UpdatePackageVersionsStatusInput {
 }
 impl UpdatePackageVersionsStatusInput {
     /// Creates a new builder-style object to manufacture [`UpdatePackageVersionsStatusInput`](crate::operation::update_package_versions_status::UpdatePackageVersionsStatusInput).
-    pub fn builder() -> crate::operation::update_package_versions_status::builders::UpdatePackageVersionsStatusInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::update_package_versions_status::builders::UpdatePackageVersionsStatusInputBuilder {
         crate::operation::update_package_versions_status::builders::UpdatePackageVersionsStatusInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdatePackageVersionsStatusInput`](crate::operation::update_package_versions_status::UpdatePackageVersionsStatusInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdatePackageVersionsStatusInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -114,9 +110,8 @@ pub struct UpdatePackageVersionsStatusInputBuilder {
     pub(crate) namespace: ::std::option::Option<::std::string::String>,
     pub(crate) package: ::std::option::Option<::std::string::String>,
     pub(crate) versions: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) version_revisions: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) version_revisions:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) expected_status: ::std::option::Option<crate::types::PackageVersionStatus>,
     pub(crate) target_status: ::std::option::Option<crate::types::PackageVersionStatus>,
 }
@@ -251,10 +246,7 @@ impl UpdatePackageVersionsStatusInputBuilder {
         self
     }
     /// <p>An array of strings that specify the versions of the package with the statuses to update.</p>
-    pub fn set_versions(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_versions(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.versions = input;
         self
     }
@@ -280,9 +272,7 @@ impl UpdatePackageVersionsStatusInputBuilder {
     /// <p>A map of package versions and package version revisions. The map <code>key</code> is the package version (for example, <code>3.5.2</code>), and the map <code>value</code> is the package version revision.</p>
     pub fn set_version_revisions(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.version_revisions = input;
         self
@@ -290,9 +280,7 @@ impl UpdatePackageVersionsStatusInputBuilder {
     /// <p>A map of package versions and package version revisions. The map <code>key</code> is the package version (for example, <code>3.5.2</code>), and the map <code>value</code> is the package version revision.</p>
     pub fn get_version_revisions(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.version_revisions
     }
     /// <p>The package version’s expected status before it is updated. If <code>expectedStatus</code> is provided, the package version's status is updated only if its status at the time <code>UpdatePackageVersionsStatus</code> is called matches <code>expectedStatus</code>.</p>
@@ -301,17 +289,12 @@ impl UpdatePackageVersionsStatusInputBuilder {
         self
     }
     /// <p>The package version’s expected status before it is updated. If <code>expectedStatus</code> is provided, the package version's status is updated only if its status at the time <code>UpdatePackageVersionsStatus</code> is called matches <code>expectedStatus</code>.</p>
-    pub fn set_expected_status(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageVersionStatus>,
-    ) -> Self {
+    pub fn set_expected_status(mut self, input: ::std::option::Option<crate::types::PackageVersionStatus>) -> Self {
         self.expected_status = input;
         self
     }
     /// <p>The package version’s expected status before it is updated. If <code>expectedStatus</code> is provided, the package version's status is updated only if its status at the time <code>UpdatePackageVersionsStatus</code> is called matches <code>expectedStatus</code>.</p>
-    pub fn get_expected_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::PackageVersionStatus> {
+    pub fn get_expected_status(&self) -> &::std::option::Option<crate::types::PackageVersionStatus> {
         &self.expected_status
     }
     /// <p>The status you want to change the package version status to.</p>
@@ -321,10 +304,7 @@ impl UpdatePackageVersionsStatusInputBuilder {
         self
     }
     /// <p>The status you want to change the package version status to.</p>
-    pub fn set_target_status(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageVersionStatus>,
-    ) -> Self {
+    pub fn set_target_status(mut self, input: ::std::option::Option<crate::types::PackageVersionStatus>) -> Self {
         self.target_status = input;
         self
     }

@@ -57,9 +57,7 @@ impl UntagSAMLProviderFluentBuilder {
         }
     }
     /// Access the UntagSAMLProvider as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::untag_saml_provider::builders::UntagSamlProviderInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::untag_saml_provider::builders::UntagSamlProviderInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,17 +81,12 @@ impl UntagSAMLProviderFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::untag_saml_provider::UntagSAMLProvider::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::untag_saml_provider::UntagSAMLProvider::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::untag_saml_provider::UntagSAMLProvider::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::untag_saml_provider::UntagSAMLProvider::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -123,19 +116,13 @@ impl UntagSAMLProviderFluentBuilder {
     }
     /// <p>The ARN of the SAML identity provider in IAM from which you want to remove tags.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn saml_provider_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn saml_provider_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.saml_provider_arn(input.into());
         self
     }
     /// <p>The ARN of the SAML identity provider in IAM from which you want to remove tags.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn set_saml_provider_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_saml_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_saml_provider_arn(input);
         self
     }
@@ -155,10 +142,7 @@ impl UntagSAMLProviderFluentBuilder {
         self
     }
     /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified SAML identity provider.</p>
-    pub fn set_tag_keys(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_tag_keys(input);
         self
     }

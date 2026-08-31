@@ -60,8 +60,7 @@ impl DeleteSigningCertificateFluentBuilder {
     /// Access the DeleteSigningCertificate as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::delete_signing_certificate::builders::DeleteSigningCertificateInputBuilder
-    {
+    ) -> &crate::operation::delete_signing_certificate::builders::DeleteSigningCertificateInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,16 +84,14 @@ impl DeleteSigningCertificateFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::delete_signing_certificate::DeleteSigningCertificate::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::delete_signing_certificate::DeleteSigningCertificate::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::delete_signing_certificate::DeleteSigningCertificate::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::delete_signing_certificate::DeleteSigningCertificate::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -141,19 +138,13 @@ impl DeleteSigningCertificateFluentBuilder {
     }
     /// <p>The ID of the signing certificate to delete.</p>
     /// <p>The format of this parameter, as described by its <a href="http://wikipedia.org/wiki/regex">regex</a> pattern, is a string of characters that can be upper- or lower-cased letters or digits.</p>
-    pub fn certificate_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn certificate_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.certificate_id(input.into());
         self
     }
     /// <p>The ID of the signing certificate to delete.</p>
     /// <p>The format of this parameter, as described by its <a href="http://wikipedia.org/wiki/regex">regex</a> pattern, is a string of characters that can be upper- or lower-cased letters or digits.</p>
-    pub fn set_certificate_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_certificate_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_certificate_id(input);
         self
     }

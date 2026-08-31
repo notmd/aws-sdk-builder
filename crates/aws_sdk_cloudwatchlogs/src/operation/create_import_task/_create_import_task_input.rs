@@ -26,16 +26,13 @@ impl CreateImportTaskInput {
 }
 impl CreateImportTaskInput {
     /// Creates a new builder-style object to manufacture [`CreateImportTaskInput`](crate::operation::create_import_task::CreateImportTaskInput).
-    pub fn builder() -> crate::operation::create_import_task::builders::CreateImportTaskInputBuilder
-    {
+    pub fn builder() -> crate::operation::create_import_task::builders::CreateImportTaskInputBuilder {
         crate::operation::create_import_task::builders::CreateImportTaskInputBuilder::default()
     }
 }
 
 /// A builder for [`CreateImportTaskInput`](crate::operation::create_import_task::CreateImportTaskInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateImportTaskInputBuilder {
     pub(crate) import_source_arn: ::std::option::Option<::std::string::String>,
@@ -45,18 +42,12 @@ pub struct CreateImportTaskInputBuilder {
 impl CreateImportTaskInputBuilder {
     /// <p>The ARN of the source to import from.</p>
     /// This field is required.
-    pub fn import_source_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn import_source_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.import_source_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the source to import from.</p>
-    pub fn set_import_source_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_import_source_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.import_source_arn = input;
         self
     }
@@ -66,18 +57,12 @@ impl CreateImportTaskInputBuilder {
     }
     /// <p>The ARN of the IAM role that grants CloudWatch Logs permission to import from the CloudTrail Lake Event Data Store.</p>
     /// This field is required.
-    pub fn import_role_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn import_role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.import_role_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the IAM role that grants CloudWatch Logs permission to import from the CloudTrail Lake Event Data Store.</p>
-    pub fn set_import_role_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_import_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.import_role_arn = input;
         self
     }
@@ -91,10 +76,7 @@ impl CreateImportTaskInputBuilder {
         self
     }
     /// <p>Optional filters to constrain the import by CloudTrail event time. Times are specified in Unix timestamp milliseconds. The range of data being imported must be within the specified source's retention period.</p>
-    pub fn set_import_filter(
-        mut self,
-        input: ::std::option::Option<crate::types::ImportFilter>,
-    ) -> Self {
+    pub fn set_import_filter(mut self, input: ::std::option::Option<crate::types::ImportFilter>) -> Self {
         self.import_filter = input;
         self
     }
@@ -109,12 +91,10 @@ impl CreateImportTaskInputBuilder {
         crate::operation::create_import_task::CreateImportTaskInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::create_import_task::CreateImportTaskInput {
-                import_source_arn: self.import_source_arn,
-                import_role_arn: self.import_role_arn,
-                import_filter: self.import_filter,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::create_import_task::CreateImportTaskInput {
+            import_source_arn: self.import_source_arn,
+            import_role_arn: self.import_role_arn,
+            import_filter: self.import_filter,
+        })
     }
 }

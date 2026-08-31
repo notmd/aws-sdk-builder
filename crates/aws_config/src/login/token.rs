@@ -33,11 +33,7 @@ impl LoginToken {
             .expect("sign-in token access token expected expiry")
     }
 
-    pub(super) fn from_refresh(
-        old_token: &LoginToken,
-        resp: CreateOAuth2TokenResponseBody,
-        now: SystemTime,
-    ) -> Self {
+    pub(super) fn from_refresh(old_token: &LoginToken, resp: CreateOAuth2TokenResponseBody, now: SystemTime) -> Self {
         let access_token_output = resp.access_token().expect("accessToken in response");
         let expires_in = resp.expires_in();
         let expiry = now + Duration::from_secs(expires_in as u64);
@@ -101,10 +97,7 @@ pub(super) enum LoginTokenError {
 }
 
 impl LoginTokenError {
-    pub(super) fn other(
-        message: impl Into<String>,
-        source: Option<Box<dyn StdError + Send + Sync>>,
-    ) -> Self {
+    pub(super) fn other(message: impl Into<String>, source: Option<Box<dyn StdError + Send + Sync>>) -> Self {
         Self::Other {
             message: message.into(),
             source,
@@ -124,7 +117,10 @@ impl fmt::Display for LoginTokenError {
             Self::NoHomeDirectory => write!(f, "couldn't resolve a home directory"),
             Self::ExpiredToken => write!(f, "cached Login token is expired"),
             Self::WrongIdentityType(identity) => {
-                write!(f, "wrong identity type for Login. Expected DPoP private key but got `{identity:?}`")
+                write!(
+                    f,
+                    "wrong identity type for Login. Expected DPoP private key but got `{identity:?}`"
+                )
             }
             Self::RefreshFailed { message, .. } => {
                 if let Some(msg) = message {
@@ -174,9 +170,7 @@ impl From<aws_smithy_json::deserialize::error::DeserializeError> for LoginTokenE
 impl From<LoginTokenError> for CredentialsError {
     fn from(val: LoginTokenError) -> CredentialsError {
         match val {
-            LoginTokenError::FailedToFormatDateTime { .. } => {
-                CredentialsError::invalid_configuration(val)
-            }
+            LoginTokenError::FailedToFormatDateTime { .. } => CredentialsError::invalid_configuration(val),
             LoginTokenError::IoError { .. } => CredentialsError::unhandled(val),
             LoginTokenError::JsonError(_) => CredentialsError::unhandled(val),
             LoginTokenError::MissingField(_) => CredentialsError::invalid_configuration(val),

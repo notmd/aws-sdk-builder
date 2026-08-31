@@ -14,16 +14,13 @@ impl DeleteIndexPolicyInput {
 }
 impl DeleteIndexPolicyInput {
     /// Creates a new builder-style object to manufacture [`DeleteIndexPolicyInput`](crate::operation::delete_index_policy::DeleteIndexPolicyInput).
-    pub fn builder(
-    ) -> crate::operation::delete_index_policy::builders::DeleteIndexPolicyInputBuilder {
+    pub fn builder() -> crate::operation::delete_index_policy::builders::DeleteIndexPolicyInputBuilder {
         crate::operation::delete_index_policy::builders::DeleteIndexPolicyInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteIndexPolicyInput`](crate::operation::delete_index_policy::DeleteIndexPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteIndexPolicyInputBuilder {
     pub(crate) log_group_identifier: ::std::option::Option<::std::string::String>,
@@ -31,18 +28,12 @@ pub struct DeleteIndexPolicyInputBuilder {
 impl DeleteIndexPolicyInputBuilder {
     /// <p>The log group to delete the index policy for. You can specify either the name or the ARN of the log group.</p>
     /// This field is required.
-    pub fn log_group_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The log group to delete the index policy for. You can specify either the name or the ARN of the log group.</p>
-    pub fn set_log_group_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_identifier = input;
         self
     }
@@ -57,10 +48,8 @@ impl DeleteIndexPolicyInputBuilder {
         crate::operation::delete_index_policy::DeleteIndexPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_index_policy::DeleteIndexPolicyInput {
-                log_group_identifier: self.log_group_identifier,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::delete_index_policy::DeleteIndexPolicyInput {
+            log_group_identifier: self.log_group_identifier,
+        })
     }
 }

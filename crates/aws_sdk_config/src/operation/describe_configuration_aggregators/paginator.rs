@@ -2,7 +2,8 @@
 /// Paginator for [`DescribeConfigurationAggregators`](crate::operation::describe_configuration_aggregators::DescribeConfigurationAggregators)
 pub struct DescribeConfigurationAggregatorsPaginator {
     handle: std::sync::Arc<crate::client::Handle>,
-    builder: crate::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsInputBuilder,
+    builder:
+        crate::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsInputBuilder,
     stop_on_duplicate_token: bool,
 }
 
@@ -31,8 +32,13 @@ impl DescribeConfigurationAggregatorsPaginator {
     ///
     /// This paginator automatically flattens results using `configuration_aggregators`. Queries to the underlying service
     /// are dispatched lazily.
-    pub fn items(self) -> crate::operation::describe_configuration_aggregators::paginator::DescribeConfigurationAggregatorsPaginatorItems{
-        crate::operation::describe_configuration_aggregators::paginator::DescribeConfigurationAggregatorsPaginatorItems(self)
+    pub fn items(
+        self,
+    ) -> crate::operation::describe_configuration_aggregators::paginator::DescribeConfigurationAggregatorsPaginatorItems
+    {
+        crate::operation::describe_configuration_aggregators::paginator::DescribeConfigurationAggregatorsPaginatorItems(
+            self,
+        )
     }
 
     /// Stop paginating when the service returns the same pagination token twice in a row.
@@ -61,7 +67,7 @@ impl DescribeConfigurationAggregatorsPaginator {
                 ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
             >,
         >,
-    >{
+    > {
         // Move individual fields out of self for the borrow checker
         let builder = self.builder;
         let handle = self.handle;
@@ -75,9 +81,10 @@ impl DescribeConfigurationAggregatorsPaginator {
             ::aws_smithy_async::future::pagination_stream::fn_stream::FnStream::new(move |tx| {
                 ::std::boxed::Box::pin(async move {
                     // Build the input for the first time. If required fields are missing, this is where we'll produce an early error.
-                    let mut input = match builder.build().map_err(
-                        ::aws_smithy_runtime_api::client::result::SdkError::construction_failure,
-                    ) {
+                    let mut input = match builder
+                        .build()
+                        .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)
+                    {
                         ::std::result::Result::Ok(input) => input,
                         ::std::result::Result::Err(e) => {
                             let _ = tx.send(::std::result::Result::Err(e)).await;
@@ -93,14 +100,13 @@ impl DescribeConfigurationAggregatorsPaginator {
                         // If the input member is None or it was an error
                         let done = match resp {
                             ::std::result::Result::Ok(ref resp) => {
-                                let new_token = crate::lens::reflens_describe_configuration_aggregators_output_output_next_token(resp);
+                                let new_token =
+                                    crate::lens::reflens_describe_configuration_aggregators_output_output_next_token(
+                                        resp,
+                                    );
                                 // Pagination is exhausted when the next token is an empty string
-                                let is_empty =
-                                    new_token.map(|token| token.is_empty()).unwrap_or(true);
-                                if !is_empty
-                                    && new_token == input.next_token.as_ref()
-                                    && self.stop_on_duplicate_token
-                                {
+                                let is_empty = new_token.map(|token| token.is_empty()).unwrap_or(true);
+                                if !is_empty && new_token == input.next_token.as_ref() && self.stop_on_duplicate_token {
                                     true
                                 } else {
                                     input.next_token = new_token.cloned();
@@ -126,9 +132,7 @@ impl DescribeConfigurationAggregatorsPaginator {
 /// Flattened paginator for `DescribeConfigurationAggregatorsPaginator`
 ///
 /// This is created with [`.items()`](DescribeConfigurationAggregatorsPaginator::items)
-pub struct DescribeConfigurationAggregatorsPaginatorItems(
-    DescribeConfigurationAggregatorsPaginator,
-);
+pub struct DescribeConfigurationAggregatorsPaginatorItems(DescribeConfigurationAggregatorsPaginator);
 
 impl DescribeConfigurationAggregatorsPaginatorItems {
     /// Create the pagination stream
@@ -147,7 +151,7 @@ impl DescribeConfigurationAggregatorsPaginatorItems {
                 ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
             >,
         >,
-    >{
+    > {
         ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(|page| {
             crate::lens::lens_describe_configuration_aggregators_output_output_configuration_aggregators(page)
                 .unwrap_or_default()

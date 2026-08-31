@@ -10,8 +10,6 @@ impl super::Client {
     pub fn remove_user_from_group(
         &self,
     ) -> crate::operation::remove_user_from_group::builders::RemoveUserFromGroupFluentBuilder {
-        crate::operation::remove_user_from_group::builders::RemoveUserFromGroupFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::remove_user_from_group::builders::RemoveUserFromGroupFluentBuilder::new(self.handle.clone())
     }
 }

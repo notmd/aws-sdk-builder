@@ -28,9 +28,7 @@ impl PutTransformerInput {
 }
 
 /// A builder for [`PutTransformerInput`](crate::operation::put_transformer::PutTransformerInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutTransformerInputBuilder {
     pub(crate) log_group_identifier: ::std::option::Option<::std::string::String>,
@@ -39,18 +37,12 @@ pub struct PutTransformerInputBuilder {
 impl PutTransformerInputBuilder {
     /// <p>Specify either the name or ARN of the log group to create the transformer for.</p>
     /// This field is required.
-    pub fn log_group_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Specify either the name or ARN of the log group to create the transformer for.</p>
-    pub fn set_log_group_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_identifier = input;
         self
     }
@@ -78,9 +70,7 @@ impl PutTransformerInputBuilder {
         self
     }
     /// <p>This structure contains the configuration of this log transformer. A log transformer is an array of processors, where each processor applies one type of transformation to the log events that are ingested.</p>
-    pub fn get_transformer_config(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Processor>> {
+    pub fn get_transformer_config(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Processor>> {
         &self.transformer_config
     }
     /// Consumes the builder and constructs a [`PutTransformerInput`](crate::operation::put_transformer::PutTransformerInput).

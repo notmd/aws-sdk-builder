@@ -10,8 +10,6 @@ impl super::Client {
     pub fn add_custom_attributes(
         &self,
     ) -> crate::operation::add_custom_attributes::builders::AddCustomAttributesFluentBuilder {
-        crate::operation::add_custom_attributes::builders::AddCustomAttributesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::add_custom_attributes::builders::AddCustomAttributesFluentBuilder::new(self.handle.clone())
     }
 }

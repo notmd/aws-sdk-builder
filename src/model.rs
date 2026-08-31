@@ -25,15 +25,9 @@ pub struct Operation {
 #[derive(Debug, Error)]
 pub enum ModelError {
     #[error("{path}: {source}")]
-    Read {
-        path: PathBuf,
-        source: std::io::Error,
-    },
+    Read { path: PathBuf, source: std::io::Error },
     #[error("{path}: invalid JSON: {source}")]
-    Parse {
-        path: PathBuf,
-        source: serde_json::Error,
-    },
+    Parse { path: PathBuf, source: serde_json::Error },
     #[error("{path}: {message}")]
     Invalid { path: PathBuf, message: String },
 }
@@ -76,10 +70,7 @@ impl Model {
             many => {
                 return Err(ModelError::Invalid {
                     path: path.to_owned(),
-                    message: format!(
-                        "model must contain exactly one service shape; found {}",
-                        many.len()
-                    ),
+                    message: format!("model must contain exactly one service shape; found {}", many.len()),
                 });
             }
         };
@@ -141,11 +132,7 @@ impl Model {
     pub fn shared_operation_groups(&self, operations: &[Operation]) -> Vec<Vec<String>> {
         let mut by_shape = BTreeMap::<String, BTreeSet<String>>::new();
         for operation in operations {
-            let Some(shape) = self
-                .shapes
-                .get(&operation.shape_id)
-                .and_then(Value::as_object)
-            else {
+            let Some(shape) = self.shapes.get(&operation.shape_id).and_then(Value::as_object) else {
                 continue;
             };
             for field in ["input", "output"] {
@@ -202,9 +189,7 @@ fn model_relationship_targets(shape: &Value) -> Vec<String> {
 fn collect_targets(value: &Value, result: &mut Vec<String>) {
     match value {
         Value::String(value) if value.contains('#') => result.push(value.clone()),
-        Value::Array(values) => values
-            .iter()
-            .for_each(|value| collect_targets(value, result)),
+        Value::Array(values) => values.iter().for_each(|value| collect_targets(value, result)),
         Value::Object(object) => {
             if let Some(target) = object.get("target") {
                 collect_targets(target, result);

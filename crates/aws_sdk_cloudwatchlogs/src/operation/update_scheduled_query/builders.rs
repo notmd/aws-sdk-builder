@@ -57,9 +57,7 @@ impl UpdateScheduledQueryFluentBuilder {
         }
     }
     /// Access the UpdateScheduledQuery as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::update_scheduled_query::builders::UpdateScheduledQueryInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::update_scheduled_query::builders::UpdateScheduledQueryInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,11 +86,7 @@ impl UpdateScheduledQueryFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::update_scheduled_query::UpdateScheduledQuery::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::update_scheduled_query::UpdateScheduledQuery::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -154,10 +148,7 @@ impl UpdateScheduledQueryFluentBuilder {
         self
     }
     /// <p>The updated query language for the scheduled query.</p>
-    pub fn set_query_language(
-        mut self,
-        input: ::std::option::Option<crate::types::QueryLanguage>,
-    ) -> Self {
+    pub fn set_query_language(mut self, input: ::std::option::Option<crate::types::QueryLanguage>) -> Self {
         self.inner = self.inner.set_query_language(input);
         self
     }
@@ -185,10 +176,7 @@ impl UpdateScheduledQueryFluentBuilder {
     /// To override the contents of this collection use [`set_log_group_identifiers`](Self::set_log_group_identifiers).
     ///
     /// <p>The updated array of log group names or ARNs to query.</p>
-    pub fn log_group_identifiers(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifiers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_group_identifiers(input.into());
         self
     }
@@ -201,24 +189,16 @@ impl UpdateScheduledQueryFluentBuilder {
         self
     }
     /// <p>The updated array of log group names or ARNs to query.</p>
-    pub fn get_log_group_identifiers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_group_identifiers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_log_group_identifiers()
     }
     /// <p>The updated cron expression that defines when the scheduled query runs.</p>
-    pub fn schedule_expression(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn schedule_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.schedule_expression(input.into());
         self
     }
     /// <p>The updated cron expression that defines when the scheduled query runs.</p>
-    pub fn set_schedule_expression(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_schedule_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_schedule_expression(input);
         self
     }
@@ -269,10 +249,7 @@ impl UpdateScheduledQueryFluentBuilder {
         self.inner.get_end_time_offset()
     }
     /// <p>The updated configuration for where to deliver query results.</p>
-    pub fn destination_configuration(
-        mut self,
-        input: crate::types::DestinationConfiguration,
-    ) -> Self {
+    pub fn destination_configuration(mut self, input: crate::types::DestinationConfiguration) -> Self {
         self.inner = self.inner.destination_configuration(input);
         self
     }
@@ -285,9 +262,7 @@ impl UpdateScheduledQueryFluentBuilder {
         self
     }
     /// <p>The updated configuration for where to deliver query results.</p>
-    pub fn get_destination_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::DestinationConfiguration> {
+    pub fn get_destination_configuration(&self) -> &::std::option::Option<crate::types::DestinationConfiguration> {
         self.inner.get_destination_configuration()
     }
     /// <p>The updated start time for the scheduled query in Unix epoch format.</p>
@@ -319,18 +294,12 @@ impl UpdateScheduledQueryFluentBuilder {
         self.inner.get_schedule_end_time()
     }
     /// <p>The updated ARN of the IAM role that grants permissions to execute the query and deliver results.</p>
-    pub fn execution_role_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn execution_role_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.execution_role_arn(input.into());
         self
     }
     /// <p>The updated ARN of the IAM role that grants permissions to execute the query and deliver results.</p>
-    pub fn set_execution_role_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_execution_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_execution_role_arn(input);
         self
     }
@@ -344,10 +313,7 @@ impl UpdateScheduledQueryFluentBuilder {
         self
     }
     /// <p>The updated state of the scheduled query.</p>
-    pub fn set_state(
-        mut self,
-        input: ::std::option::Option<crate::types::ScheduledQueryState>,
-    ) -> Self {
+    pub fn set_state(mut self, input: ::std::option::Option<crate::types::ScheduledQueryState>) -> Self {
         self.inner = self.inner.set_state(input);
         self
     }

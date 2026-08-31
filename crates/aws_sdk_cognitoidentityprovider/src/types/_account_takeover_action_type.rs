@@ -47,9 +47,7 @@ impl AccountTakeoverActionType {
 }
 
 /// A builder for [`AccountTakeoverActionType`](crate::types::AccountTakeoverActionType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AccountTakeoverActionTypeBuilder {
     pub(crate) notify: ::std::option::Option<bool>,
@@ -116,9 +114,7 @@ impl AccountTakeoverActionTypeBuilder {
     /// <li>
     /// <p><code>NO_ACTION</code>: Take no action. Permit sign-in.</p></li>
     /// </ul>
-    pub fn get_event_action(
-        &self,
-    ) -> &::std::option::Option<crate::types::AccountTakeoverEventActionType> {
+    pub fn get_event_action(&self) -> &::std::option::Option<crate::types::AccountTakeoverEventActionType> {
         &self.event_action
     }
     /// Consumes the builder and constructs a [`AccountTakeoverActionType`](crate::types::AccountTakeoverActionType).
@@ -126,10 +122,8 @@ impl AccountTakeoverActionTypeBuilder {
     /// - [`event_action`](crate::types::builders::AccountTakeoverActionTypeBuilder::event_action)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::AccountTakeoverActionType,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::AccountTakeoverActionType, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::AccountTakeoverActionType {
             notify: self.notify.unwrap_or_default(),
             event_action: self.event_action.ok_or_else(|| {

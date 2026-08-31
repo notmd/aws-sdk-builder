@@ -34,8 +34,6 @@ impl super::Client {
     pub fn get_object_annotation(
         &self,
     ) -> crate::operation::get_object_annotation::builders::GetObjectAnnotationFluentBuilder {
-        crate::operation::get_object_annotation::builders::GetObjectAnnotationFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_object_annotation::builders::GetObjectAnnotationFluentBuilder::new(self.handle.clone())
     }
 }

@@ -7,9 +7,7 @@ pub fn ser_put_bearer_token_authentication_input_input(
         object.key("logGroupIdentifier").string(var_1.as_str());
     }
     if let Some(var_2) = &input.bearer_token_authentication_enabled {
-        object
-            .key("bearerTokenAuthenticationEnabled")
-            .boolean(*var_2);
+        object.key("bearerTokenAuthenticationEnabled").boolean(*var_2);
     }
     Ok(())
 }

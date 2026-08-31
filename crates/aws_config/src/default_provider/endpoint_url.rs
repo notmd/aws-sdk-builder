@@ -32,9 +32,7 @@ pub async fn endpoint_url_provider(provider_config: &ProviderConfig) -> Option<S
         .env(env::ENDPOINT_URL)
         .profile(profile_key::ENDPOINT_URL)
         .validate(&env, profiles, parse_url)
-        .map_err(
-            |err| tracing::warn!(err = %DisplayErrorContext(&err), "invalid value for endpoint URL setting"),
-        )
+        .map_err(|err| tracing::warn!(err = %DisplayErrorContext(&err), "invalid value for endpoint URL setting"))
         .unwrap_or(None)
 }
 
@@ -45,9 +43,7 @@ pub async fn endpoint_url_provider(provider_config: &ProviderConfig) -> Option<S
 /// 2. The profile key `endpoint_url=http://localhost`
 ///
 /// If invalid values are found, the provider will return None and an error will be logged.
-pub async fn endpoint_url_provider_with_origin(
-    provider_config: &ProviderConfig,
-) -> (Option<String>, Origin) {
+pub async fn endpoint_url_provider_with_origin(provider_config: &ProviderConfig) -> (Option<String>, Origin) {
     let env = provider_config.env();
     let profiles = provider_config.profile().await;
 
@@ -55,9 +51,7 @@ pub async fn endpoint_url_provider_with_origin(
         .env(env::ENDPOINT_URL)
         .profile(profile_key::ENDPOINT_URL)
         .validate_and_return_origin(&env, profiles, parse_url)
-        .map_err(
-            |err| tracing::warn!(err = %DisplayErrorContext(&err), "invalid value for endpoint URL setting"),
-        )
+        .map_err(|err| tracing::warn!(err = %DisplayErrorContext(&err), "invalid value for endpoint URL setting"))
         .unwrap_or_default()
 }
 
@@ -74,8 +68,7 @@ mod test {
     #[tokio::test]
     #[traced_test]
     async fn log_error_on_invalid_value() {
-        let conf =
-            ProviderConfig::empty().with_env(Env::from_slice(&[(env::ENDPOINT_URL, "not-a-url")]));
+        let conf = ProviderConfig::empty().with_env(Env::from_slice(&[(env::ENDPOINT_URL, "not-a-url")]));
         assert_eq!(None, endpoint_url_provider(&conf).await);
         assert!(logs_contain("invalid value for endpoint URL setting"));
         assert!(logs_contain(env::ENDPOINT_URL));
@@ -103,9 +96,6 @@ mod test {
                 "conf",
                 "[default]\nendpoint_url = http://production",
             )]));
-        assert_eq!(
-            Some("http://localhost".to_owned()),
-            endpoint_url_provider(&conf).await,
-        );
+        assert_eq!(Some("http://localhost".to_owned()), endpoint_url_provider(&conf).await,);
     }
 }

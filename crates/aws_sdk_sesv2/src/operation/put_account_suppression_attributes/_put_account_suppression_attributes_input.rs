@@ -11,8 +11,7 @@ pub struct PutAccountSuppressionAttributesInput {
     /// <li>
     /// <p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a hard bounce.</p></li>
     /// </ul>
-    pub suppressed_reasons:
-        ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>,
+    pub suppressed_reasons: ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>,
     /// <p>An object that contains additional suppression attributes for your account.</p>
     pub validation_attributes: ::std::option::Option<crate::types::SuppressionValidationAttributes>,
 }
@@ -30,29 +29,25 @@ impl PutAccountSuppressionAttributesInput {
         self.suppressed_reasons.as_deref().unwrap_or_default()
     }
     /// <p>An object that contains additional suppression attributes for your account.</p>
-    pub fn validation_attributes(
-        &self,
-    ) -> ::std::option::Option<&crate::types::SuppressionValidationAttributes> {
+    pub fn validation_attributes(&self) -> ::std::option::Option<&crate::types::SuppressionValidationAttributes> {
         self.validation_attributes.as_ref()
     }
 }
 impl PutAccountSuppressionAttributesInput {
     /// Creates a new builder-style object to manufacture [`PutAccountSuppressionAttributesInput`](crate::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesInput).
-    pub fn builder() -> crate::operation::put_account_suppression_attributes::builders::PutAccountSuppressionAttributesInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::put_account_suppression_attributes::builders::PutAccountSuppressionAttributesInputBuilder
+    {
         crate::operation::put_account_suppression_attributes::builders::PutAccountSuppressionAttributesInputBuilder::default()
     }
 }
 
 /// A builder for [`PutAccountSuppressionAttributesInput`](crate::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutAccountSuppressionAttributesInputBuilder {
-    pub(crate) suppressed_reasons:
-        ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>,
-    pub(crate) validation_attributes:
-        ::std::option::Option<crate::types::SuppressionValidationAttributes>,
+    pub(crate) suppressed_reasons: ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>,
+    pub(crate) validation_attributes: ::std::option::Option<crate::types::SuppressionValidationAttributes>,
 }
 impl PutAccountSuppressionAttributesInputBuilder {
     /// Appends an item to `suppressed_reasons`.
@@ -99,10 +94,7 @@ impl PutAccountSuppressionAttributesInputBuilder {
         &self.suppressed_reasons
     }
     /// <p>An object that contains additional suppression attributes for your account.</p>
-    pub fn validation_attributes(
-        mut self,
-        input: crate::types::SuppressionValidationAttributes,
-    ) -> Self {
+    pub fn validation_attributes(mut self, input: crate::types::SuppressionValidationAttributes) -> Self {
         self.validation_attributes = ::std::option::Option::Some(input);
         self
     }
@@ -115,9 +107,7 @@ impl PutAccountSuppressionAttributesInputBuilder {
         self
     }
     /// <p>An object that contains additional suppression attributes for your account.</p>
-    pub fn get_validation_attributes(
-        &self,
-    ) -> &::std::option::Option<crate::types::SuppressionValidationAttributes> {
+    pub fn get_validation_attributes(&self) -> &::std::option::Option<crate::types::SuppressionValidationAttributes> {
         &self.validation_attributes
     }
     /// Consumes the builder and constructs a [`PutAccountSuppressionAttributesInput`](crate::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesInput).

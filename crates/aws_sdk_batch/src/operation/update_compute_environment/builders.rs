@@ -59,8 +59,7 @@ impl UpdateComputeEnvironmentFluentBuilder {
     /// Access the UpdateComputeEnvironment as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::update_compute_environment::builders::UpdateComputeEnvironmentInputBuilder
-    {
+    ) -> &crate::operation::update_compute_environment::builders::UpdateComputeEnvironmentInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +83,14 @@ impl UpdateComputeEnvironmentFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::update_compute_environment::UpdateComputeEnvironment::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::update_compute_environment::UpdateComputeEnvironment::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::update_compute_environment::UpdateComputeEnvironment::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::update_compute_environment::UpdateComputeEnvironment::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -122,18 +119,12 @@ impl UpdateComputeEnvironmentFluentBuilder {
         self
     }
     /// <p>The name or full Amazon Resource Name (ARN) of the compute environment to update.</p>
-    pub fn compute_environment(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn compute_environment(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.compute_environment(input.into());
         self
     }
     /// <p>The name or full Amazon Resource Name (ARN) of the compute environment to update.</p>
-    pub fn set_compute_environment(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_compute_environment(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_compute_environment(input);
         self
     }
@@ -190,17 +181,12 @@ impl UpdateComputeEnvironmentFluentBuilder {
         self
     }
     /// <p>Details of the compute resources managed by the compute environment. Required for a managed compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the <i>Batch User Guide</i>.</p>
-    pub fn set_compute_resources(
-        mut self,
-        input: ::std::option::Option<crate::types::ComputeResourceUpdate>,
-    ) -> Self {
+    pub fn set_compute_resources(mut self, input: ::std::option::Option<crate::types::ComputeResourceUpdate>) -> Self {
         self.inner = self.inner.set_compute_resources(input);
         self
     }
     /// <p>Details of the compute resources managed by the compute environment. Required for a managed compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the <i>Batch User Guide</i>.</p>
-    pub fn get_compute_resources(
-        &self,
-    ) -> &::std::option::Option<crate::types::ComputeResourceUpdate> {
+    pub fn get_compute_resources(&self) -> &::std::option::Option<crate::types::ComputeResourceUpdate> {
         self.inner.get_compute_resources()
     }
     /// <p>The full Amazon Resource Name (ARN) of the IAM role that allows Batch to make calls to other Amazon Web Services services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html">Batch service IAM role</a> in the <i>Batch User Guide</i>.</p><important>
@@ -238,10 +224,7 @@ impl UpdateComputeEnvironmentFluentBuilder {
         self
     }
     /// <p>Specifies the updated infrastructure update policy for the compute environment. For more information about infrastructure updates, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the <i>Batch User Guide</i>.</p>
-    pub fn set_update_policy(
-        mut self,
-        input: ::std::option::Option<crate::types::UpdatePolicy>,
-    ) -> Self {
+    pub fn set_update_policy(mut self, input: ::std::option::Option<crate::types::UpdatePolicy>) -> Self {
         self.inner = self.inner.set_update_policy(input);
         self
     }
@@ -269,10 +252,7 @@ impl UpdateComputeEnvironmentFluentBuilder {
         self
     }
     /// <p>The Amazon ECS settings for the compute environment. These settings control CloudWatch Container Insights collection for the compute environment.</p>
-    pub fn set_ecs_settings(
-        mut self,
-        input: ::std::option::Option<crate::types::EcsSettings>,
-    ) -> Self {
+    pub fn set_ecs_settings(mut self, input: ::std::option::Option<crate::types::EcsSettings>) -> Self {
         self.inner = self.inner.set_ecs_settings(input);
         self
     }

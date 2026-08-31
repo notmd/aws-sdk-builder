@@ -26,7 +26,8 @@ impl crate::operation::disable_organizations_root_sessions::builders::DisableOrg
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DisableOrganizationsRootSessionsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsInputBuilder,
+    inner:
+        crate::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -57,7 +58,10 @@ impl DisableOrganizationsRootSessionsFluentBuilder {
         }
     }
     /// Access the DisableOrganizationsRootSessions as a reference.
-    pub fn as_input(&self) -> &crate::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +80,7 @@ impl DisableOrganizationsRootSessionsFluentBuilder {
             crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +90,11 @@ impl DisableOrganizationsRootSessionsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessions::orchestrate(&runtime_plugins, input).await
+        crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessions::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +104,7 @@ impl DisableOrganizationsRootSessionsFluentBuilder {
         crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsOutput,
         crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(

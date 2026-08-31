@@ -13,9 +13,7 @@ pub struct SchedulingPolicyDetail {
     /// <p>The fair-share scheduling policy details.</p>
     pub fairshare_policy: ::std::option::Option<crate::types::FairsharePolicy>,
     /// <p>The tags that you apply to the fair-share scheduling policy to categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in <i>Amazon Web Services General Reference</i>.</p>
-    pub tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl SchedulingPolicyDetail {
     /// <p>The name of the fair-share scheduling policy.</p>
@@ -37,9 +35,7 @@ impl SchedulingPolicyDetail {
     /// <p>The tags that you apply to the fair-share scheduling policy to categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in <i>Amazon Web Services General Reference</i>.</p>
     pub fn tags(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
 }
@@ -51,18 +47,14 @@ impl SchedulingPolicyDetail {
 }
 
 /// A builder for [`SchedulingPolicyDetail`](crate::types::SchedulingPolicyDetail).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SchedulingPolicyDetailBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
     pub(crate) arn: ::std::option::Option<::std::string::String>,
     pub(crate) quota_share_policy: ::std::option::Option<crate::types::QuotaSharePolicy>,
     pub(crate) fairshare_policy: ::std::option::Option<crate::types::FairsharePolicy>,
-    pub(crate) tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl SchedulingPolicyDetailBuilder {
     /// <p>The name of the fair-share scheduling policy.</p>
@@ -101,10 +93,7 @@ impl SchedulingPolicyDetailBuilder {
         self
     }
     /// <p>The quota share scheduling policy details.</p>
-    pub fn set_quota_share_policy(
-        mut self,
-        input: ::std::option::Option<crate::types::QuotaSharePolicy>,
-    ) -> Self {
+    pub fn set_quota_share_policy(mut self, input: ::std::option::Option<crate::types::QuotaSharePolicy>) -> Self {
         self.quota_share_policy = input;
         self
     }
@@ -118,10 +107,7 @@ impl SchedulingPolicyDetailBuilder {
         self
     }
     /// <p>The fair-share scheduling policy details.</p>
-    pub fn set_fairshare_policy(
-        mut self,
-        input: ::std::option::Option<crate::types::FairsharePolicy>,
-    ) -> Self {
+    pub fn set_fairshare_policy(mut self, input: ::std::option::Option<crate::types::FairsharePolicy>) -> Self {
         self.fairshare_policy = input;
         self
     }
@@ -147,9 +133,7 @@ impl SchedulingPolicyDetailBuilder {
     /// <p>The tags that you apply to the fair-share scheduling policy to categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in <i>Amazon Web Services General Reference</i>.</p>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.tags = input;
         self
@@ -157,9 +141,7 @@ impl SchedulingPolicyDetailBuilder {
     /// <p>The tags that you apply to the fair-share scheduling policy to categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in <i>Amazon Web Services General Reference</i>.</p>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`SchedulingPolicyDetail`](crate::types::SchedulingPolicyDetail).

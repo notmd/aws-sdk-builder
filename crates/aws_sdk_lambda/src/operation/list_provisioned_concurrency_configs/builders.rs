@@ -26,7 +26,8 @@ impl crate::operation::list_provisioned_concurrency_configs::builders::ListProvi
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListProvisionedConcurrencyConfigsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsInputBuilder,
+    inner:
+        crate::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -57,7 +58,10 @@ impl ListProvisionedConcurrencyConfigsFluentBuilder {
         }
     }
     /// Access the ListProvisionedConcurrencyConfigs as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +80,7 @@ impl ListProvisionedConcurrencyConfigsFluentBuilder {
             crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +90,11 @@ impl ListProvisionedConcurrencyConfigsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigs::orchestrate(&runtime_plugins, input).await
+        crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigs::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +104,7 @@ impl ListProvisionedConcurrencyConfigsFluentBuilder {
         crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsOutput,
         crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -117,7 +125,10 @@ impl ListProvisionedConcurrencyConfigsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_provisioned_concurrency_configs::paginator::ListProvisionedConcurrencyConfigsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_provisioned_concurrency_configs::paginator::ListProvisionedConcurrencyConfigsPaginator{
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::list_provisioned_concurrency_configs::paginator::ListProvisionedConcurrencyConfigsPaginator
+    {
         crate::operation::list_provisioned_concurrency_configs::paginator::ListProvisionedConcurrencyConfigsPaginator::new(self.handle, self.inner)
     }
     /// <p>The name or ARN of the Lambda function.</p>
@@ -131,10 +142,7 @@ impl ListProvisionedConcurrencyConfigsFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -149,10 +157,7 @@ impl ListProvisionedConcurrencyConfigsFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }

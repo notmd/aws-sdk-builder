@@ -85,13 +85,11 @@ impl ListObjects {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(
-                crate::config::ConfigOverrideRuntimePlugin::new(
-                    config_override,
-                    client_config.config.clone(),
-                    &client_config.runtime_components,
-                ),
-            );
+            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+                config_override,
+                client_config.config.clone(),
+                &client_config.runtime_components,
+            ));
         }
         runtime_plugins
     }
@@ -100,15 +98,11 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListObj
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("ListObjects");
 
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+            ListObjectsRequestSerializer,
+        ));
         cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                ListObjectsRequestSerializer,
-            ),
-        );
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
-                ListObjectsResponseDeserializer,
-            ),
+            ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(ListObjectsResponseDeserializer),
         );
 
         cfg.store_put(
@@ -120,9 +114,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListObj
             ),
         );
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListObjects", "S3"),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+            "ListObjects",
+            "S3",
+        ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = false;
         signing_options.content_sha256_header = true;
@@ -140,36 +135,48 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListObj
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<
-        '_,
-        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    > {
+    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
-        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListObjects")
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new(
+            "ListObjects",
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 ListObjectsTelemetryInputCaptureInterceptor,
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 ListObjectsEndpointParamsInterceptor,
-            ))
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+            ),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                 crate::operation::list_objects::ListObjectsError,
-            >::new())
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+            >::new(),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                 crate::operation::list_objects::ListObjectsError,
-            >::new())
-            .with_retry_classifier(
-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_objects::ListObjectsError>::builder()
-                    .transient_errors({
-                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-                        transient_errors.push("InternalError");
-                        ::std::borrow::Cow::Owned(transient_errors)
-                    })
-                    .build(),
-            );
+            >::new(),
+        )
+        .with_retry_classifier(
+            ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+                crate::operation::list_objects::ListObjectsError,
+            >::builder()
+            .transient_errors({
+                let mut transient_errors: Vec<&'static str> =
+                    ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
+                transient_errors.push("InternalError");
+                ::std::borrow::Cow::Owned(transient_errors)
+            })
+            .build(),
+        );
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -179,9 +186,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListObj
 struct ListObjectsTelemetryInputCaptureInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for ListObjectsTelemetryInputCaptureInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListObjectsTelemetryInputCaptureInterceptor {
     fn name(&self) -> &'static str {
         "ListObjectsTelemetryInputCaptureInterceptor"
     }
@@ -204,8 +209,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) = context.input().downcast_ref::<ListObjectsInput>()
-        else {
+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<ListObjectsInput>() else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
@@ -243,9 +247,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
 }
 #[derive(Debug)]
 struct ListObjectsResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
-    for ListObjectsResponseDeserializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for ListObjectsResponseDeserializer {
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -257,21 +259,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
         #[allow(unused_mut)]
         let mut force_error = false;
         ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
-        if matches!(
-            crate::rest_xml_unwrapped_errors::body_is_error(body),
-            Ok(true)
-        ) {
+        if matches!(crate::rest_xml_unwrapped_errors::body_is_error(body), Ok(true)) {
             force_error = true;
         }
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_list_objects::de_list_objects_http_error(
-                status, headers, body,
-            )
+            crate::protocol_serde::shape_list_objects::de_list_objects_http_error(status, headers, body)
         } else {
-            crate::protocol_serde::shape_list_objects::de_list_objects_http_response(
-                status, headers, body,
-            )
+            crate::protocol_serde::shape_list_objects::de_list_objects_http_response(status, headers, body)
         };
         crate::protocol_serde::type_erase_result(parse_result)
     }
@@ -305,8 +300,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListObjectsR
             fn uri_base(
                 _input: &crate::operation::list_objects::ListObjectsInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
                 ::std::write!(output, "/").expect("formatting should succeed");
                 ::std::result::Result::Ok(())
@@ -314,8 +308,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListObjectsR
             fn uri_query(
                 _input: &crate::operation::list_objects::ListObjectsInput,
                 mut output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 if let ::std::option::Option::Some(inner_1) = &_input.delimiter {
                     {
@@ -324,10 +317,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListObjectsR
                 }
                 if let ::std::option::Option::Some(inner_2) = &_input.encoding_type {
                     {
-                        query.push_kv(
-                            "encoding-type",
-                            &::aws_smithy_http::query::fmt_string(inner_2.as_str()),
-                        );
+                        query.push_kv("encoding-type", &::aws_smithy_http::query::fmt_string(inner_2.as_str()));
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.marker {
@@ -354,16 +344,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListObjectsR
             fn update_http_builder(
                 input: &crate::operation::list_objects::ListObjectsInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<
-                ::http_1x::request::Builder,
-                ::aws_smithy_types::error::operation::BuildError,
-            > {
+            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
-                let builder = crate::protocol_serde::shape_list_objects::ser_list_objects_headers(
-                    input, builder,
-                )?;
+                let builder = crate::protocol_serde::shape_list_objects::ser_list_objects_headers(input, builder)?;
                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -371,22 +357,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListObjectsR
         };
         let body = ::aws_smithy_types::body::SdkBody::from("");
 
-        ::std::result::Result::Ok(
-            request_builder
-                .body(body)
-                .expect("valid request")
-                .try_into()
-                .unwrap(),
-        )
+        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
 #[derive(Debug)]
 struct ListObjectsEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for ListObjectsEndpointParamsInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListObjectsEndpointParamsInterceptor {
     fn name(&self) -> &'static str {
         "ListObjectsEndpointParamsInterceptor"
     }
@@ -407,18 +385,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             .ok_or("failed to downcast to ListObjectsInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(
-                cfg.load::<::aws_types::region::Region>()
-                    .map(|r| r.as_ref().to_owned()),
-            )
-            .set_use_fips(
-                cfg.load::<::aws_types::endpoint_config::UseFips>()
-                    .map(|ty| ty.0),
-            )
-            .set_use_dual_stack(
-                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
-                    .map(|ty| ty.0),
-            )
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_endpoint(
                 cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
                     .map(|ty| ty.0.clone()),
@@ -431,8 +400,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             )
             .set_accelerate(cfg.load::<crate::config::Accelerate>().map(|ty| ty.0))
             .set_disable_s3_express_session_auth(
-                cfg.load::<crate::config::DisableS3ExpressSessionAuth>()
-                    .map(|ty| ty.0),
+                cfg.load::<crate::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0),
             )
             .set_bucket(Some(
                 _input
@@ -454,9 +422,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
                     err,
                 )
             })?;
-        cfg.interceptor_state().store_put(
-            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
-        );
+        cfg.interceptor_state()
+            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(
+                params,
+            ));
         ::std::result::Result::Ok(())
     }
 }
@@ -557,11 +526,7 @@ mod list_objects_test {
             expected_output.is_truncated,
             "Unexpected value for `is_truncated`"
         );
-        ::pretty_assertions::assert_eq!(
-            parsed.marker,
-            expected_output.marker,
-            "Unexpected value for `marker`"
-        );
+        ::pretty_assertions::assert_eq!(parsed.marker, expected_output.marker, "Unexpected value for `marker`");
         ::pretty_assertions::assert_eq!(
             parsed.next_marker,
             expected_output.next_marker,
@@ -572,16 +537,8 @@ mod list_objects_test {
             expected_output.contents,
             "Unexpected value for `contents`"
         );
-        ::pretty_assertions::assert_eq!(
-            parsed.name,
-            expected_output.name,
-            "Unexpected value for `name`"
-        );
-        ::pretty_assertions::assert_eq!(
-            parsed.prefix,
-            expected_output.prefix,
-            "Unexpected value for `prefix`"
-        );
+        ::pretty_assertions::assert_eq!(parsed.name, expected_output.name, "Unexpected value for `name`");
+        ::pretty_assertions::assert_eq!(parsed.prefix, expected_output.prefix, "Unexpected value for `prefix`");
         ::pretty_assertions::assert_eq!(
             parsed.delimiter,
             expected_output.delimiter,
@@ -631,9 +588,7 @@ impl ListObjectsError {
     /// Creates the `ListObjectsError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -655,9 +610,7 @@ impl ListObjectsError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::NoSuchBucket(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::NoSuchBucket(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -701,18 +654,14 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for ListObjectsError {
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ListObjectsError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::NoSuchBucket(_inner) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
-            }
+            Self::NoSuchBucket(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::Unhandled(_inner) => &_inner.meta,
         }
     }
 }
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ListObjectsError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {

@@ -10,8 +10,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateSigningCertificateError>`](crate::operation::update_signing_certificate::UpdateSigningCertificateError)
     pub fn update_signing_certificate(
         &self,
-    ) -> crate::operation::update_signing_certificate::builders::UpdateSigningCertificateFluentBuilder
-    {
-        crate::operation::update_signing_certificate::builders::UpdateSigningCertificateFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::update_signing_certificate::builders::UpdateSigningCertificateFluentBuilder {
+        crate::operation::update_signing_certificate::builders::UpdateSigningCertificateFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -33,9 +33,7 @@ impl SamlProviderListEntry {
 }
 
 /// A builder for [`SamlProviderListEntry`](crate::types::SamlProviderListEntry).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SamlProviderListEntryBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,
@@ -63,10 +61,7 @@ impl SamlProviderListEntryBuilder {
         self
     }
     /// <p>The expiration date and time for the SAML provider.</p>
-    pub fn set_valid_until(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_valid_until(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.valid_until = input;
         self
     }
@@ -80,10 +75,7 @@ impl SamlProviderListEntryBuilder {
         self
     }
     /// <p>The date and time when the SAML provider was created.</p>
-    pub fn set_create_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.create_date = input;
         self
     }

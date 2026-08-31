@@ -26,7 +26,8 @@ impl crate::operation::list_domain_deliverability_campaigns::builders::ListDomai
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListDomainDeliverabilityCampaignsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsInputBuilder,
+    inner:
+        crate::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -57,7 +58,10 @@ impl ListDomainDeliverabilityCampaignsFluentBuilder {
         }
     }
     /// Access the ListDomainDeliverabilityCampaigns as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +80,7 @@ impl ListDomainDeliverabilityCampaignsFluentBuilder {
             crate::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +90,11 @@ impl ListDomainDeliverabilityCampaignsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaigns::orchestrate(&runtime_plugins, input).await
+        crate::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaigns::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +104,7 @@ impl ListDomainDeliverabilityCampaignsFluentBuilder {
         crate::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsOutput,
         crate::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -117,7 +125,10 @@ impl ListDomainDeliverabilityCampaignsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_domain_deliverability_campaigns::paginator::ListDomainDeliverabilityCampaignsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_domain_deliverability_campaigns::paginator::ListDomainDeliverabilityCampaignsPaginator{
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::list_domain_deliverability_campaigns::paginator::ListDomainDeliverabilityCampaignsPaginator
+    {
         crate::operation::list_domain_deliverability_campaigns::paginator::ListDomainDeliverabilityCampaignsPaginator::new(self.handle, self.inner)
     }
     /// <p>The first day that you want to obtain deliverability data for.</p>
@@ -126,10 +137,7 @@ impl ListDomainDeliverabilityCampaignsFluentBuilder {
         self
     }
     /// <p>The first day that you want to obtain deliverability data for.</p>
-    pub fn set_start_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_start_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.inner = self.inner.set_start_date(input);
         self
     }
@@ -143,10 +151,7 @@ impl ListDomainDeliverabilityCampaignsFluentBuilder {
         self
     }
     /// <p>The last day that you want to obtain deliverability data for. This value has to be less than or equal to 30 days after the value of the <code>StartDate</code> parameter.</p>
-    pub fn set_end_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_end_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.inner = self.inner.set_end_date(input);
         self
     }
@@ -155,18 +160,12 @@ impl ListDomainDeliverabilityCampaignsFluentBuilder {
         self.inner.get_end_date()
     }
     /// <p>The domain to obtain deliverability data for.</p>
-    pub fn subscribed_domain(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn subscribed_domain(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.subscribed_domain(input.into());
         self
     }
     /// <p>The domain to obtain deliverability data for.</p>
-    pub fn set_subscribed_domain(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_subscribed_domain(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_subscribed_domain(input);
         self
     }

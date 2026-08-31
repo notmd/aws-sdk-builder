@@ -6,7 +6,10 @@ pub fn ser_create_configuration_set_event_destination_input_input(
     if let Some(var_1) = &input.event_destination {
         #[allow(unused_mut)]
         let mut object_2 = object.key("EventDestination").start_object();
-        crate::protocol_serde::shape_event_destination_definition::ser_event_destination_definition(&mut object_2, var_1)?;
+        crate::protocol_serde::shape_event_destination_definition::ser_event_destination_definition(
+            &mut object_2,
+            var_1,
+        )?;
         object_2.finish();
     }
     if let Some(var_3) = &input.event_destination_name {

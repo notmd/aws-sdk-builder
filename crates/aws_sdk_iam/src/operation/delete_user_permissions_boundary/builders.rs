@@ -59,7 +59,9 @@ impl DeleteUserPermissionsBoundaryFluentBuilder {
         }
     }
     /// Access the DeleteUserPermissionsBoundary as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_user_permissions_boundary::builders::DeleteUserPermissionsBoundaryInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::delete_user_permissions_boundary::builders::DeleteUserPermissionsBoundaryInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,7 +90,11 @@ impl DeleteUserPermissionsBoundaryFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundary::orchestrate(&runtime_plugins, input).await
+        crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundary::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

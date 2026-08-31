@@ -16,11 +16,7 @@ pub fn ser_audio_source(
             object_1.finish();
         }
         crate::types::AudioSource::Unknown => {
-            return Err(
-                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                    "AudioSource",
-                ),
-            )
+            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("AudioSource"))
         }
     }
     Ok(())
@@ -30,10 +26,7 @@ pub(crate) fn de_audio_source<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<
-    Option<crate::types::AudioSource>,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
->
+) -> ::std::result::Result<Option<crate::types::AudioSource>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<
         Item = Result<
@@ -43,11 +36,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     let mut variant = None;
     match tokens.next().transpose()? {
@@ -69,34 +60,27 @@ where
                         continue;
                     }
                     if variant.is_some() {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                "encountered mixed variants in union",
-                            ),
-                        );
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            "encountered mixed variants in union",
+                        ));
                     }
                     variant = match key.as_ref() {
                         "bytes" => Some(crate::types::AudioSource::Bytes(
-                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(
-                                tokens.next(),
-                            )?
-                            .ok_or_else(|| {
-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                    "value for 'bytes' cannot be null",
-                                )
-                            })?,
+                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(
+                                || {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                        "value for 'bytes' cannot be null",
+                                    )
+                                },
+                            )?,
                         )),
                         "s3Location" => Some(crate::types::AudioSource::S3Location(
-                            crate::protocol_serde::shape_s3_location::de_s3_location(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?
-                            .ok_or_else(|| {
-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                    "value for 's3Location' cannot be null",
-                                )
-                            })?,
+                            crate::protocol_serde::shape_s3_location::de_s3_location(tokens, _value, depth + 1)?
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                        "value for 's3Location' cannot be null",
+                                    )
+                                })?,
                         )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
@@ -105,28 +89,22 @@ where
                     };
                 }
                 other => {
-                    return Err(
-                        ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )),
-                    )
+                    return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                        format!("expected object key or end object, found: {other:?}"),
+                    ))
                 }
             }
         },
         _ => {
-            return Err(
-                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                    "expected start object or null",
-                ),
-            )
+            return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ))
         }
     }
     if variant.is_none() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "Union did not contain a valid variant.",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "Union did not contain a valid variant.",
+        ));
     }
     Ok(variant)
 }

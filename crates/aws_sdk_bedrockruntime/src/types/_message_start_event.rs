@@ -21,9 +21,7 @@ impl MessageStartEvent {
 }
 
 /// A builder for [`MessageStartEvent`](crate::types::MessageStartEvent).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct MessageStartEventBuilder {
     pub(crate) role: ::std::option::Option<crate::types::ConversationRole>,
@@ -36,10 +34,7 @@ impl MessageStartEventBuilder {
         self
     }
     /// <p>The role for the message.</p>
-    pub fn set_role(
-        mut self,
-        input: ::std::option::Option<crate::types::ConversationRole>,
-    ) -> Self {
+    pub fn set_role(mut self, input: ::std::option::Option<crate::types::ConversationRole>) -> Self {
         self.role = input;
         self
     }
@@ -52,10 +47,7 @@ impl MessageStartEventBuilder {
     /// - [`role`](crate::types::builders::MessageStartEventBuilder::role)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::MessageStartEvent,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::MessageStartEvent, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::MessageStartEvent {
             role: self.role.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -5,15 +5,12 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetResourcePolicyOutput {
     /// The account's SignIn resource-based policy
-    pub signin_resource_based_policy:
-        ::std::option::Option<crate::types::SigninResourceBasedPolicy>,
+    pub signin_resource_based_policy: ::std::option::Option<crate::types::SigninResourceBasedPolicy>,
     _request_id: Option<String>,
 }
 impl GetResourcePolicyOutput {
     /// The account's SignIn resource-based policy
-    pub fn signin_resource_based_policy(
-        &self,
-    ) -> ::std::option::Option<&crate::types::SigninResourceBasedPolicy> {
+    pub fn signin_resource_based_policy(&self) -> ::std::option::Option<&crate::types::SigninResourceBasedPolicy> {
         self.signin_resource_based_policy.as_ref()
     }
 }
@@ -24,29 +21,22 @@ impl ::aws_types::request_id::RequestId for GetResourcePolicyOutput {
 }
 impl GetResourcePolicyOutput {
     /// Creates a new builder-style object to manufacture [`GetResourcePolicyOutput`](crate::operation::get_resource_policy::GetResourcePolicyOutput).
-    pub fn builder(
-    ) -> crate::operation::get_resource_policy::builders::GetResourcePolicyOutputBuilder {
+    pub fn builder() -> crate::operation::get_resource_policy::builders::GetResourcePolicyOutputBuilder {
         crate::operation::get_resource_policy::builders::GetResourcePolicyOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetResourcePolicyOutput`](crate::operation::get_resource_policy::GetResourcePolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetResourcePolicyOutputBuilder {
-    pub(crate) signin_resource_based_policy:
-        ::std::option::Option<crate::types::SigninResourceBasedPolicy>,
+    pub(crate) signin_resource_based_policy: ::std::option::Option<crate::types::SigninResourceBasedPolicy>,
     _request_id: Option<String>,
 }
 impl GetResourcePolicyOutputBuilder {
     /// The account's SignIn resource-based policy
     /// This field is required.
-    pub fn signin_resource_based_policy(
-        mut self,
-        input: crate::types::SigninResourceBasedPolicy,
-    ) -> Self {
+    pub fn signin_resource_based_policy(mut self, input: crate::types::SigninResourceBasedPolicy) -> Self {
         self.signin_resource_based_policy = ::std::option::Option::Some(input);
         self
     }
@@ -59,9 +49,7 @@ impl GetResourcePolicyOutputBuilder {
         self
     }
     /// The account's SignIn resource-based policy
-    pub fn get_signin_resource_based_policy(
-        &self,
-    ) -> &::std::option::Option<crate::types::SigninResourceBasedPolicy> {
+    pub fn get_signin_resource_based_policy(&self) -> &::std::option::Option<crate::types::SigninResourceBasedPolicy> {
         &self.signin_resource_based_policy
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

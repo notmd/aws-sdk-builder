@@ -8,8 +8,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeregisterJobDefinitionError>`](crate::operation::deregister_job_definition::DeregisterJobDefinitionError)
     pub fn deregister_job_definition(
         &self,
-    ) -> crate::operation::deregister_job_definition::builders::DeregisterJobDefinitionFluentBuilder
-    {
-        crate::operation::deregister_job_definition::builders::DeregisterJobDefinitionFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::deregister_job_definition::builders::DeregisterJobDefinitionFluentBuilder {
+        crate::operation::deregister_job_definition::builders::DeregisterJobDefinitionFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

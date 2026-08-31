@@ -47,9 +47,7 @@ impl ExternalEvaluation {
 }
 
 /// A builder for [`ExternalEvaluation`](crate::types::ExternalEvaluation).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ExternalEvaluationBuilder {
     pub(crate) compliance_resource_type: ::std::option::Option<::std::string::String>,
@@ -61,18 +59,12 @@ pub struct ExternalEvaluationBuilder {
 impl ExternalEvaluationBuilder {
     /// <p>The evaluated compliance resource type. Config accepts <code>AWS::::Account</code> resource type.</p>
     /// This field is required.
-    pub fn compliance_resource_type(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn compliance_resource_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.compliance_resource_type = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The evaluated compliance resource type. Config accepts <code>AWS::::Account</code> resource type.</p>
-    pub fn set_compliance_resource_type(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_compliance_resource_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.compliance_resource_type = input;
         self
     }
@@ -82,18 +74,12 @@ impl ExternalEvaluationBuilder {
     }
     /// <p>The evaluated compliance resource ID. Config accepts only Amazon Web Services account ID.</p>
     /// This field is required.
-    pub fn compliance_resource_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn compliance_resource_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.compliance_resource_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The evaluated compliance resource ID. Config accepts only Amazon Web Services account ID.</p>
-    pub fn set_compliance_resource_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_compliance_resource_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.compliance_resource_id = input;
         self
     }
@@ -108,10 +94,7 @@ impl ExternalEvaluationBuilder {
         self
     }
     /// <p>The compliance of the Amazon Web Services resource. The valid values are <code>COMPLIANT, NON_COMPLIANT, </code> and <code>NOT_APPLICABLE</code>.</p>
-    pub fn set_compliance_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ComplianceType>,
-    ) -> Self {
+    pub fn set_compliance_type(mut self, input: ::std::option::Option<crate::types::ComplianceType>) -> Self {
         self.compliance_type = input;
         self
     }
@@ -140,10 +123,7 @@ impl ExternalEvaluationBuilder {
         self
     }
     /// <p>The time when the compliance was recorded.</p>
-    pub fn set_ordering_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_ordering_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.ordering_timestamp = input;
         self
     }
@@ -159,10 +139,7 @@ impl ExternalEvaluationBuilder {
     /// - [`ordering_timestamp`](crate::types::builders::ExternalEvaluationBuilder::ordering_timestamp)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::ExternalEvaluation,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::ExternalEvaluation, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ExternalEvaluation {
             compliance_resource_type: self.compliance_resource_type.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

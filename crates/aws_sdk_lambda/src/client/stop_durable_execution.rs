@@ -11,8 +11,6 @@ impl super::Client {
     pub fn stop_durable_execution(
         &self,
     ) -> crate::operation::stop_durable_execution::builders::StopDurableExecutionFluentBuilder {
-        crate::operation::stop_durable_execution::builders::StopDurableExecutionFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::stop_durable_execution::builders::StopDurableExecutionFluentBuilder::new(self.handle.clone())
     }
 }

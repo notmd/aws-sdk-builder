@@ -20,16 +20,13 @@ impl DeleteResourcePolicyInput {
 }
 impl DeleteResourcePolicyInput {
     /// Creates a new builder-style object to manufacture [`DeleteResourcePolicyInput`](crate::operation::delete_resource_policy::DeleteResourcePolicyInput).
-    pub fn builder(
-    ) -> crate::operation::delete_resource_policy::builders::DeleteResourcePolicyInputBuilder {
+    pub fn builder() -> crate::operation::delete_resource_policy::builders::DeleteResourcePolicyInputBuilder {
         crate::operation::delete_resource_policy::builders::DeleteResourcePolicyInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteResourcePolicyInput`](crate::operation::delete_resource_policy::DeleteResourcePolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteResourcePolicyInputBuilder {
     pub(crate) resource_arn: ::std::option::Option<::std::string::String>,
@@ -72,11 +69,9 @@ impl DeleteResourcePolicyInputBuilder {
         crate::operation::delete_resource_policy::DeleteResourcePolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_resource_policy::DeleteResourcePolicyInput {
-                resource_arn: self.resource_arn,
-                revision_id: self.revision_id,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::delete_resource_policy::DeleteResourcePolicyInput {
+            resource_arn: self.resource_arn,
+            revision_id: self.revision_id,
+        })
     }
 }

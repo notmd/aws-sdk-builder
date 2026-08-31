@@ -153,15 +153,9 @@ impl ImdsCredentialsProvider {
 
     /// Retrieve the instance profile from IMDS
     async fn get_profile_uncached(&self) -> Result<String, CredentialsError> {
-        match self
-            .client
-            .get("/latest/meta-data/iam/security-credentials/")
-            .await
-        {
+        match self.client.get("/latest/meta-data/iam/security-credentials/").await {
             Ok(profile) => Ok(profile.as_ref().into()),
-            Err(ImdsError::ErrorResponse(context))
-                if context.response().status().as_u16() == 404 =>
-            {
+            Err(ImdsError::ErrorResponse(context)) if context.response().status().as_u16() == 404 => {
                 tracing::warn!(
                     "received 404 from IMDS when loading profile information. \
                     Hint: This instance may not have an IAM role associated."
@@ -224,9 +218,7 @@ impl ImdsCredentialsProvider {
         tracing::debug!(profile = %profile, "loaded profile");
         let credentials = self
             .client
-            .get(format!(
-                "/latest/meta-data/iam/security-credentials/{profile}",
-            ))
+            .get(format!("/latest/meta-data/iam/security-credentials/{profile}",))
             .await
             .map_err(CredentialsError::provider_error)?;
         match parse_json_credentials(credentials.as_ref()) {
@@ -251,17 +243,15 @@ impl ImdsCredentialsProvider {
                 *self.last_retrieved_credentials.write().unwrap() = Some(creds.clone());
                 Ok(creds)
             }
-            Ok(JsonCredentials::Error { code, message })
-                if code == codes::ASSUME_ROLE_UNAUTHORIZED_ACCESS =>
-            {
+            Ok(JsonCredentials::Error { code, message }) if code == codes::ASSUME_ROLE_UNAUTHORIZED_ACCESS => {
                 Err(CredentialsError::invalid_configuration(format!(
                     "Incorrect IMDS/IAM configuration: [{code}] {message}. \
                         Hint: Does this role have a trust relationship with EC2?",
                 )))
             }
-            Ok(JsonCredentials::Error { code, message }) => Err(CredentialsError::provider_error(
-                format!("Error retrieving credentials from IMDS: {code} {message}"),
-            )),
+            Ok(JsonCredentials::Error { code, message }) => Err(CredentialsError::provider_error(format!(
+                "Error retrieving credentials from IMDS: {code} {message}"
+            ))),
             // got bad data from IMDS, should not occur during normal operation:
             Err(invalid) => Err(CredentialsError::unhandled(invalid)),
         }
@@ -288,9 +278,7 @@ impl ImdsCredentialsProvider {
 #[cfg(test)]
 mod test {
     use super::*;
-    use crate::imds::client::test::{
-        imds_request, imds_response, make_imds_client, token_request, token_response,
-    };
+    use crate::imds::client::test::{imds_request, imds_response, make_imds_client, token_request, token_response};
     use crate::provider_config::ProviderConfig;
     use aws_credential_types::credential_feature::AwsCredentialFeature;
     use aws_credential_types::provider::ProvideCredentials;
@@ -364,19 +352,14 @@ mod test {
             .with_http_client(http_client.clone())
             .with_sleep_impl(sleep)
             .with_time_source(time_source);
-        let client = crate::imds::Client::builder()
-            .configure(&provider_config)
-            .build();
+        let client = crate::imds::Client::builder().configure(&provider_config).build();
         let provider = ImdsCredentialsProvider::builder()
             .configure(&provider_config)
             .imds_client(client)
             .build();
         let creds = provider.provide_credentials().await.expect("valid creds");
         // The expiry should be equal to what is originally set (==2021-09-21T04:16:53Z).
-        assert_eq!(
-            creds.expiry(),
-            UNIX_EPOCH.checked_add(Duration::from_secs(1632197813))
-        );
+        assert_eq!(creds.expiry(), UNIX_EPOCH.checked_add(Duration::from_secs(1632197813)));
         http_client.assert_requests_match(&[]);
 
         // There should not be logs indicating credentials are extended for stability.
@@ -408,9 +391,7 @@ mod test {
             .with_http_client(http_client.clone())
             .with_sleep_impl(sleep)
             .with_time_source(time_source);
-        let client = crate::imds::Client::builder()
-            .configure(&provider_config)
-            .build();
+        let client = crate::imds::Client::builder().configure(&provider_config).build();
         let provider = ImdsCredentialsProvider::builder()
             .configure(&provider_config)
             .imds_client(client)
@@ -443,8 +424,7 @@ mod test {
 
     #[tokio::test]
     #[cfg(feature = "default-https-client")]
-    async fn read_timeout_during_credentials_refresh_should_error_without_last_retrieved_credentials(
-    ) {
+    async fn read_timeout_during_credentials_refresh_should_error_without_last_retrieved_credentials() {
         let client = crate::imds::Client::builder()
             // 240.* can never be resolved
             .endpoint("http://240.0.0.0")
@@ -489,16 +469,13 @@ mod test {
             Ok(_) => panic!("provide_credentials completed before timeout future"),
             Err(_err) => match provider.fallback_on_interrupt() {
                 Some(actual) => assert_eq!(actual, expected),
-                None => panic!(
-                    "provide_credentials timed out and no credentials returned from fallback_on_interrupt"
-                ),
+                None => panic!("provide_credentials timed out and no credentials returned from fallback_on_interrupt"),
             },
         };
     }
 
     #[tokio::test]
-    async fn fallback_credentials_should_be_used_when_imds_returns_500_during_credentials_refresh()
-    {
+    async fn fallback_credentials_should_be_used_when_imds_returns_500_during_credentials_refresh() {
         let http_client = StaticReplayClient::new(vec![
                 // The next three request/response pairs will correspond to the first call to `provide_credentials`.
                 // During the call, it populates last_retrieved_credentials.

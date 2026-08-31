@@ -61,7 +61,9 @@ impl PutFunctionEventInvokeConfigFluentBuilder {
         }
     }
     /// Access the PutFunctionEventInvokeConfig as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_function_event_invoke_config::builders::PutFunctionEventInvokeConfigInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::put_function_event_invoke_config::builders::PutFunctionEventInvokeConfigInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,12 +87,17 @@ impl PutFunctionEventInvokeConfigFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfig::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfig::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfig::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfig::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -129,10 +136,7 @@ impl PutFunctionEventInvokeConfigFluentBuilder {
     /// <p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -147,10 +151,7 @@ impl PutFunctionEventInvokeConfigFluentBuilder {
     /// <p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }
@@ -246,10 +247,7 @@ impl PutFunctionEventInvokeConfigFluentBuilder {
     /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
-    pub fn set_destination_config(
-        mut self,
-        input: ::std::option::Option<crate::types::DestinationConfig>,
-    ) -> Self {
+    pub fn set_destination_config(mut self, input: ::std::option::Option<crate::types::DestinationConfig>) -> Self {
         self.inner = self.inner.set_destination_config(input);
         self
     }
@@ -269,9 +267,7 @@ impl PutFunctionEventInvokeConfigFluentBuilder {
     /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
-    pub fn get_destination_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::DestinationConfig> {
+    pub fn get_destination_config(&self) -> &::std::option::Option<crate::types::DestinationConfig> {
         self.inner.get_destination_config()
     }
 }

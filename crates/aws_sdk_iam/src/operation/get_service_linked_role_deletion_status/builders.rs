@@ -3,7 +3,9 @@ pub use crate::operation::get_service_linked_role_deletion_status::_get_service_
 
 pub use crate::operation::get_service_linked_role_deletion_status::_get_service_linked_role_deletion_status_output::GetServiceLinkedRoleDeletionStatusOutputBuilder;
 
-impl crate::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusInputBuilder {
+impl
+    crate::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -76,7 +78,7 @@ impl GetServiceLinkedRoleDeletionStatusFluentBuilder {
             crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -87,7 +89,11 @@ impl GetServiceLinkedRoleDeletionStatusFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatus::orchestrate(&runtime_plugins, input).await
+        crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatus::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -97,7 +103,7 @@ impl GetServiceLinkedRoleDeletionStatusFluentBuilder {
         crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusOutput,
         crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -122,10 +128,7 @@ impl GetServiceLinkedRoleDeletionStatusFluentBuilder {
     /// <task-uuid></task-uuid>
     /// </role-name>
     /// </service-principal-name></code>.</p>
-    pub fn deletion_task_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn deletion_task_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.deletion_task_id(input.into());
         self
     }
@@ -136,10 +139,7 @@ impl GetServiceLinkedRoleDeletionStatusFluentBuilder {
     /// <task-uuid></task-uuid>
     /// </role-name>
     /// </service-principal-name></code>.</p>
-    pub fn set_deletion_task_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_deletion_task_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_deletion_task_id(input);
         self
     }

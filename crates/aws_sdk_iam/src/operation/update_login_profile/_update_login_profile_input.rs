@@ -57,8 +57,7 @@ impl ::std::fmt::Debug for UpdateLoginProfileInput {
 }
 impl UpdateLoginProfileInput {
     /// Creates a new builder-style object to manufacture [`UpdateLoginProfileInput`](crate::operation::update_login_profile::UpdateLoginProfileInput).
-    pub fn builder(
-    ) -> crate::operation::update_login_profile::builders::UpdateLoginProfileInputBuilder {
+    pub fn builder() -> crate::operation::update_login_profile::builders::UpdateLoginProfileInputBuilder {
         crate::operation::update_login_profile::builders::UpdateLoginProfileInputBuilder::default()
     }
 }
@@ -155,13 +154,11 @@ impl UpdateLoginProfileInputBuilder {
         crate::operation::update_login_profile::UpdateLoginProfileInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::update_login_profile::UpdateLoginProfileInput {
-                user_name: self.user_name,
-                password: self.password,
-                password_reset_required: self.password_reset_required,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::update_login_profile::UpdateLoginProfileInput {
+            user_name: self.user_name,
+            password: self.password,
+            password_reset_required: self.password_reset_required,
+        })
     }
 }
 impl ::std::fmt::Debug for UpdateLoginProfileInputBuilder {

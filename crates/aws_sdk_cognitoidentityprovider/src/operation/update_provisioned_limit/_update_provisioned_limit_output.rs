@@ -20,17 +20,13 @@ impl ::aws_types::request_id::RequestId for UpdateProvisionedLimitOutput {
 }
 impl UpdateProvisionedLimitOutput {
     /// Creates a new builder-style object to manufacture [`UpdateProvisionedLimitOutput`](crate::operation::update_provisioned_limit::UpdateProvisionedLimitOutput).
-    pub fn builder(
-    ) -> crate::operation::update_provisioned_limit::builders::UpdateProvisionedLimitOutputBuilder
-    {
+    pub fn builder() -> crate::operation::update_provisioned_limit::builders::UpdateProvisionedLimitOutputBuilder {
         crate::operation::update_provisioned_limit::builders::UpdateProvisionedLimitOutputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateProvisionedLimitOutput`](crate::operation::update_provisioned_limit::UpdateProvisionedLimitOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateProvisionedLimitOutputBuilder {
     pub(crate) limit: ::std::option::Option<crate::types::LimitType>,

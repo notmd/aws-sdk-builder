@@ -72,10 +72,7 @@ impl ImdsRegionProvider {
 
 impl ProvideRegion for ImdsRegionProvider {
     fn region(&self) -> future::ProvideRegion<'_> {
-        future::ProvideRegion::new(
-            self.region()
-                .instrument(tracing::debug_span!("imds_load_region")),
-        )
+        future::ProvideRegion::new(self.region().instrument(tracing::debug_span!("imds_load_region")))
     }
 }
 
@@ -133,10 +130,7 @@ mod test {
                 token_response(21600, "token"),
             ),
             ReplayEvent::new(
-                imds_request(
-                    "http://169.254.169.254/latest/meta-data/placement/region",
-                    "token",
-                ),
+                imds_request("http://169.254.169.254/latest/meta-data/placement/region", "token"),
                 imds_response("eu-west-1"),
             ),
         ]);
@@ -158,10 +152,7 @@ mod test {
     async fn no_region_imds_disabled() {
         let http_client = StaticReplayClient::new(vec![ReplayEvent::new(
             token_request("http://169.254.169.254", 21600),
-            http::Response::builder()
-                .status(403)
-                .body(SdkBody::empty())
-                .unwrap(),
+            http::Response::builder().status(403).body(SdkBody::empty()).unwrap(),
         )]);
         let provider = ImdsRegionProvider::builder()
             .configure(

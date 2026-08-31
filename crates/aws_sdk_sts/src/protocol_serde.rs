@@ -25,12 +25,8 @@ where
     E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
 {
     result
-        .map(|output| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output)
-        })
-        .map_err(|error| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error)
-        })
+        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))
+        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))
         .map_err(::std::convert::Into::into)
 }
 
@@ -51,10 +47,7 @@ pub fn parse_http_error_metadata(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     response_body: &[u8],
-) -> ::std::result::Result<
-    ::aws_smithy_types::error::metadata::Builder,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_xml::decode::XmlDecodeError> {
     crate::rest_xml_wrapped_errors::parse_error_metadata(response_body)
 }
 
@@ -138,19 +131,13 @@ pub(crate) mod shape_expired_trade_in_token_exception;
 #[cfg(feature = "op_assume_role_with_web_identity")]
 pub(crate) mod shape_idp_communication_error_exception;
 
-#[cfg(any(
-    feature = "op_assume_role_with_saml",
-    feature = "op_assume_role_with_web_identity"
-))]
+#[cfg(any(feature = "op_assume_role_with_saml", feature = "op_assume_role_with_web_identity"))]
 pub(crate) mod shape_idp_rejected_claim_exception;
 
 #[cfg(feature = "op_decode_authorization_message")]
 pub(crate) mod shape_invalid_authorization_message_exception;
 
-#[cfg(any(
-    feature = "op_assume_role_with_saml",
-    feature = "op_assume_role_with_web_identity"
-))]
+#[cfg(any(feature = "op_assume_role_with_saml", feature = "op_assume_role_with_web_identity"))]
 pub(crate) mod shape_invalid_identity_token_exception;
 
 #[cfg(feature = "op_get_web_identity_token")]

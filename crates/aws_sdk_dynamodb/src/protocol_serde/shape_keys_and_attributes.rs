@@ -13,10 +13,7 @@ pub fn ser_keys_and_attributes(
                     {
                         #[allow(unused_mut)]
                         let mut object_6 = object_3.key(key_4.as_str()).start_object();
-                        crate::protocol_serde::shape_attribute_value::ser_attribute_value(
-                            &mut object_6,
-                            value_5,
-                        )?;
+                        crate::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_6, value_5)?;
                         object_6.finish();
                     }
                 }
@@ -70,11 +67,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -87,35 +82,31 @@ where
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
                         match key.to_unescaped()?.as_ref() {
                             "Keys" => {
-                                builder = builder.set_keys(
-                                    crate::protocol_serde::shape_key_list::de_key_list(
+                                builder = builder.set_keys(crate::protocol_serde::shape_key_list::de_key_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "AttributesToGet" => {
+                                builder = builder.set_attributes_to_get(
+                                    crate::protocol_serde::shape_attribute_name_list::de_attribute_name_list(
                                         tokens,
                                         _value,
                                         depth + 1,
                                     )?,
                                 );
                             }
-                            "AttributesToGet" => {
-                                builder = builder.set_attributes_to_get(crate::protocol_serde::shape_attribute_name_list::de_attribute_name_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
-                            }
                             "ConsistentRead" => {
                                 builder = builder.set_consistent_read(
-                                    ::aws_smithy_json::deserialize::token::expect_bool_or_null(
-                                        tokens.next(),
-                                    )?,
+                                    ::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?,
                                 );
                             }
                             "ProjectionExpression" => {
                                 builder = builder.set_projection_expression(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "ExpressionAttributeNames" => {
@@ -131,11 +122,9 @@ where
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
@@ -150,10 +139,8 @@ where
                     })?,
             ))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

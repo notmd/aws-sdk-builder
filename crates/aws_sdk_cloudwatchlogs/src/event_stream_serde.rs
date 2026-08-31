@@ -23,28 +23,23 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for GetLogObjectResponse
         match response_headers.message_type.as_str() {
             "event" => match response_headers.smithy_type.as_str() {
                 "fields" => {
-                    let parsed = crate::protocol_serde::shape_fields_data::de_fields_data_payload(
-                        &message.payload()[..],
-                    )
-                    .map_err(|err| {
-                        ::aws_smithy_eventstream::error::Error::unmarshalling(format!(
-                            "failed to unmarshall Fields: {err}"
-                        ))
-                    })?;
+                    let parsed =
+                        crate::protocol_serde::shape_fields_data::de_fields_data_payload(&message.payload()[..])
+                            .map_err(|err| {
+                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!(
+                                    "failed to unmarshall Fields: {err}"
+                                ))
+                            })?;
                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
                         crate::types::GetLogObjectResponseStream::Fields(parsed),
                     ))
                 }
-                _unknown_variant => {
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        crate::types::GetLogObjectResponseStream::Unknown,
-                    ))
-                }
+                _unknown_variant => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+                    crate::types::GetLogObjectResponseStream::Unknown,
+                )),
             },
             "exception" => {
-                let generic = match crate::protocol_serde::parse_event_stream_error_metadata(
-                    message.payload(),
-                ) {
+                let generic = match crate::protocol_serde::parse_event_stream_error_metadata(message.payload()) {
                     Ok(builder) => builder.build(),
                     Err(err) => {
                         return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
@@ -53,8 +48,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for GetLogObjectResponse
                     }
                 };
                 if response_headers.smithy_type.as_str() == "InternalStreamingException" {
-                    let mut builder =
-                        crate::types::error::builders::InternalStreamingExceptionBuilder::default();
+                    let mut builder = crate::types::error::builders::InternalStreamingExceptionBuilder::default();
                     builder = crate::protocol_serde::shape_internal_streaming_exception::de_internal_streaming_exception_json_err(
                         &message.payload()[..],
                         builder,
@@ -64,7 +58,9 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for GetLogObjectResponse
                     })?;
                     builder.set_meta(Some(generic));
                     return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
-                        crate::types::error::GetLogObjectResponseStreamError::InternalStreamingException(builder.build()),
+                        crate::types::error::GetLogObjectResponseStreamError::InternalStreamingException(
+                            builder.build(),
+                        ),
                     ));
                 }
                 Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
@@ -72,9 +68,9 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for GetLogObjectResponse
                 ))
             }
             value => {
-                return Err(::aws_smithy_eventstream::error::Error::unmarshalling(
-                    format!("unrecognized :message-type: {value}"),
-                ));
+                return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(
+                    "unrecognized :message-type: {value}"
+                )));
             }
         }
     }
@@ -90,9 +86,7 @@ impl StartLiveTailResponseStreamUnmarshaller {
     }
 }
 #[cfg(feature = "op_start_live_tail")]
-impl ::aws_smithy_eventstream::frame::UnmarshallMessage
-    for StartLiveTailResponseStreamUnmarshaller
-{
+impl ::aws_smithy_eventstream::frame::UnmarshallMessage for StartLiveTailResponseStreamUnmarshaller {
     type Output = crate::types::StartLiveTailResponseStream;
     type Error = crate::types::error::StartLiveTailResponseStreamError;
     fn unmarshall(
@@ -106,31 +100,39 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage
         match response_headers.message_type.as_str() {
             "event" => match response_headers.smithy_type.as_str() {
                 "sessionStart" => {
-                    let parsed = crate::protocol_serde::shape_live_tail_session_start::de_live_tail_session_start_payload(&message.payload()[..])
-                        .map_err(|err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall SessionStart: {err}")))?;
+                    let parsed =
+                        crate::protocol_serde::shape_live_tail_session_start::de_live_tail_session_start_payload(
+                            &message.payload()[..],
+                        )
+                        .map_err(|err| {
+                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!(
+                                "failed to unmarshall SessionStart: {err}"
+                            ))
+                        })?;
                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
                         crate::types::StartLiveTailResponseStream::SessionStart(parsed),
                     ))
                 }
                 "sessionUpdate" => {
-                    let parsed = crate::protocol_serde::shape_live_tail_session_update::de_live_tail_session_update_payload(&message.payload()[..])
+                    let parsed =
+                        crate::protocol_serde::shape_live_tail_session_update::de_live_tail_session_update_payload(
+                            &message.payload()[..],
+                        )
                         .map_err(|err| {
-                        ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall SessionUpdate: {err}"))
-                    })?;
+                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!(
+                                "failed to unmarshall SessionUpdate: {err}"
+                            ))
+                        })?;
                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
                         crate::types::StartLiveTailResponseStream::SessionUpdate(parsed),
                     ))
                 }
-                _unknown_variant => {
-                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                        crate::types::StartLiveTailResponseStream::Unknown,
-                    ))
-                }
+                _unknown_variant => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+                    crate::types::StartLiveTailResponseStream::Unknown,
+                )),
             },
             "exception" => {
-                let generic = match crate::protocol_serde::parse_event_stream_error_metadata(
-                    message.payload(),
-                ) {
+                let generic = match crate::protocol_serde::parse_event_stream_error_metadata(message.payload()) {
                     Ok(builder) => builder.build(),
                     Err(err) => {
                         return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
@@ -140,9 +142,7 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage
                 };
                 match response_headers.smithy_type.as_str() {
                     "SessionTimeoutException" => {
-                        let mut builder =
-                            crate::types::error::builders::SessionTimeoutExceptionBuilder::default(
-                            );
+                        let mut builder = crate::types::error::builders::SessionTimeoutExceptionBuilder::default();
                         builder = crate::protocol_serde::shape_session_timeout_exception::de_session_timeout_exception_json_err(
                             &message.payload()[..],
                             builder,
@@ -152,7 +152,9 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage
                         })?;
                         builder.set_meta(Some(generic));
                         return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
-                            crate::types::error::StartLiveTailResponseStreamError::SessionTimeoutException(builder.build()),
+                            crate::types::error::StartLiveTailResponseStreamError::SessionTimeoutException(
+                                builder.build(),
+                            ),
                         ));
                     }
                     "SessionStreamingException" => {
@@ -166,7 +168,9 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage
                         })?;
                         builder.set_meta(Some(generic));
                         return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
-                            crate::types::error::StartLiveTailResponseStreamError::SessionStreamingException(builder.build()),
+                            crate::types::error::StartLiveTailResponseStreamError::SessionStreamingException(
+                                builder.build(),
+                            ),
                         ));
                     }
                     _ => {}
@@ -176,9 +180,9 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage
                 ))
             }
             value => {
-                return Err(::aws_smithy_eventstream::error::Error::unmarshalling(
-                    format!("unrecognized :message-type: {value}"),
-                ));
+                return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(
+                    "unrecognized :message-type: {value}"
+                )));
             }
         }
     }

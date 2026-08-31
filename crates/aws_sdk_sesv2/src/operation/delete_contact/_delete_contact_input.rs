@@ -26,9 +26,7 @@ impl DeleteContactInput {
 }
 
 /// A builder for [`DeleteContactInput`](crate::operation::delete_contact::DeleteContactInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteContactInputBuilder {
     pub(crate) contact_list_name: ::std::option::Option<::std::string::String>,
@@ -37,18 +35,12 @@ pub struct DeleteContactInputBuilder {
 impl DeleteContactInputBuilder {
     /// <p>The name of the contact list from which the contact should be removed.</p>
     /// This field is required.
-    pub fn contact_list_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn contact_list_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.contact_list_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the contact list from which the contact should be removed.</p>
-    pub fn set_contact_list_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_contact_list_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.contact_list_name = input;
         self
     }
@@ -58,18 +50,12 @@ impl DeleteContactInputBuilder {
     }
     /// <p>The contact's email address.</p>
     /// This field is required.
-    pub fn email_address(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.email_address = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The contact's email address.</p>
-    pub fn set_email_address(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.email_address = input;
         self
     }

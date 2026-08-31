@@ -14,17 +14,13 @@ impl GetCapacityProviderInput {
 }
 impl GetCapacityProviderInput {
     /// Creates a new builder-style object to manufacture [`GetCapacityProviderInput`](crate::operation::get_capacity_provider::GetCapacityProviderInput).
-    pub fn builder(
-    ) -> crate::operation::get_capacity_provider::builders::GetCapacityProviderInputBuilder {
-        crate::operation::get_capacity_provider::builders::GetCapacityProviderInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::get_capacity_provider::builders::GetCapacityProviderInputBuilder {
+        crate::operation::get_capacity_provider::builders::GetCapacityProviderInputBuilder::default()
     }
 }
 
 /// A builder for [`GetCapacityProviderInput`](crate::operation::get_capacity_provider::GetCapacityProviderInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetCapacityProviderInputBuilder {
     pub(crate) capacity_provider_name: ::std::option::Option<::std::string::String>,
@@ -32,18 +28,12 @@ pub struct GetCapacityProviderInputBuilder {
 impl GetCapacityProviderInputBuilder {
     /// <p>The name of the capacity provider to retrieve.</p>
     /// This field is required.
-    pub fn capacity_provider_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn capacity_provider_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.capacity_provider_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the capacity provider to retrieve.</p>
-    pub fn set_capacity_provider_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_capacity_provider_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.capacity_provider_name = input;
         self
     }
@@ -58,10 +48,8 @@ impl GetCapacityProviderInputBuilder {
         crate::operation::get_capacity_provider::GetCapacityProviderInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::get_capacity_provider::GetCapacityProviderInput {
-                capacity_provider_name: self.capacity_provider_name,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::get_capacity_provider::GetCapacityProviderInput {
+            capacity_provider_name: self.capacity_provider_name,
+        })
     }
 }

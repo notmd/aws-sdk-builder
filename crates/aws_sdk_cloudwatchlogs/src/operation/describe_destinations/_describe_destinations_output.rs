@@ -28,16 +28,13 @@ impl ::aws_types::request_id::RequestId for DescribeDestinationsOutput {
 }
 impl DescribeDestinationsOutput {
     /// Creates a new builder-style object to manufacture [`DescribeDestinationsOutput`](crate::operation::describe_destinations::DescribeDestinationsOutput).
-    pub fn builder(
-    ) -> crate::operation::describe_destinations::builders::DescribeDestinationsOutputBuilder {
+    pub fn builder() -> crate::operation::describe_destinations::builders::DescribeDestinationsOutputBuilder {
         crate::operation::describe_destinations::builders::DescribeDestinationsOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeDestinationsOutput`](crate::operation::describe_destinations::DescribeDestinationsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeDestinationsOutputBuilder {
     pub(crate) destinations: ::std::option::Option<::std::vec::Vec<crate::types::Destination>>,
@@ -65,9 +62,7 @@ impl DescribeDestinationsOutputBuilder {
         self
     }
     /// <p>The destinations.</p>
-    pub fn get_destinations(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Destination>> {
+    pub fn get_destinations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Destination>> {
         &self.destinations
     }
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>

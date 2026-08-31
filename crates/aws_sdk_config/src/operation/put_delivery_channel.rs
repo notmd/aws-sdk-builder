@@ -85,13 +85,11 @@ impl PutDeliveryChannel {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(
-                crate::config::ConfigOverrideRuntimePlugin::new(
-                    config_override,
-                    client_config.config.clone(),
-                    &client_config.runtime_components,
-                ),
-            );
+            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+                config_override,
+                client_config.config.clone(),
+                &client_config.runtime_components,
+            ));
         }
         runtime_plugins
     }
@@ -100,11 +98,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutDeli
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("PutDeliveryChannel");
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                PutDeliveryChannelRequestSerializer,
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+            PutDeliveryChannelRequestSerializer,
+        ));
         cfg.store_put(
             ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
                 PutDeliveryChannelResponseDeserializer,
@@ -120,12 +116,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutDeli
             ),
         );
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-                "PutDeliveryChannel",
-                "Config Service",
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+            "PutDeliveryChannel",
+            "Config Service",
+        ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = true;
         signing_options.content_sha256_header = false;
@@ -143,27 +137,34 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutDeli
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<
-        '_,
-        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    > {
+    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
-        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("PutDeliveryChannel")
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new(
+            "PutDeliveryChannel",
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 PutDeliveryChannelEndpointParamsInterceptor,
-            ))
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+            ),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                 crate::operation::put_delivery_channel::PutDeliveryChannelError,
-            >::new())
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+            >::new(),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                 crate::operation::put_delivery_channel::PutDeliveryChannelError,
-            >::new())
-            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::put_delivery_channel::PutDeliveryChannelError,
-            >::new());
+            >::new(),
+        )
+        .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+            crate::operation::put_delivery_channel::PutDeliveryChannelError,
+        >::new());
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -171,9 +172,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutDeli
 
 #[derive(Debug)]
 struct PutDeliveryChannelResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
-    for PutDeliveryChannelResponseDeserializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for PutDeliveryChannelResponseDeserializer {
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -186,9 +185,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            crate::protocol_serde::shape_put_delivery_channel::de_put_delivery_channel_http_error(
-                status, headers, body,
-            )
+            crate::protocol_serde::shape_put_delivery_channel::de_put_delivery_channel_http_error(status, headers, body)
         } else {
             crate::protocol_serde::shape_put_delivery_channel::de_put_delivery_channel_http_response(
                 status, headers, body,
@@ -199,9 +196,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
 }
 #[derive(Debug)]
 struct PutDeliveryChannelRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
-    for PutDeliveryChannelRequestSerializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PutDeliveryChannelRequestSerializer {
     #[allow(
         unused_mut,
         clippy::let_and_return,
@@ -228,8 +223,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_base(
                 _input: &crate::operation::put_delivery_channel::PutDeliveryChannelInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
                 ::std::write!(output, "/").expect("formatting should succeed");
                 ::std::result::Result::Ok(())
@@ -238,10 +232,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn update_http_builder(
                 input: &crate::operation::put_delivery_channel::PutDeliveryChannelInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<
-                ::http_1x::request::Builder,
-                ::aws_smithy_types::error::operation::BuildError,
-            > {
+            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
@@ -260,9 +252,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            crate::protocol_serde::shape_put_delivery_channel::ser_put_delivery_channel_input(
-                &input,
-            )?,
+            crate::protocol_serde::shape_put_delivery_channel::ser_put_delivery_channel_input(&input)?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
@@ -272,22 +262,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
                 &content_length,
             );
         }
-        ::std::result::Result::Ok(
-            request_builder
-                .body(body)
-                .expect("valid request")
-                .try_into()
-                .unwrap(),
-        )
+        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
 #[derive(Debug)]
 struct PutDeliveryChannelEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for PutDeliveryChannelEndpointParamsInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for PutDeliveryChannelEndpointParamsInterceptor {
     fn name(&self) -> &'static str {
         "PutDeliveryChannelEndpointParamsInterceptor"
     }
@@ -308,18 +290,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             .ok_or("failed to downcast to PutDeliveryChannelInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(
-                cfg.load::<::aws_types::region::Region>()
-                    .map(|r| r.as_ref().to_owned()),
-            )
-            .set_use_dual_stack(
-                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
-                    .map(|ty| ty.0),
-            )
-            .set_use_fips(
-                cfg.load::<::aws_types::endpoint_config::UseFips>()
-                    .map(|ty| ty.0),
-            )
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_endpoint(
                 cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
                     .map(|ty| ty.0.clone()),
@@ -331,9 +304,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
                     err,
                 )
             })?;
-        cfg.interceptor_state().store_put(
-            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
-        );
+        cfg.interceptor_state()
+            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(
+                params,
+            ));
         ::std::result::Result::Ok(())
     }
 }
@@ -356,13 +330,9 @@ pub enum PutDeliveryChannelError {
     /// <p>The specified Amazon SNS topic does not exist.</p>
     InvalidSnsTopicArnException(crate::types::error::InvalidSnsTopicArnException),
     /// <p>You have reached the limit of the number of delivery channels you can create.</p>
-    MaxNumberOfDeliveryChannelsExceededException(
-        crate::types::error::MaxNumberOfDeliveryChannelsExceededException,
-    ),
+    MaxNumberOfDeliveryChannelsExceededException(crate::types::error::MaxNumberOfDeliveryChannelsExceededException),
     /// <p>There are no customer managed configuration recorders available to record your resources. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html">PutConfigurationRecorder</a> operation to create the customer managed configuration recorder.</p>
-    NoAvailableConfigurationRecorderException(
-        crate::types::error::NoAvailableConfigurationRecorderException,
-    ),
+    NoAvailableConfigurationRecorderException(crate::types::error::NoAvailableConfigurationRecorderException),
     /// <p>The specified Amazon S3 bucket does not exist.</p>
     NoSuchBucketException(crate::types::error::NoSuchBucketException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
@@ -380,9 +350,7 @@ impl PutDeliveryChannelError {
     /// Creates the `PutDeliveryChannelError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -410,24 +378,16 @@ impl PutDeliveryChannelError {
             Self::InvalidDeliveryChannelNameException(e) => {
                 ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
             }
-            Self::InvalidS3KeyPrefixException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::InvalidS3KmsKeyArnException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::InvalidSnsTopicArnException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::InvalidS3KeyPrefixException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidS3KmsKeyArnException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidSnsTopicArnException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::MaxNumberOfDeliveryChannelsExceededException(e) => {
                 ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
             }
             Self::NoAvailableConfigurationRecorderException(e) => {
                 ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
             }
-            Self::NoSuchBucketException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::NoSuchBucketException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -467,21 +427,13 @@ impl PutDeliveryChannelError {
 impl ::std::error::Error for PutDeliveryChannelError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
-            Self::InsufficientDeliveryPolicyException(_inner) => {
-                ::std::option::Option::Some(_inner)
-            }
-            Self::InvalidDeliveryChannelNameException(_inner) => {
-                ::std::option::Option::Some(_inner)
-            }
+            Self::InsufficientDeliveryPolicyException(_inner) => ::std::option::Option::Some(_inner),
+            Self::InvalidDeliveryChannelNameException(_inner) => ::std::option::Option::Some(_inner),
             Self::InvalidS3KeyPrefixException(_inner) => ::std::option::Option::Some(_inner),
             Self::InvalidS3KmsKeyArnException(_inner) => ::std::option::Option::Some(_inner),
             Self::InvalidSnsTopicArnException(_inner) => ::std::option::Option::Some(_inner),
-            Self::MaxNumberOfDeliveryChannelsExceededException(_inner) => {
-                ::std::option::Option::Some(_inner)
-            }
-            Self::NoAvailableConfigurationRecorderException(_inner) => {
-                ::std::option::Option::Some(_inner)
-            }
+            Self::MaxNumberOfDeliveryChannelsExceededException(_inner) => ::std::option::Option::Some(_inner),
+            Self::NoAvailableConfigurationRecorderException(_inner) => ::std::option::Option::Some(_inner),
             Self::NoSuchBucketException(_inner) => ::std::option::Option::Some(_inner),
             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
         }
@@ -551,9 +503,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for PutDeliveryCh
 }
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for PutDeliveryChannelError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -562,9 +512,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for PutDeliv
         })
     }
 }
-impl ::aws_types::request_id::RequestId
-    for crate::operation::put_delivery_channel::PutDeliveryChannelError
-{
+impl ::aws_types::request_id::RequestId for crate::operation::put_delivery_channel::PutDeliveryChannelError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

@@ -26,17 +26,13 @@ impl DeletePolicyVersionInput {
 }
 impl DeletePolicyVersionInput {
     /// Creates a new builder-style object to manufacture [`DeletePolicyVersionInput`](crate::operation::delete_policy_version::DeletePolicyVersionInput).
-    pub fn builder(
-    ) -> crate::operation::delete_policy_version::builders::DeletePolicyVersionInputBuilder {
-        crate::operation::delete_policy_version::builders::DeletePolicyVersionInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::delete_policy_version::builders::DeletePolicyVersionInputBuilder {
+        crate::operation::delete_policy_version::builders::DeletePolicyVersionInputBuilder::default()
     }
 }
 
 /// A builder for [`DeletePolicyVersionInput`](crate::operation::delete_policy_version::DeletePolicyVersionInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeletePolicyVersionInputBuilder {
     pub(crate) policy_arn: ::std::option::Option<::std::string::String>,
@@ -89,11 +85,9 @@ impl DeletePolicyVersionInputBuilder {
         crate::operation::delete_policy_version::DeletePolicyVersionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_policy_version::DeletePolicyVersionInput {
-                policy_arn: self.policy_arn,
-                version_id: self.version_id,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::delete_policy_version::DeletePolicyVersionInput {
+            policy_arn: self.policy_arn,
+            version_id: self.version_id,
+        })
     }
 }

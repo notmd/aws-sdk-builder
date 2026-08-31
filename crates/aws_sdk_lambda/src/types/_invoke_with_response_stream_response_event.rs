@@ -36,9 +36,7 @@ impl InvokeWithResponseStreamResponseEvent {
     }
     /// Tries to convert the enum instance into [`PayloadChunk`](crate::types::InvokeWithResponseStreamResponseEvent::PayloadChunk), extracting the inner [`InvokeResponseStreamUpdate`](crate::types::InvokeResponseStreamUpdate).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_payload_chunk(
-        &self,
-    ) -> ::std::result::Result<&crate::types::InvokeResponseStreamUpdate, &Self> {
+    pub fn as_payload_chunk(&self) -> ::std::result::Result<&crate::types::InvokeResponseStreamUpdate, &Self> {
         if let InvokeWithResponseStreamResponseEvent::PayloadChunk(val) = &self {
             ::std::result::Result::Ok(val)
         } else {

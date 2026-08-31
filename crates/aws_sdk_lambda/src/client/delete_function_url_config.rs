@@ -9,8 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteFunctionUrlConfigError>`](crate::operation::delete_function_url_config::DeleteFunctionUrlConfigError)
     pub fn delete_function_url_config(
         &self,
-    ) -> crate::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigFluentBuilder
-    {
-        crate::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigFluentBuilder {
+        crate::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -9,104 +9,90 @@ pub fn de_create_alias_http_error(
     crate::operation::create_alias::CreateAliasError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::create_alias::CreateAliasError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::create_alias::CreateAliasError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(crate::operation::create_alias::CreateAliasError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(crate::operation::create_alias::CreateAliasError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AlreadyExistsException" => {
-            crate::operation::create_alias::CreateAliasError::AlreadyExistsException({
+        "AlreadyExistsException" => crate::operation::create_alias::CreateAliasError::AlreadyExistsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::AlreadyExistsExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_already_exists_exception::de_already_exists_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::create_alias::CreateAliasError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "DependencyTimeoutException" => {
-            crate::operation::create_alias::CreateAliasError::DependencyTimeoutException({
+                let mut output = crate::types::error::builders::AlreadyExistsExceptionBuilder::default();
+                output = crate::protocol_serde::shape_already_exists_exception::de_already_exists_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::create_alias::CreateAliasError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "DependencyTimeoutException" => crate::operation::create_alias::CreateAliasError::DependencyTimeoutException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                let mut output = crate::types::error::builders::DependencyTimeoutExceptionBuilder::default();
+                output = crate::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
                     .map_err(crate::operation::create_alias::CreateAliasError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "InvalidAliasNameException" => {
-            crate::operation::create_alias::CreateAliasError::InvalidAliasNameException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidAliasNameException" => crate::operation::create_alias::CreateAliasError::InvalidAliasNameException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InvalidAliasNameExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_invalid_alias_name_exception::de_invalid_alias_name_exception_json_err(_response_body, output)
+                let mut output = crate::types::error::builders::InvalidAliasNameExceptionBuilder::default();
+                output = crate::protocol_serde::shape_invalid_alias_name_exception::de_invalid_alias_name_exception_json_err(_response_body, output)
                     .map_err(crate::operation::create_alias::CreateAliasError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "KMSInternalException" => {
-            crate::operation::create_alias::CreateAliasError::KmsInternalException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "KMSInternalException" => crate::operation::create_alias::CreateAliasError::KmsInternalException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::KmsInternalExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::create_alias::CreateAliasError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::KmsInternalExceptionBuilder::default();
+                output = crate::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::create_alias::CreateAliasError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "KMSInvalidStateException" => {
             crate::operation::create_alias::CreateAliasError::KmsInvalidStateException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
                     output = crate::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
                     .map_err(crate::operation::create_alias::CreateAliasError::unhandled)?;
                     let output = output.meta(generic);
@@ -118,42 +104,42 @@ pub fn de_create_alias_http_error(
                 tmp
             })
         }
-        "LimitExceededException" => {
-            crate::operation::create_alias::CreateAliasError::LimitExceededException({
+        "LimitExceededException" => crate::operation::create_alias::CreateAliasError::LimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::LimitExceededExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::create_alias::CreateAliasError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "NotFoundException" => {
-            crate::operation::create_alias::CreateAliasError::NotFoundException({
+                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
+                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::create_alias::CreateAliasError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFoundException" => crate::operation::create_alias::CreateAliasError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::NotFoundExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::create_alias::CreateAliasError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::NotFoundExceptionBuilder::default();
+                output = crate::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::create_alias::CreateAliasError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => crate::operation::create_alias::CreateAliasError::generic(generic),
     })
 }
@@ -169,27 +155,19 @@ pub fn de_create_alias_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::create_alias::builders::CreateAliasOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::create_alias::builders::CreateAliasOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_create_alias_input(
     input: &crate::operation::create_alias::CreateAliasInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_create_alias_input::ser_create_alias_input_input(
-        &mut object,
-        input,
-    )?;
+    crate::protocol_serde::shape_create_alias_input::ser_create_alias_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

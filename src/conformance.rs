@@ -29,10 +29,7 @@ pub enum ConformanceError {
     #[error(transparent)]
     Diff(#[from] diff::DiffError),
     #[error("{path}: {source}")]
-    Io {
-        path: PathBuf,
-        source: std::io::Error,
-    },
+    Io { path: PathBuf, source: std::io::Error },
 }
 
 #[derive(Debug, Clone)]
@@ -43,11 +40,9 @@ struct FeatureMatrix {
 }
 
 pub fn run_cli(arguments: Vec<OsString>) -> Result<(), ConformanceError> {
-    let conformance = arguments
-        .first()
-        .is_some_and(|argument| argument == "conformance");
-    let manifest_path = argument_path(&arguments, "--manifest")
-        .unwrap_or_else(|| PathBuf::from(manifest::DEFAULT_PATH));
+    let conformance = arguments.first().is_some_and(|argument| argument == "conformance");
+    let manifest_path =
+        argument_path(&arguments, "--manifest").unwrap_or_else(|| PathBuf::from(manifest::DEFAULT_PATH));
     let manifest = Manifest::load(&manifest_path)?;
     let root = Manifest::repository_root(&manifest_path)
         .canonicalize()
@@ -97,11 +92,9 @@ fn run_conformance(manifest: &Manifest, root: &Path) -> Result<(), ConformanceEr
         let operations = model.operations()?;
         let staged = stage_service(service, &upstream, workspace.path(), &operations)?;
         verify_service(service, &staged, &operations)?;
-        let changed_files =
-            write_stage_artifacts(manifest, service, &staged, &upstream, &operations)?;
+        let changed_files = write_stage_artifacts(manifest, service, &staged, &upstream, &operations)?;
         verify_diff_artifacts(&staged, &changed_files)?;
-        let feature_matrix =
-            check_feature_matrix(service, &staged, &model, &operations, workspace.path())?;
+        let feature_matrix = check_feature_matrix(service, &staged, &model, &operations, workspace.path())?;
         check_public_api(service, &staged, &operations, workspace.path())?;
         reports.push((
             service.key.clone(),
@@ -170,12 +163,7 @@ fn stage_service(
     }
     let stage = workspace.join("staged").join(&service.key);
     copy_without_tests(&source, &stage)?;
-    transform::transform_tree(
-        &stage,
-        &service.package_name,
-        &service.library_name,
-        operations,
-    )?;
+    transform::transform_tree(&stage, &service.package_name, &service.library_name, operations)?;
     let manifest_path = stage.join("Cargo.toml");
     let manifest_path = manifest_path
         .to_str()
@@ -190,6 +178,10 @@ fn stage_service(
             "--",
             "--config",
             "edition=2021",
+            "--config",
+            "max_width=120",
+            "--config",
+            "newline_style=Unix",
         ],
         &stage,
     )?;
@@ -224,9 +216,9 @@ fn prepare_upstream(manifest: &Manifest, workspace: &Path) -> Result<PathBuf, Co
                 "--show-error",
                 &url,
                 "-o",
-                archive.to_str().ok_or_else(|| {
-                    ConformanceError::Message("archive path is not UTF-8".to_owned())
-                })?,
+                archive
+                    .to_str()
+                    .ok_or_else(|| ConformanceError::Message("archive path is not UTF-8".to_owned()))?,
             ],
             workspace,
         )?;
@@ -259,9 +251,7 @@ fn archive_url(repository: &str, revision: &str) -> Result<String, ConformanceEr
             "unsupported GitHub repository URL: {repository}"
         )));
     }
-    Ok(format!(
-        "https://github.com/{value}/archive/{revision}.tar.gz"
-    ))
+    Ok(format!("https://github.com/{value}/archive/{revision}.tar.gz"))
 }
 
 fn single_directory(path: &Path) -> Result<PathBuf, ConformanceError> {
@@ -323,12 +313,10 @@ fn copy_directory_contents(source: &Path, destination: &Path) -> Result<(), Conf
             continue;
         }
         let destination_path = destination.join(name);
-        let file_type = entry
-            .file_type()
-            .map_err(|source_error| ConformanceError::Io {
-                path: source_path.clone(),
-                source: source_error,
-            })?;
+        let file_type = entry.file_type().map_err(|source_error| ConformanceError::Io {
+            path: source_path.clone(),
+            source: source_error,
+        })?;
         if file_type.is_symlink() {
             return Err(ConformanceError::Message(format!(
                 "symlink is not allowed in upstream crate: {}",
@@ -342,11 +330,9 @@ fn copy_directory_contents(source: &Path, destination: &Path) -> Result<(), Conf
             })?;
             copy_directory_contents(&source_path, &destination_path)?;
         } else if file_type.is_file() {
-            fs::copy(&source_path, &destination_path).map_err(|source_error| {
-                ConformanceError::Io {
-                    path: destination_path,
-                    source: source_error,
-                }
+            fs::copy(&source_path, &destination_path).map_err(|source_error| ConformanceError::Io {
+                path: destination_path,
+                source: source_error,
             })?;
         }
     }
@@ -356,34 +342,23 @@ fn copy_directory_contents(source: &Path, destination: &Path) -> Result<(), Conf
 fn safe_join(root: &Path, relative: &str) -> Result<PathBuf, ConformanceError> {
     let path = Path::new(relative);
     if path.is_absolute()
-        || path.components().any(|component| {
-            matches!(
-                component,
-                Component::ParentDir | Component::CurDir | Component::RootDir
-            )
-        })
+        || path
+            .components()
+            .any(|component| matches!(component, Component::ParentDir | Component::CurDir | Component::RootDir))
     {
-        return Err(ConformanceError::Message(format!(
-            "unsafe relative path: {relative}"
-        )));
+        return Err(ConformanceError::Message(format!("unsafe relative path: {relative}")));
     }
     let joined = root.join(path);
     if !joined.starts_with(root) {
-        return Err(ConformanceError::Message(format!(
-            "path escapes root: {relative}"
-        )));
+        return Err(ConformanceError::Message(format!("path escapes root: {relative}")));
     }
     Ok(joined)
 }
 
-fn install_atomically(
-    staged: &Path,
-    target: &Path,
-    workspace: &Path,
-) -> Result<(), ConformanceError> {
-    let parent = target.parent().ok_or_else(|| {
-        ConformanceError::Message(format!("output has no parent: {}", target.display()))
-    })?;
+fn install_atomically(staged: &Path, target: &Path, workspace: &Path) -> Result<(), ConformanceError> {
+    let parent = target
+        .parent()
+        .ok_or_else(|| ConformanceError::Message(format!("output has no parent: {}", target.display())))?;
     fs::create_dir_all(parent).map_err(|source| ConformanceError::Io {
         path: parent.to_owned(),
         source,
@@ -395,10 +370,7 @@ fn install_atomically(
     })?;
     let backup = backup_directory.join(format!(
         "{}-{}",
-        target
-            .file_name()
-            .and_then(|name| name.to_str())
-            .unwrap_or("service"),
+        target.file_name().and_then(|name| name.to_str()).unwrap_or("service"),
         std::process::id()
     ));
     if backup.exists() {
@@ -426,25 +398,17 @@ fn install_atomically(
     Ok(())
 }
 
-fn verify_service(
-    service: &ServiceManifest,
-    stage: &Path,
-    operations: &[Operation],
-) -> Result<(), ConformanceError> {
+fn verify_service(service: &ServiceManifest, stage: &Path, operations: &[Operation]) -> Result<(), ConformanceError> {
     if stage.join("tests").exists() {
-        return Err(ConformanceError::Message(format!(
-            "{} retained tests/",
-            service.key
-        )));
+        return Err(ConformanceError::Message(format!("{} retained tests/", service.key)));
     }
-    let cargo =
-        fs::read_to_string(stage.join("Cargo.toml")).map_err(|source| ConformanceError::Io {
-            path: stage.join("Cargo.toml"),
-            source,
-        })?;
-    let document = cargo.parse::<toml_edit::DocumentMut>().map_err(|error| {
-        ConformanceError::Message(format!("{} Cargo.toml: {error}", service.key))
+    let cargo = fs::read_to_string(stage.join("Cargo.toml")).map_err(|source| ConformanceError::Io {
+        path: stage.join("Cargo.toml"),
+        source,
     })?;
+    let document = cargo
+        .parse::<toml_edit::DocumentMut>()
+        .map_err(|error| ConformanceError::Message(format!("{} Cargo.toml: {error}", service.key)))?;
     let package = document
         .get("package")
         .and_then(toml_edit::Item::as_table)
@@ -455,9 +419,7 @@ fn verify_service(
         .and_then(toml_edit::Item::as_table)
         .and_then(|table| table.get("name"))
         .and_then(toml_edit::Item::as_str);
-    if package != Some(service.package_name.as_str())
-        || library != Some(service.library_name.as_str())
-    {
+    if package != Some(service.package_name.as_str()) || library != Some(service.library_name.as_str()) {
         return Err(ConformanceError::Message(format!(
             "{} manifest names do not match manifest",
             service.key
@@ -466,9 +428,7 @@ fn verify_service(
     let features = document
         .get("features")
         .and_then(toml_edit::Item::as_table)
-        .ok_or_else(|| {
-            ConformanceError::Message(format!("{} has no features table", service.key))
-        })?;
+        .ok_or_else(|| ConformanceError::Message(format!("{} has no features table", service.key)))?;
     let expected_operation_features = operations
         .iter()
         .map(|operation| operation.feature.clone())
@@ -567,10 +527,7 @@ fn write_diff_artifacts(
     report.push_str(&format!("- repository: `{}`\n- revision: `{}`\n- service: `{}`\n- model: `{}`\n- package: `{}`\n- library: `{}`\n- tests exclusion: `tests/**` is excluded from the comparison.\n\n", manifest.repository, manifest.revision, service.upstream_path, service.model_path, service.package_name, service.library_name));
     report.push_str("## Operations\n\n");
     for operation in operations {
-        report.push_str(&format!(
-            "- `{}`: `{}`\n",
-            operation.feature, operation.name
-        ));
+        report.push_str(&format!("- `{}`: `{}`\n", operation.feature, operation.name));
     }
     report.push_str("\n## Changed files\n\n");
     for file in changed_files {
@@ -671,11 +628,7 @@ fn check_feature_matrix(
     run_cargo_check(stage, &target_base, &[])?;
     let mut singletons = Vec::with_capacity(operations.len());
     for operation in operations {
-        run_cargo_check(
-            stage,
-            &target_base,
-            std::slice::from_ref(&operation.feature),
-        )?;
+        run_cargo_check(stage, &target_base, std::slice::from_ref(&operation.feature))?;
         singletons.push(vec![operation.feature.clone()]);
     }
     let all = operations
@@ -708,30 +661,23 @@ fn check_public_api(
         service,
         stage,
         enabled_probe.path(),
-        operations
-            .iter()
-            .map(|operation| operation.feature.as_str()),
+        operations.iter().map(|operation| operation.feature.as_str()),
     )?;
     let enabled_source = enabled_probe.path().join("src/main.rs");
-    fs::create_dir_all(enabled_source.parent().expect("probe source has parent")).map_err(
-        |source| ConformanceError::Io {
+    fs::create_dir_all(enabled_source.parent().expect("probe source has parent")).map_err(|source| {
+        ConformanceError::Io {
             path: enabled_source.clone(),
             source,
-        },
-    )?;
-    fs::write(&enabled_source, enabled_probe_source(operations)).map_err(|source| {
-        ConformanceError::Io {
-            path: enabled_source,
-            source,
         }
+    })?;
+    fs::write(&enabled_source, enabled_probe_source(operations)).map_err(|source| ConformanceError::Io {
+        path: enabled_source,
+        source,
     })?;
     run_public_probe(
         service,
         enabled_probe.path(),
-        workspace
-            .join("public-api-target")
-            .join(&service.key)
-            .join("enabled"),
+        workspace.join("public-api-target").join(&service.key).join("enabled"),
         true,
         &[],
     )?;
@@ -754,10 +700,7 @@ fn check_public_api(
     run_public_probe(
         service,
         disabled_probe.path(),
-        workspace
-            .join("public-api-target")
-            .join(&service.key)
-            .join("disabled"),
+        workspace.join("public-api-target").join(&service.key).join("disabled"),
         false,
         operations,
     )
@@ -804,14 +747,11 @@ where
 fn enabled_probe_source(operations: &[Operation]) -> String {
     let mut source = String::from("#![allow(unused_imports)]\n");
     for operation in operations {
-        writeln!(source, "use service::operation::{};", operation.module)
-            .expect("writing to a String cannot fail");
+        writeln!(source, "use service::operation::{};", operation.module).expect("writing to a String cannot fail");
     }
-    writeln!(source, "\nfn probe(client: &service::Client) {{")
-        .expect("writing to a String cannot fail");
+    writeln!(source, "\nfn probe(client: &service::Client) {{").expect("writing to a String cannot fail");
     for operation in operations {
-        writeln!(source, "    let _ = client.{}();", operation.module)
-            .expect("writing to a String cannot fail");
+        writeln!(source, "    let _ = client.{}();", operation.module).expect("writing to a String cannot fail");
     }
     source.push_str("}\n\nfn main() {}\n");
     source
@@ -845,10 +785,7 @@ fn run_public_probe(
             .env("CARGO_TARGET_DIR", &target)
             .output()
             .map_err(|source| {
-                ConformanceError::Message(format!(
-                    "failed to run public API probe for {}: {source}",
-                    service.key
-                ))
+                ConformanceError::Message(format!("failed to run public API probe for {}: {source}", service.key))
             })?;
         if !output.status.success() {
             return Err(ConformanceError::Message(format!(
@@ -896,11 +833,7 @@ fn run_public_probe(
     Ok(())
 }
 
-fn run_cargo_check(
-    crate_root: &Path,
-    target: &Path,
-    features: &[String],
-) -> Result<(), ConformanceError> {
+fn run_cargo_check(crate_root: &Path, target: &Path, features: &[String]) -> Result<(), ConformanceError> {
     fs::create_dir_all(target).map_err(|source| ConformanceError::Io {
         path: target.to_owned(),
         source,
@@ -919,9 +852,7 @@ fn run_cargo_check(
         .args(arguments)
         .env("CARGO_TARGET_DIR", target)
         .output()
-        .map_err(|source| {
-            ConformanceError::Message(format!("failed to run cargo check: {source}"))
-        })?;
+        .map_err(|source| ConformanceError::Message(format!("failed to run cargo check: {source}")))?;
     if !output.status.success() {
         return Err(ConformanceError::Message(format!(
             "cargo check failed for {} with features [{}]: {}",
@@ -940,10 +871,9 @@ fn render_summary(
     let mut output = String::from("# Operation coverage\n\n");
     for (key, coverage, changed_files, feature_matrix) in reports {
         let old = previous.and_then(|text| prior_transformed(text, key));
-        let delta = old.map_or(
-            format!("+{} (no previous report)", coverage.transformed),
-            |old| format_signed(coverage.transformed as isize - old as isize),
-        );
+        let delta = old.map_or(format!("+{} (no previous report)", coverage.transformed), |old| {
+            format_signed(coverage.transformed as isize - old as isize)
+        });
         output.push_str(&format!(
             "## {key}\n\n- total: {}\n- transformed: {}\n- missing: {}\n- ambiguous: {}\n- coverage delta: {}\n- changed files: {}\n- feature selections:\n  - zero: `[]`\n  - singleton: `{}`\n  - all: `{}`\n  - shared groups: `{}`\n\n",
             coverage.total,
@@ -1000,18 +930,12 @@ fn format_signed(value: isize) -> String {
     }
 }
 
-fn run_process(
-    program: &str,
-    arguments: &[&str],
-    current_dir: &Path,
-) -> Result<(), ConformanceError> {
+fn run_process(program: &str, arguments: &[&str], current_dir: &Path) -> Result<(), ConformanceError> {
     let output = Command::new(program)
         .args(arguments)
         .current_dir(current_dir)
         .output()
-        .map_err(|source| {
-            ConformanceError::Message(format!("failed to run {program}: {source}"))
-        })?;
+        .map_err(|source| ConformanceError::Message(format!("failed to run {program}: {source}")))?;
     if !output.status.success() {
         return Err(ConformanceError::Message(format!(
             "{program} failed: {}",

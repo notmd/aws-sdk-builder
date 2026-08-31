@@ -125,19 +125,13 @@ impl ListQueuesFluentBuilder {
     }
     /// <p>A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned.</p>
     /// <p>Queue URLs and names are case-sensitive.</p>
-    pub fn queue_name_prefix(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn queue_name_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.queue_name_prefix(input.into());
         self
     }
     /// <p>A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned.</p>
     /// <p>Queue URLs and names are case-sensitive.</p>
-    pub fn set_queue_name_prefix(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_queue_name_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_queue_name_prefix(input);
         self
     }

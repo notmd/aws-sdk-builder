@@ -94,9 +94,9 @@ impl ::std::convert::From<&str> for OAuth2ErrorCode {
             "TOKEN_EXPIRED" => OAuth2ErrorCode::TokenExpired,
             "USER_CREDENTIALS_CHANGED" => OAuth2ErrorCode::UserCredentialsChanged,
             "server_error" => OAuth2ErrorCode::ServerError,
-            other => OAuth2ErrorCode::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => OAuth2ErrorCode::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -147,14 +147,10 @@ impl OAuth2ErrorCode {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }

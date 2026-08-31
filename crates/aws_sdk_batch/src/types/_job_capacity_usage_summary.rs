@@ -27,9 +27,7 @@ impl JobCapacityUsageSummary {
 }
 
 /// A builder for [`JobCapacityUsageSummary`](crate::types::JobCapacityUsageSummary).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct JobCapacityUsageSummaryBuilder {
     pub(crate) capacity_unit: ::std::option::Option<::std::string::String>,
@@ -37,18 +35,12 @@ pub struct JobCapacityUsageSummaryBuilder {
 }
 impl JobCapacityUsageSummaryBuilder {
     /// <p>The unit of measure for the capacity usage. This is <code>VCPU</code> for Amazon EC2 and <code>cpu</code> for Amazon EKS.</p>
-    pub fn capacity_unit(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn capacity_unit(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.capacity_unit = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unit of measure for the capacity usage. This is <code>VCPU</code> for Amazon EC2 and <code>cpu</code> for Amazon EKS.</p>
-    pub fn set_capacity_unit(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_capacity_unit(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.capacity_unit = input;
         self
     }

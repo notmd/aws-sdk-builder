@@ -9,8 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeletePublicAccessBlockError>`](crate::operation::delete_public_access_block::DeletePublicAccessBlockError)
     pub fn delete_public_access_block(
         &self,
-    ) -> crate::operation::delete_public_access_block::builders::DeletePublicAccessBlockFluentBuilder
-    {
-        crate::operation::delete_public_access_block::builders::DeletePublicAccessBlockFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::delete_public_access_block::builders::DeletePublicAccessBlockFluentBuilder {
+        crate::operation::delete_public_access_block::builders::DeletePublicAccessBlockFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

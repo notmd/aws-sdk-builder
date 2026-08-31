@@ -16,8 +16,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteObjectAnnotationError>`](crate::operation::delete_object_annotation::DeleteObjectAnnotationError)
     pub fn delete_object_annotation(
         &self,
-    ) -> crate::operation::delete_object_annotation::builders::DeleteObjectAnnotationFluentBuilder
-    {
-        crate::operation::delete_object_annotation::builders::DeleteObjectAnnotationFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::delete_object_annotation::builders::DeleteObjectAnnotationFluentBuilder {
+        crate::operation::delete_object_annotation::builders::DeleteObjectAnnotationFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

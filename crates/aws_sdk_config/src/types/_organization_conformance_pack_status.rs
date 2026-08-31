@@ -88,9 +88,7 @@ impl OrganizationConformancePackStatus {
 }
 
 /// A builder for [`OrganizationConformancePackStatus`](crate::types::OrganizationConformancePackStatus).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct OrganizationConformancePackStatusBuilder {
     pub(crate) organization_conformance_pack_name: ::std::option::Option<::std::string::String>,
@@ -118,9 +116,7 @@ impl OrganizationConformancePackStatusBuilder {
         self
     }
     /// <p>The name that you assign to organization conformance pack.</p>
-    pub fn get_organization_conformance_pack_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_organization_conformance_pack_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.organization_conformance_pack_name
     }
     /// <p>Indicates deployment status of an organization conformance pack. When management account calls PutOrganizationConformancePack for the first time, conformance pack status is created in all the member accounts. When management account calls PutOrganizationConformancePack for the second time, conformance pack status is updated in all the member accounts. Additionally, conformance pack status is updated when one or more member accounts join or leave an organization. Conformance pack status is deleted when the management account deletes OrganizationConformancePack in all the member accounts and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.</p>
@@ -172,10 +168,7 @@ impl OrganizationConformancePackStatusBuilder {
     /// <li>
     /// <p><code>UPDATE_FAILED</code> when an organization conformance pack update failed in one or more member accounts within that organization.</p></li>
     /// </ul>
-    pub fn set_status(
-        mut self,
-        input: ::std::option::Option<crate::types::OrganizationResourceStatus>,
-    ) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::OrganizationResourceStatus>) -> Self {
         self.status = input;
         self
     }
@@ -219,18 +212,12 @@ impl OrganizationConformancePackStatusBuilder {
         &self.error_code
     }
     /// <p>An error message indicating that organization conformance pack creation or deletion failed due to an error.</p>
-    pub fn error_message(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn error_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.error_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>An error message indicating that organization conformance pack creation or deletion failed due to an error.</p>
-    pub fn set_error_message(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_error_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.error_message = input;
         self
     }
@@ -244,10 +231,7 @@ impl OrganizationConformancePackStatusBuilder {
         self
     }
     /// <p>The timestamp of the last update.</p>
-    pub fn set_last_update_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_last_update_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_update_time = input;
         self
     }

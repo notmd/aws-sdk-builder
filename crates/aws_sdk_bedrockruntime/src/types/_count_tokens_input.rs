@@ -21,9 +21,7 @@ pub enum CountTokensInput {
 impl CountTokensInput {
     /// Tries to convert the enum instance into [`Converse`](crate::types::CountTokensInput::Converse), extracting the inner [`ConverseTokensRequest`](crate::types::ConverseTokensRequest).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_converse(
-        &self,
-    ) -> ::std::result::Result<&crate::types::ConverseTokensRequest, &Self> {
+    pub fn as_converse(&self) -> ::std::result::Result<&crate::types::ConverseTokensRequest, &Self> {
         if let CountTokensInput::Converse(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -36,9 +34,7 @@ impl CountTokensInput {
     }
     /// Tries to convert the enum instance into [`InvokeModel`](crate::types::CountTokensInput::InvokeModel), extracting the inner [`InvokeModelTokensRequest`](crate::types::InvokeModelTokensRequest).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_invoke_model(
-        &self,
-    ) -> ::std::result::Result<&crate::types::InvokeModelTokensRequest, &Self> {
+    pub fn as_invoke_model(&self) -> ::std::result::Result<&crate::types::InvokeModelTokensRequest, &Self> {
         if let CountTokensInput::InvokeModel(val) = &self {
             ::std::result::Result::Ok(val)
         } else {

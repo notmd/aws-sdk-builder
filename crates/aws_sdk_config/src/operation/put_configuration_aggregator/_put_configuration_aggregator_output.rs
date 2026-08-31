@@ -9,9 +9,7 @@ pub struct PutConfigurationAggregatorOutput {
 }
 impl PutConfigurationAggregatorOutput {
     /// <p>Returns a ConfigurationAggregator object.</p>
-    pub fn configuration_aggregator(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ConfigurationAggregator> {
+    pub fn configuration_aggregator(&self) -> ::std::option::Option<&crate::types::ConfigurationAggregator> {
         self.configuration_aggregator.as_ref()
     }
 }
@@ -22,27 +20,22 @@ impl ::aws_types::request_id::RequestId for PutConfigurationAggregatorOutput {
 }
 impl PutConfigurationAggregatorOutput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationAggregatorOutput`](crate::operation::put_configuration_aggregator::PutConfigurationAggregatorOutput).
-    pub fn builder() -> crate::operation::put_configuration_aggregator::builders::PutConfigurationAggregatorOutputBuilder{
+    pub fn builder() -> crate::operation::put_configuration_aggregator::builders::PutConfigurationAggregatorOutputBuilder
+    {
         crate::operation::put_configuration_aggregator::builders::PutConfigurationAggregatorOutputBuilder::default()
     }
 }
 
 /// A builder for [`PutConfigurationAggregatorOutput`](crate::operation::put_configuration_aggregator::PutConfigurationAggregatorOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutConfigurationAggregatorOutputBuilder {
-    pub(crate) configuration_aggregator:
-        ::std::option::Option<crate::types::ConfigurationAggregator>,
+    pub(crate) configuration_aggregator: ::std::option::Option<crate::types::ConfigurationAggregator>,
     _request_id: Option<String>,
 }
 impl PutConfigurationAggregatorOutputBuilder {
     /// <p>Returns a ConfigurationAggregator object.</p>
-    pub fn configuration_aggregator(
-        mut self,
-        input: crate::types::ConfigurationAggregator,
-    ) -> Self {
+    pub fn configuration_aggregator(mut self, input: crate::types::ConfigurationAggregator) -> Self {
         self.configuration_aggregator = ::std::option::Option::Some(input);
         self
     }
@@ -55,9 +48,7 @@ impl PutConfigurationAggregatorOutputBuilder {
         self
     }
     /// <p>Returns a ConfigurationAggregator object.</p>
-    pub fn get_configuration_aggregator(
-        &self,
-    ) -> &::std::option::Option<crate::types::ConfigurationAggregator> {
+    pub fn get_configuration_aggregator(&self) -> &::std::option::Option<crate::types::ConfigurationAggregator> {
         &self.configuration_aggregator
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -70,9 +61,7 @@ impl PutConfigurationAggregatorOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutConfigurationAggregatorOutput`](crate::operation::put_configuration_aggregator::PutConfigurationAggregatorOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::put_configuration_aggregator::PutConfigurationAggregatorOutput {
+    pub fn build(self) -> crate::operation::put_configuration_aggregator::PutConfigurationAggregatorOutput {
         crate::operation::put_configuration_aggregator::PutConfigurationAggregatorOutput {
             configuration_aggregator: self.configuration_aggregator,
             _request_id: self._request_id,

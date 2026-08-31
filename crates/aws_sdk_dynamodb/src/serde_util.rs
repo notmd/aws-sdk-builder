@@ -50,31 +50,23 @@ pub(crate) fn backup_details_correct_errors(
         builder.backup_name = Some(Default::default())
     }
     if builder.backup_status.is_none() {
-        builder.backup_status = "no value was set"
-            .parse::<crate::types::BackupStatus>()
-            .ok()
+        builder.backup_status = "no value was set".parse::<crate::types::BackupStatus>().ok()
     }
     if builder.backup_type.is_none() {
         builder.backup_type = "no value was set".parse::<crate::types::BackupType>().ok()
     }
     if builder.backup_creation_date_time.is_none() {
-        builder.backup_creation_date_time =
-            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.backup_creation_date_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }
 
-#[cfg(any(
-    feature = "op_describe_continuous_backups",
-    feature = "op_update_continuous_backups"
-))]
+#[cfg(any(feature = "op_describe_continuous_backups", feature = "op_update_continuous_backups"))]
 pub(crate) fn continuous_backups_description_correct_errors(
     mut builder: crate::types::builders::ContinuousBackupsDescriptionBuilder,
 ) -> crate::types::builders::ContinuousBackupsDescriptionBuilder {
     if builder.continuous_backups_status.is_none() {
-        builder.continuous_backups_status = "no value was set"
-            .parse::<crate::types::ContinuousBackupsStatus>()
-            .ok()
+        builder.continuous_backups_status = "no value was set".parse::<crate::types::ContinuousBackupsStatus>().ok()
     }
     builder
 }
@@ -140,8 +132,7 @@ pub(crate) fn restore_summary_correct_errors(
     mut builder: crate::types::builders::RestoreSummaryBuilder,
 ) -> crate::types::builders::RestoreSummaryBuilder {
     if builder.restore_date_time.is_none() {
-        builder.restore_date_time =
-            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.restore_date_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     if builder.restore_in_progress.is_none() {
         builder.restore_in_progress = Some(Default::default())
@@ -177,8 +168,7 @@ pub(crate) fn source_table_details_correct_errors(
         builder.key_schema = Some(Default::default())
     }
     if builder.table_creation_date_time.is_none() {
-        builder.table_creation_date_time =
-            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.table_creation_date_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     if builder.provisioned_throughput.is_none() {
         builder.provisioned_throughput = {
@@ -260,9 +250,7 @@ pub(crate) fn attribute_definition_correct_errors(
         builder.attribute_name = Some(Default::default())
     }
     if builder.attribute_type.is_none() {
-        builder.attribute_type = "no value was set"
-            .parse::<crate::types::ScalarAttributeType>()
-            .ok()
+        builder.attribute_type = "no value was set".parse::<crate::types::ScalarAttributeType>().ok()
     }
     builder
 }
@@ -423,9 +411,7 @@ pub(crate) fn vector_index_correct_errors(
         builder.dimensions = Some(Default::default())
     }
     if builder.distance_function.is_none() {
-        builder.distance_function = "no value was set"
-            .parse::<crate::types::VectorDistanceFunction>()
-            .ok()
+        builder.distance_function = "no value was set".parse::<crate::types::VectorDistanceFunction>().ok()
     }
     builder
 }
@@ -449,9 +435,7 @@ pub(crate) fn search_schema_element_correct_errors(
         builder.attribute_name = Some(Default::default())
     }
     if builder.search_schema_element_type.is_none() {
-        builder.search_schema_element_type = "no value was set"
-            .parse::<crate::types::SearchSchemaElementType>()
-            .ok()
+        builder.search_schema_element_type = "no value was set".parse::<crate::types::SearchSchemaElementType>().ok()
     }
     builder
 }

@@ -86,8 +86,7 @@ impl LoginCredentialsProvider {
         let token = token_cache
             .get_or_load(|| async move {
                 tracing::debug!("expiring cache asked for an updated Login token");
-                let mut token =
-                    load_cached_token(&inner.env, &inner.fs, &inner.session_arn).await?;
+                let mut token = load_cached_token(&inner.env, &inner.fs, &inner.session_arn).await?;
 
                 tracing::debug!("loaded cached Login token");
 
@@ -96,10 +95,7 @@ impl LoginCredentialsProvider {
                 let expires_soon = token.expires_at() - REFRESH_BUFFER_TIME <= now;
                 let last_refresh = *inner.last_refresh_attempt.lock().unwrap();
                 let min_time_passed = last_refresh
-                    .map(|lr| {
-                        now.duration_since(lr).expect("last_refresh is in the past")
-                            >= MIN_TIME_BETWEEN_REFRESH
-                    })
+                    .map(|lr| now.duration_since(lr).expect("last_refresh is in the past") >= MIN_TIME_BETWEEN_REFRESH)
                     .unwrap_or(true);
 
                 let refreshable = min_time_passed;
@@ -271,10 +267,7 @@ mod test {
     use aws_smithy_async::rt::sleep::TokioSleep;
     use aws_smithy_async::time::{SharedTimeSource, StaticTimeSource};
     use aws_smithy_runtime_api::client::{
-        http::{
-            HttpClient, HttpConnector, HttpConnectorFuture, HttpConnectorSettings,
-            SharedHttpConnector,
-        },
+        http::{HttpClient, HttpConnector, HttpConnectorFuture, HttpConnectorSettings, SharedHttpConnector},
         orchestrator::{HttpRequest, HttpResponse},
     };
     use aws_smithy_types::body::SdkBody;
@@ -385,9 +378,7 @@ mod test {
             let http_client = if self.mock_api_calls.is_empty() {
                 crate::test_case::no_traffic_client()
             } else {
-                aws_smithy_runtime_api::client::http::SharedHttpClient::new(TestHttpClient::new(
-                    &self.mock_api_calls,
-                ))
+                aws_smithy_runtime_api::client::http::SharedHttpClient::new(TestHttpClient::new(&self.mock_api_calls))
             };
 
             let provider_config = ProviderConfig::empty()
@@ -428,8 +419,7 @@ mod test {
                         for (filename, expected) in expected_cache {
                             let path = format!("/home/user/.aws/login/cache/{}", filename);
                             let actual = fs.read_to_end(&path).await.expect("cache file exists");
-                            let actual: serde_json::Value =
-                                serde_json::from_slice(&actual).expect("valid json");
+                            let actual: serde_json::Value = serde_json::from_slice(&actual).expect("valid json");
                             // Compare only the fields that matter (ignore formatting differences)
                             assert_eq!(
                                 expected.get("accessToken"),

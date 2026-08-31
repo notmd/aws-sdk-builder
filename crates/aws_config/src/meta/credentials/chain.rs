@@ -55,21 +55,14 @@ impl Debug for CredentialsProviderChain {
 
 impl CredentialsProviderChain {
     /// Create a `CredentialsProviderChain` that begins by evaluating this provider
-    pub fn first_try(
-        name: impl Into<Cow<'static, str>>,
-        provider: impl ProvideCredentials + 'static,
-    ) -> Self {
+    pub fn first_try(name: impl Into<Cow<'static, str>>, provider: impl ProvideCredentials + 'static) -> Self {
         CredentialsProviderChain {
             providers: vec![(name.into(), Box::new(provider))],
         }
     }
 
     /// Add a fallback provider to the credentials provider chain
-    pub fn or_else(
-        mut self,
-        name: impl Into<Cow<'static, str>>,
-        provider: impl ProvideCredentials + 'static,
-    ) -> Self {
+    pub fn or_else(mut self, name: impl Into<Cow<'static, str>>, provider: impl ProvideCredentials + 'static) -> Self {
         self.providers.push((name.into(), Box::new(provider)));
         self
     }
@@ -111,9 +104,7 @@ impl CredentialsProviderChain {
                 }
             }
         }
-        Err(CredentialsError::not_loaded(ProviderChainError::new(
-            attempts,
-        )))
+        Err(CredentialsError::not_loaded(ProviderChainError::new(attempts)))
     }
 }
 
@@ -193,9 +184,7 @@ mod tests {
             Ok(_) => panic!("provide_credentials completed before timeout future"),
             Err(_err) => match chain.fallback_on_interrupt() {
                 Some(actual) => assert_eq!(actual, expected),
-                None => panic!(
-                    "provide_credentials timed out and no credentials returned from fallback_on_interrupt"
-                ),
+                None => panic!("provide_credentials timed out and no credentials returned from fallback_on_interrupt"),
             },
         };
     }
@@ -226,9 +215,7 @@ mod tests {
             Ok(_) => panic!("provide_credentials completed before timeout future"),
             Err(_err) => match chain.fallback_on_interrupt() {
                 Some(actual) => assert_eq!(actual, expected),
-                None => panic!(
-                    "provide_credentials timed out and no credentials returned from fallback_on_interrupt"
-                ),
+                None => panic!("provide_credentials timed out and no credentials returned from fallback_on_interrupt"),
             },
         };
     }
@@ -241,17 +228,11 @@ mod tests {
         )
         .or_else(
             "Profile",
-            provide_credentials_fn(|| async {
-                Err(CredentialsError::not_loaded("profile 'deploy' not found"))
-            }),
+            provide_credentials_fn(|| async { Err(CredentialsError::not_loaded("profile 'deploy' not found")) }),
         )
         .or_else(
             "IMDS",
-            provide_credentials_fn(|| async {
-                Err(CredentialsError::not_loaded(
-                    "could not communicate with IMDS",
-                ))
-            }),
+            provide_credentials_fn(|| async { Err(CredentialsError::not_loaded("could not communicate with IMDS")) }),
         );
 
         let err = chain.provide_credentials().await.expect_err("should fail");
@@ -263,10 +244,7 @@ mod tests {
             source.contains("no credentials found in chain. Attempted:"),
             "missing header in: {source}"
         );
-        assert!(
-            source.contains("Environment:"),
-            "missing Environment in: {source}"
-        );
+        assert!(source.contains("Environment:"), "missing Environment in: {source}");
         assert!(source.contains("Profile:"), "missing Profile in: {source}");
         assert!(source.contains("IMDS:"), "missing IMDS in: {source}");
     }
@@ -275,9 +253,7 @@ mod tests {
     async fn hard_fail_stops_chain() {
         let chain = CredentialsProviderChain::first_try(
             "Failing",
-            provide_credentials_fn(|| async {
-                Err(CredentialsError::provider_error("503 Service Unavailable"))
-            }),
+            provide_credentials_fn(|| async { Err(CredentialsError::provider_error("503 Service Unavailable")) }),
         )
         .or_else(
             "Working",
@@ -318,9 +294,7 @@ mod tests {
         )
         .or_else(
             "Profile",
-            provide_credentials_fn(|| async {
-                Err(CredentialsError::not_loaded("no profile defined"))
-            }),
+            provide_credentials_fn(|| async { Err(CredentialsError::not_loaded("no profile defined")) }),
         );
 
         let err = chain.provide_credentials().await.expect_err("should fail");

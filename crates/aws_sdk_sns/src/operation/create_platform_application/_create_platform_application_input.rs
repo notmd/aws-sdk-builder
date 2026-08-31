@@ -9,9 +9,7 @@ pub struct CreatePlatformApplicationInput {
     /// <p>The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push Notification Service), APNS_SANDBOX, and GCM (Firebase Cloud Messaging).</p>
     pub platform: ::std::option::Option<::std::string::String>,
     /// <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html"> <code>SetPlatformApplicationAttributes</code> </a>.</p>
-    pub attributes: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl CreatePlatformApplicationInput {
     /// <p>Application names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters long.</p>
@@ -25,30 +23,25 @@ impl CreatePlatformApplicationInput {
     /// <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html"> <code>SetPlatformApplicationAttributes</code> </a>.</p>
     pub fn attributes(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.attributes.as_ref()
     }
 }
 impl CreatePlatformApplicationInput {
     /// Creates a new builder-style object to manufacture [`CreatePlatformApplicationInput`](crate::operation::create_platform_application::CreatePlatformApplicationInput).
-    pub fn builder() -> crate::operation::create_platform_application::builders::CreatePlatformApplicationInputBuilder{
+    pub fn builder() -> crate::operation::create_platform_application::builders::CreatePlatformApplicationInputBuilder {
         crate::operation::create_platform_application::builders::CreatePlatformApplicationInputBuilder::default()
     }
 }
 
 /// A builder for [`CreatePlatformApplicationInput`](crate::operation::create_platform_application::CreatePlatformApplicationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreatePlatformApplicationInputBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
     pub(crate) platform: ::std::option::Option<::std::string::String>,
-    pub(crate) attributes: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) attributes:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl CreatePlatformApplicationInputBuilder {
     /// <p>Application names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters long.</p>
@@ -99,9 +92,7 @@ impl CreatePlatformApplicationInputBuilder {
     /// <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html"> <code>SetPlatformApplicationAttributes</code> </a>.</p>
     pub fn set_attributes(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.attributes = input;
         self
@@ -109,9 +100,7 @@ impl CreatePlatformApplicationInputBuilder {
     /// <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html"> <code>SetPlatformApplicationAttributes</code> </a>.</p>
     pub fn get_attributes(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.attributes
     }
     /// Consumes the builder and constructs a [`CreatePlatformApplicationInput`](crate::operation::create_platform_application::CreatePlatformApplicationInput).

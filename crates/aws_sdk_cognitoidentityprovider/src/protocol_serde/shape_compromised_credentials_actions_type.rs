@@ -4,9 +4,7 @@ pub fn ser_compromised_credentials_actions_type(
     input: &crate::types::CompromisedCredentialsActionsType,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     {
-        object
-            .key("EventAction")
-            .string(input.event_action.as_str());
+        object.key("EventAction").string(input.event_action.as_str());
     }
     Ok(())
 }
@@ -28,18 +26,15 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder =
-                crate::types::builders::CompromisedCredentialsActionsTypeBuilder::default();
+            let mut builder = crate::types::builders::CompromisedCredentialsActionsTypeBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -47,23 +42,22 @@ where
                         match key.to_unescaped()?.as_ref() {
                             "EventAction" => {
                                 builder = builder.set_event_action(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| crate::types::CompromisedCredentialsEventActionType::from(u.as_ref()))
-                                    })
-                                    .transpose()?,
-                            );
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| {
+                                            s.to_unescaped().map(|u| {
+                                                crate::types::CompromisedCredentialsEventActionType::from(u.as_ref())
+                                            })
+                                        })
+                                        .transpose()?,
+                                );
                             }
                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
@@ -78,10 +72,8 @@ where
                     })?,
             ))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

@@ -7,9 +7,7 @@ pub fn ser_replica_auto_scaling_update(
         object.key("RegionName").string(input.region_name.as_str());
     }
     if let Some(var_1) = &input.replica_global_secondary_index_updates {
-        let mut array_2 = object
-            .key("ReplicaGlobalSecondaryIndexUpdates")
-            .start_array();
+        let mut array_2 = object.key("ReplicaGlobalSecondaryIndexUpdates").start_array();
         for item_3 in var_1 {
             {
                 #[allow(unused_mut)]
@@ -25,7 +23,10 @@ pub fn ser_replica_auto_scaling_update(
         let mut object_6 = object
             .key("ReplicaProvisionedReadCapacityAutoScalingUpdate")
             .start_object();
-        crate::protocol_serde::shape_auto_scaling_settings_update::ser_auto_scaling_settings_update(&mut object_6, var_5)?;
+        crate::protocol_serde::shape_auto_scaling_settings_update::ser_auto_scaling_settings_update(
+            &mut object_6,
+            var_5,
+        )?;
         object_6.finish();
     }
     Ok(())

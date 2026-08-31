@@ -28,9 +28,7 @@ impl GetLogFieldsOutput {
 }
 
 /// A builder for [`GetLogFieldsOutput`](crate::operation::get_log_fields::GetLogFieldsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetLogFieldsOutputBuilder {
     pub(crate) log_fields: ::std::option::Option<::std::vec::Vec<crate::types::LogFieldsListItem>>,
@@ -57,9 +55,7 @@ impl GetLogFieldsOutputBuilder {
         self
     }
     /// <p>The list of log fields for the specified data source, including field names and their data types.</p>
-    pub fn get_log_fields(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::LogFieldsListItem>> {
+    pub fn get_log_fields(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LogFieldsListItem>> {
         &self.log_fields
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

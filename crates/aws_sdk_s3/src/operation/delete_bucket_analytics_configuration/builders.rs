@@ -92,7 +92,7 @@ impl DeleteBucketAnalyticsConfigurationFluentBuilder {
             crate::operation::delete_bucket_analytics_configuration::DeleteBucketAnalyticsConfigurationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -102,7 +102,11 @@ impl DeleteBucketAnalyticsConfigurationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_bucket_analytics_configuration::DeleteBucketAnalyticsConfiguration::orchestrate(&runtime_plugins, input).await
+        crate::operation::delete_bucket_analytics_configuration::DeleteBucketAnalyticsConfiguration::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -112,7 +116,7 @@ impl DeleteBucketAnalyticsConfigurationFluentBuilder {
         crate::operation::delete_bucket_analytics_configuration::DeleteBucketAnalyticsConfigurationOutput,
         crate::operation::delete_bucket_analytics_configuration::DeleteBucketAnalyticsConfigurationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -159,18 +163,12 @@ impl DeleteBucketAnalyticsConfigurationFluentBuilder {
         self.inner.get_id()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

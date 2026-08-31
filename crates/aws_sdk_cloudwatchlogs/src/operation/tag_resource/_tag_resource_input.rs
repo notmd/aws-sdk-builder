@@ -9,9 +9,7 @@ pub struct TagResourceInput {
     /// <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs resources and operations</a>.</p>
     pub resource_arn: ::std::option::Option<::std::string::String>,
     /// <p>The list of key-value pairs to associate with the resource.</p>
-    pub tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl TagResourceInput {
     /// <p>The ARN of the resource that you're adding tags to.</p>
@@ -24,9 +22,7 @@ impl TagResourceInput {
     /// <p>The list of key-value pairs to associate with the resource.</p>
     pub fn tags(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
 }
@@ -38,15 +34,11 @@ impl TagResourceInput {
 }
 
 /// A builder for [`TagResourceInput`](crate::operation::tag_resource::TagResourceInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TagResourceInputBuilder {
     pub(crate) resource_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl TagResourceInputBuilder {
     /// <p>The ARN of the resource that you're adding tags to.</p>
@@ -91,9 +83,7 @@ impl TagResourceInputBuilder {
     /// <p>The list of key-value pairs to associate with the resource.</p>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.tags = input;
         self
@@ -101,9 +91,7 @@ impl TagResourceInputBuilder {
     /// <p>The list of key-value pairs to associate with the resource.</p>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`TagResourceInput`](crate::operation::tag_resource::TagResourceInput).

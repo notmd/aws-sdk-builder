@@ -85,13 +85,11 @@ impl GetObject {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(
-                crate::config::ConfigOverrideRuntimePlugin::new(
-                    config_override,
-                    client_config.config.clone(),
-                    &client_config.runtime_components,
-                ),
-            );
+            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+                config_override,
+                client_config.config.clone(),
+                &client_config.runtime_components,
+            ));
         }
         runtime_plugins
     }
@@ -100,15 +98,11 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetObje
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("GetObject");
 
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+            GetObjectRequestSerializer,
+        ));
         cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                GetObjectRequestSerializer,
-            ),
-        );
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
-                GetObjectResponseDeserializer,
-            ),
+            ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(GetObjectResponseDeserializer),
         );
 
         cfg.store_put(
@@ -121,9 +115,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetObje
         );
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetObject", "S3"),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+            "GetObject",
+            "S3",
+        ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = false;
         signing_options.content_sha256_header = true;
@@ -141,10 +136,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetObje
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<
-        '_,
-        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    > {
+    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetObject")
             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -238,9 +230,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetObje
 struct GetObjectTelemetryInputCaptureInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for GetObjectTelemetryInputCaptureInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetObjectTelemetryInputCaptureInterceptor {
     fn name(&self) -> &'static str {
         "GetObjectTelemetryInputCaptureInterceptor"
     }
@@ -263,8 +253,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) = context.input().downcast_ref::<GetObjectInput>()
-        else {
+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<GetObjectInput>() else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
@@ -301,9 +290,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             }
         }
         if requested.should_capture("ResponseContentDisposition") {
-            if let ::std::option::Option::Some(value) =
-                input.response_content_disposition.as_deref()
-            {
+            if let ::std::option::Option::Some(value) = input.response_content_disposition.as_deref() {
                 captured.insert("ResponseContentDisposition", value);
             }
         }
@@ -349,14 +336,11 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
 }
 #[derive(Debug)]
 struct GetObjectResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
-    for GetObjectResponseDeserializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetObjectResponseDeserializer {
     fn deserialize_streaming(
         &self,
         response: &mut ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-    ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError>
-    {
+    ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
         #[allow(unused_mut)]
         let mut force_error = false;
         ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
@@ -378,13 +362,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
     ) -> ::aws_smithy_runtime_api::client::interceptors::context::OutputOrError {
         // For streaming operations, we only hit this case if its an error
         let body = response.body().bytes().expect("body loaded");
-        crate::protocol_serde::type_erase_result(
-            crate::protocol_serde::shape_get_object::de_get_object_http_error(
-                response.status().as_u16(),
-                response.headers(),
-                body,
-            ),
-        )
+        crate::protocol_serde::type_erase_result(crate::protocol_serde::shape_get_object::de_get_object_http_error(
+            response.status().as_u16(),
+            response.headers(),
+            body,
+        ))
     }
 }
 #[derive(Debug)]
@@ -416,20 +398,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetObjectReq
             fn uri_base(
                 _input: &crate::operation::get_object::GetObjectInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
                 let input_1 = &_input.key;
                 let input_1 = input_1.as_ref().ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "key",
-                        "cannot be empty or unset",
-                    )
+                    ::aws_smithy_types::error::operation::BuildError::missing_field("key", "cannot be empty or unset")
                 })?;
-                let key = ::aws_smithy_http::label::fmt_string(
-                    input_1,
-                    ::aws_smithy_http::label::EncodingStrategy::Greedy,
-                );
+                let key =
+                    ::aws_smithy_http::label::fmt_string(input_1, ::aws_smithy_http::label::EncodingStrategy::Greedy);
                 if key.is_empty() {
                     return ::std::result::Result::Err(
                         ::aws_smithy_types::error::operation::BuildError::missing_field(
@@ -444,16 +420,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetObjectReq
             fn uri_query(
                 _input: &crate::operation::get_object::GetObjectInput,
                 mut output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 query.push_kv("x-id", "GetObject");
                 if let ::std::option::Option::Some(inner_2) = &_input.response_cache_control {
                     {
-                        query.push_kv(
-                            "response-cache-control",
-                            &::aws_smithy_http::query::fmt_string(inner_2),
-                        );
+                        query.push_kv("response-cache-control", &::aws_smithy_http::query::fmt_string(inner_2));
                     }
                 }
                 if let ::std::option::Option::Some(inner_3) = &_input.response_content_disposition {
@@ -482,10 +454,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetObjectReq
                 }
                 if let ::std::option::Option::Some(inner_6) = &_input.response_content_type {
                     {
-                        query.push_kv(
-                            "response-content-type",
-                            &::aws_smithy_http::query::fmt_string(inner_6),
-                        );
+                        query.push_kv("response-content-type", &::aws_smithy_http::query::fmt_string(inner_6));
                     }
                 }
                 if let ::std::option::Option::Some(inner_7) = &_input.response_expires {
@@ -518,16 +487,12 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetObjectReq
             fn update_http_builder(
                 input: &crate::operation::get_object::GetObjectInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<
-                ::http_1x::request::Builder,
-                ::aws_smithy_types::error::operation::BuildError,
-            > {
+            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
-                let builder = crate::protocol_serde::shape_get_object::ser_get_object_headers(
-                    input, builder,
-                )?;
+                let builder = crate::protocol_serde::shape_get_object::ser_get_object_headers(input, builder)?;
                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -535,22 +500,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetObjectReq
         };
         let body = ::aws_smithy_types::body::SdkBody::from("");
 
-        ::std::result::Result::Ok(
-            request_builder
-                .body(body)
-                .expect("valid request")
-                .try_into()
-                .unwrap(),
-        )
+        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
 #[derive(Debug)]
 struct GetObjectEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for GetObjectEndpointParamsInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetObjectEndpointParamsInterceptor {
     fn name(&self) -> &'static str {
         "GetObjectEndpointParamsInterceptor"
     }
@@ -571,18 +528,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             .ok_or("failed to downcast to GetObjectInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(
-                cfg.load::<::aws_types::region::Region>()
-                    .map(|r| r.as_ref().to_owned()),
-            )
-            .set_use_fips(
-                cfg.load::<::aws_types::endpoint_config::UseFips>()
-                    .map(|ty| ty.0),
-            )
-            .set_use_dual_stack(
-                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
-                    .map(|ty| ty.0),
-            )
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_endpoint(
                 cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
                     .map(|ty| ty.0.clone()),
@@ -595,8 +543,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             )
             .set_accelerate(cfg.load::<crate::config::Accelerate>().map(|ty| ty.0))
             .set_disable_s3_express_session_auth(
-                cfg.load::<crate::config::DisableS3ExpressSessionAuth>()
-                    .map(|ty| ty.0),
+                cfg.load::<crate::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0),
             )
             .set_bucket(Some(
                 _input
@@ -629,9 +576,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
                     err,
                 )
             })?;
-        cfg.interceptor_state().store_put(
-            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
-        );
+        cfg.interceptor_state()
+            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(
+                params,
+            ));
         ::std::result::Result::Ok(())
     }
 }
@@ -648,8 +596,7 @@ mod get_object_test {
     #[::tokio::test]
     #[::tracing_test::traced_test]
     async fn get_object_if_modified_since_request() {
-        let (http_client, request_receiver) =
-            ::aws_smithy_http_client::test_util::capture_request(None);
+        let (http_client, request_receiver) = ::aws_smithy_http_client::test_util::capture_request(None);
         let config_builder = crate::config::Config::builder()
             .with_test_defaults()
             // TODO(https://github.com/smithy-lang/smithy-rs/issues/4177):
@@ -689,8 +636,7 @@ mod get_object_test {
     #[::tokio::test]
     #[::tracing_test::traced_test]
     async fn s3_preserves_leading_dot_segment_in_uri_label_request() {
-        let (http_client, request_receiver) =
-            ::aws_smithy_http_client::test_util::capture_request(None);
+        let (http_client, request_receiver) = ::aws_smithy_http_client::test_util::capture_request(None);
         let config_builder = crate::config::Config::builder()
             .with_test_defaults()
             // TODO(https://github.com/smithy-lang/smithy-rs/issues/4177):
@@ -729,8 +675,7 @@ mod get_object_test {
     #[::tokio::test]
     #[::tracing_test::traced_test]
     async fn s3_preserves_embedded_dot_segment_in_uri_label_request() {
-        let (http_client, request_receiver) =
-            ::aws_smithy_http_client::test_util::capture_request(None);
+        let (http_client, request_receiver) = ::aws_smithy_http_client::test_util::capture_request(None);
         let config_builder = crate::config::Config::builder()
             .with_test_defaults()
             // TODO(https://github.com/smithy-lang/smithy-rs/issues/4177):
@@ -788,9 +733,7 @@ impl GetObjectError {
     /// Creates the `GetObjectError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -812,12 +755,8 @@ impl GetObjectError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::InvalidObjectState(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::NoSuchKey(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::InvalidObjectState(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::NoSuchKey(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -867,21 +806,15 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for GetObjectError {
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetObjectError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::InvalidObjectState(_inner) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
-            }
-            Self::NoSuchKey(_inner) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
-            }
+            Self::InvalidObjectState(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::NoSuchKey(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::Unhandled(_inner) => &_inner.meta,
         }
     }
 }
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetObjectError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {

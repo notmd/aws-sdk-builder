@@ -82,12 +82,11 @@ impl AcquireRoleFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::acquire_role::AcquireRole::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::acquire_role::AcquireRole::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::acquire_role::AcquireRole::orchestrate(&runtime_plugins, input).await
     }
 
@@ -174,9 +173,8 @@ impl AcquireRoleFluentBuilder {
     /// <p>A map of values to substitute for the parameters that are defined in the role template version. Each key is a parameter name from the template, and each value is a structure that contains the replacement values for that parameter.</p>
     pub fn get_replacement_values(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::ReplacementValueEntry>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::ReplacementValueEntry>>
+    {
         self.inner.get_replacement_values()
     }
 }

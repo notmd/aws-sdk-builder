@@ -99,7 +99,7 @@ impl DescribeManagedLoginBrandingByClientInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientInput {
                 user_pool_id: self.user_pool_id,

@@ -21,10 +21,7 @@ pub struct BatchWriteItemInput {
     /// </ul></li>
     /// </ul>
     pub request_items: ::std::option::Option<
-        ::std::collections::HashMap<
-            ::std::string::String,
-            ::std::vec::Vec<crate::types::WriteRequest>,
-        >,
+        ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::WriteRequest>>,
     >,
     /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
     /// <ul>
@@ -38,8 +35,7 @@ pub struct BatchWriteItemInput {
     /// </ul>
     pub return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
     /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
-    pub return_item_collection_metrics:
-        ::std::option::Option<crate::types::ReturnItemCollectionMetrics>,
+    pub return_item_collection_metrics: ::std::option::Option<crate::types::ReturnItemCollectionMetrics>,
 }
 impl BatchWriteItemInput {
     /// <p>A map of one or more table names or table ARNs and, for each table, a list of operations to be performed (<code>DeleteRequest</code> or <code>PutRequest</code>). Each element in the map consists of the following:</p>
@@ -61,10 +57,7 @@ impl BatchWriteItemInput {
     pub fn request_items(
         &self,
     ) -> ::std::option::Option<
-        &::std::collections::HashMap<
-            ::std::string::String,
-            ::std::vec::Vec<crate::types::WriteRequest>,
-        >,
+        &::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::WriteRequest>>,
     > {
         self.request_items.as_ref()
     }
@@ -78,15 +71,11 @@ impl BatchWriteItemInput {
     /// <li>
     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
     /// </ul>
-    pub fn return_consumed_capacity(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ReturnConsumedCapacity> {
+    pub fn return_consumed_capacity(&self) -> ::std::option::Option<&crate::types::ReturnConsumedCapacity> {
         self.return_consumed_capacity.as_ref()
     }
     /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
-    pub fn return_item_collection_metrics(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ReturnItemCollectionMetrics> {
+    pub fn return_item_collection_metrics(&self) -> ::std::option::Option<&crate::types::ReturnItemCollectionMetrics> {
         self.return_item_collection_metrics.as_ref()
     }
 }
@@ -98,21 +87,14 @@ impl BatchWriteItemInput {
 }
 
 /// A builder for [`BatchWriteItemInput`](crate::operation::batch_write_item::BatchWriteItemInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct BatchWriteItemInputBuilder {
     pub(crate) request_items: ::std::option::Option<
-        ::std::collections::HashMap<
-            ::std::string::String,
-            ::std::vec::Vec<crate::types::WriteRequest>,
-        >,
+        ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::WriteRequest>>,
     >,
-    pub(crate) return_consumed_capacity:
-        ::std::option::Option<crate::types::ReturnConsumedCapacity>,
-    pub(crate) return_item_collection_metrics:
-        ::std::option::Option<crate::types::ReturnItemCollectionMetrics>,
+    pub(crate) return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
+    pub(crate) return_item_collection_metrics: ::std::option::Option<crate::types::ReturnItemCollectionMetrics>,
 }
 impl BatchWriteItemInputBuilder {
     /// Adds a key-value pair to `request_items`.
@@ -164,10 +146,7 @@ impl BatchWriteItemInputBuilder {
     pub fn set_request_items(
         mut self,
         input: ::std::option::Option<
-            ::std::collections::HashMap<
-                ::std::string::String,
-                ::std::vec::Vec<crate::types::WriteRequest>,
-            >,
+            ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::WriteRequest>>,
         >,
     ) -> Self {
         self.request_items = input;
@@ -192,10 +171,7 @@ impl BatchWriteItemInputBuilder {
     pub fn get_request_items(
         &self,
     ) -> &::std::option::Option<
-        ::std::collections::HashMap<
-            ::std::string::String,
-            ::std::vec::Vec<crate::types::WriteRequest>,
-        >,
+        ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::WriteRequest>>,
     > {
         &self.request_items
     }
@@ -240,16 +216,11 @@ impl BatchWriteItemInputBuilder {
     /// <li>
     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
     /// </ul>
-    pub fn get_return_consumed_capacity(
-        &self,
-    ) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
+    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
         &self.return_consumed_capacity
     }
     /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
-    pub fn return_item_collection_metrics(
-        mut self,
-        input: crate::types::ReturnItemCollectionMetrics,
-    ) -> Self {
+    pub fn return_item_collection_metrics(mut self, input: crate::types::ReturnItemCollectionMetrics) -> Self {
         self.return_item_collection_metrics = ::std::option::Option::Some(input);
         self
     }

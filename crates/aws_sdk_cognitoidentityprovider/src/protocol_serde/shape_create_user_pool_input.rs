@@ -9,10 +9,7 @@ pub fn ser_create_user_pool_input_input(
     if let Some(var_2) = &input.policies {
         #[allow(unused_mut)]
         let mut object_3 = object.key("Policies").start_object();
-        crate::protocol_serde::shape_user_pool_policy_type::ser_user_pool_policy_type(
-            &mut object_3,
-            var_2,
-        )?;
+        crate::protocol_serde::shape_user_pool_policy_type::ser_user_pool_policy_type(&mut object_3, var_2)?;
         object_3.finish();
     }
     if let Some(var_4) = &input.deletion_protection {
@@ -21,10 +18,7 @@ pub fn ser_create_user_pool_input_input(
     if let Some(var_5) = &input.lambda_config {
         #[allow(unused_mut)]
         let mut object_6 = object.key("LambdaConfig").start_object();
-        crate::protocol_serde::shape_lambda_config_type::ser_lambda_config_type(
-            &mut object_6,
-            var_5,
-        )?;
+        crate::protocol_serde::shape_lambda_config_type::ser_lambda_config_type(&mut object_6, var_5)?;
         object_6.finish();
     }
     if let Some(var_7) = &input.auto_verified_attributes {
@@ -58,25 +52,22 @@ pub fn ser_create_user_pool_input_input(
         object.key("SmsVerificationMessage").string(var_16.as_str());
     }
     if let Some(var_17) = &input.email_verification_message {
-        object
-            .key("EmailVerificationMessage")
-            .string(var_17.as_str());
+        object.key("EmailVerificationMessage").string(var_17.as_str());
     }
     if let Some(var_18) = &input.email_verification_subject {
-        object
-            .key("EmailVerificationSubject")
-            .string(var_18.as_str());
+        object.key("EmailVerificationSubject").string(var_18.as_str());
     }
     if let Some(var_19) = &input.verification_message_template {
         #[allow(unused_mut)]
         let mut object_20 = object.key("VerificationMessageTemplate").start_object();
-        crate::protocol_serde::shape_verification_message_template_type::ser_verification_message_template_type(&mut object_20, var_19)?;
+        crate::protocol_serde::shape_verification_message_template_type::ser_verification_message_template_type(
+            &mut object_20,
+            var_19,
+        )?;
         object_20.finish();
     }
     if let Some(var_21) = &input.sms_authentication_message {
-        object
-            .key("SmsAuthenticationMessage")
-            .string(var_21.as_str());
+        object.key("SmsAuthenticationMessage").string(var_21.as_str());
     }
     if let Some(var_22) = &input.mfa_configuration {
         object.key("MfaConfiguration").string(var_22.as_str());
@@ -84,34 +75,28 @@ pub fn ser_create_user_pool_input_input(
     if let Some(var_23) = &input.user_attribute_update_settings {
         #[allow(unused_mut)]
         let mut object_24 = object.key("UserAttributeUpdateSettings").start_object();
-        crate::protocol_serde::shape_user_attribute_update_settings_type::ser_user_attribute_update_settings_type(&mut object_24, var_23)?;
+        crate::protocol_serde::shape_user_attribute_update_settings_type::ser_user_attribute_update_settings_type(
+            &mut object_24,
+            var_23,
+        )?;
         object_24.finish();
     }
     if let Some(var_25) = &input.device_configuration {
         #[allow(unused_mut)]
         let mut object_26 = object.key("DeviceConfiguration").start_object();
-        crate::protocol_serde::shape_device_configuration_type::ser_device_configuration_type(
-            &mut object_26,
-            var_25,
-        )?;
+        crate::protocol_serde::shape_device_configuration_type::ser_device_configuration_type(&mut object_26, var_25)?;
         object_26.finish();
     }
     if let Some(var_27) = &input.email_configuration {
         #[allow(unused_mut)]
         let mut object_28 = object.key("EmailConfiguration").start_object();
-        crate::protocol_serde::shape_email_configuration_type::ser_email_configuration_type(
-            &mut object_28,
-            var_27,
-        )?;
+        crate::protocol_serde::shape_email_configuration_type::ser_email_configuration_type(&mut object_28, var_27)?;
         object_28.finish();
     }
     if let Some(var_29) = &input.sms_configuration {
         #[allow(unused_mut)]
         let mut object_30 = object.key("SmsConfiguration").start_object();
-        crate::protocol_serde::shape_sms_configuration_type::ser_sms_configuration_type(
-            &mut object_30,
-            var_29,
-        )?;
+        crate::protocol_serde::shape_sms_configuration_type::ser_sms_configuration_type(&mut object_30, var_29)?;
         object_30.finish();
     }
     if let Some(var_31) = &input.user_pool_tags {
@@ -127,7 +112,10 @@ pub fn ser_create_user_pool_input_input(
     if let Some(var_35) = &input.admin_create_user_config {
         #[allow(unused_mut)]
         let mut object_36 = object.key("AdminCreateUserConfig").start_object();
-        crate::protocol_serde::shape_admin_create_user_config_type::ser_admin_create_user_config_type(&mut object_36, var_35)?;
+        crate::protocol_serde::shape_admin_create_user_config_type::ser_admin_create_user_config_type(
+            &mut object_36,
+            var_35,
+        )?;
         object_36.finish();
     }
     if let Some(var_37) = &input.schema {
@@ -136,10 +124,7 @@ pub fn ser_create_user_pool_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_40 = array_38.value().start_object();
-                crate::protocol_serde::shape_schema_attribute_type::ser_schema_attribute_type(
-                    &mut object_40,
-                    item_39,
-                )?;
+                crate::protocol_serde::shape_schema_attribute_type::ser_schema_attribute_type(&mut object_40, item_39)?;
                 object_40.finish();
             }
         }
@@ -148,10 +133,7 @@ pub fn ser_create_user_pool_input_input(
     if let Some(var_41) = &input.user_pool_add_ons {
         #[allow(unused_mut)]
         let mut object_42 = object.key("UserPoolAddOns").start_object();
-        crate::protocol_serde::shape_user_pool_add_ons_type::ser_user_pool_add_ons_type(
-            &mut object_42,
-            var_41,
-        )?;
+        crate::protocol_serde::shape_user_pool_add_ons_type::ser_user_pool_add_ons_type(&mut object_42, var_41)?;
         object_42.finish();
     }
     if let Some(var_43) = &input.username_configuration {
@@ -166,7 +148,10 @@ pub fn ser_create_user_pool_input_input(
     if let Some(var_45) = &input.account_recovery_setting {
         #[allow(unused_mut)]
         let mut object_46 = object.key("AccountRecoverySetting").start_object();
-        crate::protocol_serde::shape_account_recovery_setting_type::ser_account_recovery_setting_type(&mut object_46, var_45)?;
+        crate::protocol_serde::shape_account_recovery_setting_type::ser_account_recovery_setting_type(
+            &mut object_46,
+            var_45,
+        )?;
         object_46.finish();
     }
     if let Some(var_47) = &input.user_pool_tier {
@@ -175,19 +160,13 @@ pub fn ser_create_user_pool_input_input(
     if let Some(var_48) = &input.key_configuration {
         #[allow(unused_mut)]
         let mut object_49 = object.key("KeyConfiguration").start_object();
-        crate::protocol_serde::shape_key_configuration_type::ser_key_configuration_type(
-            &mut object_49,
-            var_48,
-        )?;
+        crate::protocol_serde::shape_key_configuration_type::ser_key_configuration_type(&mut object_49, var_48)?;
         object_49.finish();
     }
     if let Some(var_50) = &input.issuer_configuration {
         #[allow(unused_mut)]
         let mut object_51 = object.key("IssuerConfiguration").start_object();
-        crate::protocol_serde::shape_issuer_configuration_type::ser_issuer_configuration_type(
-            &mut object_51,
-            var_50,
-        )?;
+        crate::protocol_serde::shape_issuer_configuration_type::ser_issuer_configuration_type(&mut object_51, var_50)?;
         object_51.finish();
     }
     Ok(())

@@ -21,16 +21,13 @@ impl ::aws_types::request_id::RequestId for DescribeUserPoolOutput {
 }
 impl DescribeUserPoolOutput {
     /// Creates a new builder-style object to manufacture [`DescribeUserPoolOutput`](crate::operation::describe_user_pool::DescribeUserPoolOutput).
-    pub fn builder() -> crate::operation::describe_user_pool::builders::DescribeUserPoolOutputBuilder
-    {
+    pub fn builder() -> crate::operation::describe_user_pool::builders::DescribeUserPoolOutputBuilder {
         crate::operation::describe_user_pool::builders::DescribeUserPoolOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeUserPoolOutput`](crate::operation::describe_user_pool::DescribeUserPoolOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeUserPoolOutputBuilder {
     pub(crate) user_pool: ::std::option::Option<crate::types::UserPoolType>,
@@ -43,10 +40,7 @@ impl DescribeUserPoolOutputBuilder {
         self
     }
     /// <p>The details of the requested user pool.</p>
-    pub fn set_user_pool(
-        mut self,
-        input: ::std::option::Option<crate::types::UserPoolType>,
-    ) -> Self {
+    pub fn set_user_pool(mut self, input: ::std::option::Option<crate::types::UserPoolType>) -> Self {
         self.user_pool = input;
         self
     }

@@ -233,9 +233,7 @@ mod loader {
     use aws_smithy_runtime_api::client::stalled_stream_protection::StalledStreamProtectionConfig;
     use aws_smithy_runtime_api::shared::IntoShared;
     use aws_smithy_schema::protocol::{ClientProtocol, SharedClientProtocol};
-    use aws_smithy_types::checksum_config::{
-        RequestChecksumCalculation, ResponseChecksumValidation,
-    };
+    use aws_smithy_types::checksum_config::{RequestChecksumCalculation, ResponseChecksumValidation};
     use aws_smithy_types::retry::RetryConfig;
     use aws_smithy_types::timeout::TimeoutConfig;
     use aws_types::app_name::AppName;
@@ -250,9 +248,9 @@ mod loader {
 
     use crate::default_provider::{
         account_id_endpoint_mode, app_name, auth_scheme_preference, checksums, credentials,
-        disable_request_compression, endpoint_url, ignore_configured_endpoint_urls as ignore_ep,
-        region, request_min_compression_size_bytes, retry_config, sigv4a_signing_region_set,
-        timeout_config, use_dual_stack, use_fips,
+        disable_request_compression, endpoint_url, ignore_configured_endpoint_urls as ignore_ep, region,
+        request_min_compression_size_bytes, retry_config, sigv4a_signing_region_set, timeout_config, use_dual_stack,
+        use_fips,
     };
     use crate::meta::region::ProvideRegion;
     #[allow(deprecated)]
@@ -449,19 +447,13 @@ mod loader {
         ///     .await;
         /// # }
         /// ```
-        pub fn auth_scheme_preference(
-            mut self,
-            auth_scheme_preference: impl Into<AuthSchemePreference>,
-        ) -> Self {
+        pub fn auth_scheme_preference(mut self, auth_scheme_preference: impl Into<AuthSchemePreference>) -> Self {
             self.auth_scheme_preference = Some(auth_scheme_preference.into());
             self
         }
 
         #[doc = docs_for!(sigv4a_signing_region_set)]
-        pub fn sigv4a_signing_region_set(
-            mut self,
-            sigv4a_signing_region_set: impl Into<SigningRegionSet>,
-        ) -> Self {
+        pub fn sigv4a_signing_region_set(mut self, sigv4a_signing_region_set: impl Into<SigningRegionSet>) -> Self {
             self.sigv4a_signing_region_set = Some(sigv4a_signing_region_set.into());
             self
         }
@@ -492,10 +484,7 @@ mod loader {
         ///     .await;
         /// # }
         /// ```
-        pub fn identity_cache(
-            mut self,
-            identity_cache: impl ResolveCachedIdentity + 'static,
-        ) -> Self {
+        pub fn identity_cache(mut self, identity_cache: impl ResolveCachedIdentity + 'static) -> Self {
             self.identity_cache = Some(identity_cache.into_shared());
             self
         }
@@ -517,12 +506,8 @@ mod loader {
         ///     .await;
         /// # }
         /// ```
-        pub fn credentials_provider(
-            mut self,
-            credentials_provider: impl ProvideCredentials + 'static,
-        ) -> Self {
-            self.credentials_provider =
-                TriStateOption::Set(SharedCredentialsProvider::new(credentials_provider));
+        pub fn credentials_provider(mut self, credentials_provider: impl ProvideCredentials + 'static) -> Self {
+            self.credentials_provider = TriStateOption::Set(SharedCredentialsProvider::new(credentials_provider));
             self
         }
 
@@ -720,10 +705,7 @@ mod loader {
         }
 
         #[doc = docs_for!(account_id_endpoint_mode)]
-        pub fn account_id_endpoint_mode(
-            mut self,
-            account_id_endpoint_mode: AccountIdEndpointMode,
-        ) -> Self {
+        pub fn account_id_endpoint_mode(mut self, account_id_endpoint_mode: AccountIdEndpointMode) -> Self {
             self.account_id_endpoint_mode = Some(account_id_endpoint_mode);
             self
         }
@@ -892,28 +874,19 @@ mod loader {
                 use_dual_stack::use_dual_stack_provider(&conf).await
             };
 
-            let conf = conf
-                .with_use_fips(use_fips)
-                .with_use_dual_stack(use_dual_stack);
+            let conf = conf.with_use_fips(use_fips).with_use_dual_stack(use_dual_stack);
 
             let region = if let Some(provider) = self.region {
                 provider.region().await
             } else {
-                region::Builder::default()
-                    .configure(&conf)
-                    .build()
-                    .region()
-                    .await
+                region::Builder::default().configure(&conf).build().region().await
             };
             let conf = conf.with_region(region.clone());
 
             let app_name = if self.app_name.is_some() {
                 self.app_name
             } else {
-                app_name::default_provider()
-                    .configure(&conf)
-                    .app_name()
-                    .await
+                app_name::default_provider().configure(&conf).app_name().await
             };
 
             let disable_request_compression = if self.disable_request_compression.is_some() {
@@ -922,32 +895,23 @@ mod loader {
                 disable_request_compression::disable_request_compression_provider(&conf).await
             };
 
-            let request_min_compression_size_bytes =
-                if self.request_min_compression_size_bytes.is_some() {
-                    self.request_min_compression_size_bytes
-                } else {
-                    request_min_compression_size_bytes::request_min_compression_size_bytes_provider(
-                        &conf,
-                    )
-                    .await
-                };
+            let request_min_compression_size_bytes = if self.request_min_compression_size_bytes.is_some() {
+                self.request_min_compression_size_bytes
+            } else {
+                request_min_compression_size_bytes::request_min_compression_size_bytes_provider(&conf).await
+            };
 
             let base_config = timeout_config::default_provider()
                 .configure(&conf)
                 .timeout_config()
                 .await;
-            let mut timeout_config = self
-                .timeout_config
-                .unwrap_or_else(|| TimeoutConfig::builder().build());
+            let mut timeout_config = self.timeout_config.unwrap_or_else(|| TimeoutConfig::builder().build());
             timeout_config.take_defaults_from(&base_config);
 
             let (retry_config, retry_config_explicitly_set) = match self.retry_config {
                 Some(rc) => (rc, true),
                 None => (
-                    retry_config::default_provider()
-                        .configure(&conf)
-                        .retry_config()
-                        .await,
+                    retry_config::default_provider().configure(&conf).retry_config().await,
                     false,
                 ),
             };
@@ -958,8 +922,7 @@ mod loader {
             let credentials_provider = match self.credentials_provider {
                 TriStateOption::Set(provider) => Some(provider),
                 TriStateOption::NotSet => {
-                    let mut builder =
-                        credentials::DefaultCredentialsChain::builder().configure(conf.clone());
+                    let mut builder = credentials::DefaultCredentialsChain::builder().configure(conf.clone());
                     builder.set_region(region.clone());
                     Some(SharedCredentialsProvider::new(builder.build().await))
                 }
@@ -1019,8 +982,7 @@ mod loader {
                     #[cfg(feature = "sso")]
                     {
                         let mut builder =
-                            crate::default_provider::token::DefaultTokenChain::builder()
-                                .configure(conf.clone());
+                            crate::default_provider::token::DefaultTokenChain::builder().configure(conf.clone());
                         builder.set_region(region);
                         Some(SharedTokenProvider::new(builder.build().await))
                     }
@@ -1044,9 +1006,7 @@ mod loader {
             let identity_cache = match self.identity_cache {
                 None => match self.behavior_version {
                     #[allow(deprecated)]
-                    Some(bv) if bv.is_at_least(BehaviorVersion::v2024_03_28()) => {
-                        Some(IdentityCache::lazy().build())
-                    }
+                    Some(bv) if bv.is_at_least(BehaviorVersion::v2024_03_28()) => Some(IdentityCache::lazy().build()),
                     _ => None,
                 },
                 Some(user_cache) => Some(user_cache),
@@ -1066,29 +1026,26 @@ mod loader {
                     checksums::response_checksum_validation_provider(&conf).await
                 };
 
-            let account_id_endpoint_mode =
-                if let Some(acccount_id_endpoint_mode) = self.account_id_endpoint_mode {
-                    Some(acccount_id_endpoint_mode)
-                } else {
-                    account_id_endpoint_mode::account_id_endpoint_mode_provider(&conf).await
-                };
+            let account_id_endpoint_mode = if let Some(acccount_id_endpoint_mode) = self.account_id_endpoint_mode {
+                Some(acccount_id_endpoint_mode)
+            } else {
+                account_id_endpoint_mode::account_id_endpoint_mode_provider(&conf).await
+            };
 
-            let auth_scheme_preference =
-                if let Some(auth_scheme_preference) = self.auth_scheme_preference {
-                    builder.insert_origin("auth_scheme_preference", Origin::shared_config());
-                    Some(auth_scheme_preference)
-                } else {
-                    auth_scheme_preference::auth_scheme_preference_provider(&conf).await
-                    // Not setting `Origin` in this arm, and that's good for now as long as we know
-                    // it's not programmatically set in the shared config.
-                };
+            let auth_scheme_preference = if let Some(auth_scheme_preference) = self.auth_scheme_preference {
+                builder.insert_origin("auth_scheme_preference", Origin::shared_config());
+                Some(auth_scheme_preference)
+            } else {
+                auth_scheme_preference::auth_scheme_preference_provider(&conf).await
+                // Not setting `Origin` in this arm, and that's good for now as long as we know
+                // it's not programmatically set in the shared config.
+            };
 
-            let sigv4a_signing_region_set =
-                if let Some(sigv4a_signing_region_set) = self.sigv4a_signing_region_set {
-                    Some(sigv4a_signing_region_set)
-                } else {
-                    sigv4a_signing_region_set::sigv4a_signing_region_set_provider(&conf).await
-                };
+            let sigv4a_signing_region_set = if let Some(sigv4a_signing_region_set) = self.sigv4a_signing_region_set {
+                Some(sigv4a_signing_region_set)
+            } else {
+                sigv4a_signing_region_set::sigv4a_signing_region_set_provider(&conf).await
+            };
 
             builder.set_request_checksum_calculation(request_checksum_calculation);
             builder.set_response_checksum_validation(response_checksum_validation);
@@ -1139,9 +1096,7 @@ mod loader {
         use aws_smithy_async::test_util::tick_advance_sleep::tick_advance_time_and_sleep;
         use aws_smithy_http_client::test_util::{infallible_client_fn, NeverClient};
         use aws_smithy_runtime::test_util::capture_test_logs::capture_test_logs;
-        use aws_smithy_runtime_api::client::identity::{
-            ResolveCachedIdentity, SharedIdentityResolver,
-        };
+        use aws_smithy_runtime_api::client::identity::{ResolveCachedIdentity, SharedIdentityResolver};
         use aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder;
         use aws_types::app_name::AppName;
         use aws_types::origin::Origin;
@@ -1160,8 +1115,7 @@ mod loader {
                 ("AWS_ACCESS_KEY_ID", "akid"),
                 ("AWS_SECRET_ACCESS_KEY", "secret"),
             ]);
-            let fs =
-                Fs::from_slice(&[("test_config", "[profile custom]\nsdk-ua-app-id = correct")]);
+            let fs = Fs::from_slice(&[("test_config", "[profile custom]\nsdk-ua-app-id = correct")]);
             let loader = defaults(BehaviorVersion::latest())
                 .sleep_impl(TokioSleep::new())
                 .env(env)
@@ -1255,10 +1209,7 @@ mod loader {
                 )
                 .load()
                 .await;
-            assert_eq!(
-                Origin::shared_environment_variable(),
-                loader.get_origin("endpoint_url")
-            );
+            assert_eq!(Origin::shared_environment_variable(), loader.get_origin("endpoint_url"));
         }
 
         #[tokio::test]
@@ -1279,10 +1230,7 @@ mod loader {
                 )
                 .load()
                 .await;
-            assert_eq!(
-                Origin::shared_profile_file(),
-                loader.get_origin("endpoint_url")
-            );
+            assert_eq!(Origin::shared_profile_file(), loader.get_origin("endpoint_url"));
         }
 
         #[tokio::test]
@@ -1311,10 +1259,7 @@ mod loader {
 
         #[tokio::test]
         async fn load_request_min_compression_size_bytes() {
-            let conf = base_conf()
-                .request_min_compression_size_bytes(99)
-                .load()
-                .await;
+            let conf = base_conf().request_min_compression_size_bytes(99).load().await;
             assert_eq!(Some(99), conf.request_min_compression_size_bytes());
 
             let conf = base_conf().load().await;
@@ -1369,10 +1314,7 @@ mod loader {
         #[cfg(feature = "default-https-client")]
         #[tokio::test]
         async fn disable_default_credentials() {
-            let config = defaults(BehaviorVersion::latest())
-                .no_credentials()
-                .load()
-                .await;
+            let config = defaults(BehaviorVersion::latest()).no_credentials().load().await;
             assert!(config.credentials_provider().is_none());
         }
 
@@ -1433,10 +1375,7 @@ mod loader {
 
         #[tokio::test]
         async fn endpoint_urls_may_be_ignored_from_env() {
-            let fs = Fs::from_slice(&[(
-                "test_config",
-                "[profile custom]\nendpoint_url = http://profile",
-            )]);
+            let fs = Fs::from_slice(&[("test_config", "[profile custom]\nendpoint_url = http://profile")]);
             let env = Env::from_slice(&[("AWS_IGNORE_CONFIGURED_ENDPOINT_URLS", "true")]);
 
             let conf = base_conf().use_dual_stack(false).load().await;
@@ -1586,11 +1525,7 @@ mod loader {
                 .await;
 
             // Attempt to load credentials — will fail because all responses are throttled
-            let _ = config
-                .credentials_provider()
-                .unwrap()
-                .provide_credentials()
-                .await;
+            let _ = config.credentials_provider().unwrap().provide_credentials().await;
 
             // The inner STS client should have made 5 attempts (not the default 3),
             // proving that AWS_MAX_ATTEMPTS propagated to the inner STS client.
@@ -1660,9 +1595,7 @@ mod loader {
 
             // Exercise the LazyCache path by calling resolve_cached_identity directly,
             // which is what the orchestrator does during an operation.
-            let identity_cache = config
-                .identity_cache()
-                .expect("identity cache should be set");
+            let identity_cache = config.identity_cache().expect("identity cache should be set");
             let credentials_provider = config.credentials_provider().unwrap();
             let identity_resolver = SharedIdentityResolver::new(credentials_provider.clone());
 

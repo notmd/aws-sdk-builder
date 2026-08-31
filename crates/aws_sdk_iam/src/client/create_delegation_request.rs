@@ -18,8 +18,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<CreateDelegationRequestError>`](crate::operation::create_delegation_request::CreateDelegationRequestError)
     pub fn create_delegation_request(
         &self,
-    ) -> crate::operation::create_delegation_request::builders::CreateDelegationRequestFluentBuilder
-    {
-        crate::operation::create_delegation_request::builders::CreateDelegationRequestFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::create_delegation_request::builders::CreateDelegationRequestFluentBuilder {
+        crate::operation::create_delegation_request::builders::CreateDelegationRequestFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

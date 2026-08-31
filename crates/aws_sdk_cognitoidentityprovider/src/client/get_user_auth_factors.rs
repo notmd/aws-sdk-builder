@@ -13,8 +13,6 @@ impl super::Client {
     pub fn get_user_auth_factors(
         &self,
     ) -> crate::operation::get_user_auth_factors::builders::GetUserAuthFactorsFluentBuilder {
-        crate::operation::get_user_auth_factors::builders::GetUserAuthFactorsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_user_auth_factors::builders::GetUserAuthFactorsFluentBuilder::new(self.handle.clone())
     }
 }

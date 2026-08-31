@@ -36,9 +36,7 @@ impl PutThirdPartyServiceLinkedConfigurationRecorderOutput {
 }
 
 /// A builder for [`PutThirdPartyServiceLinkedConfigurationRecorderOutput`](crate::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutThirdPartyServiceLinkedConfigurationRecorderOutputBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,

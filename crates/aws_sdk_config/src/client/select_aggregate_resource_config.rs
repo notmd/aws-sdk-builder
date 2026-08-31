@@ -16,7 +16,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<SelectAggregateResourceConfigError>`](crate::operation::select_aggregate_resource_config::SelectAggregateResourceConfigError)
     pub fn select_aggregate_resource_config(
         &self,
-    ) -> crate::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigFluentBuilder{
-        crate::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigFluentBuilder {
+        crate::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

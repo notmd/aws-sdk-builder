@@ -11,8 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeIndexPoliciesError>`](crate::operation::describe_index_policies::DescribeIndexPoliciesError)
     pub fn describe_index_policies(
         &self,
-    ) -> crate::operation::describe_index_policies::builders::DescribeIndexPoliciesFluentBuilder
-    {
+    ) -> crate::operation::describe_index_policies::builders::DescribeIndexPoliciesFluentBuilder {
         crate::operation::describe_index_policies::builders::DescribeIndexPoliciesFluentBuilder::new(
             self.handle.clone(),
         )

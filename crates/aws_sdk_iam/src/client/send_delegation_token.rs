@@ -9,8 +9,6 @@ impl super::Client {
     pub fn send_delegation_token(
         &self,
     ) -> crate::operation::send_delegation_token::builders::SendDelegationTokenFluentBuilder {
-        crate::operation::send_delegation_token::builders::SendDelegationTokenFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::send_delegation_token::builders::SendDelegationTokenFluentBuilder::new(self.handle.clone())
     }
 }

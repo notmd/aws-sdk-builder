@@ -59,9 +59,7 @@ impl DescribeDeliveriesFluentBuilder {
         }
     }
     /// Access the DescribeDeliveries as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::describe_deliveries::builders::DescribeDeliveriesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::describe_deliveries::builders::DescribeDeliveriesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,17 +83,12 @@ impl DescribeDeliveriesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::describe_deliveries::DescribeDeliveries::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::describe_deliveries::DescribeDeliveries::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::describe_deliveries::DescribeDeliveries::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::describe_deliveries::DescribeDeliveries::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -126,13 +119,8 @@ impl DescribeDeliveriesFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_deliveries::paginator::DescribeDeliveriesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::describe_deliveries::paginator::DescribeDeliveriesPaginator {
-        crate::operation::describe_deliveries::paginator::DescribeDeliveriesPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::describe_deliveries::paginator::DescribeDeliveriesPaginator {
+        crate::operation::describe_deliveries::paginator::DescribeDeliveriesPaginator::new(self.handle, self.inner)
     }
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

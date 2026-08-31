@@ -20,17 +20,13 @@ impl GetHumanReadableSummaryInput {
 }
 impl GetHumanReadableSummaryInput {
     /// Creates a new builder-style object to manufacture [`GetHumanReadableSummaryInput`](crate::operation::get_human_readable_summary::GetHumanReadableSummaryInput).
-    pub fn builder(
-    ) -> crate::operation::get_human_readable_summary::builders::GetHumanReadableSummaryInputBuilder
-    {
+    pub fn builder() -> crate::operation::get_human_readable_summary::builders::GetHumanReadableSummaryInputBuilder {
         crate::operation::get_human_readable_summary::builders::GetHumanReadableSummaryInputBuilder::default()
     }
 }
 
 /// A builder for [`GetHumanReadableSummaryInput`](crate::operation::get_human_readable_summary::GetHumanReadableSummaryInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetHumanReadableSummaryInputBuilder {
     pub(crate) entity_arn: ::std::option::Option<::std::string::String>,

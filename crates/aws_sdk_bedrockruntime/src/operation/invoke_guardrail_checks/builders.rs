@@ -57,10 +57,7 @@ impl InvokeGuardrailChecksFluentBuilder {
         }
     }
     /// Access the InvokeGuardrailChecks as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::invoke_guardrail_checks::builders::InvokeGuardrailChecksInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::invoke_guardrail_checks::builders::InvokeGuardrailChecksInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +81,13 @@ impl InvokeGuardrailChecksFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::invoke_guardrail_checks::InvokeGuardrailChecks::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::invoke_guardrail_checks::InvokeGuardrailChecks::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::invoke_guardrail_checks::InvokeGuardrailChecks::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::invoke_guardrail_checks::InvokeGuardrailChecks::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -140,9 +134,7 @@ impl InvokeGuardrailChecksFluentBuilder {
         self
     }
     /// <p>The messages to evaluate against the specified guardrail checks. Each message includes a role and one or more content blocks.</p>
-    pub fn get_messages(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksMessage>> {
+    pub fn get_messages(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksMessage>> {
         self.inner.get_messages()
     }
     /// <p>The inline check configurations that specify which guardrail checks to run against the messages.</p>
@@ -151,10 +143,7 @@ impl InvokeGuardrailChecksFluentBuilder {
         self
     }
     /// <p>The inline check configurations that specify which guardrail checks to run against the messages.</p>
-    pub fn set_checks(
-        mut self,
-        input: ::std::option::Option<crate::types::GuardrailChecksConfig>,
-    ) -> Self {
+    pub fn set_checks(mut self, input: ::std::option::Option<crate::types::GuardrailChecksConfig>) -> Self {
         self.inner = self.inner.set_checks(input);
         self
     }

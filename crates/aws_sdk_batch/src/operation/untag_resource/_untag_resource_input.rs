@@ -29,9 +29,7 @@ impl UntagResourceInput {
 }
 
 /// A builder for [`UntagResourceInput`](crate::operation::untag_resource::UntagResourceInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UntagResourceInputBuilder {
     pub(crate) resource_arn: ::std::option::Option<::std::string::String>,
@@ -65,10 +63,7 @@ impl UntagResourceInputBuilder {
         self
     }
     /// <p>The keys of the tags to be removed.</p>
-    pub fn set_tag_keys(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.tag_keys = input;
         self
     }

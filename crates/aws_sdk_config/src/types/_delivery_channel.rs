@@ -17,8 +17,7 @@ pub struct DeliveryChannel {
     /// <p>If you choose a topic from another account, the topic must have policies that grant access permissions to Config. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html">Permissions for the Amazon SNS Topic</a> in the <i>Config Developer Guide</i>.</p>
     pub sns_topic_arn: ::std::option::Option<::std::string::String>,
     /// <p>The options for how often Config delivers configuration snapshots to the Amazon S3 bucket.</p>
-    pub config_snapshot_delivery_properties:
-        ::std::option::Option<crate::types::ConfigSnapshotDeliveryProperties>,
+    pub config_snapshot_delivery_properties: ::std::option::Option<crate::types::ConfigSnapshotDeliveryProperties>,
 }
 impl DeliveryChannel {
     /// <p>The name of the delivery channel. By default, Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.</p>
@@ -58,9 +57,7 @@ impl DeliveryChannel {
 }
 
 /// A builder for [`DeliveryChannel`](crate::types::DeliveryChannel).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeliveryChannelBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
@@ -88,19 +85,13 @@ impl DeliveryChannelBuilder {
     }
     /// <p>The name of the Amazon S3 bucket to which Config delivers configuration snapshots and configuration history files.</p>
     /// <p>If you specify a bucket that belongs to another Amazon Web Services account, that bucket must have policies that grant access permissions to Config. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html">Permissions for the Amazon S3 Bucket</a> in the <i>Config Developer Guide</i>.</p>
-    pub fn s3_bucket_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn s3_bucket_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.s3_bucket_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the Amazon S3 bucket to which Config delivers configuration snapshots and configuration history files.</p>
     /// <p>If you specify a bucket that belongs to another Amazon Web Services account, that bucket must have policies that grant access permissions to Config. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html">Permissions for the Amazon S3 Bucket</a> in the <i>Config Developer Guide</i>.</p>
-    pub fn set_s3_bucket_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_s3_bucket_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.s3_bucket_name = input;
         self
     }
@@ -110,18 +101,12 @@ impl DeliveryChannelBuilder {
         &self.s3_bucket_name
     }
     /// <p>The prefix for the specified Amazon S3 bucket.</p>
-    pub fn s3_key_prefix(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn s3_key_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.s3_key_prefix = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The prefix for the specified Amazon S3 bucket.</p>
-    pub fn set_s3_key_prefix(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_s3_key_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.s3_key_prefix = input;
         self
     }
@@ -130,18 +115,12 @@ impl DeliveryChannelBuilder {
         &self.s3_key_prefix
     }
     /// <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS ) KMS key (KMS key) used to encrypt objects delivered by Config. Must belong to the same Region as the destination S3 bucket.</p>
-    pub fn s3_kms_key_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn s3_kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.s3_kms_key_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS ) KMS key (KMS key) used to encrypt objects delivered by Config. Must belong to the same Region as the destination S3 bucket.</p>
-    pub fn set_s3_kms_key_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_s3_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.s3_kms_key_arn = input;
         self
     }
@@ -151,19 +130,13 @@ impl DeliveryChannelBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which Config sends notifications about configuration changes.</p>
     /// <p>If you choose a topic from another account, the topic must have policies that grant access permissions to Config. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html">Permissions for the Amazon SNS Topic</a> in the <i>Config Developer Guide</i>.</p>
-    pub fn sns_topic_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn sns_topic_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.sns_topic_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which Config sends notifications about configuration changes.</p>
     /// <p>If you choose a topic from another account, the topic must have policies that grant access permissions to Config. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html">Permissions for the Amazon SNS Topic</a> in the <i>Config Developer Guide</i>.</p>
-    pub fn set_sns_topic_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_sns_topic_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.sns_topic_arn = input;
         self
     }

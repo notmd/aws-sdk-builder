@@ -8,8 +8,7 @@ pub struct GetFunctionScalingConfigOutput {
     /// <p>The scaling configuration that is currently applied to the function. This represents the actual scaling settings in effect.</p>
     pub applied_function_scaling_config: ::std::option::Option<crate::types::FunctionScalingConfig>,
     /// <p>The scaling configuration that was requested for the function.</p>
-    pub requested_function_scaling_config:
-        ::std::option::Option<crate::types::FunctionScalingConfig>,
+    pub requested_function_scaling_config: ::std::option::Option<crate::types::FunctionScalingConfig>,
     _request_id: Option<String>,
 }
 impl GetFunctionScalingConfigOutput {
@@ -18,15 +17,11 @@ impl GetFunctionScalingConfigOutput {
         self.function_arn.as_deref()
     }
     /// <p>The scaling configuration that is currently applied to the function. This represents the actual scaling settings in effect.</p>
-    pub fn applied_function_scaling_config(
-        &self,
-    ) -> ::std::option::Option<&crate::types::FunctionScalingConfig> {
+    pub fn applied_function_scaling_config(&self) -> ::std::option::Option<&crate::types::FunctionScalingConfig> {
         self.applied_function_scaling_config.as_ref()
     }
     /// <p>The scaling configuration that was requested for the function.</p>
-    pub fn requested_function_scaling_config(
-        &self,
-    ) -> ::std::option::Option<&crate::types::FunctionScalingConfig> {
+    pub fn requested_function_scaling_config(&self) -> ::std::option::Option<&crate::types::FunctionScalingConfig> {
         self.requested_function_scaling_config.as_ref()
     }
 }
@@ -37,22 +32,18 @@ impl ::aws_types::request_id::RequestId for GetFunctionScalingConfigOutput {
 }
 impl GetFunctionScalingConfigOutput {
     /// Creates a new builder-style object to manufacture [`GetFunctionScalingConfigOutput`](crate::operation::get_function_scaling_config::GetFunctionScalingConfigOutput).
-    pub fn builder() -> crate::operation::get_function_scaling_config::builders::GetFunctionScalingConfigOutputBuilder{
+    pub fn builder() -> crate::operation::get_function_scaling_config::builders::GetFunctionScalingConfigOutputBuilder {
         crate::operation::get_function_scaling_config::builders::GetFunctionScalingConfigOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetFunctionScalingConfigOutput`](crate::operation::get_function_scaling_config::GetFunctionScalingConfigOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetFunctionScalingConfigOutputBuilder {
     pub(crate) function_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) applied_function_scaling_config:
-        ::std::option::Option<crate::types::FunctionScalingConfig>,
-    pub(crate) requested_function_scaling_config:
-        ::std::option::Option<crate::types::FunctionScalingConfig>,
+    pub(crate) applied_function_scaling_config: ::std::option::Option<crate::types::FunctionScalingConfig>,
+    pub(crate) requested_function_scaling_config: ::std::option::Option<crate::types::FunctionScalingConfig>,
     _request_id: Option<String>,
 }
 impl GetFunctionScalingConfigOutputBuilder {
@@ -71,10 +62,7 @@ impl GetFunctionScalingConfigOutputBuilder {
         &self.function_arn
     }
     /// <p>The scaling configuration that is currently applied to the function. This represents the actual scaling settings in effect.</p>
-    pub fn applied_function_scaling_config(
-        mut self,
-        input: crate::types::FunctionScalingConfig,
-    ) -> Self {
+    pub fn applied_function_scaling_config(mut self, input: crate::types::FunctionScalingConfig) -> Self {
         self.applied_function_scaling_config = ::std::option::Option::Some(input);
         self
     }
@@ -87,16 +75,11 @@ impl GetFunctionScalingConfigOutputBuilder {
         self
     }
     /// <p>The scaling configuration that is currently applied to the function. This represents the actual scaling settings in effect.</p>
-    pub fn get_applied_function_scaling_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::FunctionScalingConfig> {
+    pub fn get_applied_function_scaling_config(&self) -> &::std::option::Option<crate::types::FunctionScalingConfig> {
         &self.applied_function_scaling_config
     }
     /// <p>The scaling configuration that was requested for the function.</p>
-    pub fn requested_function_scaling_config(
-        mut self,
-        input: crate::types::FunctionScalingConfig,
-    ) -> Self {
+    pub fn requested_function_scaling_config(mut self, input: crate::types::FunctionScalingConfig) -> Self {
         self.requested_function_scaling_config = ::std::option::Option::Some(input);
         self
     }
@@ -109,9 +92,7 @@ impl GetFunctionScalingConfigOutputBuilder {
         self
     }
     /// <p>The scaling configuration that was requested for the function.</p>
-    pub fn get_requested_function_scaling_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::FunctionScalingConfig> {
+    pub fn get_requested_function_scaling_config(&self) -> &::std::option::Option<crate::types::FunctionScalingConfig> {
         &self.requested_function_scaling_config
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -124,9 +105,7 @@ impl GetFunctionScalingConfigOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetFunctionScalingConfigOutput`](crate::operation::get_function_scaling_config::GetFunctionScalingConfigOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::get_function_scaling_config::GetFunctionScalingConfigOutput {
+    pub fn build(self) -> crate::operation::get_function_scaling_config::GetFunctionScalingConfigOutput {
         crate::operation::get_function_scaling_config::GetFunctionScalingConfigOutput {
             function_arn: self.function_arn,
             applied_function_scaling_config: self.applied_function_scaling_config,

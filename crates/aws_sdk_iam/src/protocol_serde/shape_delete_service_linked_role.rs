@@ -9,72 +9,89 @@ pub fn de_delete_service_linked_role_http_error(
     crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(
-        crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::unhandled,
-    )?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(
-            crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::unhandled(
-                generic,
-            ),
-        ),
+        None => {
+            return Err(crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::unhandled(generic))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "LimitExceeded" => crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::LimitExceededException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "LimitExceeded" => {
+            crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::LimitExceededException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
-                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "NoSuchEntity" => crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::NoSuchEntityException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(
+                            crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "NoSuchEntity" => {
+            crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::NoSuchEntityException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
-                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ServiceFailure" => crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::ServiceFailureException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(
+                            crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ServiceFailure" => {
+            crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::ServiceFailureException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
-                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(
+                            crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::generic(generic),
     })
 }
@@ -90,12 +107,14 @@ pub fn de_delete_service_linked_role_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleOutputBuilder::default();
-        output = crate::protocol_serde::shape_delete_service_linked_role::de_delete_service_linked_role(_response_body, output)
-            .map_err(crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output =
+            crate::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleOutputBuilder::default();
+        output = crate::protocol_serde::shape_delete_service_linked_role::de_delete_service_linked_role(
+            _response_body,
+            output,
+        )
+        .map_err(crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         crate::serde_util::delete_service_linked_role_output_output_correct_errors(output)
             .build()
             .map_err(crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::unhandled)?

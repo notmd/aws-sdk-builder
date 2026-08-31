@@ -58,9 +58,7 @@ impl GetTransformerFluentBuilder {
         }
     }
     /// Access the GetTransformer as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_transformer::builders::GetTransformerInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_transformer::builders::GetTransformerInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,14 +82,12 @@ impl GetTransformerFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::get_transformer::GetTransformer::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::get_transformer::GetTransformer::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::get_transformer::GetTransformer::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::get_transformer::GetTransformer::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -120,18 +116,12 @@ impl GetTransformerFluentBuilder {
         self
     }
     /// <p>Specify either the name or ARN of the log group to return transformer information for. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p>
-    pub fn log_group_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_group_identifier(input.into());
         self
     }
     /// <p>Specify either the name or ARN of the log group to return transformer information for. If the log group is in a source account and you are using a monitoring account, you must use the log group ARN.</p>
-    pub fn set_log_group_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_log_group_identifier(input);
         self
     }

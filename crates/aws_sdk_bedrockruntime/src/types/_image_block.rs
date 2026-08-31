@@ -99,10 +99,7 @@ impl ImageBlockBuilder {
     /// - [`format`](crate::types::builders::ImageBlockBuilder::format)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::ImageBlock,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::ImageBlock, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ImageBlock {
             format: self.format.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

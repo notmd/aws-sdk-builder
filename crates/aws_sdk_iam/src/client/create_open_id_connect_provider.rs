@@ -13,7 +13,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<CreateOpenIDConnectProviderError>`](crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError)
     pub fn create_open_id_connect_provider(
         &self,
-    ) -> crate::operation::create_open_id_connect_provider::builders::CreateOpenIDConnectProviderFluentBuilder{
-        crate::operation::create_open_id_connect_provider::builders::CreateOpenIDConnectProviderFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::create_open_id_connect_provider::builders::CreateOpenIDConnectProviderFluentBuilder {
+        crate::operation::create_open_id_connect_provider::builders::CreateOpenIDConnectProviderFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

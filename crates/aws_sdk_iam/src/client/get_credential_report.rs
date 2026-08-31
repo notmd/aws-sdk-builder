@@ -11,8 +11,6 @@ impl super::Client {
     pub fn get_credential_report(
         &self,
     ) -> crate::operation::get_credential_report::builders::GetCredentialReportFluentBuilder {
-        crate::operation::get_credential_report::builders::GetCredentialReportFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_credential_report::builders::GetCredentialReportFluentBuilder::new(self.handle.clone())
     }
 }

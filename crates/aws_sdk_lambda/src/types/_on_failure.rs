@@ -29,9 +29,7 @@ impl OnFailure {
 }
 
 /// A builder for [`OnFailure`](crate::types::OnFailure).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct OnFailureBuilder {
     pub(crate) destination: ::std::option::Option<::std::string::String>,

@@ -40,9 +40,7 @@ impl GenerateMacOutput {
 }
 
 /// A builder for [`GenerateMacOutput`](crate::operation::generate_mac::GenerateMacOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GenerateMacOutputBuilder {
     pub(crate) mac: ::std::option::Option<::aws_smithy_types::Blob>,
@@ -74,10 +72,7 @@ impl GenerateMacOutputBuilder {
         self
     }
     /// <p>The MAC algorithm that was used to generate the HMAC.</p>
-    pub fn set_mac_algorithm(
-        mut self,
-        input: ::std::option::Option<crate::types::MacAlgorithmSpec>,
-    ) -> Self {
+    pub fn set_mac_algorithm(mut self, input: ::std::option::Option<crate::types::MacAlgorithmSpec>) -> Self {
         self.mac_algorithm = input;
         self
     }

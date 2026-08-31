@@ -59,7 +59,9 @@ impl GetDomainPermissionsPolicyFluentBuilder {
         }
     }
     /// Access the GetDomainPermissionsPolicy as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_domain_permissions_policy::builders::GetDomainPermissionsPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,11 +85,12 @@ impl GetDomainPermissionsPolicyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicy::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicy::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::get_domain_permissions_policy::GetDomainPermissionsPolicy::orchestrate(
             &runtime_plugins,
             input,

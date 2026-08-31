@@ -13,7 +13,10 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeComplianceByConfigRuleError>`](crate::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleError)
     pub fn describe_compliance_by_config_rule(
         &self,
-    ) -> crate::operation::describe_compliance_by_config_rule::builders::DescribeComplianceByConfigRuleFluentBuilder{
-        crate::operation::describe_compliance_by_config_rule::builders::DescribeComplianceByConfigRuleFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::describe_compliance_by_config_rule::builders::DescribeComplianceByConfigRuleFluentBuilder
+    {
+        crate::operation::describe_compliance_by_config_rule::builders::DescribeComplianceByConfigRuleFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

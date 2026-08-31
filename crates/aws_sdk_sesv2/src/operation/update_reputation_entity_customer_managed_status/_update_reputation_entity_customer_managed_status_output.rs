@@ -20,9 +20,7 @@ impl UpdateReputationEntityCustomerManagedStatusOutput {
 }
 
 /// A builder for [`UpdateReputationEntityCustomerManagedStatusOutput`](crate::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateReputationEntityCustomerManagedStatusOutputBuilder {
     _request_id: Option<String>,

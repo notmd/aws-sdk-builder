@@ -12,8 +12,6 @@ impl super::Client {
     pub fn get_job_queue_snapshot(
         &self,
     ) -> crate::operation::get_job_queue_snapshot::builders::GetJobQueueSnapshotFluentBuilder {
-        crate::operation::get_job_queue_snapshot::builders::GetJobQueueSnapshotFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_job_queue_snapshot::builders::GetJobQueueSnapshotFluentBuilder::new(self.handle.clone())
     }
 }

@@ -30,9 +30,7 @@ impl UntagRoleInput {
 }
 
 /// A builder for [`UntagRoleInput`](crate::operation::untag_role::UntagRoleInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UntagRoleInputBuilder {
     pub(crate) role_name: ::std::option::Option<::std::string::String>,
@@ -69,10 +67,7 @@ impl UntagRoleInputBuilder {
         self
     }
     /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified role.</p>
-    pub fn set_tag_keys(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.tag_keys = input;
         self
     }

@@ -57,9 +57,7 @@ impl DeleteResourcePolicyFluentBuilder {
         }
     }
     /// Access the DeleteResourcePolicy as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::delete_resource_policy::builders::DeleteResourcePolicyInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::delete_resource_policy::builders::DeleteResourcePolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,11 +86,7 @@ impl DeleteResourcePolicyFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_resource_policy::DeleteResourcePolicy::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::delete_resource_policy::DeleteResourcePolicy::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -149,18 +143,12 @@ impl DeleteResourcePolicyFluentBuilder {
         self.inner.get_resource_arn()
     }
     /// <p>The expected revision ID of the resource policy. Required when deleting a resource-scoped policy to prevent concurrent modifications.</p>
-    pub fn expected_revision_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_revision_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_revision_id(input.into());
         self
     }
     /// <p>The expected revision ID of the resource policy. Required when deleting a resource-scoped policy to prevent concurrent modifications.</p>
-    pub fn set_expected_revision_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_revision_id(input);
         self
     }

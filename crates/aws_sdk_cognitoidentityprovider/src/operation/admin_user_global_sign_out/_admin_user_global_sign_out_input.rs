@@ -29,9 +29,7 @@ impl ::std::fmt::Debug for AdminUserGlobalSignOutInput {
 }
 impl AdminUserGlobalSignOutInput {
     /// Creates a new builder-style object to manufacture [`AdminUserGlobalSignOutInput`](crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutInput).
-    pub fn builder(
-    ) -> crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutInputBuilder
-    {
+    pub fn builder() -> crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutInputBuilder {
         crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutInputBuilder::default()
     }
 }

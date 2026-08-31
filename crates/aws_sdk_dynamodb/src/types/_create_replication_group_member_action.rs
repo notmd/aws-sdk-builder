@@ -9,14 +9,11 @@ pub struct CreateReplicationGroupMemberAction {
     /// <p>The KMS key that should be used for KMS encryption in the new replica. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS key <code>alias/aws/dynamodb</code>.</p>
     pub kms_master_key_id: ::std::option::Option<::std::string::String>,
     /// <p>Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.</p>
-    pub provisioned_throughput_override:
-        ::std::option::Option<crate::types::ProvisionedThroughputOverride>,
+    pub provisioned_throughput_override: ::std::option::Option<crate::types::ProvisionedThroughputOverride>,
     /// <p>The maximum on-demand throughput settings for the specified replica table being created. You can only modify <code>MaxReadRequestUnits</code>, because you can't modify <code>MaxWriteRequestUnits</code> for individual replica tables.</p>
-    pub on_demand_throughput_override:
-        ::std::option::Option<crate::types::OnDemandThroughputOverride>,
+    pub on_demand_throughput_override: ::std::option::Option<crate::types::OnDemandThroughputOverride>,
     /// <p>Replica-specific global secondary index settings.</p>
-    pub global_secondary_indexes:
-        ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndex>>,
+    pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndex>>,
     /// <p>Replica-specific table class. If not specified, uses the source table's table class.</p>
     pub table_class_override: ::std::option::Option<crate::types::TableClass>,
 }
@@ -37,9 +34,7 @@ impl CreateReplicationGroupMemberAction {
         self.provisioned_throughput_override.as_ref()
     }
     /// <p>The maximum on-demand throughput settings for the specified replica table being created. You can only modify <code>MaxReadRequestUnits</code>, because you can't modify <code>MaxWriteRequestUnits</code> for individual replica tables.</p>
-    pub fn on_demand_throughput_override(
-        &self,
-    ) -> ::std::option::Option<&crate::types::OnDemandThroughputOverride> {
+    pub fn on_demand_throughput_override(&self) -> ::std::option::Option<&crate::types::OnDemandThroughputOverride> {
         self.on_demand_throughput_override.as_ref()
     }
     /// <p>Replica-specific global secondary index settings.</p>
@@ -61,17 +56,13 @@ impl CreateReplicationGroupMemberAction {
 }
 
 /// A builder for [`CreateReplicationGroupMemberAction`](crate::types::CreateReplicationGroupMemberAction).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateReplicationGroupMemberActionBuilder {
     pub(crate) region_name: ::std::option::Option<::std::string::String>,
     pub(crate) kms_master_key_id: ::std::option::Option<::std::string::String>,
-    pub(crate) provisioned_throughput_override:
-        ::std::option::Option<crate::types::ProvisionedThroughputOverride>,
-    pub(crate) on_demand_throughput_override:
-        ::std::option::Option<crate::types::OnDemandThroughputOverride>,
+    pub(crate) provisioned_throughput_override: ::std::option::Option<crate::types::ProvisionedThroughputOverride>,
+    pub(crate) on_demand_throughput_override: ::std::option::Option<crate::types::OnDemandThroughputOverride>,
     pub(crate) global_secondary_indexes:
         ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndex>>,
     pub(crate) table_class_override: ::std::option::Option<crate::types::TableClass>,
@@ -93,18 +84,12 @@ impl CreateReplicationGroupMemberActionBuilder {
         &self.region_name
     }
     /// <p>The KMS key that should be used for KMS encryption in the new replica. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS key <code>alias/aws/dynamodb</code>.</p>
-    pub fn kms_master_key_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn kms_master_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.kms_master_key_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The KMS key that should be used for KMS encryption in the new replica. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS key <code>alias/aws/dynamodb</code>.</p>
-    pub fn set_kms_master_key_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_kms_master_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.kms_master_key_id = input;
         self
     }
@@ -113,10 +98,7 @@ impl CreateReplicationGroupMemberActionBuilder {
         &self.kms_master_key_id
     }
     /// <p>Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.</p>
-    pub fn provisioned_throughput_override(
-        mut self,
-        input: crate::types::ProvisionedThroughputOverride,
-    ) -> Self {
+    pub fn provisioned_throughput_override(mut self, input: crate::types::ProvisionedThroughputOverride) -> Self {
         self.provisioned_throughput_override = ::std::option::Option::Some(input);
         self
     }
@@ -135,10 +117,7 @@ impl CreateReplicationGroupMemberActionBuilder {
         &self.provisioned_throughput_override
     }
     /// <p>The maximum on-demand throughput settings for the specified replica table being created. You can only modify <code>MaxReadRequestUnits</code>, because you can't modify <code>MaxWriteRequestUnits</code> for individual replica tables.</p>
-    pub fn on_demand_throughput_override(
-        mut self,
-        input: crate::types::OnDemandThroughputOverride,
-    ) -> Self {
+    pub fn on_demand_throughput_override(mut self, input: crate::types::OnDemandThroughputOverride) -> Self {
         self.on_demand_throughput_override = ::std::option::Option::Some(input);
         self
     }
@@ -161,10 +140,7 @@ impl CreateReplicationGroupMemberActionBuilder {
     /// To override the contents of this collection use [`set_global_secondary_indexes`](Self::set_global_secondary_indexes).
     ///
     /// <p>Replica-specific global secondary index settings.</p>
-    pub fn global_secondary_indexes(
-        mut self,
-        input: crate::types::ReplicaGlobalSecondaryIndex,
-    ) -> Self {
+    pub fn global_secondary_indexes(mut self, input: crate::types::ReplicaGlobalSecondaryIndex) -> Self {
         let mut v = self.global_secondary_indexes.unwrap_or_default();
         v.push(input);
         self.global_secondary_indexes = ::std::option::Option::Some(v);
@@ -190,10 +166,7 @@ impl CreateReplicationGroupMemberActionBuilder {
         self
     }
     /// <p>Replica-specific table class. If not specified, uses the source table's table class.</p>
-    pub fn set_table_class_override(
-        mut self,
-        input: ::std::option::Option<crate::types::TableClass>,
-    ) -> Self {
+    pub fn set_table_class_override(mut self, input: ::std::option::Option<crate::types::TableClass>) -> Self {
         self.table_class_override = input;
         self
     }

@@ -13,8 +13,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<CreateSchedulingPolicyError>`](crate::operation::create_scheduling_policy::CreateSchedulingPolicyError)
     pub fn create_scheduling_policy(
         &self,
-    ) -> crate::operation::create_scheduling_policy::builders::CreateSchedulingPolicyFluentBuilder
-    {
-        crate::operation::create_scheduling_policy::builders::CreateSchedulingPolicyFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::create_scheduling_policy::builders::CreateSchedulingPolicyFluentBuilder {
+        crate::operation::create_scheduling_policy::builders::CreateSchedulingPolicyFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

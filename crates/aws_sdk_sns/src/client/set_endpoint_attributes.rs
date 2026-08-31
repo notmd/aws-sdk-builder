@@ -9,8 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<SetEndpointAttributesError>`](crate::operation::set_endpoint_attributes::SetEndpointAttributesError)
     pub fn set_endpoint_attributes(
         &self,
-    ) -> crate::operation::set_endpoint_attributes::builders::SetEndpointAttributesFluentBuilder
-    {
+    ) -> crate::operation::set_endpoint_attributes::builders::SetEndpointAttributesFluentBuilder {
         crate::operation::set_endpoint_attributes::builders::SetEndpointAttributesFluentBuilder::new(
             self.handle.clone(),
         )

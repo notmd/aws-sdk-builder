@@ -12,8 +12,6 @@ impl super::Client {
     pub fn describe_repository(
         &self,
     ) -> crate::operation::describe_repository::builders::DescribeRepositoryFluentBuilder {
-        crate::operation::describe_repository::builders::DescribeRepositoryFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::describe_repository::builders::DescribeRepositoryFluentBuilder::new(self.handle.clone())
     }
 }

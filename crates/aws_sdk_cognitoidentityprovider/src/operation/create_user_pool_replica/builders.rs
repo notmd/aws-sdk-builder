@@ -66,10 +66,7 @@ impl CreateUserPoolReplicaFluentBuilder {
         }
     }
     /// Access the CreateUserPoolReplica as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::create_user_pool_replica::builders::CreateUserPoolReplicaInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::create_user_pool_replica::builders::CreateUserPoolReplicaInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -93,16 +90,13 @@ impl CreateUserPoolReplicaFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_user_pool_replica::CreateUserPoolReplica::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_user_pool_replica::CreateUserPoolReplica::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::create_user_pool_replica::CreateUserPoolReplica::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::create_user_pool_replica::CreateUserPoolReplica::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -175,9 +169,7 @@ impl CreateUserPoolReplicaFluentBuilder {
     /// <p>A map of tags to assign to the replica user pool. Each tag consists of a key and an optional value, both of which you define. You can maintain tags independently on replica user pools.</p>
     pub fn set_user_pool_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_user_pool_tags(input);
         self
@@ -185,9 +177,7 @@ impl CreateUserPoolReplicaFluentBuilder {
     /// <p>A map of tags to assign to the replica user pool. Each tag consists of a key and an optional value, both of which you define. You can maintain tags independently on replica user pools.</p>
     pub fn get_user_pool_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_user_pool_tags()
     }
 }

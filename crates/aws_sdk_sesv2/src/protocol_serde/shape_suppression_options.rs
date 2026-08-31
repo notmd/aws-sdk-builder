@@ -18,7 +18,10 @@ pub fn ser_suppression_options(
     if let Some(var_5) = &input.validation_options {
         #[allow(unused_mut)]
         let mut object_6 = object.key("ValidationOptions").start_object();
-        crate::protocol_serde::shape_suppression_validation_options::ser_suppression_validation_options(&mut object_6, var_5)?;
+        crate::protocol_serde::shape_suppression_validation_options::ser_suppression_validation_options(
+            &mut object_6,
+            var_5,
+        )?;
         object_6.finish();
     }
     Ok(())
@@ -41,11 +44,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -59,20 +60,21 @@ where
                         match key.to_unescaped()?.as_ref() {
                             "SuppressedReasons" => {
                                 builder = builder.set_suppressed_reasons(
-                                crate::protocol_serde::shape_suppression_list_reasons::de_suppression_list_reasons(tokens, _value, depth + 1)?,
-                            );
+                                    crate::protocol_serde::shape_suppression_list_reasons::de_suppression_list_reasons(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "SuppressionScope" => {
                                 builder = builder.set_suppression_scope(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| {
-                                        s.to_unescaped().map(|u| {
-                                            crate::types::SuppressionListScope::from(u.as_ref())
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| {
+                                            s.to_unescaped()
+                                                .map(|u| crate::types::SuppressionListScope::from(u.as_ref()))
                                         })
-                                    })
-                                    .transpose()?,
+                                        .transpose()?,
                                 );
                             }
                             "ValidationOptions" => {
@@ -88,20 +90,16 @@ where
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
             Ok(Some(builder.build()))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

@@ -14,17 +14,13 @@ impl GetJobQueueSnapshotInput {
 }
 impl GetJobQueueSnapshotInput {
     /// Creates a new builder-style object to manufacture [`GetJobQueueSnapshotInput`](crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotInput).
-    pub fn builder(
-    ) -> crate::operation::get_job_queue_snapshot::builders::GetJobQueueSnapshotInputBuilder {
-        crate::operation::get_job_queue_snapshot::builders::GetJobQueueSnapshotInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::get_job_queue_snapshot::builders::GetJobQueueSnapshotInputBuilder {
+        crate::operation::get_job_queue_snapshot::builders::GetJobQueueSnapshotInputBuilder::default()
     }
 }
 
 /// A builder for [`GetJobQueueSnapshotInput`](crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetJobQueueSnapshotInputBuilder {
     pub(crate) job_queue: ::std::option::Option<::std::string::String>,
@@ -52,10 +48,8 @@ impl GetJobQueueSnapshotInputBuilder {
         crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotInput {
-                job_queue: self.job_queue,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotInput {
+            job_queue: self.job_queue,
+        })
     }
 }

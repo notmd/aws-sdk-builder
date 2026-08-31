@@ -69,7 +69,9 @@ impl PutRemediationConfigurationsFluentBuilder {
         }
     }
     /// Access the PutRemediationConfigurations as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_remediation_configurations::builders::PutRemediationConfigurationsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::put_remediation_configurations::builders::PutRemediationConfigurationsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -93,11 +95,12 @@ impl PutRemediationConfigurationsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::put_remediation_configurations::PutRemediationConfigurations::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::put_remediation_configurations::PutRemediationConfigurations::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::put_remediation_configurations::PutRemediationConfigurations::orchestrate(
             &runtime_plugins,
             input,
@@ -136,10 +139,7 @@ impl PutRemediationConfigurationsFluentBuilder {
     /// To override the contents of this collection use [`set_remediation_configurations`](Self::set_remediation_configurations).
     ///
     /// <p>A list of remediation configuration objects.</p>
-    pub fn remediation_configurations(
-        mut self,
-        input: crate::types::RemediationConfiguration,
-    ) -> Self {
+    pub fn remediation_configurations(mut self, input: crate::types::RemediationConfiguration) -> Self {
         self.inner = self.inner.remediation_configurations(input);
         self
     }

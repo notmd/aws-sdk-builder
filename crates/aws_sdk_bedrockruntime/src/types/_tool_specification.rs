@@ -40,9 +40,7 @@ impl ToolSpecification {
 }
 
 /// A builder for [`ToolSpecification`](crate::types::ToolSpecification).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ToolSpecificationBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
@@ -87,10 +85,7 @@ impl ToolSpecificationBuilder {
         self
     }
     /// <p>The input schema for the tool in JSON format.</p>
-    pub fn set_input_schema(
-        mut self,
-        input: ::std::option::Option<crate::types::ToolInputSchema>,
-    ) -> Self {
+    pub fn set_input_schema(mut self, input: ::std::option::Option<crate::types::ToolInputSchema>) -> Self {
         self.input_schema = input;
         self
     }
@@ -117,10 +112,7 @@ impl ToolSpecificationBuilder {
     /// - [`name`](crate::types::builders::ToolSpecificationBuilder::name)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::ToolSpecification,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::ToolSpecification, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ToolSpecification {
             name: self.name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

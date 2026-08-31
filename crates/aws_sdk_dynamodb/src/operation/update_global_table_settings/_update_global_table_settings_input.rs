@@ -19,12 +19,10 @@ pub struct UpdateGlobalTableSettingsInput {
     pub global_table_provisioned_write_capacity_auto_scaling_settings_update:
         ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
     /// <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
-    pub global_table_global_secondary_index_settings_update: ::std::option::Option<
-        ::std::vec::Vec<crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>,
-    >,
+    pub global_table_global_secondary_index_settings_update:
+        ::std::option::Option<::std::vec::Vec<crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>>,
     /// <p>Represents the settings for a global table in a Region that will be modified.</p>
-    pub replica_settings_update:
-        ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsUpdate>>,
+    pub replica_settings_update: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsUpdate>>,
 }
 impl UpdateGlobalTableSettingsInput {
     /// <p>The name of the global table</p>
@@ -71,15 +69,14 @@ impl UpdateGlobalTableSettingsInput {
 }
 impl UpdateGlobalTableSettingsInput {
     /// Creates a new builder-style object to manufacture [`UpdateGlobalTableSettingsInput`](crate::operation::update_global_table_settings::UpdateGlobalTableSettingsInput).
-    pub fn builder() -> crate::operation::update_global_table_settings::builders::UpdateGlobalTableSettingsInputBuilder{
+    pub fn builder() -> crate::operation::update_global_table_settings::builders::UpdateGlobalTableSettingsInputBuilder
+    {
         crate::operation::update_global_table_settings::builders::UpdateGlobalTableSettingsInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateGlobalTableSettingsInput`](crate::operation::update_global_table_settings::UpdateGlobalTableSettingsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateGlobalTableSettingsInputBuilder {
     pub(crate) global_table_name: ::std::option::Option<::std::string::String>,
@@ -87,27 +84,19 @@ pub struct UpdateGlobalTableSettingsInputBuilder {
     pub(crate) global_table_provisioned_write_capacity_units: ::std::option::Option<i64>,
     pub(crate) global_table_provisioned_write_capacity_auto_scaling_settings_update:
         ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
-    pub(crate) global_table_global_secondary_index_settings_update: ::std::option::Option<
-        ::std::vec::Vec<crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>,
-    >,
-    pub(crate) replica_settings_update:
-        ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsUpdate>>,
+    pub(crate) global_table_global_secondary_index_settings_update:
+        ::std::option::Option<::std::vec::Vec<crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>>,
+    pub(crate) replica_settings_update: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsUpdate>>,
 }
 impl UpdateGlobalTableSettingsInputBuilder {
     /// <p>The name of the global table</p>
     /// This field is required.
-    pub fn global_table_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn global_table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.global_table_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the global table</p>
-    pub fn set_global_table_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.global_table_name = input;
         self
     }
@@ -133,10 +122,7 @@ impl UpdateGlobalTableSettingsInputBuilder {
     /// <li>
     /// <p><code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>.</p></li>
     /// </ul>
-    pub fn set_global_table_billing_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::BillingMode>,
-    ) -> Self {
+    pub fn set_global_table_billing_mode(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
         self.global_table_billing_mode = input;
         self
     }
@@ -147,9 +133,7 @@ impl UpdateGlobalTableSettingsInputBuilder {
     /// <li>
     /// <p><code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>.</p></li>
     /// </ul>
-    pub fn get_global_table_billing_mode(
-        &self,
-    ) -> &::std::option::Option<crate::types::BillingMode> {
+    pub fn get_global_table_billing_mode(&self) -> &::std::option::Option<crate::types::BillingMode> {
         &self.global_table_billing_mode
     }
     /// <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException.</code></p>
@@ -158,10 +142,7 @@ impl UpdateGlobalTableSettingsInputBuilder {
         self
     }
     /// <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException.</code></p>
-    pub fn set_global_table_provisioned_write_capacity_units(
-        mut self,
-        input: ::std::option::Option<i64>,
-    ) -> Self {
+    pub fn set_global_table_provisioned_write_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
         self.global_table_provisioned_write_capacity_units = input;
         self
     }
@@ -174,8 +155,7 @@ impl UpdateGlobalTableSettingsInputBuilder {
         mut self,
         input: crate::types::AutoScalingSettingsUpdate,
     ) -> Self {
-        self.global_table_provisioned_write_capacity_auto_scaling_settings_update =
-            ::std::option::Option::Some(input);
+        self.global_table_provisioned_write_capacity_auto_scaling_settings_update = ::std::option::Option::Some(input);
         self
     }
     /// <p>Auto scaling settings for managing provisioned write capacity for the global table.</p>
@@ -211,9 +191,7 @@ impl UpdateGlobalTableSettingsInputBuilder {
     /// <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
     pub fn set_global_table_global_secondary_index_settings_update(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>>,
     ) -> Self {
         self.global_table_global_secondary_index_settings_update = input;
         self
@@ -221,9 +199,7 @@ impl UpdateGlobalTableSettingsInputBuilder {
     /// <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
     pub fn get_global_table_global_secondary_index_settings_update(
         &self,
-    ) -> &::std::option::Option<
-        ::std::vec::Vec<crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>,
-    > {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>> {
         &self.global_table_global_secondary_index_settings_update
     }
     /// Appends an item to `replica_settings_update`.
@@ -262,8 +238,7 @@ impl UpdateGlobalTableSettingsInputBuilder {
             crate::operation::update_global_table_settings::UpdateGlobalTableSettingsInput {
                 global_table_name: self.global_table_name,
                 global_table_billing_mode: self.global_table_billing_mode,
-                global_table_provisioned_write_capacity_units: self
-                    .global_table_provisioned_write_capacity_units,
+                global_table_provisioned_write_capacity_units: self.global_table_provisioned_write_capacity_units,
                 global_table_provisioned_write_capacity_auto_scaling_settings_update: self
                     .global_table_provisioned_write_capacity_auto_scaling_settings_update,
                 global_table_global_secondary_index_settings_update: self

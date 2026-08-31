@@ -71,9 +71,9 @@ impl ::std::convert::From<&str> for KeyUsageType {
             "GENERATE_VERIFY_MAC" => KeyUsageType::GenerateVerifyMac,
             "KEY_AGREEMENT" => KeyUsageType::KeyAgreement,
             "SIGN_VERIFY" => KeyUsageType::SignVerify,
-            other => KeyUsageType::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => KeyUsageType::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -97,12 +97,7 @@ impl KeyUsageType {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &[
-            "ENCRYPT_DECRYPT",
-            "GENERATE_VERIFY_MAC",
-            "KEY_AGREEMENT",
-            "SIGN_VERIFY",
-        ]
+        &["ENCRYPT_DECRYPT", "GENERATE_VERIFY_MAC", "KEY_AGREEMENT", "SIGN_VERIFY"]
     }
 }
 impl ::std::convert::AsRef<str> for KeyUsageType {
@@ -114,14 +109,10 @@ impl KeyUsageType {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }

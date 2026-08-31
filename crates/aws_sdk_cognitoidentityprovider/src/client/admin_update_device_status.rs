@@ -11,8 +11,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<AdminUpdateDeviceStatusError>`](crate::operation::admin_update_device_status::AdminUpdateDeviceStatusError)
     pub fn admin_update_device_status(
         &self,
-    ) -> crate::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusFluentBuilder
-    {
-        crate::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusFluentBuilder {
+        crate::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

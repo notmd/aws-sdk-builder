@@ -59,9 +59,7 @@ impl GetSAMLProviderFluentBuilder {
         }
     }
     /// Access the GetSAMLProvider as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_saml_provider::builders::GetSamlProviderInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_saml_provider::builders::GetSamlProviderInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,14 +83,12 @@ impl GetSAMLProviderFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::get_saml_provider::GetSAMLProvider::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::get_saml_provider::GetSAMLProvider::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::get_saml_provider::GetSAMLProvider::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::get_saml_provider::GetSAMLProvider::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -122,19 +118,13 @@ impl GetSAMLProviderFluentBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the SAML provider resource object in IAM to get information about.</p>
     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-    pub fn saml_provider_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn saml_provider_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.saml_provider_arn(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the SAML provider resource object in IAM to get information about.</p>
     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-    pub fn set_saml_provider_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_saml_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_saml_provider_arn(input);
         self
     }

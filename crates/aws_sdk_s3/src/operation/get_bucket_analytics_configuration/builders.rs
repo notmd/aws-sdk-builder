@@ -59,7 +59,7 @@ impl
             crate::operation::get_bucket_analytics_configuration::GetBucketAnalyticsConfigurationOutput,
             crate::operation::get_bucket_analytics_configuration::GetBucketAnalyticsConfigurationError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -73,7 +73,10 @@ impl GetBucketAnalyticsConfigurationFluentBuilder {
         }
     }
     /// Access the GetBucketAnalyticsConfiguration as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_bucket_analytics_configuration::builders::GetBucketAnalyticsConfigurationInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_bucket_analytics_configuration::builders::GetBucketAnalyticsConfigurationInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -92,7 +95,7 @@ impl GetBucketAnalyticsConfigurationFluentBuilder {
             crate::operation::get_bucket_analytics_configuration::GetBucketAnalyticsConfigurationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -102,7 +105,11 @@ impl GetBucketAnalyticsConfigurationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_bucket_analytics_configuration::GetBucketAnalyticsConfiguration::orchestrate(&runtime_plugins, input).await
+        crate::operation::get_bucket_analytics_configuration::GetBucketAnalyticsConfiguration::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -159,18 +166,12 @@ impl GetBucketAnalyticsConfigurationFluentBuilder {
         self.inner.get_id()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

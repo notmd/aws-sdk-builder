@@ -19,9 +19,7 @@ pub(crate) fn create_access_key_output_output_correct_errors(
     if builder.access_key.is_none() {
         builder.access_key = {
             let builder = crate::types::builders::AccessKeyBuilder::default();
-            crate::serde_util::access_key_correct_errors(builder)
-                .build()
-                .ok()
+            crate::serde_util::access_key_correct_errors(builder).build().ok()
         }
     }
     builder
@@ -34,9 +32,7 @@ pub(crate) fn create_group_output_output_correct_errors(
     if builder.group.is_none() {
         builder.group = {
             let builder = crate::types::builders::GroupBuilder::default();
-            crate::serde_util::group_correct_errors(builder)
-                .build()
-                .ok()
+            crate::serde_util::group_correct_errors(builder).build().ok()
         }
     }
     builder
@@ -49,9 +45,7 @@ pub(crate) fn create_instance_profile_output_output_correct_errors(
     if builder.instance_profile.is_none() {
         builder.instance_profile = {
             let builder = crate::types::builders::InstanceProfileBuilder::default();
-            crate::serde_util::instance_profile_correct_errors(builder)
-                .build()
-                .ok()
+            crate::serde_util::instance_profile_correct_errors(builder).build().ok()
         }
     }
     builder
@@ -64,9 +58,7 @@ pub(crate) fn create_login_profile_output_output_correct_errors(
     if builder.login_profile.is_none() {
         builder.login_profile = {
             let builder = crate::types::builders::LoginProfileBuilder::default();
-            crate::serde_util::login_profile_correct_errors(builder)
-                .build()
-                .ok()
+            crate::serde_util::login_profile_correct_errors(builder).build().ok()
         }
     }
     builder
@@ -113,8 +105,7 @@ pub(crate) fn delete_service_linked_role_output_output_correct_errors(
 #[cfg(feature = "op_get_account_password_policy")]
 pub(crate) fn get_account_password_policy_output_output_correct_errors(
     mut builder: crate::operation::get_account_password_policy::builders::GetAccountPasswordPolicyOutputBuilder,
-) -> crate::operation::get_account_password_policy::builders::GetAccountPasswordPolicyOutputBuilder
-{
+) -> crate::operation::get_account_password_policy::builders::GetAccountPasswordPolicyOutputBuilder {
     if builder.password_policy.is_none() {
         builder.password_policy = {
             let builder = crate::types::builders::PasswordPolicyBuilder::default();
@@ -131,9 +122,7 @@ pub(crate) fn get_group_output_output_correct_errors(
     if builder.group.is_none() {
         builder.group = {
             let builder = crate::types::builders::GroupBuilder::default();
-            crate::serde_util::group_correct_errors(builder)
-                .build()
-                .ok()
+            crate::serde_util::group_correct_errors(builder).build().ok()
         }
     }
     if builder.users.is_none() {
@@ -165,9 +154,7 @@ pub(crate) fn get_instance_profile_output_output_correct_errors(
     if builder.instance_profile.is_none() {
         builder.instance_profile = {
             let builder = crate::types::builders::InstanceProfileBuilder::default();
-            crate::serde_util::instance_profile_correct_errors(builder)
-                .build()
-                .ok()
+            crate::serde_util::instance_profile_correct_errors(builder).build().ok()
         }
     }
     builder
@@ -180,9 +167,7 @@ pub(crate) fn get_login_profile_output_output_correct_errors(
     if builder.login_profile.is_none() {
         builder.login_profile = {
             let builder = crate::types::builders::LoginProfileBuilder::default();
-            crate::serde_util::login_profile_correct_errors(builder)
-                .build()
-                .ok()
+            crate::serde_util::login_profile_correct_errors(builder).build().ok()
         }
     }
     builder
@@ -201,15 +186,12 @@ pub(crate) fn get_mfa_device_output_output_correct_errors(
 #[cfg(feature = "op_get_organizations_access_report")]
 pub(crate) fn get_organizations_access_report_output_output_correct_errors(
     mut builder: crate::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportOutputBuilder,
-) -> crate::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportOutputBuilder{
+) -> crate::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportOutputBuilder {
     if builder.job_status.is_none() {
-        builder.job_status = "no value was set"
-            .parse::<crate::types::JobStatusType>()
-            .ok()
+        builder.job_status = "no value was set".parse::<crate::types::JobStatusType>().ok()
     }
     if builder.job_creation_date.is_none() {
-        builder.job_creation_date =
-            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.job_creation_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }
@@ -274,22 +256,18 @@ pub(crate) fn get_server_certificate_output_output_correct_errors(
 #[cfg(feature = "op_get_service_last_accessed_details")]
 pub(crate) fn get_service_last_accessed_details_output_output_correct_errors(
     mut builder: crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder,
-) -> crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder{
+) -> crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder {
     if builder.job_status.is_none() {
-        builder.job_status = "no value was set"
-            .parse::<crate::types::JobStatusType>()
-            .ok()
+        builder.job_status = "no value was set".parse::<crate::types::JobStatusType>().ok()
     }
     if builder.job_creation_date.is_none() {
-        builder.job_creation_date =
-            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.job_creation_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     if builder.services_last_accessed.is_none() {
         builder.services_last_accessed = Some(Default::default())
     }
     if builder.job_completion_date.is_none() {
-        builder.job_completion_date =
-            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.job_completion_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }
@@ -299,17 +277,13 @@ pub(crate) fn get_service_last_accessed_details_with_entities_output_output_corr
     mut builder: crate::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesOutputBuilder,
 ) -> crate::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesOutputBuilder{
     if builder.job_status.is_none() {
-        builder.job_status = "no value was set"
-            .parse::<crate::types::JobStatusType>()
-            .ok()
+        builder.job_status = "no value was set".parse::<crate::types::JobStatusType>().ok()
     }
     if builder.job_creation_date.is_none() {
-        builder.job_creation_date =
-            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.job_creation_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     if builder.job_completion_date.is_none() {
-        builder.job_completion_date =
-            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.job_completion_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     if builder.entity_details_list.is_none() {
         builder.entity_details_list = Some(Default::default())
@@ -320,11 +294,10 @@ pub(crate) fn get_service_last_accessed_details_with_entities_output_output_corr
 #[cfg(feature = "op_get_service_linked_role_deletion_status")]
 pub(crate) fn get_service_linked_role_deletion_status_output_output_correct_errors(
     mut builder: crate::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusOutputBuilder,
-) -> crate::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusOutputBuilder{
+) -> crate::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusOutputBuilder
+{
     if builder.status.is_none() {
-        builder.status = "no value was set"
-            .parse::<crate::types::DeletionTaskStatusType>()
-            .ok()
+        builder.status = "no value was set".parse::<crate::types::DeletionTaskStatusType>().ok()
     }
     builder
 }
@@ -431,7 +404,7 @@ pub(crate) fn list_instance_profiles_output_output_correct_errors(
 #[cfg(feature = "op_list_instance_profiles_for_role")]
 pub(crate) fn list_instance_profiles_for_role_output_output_correct_errors(
     mut builder: crate::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleOutputBuilder,
-) -> crate::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleOutputBuilder{
+) -> crate::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleOutputBuilder {
     if builder.instance_profiles.is_none() {
         builder.instance_profiles = Some(Default::default())
     }
@@ -461,7 +434,7 @@ pub(crate) fn list_mfa_devices_output_output_correct_errors(
 #[cfg(feature = "op_list_open_id_connect_provider_tags")]
 pub(crate) fn list_open_id_connect_provider_tags_output_output_correct_errors(
     mut builder: crate::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsOutputBuilder,
-) -> crate::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsOutputBuilder{
+) -> crate::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsOutputBuilder {
     if builder.tags.is_none() {
         builder.tags = Some(Default::default())
     }
@@ -471,7 +444,7 @@ pub(crate) fn list_open_id_connect_provider_tags_output_output_correct_errors(
 #[cfg(feature = "op_list_policies_granting_service_access")]
 pub(crate) fn list_policies_granting_service_access_output_output_correct_errors(
     mut builder: crate::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessOutputBuilder,
-) -> crate::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessOutputBuilder{
+) -> crate::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessOutputBuilder {
     if builder.policies_granting_service_access.is_none() {
         builder.policies_granting_service_access = Some(Default::default())
     }
@@ -531,8 +504,7 @@ pub(crate) fn list_saml_provider_tags_output_output_correct_errors(
 #[cfg(feature = "op_list_server_certificate_tags")]
 pub(crate) fn list_server_certificate_tags_output_output_correct_errors(
     mut builder: crate::operation::list_server_certificate_tags::builders::ListServerCertificateTagsOutputBuilder,
-) -> crate::operation::list_server_certificate_tags::builders::ListServerCertificateTagsOutputBuilder
-{
+) -> crate::operation::list_server_certificate_tags::builders::ListServerCertificateTagsOutputBuilder {
     if builder.tags.is_none() {
         builder.tags = Some(Default::default())
     }
@@ -738,10 +710,7 @@ pub(crate) fn login_profile_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_create_virtual_mfa_device",
-    feature = "op_list_virtual_mfa_devices"
-))]
+#[cfg(any(feature = "op_create_virtual_mfa_device", feature = "op_list_virtual_mfa_devices"))]
 pub(crate) fn virtual_mfa_device_correct_errors(
     mut builder: crate::types::builders::VirtualMfaDeviceBuilder,
 ) -> crate::types::builders::VirtualMfaDeviceBuilder {
@@ -798,10 +767,7 @@ pub(crate) fn user_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_list_signing_certificates",
-    feature = "op_upload_signing_certificate"
-))]
+#[cfg(any(feature = "op_list_signing_certificates", feature = "op_upload_signing_certificate"))]
 pub(crate) fn signing_certificate_correct_errors(
     mut builder: crate::types::builders::SigningCertificateBuilder,
 ) -> crate::types::builders::SigningCertificateBuilder {
@@ -898,10 +864,7 @@ pub(crate) fn service_specific_credential_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_get_ssh_public_key",
-    feature = "op_upload_ssh_public_key"
-))]
+#[cfg(any(feature = "op_get_ssh_public_key", feature = "op_upload_ssh_public_key"))]
 pub(crate) fn ssh_public_key_correct_errors(
     mut builder: crate::types::builders::SshPublicKeyBuilder,
 ) -> crate::types::builders::SshPublicKeyBuilder {
@@ -943,18 +906,13 @@ pub(crate) fn entity_details_correct_errors(
     if builder.entity_info.is_none() {
         builder.entity_info = {
             let builder = crate::types::builders::EntityInfoBuilder::default();
-            crate::serde_util::entity_info_correct_errors(builder)
-                .build()
-                .ok()
+            crate::serde_util::entity_info_correct_errors(builder).build().ok()
         }
     }
     builder
 }
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub(crate) fn evaluation_result_correct_errors(
     mut builder: crate::types::builders::EvaluationResultBuilder,
 ) -> crate::types::builders::EvaluationResultBuilder {
@@ -1131,9 +1089,7 @@ pub(crate) fn entity_info_correct_errors(
         builder.name = Some(Default::default())
     }
     if builder.r#type.is_none() {
-        builder.r#type = "no value was set"
-            .parse::<crate::types::PolicyOwnerEntityType>()
-            .ok()
+        builder.r#type = "no value was set".parse::<crate::types::PolicyOwnerEntityType>().ok()
     }
     if builder.id.is_none() {
         builder.id = Some(Default::default())
@@ -1162,9 +1118,7 @@ pub(crate) fn parameter_definition_correct_errors(
         builder.name = Some(Default::default())
     }
     if builder.r#type.is_none() {
-        builder.r#type = "no value was set"
-            .parse::<crate::types::ParameterTypeType>()
-            .ok()
+        builder.r#type = "no value was set".parse::<crate::types::ParameterTypeType>().ok()
     }
     builder
 }
@@ -1195,10 +1149,7 @@ pub(crate) fn policy_granting_service_access_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub(crate) fn resource_specific_result_correct_errors(
     mut builder: crate::types::builders::ResourceSpecificResultBuilder,
 ) -> crate::types::builders::ResourceSpecificResultBuilder {

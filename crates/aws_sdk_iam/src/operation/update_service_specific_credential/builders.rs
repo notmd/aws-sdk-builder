@@ -43,7 +43,7 @@ impl
             crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialOutput,
             crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -57,7 +57,10 @@ impl UpdateServiceSpecificCredentialFluentBuilder {
         }
     }
     /// Access the UpdateServiceSpecificCredential as a reference.
-    pub fn as_input(&self) -> &crate::operation::update_service_specific_credential::builders::UpdateServiceSpecificCredentialInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::update_service_specific_credential::builders::UpdateServiceSpecificCredentialInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +79,7 @@ impl UpdateServiceSpecificCredentialFluentBuilder {
             crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +89,11 @@ impl UpdateServiceSpecificCredentialFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::update_service_specific_credential::UpdateServiceSpecificCredential::orchestrate(&runtime_plugins, input).await
+        crate::operation::update_service_specific_credential::UpdateServiceSpecificCredential::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -133,27 +140,19 @@ impl UpdateServiceSpecificCredentialFluentBuilder {
     }
     /// <p>The unique identifier of the service-specific credential.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
-    pub fn service_specific_credential_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_specific_credential_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.service_specific_credential_id(input.into());
         self
     }
     /// <p>The unique identifier of the service-specific credential.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
-    pub fn set_service_specific_credential_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_service_specific_credential_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_service_specific_credential_id(input);
         self
     }
     /// <p>The unique identifier of the service-specific credential.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
-    pub fn get_service_specific_credential_id(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_service_specific_credential_id(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_service_specific_credential_id()
     }
     /// <p>The status to be assigned to the service-specific credential.</p>

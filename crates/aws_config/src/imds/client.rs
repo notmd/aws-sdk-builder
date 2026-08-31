@@ -17,18 +17,12 @@ use aws_smithy_runtime::client::orchestrator::operation::Operation;
 use aws_smithy_runtime::client::retries::strategy::StandardRetryStrategy;
 use aws_smithy_runtime_api::box_error::BoxError;
 use aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams;
-use aws_smithy_runtime_api::client::endpoint::{
-    EndpointFuture, EndpointResolverParams, ResolveEndpoint,
-};
+use aws_smithy_runtime_api::client::endpoint::{EndpointFuture, EndpointResolverParams, ResolveEndpoint};
 use aws_smithy_runtime_api::client::interceptors::context::InterceptorContext;
-use aws_smithy_runtime_api::client::orchestrator::{
-    HttpRequest, Metadata, OrchestratorError, SensitiveOutput,
-};
+use aws_smithy_runtime_api::client::orchestrator::{HttpRequest, Metadata, OrchestratorError, SensitiveOutput};
 use aws_smithy_runtime_api::client::result::ConnectorError;
 use aws_smithy_runtime_api::client::result::SdkError;
-use aws_smithy_runtime_api::client::retries::classifiers::{
-    ClassifyRetry, RetryAction, SharedRetryClassifier,
-};
+use aws_smithy_runtime_api::client::retries::classifiers::{ClassifyRetry, RetryAction, SharedRetryClassifier};
 use aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder;
 use aws_smithy_runtime_api::client::runtime_plugin::{RuntimePlugin, SharedRuntimePlugin};
 use aws_smithy_types::body::SdkBody;
@@ -160,40 +154,35 @@ impl Client {
     /// # }
     /// ```
     pub async fn get(&self, path: impl Into<String>) -> Result<SensitiveString, ImdsError> {
-        self.operation
-            .invoke(path.into())
-            .await
-            .map_err(|err| match err {
-                SdkError::ConstructionFailure(_) if err.source().is_some() => {
-                    match err.into_source().map(|e| e.downcast::<ImdsError>()) {
-                        Ok(Ok(token_failure)) => *token_failure,
-                        Ok(Err(err)) => ImdsError::unexpected(err),
-                        Err(err) => ImdsError::unexpected(err),
-                    }
+        self.operation.invoke(path.into()).await.map_err(|err| match err {
+            SdkError::ConstructionFailure(_) if err.source().is_some() => {
+                match err.into_source().map(|e| e.downcast::<ImdsError>()) {
+                    Ok(Ok(token_failure)) => *token_failure,
+                    Ok(Err(err)) => ImdsError::unexpected(err),
+                    Err(err) => ImdsError::unexpected(err),
                 }
-                SdkError::ConstructionFailure(_) => ImdsError::unexpected(err),
-                SdkError::ServiceError(context) => match context.err() {
-                    InnerImdsError::InvalidUtf8 => {
-                        ImdsError::unexpected("IMDS returned invalid UTF-8")
-                    }
-                    InnerImdsError::BadStatus => ImdsError::error_response(context.into_raw()),
-                },
-                // If the error source is an ImdsError, then we need to directly return that source.
-                // That way, the IMDS token provider's errors can become the top-level ImdsError.
-                // There is a unit test that checks the correct error is being extracted.
-                err @ SdkError::DispatchFailure(_) => match err.into_source() {
-                    Ok(source) => match source.downcast::<ConnectorError>() {
-                        Ok(source) => match source.into_source().downcast::<ImdsError>() {
-                            Ok(source) => *source,
-                            Err(err) => ImdsError::unexpected(err),
-                        },
+            }
+            SdkError::ConstructionFailure(_) => ImdsError::unexpected(err),
+            SdkError::ServiceError(context) => match context.err() {
+                InnerImdsError::InvalidUtf8 => ImdsError::unexpected("IMDS returned invalid UTF-8"),
+                InnerImdsError::BadStatus => ImdsError::error_response(context.into_raw()),
+            },
+            // If the error source is an ImdsError, then we need to directly return that source.
+            // That way, the IMDS token provider's errors can become the top-level ImdsError.
+            // There is a unit test that checks the correct error is being extracted.
+            err @ SdkError::DispatchFailure(_) => match err.into_source() {
+                Ok(source) => match source.downcast::<ConnectorError>() {
+                    Ok(source) => match source.into_source().downcast::<ImdsError>() {
+                        Ok(source) => *source,
                         Err(err) => ImdsError::unexpected(err),
                     },
                     Err(err) => ImdsError::unexpected(err),
                 },
-                SdkError::TimeoutError(_) | SdkError::ResponseError(_) => ImdsError::io_error(err),
-                _ => ImdsError::unexpected(err),
-            })
+                Err(err) => ImdsError::unexpected(err),
+            },
+            SdkError::TimeoutError(_) | SdkError::ResponseError(_) => ImdsError::io_error(err),
+            _ => ImdsError::unexpected(err),
+        })
     }
 }
 
@@ -203,9 +192,7 @@ pub struct SensitiveString(String);
 
 impl fmt::Debug for SensitiveString {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        f.debug_tuple("SensitiveString")
-            .field(&"** redacted **")
-            .finish()
+        f.debug_tuple("SensitiveString").field(&"** redacted **").finish()
     }
 }
 
@@ -271,10 +258,7 @@ impl RuntimePlugin for ImdsCommonRuntimePlugin {
         Some(self.config.clone())
     }
 
-    fn runtime_components(
-        &self,
-        _current_components: &RuntimeComponentsBuilder,
-    ) -> Cow<'_, RuntimeComponentsBuilder> {
+    fn runtime_components(&self, _current_components: &RuntimeComponentsBuilder) -> Cow<'_, RuntimeComponentsBuilder> {
         Cow::Borrowed(&self.components)
     }
 }
@@ -450,18 +434,15 @@ impl Builder {
             )
             .operation_timeout(self.operation_timeout.unwrap_or(DEFAULT_OPERATION_TIMEOUT))
             .build();
-        let endpoint_source = self
-            .endpoint
-            .unwrap_or_else(|| EndpointSource::Env(config.clone()));
+        let endpoint_source = self.endpoint.unwrap_or_else(|| EndpointSource::Env(config.clone()));
         let endpoint_resolver = ImdsEndpointResolver {
             endpoint_source: Arc::new(endpoint_source),
             mode_override: self.mode_override,
         };
-        let retry_config = RetryConfig::standard()
-            .with_max_attempts(self.max_attempts.unwrap_or(DEFAULT_ATTEMPTS));
-        let retry_classifier = self.retry_classifier.unwrap_or(SharedRetryClassifier::new(
-            ImdsResponseRetryClassifier::default(),
-        ));
+        let retry_config = RetryConfig::standard().with_max_attempts(self.max_attempts.unwrap_or(DEFAULT_ATTEMPTS));
+        let retry_classifier = self
+            .retry_classifier
+            .unwrap_or(SharedRetryClassifier::new(ImdsResponseRetryClassifier::default()));
         let common_plugin = SharedRuntimePlugin::new(ImdsCommonRuntimePlugin::new(
             &config,
             endpoint_resolver,
@@ -562,8 +543,7 @@ impl EndpointSource {
                 } else if let Ok(mode) = env.get(env::ENDPOINT_MODE) {
                     mode.parse::<EndpointMode>()
                         .map_err(BuildError::invalid_endpoint_mode)?
-                } else if let Some(mode) = profile.and_then(|p| p.get(profile_keys::ENDPOINT_MODE))
-                {
+                } else if let Some(mode) = profile.and_then(|p| p.get(profile_keys::ENDPOINT_MODE)) {
                     mode.parse::<EndpointMode>()
                         .map_err(BuildError::invalid_endpoint_mode)?
                 } else {
@@ -653,15 +633,11 @@ pub(crate) mod test {
     use aws_smithy_async::test_util::{instant_time_and_sleep, InstantSleep};
     use aws_smithy_http_client::test_util::{capture_request, ReplayEvent, StaticReplayClient};
     use aws_smithy_runtime::test_util::capture_test_logs::capture_test_logs;
-    use aws_smithy_runtime_api::client::interceptors::context::{
-        Input, InterceptorContext, Output,
-    };
+    use aws_smithy_runtime_api::client::interceptors::context::{Input, InterceptorContext, Output};
     use aws_smithy_runtime_api::client::orchestrator::OrchestratorError;
     use aws_smithy_runtime_api::client::orchestrator::{HttpRequest, HttpResponse};
     use aws_smithy_runtime_api::client::result::ConnectorError;
-    use aws_smithy_runtime_api::client::retries::classifiers::{
-        ClassifyRetry, RetryAction, SharedRetryClassifier,
-    };
+    use aws_smithy_runtime_api::client::retries::classifiers::{ClassifyRetry, RetryAction, SharedRetryClassifier};
     use aws_smithy_types::body::SdkBody;
     use aws_smithy_types::error::display::DisplayErrorContext;
     use aws_types::os_shim_internal::{Env, Fs};
@@ -677,10 +653,7 @@ pub(crate) mod test {
     macro_rules! assert_full_error_contains {
         ($err:expr, $contains:expr) => {
             let err = $err;
-            let message = format!(
-                "{}",
-                aws_smithy_types::error::display::DisplayErrorContext(&err)
-            );
+            let message = format!("{}", aws_smithy_types::error::display::DisplayErrorContext(&err));
             assert!(
                 message.contains($contains),
                 "Error message '{message}' didn't contain text '{}'",
@@ -730,13 +703,7 @@ pub(crate) mod test {
 
     /// Create a simple IMDS response
     pub(crate) fn imds_response(body: &'static str) -> HttpResponse {
-        HttpResponse::try_from(
-            http::Response::builder()
-                .status(200)
-                .body(SdkBody::from(body))
-                .unwrap(),
-        )
-        .unwrap()
+        HttpResponse::try_from(http::Response::builder().status(200).body(SdkBody::from(body)).unwrap()).unwrap()
     }
 
     /// Create an IMDS client with an underlying [StaticReplayClient]
@@ -890,24 +857,14 @@ pub(crate) mod test {
             ),
             ReplayEvent::new(
                 imds_request("http://169.254.169.254/latest/metadata", TOKEN_A),
-                http::Response::builder()
-                    .status(500)
-                    .body(SdkBody::empty())
-                    .unwrap(),
+                http::Response::builder().status(500).body(SdkBody::empty()).unwrap(),
             ),
             ReplayEvent::new(
                 imds_request("http://169.254.169.254/latest/metadata", TOKEN_A),
                 imds_response("ok"),
             ),
         ]);
-        assert_eq!(
-            "ok",
-            client
-                .get("/latest/metadata")
-                .await
-                .expect("success")
-                .as_ref()
-        );
+        assert_eq!("ok", client.get("/latest/metadata").await.expect("success").as_ref());
         http_client.assert_requests_match(&[]);
 
         // all requests should have a user agent header
@@ -923,10 +880,7 @@ pub(crate) mod test {
         let (client, http_client) = mock_imds_client(vec![
             ReplayEvent::new(
                 token_request("http://169.254.169.254", 21600),
-                http::Response::builder()
-                    .status(500)
-                    .body(SdkBody::empty())
-                    .unwrap(),
+                http::Response::builder().status(500).body(SdkBody::empty()).unwrap(),
             ),
             ReplayEvent::new(
                 token_request("http://169.254.169.254", 21600),
@@ -937,14 +891,7 @@ pub(crate) mod test {
                 imds_response("ok"),
             ),
         ]);
-        assert_eq!(
-            "ok",
-            client
-                .get("/latest/metadata")
-                .await
-                .expect("success")
-                .as_ref()
-        );
+        assert_eq!("ok", client.get("/latest/metadata").await.expect("success").as_ref());
         http_client.assert_requests_match(&[]);
     }
 
@@ -959,10 +906,7 @@ pub(crate) mod test {
             ),
             ReplayEvent::new(
                 imds_request("http://169.254.169.254/latest/metadata", TOKEN_A),
-                http::Response::builder()
-                    .status(401)
-                    .body(SdkBody::empty())
-                    .unwrap(),
+                http::Response::builder().status(401).body(SdkBody::empty()).unwrap(),
             ),
             ReplayEvent::new(
                 token_request("http://169.254.169.254", 21600),
@@ -973,14 +917,7 @@ pub(crate) mod test {
                 imds_response("ok"),
             ),
         ]);
-        assert_eq!(
-            "ok",
-            client
-                .get("/latest/metadata")
-                .await
-                .expect("success")
-                .as_ref()
-        );
+        assert_eq!("ok", client.get("/latest/metadata").await.expect("success").as_ref());
         http_client.assert_requests_match(&[]);
     }
 
@@ -990,10 +927,7 @@ pub(crate) mod test {
     async fn no_403_retry() {
         let (client, http_client) = mock_imds_client(vec![ReplayEvent::new(
             token_request("http://169.254.169.254", 21600),
-            http::Response::builder()
-                .status(403)
-                .body(SdkBody::empty())
-                .unwrap(),
+            http::Response::builder().status(403).body(SdkBody::empty()).unwrap(),
         )]);
         let err = client.get("/latest/metadata").await.expect_err("no token");
         assert_full_error_contains!(err, "forbidden");
@@ -1007,20 +941,14 @@ pub(crate) mod test {
         ctx.set_output_or_error(Ok(Output::doesnt_matter()));
         ctx.set_response(imds_response("").map(|_| SdkBody::empty()));
         let classifier = ImdsResponseRetryClassifier::default();
-        assert_eq!(
-            RetryAction::NoActionIndicated,
-            classifier.classify_retry(&ctx)
-        );
+        assert_eq!(RetryAction::NoActionIndicated, classifier.classify_retry(&ctx));
 
         // Emulate a failure to parse the response body (using an io error since it's easy to construct in a test)
         let mut ctx = InterceptorContext::new(Input::doesnt_matter());
         ctx.set_output_or_error(Err(OrchestratorError::connector(ConnectorError::io(
             io::Error::new(io::ErrorKind::BrokenPipe, "fail to parse").into(),
         ))));
-        assert_eq!(
-            RetryAction::NoActionIndicated,
-            classifier.classify_retry(&ctx)
-        );
+        assert_eq!(RetryAction::NoActionIndicated, classifier.classify_retry(&ctx));
     }
 
     /// User provided retry classifier works
@@ -1047,10 +975,7 @@ pub(crate) mod test {
             ),
             ReplayEvent::new(
                 imds_request("http://169.254.169.254/latest/metadata", TOKEN_A),
-                http::Response::builder()
-                    .status(401)
-                    .body(SdkBody::empty())
-                    .unwrap(),
+                http::Response::builder().status(401).body(SdkBody::empty()).unwrap(),
             ),
             ReplayEvent::new(
                 token_request("http://169.254.169.254", 21600),
@@ -1133,8 +1058,7 @@ pub(crate) mod test {
             .await
             .expect_err("240.0.0.0 will never resolve");
         match resp {
-            err @ ImdsError::FailedToLoadToken(_)
-                if format!("{}", DisplayErrorContext(&err)).contains("timeout") => {} // ok,
+            err @ ImdsError::FailedToLoadToken(_) if format!("{}", DisplayErrorContext(&err)).contains("timeout") => {} // ok,
             other => panic!(
                 "wrong error, expected construction failure with TimedOutError inside: {}",
                 DisplayErrorContext(&other)
@@ -1251,9 +1175,7 @@ pub(crate) mod test {
             .with_http_client(http_client);
         let mut imds_client = Client::builder().configure(&provider_config);
         if let Some(endpoint_override) = test_case.endpoint_override {
-            imds_client = imds_client
-                .endpoint(endpoint_override)
-                .expect("invalid URI");
+            imds_client = imds_client.endpoint(endpoint_override).expect("invalid URI");
         }
 
         if let Some(mode_override) = test_case.mode_override {

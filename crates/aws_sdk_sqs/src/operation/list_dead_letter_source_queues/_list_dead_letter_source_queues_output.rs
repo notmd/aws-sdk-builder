@@ -28,15 +28,14 @@ impl ::aws_types::request_id::RequestId for ListDeadLetterSourceQueuesOutput {
 }
 impl ListDeadLetterSourceQueuesOutput {
     /// Creates a new builder-style object to manufacture [`ListDeadLetterSourceQueuesOutput`](crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesOutput).
-    pub fn builder() -> crate::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesOutputBuilder {
         crate::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListDeadLetterSourceQueuesOutput`](crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListDeadLetterSourceQueuesOutputBuilder {
     pub(crate) queue_urls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -56,10 +55,7 @@ impl ListDeadLetterSourceQueuesOutputBuilder {
         self
     }
     /// <p>A list of source queue URLs that have the <code>RedrivePolicy</code> queue attribute configured with a dead-letter queue.</p>
-    pub fn set_queue_urls(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_queue_urls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.queue_urls = input;
         self
     }
@@ -99,15 +95,17 @@ impl ListDeadLetterSourceQueuesOutputBuilder {
         crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesOutput {
-            queue_urls: self.queue_urls.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
+        ::std::result::Result::Ok(
+            crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesOutput {
+                queue_urls: self.queue_urls.ok_or_else(|| {
+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
                     "queue_urls",
                     "queue_urls was not specified but it is required when building ListDeadLetterSourceQueuesOutput",
                 )
-            })?,
-            next_token: self.next_token,
-            _request_id: self._request_id,
-        })
+                })?,
+                next_token: self.next_token,
+                _request_id: self._request_id,
+            },
+        )
     }
 }

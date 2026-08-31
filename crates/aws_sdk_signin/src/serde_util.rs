@@ -16,9 +16,7 @@ pub(crate) fn access_denied_exception_correct_errors(
     mut builder: crate::types::error::builders::AccessDeniedExceptionBuilder,
 ) -> crate::types::error::builders::AccessDeniedExceptionBuilder {
     if builder.error.is_none() {
-        builder.error = "no value was set"
-            .parse::<crate::types::OAuth2ErrorCode>()
-            .ok()
+        builder.error = "no value was set".parse::<crate::types::OAuth2ErrorCode>().ok()
     }
     if builder.message.is_none() {
         builder.message = Some(Default::default())
@@ -43,9 +41,7 @@ pub(crate) fn internal_server_exception_correct_errors(
     mut builder: crate::types::error::builders::InternalServerExceptionBuilder,
 ) -> crate::types::error::builders::InternalServerExceptionBuilder {
     if builder.error.is_none() {
-        builder.error = "no value was set"
-            .parse::<crate::types::OAuth2ErrorCode>()
-            .ok()
+        builder.error = "no value was set".parse::<crate::types::OAuth2ErrorCode>().ok()
     }
     if builder.message.is_none() {
         builder.message = Some(Default::default())
@@ -70,9 +66,7 @@ pub(crate) fn too_many_requests_error_correct_errors(
     mut builder: crate::types::error::builders::TooManyRequestsErrorBuilder,
 ) -> crate::types::error::builders::TooManyRequestsErrorBuilder {
     if builder.error.is_none() {
-        builder.error = "no value was set"
-            .parse::<crate::types::OAuth2ErrorCode>()
-            .ok()
+        builder.error = "no value was set".parse::<crate::types::OAuth2ErrorCode>().ok()
     }
     if builder.message.is_none() {
         builder.message = Some(Default::default())
@@ -96,9 +90,7 @@ pub(crate) fn validation_exception_correct_errors(
     mut builder: crate::types::error::builders::ValidationExceptionBuilder,
 ) -> crate::types::error::builders::ValidationExceptionBuilder {
     if builder.error.is_none() {
-        builder.error = "no value was set"
-            .parse::<crate::types::OAuth2ErrorCode>()
-            .ok()
+        builder.error = "no value was set".parse::<crate::types::OAuth2ErrorCode>().ok()
     }
     if builder.message.is_none() {
         builder.message = Some(Default::default())
@@ -124,8 +116,7 @@ pub(crate) fn create_o_auth2_token_output_output_correct_errors(
 #[cfg(feature = "op_create_o_auth2_token_with_iam")]
 pub(crate) fn create_o_auth2_token_with_iam_output_output_correct_errors(
     mut builder: crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIamOutputBuilder,
-) -> crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIamOutputBuilder
-{
+) -> crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIamOutputBuilder {
     if builder.access_token.is_none() {
         builder.access_token = Some(Default::default())
     }
@@ -150,9 +141,7 @@ pub(crate) fn resource_not_found_exception_correct_errors(
     mut builder: crate::types::error::builders::ResourceNotFoundExceptionBuilder,
 ) -> crate::types::error::builders::ResourceNotFoundExceptionBuilder {
     if builder.error.is_none() {
-        builder.error = "no value was set"
-            .parse::<crate::types::OAuth2ErrorCode>()
-            .ok()
+        builder.error = "no value was set".parse::<crate::types::OAuth2ErrorCode>().ok()
     }
     if builder.message.is_none() {
         builder.message = Some(Default::default())
@@ -208,7 +197,7 @@ pub(crate) fn get_resource_policy_output_output_correct_errors(
 #[cfg(feature = "op_introspect_o_auth2_token_with_iam")]
 pub(crate) fn introspect_o_auth2_token_with_iam_output_output_correct_errors(
     mut builder: crate::operation::introspect_o_auth2_token_with_iam::builders::IntrospectOAuth2TokenWithIamOutputBuilder,
-) -> crate::operation::introspect_o_auth2_token_with_iam::builders::IntrospectOAuth2TokenWithIamOutputBuilder{
+) -> crate::operation::introspect_o_auth2_token_with_iam::builders::IntrospectOAuth2TokenWithIamOutputBuilder {
     if builder.active.is_none() {
         builder.active = Some(Default::default())
     }
@@ -218,7 +207,7 @@ pub(crate) fn introspect_o_auth2_token_with_iam_output_output_correct_errors(
 #[cfg(feature = "op_list_resource_permission_statements")]
 pub(crate) fn list_resource_permission_statements_output_output_correct_errors(
     mut builder: crate::operation::list_resource_permission_statements::builders::ListResourcePermissionStatementsOutputBuilder,
-) -> crate::operation::list_resource_permission_statements::builders::ListResourcePermissionStatementsOutputBuilder{
+) -> crate::operation::list_resource_permission_statements::builders::ListResourcePermissionStatementsOutputBuilder {
     if builder.permission_statements.is_none() {
         builder.permission_statements = Some(Default::default())
     }
@@ -233,9 +222,7 @@ pub(crate) fn conflict_exception_correct_errors(
     mut builder: crate::types::error::builders::ConflictExceptionBuilder,
 ) -> crate::types::error::builders::ConflictExceptionBuilder {
     if builder.error.is_none() {
-        builder.error = "no value was set"
-            .parse::<crate::types::OAuth2ErrorCode>()
-            .ok()
+        builder.error = "no value was set".parse::<crate::types::OAuth2ErrorCode>().ok()
     }
     if builder.message.is_none() {
         builder.message = Some(Default::default())
@@ -264,9 +251,7 @@ pub(crate) fn service_quota_exceeded_exception_correct_errors(
     mut builder: crate::types::error::builders::ServiceQuotaExceededExceptionBuilder,
 ) -> crate::types::error::builders::ServiceQuotaExceededExceptionBuilder {
     if builder.error.is_none() {
-        builder.error = "no value was set"
-            .parse::<crate::types::OAuth2ErrorCode>()
-            .ok()
+        builder.error = "no value was set".parse::<crate::types::OAuth2ErrorCode>().ok()
     }
     if builder.message.is_none() {
         builder.message = Some(Default::default())
@@ -277,7 +262,7 @@ pub(crate) fn service_quota_exceeded_exception_correct_errors(
 #[cfg(feature = "op_put_resource_permission_statement")]
 pub(crate) fn put_resource_permission_statement_output_output_correct_errors(
     mut builder: crate::operation::put_resource_permission_statement::builders::PutResourcePermissionStatementOutputBuilder,
-) -> crate::operation::put_resource_permission_statement::builders::PutResourcePermissionStatementOutputBuilder{
+) -> crate::operation::put_resource_permission_statement::builders::PutResourcePermissionStatementOutputBuilder {
     if builder.statement_id.is_none() {
         builder.statement_id = Some(Default::default())
     }
@@ -291,9 +276,7 @@ pub(crate) fn create_o_auth2_token_response_body_correct_errors(
     if builder.access_token.is_none() {
         builder.access_token = {
             let builder = crate::types::builders::AccessTokenBuilder::default();
-            crate::serde_util::access_token_correct_errors(builder)
-                .build()
-                .ok()
+            crate::serde_util::access_token_correct_errors(builder).build().ok()
         }
     }
     if builder.token_type.is_none() {

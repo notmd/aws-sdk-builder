@@ -8,7 +8,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteConfigurationRecorderError>`](crate::operation::delete_configuration_recorder::DeleteConfigurationRecorderError)
     pub fn delete_configuration_recorder(
         &self,
-    ) -> crate::operation::delete_configuration_recorder::builders::DeleteConfigurationRecorderFluentBuilder{
-        crate::operation::delete_configuration_recorder::builders::DeleteConfigurationRecorderFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::delete_configuration_recorder::builders::DeleteConfigurationRecorderFluentBuilder {
+        crate::operation::delete_configuration_recorder::builders::DeleteConfigurationRecorderFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

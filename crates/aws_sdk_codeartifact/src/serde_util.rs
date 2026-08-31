@@ -370,10 +370,7 @@ pub(crate) fn describe_package_version_output_output_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_list_package_version_assets",
-    feature = "op_publish_package_version"
-))]
+#[cfg(any(feature = "op_list_package_version_assets", feature = "op_publish_package_version"))]
 pub(crate) fn asset_summary_correct_errors(
     mut builder: crate::types::builders::AssetSummaryBuilder,
 ) -> crate::types::builders::AssetSummaryBuilder {
@@ -393,14 +390,10 @@ pub(crate) fn package_origin_restrictions_correct_errors(
     mut builder: crate::types::builders::PackageOriginRestrictionsBuilder,
 ) -> crate::types::builders::PackageOriginRestrictionsBuilder {
     if builder.publish.is_none() {
-        builder.publish = "no value was set"
-            .parse::<crate::types::AllowPublish>()
-            .ok()
+        builder.publish = "no value was set".parse::<crate::types::AllowPublish>().ok()
     }
     if builder.upstream.is_none() {
-        builder.upstream = "no value was set"
-            .parse::<crate::types::AllowUpstream>()
-            .ok()
+        builder.upstream = "no value was set".parse::<crate::types::AllowUpstream>().ok()
     }
     builder
 }
@@ -413,9 +406,7 @@ pub(crate) fn package_version_summary_correct_errors(
         builder.version = Some(Default::default())
     }
     if builder.status.is_none() {
-        builder.status = "no value was set"
-            .parse::<crate::types::PackageVersionStatus>()
-            .ok()
+        builder.status = "no value was set".parse::<crate::types::PackageVersionStatus>().ok()
     }
     builder
 }

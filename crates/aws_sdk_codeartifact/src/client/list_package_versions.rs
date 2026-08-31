@@ -26,8 +26,6 @@ impl super::Client {
     pub fn list_package_versions(
         &self,
     ) -> crate::operation::list_package_versions::builders::ListPackageVersionsFluentBuilder {
-        crate::operation::list_package_versions::builders::ListPackageVersionsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::list_package_versions::builders::ListPackageVersionsFluentBuilder::new(self.handle.clone())
     }
 }

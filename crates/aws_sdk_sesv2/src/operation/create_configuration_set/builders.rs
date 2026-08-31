@@ -59,8 +59,7 @@ impl CreateConfigurationSetFluentBuilder {
     /// Access the CreateConfigurationSet as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::create_configuration_set::builders::CreateConfigurationSetInputBuilder
-    {
+    ) -> &crate::operation::create_configuration_set::builders::CreateConfigurationSetInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +83,13 @@ impl CreateConfigurationSetFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_configuration_set::CreateConfigurationSet::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_configuration_set::CreateConfigurationSet::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::create_configuration_set::CreateConfigurationSet::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::create_configuration_set::CreateConfigurationSet::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -122,18 +118,12 @@ impl CreateConfigurationSetFluentBuilder {
         self
     }
     /// <p>The name of the configuration set. The name can contain up to 64 alphanumeric characters, including letters, numbers, hyphens (-) and underscores (_) only.</p>
-    pub fn configuration_set_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_set_name(input.into());
         self
     }
     /// <p>The name of the configuration set. The name can contain up to 64 alphanumeric characters, including letters, numbers, hyphens (-) and underscores (_) only.</p>
-    pub fn set_configuration_set_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_set_name(input);
         self
     }
@@ -147,10 +137,7 @@ impl CreateConfigurationSetFluentBuilder {
         self
     }
     /// <p>An object that defines the open and click tracking options for emails that you send using the configuration set.</p>
-    pub fn set_tracking_options(
-        mut self,
-        input: ::std::option::Option<crate::types::TrackingOptions>,
-    ) -> Self {
+    pub fn set_tracking_options(mut self, input: ::std::option::Option<crate::types::TrackingOptions>) -> Self {
         self.inner = self.inner.set_tracking_options(input);
         self
     }
@@ -164,10 +151,7 @@ impl CreateConfigurationSetFluentBuilder {
         self
     }
     /// <p>An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.</p>
-    pub fn set_delivery_options(
-        mut self,
-        input: ::std::option::Option<crate::types::DeliveryOptions>,
-    ) -> Self {
+    pub fn set_delivery_options(mut self, input: ::std::option::Option<crate::types::DeliveryOptions>) -> Self {
         self.inner = self.inner.set_delivery_options(input);
         self
     }
@@ -181,17 +165,12 @@ impl CreateConfigurationSetFluentBuilder {
         self
     }
     /// <p>An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.</p>
-    pub fn set_reputation_options(
-        mut self,
-        input: ::std::option::Option<crate::types::ReputationOptions>,
-    ) -> Self {
+    pub fn set_reputation_options(mut self, input: ::std::option::Option<crate::types::ReputationOptions>) -> Self {
         self.inner = self.inner.set_reputation_options(input);
         self
     }
     /// <p>An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.</p>
-    pub fn get_reputation_options(
-        &self,
-    ) -> &::std::option::Option<crate::types::ReputationOptions> {
+    pub fn get_reputation_options(&self) -> &::std::option::Option<crate::types::ReputationOptions> {
         self.inner.get_reputation_options()
     }
     /// <p>An object that defines whether or not Amazon SES can send email that you send using the configuration set.</p>
@@ -200,10 +179,7 @@ impl CreateConfigurationSetFluentBuilder {
         self
     }
     /// <p>An object that defines whether or not Amazon SES can send email that you send using the configuration set.</p>
-    pub fn set_sending_options(
-        mut self,
-        input: ::std::option::Option<crate::types::SendingOptions>,
-    ) -> Self {
+    pub fn set_sending_options(mut self, input: ::std::option::Option<crate::types::SendingOptions>) -> Self {
         self.inner = self.inner.set_sending_options(input);
         self
     }
@@ -222,10 +198,7 @@ impl CreateConfigurationSetFluentBuilder {
         self
     }
     /// <p>An array of objects that define the tags (keys and values) to associate with the configuration set.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }
@@ -239,17 +212,12 @@ impl CreateConfigurationSetFluentBuilder {
         self
     }
     /// <p>An object that contains information about the suppression list preferences for the configuration set. You can optionally include a <code>SuppressionScope</code> to override the tenant or account suppression scope for emails sent using this configuration set.</p>
-    pub fn set_suppression_options(
-        mut self,
-        input: ::std::option::Option<crate::types::SuppressionOptions>,
-    ) -> Self {
+    pub fn set_suppression_options(mut self, input: ::std::option::Option<crate::types::SuppressionOptions>) -> Self {
         self.inner = self.inner.set_suppression_options(input);
         self
     }
     /// <p>An object that contains information about the suppression list preferences for the configuration set. You can optionally include a <code>SuppressionScope</code> to override the tenant or account suppression scope for emails sent using this configuration set.</p>
-    pub fn get_suppression_options(
-        &self,
-    ) -> &::std::option::Option<crate::types::SuppressionOptions> {
+    pub fn get_suppression_options(&self) -> &::std::option::Option<crate::types::SuppressionOptions> {
         self.inner.get_suppression_options()
     }
     /// <p>An object that defines the VDM options for emails that you send using the configuration set.</p>
@@ -258,10 +226,7 @@ impl CreateConfigurationSetFluentBuilder {
         self
     }
     /// <p>An object that defines the VDM options for emails that you send using the configuration set.</p>
-    pub fn set_vdm_options(
-        mut self,
-        input: ::std::option::Option<crate::types::VdmOptions>,
-    ) -> Self {
+    pub fn set_vdm_options(mut self, input: ::std::option::Option<crate::types::VdmOptions>) -> Self {
         self.inner = self.inner.set_vdm_options(input);
         self
     }
@@ -275,10 +240,7 @@ impl CreateConfigurationSetFluentBuilder {
         self
     }
     /// <p>An object that defines the MailManager archiving options for emails that you send using the configuration set.</p>
-    pub fn set_archiving_options(
-        mut self,
-        input: ::std::option::Option<crate::types::ArchivingOptions>,
-    ) -> Self {
+    pub fn set_archiving_options(mut self, input: ::std::option::Option<crate::types::ArchivingOptions>) -> Self {
         self.inner = self.inner.set_archiving_options(input);
         self
     }

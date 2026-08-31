@@ -126,17 +126,12 @@ impl ListLayersFluentBuilder {
         self
     }
     /// <p>The compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
-    pub fn set_compatible_architecture(
-        mut self,
-        input: ::std::option::Option<crate::types::Architecture>,
-    ) -> Self {
+    pub fn set_compatible_architecture(mut self, input: ::std::option::Option<crate::types::Architecture>) -> Self {
         self.inner = self.inner.set_compatible_architecture(input);
         self
     }
     /// <p>The compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
-    pub fn get_compatible_architecture(
-        &self,
-    ) -> &::std::option::Option<crate::types::Architecture> {
+    pub fn get_compatible_architecture(&self) -> &::std::option::Option<crate::types::Architecture> {
         self.inner.get_compatible_architecture()
     }
     /// <p>A runtime identifier.</p>
@@ -149,10 +144,7 @@ impl ListLayersFluentBuilder {
     /// <p>A runtime identifier.</p>
     /// <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
     /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
-    pub fn set_compatible_runtime(
-        mut self,
-        input: ::std::option::Option<crate::types::Runtime>,
-    ) -> Self {
+    pub fn set_compatible_runtime(mut self, input: ::std::option::Option<crate::types::Runtime>) -> Self {
         self.inner = self.inner.set_compatible_runtime(input);
         self
     }

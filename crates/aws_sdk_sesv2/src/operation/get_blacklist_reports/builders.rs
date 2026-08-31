@@ -57,9 +57,7 @@ impl GetBlacklistReportsFluentBuilder {
         }
     }
     /// Access the GetBlacklistReports as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_blacklist_reports::builders::GetBlacklistReportsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_blacklist_reports::builders::GetBlacklistReportsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,17 +81,12 @@ impl GetBlacklistReportsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::get_blacklist_reports::GetBlacklistReports::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::get_blacklist_reports::GetBlacklistReports::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::get_blacklist_reports::GetBlacklistReports::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::get_blacklist_reports::GetBlacklistReports::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -127,10 +120,7 @@ impl GetBlacklistReportsFluentBuilder {
     /// To override the contents of this collection use [`set_blacklist_item_names`](Self::set_blacklist_item_names).
     ///
     /// <p>A list of IP addresses that you want to retrieve blacklist information about. You can only specify the dedicated IP addresses that you use to send email using Amazon SES or Amazon Pinpoint.</p>
-    pub fn blacklist_item_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn blacklist_item_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.blacklist_item_names(input.into());
         self
     }
@@ -143,9 +133,7 @@ impl GetBlacklistReportsFluentBuilder {
         self
     }
     /// <p>A list of IP addresses that you want to retrieve blacklist information about. You can only specify the dedicated IP addresses that you use to send email using Amazon SES or Amazon Pinpoint.</p>
-    pub fn get_blacklist_item_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_blacklist_item_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_blacklist_item_names()
     }
 }

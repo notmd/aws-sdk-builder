@@ -13,8 +13,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListResourceEvaluationsError>`](crate::operation::list_resource_evaluations::ListResourceEvaluationsError)
     pub fn list_resource_evaluations(
         &self,
-    ) -> crate::operation::list_resource_evaluations::builders::ListResourceEvaluationsFluentBuilder
-    {
-        crate::operation::list_resource_evaluations::builders::ListResourceEvaluationsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::list_resource_evaluations::builders::ListResourceEvaluationsFluentBuilder {
+        crate::operation::list_resource_evaluations::builders::ListResourceEvaluationsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -27,9 +27,7 @@ impl SuppressionPeriod {
 }
 
 /// A builder for [`SuppressionPeriod`](crate::types::SuppressionPeriod).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SuppressionPeriodBuilder {
     pub(crate) value: ::std::option::Option<i32>,
@@ -56,10 +54,7 @@ impl SuppressionPeriodBuilder {
         self
     }
     /// <p>Specifies whether the value of <code>value</code> is in seconds, minutes, or hours.</p>
-    pub fn set_suppression_unit(
-        mut self,
-        input: ::std::option::Option<crate::types::SuppressionUnit>,
-    ) -> Self {
+    pub fn set_suppression_unit(mut self, input: ::std::option::Option<crate::types::SuppressionUnit>) -> Self {
         self.suppression_unit = input;
         self
     }

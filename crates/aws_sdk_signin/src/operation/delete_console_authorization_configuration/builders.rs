@@ -78,7 +78,7 @@ impl DeleteConsoleAuthorizationConfigurationFluentBuilder {
             crate::operation::delete_console_authorization_configuration::DeleteConsoleAuthorizationConfigurationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -100,7 +100,7 @@ impl DeleteConsoleAuthorizationConfigurationFluentBuilder {
         crate::operation::delete_console_authorization_configuration::DeleteConsoleAuthorizationConfigurationOutput,
         crate::operation::delete_console_authorization_configuration::DeleteConsoleAuthorizationConfigurationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(

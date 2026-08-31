@@ -28,9 +28,7 @@ impl ListKeysInput {
 }
 
 /// A builder for [`ListKeysInput`](crate::operation::list_keys::ListKeysInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListKeysInputBuilder {
     pub(crate) limit: ::std::option::Option<i32>,

@@ -41,38 +41,30 @@ impl DescribeComplianceByResourceInput {
 }
 impl DescribeComplianceByResourceInput {
     /// Creates a new builder-style object to manufacture [`DescribeComplianceByResourceInput`](crate::operation::describe_compliance_by_resource::DescribeComplianceByResourceInput).
-    pub fn builder() -> crate::operation::describe_compliance_by_resource::builders::DescribeComplianceByResourceInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::describe_compliance_by_resource::builders::DescribeComplianceByResourceInputBuilder {
         crate::operation::describe_compliance_by_resource::builders::DescribeComplianceByResourceInputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeComplianceByResourceInput`](crate::operation::describe_compliance_by_resource::DescribeComplianceByResourceInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeComplianceByResourceInputBuilder {
     pub(crate) resource_type: ::std::option::Option<::std::string::String>,
     pub(crate) resource_id: ::std::option::Option<::std::string::String>,
-    pub(crate) compliance_types:
-        ::std::option::Option<::std::vec::Vec<crate::types::ComplianceType>>,
+    pub(crate) compliance_types: ::std::option::Option<::std::vec::Vec<crate::types::ComplianceType>>,
     pub(crate) limit: ::std::option::Option<i32>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
 }
 impl DescribeComplianceByResourceInputBuilder {
     /// <p>The types of Amazon Web Services resources for which you want compliance information (for example, <code>AWS::EC2::Instance</code>). For this operation, you can specify that the resource type is an Amazon Web Services account by specifying <code>AWS::::Account</code>.</p>
-    pub fn resource_type(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.resource_type = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The types of Amazon Web Services resources for which you want compliance information (for example, <code>AWS::EC2::Instance</code>). For this operation, you can specify that the resource type is an Amazon Web Services account by specifying <code>AWS::::Account</code>.</p>
-    pub fn set_resource_type(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_resource_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.resource_type = input;
         self
     }
@@ -114,9 +106,7 @@ impl DescribeComplianceByResourceInputBuilder {
         self
     }
     /// <p>Filters the results by compliance.</p>
-    pub fn get_compliance_types(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ComplianceType>> {
+    pub fn get_compliance_types(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ComplianceType>> {
         &self.compliance_types
     }
     /// <p>The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, Config uses the default.</p>

@@ -288,73 +288,40 @@ pub use crate::types::error::_limit_exceeded_exception::LimitExceededExceptionBu
 #[cfg(feature = "op_create_custom_key_store")]
 pub use crate::types::error::_cloud_hsm_cluster_in_use_exception::CloudHsmClusterInUseExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub use crate::types::error::_cloud_hsm_cluster_not_found_exception::CloudHsmClusterNotFoundExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub use crate::types::error::_custom_key_store_name_in_use_exception::CustomKeyStoreNameInUseExceptionBuilder;
 
 #[cfg(feature = "op_create_custom_key_store")]
 pub use crate::types::error::_incorrect_trust_anchor_exception::IncorrectTrustAnchorExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub use crate::types::error::_xks_proxy_incorrect_authentication_credential_exception::XksProxyIncorrectAuthenticationCredentialExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub use crate::types::error::_xks_proxy_invalid_configuration_exception::XksProxyInvalidConfigurationExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub use crate::types::error::_xks_proxy_invalid_response_exception::XksProxyInvalidResponseExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub use crate::types::error::_xks_proxy_uri_endpoint_in_use_exception::XksProxyUriEndpointInUseExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub use crate::types::error::_xks_proxy_uri_in_use_exception::XksProxyUriInUseExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub use crate::types::error::_xks_proxy_uri_unreachable_exception::XksProxyUriUnreachableExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub use crate::types::error::_xks_proxy_vpc_endpoint_service_in_use_exception::XksProxyVpcEndpointServiceInUseExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub use crate::types::error::_xks_proxy_vpc_endpoint_service_invalid_configuration_exception::XksProxyVpcEndpointServiceInvalidConfigurationExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_create_custom_key_store",
-    feature = "op_update_custom_key_store"
-))]
+#[cfg(any(feature = "op_create_custom_key_store", feature = "op_update_custom_key_store"))]
 pub use crate::types::error::_xks_proxy_vpc_endpoint_service_not_found_exception::XksProxyVpcEndpointServiceNotFoundExceptionBuilder;
 
 #[cfg(any(
@@ -529,11 +496,7 @@ pub use crate::types::error::_incorrect_key_material_exception::IncorrectKeyMate
 #[cfg(feature = "op_import_key_material")]
 pub use crate::types::error::_invalid_import_token_exception::InvalidImportTokenExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_list_grants",
-    feature = "op_retire_grant",
-    feature = "op_revoke_grant"
-))]
+#[cfg(any(feature = "op_list_grants", feature = "op_retire_grant", feature = "op_revoke_grant"))]
 pub use crate::types::error::_invalid_grant_id_exception::InvalidGrantIdExceptionBuilder;
 
 #[cfg(feature = "op_rotate_key_on_demand")]

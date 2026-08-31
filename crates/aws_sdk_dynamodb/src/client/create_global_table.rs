@@ -11,8 +11,6 @@ impl super::Client {
     pub fn create_global_table(
         &self,
     ) -> crate::operation::create_global_table::builders::CreateGlobalTableFluentBuilder {
-        crate::operation::create_global_table::builders::CreateGlobalTableFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::create_global_table::builders::CreateGlobalTableFluentBuilder::new(self.handle.clone())
     }
 }

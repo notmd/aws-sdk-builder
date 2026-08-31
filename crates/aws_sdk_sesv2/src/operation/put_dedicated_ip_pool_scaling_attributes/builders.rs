@@ -78,7 +78,7 @@ impl PutDedicatedIpPoolScalingAttributesFluentBuilder {
             crate::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -89,7 +89,11 @@ impl PutDedicatedIpPoolScalingAttributesFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        crate::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributes::orchestrate(&runtime_plugins, input).await
+        crate::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributes::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,7 +103,7 @@ impl PutDedicatedIpPoolScalingAttributesFluentBuilder {
         crate::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesOutput,
         crate::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -141,10 +145,7 @@ impl PutDedicatedIpPoolScalingAttributesFluentBuilder {
     /// <p>The scaling mode to apply to the dedicated IP pool.</p><note>
     /// <p>Changing the scaling mode from <code>MANAGED</code> to <code>STANDARD</code> is not supported.</p>
     /// </note>
-    pub fn set_scaling_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::ScalingMode>,
-    ) -> Self {
+    pub fn set_scaling_mode(mut self, input: ::std::option::Option<crate::types::ScalingMode>) -> Self {
         self.inner = self.inner.set_scaling_mode(input);
         self
     }

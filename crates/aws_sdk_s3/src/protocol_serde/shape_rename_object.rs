@@ -9,14 +9,10 @@ pub fn de_rename_object_http_error(
     crate::operation::rename_object::RenameObjectError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::rename_object::RenameObjectError::unhandled)?;
-    generic_builder =
-        crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::rename_object::RenameObjectError::unhandled)?;
+    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
@@ -31,9 +27,7 @@ pub fn de_rename_object_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::IdempotencyParameterMismatchBuilder::default(
-                        );
+                    let mut output = crate::types::error::builders::IdempotencyParameterMismatchBuilder::default();
                     output =
                     crate::protocol_serde::shape_idempotency_parameter_mismatch::de_idempotency_parameter_mismatch_xml_err(_response_body, output)
                         .map_err(crate::operation::rename_object::RenameObjectError::unhandled)?;
@@ -61,15 +55,11 @@ pub fn de_rename_object_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::rename_object::builders::RenameObjectOutputBuilder::default();
+        let mut output = crate::operation::rename_object::builders::RenameObjectOutputBuilder::default();
         output._set_extended_request_id(
-            crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers)
-                .map(str::to_string),
+            crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string),
         );
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -77,20 +67,14 @@ pub fn de_rename_object_http_response(
 pub fn ser_rename_object_headers(
     input: &crate::operation::rename_object::RenameObjectInput,
     mut builder: ::http_1x::request::Builder,
-) -> std::result::Result<
-    ::http_1x::request::Builder,
-    ::aws_smithy_types::error::operation::BuildError,
-> {
+) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.rename_source {
         let formatted_2 = inner_1.as_str();
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "rename_source",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-rename-source", header_value);
@@ -101,10 +85,7 @@ pub fn ser_rename_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "destination_if_match",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("If-Match", header_value);
@@ -115,10 +96,7 @@ pub fn ser_rename_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "destination_if_none_match",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("If-None-Match", header_value);
@@ -129,10 +107,7 @@ pub fn ser_rename_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "destination_if_modified_since",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("If-Modified-Since", header_value);
@@ -143,10 +118,7 @@ pub fn ser_rename_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "destination_if_unmodified_since",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("If-Unmodified-Since", header_value);
@@ -157,10 +129,7 @@ pub fn ser_rename_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "source_if_match",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-rename-source-if-match", header_value);
@@ -171,10 +140,7 @@ pub fn ser_rename_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "source_if_none_match",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-rename-source-if-none-match", header_value);
@@ -185,10 +151,7 @@ pub fn ser_rename_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "source_if_modified_since",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-rename-source-if-modified-since", header_value);
@@ -199,10 +162,7 @@ pub fn ser_rename_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "source_if_unmodified_since",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-rename-source-if-unmodified-since", header_value);
@@ -213,10 +173,7 @@ pub fn ser_rename_object_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "client_token",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-client-token", header_value);

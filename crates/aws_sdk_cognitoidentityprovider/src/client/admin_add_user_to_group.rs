@@ -11,8 +11,6 @@ impl super::Client {
     pub fn admin_add_user_to_group(
         &self,
     ) -> crate::operation::admin_add_user_to_group::builders::AdminAddUserToGroupFluentBuilder {
-        crate::operation::admin_add_user_to_group::builders::AdminAddUserToGroupFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::admin_add_user_to_group::builders::AdminAddUserToGroupFluentBuilder::new(self.handle.clone())
     }
 }

@@ -57,7 +57,9 @@ impl DescribeContributorInsightsFluentBuilder {
         }
     }
     /// Access the DescribeContributorInsights as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_contributor_insights::builders::DescribeContributorInsightsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_contributor_insights::builders::DescribeContributorInsightsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,11 +83,12 @@ impl DescribeContributorInsightsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::describe_contributor_insights::DescribeContributorInsights::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::describe_contributor_insights::DescribeContributorInsights::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::describe_contributor_insights::DescribeContributorInsights::orchestrate(
             &runtime_plugins,
             input,

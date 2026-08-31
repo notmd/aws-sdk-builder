@@ -10,8 +10,6 @@ impl super::Client {
     pub fn update_key_description(
         &self,
     ) -> crate::operation::update_key_description::builders::UpdateKeyDescriptionFluentBuilder {
-        crate::operation::update_key_description::builders::UpdateKeyDescriptionFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::update_key_description::builders::UpdateKeyDescriptionFluentBuilder::new(self.handle.clone())
     }
 }

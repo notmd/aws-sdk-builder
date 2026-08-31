@@ -139,12 +139,11 @@ impl DeleteObjectFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::delete_object::DeleteObject::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::delete_object::DeleteObject::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::delete_object::DeleteObject::orchestrate(&runtime_plugins, input).await
     }
 
@@ -196,36 +195,32 @@ impl DeleteObjectFluentBuilder {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
-        let runtime_plugins =
-            crate::operation::delete_object::DeleteObject::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            )
-            .with_client_plugin(
-                crate::presigning_interceptors::SigV4PresigningRuntimePlugin::new(
-                    presigning_config,
-                    ::aws_sigv4::http_request::SignableBody::UnsignedPayload,
-                ),
-            );
+        let runtime_plugins = crate::operation::delete_object::DeleteObject::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        )
+        .with_client_plugin(crate::presigning_interceptors::SigV4PresigningRuntimePlugin::new(
+            presigning_config,
+            ::aws_sigv4::http_request::SignableBody::UnsignedPayload,
+        ));
 
         let input = self
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let mut context =
-            crate::operation::delete_object::DeleteObject::orchestrate_with_stop_point(
-                &runtime_plugins,
-                input,
-                ::aws_smithy_runtime::client::orchestrator::StopPoint::BeforeTransmit,
-            )
-            .await
-            .map_err(|err| {
-                err.map_service_error(|err| {
-                    err.downcast::<crate::operation::delete_object::DeleteObjectError>()
-                        .expect("correct error type")
-                })
-            })?;
+        let mut context = crate::operation::delete_object::DeleteObject::orchestrate_with_stop_point(
+            &runtime_plugins,
+            input,
+            ::aws_smithy_runtime::client::orchestrator::StopPoint::BeforeTransmit,
+        )
+        .await
+        .map_err(|err| {
+            err.map_service_error(|err| {
+                err.downcast::<crate::operation::delete_object::DeleteObjectError>()
+                    .expect("correct error type")
+            })
+        })?;
         let request = context.take_request().expect("request set before transmit");
         crate::presigning::PresignedRequest::new(request)
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)
@@ -323,10 +318,7 @@ impl DeleteObjectFluentBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(
-        mut self,
-        input: ::std::option::Option<crate::types::RequestPayer>,
-    ) -> Self {
+    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
         self.inner = self.inner.set_request_payer(input);
         self
     }
@@ -357,18 +349,12 @@ impl DeleteObjectFluentBuilder {
         self.inner.get_bypass_governance_retention()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }
@@ -416,9 +402,7 @@ impl DeleteObjectFluentBuilder {
     /// <p>If present, the object is deleted only if its modification times matches the provided <code>Timestamp</code>. If the <code>Timestamp</code> values do not match, the operation returns a <code>412 Precondition Failed</code> error. If the <code>Timestamp</code> matches or if the object doesn’t exist, the operation returns a <code>204 Success (No Content)</code> response.</p><note>
     /// <p>This functionality is only supported for directory buckets.</p>
     /// </note>
-    pub fn get_if_match_last_modified_time(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_if_match_last_modified_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         self.inner.get_if_match_last_modified_time()
     }
     /// <p>If present, the object is deleted only if its size matches the provided size in bytes. If the <code>Size</code> value does not match, the operation returns a <code>412 Precondition Failed</code> error. If the <code>Size</code> matches or if the object doesn’t exist, the operation returns a <code>204 Success (No Content)</code> response.</p><note>
@@ -449,10 +433,8 @@ impl DeleteObjectFluentBuilder {
     }
 }
 
-impl
-    crate::client::customize::internal::CustomizablePresigned<
-        crate::operation::delete_object::DeleteObjectError,
-    > for DeleteObjectFluentBuilder
+impl crate::client::customize::internal::CustomizablePresigned<crate::operation::delete_object::DeleteObjectError>
+    for DeleteObjectFluentBuilder
 {
     fn presign(
         self,
@@ -464,10 +446,6 @@ impl
             crate::operation::delete_object::DeleteObjectError,
         >,
     > {
-        ::std::boxed::Box::pin(async move {
-            self.config_override(config_override)
-                .presigned(presigning_config)
-                .await
-        })
+        ::std::boxed::Box::pin(async move { self.config_override(config_override).presigned(presigning_config).await })
     }
 }

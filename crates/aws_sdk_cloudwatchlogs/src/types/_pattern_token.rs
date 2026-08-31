@@ -12,8 +12,7 @@ pub struct PatternToken {
     /// <p>The string represented by this token. If this is a dynamic token, the value will be <code>&lt;*&gt;</code></p>
     pub token_string: ::std::option::Option<::std::string::String>,
     /// <p>Contains the values found for a dynamic token, and the number of times each value was found.</p>
-    pub enumerations:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, i64>>,
+    pub enumerations: ::std::option::Option<::std::collections::HashMap<::std::string::String, i64>>,
     /// <p>A name that CloudWatch Logs assigned to this dynamic token to make the pattern more readable. The string part of the <code>inferredTokenName</code> gives you a clearer idea of the content of this token. The number part of the <code>inferredTokenName</code> shows where in the pattern this token appears, compared to other dynamic tokens. CloudWatch Logs assigns the string part of the name based on analyzing the content of the log events that contain it.</p>
     /// <p>For example, an inferred token name of <code>IPAddress-3</code> means that the token represents an IP address, and this token is the third dynamic token in the pattern.</p>
     pub inferred_token_name: ::std::option::Option<::std::string::String>,
@@ -32,9 +31,7 @@ impl PatternToken {
         self.token_string.as_deref()
     }
     /// <p>Contains the values found for a dynamic token, and the number of times each value was found.</p>
-    pub fn enumerations(
-        &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, i64>> {
+    pub fn enumerations(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, i64>> {
         self.enumerations.as_ref()
     }
     /// <p>A name that CloudWatch Logs assigned to this dynamic token to make the pattern more readable. The string part of the <code>inferredTokenName</code> gives you a clearer idea of the content of this token. The number part of the <code>inferredTokenName</code> shows where in the pattern this token appears, compared to other dynamic tokens. CloudWatch Logs assigns the string part of the name based on analyzing the content of the log events that contain it.</p>
@@ -51,16 +48,13 @@ impl PatternToken {
 }
 
 /// A builder for [`PatternToken`](crate::types::PatternToken).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PatternTokenBuilder {
     pub(crate) dynamic_token_position: ::std::option::Option<i32>,
     pub(crate) is_dynamic: ::std::option::Option<bool>,
     pub(crate) token_string: ::std::option::Option<::std::string::String>,
-    pub(crate) enumerations:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, i64>>,
+    pub(crate) enumerations: ::std::option::Option<::std::collections::HashMap<::std::string::String, i64>>,
     pub(crate) inferred_token_name: ::std::option::Option<::std::string::String>,
 }
 impl PatternTokenBuilder {
@@ -111,11 +105,7 @@ impl PatternTokenBuilder {
     /// To override the contents of this collection use [`set_enumerations`](Self::set_enumerations).
     ///
     /// <p>Contains the values found for a dynamic token, and the number of times each value was found.</p>
-    pub fn enumerations(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: i64,
-    ) -> Self {
+    pub fn enumerations(mut self, k: impl ::std::convert::Into<::std::string::String>, v: i64) -> Self {
         let mut hash_map = self.enumerations.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.enumerations = ::std::option::Option::Some(hash_map);
@@ -130,26 +120,18 @@ impl PatternTokenBuilder {
         self
     }
     /// <p>Contains the values found for a dynamic token, and the number of times each value was found.</p>
-    pub fn get_enumerations(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, i64>> {
+    pub fn get_enumerations(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, i64>> {
         &self.enumerations
     }
     /// <p>A name that CloudWatch Logs assigned to this dynamic token to make the pattern more readable. The string part of the <code>inferredTokenName</code> gives you a clearer idea of the content of this token. The number part of the <code>inferredTokenName</code> shows where in the pattern this token appears, compared to other dynamic tokens. CloudWatch Logs assigns the string part of the name based on analyzing the content of the log events that contain it.</p>
     /// <p>For example, an inferred token name of <code>IPAddress-3</code> means that the token represents an IP address, and this token is the third dynamic token in the pattern.</p>
-    pub fn inferred_token_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn inferred_token_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inferred_token_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A name that CloudWatch Logs assigned to this dynamic token to make the pattern more readable. The string part of the <code>inferredTokenName</code> gives you a clearer idea of the content of this token. The number part of the <code>inferredTokenName</code> shows where in the pattern this token appears, compared to other dynamic tokens. CloudWatch Logs assigns the string part of the name based on analyzing the content of the log events that contain it.</p>
     /// <p>For example, an inferred token name of <code>IPAddress-3</code> means that the token represents an IP address, and this token is the third dynamic token in the pattern.</p>
-    pub fn set_inferred_token_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_inferred_token_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inferred_token_name = input;
         self
     }

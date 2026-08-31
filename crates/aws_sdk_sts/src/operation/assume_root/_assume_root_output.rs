@@ -67,10 +67,7 @@ impl AssumeRootOutputBuilder {
     /// <p>The temporary security credentials, which include an access key ID, a secret access key, and a security token.</p><note>
     /// <p>The size of the security token that STS API operations return is not fixed. We strongly recommend that you make no assumptions about the maximum size.</p>
     /// </note>
-    pub fn set_credentials(
-        mut self,
-        input: ::std::option::Option<crate::types::Credentials>,
-    ) -> Self {
+    pub fn set_credentials(mut self, input: ::std::option::Option<crate::types::Credentials>) -> Self {
         self.credentials = input;
         self
     }
@@ -83,20 +80,14 @@ impl AssumeRootOutputBuilder {
     /// <p>The source identity specified by the principal that is calling the <code>AssumeRoot</code> operation.</p>
     /// <p>You can use the <code>aws:SourceIdentity</code> condition key to control access based on the value of source identity. For more information about using source identity, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">Monitor and control actions taken with assumed roles</a> in the <i>IAM User Guide</i>.</p>
     /// <p>The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-</p>
-    pub fn source_identity(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn source_identity(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.source_identity = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The source identity specified by the principal that is calling the <code>AssumeRoot</code> operation.</p>
     /// <p>You can use the <code>aws:SourceIdentity</code> condition key to control access based on the value of source identity. For more information about using source identity, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">Monitor and control actions taken with assumed roles</a> in the <i>IAM User Guide</i>.</p>
     /// <p>The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-</p>
-    pub fn set_source_identity(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_source_identity(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.source_identity = input;
         self
     }

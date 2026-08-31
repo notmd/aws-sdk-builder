@@ -30,23 +30,17 @@ impl ::aws_types::request_id::RequestId for BatchExecuteStatementOutput {
 }
 impl BatchExecuteStatementOutput {
     /// Creates a new builder-style object to manufacture [`BatchExecuteStatementOutput`](crate::operation::batch_execute_statement::BatchExecuteStatementOutput).
-    pub fn builder(
-    ) -> crate::operation::batch_execute_statement::builders::BatchExecuteStatementOutputBuilder
-    {
+    pub fn builder() -> crate::operation::batch_execute_statement::builders::BatchExecuteStatementOutputBuilder {
         crate::operation::batch_execute_statement::builders::BatchExecuteStatementOutputBuilder::default()
     }
 }
 
 /// A builder for [`BatchExecuteStatementOutput`](crate::operation::batch_execute_statement::BatchExecuteStatementOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct BatchExecuteStatementOutputBuilder {
-    pub(crate) responses:
-        ::std::option::Option<::std::vec::Vec<crate::types::BatchStatementResponse>>,
-    pub(crate) consumed_capacity:
-        ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>,
+    pub(crate) responses: ::std::option::Option<::std::vec::Vec<crate::types::BatchStatementResponse>>,
+    pub(crate) consumed_capacity: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>,
     _request_id: Option<String>,
 }
 impl BatchExecuteStatementOutputBuilder {
@@ -70,9 +64,7 @@ impl BatchExecuteStatementOutputBuilder {
         self
     }
     /// <p>The response to each PartiQL statement in the batch. The values of the list are ordered according to the ordering of the request statements.</p>
-    pub fn get_responses(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchStatementResponse>> {
+    pub fn get_responses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchStatementResponse>> {
         &self.responses
     }
     /// Appends an item to `consumed_capacity`.
@@ -95,9 +87,7 @@ impl BatchExecuteStatementOutputBuilder {
         self
     }
     /// <p>The capacity units consumed by the entire operation. The values of the list are ordered according to the ordering of the statements.</p>
-    pub fn get_consumed_capacity(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>> {
+    pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>> {
         &self.consumed_capacity
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

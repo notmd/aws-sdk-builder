@@ -4,9 +4,7 @@ pub fn ser_get_organization_conformance_pack_detailed_status_input_input(
     input: &crate::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     if let Some(var_1) = &input.organization_conformance_pack_name {
-        object
-            .key("OrganizationConformancePackName")
-            .string(var_1.as_str());
+        object.key("OrganizationConformancePackName").string(var_1.as_str());
     }
     if let Some(var_2) = &input.filters {
         #[allow(unused_mut)]

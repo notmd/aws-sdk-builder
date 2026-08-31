@@ -11,16 +11,14 @@ use std::fmt;
 use aws_runtime::{
     auth::PayloadSigningOverride,
     content_encoding::{
-        header::X_AMZ_TRAILER_SIGNATURE, header_value::AWS_CHUNKED, AwsChunkedBody,
-        AwsChunkedBodyOptions, DeferredSigner,
+        header::X_AMZ_TRAILER_SIGNATURE, header_value::AWS_CHUNKED, AwsChunkedBody, AwsChunkedBodyOptions,
+        DeferredSigner,
     },
 };
 use aws_smithy_runtime_api::{
     box_error::BoxError,
     client::{
-        interceptors::{
-            context::BeforeTransmitInterceptorContextMut, dyn_dispatch_hint, Intercept,
-        },
+        interceptors::{context::BeforeTransmitInterceptorContextMut, dyn_dispatch_hint, Intercept},
         runtime_components::RuntimeComponents,
         runtime_plugin::RuntimePlugin,
     },
@@ -82,14 +80,10 @@ enum Error {
 impl fmt::Display for Error {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
-            Self::UnsizedRequestBody => write!(
-                f,
-                "Only request bodies with a known size can be aws-chunked encoded."
-            ),
-            Self::ChunkSizeTooSmall { min, actual } => write!(
-                f,
-                "Chunk size must be at least {min} bytes, but {actual} was provided."
-            ),
+            Self::UnsizedRequestBody => write!(f, "Only request bodies with a known size can be aws-chunked encoded."),
+            Self::ChunkSizeTooSmall { min, actual } => {
+                write!(f, "Chunk size must be at least {min} bytes, but {actual} was provided.")
+            }
         }
     }
 }
@@ -112,9 +106,7 @@ impl Intercept for AwsChunkedContentEncodingInterceptor {
         cfg: &mut ConfigBag,
     ) -> Result<(), BoxError> {
         if must_not_use_chunked_encoding(context.request(), cfg) {
-            tracing::debug!(
-                "short-circuiting modify_before_signing because chunked encoding must not be used"
-            );
+            tracing::debug!("short-circuiting modify_before_signing because chunked encoding must not be used");
             return Ok(());
         }
 
@@ -132,8 +124,7 @@ impl Intercept for AwsChunkedContentEncodingInterceptor {
 
         let sign_during_encoding = context.request().uri().starts_with("http:");
         let chunked_body_options =
-            create_chunked_body_options(sign_during_encoding, original_body_size, cfg)
-                .map_err(BuildError::other)?;
+            create_chunked_body_options(sign_during_encoding, original_body_size, cfg).map_err(BuildError::other)?;
 
         let request = context.request_mut();
         // For for aws-chunked encoding, `x-amz-decoded-content-length` must be set to the original body size.
@@ -180,9 +171,7 @@ impl Intercept for AwsChunkedContentEncodingInterceptor {
         cfg: &mut ConfigBag,
     ) -> Result<(), BoxError> {
         if must_not_use_chunked_encoding(ctx.request(), cfg) {
-            tracing::debug!(
-                "short-circuiting modify_before_transmit because chunked encoding must not be used"
-            );
+            tracing::debug!("short-circuiting modify_before_transmit because chunked encoding must not be used");
             return Ok(());
         }
 
@@ -192,9 +181,7 @@ impl Intercept for AwsChunkedContentEncodingInterceptor {
             let body = std::mem::replace(request.body_mut(), SdkBody::taken());
             let opt = cfg
                 .get_mut_from_interceptor_state::<AwsChunkedBodyOptions>()
-                .ok_or_else(|| {
-                    BuildError::other("AwsChunkedBodyOptions missing from config bag")
-                })?;
+                .ok_or_else(|| BuildError::other("AwsChunkedBodyOptions missing from config bag"))?;
             let aws_chunked_body_options = std::mem::take(opt);
             let signer = cfg
                 .get_mut_from_interceptor_state::<DeferredSigner>()
@@ -233,14 +220,13 @@ fn create_chunked_body_options(
     original_body_size: u64,
     cfg: &mut ConfigBag,
 ) -> Result<AwsChunkedBodyOptions, Error> {
-    let mut chunked_body_options = if let Some(chunked_body_options) =
-        cfg.get_mut_from_interceptor_state::<AwsChunkedBodyOptions>()
-    {
-        let chunked_body_options = std::mem::take(chunked_body_options);
-        chunked_body_options.with_stream_length(original_body_size)
-    } else {
-        AwsChunkedBodyOptions::default().with_stream_length(original_body_size)
-    };
+    let mut chunked_body_options =
+        if let Some(chunked_body_options) = cfg.get_mut_from_interceptor_state::<AwsChunkedBodyOptions>() {
+            let chunked_body_options = std::mem::take(chunked_body_options);
+            chunked_body_options.with_stream_length(original_body_size)
+        } else {
+            AwsChunkedBodyOptions::default().with_stream_length(original_body_size)
+        };
 
     // Check if user specified a ChunkSize via .customize().chunk_size()
     if let Some(user_chunk_size) = cfg.load::<ChunkSize>() {
@@ -249,8 +235,7 @@ fn create_chunked_body_options(
                 chunked_body_options = chunked_body_options.with_chunk_size(*size);
             }
             ChunkSize::DisableChunking => {
-                chunked_body_options =
-                    chunked_body_options.with_chunk_size(original_body_size as usize);
+                chunked_body_options = chunked_body_options.with_chunk_size(original_body_size as usize);
             }
         }
     }
@@ -268,10 +253,8 @@ fn create_chunked_body_options(
 
     let chunked_body_options = if sign_during_encoding && !chunked_body_options.is_trailer_empty() {
         // When signing during aws-chunked encoding, append the length for the trailer signature.
-        chunked_body_options.with_trailer_len(
-            (X_AMZ_TRAILER_SIGNATURE.len() + TRAILER_SEPARATOR.len() + SIGNATURE_VALUE_LENGTH)
-                as u64,
-        )
+        chunked_body_options
+            .with_trailer_len((X_AMZ_TRAILER_SIGNATURE.len() + TRAILER_SEPARATOR.len() + SIGNATURE_VALUE_LENGTH) as u64)
     } else {
         chunked_body_options
     };
@@ -385,9 +368,7 @@ mod tests {
         let mut ctx = InterceptorContext::new(Input::doesnt_matter());
         ctx.enter_serialization_phase();
         let _ = ctx.take_input();
-        let request = HttpRequest::new(SdkBody::from(
-            "in-memory body, must not use chunked encoding",
-        ));
+        let request = HttpRequest::new(SdkBody::from("in-memory body, must not use chunked encoding"));
         ctx.set_request(request);
         ctx.enter_before_transmit_phase();
         let mut ctx: BeforeTransmitInterceptorContextMut<'_> = (&mut ctx).into();
@@ -395,8 +376,7 @@ mod tests {
         let runtime_components = RuntimeComponentsBuilder::for_tests().build().unwrap();
 
         let mut cfg = ConfigBag::base();
-        cfg.interceptor_state()
-            .store_put(AwsChunkedBodyOptions::default());
+        cfg.interceptor_state().store_put(AwsChunkedBodyOptions::default());
 
         let interceptor = AwsChunkedContentEncodingInterceptor;
         interceptor
@@ -407,9 +387,7 @@ mod tests {
         assert!(request.headers().get(header::CONTENT_ENCODING).is_none());
         assert!(request
             .headers()
-            .get(header::HeaderName::from_static(
-                X_AMZ_DECODED_CONTENT_LENGTH
-            ))
+            .get(header::HeaderName::from_static(X_AMZ_DECODED_CONTENT_LENGTH))
             .is_none());
     }
 
@@ -418,9 +396,7 @@ mod tests {
         let mut ctx = InterceptorContext::new(Input::doesnt_matter());
         ctx.enter_serialization_phase();
         let _ = ctx.take_input();
-        let request = HttpRequest::new(SdkBody::from(
-            "in-memory body, must not use chunked encoding",
-        ));
+        let request = HttpRequest::new(SdkBody::from("in-memory body, must not use chunked encoding"));
         ctx.set_request(request);
         ctx.enter_before_transmit_phase();
         let mut ctx: BeforeTransmitInterceptorContextMut<'_> = (&mut ctx).into();
@@ -429,8 +405,7 @@ mod tests {
 
         let mut cfg = ConfigBag::base();
         // Don't need to set the stream length properly because we expect the body won't be wrapped by `AwsChunkedBody`.
-        cfg.interceptor_state()
-            .store_put(AwsChunkedBodyOptions::default());
+        cfg.interceptor_state().store_put(AwsChunkedBodyOptions::default());
 
         let interceptor = AwsChunkedContentEncodingInterceptor;
         interceptor
@@ -461,12 +436,7 @@ mod tests {
 
     async fn streaming_body(path: impl AsRef<std::path::Path>) -> SdkBody {
         let file = path.as_ref();
-        ByteStream::read_from()
-            .path(&file)
-            .build()
-            .await
-            .unwrap()
-            .into_inner()
+        ByteStream::read_from().path(&file).build().await.unwrap().into_inner()
     }
 
     #[tokio::test]

@@ -88,15 +88,15 @@ impl UpdateFunctionEventInvokeConfigInput {
 }
 impl UpdateFunctionEventInvokeConfigInput {
     /// Creates a new builder-style object to manufacture [`UpdateFunctionEventInvokeConfigInput`](crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigInput).
-    pub fn builder() -> crate::operation::update_function_event_invoke_config::builders::UpdateFunctionEventInvokeConfigInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::update_function_event_invoke_config::builders::UpdateFunctionEventInvokeConfigInputBuilder
+    {
         crate::operation::update_function_event_invoke_config::builders::UpdateFunctionEventInvokeConfigInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateFunctionEventInvokeConfigInput`](crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateFunctionEventInvokeConfigInputBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -118,10 +118,7 @@ impl UpdateFunctionEventInvokeConfigInputBuilder {
     /// </ul>
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     /// This field is required.
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
@@ -136,10 +133,7 @@ impl UpdateFunctionEventInvokeConfigInputBuilder {
     /// <p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
     }
@@ -235,10 +229,7 @@ impl UpdateFunctionEventInvokeConfigInputBuilder {
     /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
-    pub fn set_destination_config(
-        mut self,
-        input: ::std::option::Option<crate::types::DestinationConfig>,
-    ) -> Self {
+    pub fn set_destination_config(mut self, input: ::std::option::Option<crate::types::DestinationConfig>) -> Self {
         self.destination_config = input;
         self
     }
@@ -258,9 +249,7 @@ impl UpdateFunctionEventInvokeConfigInputBuilder {
     /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
-    pub fn get_destination_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::DestinationConfig> {
+    pub fn get_destination_config(&self) -> &::std::option::Option<crate::types::DestinationConfig> {
         &self.destination_config
     }
     /// Consumes the builder and constructs a [`UpdateFunctionEventInvokeConfigInput`](crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigInput).

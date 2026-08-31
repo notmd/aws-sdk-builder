@@ -3,7 +3,9 @@ pub use crate::operation::get_conformance_pack_compliance_details::_get_conforma
 
 pub use crate::operation::get_conformance_pack_compliance_details::_get_conformance_pack_compliance_details_output::GetConformancePackComplianceDetailsOutputBuilder;
 
-impl crate::operation::get_conformance_pack_compliance_details::builders::GetConformancePackComplianceDetailsInputBuilder {
+impl
+    crate::operation::get_conformance_pack_compliance_details::builders::GetConformancePackComplianceDetailsInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -76,7 +78,7 @@ impl GetConformancePackComplianceDetailsFluentBuilder {
             crate::operation::get_conformance_pack_compliance_details::GetConformancePackComplianceDetailsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -87,7 +89,11 @@ impl GetConformancePackComplianceDetailsFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        crate::operation::get_conformance_pack_compliance_details::GetConformancePackComplianceDetails::orchestrate(&runtime_plugins, input).await
+        crate::operation::get_conformance_pack_compliance_details::GetConformancePackComplianceDetails::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -97,7 +103,7 @@ impl GetConformancePackComplianceDetailsFluentBuilder {
         crate::operation::get_conformance_pack_compliance_details::GetConformancePackComplianceDetailsOutput,
         crate::operation::get_conformance_pack_compliance_details::GetConformancePackComplianceDetailsError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -127,18 +133,12 @@ impl GetConformancePackComplianceDetailsFluentBuilder {
         )
     }
     /// <p>Name of the conformance pack.</p>
-    pub fn conformance_pack_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn conformance_pack_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.conformance_pack_name(input.into());
         self
     }
     /// <p>Name of the conformance pack.</p>
-    pub fn set_conformance_pack_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_conformance_pack_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_conformance_pack_name(input);
         self
     }
@@ -152,17 +152,12 @@ impl GetConformancePackComplianceDetailsFluentBuilder {
         self
     }
     /// <p>A <code>ConformancePackEvaluationFilters</code> object.</p>
-    pub fn set_filters(
-        mut self,
-        input: ::std::option::Option<crate::types::ConformancePackEvaluationFilters>,
-    ) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<crate::types::ConformancePackEvaluationFilters>) -> Self {
         self.inner = self.inner.set_filters(input);
         self
     }
     /// <p>A <code>ConformancePackEvaluationFilters</code> object.</p>
-    pub fn get_filters(
-        &self,
-    ) -> &::std::option::Option<crate::types::ConformancePackEvaluationFilters> {
+    pub fn get_filters(&self) -> &::std::option::Option<crate::types::ConformancePackEvaluationFilters> {
         self.inner.get_filters()
     }
     /// <p>The maximum number of evaluation results returned on each page. If you do no specify a number, Config uses the default. The default is 100.</p>

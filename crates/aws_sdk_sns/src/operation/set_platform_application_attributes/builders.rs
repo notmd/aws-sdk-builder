@@ -26,7 +26,8 @@ impl crate::operation::set_platform_application_attributes::builders::SetPlatfor
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct SetPlatformApplicationAttributesFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::set_platform_application_attributes::builders::SetPlatformApplicationAttributesInputBuilder,
+    inner:
+        crate::operation::set_platform_application_attributes::builders::SetPlatformApplicationAttributesInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -57,7 +58,10 @@ impl SetPlatformApplicationAttributesFluentBuilder {
         }
     }
     /// Access the SetPlatformApplicationAttributes as a reference.
-    pub fn as_input(&self) -> &crate::operation::set_platform_application_attributes::builders::SetPlatformApplicationAttributesInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::set_platform_application_attributes::builders::SetPlatformApplicationAttributesInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +80,7 @@ impl SetPlatformApplicationAttributesFluentBuilder {
             crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +90,11 @@ impl SetPlatformApplicationAttributesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributes::orchestrate(&runtime_plugins, input).await
+        crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributes::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +104,7 @@ impl SetPlatformApplicationAttributesFluentBuilder {
         crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesOutput,
         crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -115,18 +123,12 @@ impl SetPlatformApplicationAttributesFluentBuilder {
         self
     }
     /// <p><code>PlatformApplicationArn</code> for <code>SetPlatformApplicationAttributes</code> action.</p>
-    pub fn platform_application_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn platform_application_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.platform_application_arn(input.into());
         self
     }
     /// <p><code>PlatformApplicationArn</code> for <code>SetPlatformApplicationAttributes</code> action.</p>
-    pub fn set_platform_application_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_platform_application_arn(input);
         self
     }
@@ -257,9 +259,7 @@ impl SetPlatformApplicationAttributesFluentBuilder {
     /// </ul>
     pub fn set_attributes(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_attributes(input);
         self
@@ -320,9 +320,7 @@ impl SetPlatformApplicationAttributesFluentBuilder {
     /// </ul>
     pub fn get_attributes(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_attributes()
     }
 }

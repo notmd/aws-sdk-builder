@@ -14,15 +14,14 @@ impl GetResourceEvaluationSummaryInput {
 }
 impl GetResourceEvaluationSummaryInput {
     /// Creates a new builder-style object to manufacture [`GetResourceEvaluationSummaryInput`](crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryInput).
-    pub fn builder() -> crate::operation::get_resource_evaluation_summary::builders::GetResourceEvaluationSummaryInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::get_resource_evaluation_summary::builders::GetResourceEvaluationSummaryInputBuilder {
         crate::operation::get_resource_evaluation_summary::builders::GetResourceEvaluationSummaryInputBuilder::default()
     }
 }
 
 /// A builder for [`GetResourceEvaluationSummaryInput`](crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetResourceEvaluationSummaryInputBuilder {
     pub(crate) resource_evaluation_id: ::std::option::Option<::std::string::String>,
@@ -30,18 +29,12 @@ pub struct GetResourceEvaluationSummaryInputBuilder {
 impl GetResourceEvaluationSummaryInputBuilder {
     /// <p>The unique <code>ResourceEvaluationId</code> of Amazon Web Services resource execution for which you want to retrieve the evaluation summary.</p>
     /// This field is required.
-    pub fn resource_evaluation_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_evaluation_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.resource_evaluation_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique <code>ResourceEvaluationId</code> of Amazon Web Services resource execution for which you want to retrieve the evaluation summary.</p>
-    pub fn set_resource_evaluation_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_resource_evaluation_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.resource_evaluation_id = input;
         self
     }

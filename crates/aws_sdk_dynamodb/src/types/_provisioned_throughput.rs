@@ -32,9 +32,7 @@ impl ProvisionedThroughput {
 }
 
 /// A builder for [`ProvisionedThroughput`](crate::types::ProvisionedThroughput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ProvisionedThroughputBuilder {
     pub(crate) read_capacity_units: ::std::option::Option<i64>,
@@ -83,10 +81,8 @@ impl ProvisionedThroughputBuilder {
     /// - [`write_capacity_units`](crate::types::builders::ProvisionedThroughputBuilder::write_capacity_units)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::ProvisionedThroughput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::ProvisionedThroughput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::ProvisionedThroughput {
             read_capacity_units: self.read_capacity_units.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -7,9 +7,7 @@ pub fn ser_send_message_batch_request_entry(
         object.key("Id").string(input.id.as_str());
     }
     {
-        object
-            .key("MessageBody")
-            .string(input.message_body.as_str());
+        object.key("MessageBody").string(input.message_body.as_str());
     }
     if let Some(var_1) = &input.delay_seconds {
         object.key("DelaySeconds").number(
@@ -40,7 +38,10 @@ pub fn ser_send_message_batch_request_entry(
             {
                 #[allow(unused_mut)]
                 let mut object_11 = object_8.key(key_9.as_str()).start_object();
-                crate::protocol_serde::shape_message_system_attribute_value::ser_message_system_attribute_value(&mut object_11, value_10)?;
+                crate::protocol_serde::shape_message_system_attribute_value::ser_message_system_attribute_value(
+                    &mut object_11,
+                    value_10,
+                )?;
                 object_11.finish();
             }
         }

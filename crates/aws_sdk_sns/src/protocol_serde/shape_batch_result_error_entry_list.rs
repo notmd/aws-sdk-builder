@@ -2,10 +2,8 @@
 pub fn de_batch_result_error_entry_list(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<
-    ::std::vec::Vec<crate::types::BatchResultErrorEntry>,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<::std::vec::Vec<crate::types::BatchResultErrorEntry>, ::aws_smithy_xml::decode::XmlDecodeError>
+{
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
             "maximum nesting depth exceeded",

@@ -20,16 +20,13 @@ impl ::aws_types::request_id::RequestId for StopDurableExecutionOutput {
 }
 impl StopDurableExecutionOutput {
     /// Creates a new builder-style object to manufacture [`StopDurableExecutionOutput`](crate::operation::stop_durable_execution::StopDurableExecutionOutput).
-    pub fn builder(
-    ) -> crate::operation::stop_durable_execution::builders::StopDurableExecutionOutputBuilder {
+    pub fn builder() -> crate::operation::stop_durable_execution::builders::StopDurableExecutionOutputBuilder {
         crate::operation::stop_durable_execution::builders::StopDurableExecutionOutputBuilder::default()
     }
 }
 
 /// A builder for [`StopDurableExecutionOutput`](crate::operation::stop_durable_execution::StopDurableExecutionOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct StopDurableExecutionOutputBuilder {
     pub(crate) stop_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -43,10 +40,7 @@ impl StopDurableExecutionOutputBuilder {
         self
     }
     /// <p>The timestamp when the execution was stopped (ISO 8601 format).</p>
-    pub fn set_stop_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_stop_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.stop_timestamp = input;
         self
     }

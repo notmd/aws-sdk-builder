@@ -31,8 +31,7 @@ impl crate::operation::update_server_certificate::builders::UpdateServerCertific
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct UpdateServerCertificateFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::update_server_certificate::builders::UpdateServerCertificateInputBuilder,
+    inner: crate::operation::update_server_certificate::builders::UpdateServerCertificateInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -65,8 +64,7 @@ impl UpdateServerCertificateFluentBuilder {
     /// Access the UpdateServerCertificate as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::update_server_certificate::builders::UpdateServerCertificateInputBuilder
-    {
+    ) -> &crate::operation::update_server_certificate::builders::UpdateServerCertificateInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -90,16 +88,13 @@ impl UpdateServerCertificateFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::update_server_certificate::UpdateServerCertificate::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::update_server_certificate::UpdateServerCertificate::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::update_server_certificate::UpdateServerCertificate::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::update_server_certificate::UpdateServerCertificate::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -129,19 +124,13 @@ impl UpdateServerCertificateFluentBuilder {
     }
     /// <p>The name of the server certificate that you want to update.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn server_certificate_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn server_certificate_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.server_certificate_name(input.into());
         self
     }
     /// <p>The name of the server certificate that you want to update.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn set_server_certificate_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_server_certificate_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_server_certificate_name(input);
         self
     }
@@ -169,19 +158,13 @@ impl UpdateServerCertificateFluentBuilder {
     }
     /// <p>The new name for the server certificate. Include this only if you are updating the server certificate's name. The name of the certificate cannot contain any spaces.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn new_server_certificate_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn new_server_certificate_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.new_server_certificate_name(input.into());
         self
     }
     /// <p>The new name for the server certificate. Include this only if you are updating the server certificate's name. The name of the certificate cannot contain any spaces.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn set_new_server_certificate_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_new_server_certificate_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_new_server_certificate_name(input);
         self
     }

@@ -127,9 +127,7 @@ pub fn de_enable_organizations_root_credentials_management_http_response(
             output,
         )
         .map_err(crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }

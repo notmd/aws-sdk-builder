@@ -10,8 +10,6 @@ impl super::Client {
     pub fn delete_user_attributes(
         &self,
     ) -> crate::operation::delete_user_attributes::builders::DeleteUserAttributesFluentBuilder {
-        crate::operation::delete_user_attributes::builders::DeleteUserAttributesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_user_attributes::builders::DeleteUserAttributesFluentBuilder::new(self.handle.clone())
     }
 }

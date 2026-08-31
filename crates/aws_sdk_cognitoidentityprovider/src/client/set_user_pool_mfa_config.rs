@@ -18,8 +18,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<SetUserPoolMfaConfigError>`](crate::operation::set_user_pool_mfa_config::SetUserPoolMfaConfigError)
     pub fn set_user_pool_mfa_config(
         &self,
-    ) -> crate::operation::set_user_pool_mfa_config::builders::SetUserPoolMfaConfigFluentBuilder
-    {
+    ) -> crate::operation::set_user_pool_mfa_config::builders::SetUserPoolMfaConfigFluentBuilder {
         crate::operation::set_user_pool_mfa_config::builders::SetUserPoolMfaConfigFluentBuilder::new(
             self.handle.clone(),
         )

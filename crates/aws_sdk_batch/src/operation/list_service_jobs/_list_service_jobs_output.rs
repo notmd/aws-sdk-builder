@@ -28,20 +28,16 @@ impl ::aws_types::request_id::RequestId for ListServiceJobsOutput {
 }
 impl ListServiceJobsOutput {
     /// Creates a new builder-style object to manufacture [`ListServiceJobsOutput`](crate::operation::list_service_jobs::ListServiceJobsOutput).
-    pub fn builder() -> crate::operation::list_service_jobs::builders::ListServiceJobsOutputBuilder
-    {
+    pub fn builder() -> crate::operation::list_service_jobs::builders::ListServiceJobsOutputBuilder {
         crate::operation::list_service_jobs::builders::ListServiceJobsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListServiceJobsOutput`](crate::operation::list_service_jobs::ListServiceJobsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListServiceJobsOutputBuilder {
-    pub(crate) job_summary_list:
-        ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobSummary>>,
+    pub(crate) job_summary_list: ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobSummary>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -66,9 +62,7 @@ impl ListServiceJobsOutputBuilder {
         self
     }
     /// <p>A list of service job summaries.</p>
-    pub fn get_job_summary_list(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ServiceJobSummary>> {
+    pub fn get_job_summary_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ServiceJobSummary>> {
         &self.job_summary_list
     }
     /// <p>The <code>nextToken</code> value to include in a future <code>ListServiceJobs</code> request. When the results of a <code>ListServiceJobs</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>

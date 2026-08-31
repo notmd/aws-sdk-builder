@@ -52,9 +52,7 @@ impl RetireGrantInput {
 }
 
 /// A builder for [`RetireGrantInput`](crate::operation::retire_grant::RetireGrantInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RetireGrantInputBuilder {
     pub(crate) grant_token: ::std::option::Option<::std::string::String>,

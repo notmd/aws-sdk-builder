@@ -13,8 +13,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutDeliveryDestinationError>`](crate::operation::put_delivery_destination::PutDeliveryDestinationError)
     pub fn put_delivery_destination(
         &self,
-    ) -> crate::operation::put_delivery_destination::builders::PutDeliveryDestinationFluentBuilder
-    {
-        crate::operation::put_delivery_destination::builders::PutDeliveryDestinationFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::put_delivery_destination::builders::PutDeliveryDestinationFluentBuilder {
+        crate::operation::put_delivery_destination::builders::PutDeliveryDestinationFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

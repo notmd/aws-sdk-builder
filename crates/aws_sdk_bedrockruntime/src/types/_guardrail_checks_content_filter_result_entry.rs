@@ -27,9 +27,7 @@ impl GuardrailChecksContentFilterResultEntry {
 }
 
 /// A builder for [`GuardrailChecksContentFilterResultEntry`](crate::types::GuardrailChecksContentFilterResultEntry).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailChecksContentFilterResultEntryBuilder {
     pub(crate) category: ::std::option::Option<crate::types::GuardrailChecksContentFilterCategory>,
@@ -51,9 +49,7 @@ impl GuardrailChecksContentFilterResultEntryBuilder {
         self
     }
     /// <p>The content filter category that was evaluated.</p>
-    pub fn get_category(
-        &self,
-    ) -> &::std::option::Option<crate::types::GuardrailChecksContentFilterCategory> {
+    pub fn get_category(&self) -> &::std::option::Option<crate::types::GuardrailChecksContentFilterCategory> {
         &self.category
     }
     /// <p>The severity score for the category, ranging from 0.0 to 1.0. Higher values indicate greater severity.</p>

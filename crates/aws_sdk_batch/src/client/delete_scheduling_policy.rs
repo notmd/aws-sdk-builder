@@ -8,8 +8,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteSchedulingPolicyError>`](crate::operation::delete_scheduling_policy::DeleteSchedulingPolicyError)
     pub fn delete_scheduling_policy(
         &self,
-    ) -> crate::operation::delete_scheduling_policy::builders::DeleteSchedulingPolicyFluentBuilder
-    {
-        crate::operation::delete_scheduling_policy::builders::DeleteSchedulingPolicyFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::delete_scheduling_policy::builders::DeleteSchedulingPolicyFluentBuilder {
+        crate::operation::delete_scheduling_policy::builders::DeleteSchedulingPolicyFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

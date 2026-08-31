@@ -10,8 +10,6 @@ impl super::Client {
     pub fn delete_group_policy(
         &self,
     ) -> crate::operation::delete_group_policy::builders::DeleteGroupPolicyFluentBuilder {
-        crate::operation::delete_group_policy::builders::DeleteGroupPolicyFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_group_policy::builders::DeleteGroupPolicyFluentBuilder::new(self.handle.clone())
     }
 }

@@ -62,12 +62,8 @@ where
     E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
 {
     result
-        .map(|output| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output)
-        })
-        .map_err(|error| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error)
-        })
+        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))
+        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))
         .map_err(::std::convert::Into::into)
 }
 
@@ -684,10 +680,7 @@ pub(crate) mod shape_update_repository_input;
 ))]
 pub(crate) mod shape_validation_exception;
 
-#[cfg(any(
-    feature = "op_list_package_version_assets",
-    feature = "op_publish_package_version"
-))]
+#[cfg(any(feature = "op_list_package_version_assets", feature = "op_publish_package_version"))]
 pub(crate) mod shape_asset_summary;
 
 #[cfg(feature = "op_list_package_version_assets")]
@@ -728,10 +721,7 @@ pub(crate) mod shape_package_group_allowed_repository_updates;
 ))]
 pub(crate) mod shape_package_group_description;
 
-#[cfg(any(
-    feature = "op_list_package_groups",
-    feature = "op_list_sub_package_groups"
-))]
+#[cfg(any(feature = "op_list_package_groups", feature = "op_list_sub_package_groups"))]
 pub(crate) mod shape_package_group_summary_list;
 
 #[cfg(any(
@@ -786,10 +776,7 @@ pub(crate) mod shape_repository_description;
 ))]
 pub(crate) mod shape_repository_name_list;
 
-#[cfg(any(
-    feature = "op_list_repositories",
-    feature = "op_list_repositories_in_domain"
-))]
+#[cfg(any(feature = "op_list_repositories", feature = "op_list_repositories_in_domain"))]
 pub(crate) mod shape_repository_summary_list;
 
 #[cfg(any(
@@ -825,10 +812,7 @@ pub(crate) mod shape_tag_list;
 #[cfg(any(feature = "op_create_repository", feature = "op_update_repository"))]
 pub(crate) mod shape_upstream_repository;
 
-#[cfg(any(
-    feature = "op_list_package_version_assets",
-    feature = "op_publish_package_version"
-))]
+#[cfg(any(feature = "op_list_package_version_assets", feature = "op_publish_package_version"))]
 pub(crate) mod shape_asset_hashes;
 
 #[cfg(feature = "op_list_associated_packages")]
@@ -870,10 +854,7 @@ pub(crate) mod shape_package_group_origin_configuration;
 ))]
 pub(crate) mod shape_package_group_reference;
 
-#[cfg(any(
-    feature = "op_list_package_groups",
-    feature = "op_list_sub_package_groups"
-))]
+#[cfg(any(feature = "op_list_package_groups", feature = "op_list_sub_package_groups"))]
 pub(crate) mod shape_package_group_summary;
 
 #[cfg(any(
@@ -884,10 +865,7 @@ pub(crate) mod shape_package_group_summary;
 ))]
 pub(crate) mod shape_package_version_error;
 
-#[cfg(any(
-    feature = "op_describe_package_version",
-    feature = "op_list_package_versions"
-))]
+#[cfg(any(feature = "op_describe_package_version", feature = "op_list_package_versions"))]
 pub(crate) mod shape_package_version_origin;
 
 #[cfg(feature = "op_list_package_versions")]
@@ -903,10 +881,7 @@ pub(crate) mod shape_package_version_summary;
 ))]
 pub(crate) mod shape_repository_external_connection_info_list;
 
-#[cfg(any(
-    feature = "op_list_repositories",
-    feature = "op_list_repositories_in_domain"
-))]
+#[cfg(any(feature = "op_list_repositories", feature = "op_list_repositories_in_domain"))]
 pub(crate) mod shape_repository_summary;
 
 #[cfg(any(
@@ -927,10 +902,7 @@ pub(crate) mod shape_successful_package_version_info;
 ))]
 pub(crate) mod shape_upstream_repository_info_list;
 
-#[cfg(any(
-    feature = "op_describe_package_version",
-    feature = "op_list_package_versions"
-))]
+#[cfg(any(feature = "op_describe_package_version", feature = "op_list_package_versions"))]
 pub(crate) mod shape_domain_entry_point;
 
 #[cfg(feature = "op_describe_package_version")]

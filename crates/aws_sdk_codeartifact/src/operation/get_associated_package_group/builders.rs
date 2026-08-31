@@ -3,9 +3,7 @@ pub use crate::operation::get_associated_package_group::_get_associated_package_
 
 pub use crate::operation::get_associated_package_group::_get_associated_package_group_output::GetAssociatedPackageGroupOutputBuilder;
 
-impl
-    crate::operation::get_associated_package_group::builders::GetAssociatedPackageGroupInputBuilder
-{
+impl crate::operation::get_associated_package_group::builders::GetAssociatedPackageGroupInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -60,7 +58,9 @@ impl GetAssociatedPackageGroupFluentBuilder {
         }
     }
     /// Access the GetAssociatedPackageGroup as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_associated_package_group::builders::GetAssociatedPackageGroupInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_associated_package_group::builders::GetAssociatedPackageGroupInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +84,14 @@ impl GetAssociatedPackageGroupFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_associated_package_group::GetAssociatedPackageGroup::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::get_associated_package_group::GetAssociatedPackageGroup::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::get_associated_package_group::GetAssociatedPackageGroup::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::get_associated_package_group::GetAssociatedPackageGroup::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

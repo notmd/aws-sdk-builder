@@ -21,9 +21,7 @@ impl GetImportJobInput {
 }
 
 /// A builder for [`GetImportJobInput`](crate::operation::get_import_job::GetImportJobInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetImportJobInputBuilder {
     pub(crate) job_id: ::std::option::Option<::std::string::String>,
@@ -51,8 +49,6 @@ impl GetImportJobInputBuilder {
         crate::operation::get_import_job::GetImportJobInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_import_job::GetImportJobInput {
-            job_id: self.job_id,
-        })
+        ::std::result::Result::Ok(crate::operation::get_import_job::GetImportJobInput { job_id: self.job_id })
     }
 }

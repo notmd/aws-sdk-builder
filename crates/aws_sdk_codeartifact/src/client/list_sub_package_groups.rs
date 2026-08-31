@@ -15,10 +15,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListSubPackageGroupsError>`](crate::operation::list_sub_package_groups::ListSubPackageGroupsError)
     pub fn list_sub_package_groups(
         &self,
-    ) -> crate::operation::list_sub_package_groups::builders::ListSubPackageGroupsFluentBuilder
-    {
-        crate::operation::list_sub_package_groups::builders::ListSubPackageGroupsFluentBuilder::new(
-            self.handle.clone(),
-        )
+    ) -> crate::operation::list_sub_package_groups::builders::ListSubPackageGroupsFluentBuilder {
+        crate::operation::list_sub_package_groups::builders::ListSubPackageGroupsFluentBuilder::new(self.handle.clone())
     }
 }

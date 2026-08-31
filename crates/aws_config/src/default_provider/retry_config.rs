@@ -100,9 +100,7 @@ impl Builder {
         }
     }
 
-    pub(crate) async fn try_retry_config(
-        self,
-    ) -> Result<RetryConfig, EnvConfigError<RetryConfigError>> {
+    pub(crate) async fn try_retry_config(self) -> Result<RetryConfig, EnvConfigError<RetryConfigError>> {
         let env = self.provider_config.env();
         let profiles = self.provider_config.profile().await;
         // Both of these can return errors due to invalid config settings, and we want to surface those as early as possible
@@ -118,8 +116,7 @@ impl Builder {
             .env(env::RETRY_MODE)
             .profile(profile_keys::RETRY_MODE)
             .validate(&env, profiles, |s| {
-                RetryMode::from_str(s)
-                    .map_err(|err| RetryConfigErrorKind::InvalidRetryMode { source: err }.into())
+                RetryMode::from_str(s).map_err(|err| RetryConfigErrorKind::InvalidRetryMode { source: err }.into())
             });
 
         if let Some(max_attempts) = max_attempts? {
@@ -131,10 +128,9 @@ impl Builder {
         }
 
         // Enable Retry Behavior 2.1 when AWS_NEW_RETRIES_2026=true
-        let new_retries =
-            EnvConfigValue::new()
-                .env(env::NEW_RETRIES_2026)
-                .validate(&env, profiles, |s| Ok::<_, RetryConfigError>(s.to_owned()));
+        let new_retries = EnvConfigValue::new()
+            .env(env::NEW_RETRIES_2026)
+            .validate(&env, profiles, |s| Ok::<_, RetryConfigError>(s.to_owned()));
         if let Some(val) = new_retries? {
             if val.eq_ignore_ascii_case("true") {
                 retry_config = retry_config.with_retry_spec(RetrySpec::v2_1());
@@ -157,15 +153,11 @@ fn validate_max_attempts(max_attempts: &str) -> Result<u32, RetryConfigError> {
 mod test {
     use crate::default_provider::retry_config::env;
     use crate::provider_config::ProviderConfig;
-    use crate::retry::{
-        error::RetryConfigError, error::RetryConfigErrorKind, RetryConfig, RetryMode,
-    };
+    use crate::retry::{error::RetryConfigError, error::RetryConfigErrorKind, RetryConfig, RetryMode};
     use aws_runtime::env_config::EnvConfigError;
     use aws_types::os_shim_internal::{Env, Fs};
 
-    async fn test_provider(
-        vars: &[(&str, &str)],
-    ) -> Result<RetryConfig, EnvConfigError<RetryConfigError>> {
+    async fn test_provider(vars: &[(&str, &str)]) -> Result<RetryConfig, EnvConfigError<RetryConfigError>> {
         super::Builder::default()
             .configure(&ProviderConfig::no_configuration().with_env(Env::from_slice(vars)))
             .try_retry_config()
@@ -320,9 +312,7 @@ max_attempts = potato
     #[tokio::test]
     async fn retry_mode_is_read_correctly() {
         assert_eq!(
-            test_provider(&[(env::RETRY_MODE, "standard")])
-                .await
-                .unwrap(),
+            test_provider(&[(env::RETRY_MODE, "standard")]).await.unwrap(),
             RetryConfig::standard()
         );
     }
@@ -339,9 +329,7 @@ max_attempts = potato
 
     #[tokio::test]
     async fn disallow_zero_max_attempts() {
-        let err = test_provider(&[(env::MAX_ATTEMPTS, "0")])
-            .await
-            .unwrap_err();
+        let err = test_provider(&[(env::MAX_ATTEMPTS, "0")]).await.unwrap_err();
         let err = err.err();
         assert!(matches!(
             err,
@@ -354,18 +342,14 @@ max_attempts = potato
     #[tokio::test]
     async fn new_retries_env_var_enables_retry_spec_v2_1() {
         use aws_smithy_types::retry::RetrySpec;
-        let config = test_provider(&[(env::NEW_RETRIES_2026, "true")])
-            .await
-            .unwrap();
+        let config = test_provider(&[(env::NEW_RETRIES_2026, "true")]).await.unwrap();
         assert_eq!(config.retry_spec(), Some(&RetrySpec::v2_1()));
     }
 
     #[tokio::test]
     async fn new_retries_env_var_case_insensitive() {
         use aws_smithy_types::retry::RetrySpec;
-        let config = test_provider(&[(env::NEW_RETRIES_2026, "True")])
-            .await
-            .unwrap();
+        let config = test_provider(&[(env::NEW_RETRIES_2026, "True")]).await.unwrap();
         assert_eq!(config.retry_spec(), Some(&RetrySpec::v2_1()));
     }
 

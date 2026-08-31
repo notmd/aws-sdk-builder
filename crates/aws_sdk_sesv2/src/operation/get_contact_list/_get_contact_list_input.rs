@@ -20,9 +20,7 @@ impl GetContactListInput {
 }
 
 /// A builder for [`GetContactListInput`](crate::operation::get_contact_list::GetContactListInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetContactListInputBuilder {
     pub(crate) contact_list_name: ::std::option::Option<::std::string::String>,
@@ -30,18 +28,12 @@ pub struct GetContactListInputBuilder {
 impl GetContactListInputBuilder {
     /// <p>The name of the contact list.</p>
     /// This field is required.
-    pub fn contact_list_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn contact_list_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.contact_list_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the contact list.</p>
-    pub fn set_contact_list_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_contact_list_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.contact_list_name = input;
         self
     }

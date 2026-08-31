@@ -14,16 +14,13 @@ impl DeleteLookupTableInput {
 }
 impl DeleteLookupTableInput {
     /// Creates a new builder-style object to manufacture [`DeleteLookupTableInput`](crate::operation::delete_lookup_table::DeleteLookupTableInput).
-    pub fn builder(
-    ) -> crate::operation::delete_lookup_table::builders::DeleteLookupTableInputBuilder {
+    pub fn builder() -> crate::operation::delete_lookup_table::builders::DeleteLookupTableInputBuilder {
         crate::operation::delete_lookup_table::builders::DeleteLookupTableInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteLookupTableInput`](crate::operation::delete_lookup_table::DeleteLookupTableInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteLookupTableInputBuilder {
     pub(crate) lookup_table_arn: ::std::option::Option<::std::string::String>,
@@ -31,18 +28,12 @@ pub struct DeleteLookupTableInputBuilder {
 impl DeleteLookupTableInputBuilder {
     /// <p>The ARN of the lookup table to delete.</p>
     /// This field is required.
-    pub fn lookup_table_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn lookup_table_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.lookup_table_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the lookup table to delete.</p>
-    pub fn set_lookup_table_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_lookup_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.lookup_table_arn = input;
         self
     }
@@ -57,10 +48,8 @@ impl DeleteLookupTableInputBuilder {
         crate::operation::delete_lookup_table::DeleteLookupTableInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_lookup_table::DeleteLookupTableInput {
-                lookup_table_arn: self.lookup_table_arn,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::delete_lookup_table::DeleteLookupTableInput {
+            lookup_table_arn: self.lookup_table_arn,
+        })
     }
 }

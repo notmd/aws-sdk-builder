@@ -14,8 +14,6 @@ impl super::Client {
     pub fn describe_config_rules(
         &self,
     ) -> crate::operation::describe_config_rules::builders::DescribeConfigRulesFluentBuilder {
-        crate::operation::describe_config_rules::builders::DescribeConfigRulesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::describe_config_rules::builders::DescribeConfigRulesFluentBuilder::new(self.handle.clone())
     }
 }

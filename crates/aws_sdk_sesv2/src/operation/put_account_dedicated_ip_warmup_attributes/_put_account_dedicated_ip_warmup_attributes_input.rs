@@ -21,9 +21,7 @@ impl PutAccountDedicatedIpWarmupAttributesInput {
 }
 
 /// A builder for [`PutAccountDedicatedIpWarmupAttributesInput`](crate::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutAccountDedicatedIpWarmupAttributesInputBuilder {
     pub(crate) auto_warmup_enabled: ::std::option::Option<bool>,
@@ -49,7 +47,7 @@ impl PutAccountDedicatedIpWarmupAttributesInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesInput {
                 auto_warmup_enabled: self.auto_warmup_enabled,

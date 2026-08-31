@@ -57,7 +57,9 @@ impl IntrospectOAuth2TokenWithIAMFluentBuilder {
         }
     }
     /// Access the IntrospectOAuth2TokenWithIAM as a reference.
-    pub fn as_input(&self) -> &crate::operation::introspect_o_auth2_token_with_iam::builders::IntrospectOAuth2TokenWithIamInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::introspect_o_auth2_token_with_iam::builders::IntrospectOAuth2TokenWithIamInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +88,11 @@ impl IntrospectOAuth2TokenWithIAMFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAM::orchestrate(&runtime_plugins, input).await
+        crate::operation::introspect_o_auth2_token_with_iam::IntrospectOAuth2TokenWithIAM::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -129,18 +135,12 @@ impl IntrospectOAuth2TokenWithIAMFluentBuilder {
         self.inner.get_token()
     }
     /// Optional hint about the type of the token submitted for introspection. The server uses this hint to optimize lookup, but still falls back to the other token type on miss. Allowed values: access_token, refresh_token.
-    pub fn token_type_hint(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn token_type_hint(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.token_type_hint(input.into());
         self
     }
     /// Optional hint about the type of the token submitted for introspection. The server uses this hint to optimize lookup, but still falls back to the other token type on miss. Allowed values: access_token, refresh_token.
-    pub fn set_token_type_hint(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_token_type_hint(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_token_type_hint(input);
         self
     }

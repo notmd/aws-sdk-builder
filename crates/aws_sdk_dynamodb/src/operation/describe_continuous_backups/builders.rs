@@ -3,9 +3,7 @@ pub use crate::operation::describe_continuous_backups::_describe_continuous_back
 
 pub use crate::operation::describe_continuous_backups::_describe_continuous_backups_output::DescribeContinuousBackupsOutputBuilder;
 
-impl
-    crate::operation::describe_continuous_backups::builders::DescribeContinuousBackupsInputBuilder
-{
+impl crate::operation::describe_continuous_backups::builders::DescribeContinuousBackupsInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -62,7 +60,9 @@ impl DescribeContinuousBackupsFluentBuilder {
         }
     }
     /// Access the DescribeContinuousBackups as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_continuous_backups::builders::DescribeContinuousBackupsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_continuous_backups::builders::DescribeContinuousBackupsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,16 +86,14 @@ impl DescribeContinuousBackupsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::describe_continuous_backups::DescribeContinuousBackups::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::describe_continuous_backups::DescribeContinuousBackups::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::describe_continuous_backups::DescribeContinuousBackups::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::describe_continuous_backups::DescribeContinuousBackups::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

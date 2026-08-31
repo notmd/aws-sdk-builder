@@ -58,7 +58,9 @@ impl CompleteWebAuthnRegistrationFluentBuilder {
         }
     }
     /// Access the CompleteWebAuthnRegistration as a reference.
-    pub fn as_input(&self) -> &crate::operation::complete_web_authn_registration::builders::CompleteWebAuthnRegistrationInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::complete_web_authn_registration::builders::CompleteWebAuthnRegistrationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,12 +84,17 @@ impl CompleteWebAuthnRegistrationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistration::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistration::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistration::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::complete_web_authn_registration::CompleteWebAuthnRegistration::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -135,10 +142,7 @@ impl CompleteWebAuthnRegistrationFluentBuilder {
         self
     }
     /// <p>A <a href="https://www.w3.org/TR/WebAuthn-3/#dictdef-registrationresponsejson">RegistrationResponseJSON</a> public-key credential response from the user's passkey provider.</p>
-    pub fn set_credential(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::Document>,
-    ) -> Self {
+    pub fn set_credential(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.inner = self.inner.set_credential(input);
         self
     }

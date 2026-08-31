@@ -26,17 +26,13 @@ impl ListLogGroupsForQueryInput {
 }
 impl ListLogGroupsForQueryInput {
     /// Creates a new builder-style object to manufacture [`ListLogGroupsForQueryInput`](crate::operation::list_log_groups_for_query::ListLogGroupsForQueryInput).
-    pub fn builder(
-    ) -> crate::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryInputBuilder {
         crate::operation::list_log_groups_for_query::builders::ListLogGroupsForQueryInputBuilder::default()
     }
 }
 
 /// A builder for [`ListLogGroupsForQueryInput`](crate::operation::list_log_groups_for_query::ListLogGroupsForQueryInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListLogGroupsForQueryInputBuilder {
     pub(crate) query_id: ::std::option::Option<::std::string::String>,

@@ -13,8 +13,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateIdentityProviderError>`](crate::operation::update_identity_provider::UpdateIdentityProviderError)
     pub fn update_identity_provider(
         &self,
-    ) -> crate::operation::update_identity_provider::builders::UpdateIdentityProviderFluentBuilder
-    {
-        crate::operation::update_identity_provider::builders::UpdateIdentityProviderFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::update_identity_provider::builders::UpdateIdentityProviderFluentBuilder {
+        crate::operation::update_identity_provider::builders::UpdateIdentityProviderFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

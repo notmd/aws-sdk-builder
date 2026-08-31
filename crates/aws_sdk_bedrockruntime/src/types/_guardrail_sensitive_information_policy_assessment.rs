@@ -23,20 +23,16 @@ impl GuardrailSensitiveInformationPolicyAssessment {
 }
 impl GuardrailSensitiveInformationPolicyAssessment {
     /// Creates a new builder-style object to manufacture [`GuardrailSensitiveInformationPolicyAssessment`](crate::types::GuardrailSensitiveInformationPolicyAssessment).
-    pub fn builder() -> crate::types::builders::GuardrailSensitiveInformationPolicyAssessmentBuilder
-    {
+    pub fn builder() -> crate::types::builders::GuardrailSensitiveInformationPolicyAssessmentBuilder {
         crate::types::builders::GuardrailSensitiveInformationPolicyAssessmentBuilder::default()
     }
 }
 
 /// A builder for [`GuardrailSensitiveInformationPolicyAssessment`](crate::types::GuardrailSensitiveInformationPolicyAssessment).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailSensitiveInformationPolicyAssessmentBuilder {
-    pub(crate) pii_entities:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailPiiEntityFilter>>,
+    pub(crate) pii_entities: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailPiiEntityFilter>>,
     pub(crate) regexes: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailRegexFilter>>,
 }
 impl GuardrailSensitiveInformationPolicyAssessmentBuilder {
@@ -60,9 +56,7 @@ impl GuardrailSensitiveInformationPolicyAssessmentBuilder {
         self
     }
     /// <p>The PII entities in the assessment.</p>
-    pub fn get_pii_entities(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailPiiEntityFilter>> {
+    pub fn get_pii_entities(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailPiiEntityFilter>> {
         &self.pii_entities
     }
     /// Appends an item to `regexes`.
@@ -85,9 +79,7 @@ impl GuardrailSensitiveInformationPolicyAssessmentBuilder {
         self
     }
     /// <p>The regex queries in the assessment.</p>
-    pub fn get_regexes(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailRegexFilter>> {
+    pub fn get_regexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailRegexFilter>> {
         &self.regexes
     }
     /// Consumes the builder and constructs a [`GuardrailSensitiveInformationPolicyAssessment`](crate::types::GuardrailSensitiveInformationPolicyAssessment).

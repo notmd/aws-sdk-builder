@@ -20,7 +20,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<RestoreTableToPointInTimeError>`](crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError)
     pub fn restore_table_to_point_in_time(
         &self,
-    ) -> crate::operation::restore_table_to_point_in_time::builders::RestoreTableToPointInTimeFluentBuilder{
-        crate::operation::restore_table_to_point_in_time::builders::RestoreTableToPointInTimeFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::restore_table_to_point_in_time::builders::RestoreTableToPointInTimeFluentBuilder {
+        crate::operation::restore_table_to_point_in_time::builders::RestoreTableToPointInTimeFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

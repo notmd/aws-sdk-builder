@@ -34,16 +34,13 @@ impl ::aws_types::request_id::RequestId for ListDirectoryBucketsOutput {
 }
 impl ListDirectoryBucketsOutput {
     /// Creates a new builder-style object to manufacture [`ListDirectoryBucketsOutput`](crate::operation::list_directory_buckets::ListDirectoryBucketsOutput).
-    pub fn builder(
-    ) -> crate::operation::list_directory_buckets::builders::ListDirectoryBucketsOutputBuilder {
+    pub fn builder() -> crate::operation::list_directory_buckets::builders::ListDirectoryBucketsOutputBuilder {
         crate::operation::list_directory_buckets::builders::ListDirectoryBucketsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListDirectoryBucketsOutput`](crate::operation::list_directory_buckets::ListDirectoryBucketsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListDirectoryBucketsOutputBuilder {
     pub(crate) buckets: ::std::option::Option<::std::vec::Vec<crate::types::Bucket>>,
@@ -64,10 +61,7 @@ impl ListDirectoryBucketsOutputBuilder {
         self
     }
     /// <p>The list of buckets owned by the requester.</p>
-    pub fn set_buckets(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Bucket>>,
-    ) -> Self {
+    pub fn set_buckets(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Bucket>>) -> Self {
         self.buckets = input;
         self
     }
@@ -76,18 +70,12 @@ impl ListDirectoryBucketsOutputBuilder {
         &self.buckets
     }
     /// <p>If <code>ContinuationToken</code> was sent with the request, it is included in the response. You can use the returned <code>ContinuationToken</code> for pagination of the list response.</p>
-    pub fn continuation_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn continuation_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>If <code>ContinuationToken</code> was sent with the request, it is included in the response. You can use the returned <code>ContinuationToken</code> for pagination of the list response.</p>
-    pub fn set_continuation_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.continuation_token = input;
         self
     }
@@ -100,10 +88,7 @@ impl ListDirectoryBucketsOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

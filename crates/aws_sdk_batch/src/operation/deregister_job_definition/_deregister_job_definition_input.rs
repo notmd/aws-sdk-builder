@@ -14,17 +14,13 @@ impl DeregisterJobDefinitionInput {
 }
 impl DeregisterJobDefinitionInput {
     /// Creates a new builder-style object to manufacture [`DeregisterJobDefinitionInput`](crate::operation::deregister_job_definition::DeregisterJobDefinitionInput).
-    pub fn builder(
-    ) -> crate::operation::deregister_job_definition::builders::DeregisterJobDefinitionInputBuilder
-    {
+    pub fn builder() -> crate::operation::deregister_job_definition::builders::DeregisterJobDefinitionInputBuilder {
         crate::operation::deregister_job_definition::builders::DeregisterJobDefinitionInputBuilder::default()
     }
 }
 
 /// A builder for [`DeregisterJobDefinitionInput`](crate::operation::deregister_job_definition::DeregisterJobDefinitionInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeregisterJobDefinitionInputBuilder {
     pub(crate) job_definition: ::std::option::Option<::std::string::String>,
@@ -32,18 +28,12 @@ pub struct DeregisterJobDefinitionInputBuilder {
 impl DeregisterJobDefinitionInputBuilder {
     /// <p>The name and revision (<code>name:revision</code>) or full Amazon Resource Name (ARN) of the job definition to deregister.</p>
     /// This field is required.
-    pub fn job_definition(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn job_definition(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.job_definition = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name and revision (<code>name:revision</code>) or full Amazon Resource Name (ARN) of the job definition to deregister.</p>
-    pub fn set_job_definition(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_job_definition(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.job_definition = input;
         self
     }

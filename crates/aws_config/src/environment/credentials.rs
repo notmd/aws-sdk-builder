@@ -37,22 +37,22 @@ impl EnvironmentVariableCredentialsProvider {
             .or_else(|_| self.env.get("SECRET_ACCESS_KEY"))
             .and_then(err_if_blank)
             .map_err(to_cred_error)?;
-        let session_token =
-            self.env
-                .get("AWS_SESSION_TOKEN")
-                .ok()
-                .and_then(|token| match token.trim() {
-                    "" => None,
-                    s => Some(s.to_string()),
-                });
-        let account_id =
-            self.env
-                .get("AWS_ACCOUNT_ID")
-                .ok()
-                .and_then(|account_id| match account_id.trim() {
-                    "" => None,
-                    s => Some(AccountId::from(s)),
-                });
+        let session_token = self
+            .env
+            .get("AWS_SESSION_TOKEN")
+            .ok()
+            .and_then(|token| match token.trim() {
+                "" => None,
+                s => Some(s.to_string()),
+            });
+        let account_id = self
+            .env
+            .get("AWS_ACCOUNT_ID")
+            .ok()
+            .and_then(|account_id| match account_id.trim() {
+                "" => None,
+                s => Some(AccountId::from(s)),
+            });
         let mut builder = Credentials::builder()
             .access_key_id(access_key)
             .secret_access_key(secret_key)
@@ -130,10 +130,7 @@ mod test {
 
     #[test]
     fn valid_no_token() {
-        let provider = make_provider(&[
-            ("AWS_ACCESS_KEY_ID", "access"),
-            ("AWS_SECRET_ACCESS_KEY", "secret"),
-        ]);
+        let provider = make_provider(&[("AWS_ACCESS_KEY_ID", "access"), ("AWS_SECRET_ACCESS_KEY", "secret")]);
         let creds = provider
             .provide_credentials()
             .now_or_never()

@@ -4,17 +4,11 @@ pub fn de_invoke_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::invoke::InvokeOutput,
-    crate::operation::invoke::InvokeError,
-> {
+) -> std::result::Result<crate::operation::invoke::InvokeOutput, crate::operation::invoke::InvokeError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::invoke::InvokeError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::invoke::InvokeError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
@@ -29,7 +23,7 @@ pub fn de_invoke_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::CodeArtifactUserDeletedExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::CodeArtifactUserDeletedExceptionBuilder::default();
                     output = crate::protocol_serde::shape_code_artifact_user_deleted_exception::de_code_artifact_user_deleted_exception_json_err(
                     _response_body,
                     output,
@@ -44,32 +38,30 @@ pub fn de_invoke_http_error(
                 tmp
             })
         }
-        "CodeArtifactUserFailedException" => {
-            crate::operation::invoke::InvokeError::CodeArtifactUserFailedException({
+        "CodeArtifactUserFailedException" => crate::operation::invoke::InvokeError::CodeArtifactUserFailedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::CodeArtifactUserFailedExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_code_artifact_user_failed_exception::de_code_artifact_user_failed_exception_json_err(
+                output = crate::protocol_serde::shape_code_artifact_user_failed_exception::de_code_artifact_user_failed_exception_json_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::invoke::InvokeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "CodeArtifactUserPendingException" => {
             crate::operation::invoke::InvokeError::CodeArtifactUserPendingException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::CodeArtifactUserPendingExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::CodeArtifactUserPendingExceptionBuilder::default();
                     output = crate::protocol_serde::shape_code_artifact_user_pending_exception::de_code_artifact_user_pending_exception_json_err(
                     _response_body,
                     output,
@@ -89,7 +81,8 @@ pub fn de_invoke_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::DurableExecutionAlreadyStartedExceptionBuilder::default();
+                    let mut output =
+                        crate::types::error::builders::DurableExecutionAlreadyStartedExceptionBuilder::default();
                     output = crate::protocol_serde::shape_durable_execution_already_started_exception::de_durable_execution_already_started_exception_json_err(_response_body, output).map_err(crate::operation::invoke::InvokeError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
@@ -105,8 +98,7 @@ pub fn de_invoke_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::Ec2AccessDeniedExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::Ec2AccessDeniedExceptionBuilder::default();
                     output = crate::protocol_serde::shape_ec2_access_denied_exception::de_ec2_access_denied_exception_json_err(_response_body, output)
                     .map_err(crate::operation::invoke::InvokeError::unhandled)?;
                     let output = output.meta(generic);
@@ -122,10 +114,12 @@ pub fn de_invoke_http_error(
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output =
-                    crate::types::error::builders::Ec2ThrottledExceptionBuilder::default();
-                output = crate::protocol_serde::shape_ec2_throttled_exception::de_ec2_throttled_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::invoke::InvokeError::unhandled)?;
+                let mut output = crate::types::error::builders::Ec2ThrottledExceptionBuilder::default();
+                output = crate::protocol_serde::shape_ec2_throttled_exception::de_ec2_throttled_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -134,30 +128,46 @@ pub fn de_invoke_http_error(
             }
             tmp
         }),
-        "EC2UnexpectedException" => {
-            crate::operation::invoke::InvokeError::Ec2UnexpectedException({
+        "EC2UnexpectedException" => crate::operation::invoke::InvokeError::Ec2UnexpectedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::Ec2UnexpectedExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_ec2_unexpected_exception::de_ec2_unexpected_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::invoke::InvokeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::Ec2UnexpectedExceptionBuilder::default();
+                output = crate::protocol_serde::shape_ec2_unexpected_exception::de_ec2_unexpected_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::invoke::InvokeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "EFSIOException" => crate::operation::invoke::InvokeError::EfsioException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::EfsioExceptionBuilder::default();
-                output = crate::protocol_serde::shape_efsio_exception::de_efsio_exception_json_err(
+                output =
+                    crate::protocol_serde::shape_efsio_exception::de_efsio_exception_json_err(_response_body, output)
+                        .map_err(crate::operation::invoke::InvokeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "EFSMountConnectivityException" => crate::operation::invoke::InvokeError::EfsMountConnectivityException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::EfsMountConnectivityExceptionBuilder::default();
+                output = crate::protocol_serde::shape_efs_mount_connectivity_exception::de_efs_mount_connectivity_exception_json_err(
                     _response_body,
                     output,
                 )
@@ -170,33 +180,12 @@ pub fn de_invoke_http_error(
             }
             tmp
         }),
-        "EFSMountConnectivityException" => {
-            crate::operation::invoke::InvokeError::EfsMountConnectivityException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::EfsMountConnectivityExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_efs_mount_connectivity_exception::de_efs_mount_connectivity_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(crate::operation::invoke::InvokeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
         "EFSMountFailureException" => {
             crate::operation::invoke::InvokeError::EfsMountFailureException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::EfsMountFailureExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::EfsMountFailureExceptionBuilder::default();
                     output = crate::protocol_serde::shape_efs_mount_failure_exception::de_efs_mount_failure_exception_json_err(_response_body, output)
                     .map_err(crate::operation::invoke::InvokeError::unhandled)?;
                     let output = output.meta(generic);
@@ -213,8 +202,7 @@ pub fn de_invoke_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::EfsMountTimeoutExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::EfsMountTimeoutExceptionBuilder::default();
                     output = crate::protocol_serde::shape_efs_mount_timeout_exception::de_efs_mount_timeout_exception_json_err(_response_body, output)
                     .map_err(crate::operation::invoke::InvokeError::unhandled)?;
                     let output = output.meta(generic);
@@ -231,8 +219,7 @@ pub fn de_invoke_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::EniLimitReachedExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::EniLimitReachedExceptionBuilder::default();
                     output = crate::protocol_serde::shape_eni_limit_reached_exception::de_eni_limit_reached_exception_json_err(_response_body, output)
                     .map_err(crate::operation::invoke::InvokeError::unhandled)?;
                     let output = output.meta(generic);
@@ -248,10 +235,12 @@ pub fn de_invoke_http_error(
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output =
-                    crate::types::error::builders::EniNotReadyExceptionBuilder::default();
-                output = crate::protocol_serde::shape_eni_not_ready_exception::de_eni_not_ready_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::invoke::InvokeError::unhandled)?;
+                let mut output = crate::types::error::builders::EniNotReadyExceptionBuilder::default();
+                output = crate::protocol_serde::shape_eni_not_ready_exception::de_eni_not_ready_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -260,91 +249,84 @@ pub fn de_invoke_http_error(
             }
             tmp
         }),
-        "InvalidParameterValueException" => {
-            crate::operation::invoke::InvokeError::InvalidParameterValueException({
+        "InvalidParameterValueException" => crate::operation::invoke::InvokeError::InvalidParameterValueException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
+                output = crate::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::invoke::InvokeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "InvalidRequestContentException" => {
-            crate::operation::invoke::InvokeError::InvalidRequestContentException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidRequestContentException" => crate::operation::invoke::InvokeError::InvalidRequestContentException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::InvalidRequestContentExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_invalid_request_content_exception::de_invalid_request_content_exception_json_err(
+                output = crate::protocol_serde::shape_invalid_request_content_exception::de_invalid_request_content_exception_json_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::invoke::InvokeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "InvalidRuntimeException" => {
-            crate::operation::invoke::InvokeError::InvalidRuntimeException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidRuntimeException" => crate::operation::invoke::InvokeError::InvalidRuntimeException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InvalidRuntimeExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_invalid_runtime_exception::de_invalid_runtime_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::invoke::InvokeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "InvalidSecurityGroupIDException" => {
-            crate::operation::invoke::InvokeError::InvalidSecurityGroupIdException({
+                let mut output = crate::types::error::builders::InvalidRuntimeExceptionBuilder::default();
+                output = crate::protocol_serde::shape_invalid_runtime_exception::de_invalid_runtime_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::invoke::InvokeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidSecurityGroupIDException" => crate::operation::invoke::InvokeError::InvalidSecurityGroupIdException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::InvalidSecurityGroupIdExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_invalid_security_group_id_exception::de_invalid_security_group_id_exception_json_err(
+                output = crate::protocol_serde::shape_invalid_security_group_id_exception::de_invalid_security_group_id_exception_json_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::invoke::InvokeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidSubnetIDException" => {
             crate::operation::invoke::InvokeError::InvalidSubnetIdException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InvalidSubnetIdExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::InvalidSubnetIdExceptionBuilder::default();
                     output = crate::protocol_serde::shape_invalid_subnet_id_exception::de_invalid_subnet_id_exception_json_err(_response_body, output)
                     .map_err(crate::operation::invoke::InvokeError::unhandled)?;
                     let output = output.meta(generic);
@@ -361,8 +343,7 @@ pub fn de_invoke_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InvalidZipFileExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::InvalidZipFileExceptionBuilder::default();
                     output = crate::protocol_serde::shape_invalid_zip_file_exception::de_invalid_zip_file_exception_json_err(_response_body, output)
                     .map_err(crate::operation::invoke::InvokeError::unhandled)?;
                     let output = output.meta(generic);
@@ -379,8 +360,7 @@ pub fn de_invoke_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::KmsAccessDeniedExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::KmsAccessDeniedExceptionBuilder::default();
                     output = crate::protocol_serde::shape_kms_access_denied_exception::de_kms_access_denied_exception_json_err(_response_body, output)
                     .map_err(crate::operation::invoke::InvokeError::unhandled)?;
                     let output = output.meta(generic);
@@ -396,10 +376,12 @@ pub fn de_invoke_http_error(
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output =
-                    crate::types::error::builders::KmsDisabledExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_disabled_exception::de_kms_disabled_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::invoke::InvokeError::unhandled)?;
+                let mut output = crate::types::error::builders::KmsDisabledExceptionBuilder::default();
+                output = crate::protocol_serde::shape_kms_disabled_exception::de_kms_disabled_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -413,8 +395,7 @@ pub fn de_invoke_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::KmsInvalidStateExceptionBuilder::default();
                     output = crate::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
                     .map_err(crate::operation::invoke::InvokeError::unhandled)?;
                     let output = output.meta(generic);
@@ -430,9 +411,26 @@ pub fn de_invoke_http_error(
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output =
-                    crate::types::error::builders::KmsNotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_kms_not_found_exception::de_kms_not_found_exception_json_err(_response_body, output)
+                let mut output = crate::types::error::builders::KmsNotFoundExceptionBuilder::default();
+                output = crate::protocol_serde::shape_kms_not_found_exception::de_kms_not_found_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::invoke::InvokeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ModeNotSupportedException" => crate::operation::invoke::InvokeError::ModeNotSupportedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::ModeNotSupportedExceptionBuilder::default();
+                output = crate::protocol_serde::shape_mode_not_supported_exception::de_mode_not_supported_exception_json_err(_response_body, output)
                     .map_err(crate::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
@@ -442,71 +440,44 @@ pub fn de_invoke_http_error(
             }
             tmp
         }),
-        "ModeNotSupportedException" => {
-            crate::operation::invoke::InvokeError::ModeNotSupportedException({
+        "NoPublishedVersionException" => crate::operation::invoke::InvokeError::NoPublishedVersionException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ModeNotSupportedExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_mode_not_supported_exception::de_mode_not_supported_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::invoke::InvokeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "NoPublishedVersionException" => {
-            crate::operation::invoke::InvokeError::NoPublishedVersionException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::NoPublishedVersionExceptionBuilder::default(
-                        );
-                    output =
+                let mut output = crate::types::error::builders::NoPublishedVersionExceptionBuilder::default();
+                output =
                     crate::protocol_serde::shape_no_published_version_exception::de_no_published_version_exception_json_err(_response_body, output)
                         .map_err(crate::operation::invoke::InvokeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "RecursiveInvocationException" => {
-            crate::operation::invoke::InvokeError::RecursiveInvocationException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "RecursiveInvocationException" => crate::operation::invoke::InvokeError::RecursiveInvocationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::RecursiveInvocationExceptionBuilder::default(
-                        );
-                    output =
+                let mut output = crate::types::error::builders::RecursiveInvocationExceptionBuilder::default();
+                output =
                     crate::protocol_serde::shape_recursive_invocation_exception::de_recursive_invocation_exception_json_err(_response_body, output)
                         .map_err(crate::operation::invoke::InvokeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "RequestTooLargeException" => {
             crate::operation::invoke::InvokeError::RequestTooLargeException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::RequestTooLargeExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::RequestTooLargeExceptionBuilder::default();
                     output = crate::protocol_serde::shape_request_too_large_exception::de_request_too_large_exception_json_err(_response_body, output)
                     .map_err(crate::operation::invoke::InvokeError::unhandled)?;
                     let output = output.meta(generic);
@@ -523,8 +494,7 @@ pub fn de_invoke_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ResourceConflictExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::ResourceConflictExceptionBuilder::default();
                     output = crate::protocol_serde::shape_resource_conflict_exception::de_resource_conflict_exception_json_err(_response_body, output)
                     .map_err(crate::operation::invoke::InvokeError::unhandled)?;
                     let output = output.meta(generic);
@@ -536,48 +506,42 @@ pub fn de_invoke_http_error(
                 tmp
             })
         }
-        "ResourceNotFoundException" => {
-            crate::operation::invoke::InvokeError::ResourceNotFoundException({
+        "ResourceNotFoundException" => crate::operation::invoke::InvokeError::ResourceNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(crate::operation::invoke::InvokeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ResourceNotReadyException" => {
-            crate::operation::invoke::InvokeError::ResourceNotReadyException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ResourceNotReadyException" => crate::operation::invoke::InvokeError::ResourceNotReadyException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ResourceNotReadyExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_resource_not_ready_exception::de_resource_not_ready_exception_json_err(_response_body, output)
+                let mut output = crate::types::error::builders::ResourceNotReadyExceptionBuilder::default();
+                output = crate::protocol_serde::shape_resource_not_ready_exception::de_resource_not_ready_exception_json_err(_response_body, output)
                     .map_err(crate::operation::invoke::InvokeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "S3FilesMountConnectivityException" => {
             crate::operation::invoke::InvokeError::S3FilesMountConnectivityException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::S3FilesMountConnectivityExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::S3FilesMountConnectivityExceptionBuilder::default();
                     output = crate::protocol_serde::shape_s3_files_mount_connectivity_exception::de_s3_files_mount_connectivity_exception_json_err(
                     _response_body,
                     output,
@@ -592,56 +556,49 @@ pub fn de_invoke_http_error(
                 tmp
             })
         }
-        "S3FilesMountFailureException" => {
-            crate::operation::invoke::InvokeError::S3FilesMountFailureException({
+        "S3FilesMountFailureException" => crate::operation::invoke::InvokeError::S3FilesMountFailureException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::S3FilesMountFailureExceptionBuilder::default(
-                        );
-                    output = crate::protocol_serde::shape_s3_files_mount_failure_exception::de_s3_files_mount_failure_exception_json_err(
+                let mut output = crate::types::error::builders::S3FilesMountFailureExceptionBuilder::default();
+                output = crate::protocol_serde::shape_s3_files_mount_failure_exception::de_s3_files_mount_failure_exception_json_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::invoke::InvokeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "S3FilesMountTimeoutException" => {
-            crate::operation::invoke::InvokeError::S3FilesMountTimeoutException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "S3FilesMountTimeoutException" => crate::operation::invoke::InvokeError::S3FilesMountTimeoutException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::S3FilesMountTimeoutExceptionBuilder::default(
-                        );
-                    output = crate::protocol_serde::shape_s3_files_mount_timeout_exception::de_s3_files_mount_timeout_exception_json_err(
+                let mut output = crate::types::error::builders::S3FilesMountTimeoutExceptionBuilder::default();
+                output = crate::protocol_serde::shape_s3_files_mount_timeout_exception::de_s3_files_mount_timeout_exception_json_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::invoke::InvokeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "SerializedRequestEntityTooLargeException" => {
             crate::operation::invoke::InvokeError::SerializedRequestEntityTooLargeException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::SerializedRequestEntityTooLargeExceptionBuilder::default();
+                    let mut output =
+                        crate::types::error::builders::SerializedRequestEntityTooLargeExceptionBuilder::default();
                     output = crate::protocol_serde::shape_serialized_request_entity_too_large_exception::de_serialized_request_entity_too_large_exception_json_err(_response_body, output).map_err(crate::operation::invoke::InvokeError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
@@ -652,52 +609,16 @@ pub fn de_invoke_http_error(
                 tmp
             })
         }
-        "ServiceException" => {
-            crate::operation::invoke::InvokeError::ServiceException({
+        "ServiceException" => crate::operation::invoke::InvokeError::ServiceException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ServiceExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::invoke::InvokeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ServiceQuotaExceededException" => {
-            crate::operation::invoke::InvokeError::ServiceQuotaExceededException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(
+                let mut output = crate::types::error::builders::ServiceExceptionBuilder::default();
+                output = crate::protocol_serde::shape_service_exception::de_service_exception_json_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::invoke::InvokeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "SnapStartException" => crate::operation::invoke::InvokeError::SnapStartException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output =
-                    crate::types::error::builders::SnapStartExceptionBuilder::default();
-                output = crate::protocol_serde::shape_snap_start_exception::de_snap_start_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -706,31 +627,65 @@ pub fn de_invoke_http_error(
             }
             tmp
         }),
-        "SnapStartNotReadyException" => {
-            crate::operation::invoke::InvokeError::SnapStartNotReadyException({
+        "ServiceQuotaExceededException" => crate::operation::invoke::InvokeError::ServiceQuotaExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::SnapStartNotReadyExceptionBuilder::default();
-                    output =
+                let mut output = crate::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
+                output = crate::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::invoke::InvokeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "SnapStartException" => crate::operation::invoke::InvokeError::SnapStartException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::SnapStartExceptionBuilder::default();
+                output = crate::protocol_serde::shape_snap_start_exception::de_snap_start_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::invoke::InvokeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "SnapStartNotReadyException" => crate::operation::invoke::InvokeError::SnapStartNotReadyException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::SnapStartNotReadyExceptionBuilder::default();
+                output =
                     crate::protocol_serde::shape_snap_start_not_ready_exception::de_snap_start_not_ready_exception_json_err(_response_body, output)
                         .map_err(crate::operation::invoke::InvokeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "SnapStartRegenerationFailureException" => {
             crate::operation::invoke::InvokeError::SnapStartRegenerationFailureException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::SnapStartRegenerationFailureExceptionBuilder::default();
+                    let mut output =
+                        crate::types::error::builders::SnapStartRegenerationFailureExceptionBuilder::default();
                     output = crate::protocol_serde::shape_snap_start_regeneration_failure_exception::de_snap_start_regeneration_failure_exception_json_err(_response_body, output).map_err(crate::operation::invoke::InvokeError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
@@ -741,30 +696,28 @@ pub fn de_invoke_http_error(
                 tmp
             })
         }
-        "SnapStartTimeoutException" => {
-            crate::operation::invoke::InvokeError::SnapStartTimeoutException({
+        "SnapStartTimeoutException" => crate::operation::invoke::InvokeError::SnapStartTimeoutException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::SnapStartTimeoutExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_snap_start_timeout_exception::de_snap_start_timeout_exception_json_err(_response_body, output)
+                let mut output = crate::types::error::builders::SnapStartTimeoutExceptionBuilder::default();
+                output = crate::protocol_serde::shape_snap_start_timeout_exception::de_snap_start_timeout_exception_json_err(_response_body, output)
                     .map_err(crate::operation::invoke::InvokeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "SubnetIPAddressLimitReachedException" => {
             crate::operation::invoke::InvokeError::SubnetIpAddressLimitReachedException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::SubnetIpAddressLimitReachedExceptionBuilder::default();
+                    let mut output =
+                        crate::types::error::builders::SubnetIpAddressLimitReachedExceptionBuilder::default();
                     output = crate::protocol_serde::shape_subnet_ip_address_limit_reached_exception::de_subnet_ip_address_limit_reached_exception_json_err(_response_body, output).map_err(crate::operation::invoke::InvokeError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
@@ -780,15 +733,19 @@ pub fn de_invoke_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
                     output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(crate::operation::invoke::InvokeError::unhandled)?;
                     output = output.set_retry_after_seconds(
-                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
-                        crate::operation::invoke::InvokeError::unhandled("Failed to parse retryAfterSeconds from header `Retry-After")
-                    })?,
-                );
+                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(
+                            _response_headers,
+                        )
+                        .map_err(|_| {
+                            crate::operation::invoke::InvokeError::unhandled(
+                                "Failed to parse retryAfterSeconds from header `Retry-After",
+                            )
+                        })?,
+                    );
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -798,26 +755,24 @@ pub fn de_invoke_http_error(
                 tmp
             })
         }
-        "UnsupportedMediaTypeException" => {
-            crate::operation::invoke::InvokeError::UnsupportedMediaTypeException({
+        "UnsupportedMediaTypeException" => crate::operation::invoke::InvokeError::UnsupportedMediaTypeException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::UnsupportedMediaTypeExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_unsupported_media_type_exception::de_unsupported_media_type_exception_json_err(
+                output = crate::protocol_serde::shape_unsupported_media_type_exception::de_unsupported_media_type_exception_json_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::invoke::InvokeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => crate::operation::invoke::InvokeError::generic(generic),
     })
 }
@@ -827,56 +782,47 @@ pub fn de_invoke_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::invoke::InvokeOutput,
-    crate::operation::invoke::InvokeError,
-> {
+) -> std::result::Result<crate::operation::invoke::InvokeOutput, crate::operation::invoke::InvokeError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::invoke::builders::InvokeOutputBuilder::default();
         output = output.set_durable_execution_arn(
-            crate::protocol_serde::shape_invoke_output::de_durable_execution_arn_header(
-                _response_headers,
-            )
-            .map_err(|_| {
-                crate::operation::invoke::InvokeError::unhandled(
-                    "Failed to parse DurableExecutionArn from header `X-Amz-Durable-Execution-Arn",
-                )
-            })?,
+            crate::protocol_serde::shape_invoke_output::de_durable_execution_arn_header(_response_headers).map_err(
+                |_| {
+                    crate::operation::invoke::InvokeError::unhandled(
+                        "Failed to parse DurableExecutionArn from header `X-Amz-Durable-Execution-Arn",
+                    )
+                },
+            )?,
         );
         output = output.set_executed_version(
-            crate::protocol_serde::shape_invoke_output::de_executed_version_header(
-                _response_headers,
-            )
-            .map_err(|_| {
+            crate::protocol_serde::shape_invoke_output::de_executed_version_header(_response_headers).map_err(
+                |_| {
+                    crate::operation::invoke::InvokeError::unhandled(
+                        "Failed to parse ExecutedVersion from header `X-Amz-Executed-Version",
+                    )
+                },
+            )?,
+        );
+        output = output.set_function_error(
+            crate::protocol_serde::shape_invoke_output::de_function_error_header(_response_headers).map_err(|_| {
                 crate::operation::invoke::InvokeError::unhandled(
-                    "Failed to parse ExecutedVersion from header `X-Amz-Executed-Version",
+                    "Failed to parse FunctionError from header `X-Amz-Function-Error",
                 )
             })?,
         );
-        output = output.set_function_error(
-            crate::protocol_serde::shape_invoke_output::de_function_error_header(_response_headers)
-                .map_err(|_| {
-                    crate::operation::invoke::InvokeError::unhandled(
-                        "Failed to parse FunctionError from header `X-Amz-Function-Error",
-                    )
-                })?,
-        );
         output = output.set_log_result(
-            crate::protocol_serde::shape_invoke_output::de_log_result_header(_response_headers)
-                .map_err(|_| {
-                    crate::operation::invoke::InvokeError::unhandled(
-                        "Failed to parse LogResult from header `X-Amz-Log-Result",
-                    )
-                })?,
+            crate::protocol_serde::shape_invoke_output::de_log_result_header(_response_headers).map_err(|_| {
+                crate::operation::invoke::InvokeError::unhandled(
+                    "Failed to parse LogResult from header `X-Amz-Log-Result",
+                )
+            })?,
         );
-        output = output.set_payload(
-            crate::protocol_serde::shape_invoke_output::de_payload_payload(_response_body)?,
-        );
+        output = output.set_payload(crate::protocol_serde::shape_invoke_output::de_payload_payload(
+            _response_body,
+        )?);
         output = output.set_status_code(Some(_response_status as _));
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -884,20 +830,14 @@ pub fn de_invoke_http_response(
 pub fn ser_invoke_headers(
     input: &crate::operation::invoke::InvokeInput,
     mut builder: ::http_1x::request::Builder,
-) -> std::result::Result<
-    ::http_1x::request::Builder,
-    ::aws_smithy_types::error::operation::BuildError,
-> {
+) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.invocation_type {
         let formatted_2 = inner_1.as_str();
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "invocation_type",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("X-Amz-Invocation-Type", header_value);
@@ -908,10 +848,7 @@ pub fn ser_invoke_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "log_type",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("X-Amz-Log-Type", header_value);
@@ -922,10 +859,7 @@ pub fn ser_invoke_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "client_context",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("X-Amz-Client-Context", header_value);
@@ -936,10 +870,7 @@ pub fn ser_invoke_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "durable_execution_name",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("X-Amz-Durable-Execution-Name", header_value);
@@ -950,10 +881,7 @@ pub fn ser_invoke_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "tenant_id",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("X-Amz-Tenant-Id", header_value);

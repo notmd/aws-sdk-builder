@@ -10,8 +10,6 @@ impl super::Client {
     pub fn get_delivery_source(
         &self,
     ) -> crate::operation::get_delivery_source::builders::GetDeliverySourceFluentBuilder {
-        crate::operation::get_delivery_source::builders::GetDeliverySourceFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_delivery_source::builders::GetDeliverySourceFluentBuilder::new(self.handle.clone())
     }
 }

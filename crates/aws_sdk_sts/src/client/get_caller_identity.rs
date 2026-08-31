@@ -11,8 +11,6 @@ impl super::Client {
     pub fn get_caller_identity(
         &self,
     ) -> crate::operation::get_caller_identity::builders::GetCallerIdentityFluentBuilder {
-        crate::operation::get_caller_identity::builders::GetCallerIdentityFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_caller_identity::builders::GetCallerIdentityFluentBuilder::new(self.handle.clone())
     }
 }

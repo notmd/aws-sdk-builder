@@ -9,8 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetSigningCertificateError>`](crate::operation::get_signing_certificate::GetSigningCertificateError)
     pub fn get_signing_certificate(
         &self,
-    ) -> crate::operation::get_signing_certificate::builders::GetSigningCertificateFluentBuilder
-    {
+    ) -> crate::operation::get_signing_certificate::builders::GetSigningCertificateFluentBuilder {
         crate::operation::get_signing_certificate::builders::GetSigningCertificateFluentBuilder::new(
             self.handle.clone(),
         )

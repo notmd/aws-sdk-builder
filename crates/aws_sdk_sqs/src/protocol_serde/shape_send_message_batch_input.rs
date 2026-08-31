@@ -12,7 +12,10 @@ pub fn ser_send_message_batch_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_5 = array_3.value().start_object();
-                crate::protocol_serde::shape_send_message_batch_request_entry::ser_send_message_batch_request_entry(&mut object_5, item_4)?;
+                crate::protocol_serde::shape_send_message_batch_request_entry::ser_send_message_batch_request_entry(
+                    &mut object_5,
+                    item_4,
+                )?;
                 object_5.finish();
             }
         }

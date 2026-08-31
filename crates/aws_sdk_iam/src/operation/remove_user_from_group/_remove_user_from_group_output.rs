@@ -12,16 +12,13 @@ impl ::aws_types::request_id::RequestId for RemoveUserFromGroupOutput {
 }
 impl RemoveUserFromGroupOutput {
     /// Creates a new builder-style object to manufacture [`RemoveUserFromGroupOutput`](crate::operation::remove_user_from_group::RemoveUserFromGroupOutput).
-    pub fn builder(
-    ) -> crate::operation::remove_user_from_group::builders::RemoveUserFromGroupOutputBuilder {
+    pub fn builder() -> crate::operation::remove_user_from_group::builders::RemoveUserFromGroupOutputBuilder {
         crate::operation::remove_user_from_group::builders::RemoveUserFromGroupOutputBuilder::default()
     }
 }
 
 /// A builder for [`RemoveUserFromGroupOutput`](crate::operation::remove_user_from_group::RemoveUserFromGroupOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RemoveUserFromGroupOutputBuilder {
     _request_id: Option<String>,

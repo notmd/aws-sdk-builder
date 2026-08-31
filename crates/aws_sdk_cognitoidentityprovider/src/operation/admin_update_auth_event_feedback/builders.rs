@@ -67,7 +67,9 @@ impl AdminUpdateAuthEventFeedbackFluentBuilder {
         }
     }
     /// Access the AdminUpdateAuthEventFeedback as a reference.
-    pub fn as_input(&self) -> &crate::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::admin_update_auth_event_feedback::builders::AdminUpdateAuthEventFeedbackInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -91,12 +93,17 @@ impl AdminUpdateAuthEventFeedbackFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedback::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedback::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedback::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedback::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -172,10 +179,7 @@ impl AdminUpdateAuthEventFeedbackFluentBuilder {
         self
     }
     /// <p>Your feedback to the authentication event. When you provide a <code>FeedbackValue</code> value of <code>valid</code>, you tell Amazon Cognito that you trust a user session where Amazon Cognito has evaluated some level of risk. When you provide a <code>FeedbackValue</code> value of <code>invalid</code>, you tell Amazon Cognito that you don't trust a user session, or you don't believe that Amazon Cognito evaluated a high-enough risk level.</p>
-    pub fn set_feedback_value(
-        mut self,
-        input: ::std::option::Option<crate::types::FeedbackValueType>,
-    ) -> Self {
+    pub fn set_feedback_value(mut self, input: ::std::option::Option<crate::types::FeedbackValueType>) -> Self {
         self.inner = self.inner.set_feedback_value(input);
         self
     }

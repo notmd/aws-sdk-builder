@@ -3,9 +3,7 @@ pub use crate::operation::update_global_table_settings::_update_global_table_set
 
 pub use crate::operation::update_global_table_settings::_update_global_table_settings_output::UpdateGlobalTableSettingsOutputBuilder;
 
-impl
-    crate::operation::update_global_table_settings::builders::UpdateGlobalTableSettingsInputBuilder
-{
+impl crate::operation::update_global_table_settings::builders::UpdateGlobalTableSettingsInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -62,7 +60,9 @@ impl UpdateGlobalTableSettingsFluentBuilder {
         }
     }
     /// Access the UpdateGlobalTableSettings as a reference.
-    pub fn as_input(&self) -> &crate::operation::update_global_table_settings::builders::UpdateGlobalTableSettingsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::update_global_table_settings::builders::UpdateGlobalTableSettingsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,16 +86,14 @@ impl UpdateGlobalTableSettingsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::update_global_table_settings::UpdateGlobalTableSettings::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::update_global_table_settings::UpdateGlobalTableSettings::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::update_global_table_settings::UpdateGlobalTableSettings::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::update_global_table_settings::UpdateGlobalTableSettings::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -124,18 +122,12 @@ impl UpdateGlobalTableSettingsFluentBuilder {
         self
     }
     /// <p>The name of the global table</p>
-    pub fn global_table_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn global_table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.global_table_name(input.into());
         self
     }
     /// <p>The name of the global table</p>
-    pub fn set_global_table_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_global_table_name(input);
         self
     }
@@ -161,10 +153,7 @@ impl UpdateGlobalTableSettingsFluentBuilder {
     /// <li>
     /// <p><code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>.</p></li>
     /// </ul>
-    pub fn set_global_table_billing_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::BillingMode>,
-    ) -> Self {
+    pub fn set_global_table_billing_mode(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
         self.inner = self.inner.set_global_table_billing_mode(input);
         self
     }
@@ -175,32 +164,22 @@ impl UpdateGlobalTableSettingsFluentBuilder {
     /// <li>
     /// <p><code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>.</p></li>
     /// </ul>
-    pub fn get_global_table_billing_mode(
-        &self,
-    ) -> &::std::option::Option<crate::types::BillingMode> {
+    pub fn get_global_table_billing_mode(&self) -> &::std::option::Option<crate::types::BillingMode> {
         self.inner.get_global_table_billing_mode()
     }
     /// <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException.</code></p>
     pub fn global_table_provisioned_write_capacity_units(mut self, input: i64) -> Self {
-        self.inner = self
-            .inner
-            .global_table_provisioned_write_capacity_units(input);
+        self.inner = self.inner.global_table_provisioned_write_capacity_units(input);
         self
     }
     /// <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException.</code></p>
-    pub fn set_global_table_provisioned_write_capacity_units(
-        mut self,
-        input: ::std::option::Option<i64>,
-    ) -> Self {
-        self.inner = self
-            .inner
-            .set_global_table_provisioned_write_capacity_units(input);
+    pub fn set_global_table_provisioned_write_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.inner = self.inner.set_global_table_provisioned_write_capacity_units(input);
         self
     }
     /// <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException.</code></p>
     pub fn get_global_table_provisioned_write_capacity_units(&self) -> &::std::option::Option<i64> {
-        self.inner
-            .get_global_table_provisioned_write_capacity_units()
+        self.inner.get_global_table_provisioned_write_capacity_units()
     }
     /// <p>Auto scaling settings for managing provisioned write capacity for the global table.</p>
     pub fn global_table_provisioned_write_capacity_auto_scaling_settings_update(
@@ -239,17 +218,13 @@ impl UpdateGlobalTableSettingsFluentBuilder {
         mut self,
         input: crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate,
     ) -> Self {
-        self.inner = self
-            .inner
-            .global_table_global_secondary_index_settings_update(input);
+        self.inner = self.inner.global_table_global_secondary_index_settings_update(input);
         self
     }
     /// <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
     pub fn set_global_table_global_secondary_index_settings_update(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>>,
     ) -> Self {
         self.inner = self
             .inner
@@ -259,11 +234,8 @@ impl UpdateGlobalTableSettingsFluentBuilder {
     /// <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
     pub fn get_global_table_global_secondary_index_settings_update(
         &self,
-    ) -> &::std::option::Option<
-        ::std::vec::Vec<crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>,
-    > {
-        self.inner
-            .get_global_table_global_secondary_index_settings_update()
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>> {
+        self.inner.get_global_table_global_secondary_index_settings_update()
     }
     ///
     /// Appends an item to `ReplicaSettingsUpdate`.

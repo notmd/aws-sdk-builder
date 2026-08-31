@@ -59,7 +59,9 @@ impl PutPackageOriginConfigurationFluentBuilder {
         }
     }
     /// Access the PutPackageOriginConfiguration as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::put_package_origin_configuration::builders::PutPackageOriginConfigurationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,7 +90,11 @@ impl PutPackageOriginConfigurationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_package_origin_configuration::PutPackageOriginConfiguration::orchestrate(&runtime_plugins, input).await
+        crate::operation::put_package_origin_configuration::PutPackageOriginConfiguration::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -238,18 +244,13 @@ impl PutPackageOriginConfigurationFluentBuilder {
     }
     /// <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a> object that contains information about the <code>upstream</code> and <code>publish</code> package origin restrictions. The <code>upstream</code> restriction determines if new package versions can be ingested or retained from external connections or upstream repositories. The <code>publish</code> restriction determines if new package versions can be published directly to the repository.</p>
     /// <p>You must include both the desired <code>upstream</code> and <code>publish</code> restrictions.</p>
-    pub fn set_restrictions(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageOriginRestrictions>,
-    ) -> Self {
+    pub fn set_restrictions(mut self, input: ::std::option::Option<crate::types::PackageOriginRestrictions>) -> Self {
         self.inner = self.inner.set_restrictions(input);
         self
     }
     /// <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a> object that contains information about the <code>upstream</code> and <code>publish</code> package origin restrictions. The <code>upstream</code> restriction determines if new package versions can be ingested or retained from external connections or upstream repositories. The <code>publish</code> restriction determines if new package versions can be published directly to the repository.</p>
     /// <p>You must include both the desired <code>upstream</code> and <code>publish</code> restrictions.</p>
-    pub fn get_restrictions(
-        &self,
-    ) -> &::std::option::Option<crate::types::PackageOriginRestrictions> {
+    pub fn get_restrictions(&self) -> &::std::option::Option<crate::types::PackageOriginRestrictions> {
         self.inner.get_restrictions()
     }
 }

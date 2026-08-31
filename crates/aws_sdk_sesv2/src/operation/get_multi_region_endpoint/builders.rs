@@ -27,8 +27,7 @@ impl crate::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpoi
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GetMultiRegionEndpointFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointInputBuilder,
+    inner: crate::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -61,8 +60,7 @@ impl GetMultiRegionEndpointFluentBuilder {
     /// Access the GetMultiRegionEndpoint as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointInputBuilder
-    {
+    ) -> &crate::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,16 +84,13 @@ impl GetMultiRegionEndpointFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_multi_region_endpoint::GetMultiRegionEndpoint::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::get_multi_region_endpoint::GetMultiRegionEndpoint::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::get_multi_region_endpoint::GetMultiRegionEndpoint::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::get_multi_region_endpoint::GetMultiRegionEndpoint::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -124,18 +119,12 @@ impl GetMultiRegionEndpointFluentBuilder {
         self
     }
     /// <p>The name of the multi-region endpoint (global-endpoint).</p>
-    pub fn endpoint_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn endpoint_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.endpoint_name(input.into());
         self
     }
     /// <p>The name of the multi-region endpoint (global-endpoint).</p>
-    pub fn set_endpoint_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_endpoint_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_endpoint_name(input);
         self
     }

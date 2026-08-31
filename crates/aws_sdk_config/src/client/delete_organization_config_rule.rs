@@ -8,7 +8,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteOrganizationConfigRuleError>`](crate::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleError)
     pub fn delete_organization_config_rule(
         &self,
-    ) -> crate::operation::delete_organization_config_rule::builders::DeleteOrganizationConfigRuleFluentBuilder{
-        crate::operation::delete_organization_config_rule::builders::DeleteOrganizationConfigRuleFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::delete_organization_config_rule::builders::DeleteOrganizationConfigRuleFluentBuilder {
+        crate::operation::delete_organization_config_rule::builders::DeleteOrganizationConfigRuleFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -21,20 +21,15 @@ pub struct JobQueueDetail {
     /// </note>
     pub priority: ::std::option::Option<i32>,
     /// <p>The compute environments that are attached to the job queue and the order that job placement is preferred. Compute environments are selected for job placement in ascending order.</p>
-    pub compute_environment_order:
-        ::std::option::Option<::std::vec::Vec<crate::types::ComputeEnvironmentOrder>>,
+    pub compute_environment_order: ::std::option::Option<::std::vec::Vec<crate::types::ComputeEnvironmentOrder>>,
     /// <p>The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>
-    pub service_environment_order:
-        ::std::option::Option<::std::vec::Vec<crate::types::ServiceEnvironmentOrder>>,
+    pub service_environment_order: ::std::option::Option<::std::vec::Vec<crate::types::ServiceEnvironmentOrder>>,
     /// <p>The type of job queue. For service jobs that run on SageMaker Training, this value is <code>SAGEMAKER_TRAINING</code>. For regular container jobs, this value is <code>EKS</code>, <code>ECS</code>, or <code>ECS_FARGATE</code> depending on the compute environment.</p>
     pub job_queue_type: ::std::option::Option<crate::types::JobQueueType>,
     /// <p>The tags that are applied to the job queue. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a> in <i>Batch User Guide</i>.</p>
-    pub tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>The set of actions that Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed.</p>
-    pub job_state_time_limit_actions:
-        ::std::option::Option<::std::vec::Vec<crate::types::JobStateTimeLimitAction>>,
+    pub job_state_time_limit_actions: ::std::option::Option<::std::vec::Vec<crate::types::JobStateTimeLimitAction>>,
 }
 impl JobQueueDetail {
     /// <p>The job queue name.</p>
@@ -71,17 +66,13 @@ impl JobQueueDetail {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.compute_environment_order.is_none()`.
     pub fn compute_environment_order(&self) -> &[crate::types::ComputeEnvironmentOrder] {
-        self.compute_environment_order
-            .as_deref()
-            .unwrap_or_default()
+        self.compute_environment_order.as_deref().unwrap_or_default()
     }
     /// <p>The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.service_environment_order.is_none()`.
     pub fn service_environment_order(&self) -> &[crate::types::ServiceEnvironmentOrder] {
-        self.service_environment_order
-            .as_deref()
-            .unwrap_or_default()
+        self.service_environment_order.as_deref().unwrap_or_default()
     }
     /// <p>The type of job queue. For service jobs that run on SageMaker Training, this value is <code>SAGEMAKER_TRAINING</code>. For regular container jobs, this value is <code>EKS</code>, <code>ECS</code>, or <code>ECS_FARGATE</code> depending on the compute environment.</p>
     pub fn job_queue_type(&self) -> ::std::option::Option<&crate::types::JobQueueType> {
@@ -90,18 +81,14 @@ impl JobQueueDetail {
     /// <p>The tags that are applied to the job queue. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a> in <i>Batch User Guide</i>.</p>
     pub fn tags(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
     /// <p>The set of actions that Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.job_state_time_limit_actions.is_none()`.
     pub fn job_state_time_limit_actions(&self) -> &[crate::types::JobStateTimeLimitAction] {
-        self.job_state_time_limit_actions
-            .as_deref()
-            .unwrap_or_default()
+        self.job_state_time_limit_actions.as_deref().unwrap_or_default()
     }
 }
 impl JobQueueDetail {
@@ -112,9 +99,7 @@ impl JobQueueDetail {
 }
 
 /// A builder for [`JobQueueDetail`](crate::types::JobQueueDetail).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct JobQueueDetailBuilder {
     pub(crate) job_queue_name: ::std::option::Option<::std::string::String>,
@@ -124,32 +109,22 @@ pub struct JobQueueDetailBuilder {
     pub(crate) status: ::std::option::Option<crate::types::JqStatus>,
     pub(crate) status_reason: ::std::option::Option<::std::string::String>,
     pub(crate) priority: ::std::option::Option<i32>,
-    pub(crate) compute_environment_order:
-        ::std::option::Option<::std::vec::Vec<crate::types::ComputeEnvironmentOrder>>,
-    pub(crate) service_environment_order:
-        ::std::option::Option<::std::vec::Vec<crate::types::ServiceEnvironmentOrder>>,
+    pub(crate) compute_environment_order: ::std::option::Option<::std::vec::Vec<crate::types::ComputeEnvironmentOrder>>,
+    pub(crate) service_environment_order: ::std::option::Option<::std::vec::Vec<crate::types::ServiceEnvironmentOrder>>,
     pub(crate) job_queue_type: ::std::option::Option<crate::types::JobQueueType>,
-    pub(crate) tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) job_state_time_limit_actions:
         ::std::option::Option<::std::vec::Vec<crate::types::JobStateTimeLimitAction>>,
 }
 impl JobQueueDetailBuilder {
     /// <p>The job queue name.</p>
     /// This field is required.
-    pub fn job_queue_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn job_queue_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.job_queue_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The job queue name.</p>
-    pub fn set_job_queue_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_job_queue_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.job_queue_name = input;
         self
     }
@@ -159,18 +134,12 @@ impl JobQueueDetailBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the job queue.</p>
     /// This field is required.
-    pub fn job_queue_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn job_queue_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.job_queue_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the job queue.</p>
-    pub fn set_job_queue_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_job_queue_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.job_queue_arn = input;
         self
     }
@@ -194,18 +163,12 @@ impl JobQueueDetailBuilder {
         &self.state
     }
     /// <p>The Amazon Resource Name (ARN) of the scheduling policy. The format is <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i> </code>. For example, <code>aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy</code>.</p>
-    pub fn scheduling_policy_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn scheduling_policy_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.scheduling_policy_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the scheduling policy. The format is <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i> </code>. For example, <code>aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy</code>.</p>
-    pub fn set_scheduling_policy_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_scheduling_policy_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.scheduling_policy_arn = input;
         self
     }
@@ -228,18 +191,12 @@ impl JobQueueDetailBuilder {
         &self.status
     }
     /// <p>A short, human-readable string to provide additional details for the current status of the job queue.</p>
-    pub fn status_reason(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn status_reason(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.status_reason = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A short, human-readable string to provide additional details for the current status of the job queue.</p>
-    pub fn set_status_reason(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_status_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.status_reason = input;
         self
     }
@@ -273,10 +230,7 @@ impl JobQueueDetailBuilder {
     /// To override the contents of this collection use [`set_compute_environment_order`](Self::set_compute_environment_order).
     ///
     /// <p>The compute environments that are attached to the job queue and the order that job placement is preferred. Compute environments are selected for job placement in ascending order.</p>
-    pub fn compute_environment_order(
-        mut self,
-        input: crate::types::ComputeEnvironmentOrder,
-    ) -> Self {
+    pub fn compute_environment_order(mut self, input: crate::types::ComputeEnvironmentOrder) -> Self {
         let mut v = self.compute_environment_order.unwrap_or_default();
         v.push(input);
         self.compute_environment_order = ::std::option::Option::Some(v);
@@ -301,10 +255,7 @@ impl JobQueueDetailBuilder {
     /// To override the contents of this collection use [`set_service_environment_order`](Self::set_service_environment_order).
     ///
     /// <p>The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>
-    pub fn service_environment_order(
-        mut self,
-        input: crate::types::ServiceEnvironmentOrder,
-    ) -> Self {
+    pub fn service_environment_order(mut self, input: crate::types::ServiceEnvironmentOrder) -> Self {
         let mut v = self.service_environment_order.unwrap_or_default();
         v.push(input);
         self.service_environment_order = ::std::option::Option::Some(v);
@@ -330,10 +281,7 @@ impl JobQueueDetailBuilder {
         self
     }
     /// <p>The type of job queue. For service jobs that run on SageMaker Training, this value is <code>SAGEMAKER_TRAINING</code>. For regular container jobs, this value is <code>EKS</code>, <code>ECS</code>, or <code>ECS_FARGATE</code> depending on the compute environment.</p>
-    pub fn set_job_queue_type(
-        mut self,
-        input: ::std::option::Option<crate::types::JobQueueType>,
-    ) -> Self {
+    pub fn set_job_queue_type(mut self, input: ::std::option::Option<crate::types::JobQueueType>) -> Self {
         self.job_queue_type = input;
         self
     }
@@ -359,9 +307,7 @@ impl JobQueueDetailBuilder {
     /// <p>The tags that are applied to the job queue. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a> in <i>Batch User Guide</i>.</p>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.tags = input;
         self
@@ -369,9 +315,7 @@ impl JobQueueDetailBuilder {
     /// <p>The tags that are applied to the job queue. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a> in <i>Batch User Guide</i>.</p>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     /// Appends an item to `job_state_time_limit_actions`.
@@ -379,10 +323,7 @@ impl JobQueueDetailBuilder {
     /// To override the contents of this collection use [`set_job_state_time_limit_actions`](Self::set_job_state_time_limit_actions).
     ///
     /// <p>The set of actions that Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed.</p>
-    pub fn job_state_time_limit_actions(
-        mut self,
-        input: crate::types::JobStateTimeLimitAction,
-    ) -> Self {
+    pub fn job_state_time_limit_actions(mut self, input: crate::types::JobStateTimeLimitAction) -> Self {
         let mut v = self.job_state_time_limit_actions.unwrap_or_default();
         v.push(input);
         self.job_state_time_limit_actions = ::std::option::Option::Some(v);

@@ -58,9 +58,7 @@ impl SelectResourceConfigFluentBuilder {
         }
     }
     /// Access the SelectResourceConfig as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::select_resource_config::builders::SelectResourceConfigInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::select_resource_config::builders::SelectResourceConfigInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,11 +87,7 @@ impl SelectResourceConfigFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::select_resource_config::SelectResourceConfig::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::select_resource_config::SelectResourceConfig::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -124,13 +118,8 @@ impl SelectResourceConfigFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::select_resource_config::paginator::SelectResourceConfigPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::select_resource_config::paginator::SelectResourceConfigPaginator {
-        crate::operation::select_resource_config::paginator::SelectResourceConfigPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::select_resource_config::paginator::SelectResourceConfigPaginator {
+        crate::operation::select_resource_config::paginator::SelectResourceConfigPaginator::new(self.handle, self.inner)
     }
     /// <p>The SQL query <code>SELECT</code> command.</p>
     pub fn expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

@@ -6,9 +6,7 @@ pub struct TagResourceInput {
     /// <p>The resource's Amazon Resource Name (ARN).</p>
     pub resource: ::std::option::Option<::std::string::String>,
     /// <p>A list of tags to apply to the resource.</p>
-    pub tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl TagResourceInput {
     /// <p>The resource's Amazon Resource Name (ARN).</p>
@@ -18,9 +16,7 @@ impl TagResourceInput {
     /// <p>A list of tags to apply to the resource.</p>
     pub fn tags(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
 }
@@ -32,15 +28,11 @@ impl TagResourceInput {
 }
 
 /// A builder for [`TagResourceInput`](crate::operation::tag_resource::TagResourceInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TagResourceInputBuilder {
     pub(crate) resource: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl TagResourceInputBuilder {
     /// <p>The resource's Amazon Resource Name (ARN).</p>
@@ -76,9 +68,7 @@ impl TagResourceInputBuilder {
     /// <p>A list of tags to apply to the resource.</p>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.tags = input;
         self
@@ -86,9 +76,7 @@ impl TagResourceInputBuilder {
     /// <p>A list of tags to apply to the resource.</p>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`TagResourceInput`](crate::operation::tag_resource::TagResourceInput).

@@ -26,9 +26,7 @@ impl GetBucketAbacInput {
 }
 
 /// A builder for [`GetBucketAbacInput`](crate::operation::get_bucket_abac::GetBucketAbacInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketAbacInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -51,18 +49,12 @@ impl GetBucketAbacInputBuilder {
         &self.bucket
     }
     /// <p>The Amazon Web Services account ID of the general purpose bucket's owner.</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Web Services account ID of the general purpose bucket's owner.</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }

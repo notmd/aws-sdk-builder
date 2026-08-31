@@ -10,8 +10,6 @@ impl super::Client {
     pub fn get_topic_attributes(
         &self,
     ) -> crate::operation::get_topic_attributes::builders::GetTopicAttributesFluentBuilder {
-        crate::operation::get_topic_attributes::builders::GetTopicAttributesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_topic_attributes::builders::GetTopicAttributesFluentBuilder::new(self.handle.clone())
     }
 }

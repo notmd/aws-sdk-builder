@@ -55,8 +55,7 @@ impl SsekmsBuilder {
     /// - [`key_id`](crate::types::builders::SsekmsBuilder::key_id)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::types::Ssekms, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<crate::types::Ssekms, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Ssekms {
             key_id: self.key_id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -153,18 +153,10 @@ impl ::std::convert::From<&str> for GuardrailChecksSensitiveInformationEntityTyp
             "AWS_ACCESS_KEY" => GuardrailChecksSensitiveInformationEntityType::AwsAccessKey,
             "AWS_SECRET_KEY" => GuardrailChecksSensitiveInformationEntityType::AwsSecretKey,
             "CA_HEALTH_NUMBER" => GuardrailChecksSensitiveInformationEntityType::CaHealthNumber,
-            "CA_SOCIAL_INSURANCE_NUMBER" => {
-                GuardrailChecksSensitiveInformationEntityType::CaSocialInsuranceNumber
-            }
-            "CREDIT_DEBIT_CARD_CVV" => {
-                GuardrailChecksSensitiveInformationEntityType::CreditDebitCardCvv
-            }
-            "CREDIT_DEBIT_CARD_EXPIRY" => {
-                GuardrailChecksSensitiveInformationEntityType::CreditDebitCardExpiry
-            }
-            "CREDIT_DEBIT_CARD_NUMBER" => {
-                GuardrailChecksSensitiveInformationEntityType::CreditDebitCardNumber
-            }
+            "CA_SOCIAL_INSURANCE_NUMBER" => GuardrailChecksSensitiveInformationEntityType::CaSocialInsuranceNumber,
+            "CREDIT_DEBIT_CARD_CVV" => GuardrailChecksSensitiveInformationEntityType::CreditDebitCardCvv,
+            "CREDIT_DEBIT_CARD_EXPIRY" => GuardrailChecksSensitiveInformationEntityType::CreditDebitCardExpiry,
+            "CREDIT_DEBIT_CARD_NUMBER" => GuardrailChecksSensitiveInformationEntityType::CreditDebitCardNumber,
             "DRIVER_ID" => GuardrailChecksSensitiveInformationEntityType::DriverId,
             "EMAIL" => GuardrailChecksSensitiveInformationEntityType::Email,
             "INTERNATIONAL_BANK_ACCOUNT_NUMBER" => {
@@ -181,27 +173,19 @@ impl ::std::convert::From<&str> for GuardrailChecksSensitiveInformationEntityTyp
             "UK_NATIONAL_HEALTH_SERVICE_NUMBER" => {
                 GuardrailChecksSensitiveInformationEntityType::UkNationalHealthServiceNumber
             }
-            "UK_NATIONAL_INSURANCE_NUMBER" => {
-                GuardrailChecksSensitiveInformationEntityType::UkNationalInsuranceNumber
-            }
+            "UK_NATIONAL_INSURANCE_NUMBER" => GuardrailChecksSensitiveInformationEntityType::UkNationalInsuranceNumber,
             "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER" => {
                 GuardrailChecksSensitiveInformationEntityType::UkUniqueTaxpayerReferenceNumber
             }
             "URL" => GuardrailChecksSensitiveInformationEntityType::Url,
             "USERNAME" => GuardrailChecksSensitiveInformationEntityType::Username,
-            "US_BANK_ACCOUNT_NUMBER" => {
-                GuardrailChecksSensitiveInformationEntityType::UsBankAccountNumber
-            }
-            "US_BANK_ROUTING_NUMBER" => {
-                GuardrailChecksSensitiveInformationEntityType::UsBankRoutingNumber
-            }
+            "US_BANK_ACCOUNT_NUMBER" => GuardrailChecksSensitiveInformationEntityType::UsBankAccountNumber,
+            "US_BANK_ROUTING_NUMBER" => GuardrailChecksSensitiveInformationEntityType::UsBankRoutingNumber,
             "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER" => {
                 GuardrailChecksSensitiveInformationEntityType::UsIndividualTaxIdentificationNumber
             }
             "US_PASSPORT_NUMBER" => GuardrailChecksSensitiveInformationEntityType::UsPassportNumber,
-            "US_SOCIAL_SECURITY_NUMBER" => {
-                GuardrailChecksSensitiveInformationEntityType::UsSocialSecurityNumber
-            }
+            "US_SOCIAL_SECURITY_NUMBER" => GuardrailChecksSensitiveInformationEntityType::UsSocialSecurityNumber,
             "VEHICLE_IDENTIFICATION_NUMBER" => {
                 GuardrailChecksSensitiveInformationEntityType::VehicleIdentificationNumber
             }
@@ -227,18 +211,10 @@ impl GuardrailChecksSensitiveInformationEntityType {
             GuardrailChecksSensitiveInformationEntityType::AwsAccessKey => "AWS_ACCESS_KEY",
             GuardrailChecksSensitiveInformationEntityType::AwsSecretKey => "AWS_SECRET_KEY",
             GuardrailChecksSensitiveInformationEntityType::CaHealthNumber => "CA_HEALTH_NUMBER",
-            GuardrailChecksSensitiveInformationEntityType::CaSocialInsuranceNumber => {
-                "CA_SOCIAL_INSURANCE_NUMBER"
-            }
-            GuardrailChecksSensitiveInformationEntityType::CreditDebitCardCvv => {
-                "CREDIT_DEBIT_CARD_CVV"
-            }
-            GuardrailChecksSensitiveInformationEntityType::CreditDebitCardExpiry => {
-                "CREDIT_DEBIT_CARD_EXPIRY"
-            }
-            GuardrailChecksSensitiveInformationEntityType::CreditDebitCardNumber => {
-                "CREDIT_DEBIT_CARD_NUMBER"
-            }
+            GuardrailChecksSensitiveInformationEntityType::CaSocialInsuranceNumber => "CA_SOCIAL_INSURANCE_NUMBER",
+            GuardrailChecksSensitiveInformationEntityType::CreditDebitCardCvv => "CREDIT_DEBIT_CARD_CVV",
+            GuardrailChecksSensitiveInformationEntityType::CreditDebitCardExpiry => "CREDIT_DEBIT_CARD_EXPIRY",
+            GuardrailChecksSensitiveInformationEntityType::CreditDebitCardNumber => "CREDIT_DEBIT_CARD_NUMBER",
             GuardrailChecksSensitiveInformationEntityType::DriverId => "DRIVER_ID",
             GuardrailChecksSensitiveInformationEntityType::Email => "EMAIL",
             GuardrailChecksSensitiveInformationEntityType::InternationalBankAccountNumber => {
@@ -255,27 +231,19 @@ impl GuardrailChecksSensitiveInformationEntityType {
             GuardrailChecksSensitiveInformationEntityType::UkNationalHealthServiceNumber => {
                 "UK_NATIONAL_HEALTH_SERVICE_NUMBER"
             }
-            GuardrailChecksSensitiveInformationEntityType::UkNationalInsuranceNumber => {
-                "UK_NATIONAL_INSURANCE_NUMBER"
-            }
+            GuardrailChecksSensitiveInformationEntityType::UkNationalInsuranceNumber => "UK_NATIONAL_INSURANCE_NUMBER",
             GuardrailChecksSensitiveInformationEntityType::UkUniqueTaxpayerReferenceNumber => {
                 "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER"
             }
             GuardrailChecksSensitiveInformationEntityType::Url => "URL",
             GuardrailChecksSensitiveInformationEntityType::Username => "USERNAME",
-            GuardrailChecksSensitiveInformationEntityType::UsBankAccountNumber => {
-                "US_BANK_ACCOUNT_NUMBER"
-            }
-            GuardrailChecksSensitiveInformationEntityType::UsBankRoutingNumber => {
-                "US_BANK_ROUTING_NUMBER"
-            }
+            GuardrailChecksSensitiveInformationEntityType::UsBankAccountNumber => "US_BANK_ACCOUNT_NUMBER",
+            GuardrailChecksSensitiveInformationEntityType::UsBankRoutingNumber => "US_BANK_ROUTING_NUMBER",
             GuardrailChecksSensitiveInformationEntityType::UsIndividualTaxIdentificationNumber => {
                 "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER"
             }
             GuardrailChecksSensitiveInformationEntityType::UsPassportNumber => "US_PASSPORT_NUMBER",
-            GuardrailChecksSensitiveInformationEntityType::UsSocialSecurityNumber => {
-                "US_SOCIAL_SECURITY_NUMBER"
-            }
+            GuardrailChecksSensitiveInformationEntityType::UsSocialSecurityNumber => "US_SOCIAL_SECURITY_NUMBER",
             GuardrailChecksSensitiveInformationEntityType::VehicleIdentificationNumber => {
                 "VEHICLE_IDENTIFICATION_NUMBER"
             }
@@ -328,14 +296,10 @@ impl GuardrailChecksSensitiveInformationEntityType {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -345,21 +309,13 @@ impl ::std::fmt::Display for GuardrailChecksSensitiveInformationEntityType {
         match self {
             GuardrailChecksSensitiveInformationEntityType::Address => write!(f, "ADDRESS"),
             GuardrailChecksSensitiveInformationEntityType::Age => write!(f, "AGE"),
-            GuardrailChecksSensitiveInformationEntityType::AwsAccessKey => {
-                write!(f, "AWS_ACCESS_KEY")
-            }
-            GuardrailChecksSensitiveInformationEntityType::AwsSecretKey => {
-                write!(f, "AWS_SECRET_KEY")
-            }
-            GuardrailChecksSensitiveInformationEntityType::CaHealthNumber => {
-                write!(f, "CA_HEALTH_NUMBER")
-            }
+            GuardrailChecksSensitiveInformationEntityType::AwsAccessKey => write!(f, "AWS_ACCESS_KEY"),
+            GuardrailChecksSensitiveInformationEntityType::AwsSecretKey => write!(f, "AWS_SECRET_KEY"),
+            GuardrailChecksSensitiveInformationEntityType::CaHealthNumber => write!(f, "CA_HEALTH_NUMBER"),
             GuardrailChecksSensitiveInformationEntityType::CaSocialInsuranceNumber => {
                 write!(f, "CA_SOCIAL_INSURANCE_NUMBER")
             }
-            GuardrailChecksSensitiveInformationEntityType::CreditDebitCardCvv => {
-                write!(f, "CREDIT_DEBIT_CARD_CVV")
-            }
+            GuardrailChecksSensitiveInformationEntityType::CreditDebitCardCvv => write!(f, "CREDIT_DEBIT_CARD_CVV"),
             GuardrailChecksSensitiveInformationEntityType::CreditDebitCardExpiry => {
                 write!(f, "CREDIT_DEBIT_CARD_EXPIRY")
             }
@@ -372,9 +328,7 @@ impl ::std::fmt::Display for GuardrailChecksSensitiveInformationEntityType {
                 write!(f, "INTERNATIONAL_BANK_ACCOUNT_NUMBER")
             }
             GuardrailChecksSensitiveInformationEntityType::IpAddress => write!(f, "IP_ADDRESS"),
-            GuardrailChecksSensitiveInformationEntityType::LicensePlate => {
-                write!(f, "LICENSE_PLATE")
-            }
+            GuardrailChecksSensitiveInformationEntityType::LicensePlate => write!(f, "LICENSE_PLATE"),
             GuardrailChecksSensitiveInformationEntityType::MacAddress => write!(f, "MAC_ADDRESS"),
             GuardrailChecksSensitiveInformationEntityType::Name => write!(f, "NAME"),
             GuardrailChecksSensitiveInformationEntityType::Password => write!(f, "PASSWORD"),
@@ -392,18 +346,12 @@ impl ::std::fmt::Display for GuardrailChecksSensitiveInformationEntityType {
             }
             GuardrailChecksSensitiveInformationEntityType::Url => write!(f, "URL"),
             GuardrailChecksSensitiveInformationEntityType::Username => write!(f, "USERNAME"),
-            GuardrailChecksSensitiveInformationEntityType::UsBankAccountNumber => {
-                write!(f, "US_BANK_ACCOUNT_NUMBER")
-            }
-            GuardrailChecksSensitiveInformationEntityType::UsBankRoutingNumber => {
-                write!(f, "US_BANK_ROUTING_NUMBER")
-            }
+            GuardrailChecksSensitiveInformationEntityType::UsBankAccountNumber => write!(f, "US_BANK_ACCOUNT_NUMBER"),
+            GuardrailChecksSensitiveInformationEntityType::UsBankRoutingNumber => write!(f, "US_BANK_ROUTING_NUMBER"),
             GuardrailChecksSensitiveInformationEntityType::UsIndividualTaxIdentificationNumber => {
                 write!(f, "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER")
             }
-            GuardrailChecksSensitiveInformationEntityType::UsPassportNumber => {
-                write!(f, "US_PASSPORT_NUMBER")
-            }
+            GuardrailChecksSensitiveInformationEntityType::UsPassportNumber => write!(f, "US_PASSPORT_NUMBER"),
             GuardrailChecksSensitiveInformationEntityType::UsSocialSecurityNumber => {
                 write!(f, "US_SOCIAL_SECURITY_NUMBER")
             }

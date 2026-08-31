@@ -66,9 +66,7 @@ impl ListUserPoolClientsFluentBuilder {
         }
     }
     /// Access the ListUserPoolClients as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_user_pool_clients::builders::ListUserPoolClientsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_user_pool_clients::builders::ListUserPoolClientsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -97,11 +95,7 @@ impl ListUserPoolClientsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_user_pool_clients::ListUserPoolClients::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::list_user_pool_clients::ListUserPoolClients::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -132,13 +126,8 @@ impl ListUserPoolClientsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_user_pool_clients::paginator::ListUserPoolClientsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_user_pool_clients::paginator::ListUserPoolClientsPaginator {
-        crate::operation::list_user_pool_clients::paginator::ListUserPoolClientsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_user_pool_clients::paginator::ListUserPoolClientsPaginator {
+        crate::operation::list_user_pool_clients::paginator::ListUserPoolClientsPaginator::new(self.handle, self.inner)
     }
     /// <p>The ID of the user pool where you want to list user pool clients.</p>
     pub fn user_pool_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

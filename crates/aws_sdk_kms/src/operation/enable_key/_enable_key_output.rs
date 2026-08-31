@@ -18,9 +18,7 @@ impl EnableKeyOutput {
 }
 
 /// A builder for [`EnableKeyOutput`](crate::operation::enable_key::EnableKeyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EnableKeyOutputBuilder {
     _request_id: Option<String>,

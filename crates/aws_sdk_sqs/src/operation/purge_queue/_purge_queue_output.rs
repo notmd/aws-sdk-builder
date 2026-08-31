@@ -18,9 +18,7 @@ impl PurgeQueueOutput {
 }
 
 /// A builder for [`PurgeQueueOutput`](crate::operation::purge_queue::PurgeQueueOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PurgeQueueOutputBuilder {
     _request_id: Option<String>,

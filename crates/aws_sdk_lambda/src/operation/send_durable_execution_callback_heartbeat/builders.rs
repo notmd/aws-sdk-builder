@@ -78,7 +78,7 @@ impl SendDurableExecutionCallbackHeartbeatFluentBuilder {
             crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -89,7 +89,11 @@ impl SendDurableExecutionCallbackHeartbeatFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeat::orchestrate(&runtime_plugins, input).await
+        crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeat::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,7 +103,7 @@ impl SendDurableExecutionCallbackHeartbeatFluentBuilder {
         crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatOutput,
         crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(

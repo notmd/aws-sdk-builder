@@ -9,65 +9,31 @@ pub fn de_change_message_visibility_http_error(
     crate::operation::change_message_visibility::ChangeMessageVisibilityError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(
-        crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled,
-    )?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(
-            crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled(
-                generic,
-            ),
-        ),
+        None => {
+            return Err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled(generic))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InvalidAddress" => crate::operation::change_message_visibility::ChangeMessageVisibilityError::InvalidAddress({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidAddressBuilder::default();
-                output = crate::protocol_serde::shape_invalid_address::de_invalid_address_json_err(_response_body, output)
-                    .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidSecurity" => crate::operation::change_message_visibility::ChangeMessageVisibilityError::InvalidSecurity({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidSecurityBuilder::default();
-                output = crate::protocol_serde::shape_invalid_security::de_invalid_security_json_err(_response_body, output)
-                    .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "AWS.SimpleQueueService.MessageNotInflight" => {
-            crate::operation::change_message_visibility::ChangeMessageVisibilityError::MessageNotInflight({
+        "InvalidAddress" => {
+            crate::operation::change_message_visibility::ChangeMessageVisibilityError::InvalidAddress({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::MessageNotInflightBuilder::default();
-                    output = crate::protocol_serde::shape_message_not_inflight::de_message_not_inflight_json_err(_response_body, output)
-                        .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
+                    let mut output = crate::types::error::builders::InvalidAddressBuilder::default();
+                    output = crate::protocol_serde::shape_invalid_address::de_invalid_address_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -77,59 +43,120 @@ pub fn de_change_message_visibility_http_error(
                 tmp
             })
         }
-        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::change_message_visibility::ChangeMessageVisibilityError::QueueDoesNotExist({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "InvalidSecurity" => {
+            crate::operation::change_message_visibility::ChangeMessageVisibilityError::InvalidSecurity({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::QueueDoesNotExistBuilder::default();
-                output = crate::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::InvalidSecurityBuilder::default();
+                    output = crate::protocol_serde::shape_invalid_security::de_invalid_security_json_err(
+                        _response_body,
+                        output,
+                    )
                     .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ReceiptHandleIsInvalid" => crate::operation::change_message_visibility::ChangeMessageVisibilityError::ReceiptHandleIsInvalid({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "AWS.SimpleQueueService.MessageNotInflight" => {
+            crate::operation::change_message_visibility::ChangeMessageVisibilityError::MessageNotInflight({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ReceiptHandleIsInvalidBuilder::default();
-                output = crate::protocol_serde::shape_receipt_handle_is_invalid::de_receipt_handle_is_invalid_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::MessageNotInflightBuilder::default();
+                    output = crate::protocol_serde::shape_message_not_inflight::de_message_not_inflight_json_err(
+                        _response_body,
+                        output,
+                    )
                     .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "RequestThrottled" => crate::operation::change_message_visibility::ChangeMessageVisibilityError::RequestThrottled({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "AWS.SimpleQueueService.NonExistentQueue" => {
+            crate::operation::change_message_visibility::ChangeMessageVisibilityError::QueueDoesNotExist({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::RequestThrottledBuilder::default();
-                output = crate::protocol_serde::shape_request_throttled::de_request_throttled_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::QueueDoesNotExistBuilder::default();
+                    output = crate::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(
+                        _response_body,
+                        output,
+                    )
                     .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ReceiptHandleIsInvalid" => {
+            crate::operation::change_message_visibility::ChangeMessageVisibilityError::ReceiptHandleIsInvalid({
+                #[allow(unused_mut)]
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::ReceiptHandleIsInvalidBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_receipt_handle_is_invalid::de_receipt_handle_is_invalid_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(
+                            crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "RequestThrottled" => {
+            crate::operation::change_message_visibility::ChangeMessageVisibilityError::RequestThrottled({
+                #[allow(unused_mut)]
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::RequestThrottledBuilder::default();
+                    output = crate::protocol_serde::shape_request_throttled::de_request_throttled_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "AWS.SimpleQueueService.UnsupportedOperation" => {
             crate::operation::change_message_visibility::ChangeMessageVisibilityError::UnsupportedOperation({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
-                    output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
-                        .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
+                    output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -154,23 +181,23 @@ pub fn de_change_message_visibility_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output =
+            crate::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_change_message_visibility_input(
     input: &crate::operation::change_message_visibility::ChangeMessageVisibilityInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_change_message_visibility_input::ser_change_message_visibility_input_input(&mut object, input)?;
+    crate::protocol_serde::shape_change_message_visibility_input::ser_change_message_visibility_input_input(
+        &mut object,
+        input,
+    )?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

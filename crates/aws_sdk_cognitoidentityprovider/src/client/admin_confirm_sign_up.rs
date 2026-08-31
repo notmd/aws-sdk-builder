@@ -11,8 +11,6 @@ impl super::Client {
     pub fn admin_confirm_sign_up(
         &self,
     ) -> crate::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpFluentBuilder {
-        crate::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::admin_confirm_sign_up::builders::AdminConfirmSignUpFluentBuilder::new(self.handle.clone())
     }
 }

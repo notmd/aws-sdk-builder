@@ -9,10 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetStorageTierPolicyError>`](crate::operation::get_storage_tier_policy::GetStorageTierPolicyError)
     pub fn get_storage_tier_policy(
         &self,
-    ) -> crate::operation::get_storage_tier_policy::builders::GetStorageTierPolicyFluentBuilder
-    {
-        crate::operation::get_storage_tier_policy::builders::GetStorageTierPolicyFluentBuilder::new(
-            self.handle.clone(),
-        )
+    ) -> crate::operation::get_storage_tier_policy::builders::GetStorageTierPolicyFluentBuilder {
+        crate::operation::get_storage_tier_policy::builders::GetStorageTierPolicyFluentBuilder::new(self.handle.clone())
     }
 }

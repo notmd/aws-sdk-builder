@@ -17,7 +17,7 @@ impl DeleteOrganizationConformancePack {
             crate::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<
             ::aws_smithy_runtime_api::client::interceptors::context::Error,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -85,29 +85,22 @@ impl DeleteOrganizationConformancePack {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(
-                crate::config::ConfigOverrideRuntimePlugin::new(
-                    config_override,
-                    client_config.config.clone(),
-                    &client_config.runtime_components,
-                ),
-            );
+            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+                config_override,
+                client_config.config.clone(),
+                &client_config.runtime_components,
+            ));
         }
         runtime_plugins
     }
 }
-impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
-    for DeleteOrganizationConformancePack
-{
+impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for DeleteOrganizationConformancePack {
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
-        let mut cfg =
-            ::aws_smithy_types::config_bag::Layer::new("DeleteOrganizationConformancePack");
+        let mut cfg = ::aws_smithy_types::config_bag::Layer::new("DeleteOrganizationConformancePack");
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                DeleteOrganizationConformancePackRequestSerializer,
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+            DeleteOrganizationConformancePackRequestSerializer,
+        ));
         cfg.store_put(
             ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
                 DeleteOrganizationConformancePackResponseDeserializer,
@@ -123,12 +116,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
             ),
         );
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-                "DeleteOrganizationConformancePack",
-                "Config Service",
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+            "DeleteOrganizationConformancePack",
+            "Config Service",
+        ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = true;
         signing_options.content_sha256_header = false;
@@ -146,30 +137,39 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<
-        '_,
-        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    > {
+    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
-        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteOrganizationConformancePack")
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new(
+            "DeleteOrganizationConformancePack",
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 DeleteOrganizationConformancePackTelemetryInputCaptureInterceptor,
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 DeleteOrganizationConformancePackEndpointParamsInterceptor,
-            ))
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+            ),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                 crate::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError,
-            >::new())
-            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+            >::new(),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                 crate::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError,
-            >::new())
-            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                crate::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError,
-            >::new());
+            >::new(),
+        )
+        .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+            crate::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError,
+        >::new());
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -204,19 +204,16 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) = context
-            .input()
-            .downcast_ref::<DeleteOrganizationConformancePackInput>(
-        ) else {
+        let ::std::option::Option::Some(input) =
+            context.input().downcast_ref::<DeleteOrganizationConformancePackInput>()
+        else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
 
         let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
         if requested.should_capture("OrganizationConformancePackName") {
-            if let ::std::option::Option::Some(value) =
-                input.organization_conformance_pack_name.as_deref()
-            {
+            if let ::std::option::Option::Some(value) = input.organization_conformance_pack_name.as_deref() {
                 captured.insert("OrganizationConformancePackName", value);
             }
         }
@@ -255,9 +252,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
 }
 #[derive(Debug)]
 struct DeleteOrganizationConformancePackRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
-    for DeleteOrganizationConformancePackRequestSerializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteOrganizationConformancePackRequestSerializer {
     #[allow(
         unused_mut,
         clippy::let_and_return,
@@ -273,7 +268,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
         ::aws_smithy_runtime_api::box_error::BoxError,
     > {
         let input = input
-            .downcast::<crate::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackInput>()
+            .downcast::<crate::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackInput>(
+            )
             .expect("correct type");
         let _header_serialization_settings = _cfg
             .load::<crate::serialization_settings::HeaderSerializationSettings>()
@@ -284,8 +280,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_base(
                 _input: &crate::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
                 ::std::write!(output, "/").expect("formatting should succeed");
                 ::std::result::Result::Ok(())
@@ -294,10 +289,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn update_http_builder(
                 input: &crate::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<
-                ::http_1x::request::Builder,
-                ::aws_smithy_types::error::operation::BuildError,
-            > {
+            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
@@ -326,13 +319,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
                 &content_length,
             );
         }
-        ::std::result::Result::Ok(
-            request_builder
-                .body(body)
-                .expect("valid request")
-                .try_into()
-                .unwrap(),
-        )
+        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
 #[derive(Debug)]
@@ -362,18 +349,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             .ok_or("failed to downcast to DeleteOrganizationConformancePackInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(
-                cfg.load::<::aws_types::region::Region>()
-                    .map(|r| r.as_ref().to_owned()),
-            )
-            .set_use_dual_stack(
-                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
-                    .map(|ty| ty.0),
-            )
-            .set_use_fips(
-                cfg.load::<::aws_types::endpoint_config::UseFips>()
-                    .map(|ty| ty.0),
-            )
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_endpoint(
                 cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
                     .map(|ty| ty.0.clone()),
@@ -385,9 +363,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
                     err,
                 )
             })?;
-        cfg.interceptor_state().store_put(
-            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
-        );
+        cfg.interceptor_state()
+            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(
+                params,
+            ));
         ::std::result::Result::Ok(())
     }
 }
@@ -401,9 +380,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
 pub enum DeleteOrganizationConformancePackError {
     /// <p>Config organization conformance pack that you passed in the filter does not exist.</p>
     /// <p>For DeleteOrganizationConformancePack, you tried to delete an organization conformance pack that does not exist.</p>
-    NoSuchOrganizationConformancePackException(
-        crate::types::error::NoSuchOrganizationConformancePackException,
-    ),
+    NoSuchOrganizationConformancePackException(crate::types::error::NoSuchOrganizationConformancePackException),
     /// <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p>
     /// <ul>
     /// <li>
@@ -450,9 +427,7 @@ impl DeleteOrganizationConformancePackError {
     /// Creates the `DeleteOrganizationConformancePackError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -480,9 +455,7 @@ impl DeleteOrganizationConformancePackError {
             Self::OrganizationAccessDeniedException(e) => {
                 ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
             }
-            Self::ResourceInUseException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::ResourceInUseException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -502,9 +475,7 @@ impl DeleteOrganizationConformancePackError {
 impl ::std::error::Error for DeleteOrganizationConformancePackError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
-            Self::NoSuchOrganizationConformancePackException(_inner) => {
-                ::std::option::Option::Some(_inner)
-            }
+            Self::NoSuchOrganizationConformancePackException(_inner) => ::std::option::Option::Some(_inner),
             Self::OrganizationAccessDeniedException(_inner) => ::std::option::Option::Some(_inner),
             Self::ResourceInUseException(_inner) => ::std::option::Option::Some(_inner),
             Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
@@ -537,9 +508,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for DeleteOrganizationConforman
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
-    for DeleteOrganizationConformancePackError
-{
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DeleteOrganizationConformancePackError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::NoSuchOrganizationConformancePackException(_inner) => {
@@ -555,13 +524,9 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
-    for DeleteOrganizationConformancePackError
-{
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for DeleteOrganizationConformancePackError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -570,7 +535,9 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
         })
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError {
+impl ::aws_types::request_id::RequestId
+    for crate::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError
+{
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

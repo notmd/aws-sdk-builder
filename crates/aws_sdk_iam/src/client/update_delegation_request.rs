@@ -9,8 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateDelegationRequestError>`](crate::operation::update_delegation_request::UpdateDelegationRequestError)
     pub fn update_delegation_request(
         &self,
-    ) -> crate::operation::update_delegation_request::builders::UpdateDelegationRequestFluentBuilder
-    {
-        crate::operation::update_delegation_request::builders::UpdateDelegationRequestFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::update_delegation_request::builders::UpdateDelegationRequestFluentBuilder {
+        crate::operation::update_delegation_request::builders::UpdateDelegationRequestFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

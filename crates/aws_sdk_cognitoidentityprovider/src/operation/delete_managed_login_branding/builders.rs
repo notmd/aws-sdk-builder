@@ -66,7 +66,9 @@ impl DeleteManagedLoginBrandingFluentBuilder {
         }
     }
     /// Access the DeleteManagedLoginBranding as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::delete_managed_login_branding::builders::DeleteManagedLoginBrandingInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -90,11 +92,12 @@ impl DeleteManagedLoginBrandingFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::delete_managed_login_branding::DeleteManagedLoginBranding::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::delete_managed_login_branding::DeleteManagedLoginBranding::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::delete_managed_login_branding::DeleteManagedLoginBranding::orchestrate(
             &runtime_plugins,
             input,
@@ -128,18 +131,12 @@ impl DeleteManagedLoginBrandingFluentBuilder {
         self
     }
     /// <p>The ID of the managed login branding style that you want to delete.</p>
-    pub fn managed_login_branding_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn managed_login_branding_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.managed_login_branding_id(input.into());
         self
     }
     /// <p>The ID of the managed login branding style that you want to delete.</p>
-    pub fn set_managed_login_branding_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_managed_login_branding_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_managed_login_branding_id(input);
         self
     }

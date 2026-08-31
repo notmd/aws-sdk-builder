@@ -20,17 +20,13 @@ impl PutSyslogConfigurationInput {
 }
 impl PutSyslogConfigurationInput {
     /// Creates a new builder-style object to manufacture [`PutSyslogConfigurationInput`](crate::operation::put_syslog_configuration::PutSyslogConfigurationInput).
-    pub fn builder(
-    ) -> crate::operation::put_syslog_configuration::builders::PutSyslogConfigurationInputBuilder
-    {
+    pub fn builder() -> crate::operation::put_syslog_configuration::builders::PutSyslogConfigurationInputBuilder {
         crate::operation::put_syslog_configuration::builders::PutSyslogConfigurationInputBuilder::default()
     }
 }
 
 /// A builder for [`PutSyslogConfigurationInput`](crate::operation::put_syslog_configuration::PutSyslogConfigurationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutSyslogConfigurationInputBuilder {
     pub(crate) log_group_identifier: ::std::option::Option<::std::string::String>,
@@ -39,18 +35,12 @@ pub struct PutSyslogConfigurationInputBuilder {
 impl PutSyslogConfigurationInputBuilder {
     /// <p>The name or ARN of the log group to associate with the syslog configuration.</p>
     /// This field is required.
-    pub fn log_group_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name or ARN of the log group to associate with the syslog configuration.</p>
-    pub fn set_log_group_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_identifier = input;
         self
     }
@@ -59,18 +49,12 @@ impl PutSyslogConfigurationInputBuilder {
         &self.log_group_identifier
     }
     /// <p>The ID of the VPC endpoint to use for syslog ingestion.</p>
-    pub fn vpc_endpoint_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn vpc_endpoint_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.vpc_endpoint_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ID of the VPC endpoint to use for syslog ingestion.</p>
-    pub fn set_vpc_endpoint_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_vpc_endpoint_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.vpc_endpoint_id = input;
         self
     }

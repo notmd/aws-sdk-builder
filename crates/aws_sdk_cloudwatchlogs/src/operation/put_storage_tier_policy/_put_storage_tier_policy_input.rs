@@ -14,16 +14,13 @@ impl PutStorageTierPolicyInput {
 }
 impl PutStorageTierPolicyInput {
     /// Creates a new builder-style object to manufacture [`PutStorageTierPolicyInput`](crate::operation::put_storage_tier_policy::PutStorageTierPolicyInput).
-    pub fn builder(
-    ) -> crate::operation::put_storage_tier_policy::builders::PutStorageTierPolicyInputBuilder {
+    pub fn builder() -> crate::operation::put_storage_tier_policy::builders::PutStorageTierPolicyInputBuilder {
         crate::operation::put_storage_tier_policy::builders::PutStorageTierPolicyInputBuilder::default()
     }
 }
 
 /// A builder for [`PutStorageTierPolicyInput`](crate::operation::put_storage_tier_policy::PutStorageTierPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutStorageTierPolicyInputBuilder {
     pub(crate) storage_tier: ::std::option::Option<crate::types::StorageTier>,
@@ -36,10 +33,7 @@ impl PutStorageTierPolicyInputBuilder {
         self
     }
     /// <p>The storage tier to set for the account. Use <code>INTELLIGENT_TIERING</code> to automatically optimize storage costs by moving log data to the appropriate tier based on access frequency.</p>
-    pub fn set_storage_tier(
-        mut self,
-        input: ::std::option::Option<crate::types::StorageTier>,
-    ) -> Self {
+    pub fn set_storage_tier(mut self, input: ::std::option::Option<crate::types::StorageTier>) -> Self {
         self.storage_tier = input;
         self
     }
@@ -54,10 +48,8 @@ impl PutStorageTierPolicyInputBuilder {
         crate::operation::put_storage_tier_policy::PutStorageTierPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::put_storage_tier_policy::PutStorageTierPolicyInput {
-                storage_tier: self.storage_tier,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::put_storage_tier_policy::PutStorageTierPolicyInput {
+            storage_tier: self.storage_tier,
+        })
     }
 }

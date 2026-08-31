@@ -36,13 +36,10 @@ impl PublishBatchOutput {
 }
 
 /// A builder for [`PublishBatchOutput`](crate::operation::publish_batch::PublishBatchOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PublishBatchOutputBuilder {
-    pub(crate) successful:
-        ::std::option::Option<::std::vec::Vec<crate::types::PublishBatchResultEntry>>,
+    pub(crate) successful: ::std::option::Option<::std::vec::Vec<crate::types::PublishBatchResultEntry>>,
     pub(crate) failed: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>,
     _request_id: Option<String>,
 }
@@ -67,9 +64,7 @@ impl PublishBatchOutputBuilder {
         self
     }
     /// <p>A list of successful <code>PublishBatch</code> responses.</p>
-    pub fn get_successful(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::PublishBatchResultEntry>> {
+    pub fn get_successful(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PublishBatchResultEntry>> {
         &self.successful
     }
     /// Appends an item to `failed`.
@@ -92,9 +87,7 @@ impl PublishBatchOutputBuilder {
         self
     }
     /// <p>A list of failed <code>PublishBatch</code> responses.</p>
-    pub fn get_failed(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>> {
+    pub fn get_failed(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>> {
         &self.failed
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

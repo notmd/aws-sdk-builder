@@ -7,8 +7,7 @@ pub struct InventoryTableConfiguration {
     /// <p>The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.</p>
     pub configuration_state: crate::types::InventoryConfigurationState,
     /// <p>The encryption configuration for the inventory table.</p>
-    pub encryption_configuration:
-        ::std::option::Option<crate::types::MetadataTableEncryptionConfiguration>,
+    pub encryption_configuration: ::std::option::Option<crate::types::MetadataTableEncryptionConfiguration>,
 }
 impl InventoryTableConfiguration {
     /// <p>The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.</p>
@@ -30,15 +29,11 @@ impl InventoryTableConfiguration {
 }
 
 /// A builder for [`InventoryTableConfiguration`](crate::types::InventoryTableConfiguration).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InventoryTableConfigurationBuilder {
-    pub(crate) configuration_state:
-        ::std::option::Option<crate::types::InventoryConfigurationState>,
-    pub(crate) encryption_configuration:
-        ::std::option::Option<crate::types::MetadataTableEncryptionConfiguration>,
+    pub(crate) configuration_state: ::std::option::Option<crate::types::InventoryConfigurationState>,
+    pub(crate) encryption_configuration: ::std::option::Option<crate::types::MetadataTableEncryptionConfiguration>,
 }
 impl InventoryTableConfigurationBuilder {
     /// <p>The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.</p>
@@ -56,16 +51,11 @@ impl InventoryTableConfigurationBuilder {
         self
     }
     /// <p>The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.</p>
-    pub fn get_configuration_state(
-        &self,
-    ) -> &::std::option::Option<crate::types::InventoryConfigurationState> {
+    pub fn get_configuration_state(&self) -> &::std::option::Option<crate::types::InventoryConfigurationState> {
         &self.configuration_state
     }
     /// <p>The encryption configuration for the inventory table.</p>
-    pub fn encryption_configuration(
-        mut self,
-        input: crate::types::MetadataTableEncryptionConfiguration,
-    ) -> Self {
+    pub fn encryption_configuration(mut self, input: crate::types::MetadataTableEncryptionConfiguration) -> Self {
         self.encryption_configuration = ::std::option::Option::Some(input);
         self
     }

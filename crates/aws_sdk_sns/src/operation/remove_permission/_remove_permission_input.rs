@@ -21,16 +21,13 @@ impl RemovePermissionInput {
 }
 impl RemovePermissionInput {
     /// Creates a new builder-style object to manufacture [`RemovePermissionInput`](crate::operation::remove_permission::RemovePermissionInput).
-    pub fn builder() -> crate::operation::remove_permission::builders::RemovePermissionInputBuilder
-    {
+    pub fn builder() -> crate::operation::remove_permission::builders::RemovePermissionInputBuilder {
         crate::operation::remove_permission::builders::RemovePermissionInputBuilder::default()
     }
 }
 
 /// A builder for [`RemovePermissionInput`](crate::operation::remove_permission::RemovePermissionInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RemovePermissionInputBuilder {
     pub(crate) topic_arn: ::std::option::Option<::std::string::String>,

@@ -15,8 +15,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeCustomKeyStoresError>`](crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError)
     pub fn describe_custom_key_stores(
         &self,
-    ) -> crate::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresFluentBuilder
-    {
-        crate::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresFluentBuilder {
+        crate::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

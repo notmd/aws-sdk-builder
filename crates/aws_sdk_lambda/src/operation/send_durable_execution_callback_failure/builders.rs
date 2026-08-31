@@ -3,7 +3,9 @@ pub use crate::operation::send_durable_execution_callback_failure::_send_durable
 
 pub use crate::operation::send_durable_execution_callback_failure::_send_durable_execution_callback_failure_output::SendDurableExecutionCallbackFailureOutputBuilder;
 
-impl crate::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureInputBuilder {
+impl
+    crate::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -76,7 +78,7 @@ impl SendDurableExecutionCallbackFailureFluentBuilder {
             crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -87,7 +89,11 @@ impl SendDurableExecutionCallbackFailureFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailure::orchestrate(&runtime_plugins, input).await
+        crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailure::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -97,7 +103,7 @@ impl SendDurableExecutionCallbackFailureFluentBuilder {
         crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureOutput,
         crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(

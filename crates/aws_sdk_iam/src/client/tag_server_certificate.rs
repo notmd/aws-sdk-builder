@@ -10,8 +10,6 @@ impl super::Client {
     pub fn tag_server_certificate(
         &self,
     ) -> crate::operation::tag_server_certificate::builders::TagServerCertificateFluentBuilder {
-        crate::operation::tag_server_certificate::builders::TagServerCertificateFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::tag_server_certificate::builders::TagServerCertificateFluentBuilder::new(self.handle.clone())
     }
 }

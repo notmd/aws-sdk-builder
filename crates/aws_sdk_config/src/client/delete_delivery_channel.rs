@@ -8,8 +8,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteDeliveryChannelError>`](crate::operation::delete_delivery_channel::DeleteDeliveryChannelError)
     pub fn delete_delivery_channel(
         &self,
-    ) -> crate::operation::delete_delivery_channel::builders::DeleteDeliveryChannelFluentBuilder
-    {
+    ) -> crate::operation::delete_delivery_channel::builders::DeleteDeliveryChannelFluentBuilder {
         crate::operation::delete_delivery_channel::builders::DeleteDeliveryChannelFluentBuilder::new(
             self.handle.clone(),
         )

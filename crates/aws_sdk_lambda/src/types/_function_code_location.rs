@@ -57,9 +57,7 @@ impl FunctionCodeLocation {
 }
 
 /// A builder for [`FunctionCodeLocation`](crate::types::FunctionCodeLocation).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct FunctionCodeLocationBuilder {
     pub(crate) repository_type: ::std::option::Option<::std::string::String>,
@@ -72,18 +70,12 @@ pub struct FunctionCodeLocationBuilder {
 }
 impl FunctionCodeLocationBuilder {
     /// <p>The service that's hosting the file.</p>
-    pub fn repository_type(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn repository_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.repository_type = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The service that's hosting the file.</p>
-    pub fn set_repository_type(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_repository_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.repository_type = input;
         self
     }
@@ -120,18 +112,12 @@ impl FunctionCodeLocationBuilder {
         &self.image_uri
     }
     /// <p>The resolved URI for the image.</p>
-    pub fn resolved_image_uri(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resolved_image_uri(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.resolved_image_uri = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The resolved URI for the image.</p>
-    pub fn set_resolved_image_uri(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_resolved_image_uri(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.resolved_image_uri = input;
         self
     }
@@ -145,10 +131,7 @@ impl FunctionCodeLocationBuilder {
         self
     }
     /// <p>The resolved Amazon S3 object that contains the deployment package.</p>
-    pub fn set_resolved_s3_object(
-        mut self,
-        input: ::std::option::Option<crate::types::ResolvedS3Object>,
-    ) -> Self {
+    pub fn set_resolved_s3_object(mut self, input: ::std::option::Option<crate::types::ResolvedS3Object>) -> Self {
         self.resolved_s3_object = input;
         self
     }
@@ -157,18 +140,12 @@ impl FunctionCodeLocationBuilder {
         &self.resolved_s3_object
     }
     /// <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a>.</p>
-    pub fn source_kms_key_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn source_kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.source_kms_key_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a>.</p>
-    pub fn set_source_kms_key_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_source_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.source_kms_key_arn = input;
         self
     }
@@ -182,10 +159,7 @@ impl FunctionCodeLocationBuilder {
         self
     }
     /// <p>An object that contains details about an error related to function deployment package retrieval.</p>
-    pub fn set_error(
-        mut self,
-        input: ::std::option::Option<crate::types::FunctionCodeLocationError>,
-    ) -> Self {
+    pub fn set_error(mut self, input: ::std::option::Option<crate::types::FunctionCodeLocationError>) -> Self {
         self.error = input;
         self
     }

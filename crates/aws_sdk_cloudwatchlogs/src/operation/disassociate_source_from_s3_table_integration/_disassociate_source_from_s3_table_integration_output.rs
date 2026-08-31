@@ -27,9 +27,7 @@ impl DisassociateSourceFromS3TableIntegrationOutput {
 }
 
 /// A builder for [`DisassociateSourceFromS3TableIntegrationOutput`](crate::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DisassociateSourceFromS3TableIntegrationOutputBuilder {
     pub(crate) identifier: ::std::option::Option<::std::string::String>,
@@ -60,7 +58,10 @@ impl DisassociateSourceFromS3TableIntegrationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DisassociateSourceFromS3TableIntegrationOutput`](crate::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationOutput).
-    pub fn build(self) -> crate::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationOutput
+    {
         crate::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationOutput {
             identifier: self.identifier,
             _request_id: self._request_id,

@@ -9,7 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetFunctionRecursionConfigError>`](crate::operation::get_function_recursion_config::GetFunctionRecursionConfigError)
     pub fn get_function_recursion_config(
         &self,
-    ) -> crate::operation::get_function_recursion_config::builders::GetFunctionRecursionConfigFluentBuilder{
-        crate::operation::get_function_recursion_config::builders::GetFunctionRecursionConfigFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::get_function_recursion_config::builders::GetFunctionRecursionConfigFluentBuilder {
+        crate::operation::get_function_recursion_config::builders::GetFunctionRecursionConfigFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

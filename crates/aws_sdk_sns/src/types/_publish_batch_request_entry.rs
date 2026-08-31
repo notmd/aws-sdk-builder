@@ -23,9 +23,8 @@ pub struct PublishBatchRequestEntry {
     /// <p>You can define other top-level keys that define the message you want to send to a specific transport protocol (for example, http).</p>
     pub message_structure: ::std::option::Option<::std::string::String>,
     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html">Amazon SNS message attributes</a> in the Amazon SNS Developer Guide.</p>
-    pub message_attributes: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>,
-    >,
+    pub message_attributes:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>,
     /// <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
     /// <ul>
     /// <li>
@@ -96,9 +95,8 @@ impl PublishBatchRequestEntry {
     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html">Amazon SNS message attributes</a> in the Amazon SNS Developer Guide.</p>
     pub fn message_attributes(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>
+    {
         self.message_attributes.as_ref()
     }
     /// <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
@@ -151,18 +149,15 @@ impl PublishBatchRequestEntry {
 }
 
 /// A builder for [`PublishBatchRequestEntry`](crate::types::PublishBatchRequestEntry).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PublishBatchRequestEntryBuilder {
     pub(crate) id: ::std::option::Option<::std::string::String>,
     pub(crate) message: ::std::option::Option<::std::string::String>,
     pub(crate) subject: ::std::option::Option<::std::string::String>,
     pub(crate) message_structure: ::std::option::Option<::std::string::String>,
-    pub(crate) message_attributes: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>,
-    >,
+    pub(crate) message_attributes:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>,
     pub(crate) message_deduplication_id: ::std::option::Option<::std::string::String>,
     pub(crate) message_group_id: ::std::option::Option<::std::string::String>,
 }
@@ -228,10 +223,7 @@ impl PublishBatchRequestEntryBuilder {
     /// <p>contain at least a top-level JSON key of "default" with a value that is a string.</p></li>
     /// </ul>
     /// <p>You can define other top-level keys that define the message you want to send to a specific transport protocol (for example, http).</p>
-    pub fn message_structure(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn message_structure(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.message_structure = ::std::option::Option::Some(input.into());
         self
     }
@@ -243,10 +235,7 @@ impl PublishBatchRequestEntryBuilder {
     /// <p>contain at least a top-level JSON key of "default" with a value that is a string.</p></li>
     /// </ul>
     /// <p>You can define other top-level keys that define the message you want to send to a specific transport protocol (for example, http).</p>
-    pub fn set_message_structure(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_message_structure(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message_structure = input;
         self
     }
@@ -289,9 +278,8 @@ impl PublishBatchRequestEntryBuilder {
     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html">Amazon SNS message attributes</a> in the Amazon SNS Developer Guide.</p>
     pub fn get_message_attributes(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>
+    {
         &self.message_attributes
     }
     /// <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
@@ -325,10 +313,7 @@ impl PublishBatchRequestEntryBuilder {
     /// <p>If a message is sent successfully but the acknowledgement is lost and the message is resent with the same <code>MessageDeduplicationId</code> after the deduplication interval, Amazon SNS can't detect duplicate messages.</p>
     /// <p>Amazon SNS continues to keep track of the message deduplication ID even after the message is received and deleted.</p>
     /// </note>
-    pub fn message_deduplication_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn message_deduplication_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.message_deduplication_id = ::std::option::Option::Some(input.into());
         self
     }
@@ -363,10 +348,7 @@ impl PublishBatchRequestEntryBuilder {
     /// <p>If a message is sent successfully but the acknowledgement is lost and the message is resent with the same <code>MessageDeduplicationId</code> after the deduplication interval, Amazon SNS can't detect duplicate messages.</p>
     /// <p>Amazon SNS continues to keep track of the message deduplication ID even after the message is received and deleted.</p>
     /// </note>
-    pub fn set_message_deduplication_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_message_deduplication_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message_deduplication_id = input;
         self
     }
@@ -408,10 +390,7 @@ impl PublishBatchRequestEntryBuilder {
     /// <p>Standard topics: The <code>MessageGroupId</code> is optional and is forwarded only to Amazon SQS standard subscriptions to activate <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fair-queues.html">fair queues</a>. The <code>MessageGroupId</code> is not used for, or sent to, any other endpoint types.</p>
     /// <p>The length of <code>MessageGroupId</code> is 128 characters.</p>
     /// <p><code>MessageGroupId</code> can contain alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p>
-    pub fn message_group_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn message_group_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.message_group_id = ::std::option::Option::Some(input.into());
         self
     }
@@ -419,10 +398,7 @@ impl PublishBatchRequestEntryBuilder {
     /// <p>Standard topics: The <code>MessageGroupId</code> is optional and is forwarded only to Amazon SQS standard subscriptions to activate <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fair-queues.html">fair queues</a>. The <code>MessageGroupId</code> is not used for, or sent to, any other endpoint types.</p>
     /// <p>The length of <code>MessageGroupId</code> is 128 characters.</p>
     /// <p><code>MessageGroupId</code> can contain alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p>
-    pub fn set_message_group_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_message_group_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message_group_id = input;
         self
     }
@@ -439,10 +415,8 @@ impl PublishBatchRequestEntryBuilder {
     /// - [`message`](crate::types::builders::PublishBatchRequestEntryBuilder::message)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::PublishBatchRequestEntry,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::PublishBatchRequestEntry, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::PublishBatchRequestEntry {
             id: self.id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

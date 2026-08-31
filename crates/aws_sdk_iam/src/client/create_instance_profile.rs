@@ -11,8 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<CreateInstanceProfileError>`](crate::operation::create_instance_profile::CreateInstanceProfileError)
     pub fn create_instance_profile(
         &self,
-    ) -> crate::operation::create_instance_profile::builders::CreateInstanceProfileFluentBuilder
-    {
+    ) -> crate::operation::create_instance_profile::builders::CreateInstanceProfileFluentBuilder {
         crate::operation::create_instance_profile::builders::CreateInstanceProfileFluentBuilder::new(
             self.handle.clone(),
         )

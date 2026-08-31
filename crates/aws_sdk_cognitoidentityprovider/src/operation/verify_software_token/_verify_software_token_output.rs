@@ -35,10 +35,8 @@ impl ::aws_types::request_id::RequestId for VerifySoftwareTokenOutput {
 }
 impl VerifySoftwareTokenOutput {
     /// Creates a new builder-style object to manufacture [`VerifySoftwareTokenOutput`](crate::operation::verify_software_token::VerifySoftwareTokenOutput).
-    pub fn builder(
-    ) -> crate::operation::verify_software_token::builders::VerifySoftwareTokenOutputBuilder {
-        crate::operation::verify_software_token::builders::VerifySoftwareTokenOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::verify_software_token::builders::VerifySoftwareTokenOutputBuilder {
+        crate::operation::verify_software_token::builders::VerifySoftwareTokenOutputBuilder::default()
     }
 }
 
@@ -57,17 +55,12 @@ impl VerifySoftwareTokenOutputBuilder {
         self
     }
     /// <p>Amazon Cognito can accept or reject the code that you provide. This response parameter indicates the success of TOTP verification. Some reasons that this operation might return an error are clock skew on the user's device and excessive retries.</p>
-    pub fn set_status(
-        mut self,
-        input: ::std::option::Option<crate::types::VerifySoftwareTokenResponseType>,
-    ) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::VerifySoftwareTokenResponseType>) -> Self {
         self.status = input;
         self
     }
     /// <p>Amazon Cognito can accept or reject the code that you provide. This response parameter indicates the success of TOTP verification. Some reasons that this operation might return an error are clock skew on the user's device and excessive retries.</p>
-    pub fn get_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::VerifySoftwareTokenResponseType> {
+    pub fn get_status(&self) -> &::std::option::Option<crate::types::VerifySoftwareTokenResponseType> {
         &self.status
     }
     /// <p>This session ID satisfies an <code>MFA_SETUP</code> challenge. Supply the session ID in your challenge response.</p>

@@ -67,9 +67,7 @@ impl JournalTableConfigurationResult {
 }
 
 /// A builder for [`JournalTableConfigurationResult`](crate::types::JournalTableConfigurationResult).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct JournalTableConfigurationResultBuilder {
     pub(crate) table_status: ::std::option::Option<::std::string::String>,
@@ -174,10 +172,7 @@ impl JournalTableConfigurationResultBuilder {
         self
     }
     /// <p>The journal table record expiration settings for the journal table.</p>
-    pub fn set_record_expiration(
-        mut self,
-        input: ::std::option::Option<crate::types::RecordExpiration>,
-    ) -> Self {
+    pub fn set_record_expiration(mut self, input: ::std::option::Option<crate::types::RecordExpiration>) -> Self {
         self.record_expiration = input;
         self
     }

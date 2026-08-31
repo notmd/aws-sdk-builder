@@ -58,7 +58,9 @@ impl CreateSMSSandboxPhoneNumberFluentBuilder {
         }
     }
     /// Access the CreateSMSSandboxPhoneNumber as a reference.
-    pub fn as_input(&self) -> &crate::operation::create_sms_sandbox_phone_number::builders::CreateSmsSandboxPhoneNumberInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::create_sms_sandbox_phone_number::builders::CreateSmsSandboxPhoneNumberInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,11 +84,12 @@ impl CreateSMSSandboxPhoneNumberFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumber::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumber::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumber::orchestrate(
             &runtime_plugins,
             input,
@@ -139,10 +142,7 @@ impl CreateSMSSandboxPhoneNumberFluentBuilder {
         self
     }
     /// <p>The language to use for sending the OTP. The default value is <code>en-US</code>.</p>
-    pub fn set_language_code(
-        mut self,
-        input: ::std::option::Option<crate::types::LanguageCodeString>,
-    ) -> Self {
+    pub fn set_language_code(mut self, input: ::std::option::Option<crate::types::LanguageCodeString>) -> Self {
         self.inner = self.inner.set_language_code(input);
         self
     }

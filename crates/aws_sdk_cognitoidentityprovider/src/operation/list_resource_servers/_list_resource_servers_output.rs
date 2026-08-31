@@ -27,21 +27,16 @@ impl ::aws_types::request_id::RequestId for ListResourceServersOutput {
 }
 impl ListResourceServersOutput {
     /// Creates a new builder-style object to manufacture [`ListResourceServersOutput`](crate::operation::list_resource_servers::ListResourceServersOutput).
-    pub fn builder(
-    ) -> crate::operation::list_resource_servers::builders::ListResourceServersOutputBuilder {
-        crate::operation::list_resource_servers::builders::ListResourceServersOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::list_resource_servers::builders::ListResourceServersOutputBuilder {
+        crate::operation::list_resource_servers::builders::ListResourceServersOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListResourceServersOutput`](crate::operation::list_resource_servers::ListResourceServersOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListResourceServersOutputBuilder {
-    pub(crate) resource_servers:
-        ::std::option::Option<::std::vec::Vec<crate::types::ResourceServerType>>,
+    pub(crate) resource_servers: ::std::option::Option<::std::vec::Vec<crate::types::ResourceServerType>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -66,9 +61,7 @@ impl ListResourceServersOutputBuilder {
         self
     }
     /// <p>An array of resource servers and the details of their configuration. For each, the response includes names, identifiers, and custom scopes.</p>
-    pub fn get_resource_servers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceServerType>> {
+    pub fn get_resource_servers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceServerType>> {
         &self.resource_servers
     }
     /// <p>The identifier that Amazon Cognito returned with the previous request to this operation. When you include a pagination token in your request, Amazon Cognito returns the next set of items in the list. By use of this token, you can paginate through the full list of items.</p>

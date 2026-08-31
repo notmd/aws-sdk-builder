@@ -34,14 +34,11 @@ impl SearchVectorsOutput {
 }
 
 /// A builder for [`SearchVectorsOutput`](crate::operation::search_vectors::SearchVectorsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SearchVectorsOutputBuilder {
     pub(crate) consumed_capacity: ::std::option::Option<crate::types::VectorCapacity>,
-    pub(crate) search_results:
-        ::std::option::Option<::std::vec::Vec<crate::types::SearchResultItem>>,
+    pub(crate) search_results: ::std::option::Option<::std::vec::Vec<crate::types::SearchResultItem>>,
     _request_id: Option<String>,
 }
 impl SearchVectorsOutputBuilder {
@@ -51,10 +48,7 @@ impl SearchVectorsOutputBuilder {
         self
     }
     /// <p>The capacity units consumed by the <code>SearchVectors</code> operation. Contains <code>VectorSearchRequestBytes</code>, which represents the vector search capacity consumed.</p>
-    pub fn set_consumed_capacity(
-        mut self,
-        input: ::std::option::Option<crate::types::VectorCapacity>,
-    ) -> Self {
+    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<crate::types::VectorCapacity>) -> Self {
         self.consumed_capacity = input;
         self
     }
@@ -82,9 +76,7 @@ impl SearchVectorsOutputBuilder {
         self
     }
     /// <p>A list of items returned by the vector similarity search, sorted by similarity with the most similar item first. Each item contains the projected attributes and a similarity score.</p>
-    pub fn get_search_results(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::SearchResultItem>> {
+    pub fn get_search_results(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SearchResultItem>> {
         &self.search_results
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

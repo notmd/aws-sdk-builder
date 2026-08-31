@@ -12,7 +12,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListDeliverabilityTestReportsError>`](crate::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError)
     pub fn list_deliverability_test_reports(
         &self,
-    ) -> crate::operation::list_deliverability_test_reports::builders::ListDeliverabilityTestReportsFluentBuilder{
-        crate::operation::list_deliverability_test_reports::builders::ListDeliverabilityTestReportsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::list_deliverability_test_reports::builders::ListDeliverabilityTestReportsFluentBuilder {
+        crate::operation::list_deliverability_test_reports::builders::ListDeliverabilityTestReportsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

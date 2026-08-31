@@ -15,17 +15,13 @@ impl ListPlatformApplicationsInput {
 }
 impl ListPlatformApplicationsInput {
     /// Creates a new builder-style object to manufacture [`ListPlatformApplicationsInput`](crate::operation::list_platform_applications::ListPlatformApplicationsInput).
-    pub fn builder(
-    ) -> crate::operation::list_platform_applications::builders::ListPlatformApplicationsInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_platform_applications::builders::ListPlatformApplicationsInputBuilder {
         crate::operation::list_platform_applications::builders::ListPlatformApplicationsInputBuilder::default()
     }
 }
 
 /// A builder for [`ListPlatformApplicationsInput`](crate::operation::list_platform_applications::ListPlatformApplicationsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListPlatformApplicationsInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,

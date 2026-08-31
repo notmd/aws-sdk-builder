@@ -176,19 +176,13 @@ pub use crate::types::_aggregator_filters::AggregatorFilters;
 ))]
 pub use crate::types::_configuration_aggregator::ConfigurationAggregator;
 
-#[cfg(any(
-    feature = "op_describe_conformance_packs",
-    feature = "op_put_conformance_pack"
-))]
+#[cfg(any(feature = "op_describe_conformance_packs", feature = "op_put_conformance_pack"))]
 pub use crate::types::_template_ssm_document_details::TemplateSsmDocumentDetails;
 
 #[cfg(any(feature = "op_get_connector", feature = "op_put_connector"))]
 pub use crate::types::_connector_configuration::ConnectorConfiguration;
 
-#[cfg(any(
-    feature = "op_describe_delivery_channels",
-    feature = "op_put_delivery_channel"
-))]
+#[cfg(any(feature = "op_describe_delivery_channels", feature = "op_put_delivery_channel"))]
 pub use crate::types::_delivery_channel::DeliveryChannel;
 
 #[cfg(feature = "op_put_external_evaluation")]
@@ -528,10 +522,7 @@ pub use crate::types::_conformance_pack_input_parameter::ConformancePackInputPar
 #[cfg(any(feature = "op_get_connector", feature = "op_put_connector"))]
 pub use crate::types::_azure_connector_configuration::AzureConnectorConfiguration;
 
-#[cfg(any(
-    feature = "op_describe_delivery_channels",
-    feature = "op_put_delivery_channel"
-))]
+#[cfg(any(feature = "op_describe_delivery_channels", feature = "op_put_delivery_channel"))]
 pub use crate::types::_config_snapshot_delivery_properties::ConfigSnapshotDeliveryProperties;
 
 #[cfg(feature = "op_put_evaluations")]
@@ -628,10 +619,7 @@ pub use crate::types::_relationship::Relationship;
 #[cfg(feature = "op_list_configuration_recorders")]
 pub use crate::types::_configuration_recorder_filter_name::ConfigurationRecorderFilterName;
 
-#[cfg(any(
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_connectors"
-))]
+#[cfg(any(feature = "op_list_configuration_recorders", feature = "op_list_connectors"))]
 pub use crate::types::_provider::Provider;
 
 #[cfg(feature = "op_list_connectors")]
@@ -903,10 +891,7 @@ mod _config_rule_evaluation_status;
 #[cfg(any(feature = "op_describe_config_rules", feature = "op_put_config_rule"))]
 mod _config_rule_state;
 
-#[cfg(any(
-    feature = "op_describe_delivery_channels",
-    feature = "op_put_delivery_channel"
-))]
+#[cfg(any(feature = "op_describe_delivery_channels", feature = "op_put_delivery_channel"))]
 mod _config_snapshot_delivery_properties;
 
 #[cfg(feature = "op_describe_delivery_channel_status")]
@@ -1016,10 +1001,7 @@ mod _connector_summary;
 #[cfg(any(feature = "op_describe_config_rules", feature = "op_put_config_rule"))]
 mod _custom_policy_details;
 
-#[cfg(any(
-    feature = "op_describe_delivery_channels",
-    feature = "op_put_delivery_channel"
-))]
+#[cfg(any(feature = "op_describe_delivery_channels", feature = "op_put_delivery_channel"))]
 mod _delivery_channel;
 
 #[cfg(feature = "op_describe_delivery_channel_status")]
@@ -1207,10 +1189,7 @@ mod _owner;
 #[cfg(feature = "op_describe_pending_aggregation_requests")]
 mod _pending_aggregation_request;
 
-#[cfg(any(
-    feature = "op_list_configuration_recorders",
-    feature = "op_list_connectors"
-))]
+#[cfg(any(feature = "op_list_configuration_recorders", feature = "op_list_connectors"))]
 mod _provider;
 
 #[cfg(any(
@@ -1476,10 +1455,7 @@ mod _stored_query_metadata;
 ))]
 mod _tag;
 
-#[cfg(any(
-    feature = "op_describe_conformance_packs",
-    feature = "op_put_conformance_pack"
-))]
+#[cfg(any(feature = "op_describe_conformance_packs", feature = "op_put_conformance_pack"))]
 mod _template_ssm_document_details;
 
 #[cfg(feature = "op_list_resource_evaluations")]

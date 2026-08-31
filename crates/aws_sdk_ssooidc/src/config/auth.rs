@@ -10,15 +10,11 @@ pub trait ResolveAuthScheme: ::std::marker::Send + ::std::marker::Sync + ::std::
     ) -> ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionsFuture<'a>;
 
     /// Convert this service-specific resolver into a `SharedAuthSchemeOptionResolver`
-    fn into_shared_resolver(
-        self,
-    ) -> ::aws_smithy_runtime_api::client::auth::SharedAuthSchemeOptionResolver
+    fn into_shared_resolver(self) -> ::aws_smithy_runtime_api::client::auth::SharedAuthSchemeOptionResolver
     where
         Self: ::std::marker::Sized + 'static,
     {
-        ::aws_smithy_runtime_api::client::auth::SharedAuthSchemeOptionResolver::new(DowncastParams(
-            self,
-        ))
+        ::aws_smithy_runtime_api::client::auth::SharedAuthSchemeOptionResolver::new(DowncastParams(self))
     }
 }
 
@@ -36,14 +32,11 @@ where
     ) -> ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionsFuture<'a> {
         match params.get::<crate::config::auth::Params>() {
             ::std::option::Option::Some(concrete_params) => {
-                self.0
-                    .resolve_auth_scheme(concrete_params, cfg, runtime_components)
+                self.0.resolve_auth_scheme(concrete_params, cfg, runtime_components)
             }
-            ::std::option::Option::None => {
-                ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionsFuture::ready(
-                    ::std::result::Result::Err("params of expected type was not present".into()),
-                )
-            }
+            ::std::option::Option::None => ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionsFuture::ready(
+                ::std::result::Result::Err("params of expected type was not present".into()),
+            ),
         }
     }
 }
@@ -53,10 +46,8 @@ where
 #[allow(dead_code)]
 pub struct DefaultAuthSchemeResolver {
     service_defaults: Vec<::aws_smithy_runtime_api::client::auth::AuthSchemeOption>,
-    operation_overrides: ::std::collections::HashMap<
-        &'static str,
-        Vec<::aws_smithy_runtime_api::client::auth::AuthSchemeOption>,
-    >,
+    operation_overrides:
+        ::std::collections::HashMap<&'static str, Vec<::aws_smithy_runtime_api::client::auth::AuthSchemeOption>>,
 }
 
 // TODO(https://github.com/smithy-lang/smithy-rs/issues/4177): Remove `allow(...)` once the issue is addressed.
@@ -67,36 +58,28 @@ pub struct DefaultAuthSchemeResolver {
 impl Default for DefaultAuthSchemeResolver {
     fn default() -> Self {
         Self {
-            service_defaults: vec![
-                ::aws_smithy_runtime_api::client::auth::AuthSchemeOption::builder()
-                    .scheme_id(::aws_runtime::auth::sigv4::SCHEME_ID)
-                    .build()
-                    .expect("required fields set"),
-            ],
+            service_defaults: vec![::aws_smithy_runtime_api::client::auth::AuthSchemeOption::builder()
+                .scheme_id(::aws_runtime::auth::sigv4::SCHEME_ID)
+                .build()
+                .expect("required fields set")],
             operation_overrides: [
                 (
                     "CreateToken",
-                    vec![
-                        ::aws_smithy_runtime_api::client::auth::AuthSchemeOption::from(
-                            ::aws_smithy_runtime::client::auth::no_auth::NO_AUTH_SCHEME_ID,
-                        ),
-                    ],
+                    vec![::aws_smithy_runtime_api::client::auth::AuthSchemeOption::from(
+                        ::aws_smithy_runtime::client::auth::no_auth::NO_AUTH_SCHEME_ID,
+                    )],
                 ),
                 (
                     "RegisterClient",
-                    vec![
-                        ::aws_smithy_runtime_api::client::auth::AuthSchemeOption::from(
-                            ::aws_smithy_runtime::client::auth::no_auth::NO_AUTH_SCHEME_ID,
-                        ),
-                    ],
+                    vec![::aws_smithy_runtime_api::client::auth::AuthSchemeOption::from(
+                        ::aws_smithy_runtime::client::auth::no_auth::NO_AUTH_SCHEME_ID,
+                    )],
                 ),
                 (
                     "StartDeviceAuthorization",
-                    vec![
-                        ::aws_smithy_runtime_api::client::auth::AuthSchemeOption::from(
-                            ::aws_smithy_runtime::client::auth::no_auth::NO_AUTH_SCHEME_ID,
-                        ),
-                    ],
+                    vec![::aws_smithy_runtime_api::client::auth::AuthSchemeOption::from(
+                        ::aws_smithy_runtime::client::auth::no_auth::NO_AUTH_SCHEME_ID,
+                    )],
                 ),
             ]
             .into(),
@@ -118,9 +101,8 @@ impl crate::config::auth::ResolveAuthScheme for DefaultAuthSchemeResolver {
             None => &self.service_defaults,
         };
 
-        let _fut = ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionsFuture::ready(Ok(
-            modeled_auth_options.clone(),
-        ));
+        let _fut =
+            ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionsFuture::ready(Ok(modeled_auth_options.clone()));
 
         _fut
     }
@@ -143,19 +125,14 @@ impl Params {
     }
 }
 
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 /// Builder for [`Params`]
 pub struct ParamsBuilder {
     operation_name: ::std::option::Option<::std::borrow::Cow<'static, str>>,
 }
 impl ParamsBuilder {
     /// Set the operation name for the builder
-    pub fn operation_name(
-        self,
-        operation_name: impl Into<::std::borrow::Cow<'static, str>>,
-    ) -> Self {
+    pub fn operation_name(self, operation_name: impl Into<::std::borrow::Cow<'static, str>>) -> Self {
         self.set_operation_name(::std::option::Option::Some(operation_name.into()))
     }
 
@@ -171,9 +148,7 @@ impl ParamsBuilder {
     ///
     /// Return [`BuildError`] if any of the required fields are unset.
     ///
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<crate::config::auth::Params, crate::config::auth::BuildError> {
+    pub fn build(self) -> ::std::result::Result<crate::config::auth::Params, crate::config::auth::BuildError> {
         ::std::result::Result::Ok(crate::config::auth::Params {
             operation_name: self
                 .operation_name
@@ -190,9 +165,7 @@ pub struct BuildError {
 
 impl BuildError {
     fn missing(field: &'static str) -> Self {
-        Self {
-            field: field.into(),
-        }
+        Self { field: field.into() }
     }
 }
 

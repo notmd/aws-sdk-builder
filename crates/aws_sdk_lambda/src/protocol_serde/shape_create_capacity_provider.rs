@@ -9,23 +9,17 @@ pub fn de_create_capacity_provider_http_error(
     crate::operation::create_capacity_provider::CreateCapacityProviderError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::create_capacity_provider::CreateCapacityProviderError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::create_capacity_provider::CreateCapacityProviderError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    let error_code =
-        match generic.code() {
-            Some(code) => code,
-            None => return Err(
-                crate::operation::create_capacity_provider::CreateCapacityProviderError::unhandled(
-                    generic,
-                ),
-            ),
-        };
+    let error_code = match generic.code() {
+        Some(code) => code,
+        None => {
+            return Err(crate::operation::create_capacity_provider::CreateCapacityProviderError::unhandled(generic))
+        }
+    };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
@@ -132,31 +126,26 @@ pub fn de_create_capacity_provider_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::create_capacity_provider::builders::CreateCapacityProviderOutputBuilder::default();
+        let mut output =
+            crate::operation::create_capacity_provider::builders::CreateCapacityProviderOutputBuilder::default();
         output =
-            crate::protocol_serde::shape_create_capacity_provider::de_create_capacity_provider(
-                _response_body,
-                output,
-            )
-            .map_err(
-                crate::operation::create_capacity_provider::CreateCapacityProviderError::unhandled,
-            )?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+            crate::protocol_serde::shape_create_capacity_provider::de_create_capacity_provider(_response_body, output)
+                .map_err(crate::operation::create_capacity_provider::CreateCapacityProviderError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         crate::serde_util::create_capacity_provider_output_output_correct_errors(output).build()
     })
 }
 
 pub fn ser_create_capacity_provider_input(
     input: &crate::operation::create_capacity_provider::CreateCapacityProviderInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_create_capacity_provider_input::ser_create_capacity_provider_input_input(&mut object, input)?;
+    crate::protocol_serde::shape_create_capacity_provider_input::ser_create_capacity_provider_input_input(
+        &mut object,
+        input,
+    )?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -168,10 +157,8 @@ pub(crate) fn de_create_capacity_provider(
     crate::operation::create_capacity_provider::builders::CreateCapacityProviderOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -179,35 +166,29 @@ pub(crate) fn de_create_capacity_provider(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "CapacityProvider" => {
-                        builder = builder.set_capacity_provider(
-                            crate::protocol_serde::shape_capacity_provider::de_capacity_provider(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "CapacityProvider" => {
+                    builder = builder.set_capacity_provider(
+                        crate::protocol_serde::shape_capacity_provider::de_capacity_provider(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
                 }
-            }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

@@ -42,9 +42,7 @@ impl ::std::fmt::Debug for AdminListGroupsForUserInput {
 }
 impl AdminListGroupsForUserInput {
     /// Creates a new builder-style object to manufacture [`AdminListGroupsForUserInput`](crate::operation::admin_list_groups_for_user::AdminListGroupsForUserInput).
-    pub fn builder(
-    ) -> crate::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserInputBuilder
-    {
+    pub fn builder() -> crate::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserInputBuilder {
         crate::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserInputBuilder::default()
     }
 }

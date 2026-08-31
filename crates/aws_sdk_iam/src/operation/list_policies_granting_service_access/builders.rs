@@ -70,7 +70,10 @@ impl ListPoliciesGrantingServiceAccessFluentBuilder {
         }
     }
     /// Access the ListPoliciesGrantingServiceAccess as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,7 +92,7 @@ impl ListPoliciesGrantingServiceAccessFluentBuilder {
             crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -99,7 +102,11 @@ impl ListPoliciesGrantingServiceAccessFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccess::orchestrate(&runtime_plugins, input).await
+        crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccess::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -109,7 +116,7 @@ impl ListPoliciesGrantingServiceAccessFluentBuilder {
         crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessOutput,
         crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -162,10 +169,7 @@ impl ListPoliciesGrantingServiceAccessFluentBuilder {
     ///
     /// <p>The service namespace for the Amazon Web Services services whose policies you want to list.</p>
     /// <p>To learn the service namespace for a service, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html">Actions, resources, and condition keys for Amazon Web Services services</a> in the <i>IAM User Guide</i>. Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, <code>(service prefix: a4b)</code>. For more information about service namespaces, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">Amazon Web Services service namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
-    pub fn service_namespaces(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_namespaces(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.service_namespaces(input.into());
         self
     }
@@ -180,9 +184,7 @@ impl ListPoliciesGrantingServiceAccessFluentBuilder {
     }
     /// <p>The service namespace for the Amazon Web Services services whose policies you want to list.</p>
     /// <p>To learn the service namespace for a service, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html">Actions, resources, and condition keys for Amazon Web Services services</a> in the <i>IAM User Guide</i>. Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, <code>(service prefix: a4b)</code>. For more information about service namespaces, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">Amazon Web Services service namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
-    pub fn get_service_namespaces(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_service_namespaces(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_service_namespaces()
     }
 }

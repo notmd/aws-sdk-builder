@@ -35,8 +35,7 @@ impl crate::operation::describe_user_pool_domain::builders::DescribeUserPoolDoma
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DescribeUserPoolDomainFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::describe_user_pool_domain::builders::DescribeUserPoolDomainInputBuilder,
+    inner: crate::operation::describe_user_pool_domain::builders::DescribeUserPoolDomainInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -69,8 +68,7 @@ impl DescribeUserPoolDomainFluentBuilder {
     /// Access the DescribeUserPoolDomain as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::describe_user_pool_domain::builders::DescribeUserPoolDomainInputBuilder
-    {
+    ) -> &crate::operation::describe_user_pool_domain::builders::DescribeUserPoolDomainInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -94,16 +92,13 @@ impl DescribeUserPoolDomainFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::describe_user_pool_domain::DescribeUserPoolDomain::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::describe_user_pool_domain::DescribeUserPoolDomain::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::describe_user_pool_domain::DescribeUserPoolDomain::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::describe_user_pool_domain::DescribeUserPoolDomain::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

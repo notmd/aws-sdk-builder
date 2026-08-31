@@ -21,9 +21,7 @@ pub enum ReasoningContentBlock {
 impl ReasoningContentBlock {
     /// Tries to convert the enum instance into [`ReasoningText`](crate::types::ReasoningContentBlock::ReasoningText), extracting the inner [`ReasoningTextBlock`](crate::types::ReasoningTextBlock).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_reasoning_text(
-        &self,
-    ) -> ::std::result::Result<&crate::types::ReasoningTextBlock, &Self> {
+    pub fn as_reasoning_text(&self) -> ::std::result::Result<&crate::types::ReasoningTextBlock, &Self> {
         if let ReasoningContentBlock::ReasoningText(val) = &self {
             ::std::result::Result::Ok(val)
         } else {

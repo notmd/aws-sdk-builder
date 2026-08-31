@@ -47,7 +47,7 @@ impl
             crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderOutput,
             crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError,
         >,
-    > {
+    >{
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -104,7 +104,7 @@ impl DeleteServiceLinkedConfigurationRecorderFluentBuilder {
         crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderOutput,
         crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -123,18 +123,12 @@ impl DeleteServiceLinkedConfigurationRecorderFluentBuilder {
         self
     }
     /// <p>The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to delete. This field is only supported for Amazon Web Services service principals. For third-party service-linked configuration recorders, use <code>Arn</code> instead.</p>
-    pub fn service_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.service_principal(input.into());
         self
     }
     /// <p>The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to delete. This field is only supported for Amazon Web Services service principals. For third-party service-linked configuration recorders, use <code>Arn</code> instead.</p>
-    pub fn set_service_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_service_principal(input);
         self
     }

@@ -15,8 +15,6 @@ impl super::Client {
     pub fn create_package_group(
         &self,
     ) -> crate::operation::create_package_group::builders::CreatePackageGroupFluentBuilder {
-        crate::operation::create_package_group::builders::CreatePackageGroupFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::create_package_group::builders::CreatePackageGroupFluentBuilder::new(self.handle.clone())
     }
 }

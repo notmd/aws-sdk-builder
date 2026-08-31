@@ -21,9 +21,7 @@ impl GetConfigurationSetEventDestinationsInput {
 }
 
 /// A builder for [`GetConfigurationSetEventDestinationsInput`](crate::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetConfigurationSetEventDestinationsInputBuilder {
     pub(crate) configuration_set_name: ::std::option::Option<::std::string::String>,
@@ -31,18 +29,12 @@ pub struct GetConfigurationSetEventDestinationsInputBuilder {
 impl GetConfigurationSetEventDestinationsInputBuilder {
     /// <p>The name of the configuration set that contains the event destination.</p>
     /// This field is required.
-    pub fn configuration_set_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.configuration_set_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the configuration set that contains the event destination.</p>
-    pub fn set_configuration_set_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.configuration_set_name = input;
         self
     }
@@ -56,7 +48,7 @@ impl GetConfigurationSetEventDestinationsInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsInput {
                 configuration_set_name: self.configuration_set_name,

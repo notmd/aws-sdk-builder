@@ -28,21 +28,16 @@ impl DescribeConformancePacksInput {
 }
 impl DescribeConformancePacksInput {
     /// Creates a new builder-style object to manufacture [`DescribeConformancePacksInput`](crate::operation::describe_conformance_packs::DescribeConformancePacksInput).
-    pub fn builder(
-    ) -> crate::operation::describe_conformance_packs::builders::DescribeConformancePacksInputBuilder
-    {
+    pub fn builder() -> crate::operation::describe_conformance_packs::builders::DescribeConformancePacksInputBuilder {
         crate::operation::describe_conformance_packs::builders::DescribeConformancePacksInputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeConformancePacksInput`](crate::operation::describe_conformance_packs::DescribeConformancePacksInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeConformancePacksInputBuilder {
-    pub(crate) conformance_pack_names:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) conformance_pack_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) limit: ::std::option::Option<i32>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
 }
@@ -52,10 +47,7 @@ impl DescribeConformancePacksInputBuilder {
     /// To override the contents of this collection use [`set_conformance_pack_names`](Self::set_conformance_pack_names).
     ///
     /// <p>Comma-separated list of conformance pack names for which you want details. If you do not specify any names, Config returns details for all your conformance packs.</p>
-    pub fn conformance_pack_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn conformance_pack_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.conformance_pack_names.unwrap_or_default();
         v.push(input.into());
         self.conformance_pack_names = ::std::option::Option::Some(v);
@@ -70,9 +62,7 @@ impl DescribeConformancePacksInputBuilder {
         self
     }
     /// <p>Comma-separated list of conformance pack names for which you want details. If you do not specify any names, Config returns details for all your conformance packs.</p>
-    pub fn get_conformance_pack_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_conformance_pack_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.conformance_pack_names
     }
     /// <p>The maximum number of conformance packs returned on each page.</p>

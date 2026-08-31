@@ -57,9 +57,7 @@ impl ListTagsForResourceFluentBuilder {
         }
     }
     /// Access the ListTagsForResource as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_tags_for_resource::builders::ListTagsForResourceInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_tags_for_resource::builders::ListTagsForResourceInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,11 +86,7 @@ impl ListTagsForResourceFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_tags_for_resource::ListTagsForResource::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::list_tags_for_resource::ListTagsForResource::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

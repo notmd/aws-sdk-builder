@@ -19,9 +19,7 @@ pub enum Error {
         feature = "op_enable_organizations_root_sessions"
     ))]
     /// <p>The request was rejected because the account making the request is not the management account for the organization.</p>
-    CallerIsNotManagementAccountException(
-        crate::types::error::CallerIsNotManagementAccountException,
-    ),
+    CallerIsNotManagementAccountException(crate::types::error::CallerIsNotManagementAccountException),
     #[cfg(any(
         feature = "op_accept_delegation_request",
         feature = "op_acquire_role",
@@ -132,9 +130,7 @@ pub enum Error {
         feature = "op_update_user"
     ))]
     /// <p>The request was rejected because it referenced an entity that is temporarily unmodifiable, such as a user name that was deleted and then recreated. The error indicates that the request is likely to succeed if you try again after waiting several minutes. The error message describes the entity.</p>
-    EntityTemporarilyUnmodifiableException(
-        crate::types::error::EntityTemporarilyUnmodifiableException,
-    ),
+    EntityTemporarilyUnmodifiableException(crate::types::error::EntityTemporarilyUnmodifiableException),
     #[cfg(any(
         feature = "op_disable_outbound_web_identity_federation",
         feature = "op_get_outbound_web_identity_federation_info"
@@ -318,10 +314,7 @@ pub enum Error {
     ))]
     /// <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
     LimitExceededException(crate::types::error::LimitExceededException),
-    #[cfg(any(
-        feature = "op_upload_server_certificate",
-        feature = "op_upload_signing_certificate"
-    ))]
+    #[cfg(any(feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
     /// <p>The request was rejected because the certificate was malformed or expired. The error message describes the specific error.</p>
     MalformedCertificateException(crate::types::error::MalformedCertificateException),
     #[cfg(any(
@@ -506,9 +499,7 @@ pub enum Error {
         feature = "op_list_organizations_features"
     ))]
     /// <p>The request was rejected because your organization does not have All features enabled. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set">Available feature sets</a> in the <i>Organizations User Guide</i>.</p>
-    OrganizationNotInAllFeaturesModeException(
-        crate::types::error::OrganizationNotInAllFeaturesModeException,
-    ),
+    OrganizationNotInAllFeaturesModeException(crate::types::error::OrganizationNotInAllFeaturesModeException),
     #[cfg(any(
         feature = "op_change_password",
         feature = "op_create_login_profile",
@@ -516,10 +507,7 @@ pub enum Error {
     ))]
     /// <p>The request was rejected because the provided password did not meet the requirements imposed by the account password policy.</p>
     PasswordPolicyViolationException(crate::types::error::PasswordPolicyViolationException),
-    #[cfg(any(
-        feature = "op_simulate_custom_policy",
-        feature = "op_simulate_principal_policy"
-    ))]
+    #[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
     /// <p>The request failed because a provided policy could not be successfully evaluated. An additional detailed message indicates the source of the failure.</p>
     PolicyEvaluationException(crate::types::error::PolicyEvaluationException),
     #[cfg(any(
@@ -533,9 +521,7 @@ pub enum Error {
     PolicyNotAttachableException(crate::types::error::PolicyNotAttachableException),
     #[cfg(feature = "op_generate_organizations_access_report")]
     /// <p>The request failed because the maximum number of concurrent requests for this account are already running.</p>
-    ReportGenerationLimitExceededException(
-        crate::types::error::ReportGenerationLimitExceededException,
-    ),
+    ReportGenerationLimitExceededException(crate::types::error::ReportGenerationLimitExceededException),
     #[cfg(feature = "op_acquire_role")]
     /// <p>The request was rejected because someone modified the role template while the service was creating the role. Wait a few minutes and try the request again.</p>
     RoleModifiedException(crate::types::error::RoleModifiedException),
@@ -727,14 +713,9 @@ pub enum Error {
     ))]
     /// <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only the service that depends on the service-linked role can modify or delete the role on your behalf. The error message includes the name of the service that depends on this service-linked role. You must request the change through that service.</p>
     UnmodifiableEntityException(crate::types::error::UnmodifiableEntityException),
-    #[cfg(any(
-        feature = "op_get_ssh_public_key",
-        feature = "op_upload_ssh_public_key"
-    ))]
+    #[cfg(any(feature = "op_get_ssh_public_key", feature = "op_upload_ssh_public_key"))]
     /// <p>The request was rejected because the public key encoding format is unsupported or unrecognized.</p>
-    UnrecognizedPublicKeyEncodingException(
-        crate::types::error::UnrecognizedPublicKeyEncodingException,
-    ),
+    UnrecognizedPublicKeyEncodingException(crate::types::error::UnrecognizedPublicKeyEncodingException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
     #[deprecated(
         note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
@@ -1038,10 +1019,7 @@ impl ::std::fmt::Display for Error {
                 feature = "op_upload_ssh_public_key"
             ))]
             Error::LimitExceededException(inner) => inner.fmt(f),
-            #[cfg(any(
-                feature = "op_upload_server_certificate",
-                feature = "op_upload_signing_certificate"
-            ))]
+            #[cfg(any(feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
             Error::MalformedCertificateException(inner) => inner.fmt(f),
             #[cfg(any(
                 feature = "op_acquire_role",
@@ -1226,10 +1204,7 @@ impl ::std::fmt::Display for Error {
                 feature = "op_update_login_profile"
             ))]
             Error::PasswordPolicyViolationException(inner) => inner.fmt(f),
-            #[cfg(any(
-                feature = "op_simulate_custom_policy",
-                feature = "op_simulate_principal_policy"
-            ))]
+            #[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
             Error::PolicyEvaluationException(inner) => inner.fmt(f),
             #[cfg(any(
                 feature = "op_attach_group_policy",
@@ -1426,10 +1401,7 @@ impl ::std::fmt::Display for Error {
                 feature = "op_update_role_description"
             ))]
             Error::UnmodifiableEntityException(inner) => inner.fmt(f),
-            #[cfg(any(
-                feature = "op_get_ssh_public_key",
-                feature = "op_upload_ssh_public_key"
-            ))]
+            #[cfg(any(feature = "op_get_ssh_public_key", feature = "op_upload_ssh_public_key"))]
             Error::UnrecognizedPublicKeyEncodingException(inner) => inner.fmt(f),
             Error::Unhandled(_) => {
                 if let ::std::option::Option::Some(code) =
@@ -1743,10 +1715,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
                 feature = "op_upload_ssh_public_key"
             ))]
             Self::LimitExceededException(inner) => inner.meta(),
-            #[cfg(any(
-                feature = "op_upload_server_certificate",
-                feature = "op_upload_signing_certificate"
-            ))]
+            #[cfg(any(feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
             Self::MalformedCertificateException(inner) => inner.meta(),
             #[cfg(any(
                 feature = "op_acquire_role",
@@ -1931,10 +1900,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
                 feature = "op_update_login_profile"
             ))]
             Self::PasswordPolicyViolationException(inner) => inner.meta(),
-            #[cfg(any(
-                feature = "op_simulate_custom_policy",
-                feature = "op_simulate_principal_policy"
-            ))]
+            #[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
             Self::PolicyEvaluationException(inner) => inner.meta(),
             #[cfg(any(
                 feature = "op_attach_group_policy",
@@ -2131,10 +2097,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
                 feature = "op_update_role_description"
             ))]
             Self::UnmodifiableEntityException(inner) => inner.meta(),
-            #[cfg(any(
-                feature = "op_get_ssh_public_key",
-                feature = "op_upload_ssh_public_key"
-            ))]
+            #[cfg(any(feature = "op_get_ssh_public_key", feature = "op_upload_ssh_public_key"))]
             Self::UnrecognizedPublicKeyEncodingException(inner) => inner.meta(),
             Self::Unhandled(inner) => &inner.meta,
         }
@@ -2158,9 +2121,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2170,9 +2131,7 @@ where
 }
 #[cfg(feature = "op_accept_delegation_request")]
 impl From<crate::operation::accept_delegation_request::AcceptDelegationRequestError> for Error {
-    fn from(
-        err: crate::operation::accept_delegation_request::AcceptDelegationRequestError,
-    ) -> Self {
+    fn from(err: crate::operation::accept_delegation_request::AcceptDelegationRequestError) -> Self {
         match err {
             crate::operation::accept_delegation_request::AcceptDelegationRequestError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -2188,26 +2147,16 @@ impl From<crate::operation::accept_delegation_request::AcceptDelegationRequestEr
     }
 }
 #[cfg(feature = "op_acquire_role")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::acquire_role::AcquireRoleError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::acquire_role::AcquireRoleError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::acquire_role::AcquireRoleError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::acquire_role::AcquireRoleError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2219,21 +2168,21 @@ where
 impl From<crate::operation::acquire_role::AcquireRoleError> for Error {
     fn from(err: crate::operation::acquire_role::AcquireRoleError) -> Self {
         match err {
-            crate::operation::acquire_role::AcquireRoleError::ConcurrentModificationException(
-                inner,
-            ) => Error::ConcurrentModificationException(inner),
-            crate::operation::acquire_role::AcquireRoleError::EntityAlreadyExistsException(
-                inner,
-            ) => Error::EntityAlreadyExistsException(inner),
+            crate::operation::acquire_role::AcquireRoleError::ConcurrentModificationException(inner) => {
+                Error::ConcurrentModificationException(inner)
+            }
+            crate::operation::acquire_role::AcquireRoleError::EntityAlreadyExistsException(inner) => {
+                Error::EntityAlreadyExistsException(inner)
+            }
             crate::operation::acquire_role::AcquireRoleError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
             }
             crate::operation::acquire_role::AcquireRoleError::LimitExceededException(inner) => {
                 Error::LimitExceededException(inner)
             }
-            crate::operation::acquire_role::AcquireRoleError::MalformedPolicyDocumentException(
-                inner,
-            ) => Error::MalformedPolicyDocumentException(inner),
+            crate::operation::acquire_role::AcquireRoleError::MalformedPolicyDocumentException(inner) => {
+                Error::MalformedPolicyDocumentException(inner)
+            }
             crate::operation::acquire_role::AcquireRoleError::NameConflictException(inner) => {
                 Error::NameConflictException(inner)
             }
@@ -2243,15 +2192,13 @@ impl From<crate::operation::acquire_role::AcquireRoleError> for Error {
             crate::operation::acquire_role::AcquireRoleError::RoleModifiedException(inner) => {
                 Error::RoleModifiedException(inner)
             }
-            crate::operation::acquire_role::AcquireRoleError::RoleTemplateDisabledException(
-                inner,
-            ) => Error::RoleTemplateDisabledException(inner),
+            crate::operation::acquire_role::AcquireRoleError::RoleTemplateDisabledException(inner) => {
+                Error::RoleTemplateDisabledException(inner)
+            }
             crate::operation::acquire_role::AcquireRoleError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::acquire_role::AcquireRoleError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::acquire_role::AcquireRoleError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -2282,8 +2229,12 @@ where
     }
 }
 #[cfg(feature = "op_add_client_id_to_open_id_connect_provider")]
-impl From<crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError> for Error {
-    fn from(err: crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError) -> Self {
+impl From<crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError>
+    for Error
+{
+    fn from(
+        err: crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
+    ) -> Self {
         match err {
             crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError::ConcurrentModificationException(
                 inner,
@@ -2324,9 +2275,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2336,9 +2285,7 @@ where
 }
 #[cfg(feature = "op_add_role_to_instance_profile")]
 impl From<crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError> for Error {
-    fn from(
-        err: crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError,
-    ) -> Self {
+    fn from(err: crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError) -> Self {
         match err {
             crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError::EntityAlreadyExistsException(inner) => {
                 Error::EntityAlreadyExistsException(inner)
@@ -2362,10 +2309,7 @@ impl From<crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfi
 #[cfg(feature = "op_add_user_to_group")]
 impl<R>
     From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::add_user_to_group::AddUserToGroupError,
-            R,
-        >,
+        ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::add_user_to_group::AddUserToGroupError, R>,
     > for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
@@ -2377,9 +2321,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2391,18 +2333,16 @@ where
 impl From<crate::operation::add_user_to_group::AddUserToGroupError> for Error {
     fn from(err: crate::operation::add_user_to_group::AddUserToGroupError) -> Self {
         match err {
-            crate::operation::add_user_to_group::AddUserToGroupError::LimitExceededException(
-                inner,
-            ) => Error::LimitExceededException(inner),
-            crate::operation::add_user_to_group::AddUserToGroupError::NoSuchEntityException(
-                inner,
-            ) => Error::NoSuchEntityException(inner),
-            crate::operation::add_user_to_group::AddUserToGroupError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::add_user_to_group::AddUserToGroupError::Unhandled(inner) => {
-                Error::Unhandled(inner)
+            crate::operation::add_user_to_group::AddUserToGroupError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
             }
+            crate::operation::add_user_to_group::AddUserToGroupError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::add_user_to_group::AddUserToGroupError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::add_user_to_group::AddUserToGroupError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -2424,9 +2364,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2435,12 +2373,8 @@ where
     }
 }
 #[cfg(feature = "op_associate_delegation_request")]
-impl From<crate::operation::associate_delegation_request::AssociateDelegationRequestError>
-    for Error
-{
-    fn from(
-        err: crate::operation::associate_delegation_request::AssociateDelegationRequestError,
-    ) -> Self {
+impl From<crate::operation::associate_delegation_request::AssociateDelegationRequestError> for Error {
+    fn from(err: crate::operation::associate_delegation_request::AssociateDelegationRequestError) -> Self {
         match err {
             crate::operation::associate_delegation_request::AssociateDelegationRequestError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -2476,9 +2410,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2490,13 +2422,21 @@ where
 impl From<crate::operation::attach_group_policy::AttachGroupPolicyError> for Error {
     fn from(err: crate::operation::attach_group_policy::AttachGroupPolicyError) -> Self {
         match err {
-            crate::operation::attach_group_policy::AttachGroupPolicyError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::attach_group_policy::AttachGroupPolicyError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::attach_group_policy::AttachGroupPolicyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::attach_group_policy::AttachGroupPolicyError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
+            crate::operation::attach_group_policy::AttachGroupPolicyError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::attach_group_policy::AttachGroupPolicyError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
             crate::operation::attach_group_policy::AttachGroupPolicyError::PolicyNotAttachableException(inner) => {
                 Error::PolicyNotAttachableException(inner)
             }
-            crate::operation::attach_group_policy::AttachGroupPolicyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::attach_group_policy::AttachGroupPolicyError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::attach_group_policy::AttachGroupPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -2519,9 +2459,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2533,13 +2471,21 @@ where
 impl From<crate::operation::attach_role_policy::AttachRolePolicyError> for Error {
     fn from(err: crate::operation::attach_role_policy::AttachRolePolicyError) -> Self {
         match err {
-            crate::operation::attach_role_policy::AttachRolePolicyError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::attach_role_policy::AttachRolePolicyError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::attach_role_policy::AttachRolePolicyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::attach_role_policy::AttachRolePolicyError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
+            crate::operation::attach_role_policy::AttachRolePolicyError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::attach_role_policy::AttachRolePolicyError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
             crate::operation::attach_role_policy::AttachRolePolicyError::PolicyNotAttachableException(inner) => {
                 Error::PolicyNotAttachableException(inner)
             }
-            crate::operation::attach_role_policy::AttachRolePolicyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::attach_role_policy::AttachRolePolicyError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::attach_role_policy::AttachRolePolicyError::UnmodifiableEntityException(inner) => {
                 Error::UnmodifiableEntityException(inner)
             }
@@ -2565,9 +2511,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2579,25 +2523,29 @@ where
 impl From<crate::operation::attach_user_policy::AttachUserPolicyError> for Error {
     fn from(err: crate::operation::attach_user_policy::AttachUserPolicyError) -> Self {
         match err {
-            crate::operation::attach_user_policy::AttachUserPolicyError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::attach_user_policy::AttachUserPolicyError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::attach_user_policy::AttachUserPolicyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::attach_user_policy::AttachUserPolicyError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
+            crate::operation::attach_user_policy::AttachUserPolicyError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::attach_user_policy::AttachUserPolicyError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
             crate::operation::attach_user_policy::AttachUserPolicyError::PolicyNotAttachableException(inner) => {
                 Error::PolicyNotAttachableException(inner)
             }
-            crate::operation::attach_user_policy::AttachUserPolicyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::attach_user_policy::AttachUserPolicyError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::attach_user_policy::AttachUserPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_change_password")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::change_password::ChangePasswordError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::change_password::ChangePasswordError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -2608,9 +2556,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2625,13 +2571,21 @@ impl From<crate::operation::change_password::ChangePasswordError> for Error {
             crate::operation::change_password::ChangePasswordError::EntityTemporarilyUnmodifiableException(inner) => {
                 Error::EntityTemporarilyUnmodifiableException(inner)
             }
-            crate::operation::change_password::ChangePasswordError::InvalidUserTypeException(inner) => Error::InvalidUserTypeException(inner),
-            crate::operation::change_password::ChangePasswordError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::change_password::ChangePasswordError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::change_password::ChangePasswordError::InvalidUserTypeException(inner) => {
+                Error::InvalidUserTypeException(inner)
+            }
+            crate::operation::change_password::ChangePasswordError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::change_password::ChangePasswordError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
             crate::operation::change_password::ChangePasswordError::PasswordPolicyViolationException(inner) => {
                 Error::PasswordPolicyViolationException(inner)
             }
-            crate::operation::change_password::ChangePasswordError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::change_password::ChangePasswordError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::change_password::ChangePasswordError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -2654,9 +2608,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2668,18 +2620,16 @@ where
 impl From<crate::operation::create_access_key::CreateAccessKeyError> for Error {
     fn from(err: crate::operation::create_access_key::CreateAccessKeyError) -> Self {
         match err {
-            crate::operation::create_access_key::CreateAccessKeyError::LimitExceededException(
-                inner,
-            ) => Error::LimitExceededException(inner),
-            crate::operation::create_access_key::CreateAccessKeyError::NoSuchEntityException(
-                inner,
-            ) => Error::NoSuchEntityException(inner),
-            crate::operation::create_access_key::CreateAccessKeyError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::create_access_key::CreateAccessKeyError::Unhandled(inner) => {
-                Error::Unhandled(inner)
+            crate::operation::create_access_key::CreateAccessKeyError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
             }
+            crate::operation::create_access_key::CreateAccessKeyError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::create_access_key::CreateAccessKeyError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::create_access_key::CreateAccessKeyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -2701,9 +2651,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2721,9 +2669,15 @@ impl From<crate::operation::create_account_alias::CreateAccountAliasError> for E
             crate::operation::create_account_alias::CreateAccountAliasError::EntityAlreadyExistsException(inner) => {
                 Error::EntityAlreadyExistsException(inner)
             }
-            crate::operation::create_account_alias::CreateAccountAliasError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::create_account_alias::CreateAccountAliasError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
-            crate::operation::create_account_alias::CreateAccountAliasError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::create_account_alias::CreateAccountAliasError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::create_account_alias::CreateAccountAliasError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::create_account_alias::CreateAccountAliasError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -2745,9 +2699,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2757,9 +2709,7 @@ where
 }
 #[cfg(feature = "op_create_delegation_request")]
 impl From<crate::operation::create_delegation_request::CreateDelegationRequestError> for Error {
-    fn from(
-        err: crate::operation::create_delegation_request::CreateDelegationRequestError,
-    ) -> Self {
+    fn from(err: crate::operation::create_delegation_request::CreateDelegationRequestError) -> Self {
         match err {
             crate::operation::create_delegation_request::CreateDelegationRequestError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -2781,26 +2731,16 @@ impl From<crate::operation::create_delegation_request::CreateDelegationRequestEr
     }
 }
 #[cfg(feature = "op_create_group")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_group::CreateGroupError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_group::CreateGroupError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_group::CreateGroupError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_group::CreateGroupError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2812,9 +2752,9 @@ where
 impl From<crate::operation::create_group::CreateGroupError> for Error {
     fn from(err: crate::operation::create_group::CreateGroupError) -> Self {
         match err {
-            crate::operation::create_group::CreateGroupError::EntityAlreadyExistsException(
-                inner,
-            ) => Error::EntityAlreadyExistsException(inner),
+            crate::operation::create_group::CreateGroupError::EntityAlreadyExistsException(inner) => {
+                Error::EntityAlreadyExistsException(inner)
+            }
             crate::operation::create_group::CreateGroupError::LimitExceededException(inner) => {
                 Error::LimitExceededException(inner)
             }
@@ -2824,9 +2764,7 @@ impl From<crate::operation::create_group::CreateGroupError> for Error {
             crate::operation::create_group::CreateGroupError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::create_group::CreateGroupError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::create_group::CreateGroupError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -2848,9 +2786,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2862,12 +2798,12 @@ where
 impl From<crate::operation::create_instance_profile::CreateInstanceProfileError> for Error {
     fn from(err: crate::operation::create_instance_profile::CreateInstanceProfileError) -> Self {
         match err {
-            crate::operation::create_instance_profile::CreateInstanceProfileError::ConcurrentModificationException(inner) => {
-                Error::ConcurrentModificationException(inner)
-            }
-            crate::operation::create_instance_profile::CreateInstanceProfileError::EntityAlreadyExistsException(inner) => {
-                Error::EntityAlreadyExistsException(inner)
-            }
+            crate::operation::create_instance_profile::CreateInstanceProfileError::ConcurrentModificationException(
+                inner,
+            ) => Error::ConcurrentModificationException(inner),
+            crate::operation::create_instance_profile::CreateInstanceProfileError::EntityAlreadyExistsException(
+                inner,
+            ) => Error::EntityAlreadyExistsException(inner),
             crate::operation::create_instance_profile::CreateInstanceProfileError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
             }
@@ -2877,7 +2813,9 @@ impl From<crate::operation::create_instance_profile::CreateInstanceProfileError>
             crate::operation::create_instance_profile::CreateInstanceProfileError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::create_instance_profile::CreateInstanceProfileError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::create_instance_profile::CreateInstanceProfileError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -2899,9 +2837,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2916,13 +2852,21 @@ impl From<crate::operation::create_login_profile::CreateLoginProfileError> for E
             crate::operation::create_login_profile::CreateLoginProfileError::EntityAlreadyExistsException(inner) => {
                 Error::EntityAlreadyExistsException(inner)
             }
-            crate::operation::create_login_profile::CreateLoginProfileError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::create_login_profile::CreateLoginProfileError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::create_login_profile::CreateLoginProfileError::PasswordPolicyViolationException(inner) => {
-                Error::PasswordPolicyViolationException(inner)
+            crate::operation::create_login_profile::CreateLoginProfileError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
             }
-            crate::operation::create_login_profile::CreateLoginProfileError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
-            crate::operation::create_login_profile::CreateLoginProfileError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::create_login_profile::CreateLoginProfileError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::create_login_profile::CreateLoginProfileError::PasswordPolicyViolationException(
+                inner,
+            ) => Error::PasswordPolicyViolationException(inner),
+            crate::operation::create_login_profile::CreateLoginProfileError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::create_login_profile::CreateLoginProfileError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -2944,9 +2888,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -2955,12 +2897,8 @@ where
     }
 }
 #[cfg(feature = "op_create_open_id_connect_provider")]
-impl From<crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError>
-    for Error
-{
-    fn from(
-        err: crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
-    ) -> Self {
+impl From<crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError> for Error {
+    fn from(err: crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError) -> Self {
         match err {
             crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -2985,26 +2923,16 @@ impl From<crate::operation::create_open_id_connect_provider::CreateOpenIDConnect
     }
 }
 #[cfg(feature = "op_create_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_policy::CreatePolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_policy::CreatePolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_policy::CreatePolicyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_policy::CreatePolicyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3019,13 +2947,21 @@ impl From<crate::operation::create_policy::CreatePolicyError> for Error {
             crate::operation::create_policy::CreatePolicyError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
             }
-            crate::operation::create_policy::CreatePolicyError::EntityAlreadyExistsException(inner) => Error::EntityAlreadyExistsException(inner),
-            crate::operation::create_policy::CreatePolicyError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::create_policy::CreatePolicyError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::create_policy::CreatePolicyError::EntityAlreadyExistsException(inner) => {
+                Error::EntityAlreadyExistsException(inner)
+            }
+            crate::operation::create_policy::CreatePolicyError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
+            crate::operation::create_policy::CreatePolicyError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
             crate::operation::create_policy::CreatePolicyError::MalformedPolicyDocumentException(inner) => {
                 Error::MalformedPolicyDocumentException(inner)
             }
-            crate::operation::create_policy::CreatePolicyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::create_policy::CreatePolicyError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::create_policy::CreatePolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -3048,9 +2984,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3062,40 +2996,38 @@ where
 impl From<crate::operation::create_policy_version::CreatePolicyVersionError> for Error {
     fn from(err: crate::operation::create_policy_version::CreatePolicyVersionError) -> Self {
         match err {
-            crate::operation::create_policy_version::CreatePolicyVersionError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::create_policy_version::CreatePolicyVersionError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::create_policy_version::CreatePolicyVersionError::MalformedPolicyDocumentException(inner) => {
-                Error::MalformedPolicyDocumentException(inner)
+            crate::operation::create_policy_version::CreatePolicyVersionError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
             }
-            crate::operation::create_policy_version::CreatePolicyVersionError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::create_policy_version::CreatePolicyVersionError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::create_policy_version::CreatePolicyVersionError::MalformedPolicyDocumentException(
+                inner,
+            ) => Error::MalformedPolicyDocumentException(inner),
+            crate::operation::create_policy_version::CreatePolicyVersionError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
             crate::operation::create_policy_version::CreatePolicyVersionError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::create_policy_version::CreatePolicyVersionError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::create_policy_version::CreatePolicyVersionError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_create_role")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_role::CreateRoleError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_role::CreateRoleError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_role::CreateRoleError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_role::CreateRoleError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3107,9 +3039,9 @@ where
 impl From<crate::operation::create_role::CreateRoleError> for Error {
     fn from(err: crate::operation::create_role::CreateRoleError) -> Self {
         match err {
-            crate::operation::create_role::CreateRoleError::ConcurrentModificationException(
-                inner,
-            ) => Error::ConcurrentModificationException(inner),
+            crate::operation::create_role::CreateRoleError::ConcurrentModificationException(inner) => {
+                Error::ConcurrentModificationException(inner)
+            }
             crate::operation::create_role::CreateRoleError::EntityAlreadyExistsException(inner) => {
                 Error::EntityAlreadyExistsException(inner)
             }
@@ -3119,15 +3051,13 @@ impl From<crate::operation::create_role::CreateRoleError> for Error {
             crate::operation::create_role::CreateRoleError::LimitExceededException(inner) => {
                 Error::LimitExceededException(inner)
             }
-            crate::operation::create_role::CreateRoleError::MalformedPolicyDocumentException(
-                inner,
-            ) => Error::MalformedPolicyDocumentException(inner),
+            crate::operation::create_role::CreateRoleError::MalformedPolicyDocumentException(inner) => {
+                Error::MalformedPolicyDocumentException(inner)
+            }
             crate::operation::create_role::CreateRoleError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::create_role::CreateRoleError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::create_role::CreateRoleError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -3149,9 +3079,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3169,10 +3097,18 @@ impl From<crate::operation::create_saml_provider::CreateSAMLProviderError> for E
             crate::operation::create_saml_provider::CreateSAMLProviderError::EntityAlreadyExistsException(inner) => {
                 Error::EntityAlreadyExistsException(inner)
             }
-            crate::operation::create_saml_provider::CreateSAMLProviderError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::create_saml_provider::CreateSAMLProviderError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::create_saml_provider::CreateSAMLProviderError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
-            crate::operation::create_saml_provider::CreateSAMLProviderError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::create_saml_provider::CreateSAMLProviderError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
+            crate::operation::create_saml_provider::CreateSAMLProviderError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::create_saml_provider::CreateSAMLProviderError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::create_saml_provider::CreateSAMLProviderError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -3194,9 +3130,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3206,23 +3140,23 @@ where
 }
 #[cfg(feature = "op_create_service_linked_role")]
 impl From<crate::operation::create_service_linked_role::CreateServiceLinkedRoleError> for Error {
-    fn from(
-        err: crate::operation::create_service_linked_role::CreateServiceLinkedRoleError,
-    ) -> Self {
+    fn from(err: crate::operation::create_service_linked_role::CreateServiceLinkedRoleError) -> Self {
         match err {
-            crate::operation::create_service_linked_role::CreateServiceLinkedRoleError::InvalidInputException(inner) => {
-                Error::InvalidInputException(inner)
+            crate::operation::create_service_linked_role::CreateServiceLinkedRoleError::InvalidInputException(
+                inner,
+            ) => Error::InvalidInputException(inner),
+            crate::operation::create_service_linked_role::CreateServiceLinkedRoleError::LimitExceededException(
+                inner,
+            ) => Error::LimitExceededException(inner),
+            crate::operation::create_service_linked_role::CreateServiceLinkedRoleError::NoSuchEntityException(
+                inner,
+            ) => Error::NoSuchEntityException(inner),
+            crate::operation::create_service_linked_role::CreateServiceLinkedRoleError::ServiceFailureException(
+                inner,
+            ) => Error::ServiceFailureException(inner),
+            crate::operation::create_service_linked_role::CreateServiceLinkedRoleError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::create_service_linked_role::CreateServiceLinkedRoleError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
-            crate::operation::create_service_linked_role::CreateServiceLinkedRoleError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::create_service_linked_role::CreateServiceLinkedRoleError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::create_service_linked_role::CreateServiceLinkedRoleError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -3253,13 +3187,8 @@ where
     }
 }
 #[cfg(feature = "op_create_service_specific_credential")]
-impl
-    From<crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialError>
-    for Error
-{
-    fn from(
-        err: crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialError,
-    ) -> Self {
+impl From<crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialError> for Error {
+    fn from(err: crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialError) -> Self {
         match err {
             crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialError::LimitExceededException(inner) => {
                 Error::LimitExceededException(inner)
@@ -3275,26 +3204,16 @@ impl
     }
 }
 #[cfg(feature = "op_create_user")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_user::CreateUserError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_user::CreateUserError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_user::CreateUserError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_user::CreateUserError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3306,9 +3225,9 @@ where
 impl From<crate::operation::create_user::CreateUserError> for Error {
     fn from(err: crate::operation::create_user::CreateUserError) -> Self {
         match err {
-            crate::operation::create_user::CreateUserError::ConcurrentModificationException(
-                inner,
-            ) => Error::ConcurrentModificationException(inner),
+            crate::operation::create_user::CreateUserError::ConcurrentModificationException(inner) => {
+                Error::ConcurrentModificationException(inner)
+            }
             crate::operation::create_user::CreateUserError::EntityAlreadyExistsException(inner) => {
                 Error::EntityAlreadyExistsException(inner)
             }
@@ -3324,9 +3243,7 @@ impl From<crate::operation::create_user::CreateUserError> for Error {
             crate::operation::create_user::CreateUserError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::create_user::CreateUserError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::create_user::CreateUserError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -3348,9 +3265,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3399,9 +3314,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3446,9 +3359,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3460,18 +3371,16 @@ where
 impl From<crate::operation::delete_access_key::DeleteAccessKeyError> for Error {
     fn from(err: crate::operation::delete_access_key::DeleteAccessKeyError) -> Self {
         match err {
-            crate::operation::delete_access_key::DeleteAccessKeyError::LimitExceededException(
-                inner,
-            ) => Error::LimitExceededException(inner),
-            crate::operation::delete_access_key::DeleteAccessKeyError::NoSuchEntityException(
-                inner,
-            ) => Error::NoSuchEntityException(inner),
-            crate::operation::delete_access_key::DeleteAccessKeyError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::delete_access_key::DeleteAccessKeyError::Unhandled(inner) => {
-                Error::Unhandled(inner)
+            crate::operation::delete_access_key::DeleteAccessKeyError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
             }
+            crate::operation::delete_access_key::DeleteAccessKeyError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::delete_access_key::DeleteAccessKeyError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::delete_access_key::DeleteAccessKeyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -3493,9 +3402,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3510,10 +3417,18 @@ impl From<crate::operation::delete_account_alias::DeleteAccountAliasError> for E
             crate::operation::delete_account_alias::DeleteAccountAliasError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
             }
-            crate::operation::delete_account_alias::DeleteAccountAliasError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::delete_account_alias::DeleteAccountAliasError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::delete_account_alias::DeleteAccountAliasError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
-            crate::operation::delete_account_alias::DeleteAccountAliasError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::delete_account_alias::DeleteAccountAliasError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::delete_account_alias::DeleteAccountAliasError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::delete_account_alias::DeleteAccountAliasError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::delete_account_alias::DeleteAccountAliasError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -3535,9 +3450,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3546,12 +3459,8 @@ where
     }
 }
 #[cfg(feature = "op_delete_account_password_policy")]
-impl From<crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyError>
-    for Error
-{
-    fn from(
-        err: crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyError,
-    ) -> Self {
+impl From<crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyError> for Error {
+    fn from(err: crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyError) -> Self {
         match err {
             crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyError::LimitExceededException(inner) => {
                 Error::LimitExceededException(inner)
@@ -3567,26 +3476,16 @@ impl From<crate::operation::delete_account_password_policy::DeleteAccountPasswor
     }
 }
 #[cfg(feature = "op_delete_group")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_group::DeleteGroupError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_group::DeleteGroupError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_group::DeleteGroupError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_group::DeleteGroupError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3610,9 +3509,7 @@ impl From<crate::operation::delete_group::DeleteGroupError> for Error {
             crate::operation::delete_group::DeleteGroupError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::delete_group::DeleteGroupError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_group::DeleteGroupError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -3634,9 +3531,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3648,9 +3543,15 @@ where
 impl From<crate::operation::delete_group_policy::DeleteGroupPolicyError> for Error {
     fn from(err: crate::operation::delete_group_policy::DeleteGroupPolicyError) -> Self {
         match err {
-            crate::operation::delete_group_policy::DeleteGroupPolicyError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::delete_group_policy::DeleteGroupPolicyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::delete_group_policy::DeleteGroupPolicyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::delete_group_policy::DeleteGroupPolicyError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::delete_group_policy::DeleteGroupPolicyError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::delete_group_policy::DeleteGroupPolicyError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::delete_group_policy::DeleteGroupPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -3673,9 +3574,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3699,7 +3598,9 @@ impl From<crate::operation::delete_instance_profile::DeleteInstanceProfileError>
             crate::operation::delete_instance_profile::DeleteInstanceProfileError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::delete_instance_profile::DeleteInstanceProfileError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::delete_instance_profile::DeleteInstanceProfileError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -3721,9 +3622,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3735,13 +3634,21 @@ where
 impl From<crate::operation::delete_login_profile::DeleteLoginProfileError> for Error {
     fn from(err: crate::operation::delete_login_profile::DeleteLoginProfileError) -> Self {
         match err {
-            crate::operation::delete_login_profile::DeleteLoginProfileError::EntityTemporarilyUnmodifiableException(inner) => {
-                Error::EntityTemporarilyUnmodifiableException(inner)
+            crate::operation::delete_login_profile::DeleteLoginProfileError::EntityTemporarilyUnmodifiableException(
+                inner,
+            ) => Error::EntityTemporarilyUnmodifiableException(inner),
+            crate::operation::delete_login_profile::DeleteLoginProfileError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
             }
-            crate::operation::delete_login_profile::DeleteLoginProfileError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::delete_login_profile::DeleteLoginProfileError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::delete_login_profile::DeleteLoginProfileError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
-            crate::operation::delete_login_profile::DeleteLoginProfileError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::delete_login_profile::DeleteLoginProfileError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::delete_login_profile::DeleteLoginProfileError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::delete_login_profile::DeleteLoginProfileError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -3763,9 +3670,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3774,12 +3679,8 @@ where
     }
 }
 #[cfg(feature = "op_delete_open_id_connect_provider")]
-impl From<crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError>
-    for Error
-{
-    fn from(
-        err: crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
-    ) -> Self {
+impl From<crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError> for Error {
+    fn from(err: crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError) -> Self {
         match err {
             crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -3795,26 +3696,16 @@ impl From<crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnect
     }
 }
 #[cfg(feature = "op_delete_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_policy::DeletePolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_policy::DeletePolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_policy::DeletePolicyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_policy::DeletePolicyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3841,9 +3732,7 @@ impl From<crate::operation::delete_policy::DeletePolicyError> for Error {
             crate::operation::delete_policy::DeletePolicyError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::delete_policy::DeletePolicyError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_policy::DeletePolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -3865,9 +3754,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3882,37 +3769,35 @@ impl From<crate::operation::delete_policy_version::DeletePolicyVersionError> for
             crate::operation::delete_policy_version::DeletePolicyVersionError::DeleteConflictException(inner) => {
                 Error::DeleteConflictException(inner)
             }
-            crate::operation::delete_policy_version::DeletePolicyVersionError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::delete_policy_version::DeletePolicyVersionError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::delete_policy_version::DeletePolicyVersionError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::delete_policy_version::DeletePolicyVersionError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
+            crate::operation::delete_policy_version::DeletePolicyVersionError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::delete_policy_version::DeletePolicyVersionError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
             crate::operation::delete_policy_version::DeletePolicyVersionError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::delete_policy_version::DeletePolicyVersionError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::delete_policy_version::DeletePolicyVersionError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_delete_role")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_role::DeleteRoleError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_role::DeleteRoleError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_role::DeleteRoleError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_role::DeleteRoleError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3924,9 +3809,9 @@ where
 impl From<crate::operation::delete_role::DeleteRoleError> for Error {
     fn from(err: crate::operation::delete_role::DeleteRoleError) -> Self {
         match err {
-            crate::operation::delete_role::DeleteRoleError::ConcurrentModificationException(
-                inner,
-            ) => Error::ConcurrentModificationException(inner),
+            crate::operation::delete_role::DeleteRoleError::ConcurrentModificationException(inner) => {
+                Error::ConcurrentModificationException(inner)
+            }
             crate::operation::delete_role::DeleteRoleError::DeleteConflictException(inner) => {
                 Error::DeleteConflictException(inner)
             }
@@ -3942,9 +3827,7 @@ impl From<crate::operation::delete_role::DeleteRoleError> for Error {
             crate::operation::delete_role::DeleteRoleError::UnmodifiableEntityException(inner) => {
                 Error::UnmodifiableEntityException(inner)
             }
-            crate::operation::delete_role::DeleteRoleError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_role::DeleteRoleError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -3966,9 +3849,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -3977,12 +3858,8 @@ where
     }
 }
 #[cfg(feature = "op_delete_role_permissions_boundary")]
-impl From<crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryError>
-    for Error
-{
-    fn from(
-        err: crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryError,
-    ) -> Self {
+impl From<crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryError> for Error {
+    fn from(err: crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryError) -> Self {
         match err {
             crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
@@ -4015,9 +3892,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4029,9 +3904,15 @@ where
 impl From<crate::operation::delete_role_policy::DeleteRolePolicyError> for Error {
     fn from(err: crate::operation::delete_role_policy::DeleteRolePolicyError) -> Self {
         match err {
-            crate::operation::delete_role_policy::DeleteRolePolicyError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::delete_role_policy::DeleteRolePolicyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::delete_role_policy::DeleteRolePolicyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::delete_role_policy::DeleteRolePolicyError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::delete_role_policy::DeleteRolePolicyError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::delete_role_policy::DeleteRolePolicyError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::delete_role_policy::DeleteRolePolicyError::UnmodifiableEntityException(inner) => {
                 Error::UnmodifiableEntityException(inner)
             }
@@ -4057,9 +3938,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4071,11 +3950,21 @@ where
 impl From<crate::operation::delete_saml_provider::DeleteSAMLProviderError> for Error {
     fn from(err: crate::operation::delete_saml_provider::DeleteSAMLProviderError) -> Self {
         match err {
-            crate::operation::delete_saml_provider::DeleteSAMLProviderError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::delete_saml_provider::DeleteSAMLProviderError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::delete_saml_provider::DeleteSAMLProviderError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::delete_saml_provider::DeleteSAMLProviderError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
-            crate::operation::delete_saml_provider::DeleteSAMLProviderError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::delete_saml_provider::DeleteSAMLProviderError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
+            crate::operation::delete_saml_provider::DeleteSAMLProviderError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::delete_saml_provider::DeleteSAMLProviderError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::delete_saml_provider::DeleteSAMLProviderError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::delete_saml_provider::DeleteSAMLProviderError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -4097,9 +3986,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4109,23 +3996,23 @@ where
 }
 #[cfg(feature = "op_delete_server_certificate")]
 impl From<crate::operation::delete_server_certificate::DeleteServerCertificateError> for Error {
-    fn from(
-        err: crate::operation::delete_server_certificate::DeleteServerCertificateError,
-    ) -> Self {
+    fn from(err: crate::operation::delete_server_certificate::DeleteServerCertificateError) -> Self {
         match err {
-            crate::operation::delete_server_certificate::DeleteServerCertificateError::DeleteConflictException(inner) => {
-                Error::DeleteConflictException(inner)
-            }
-            crate::operation::delete_server_certificate::DeleteServerCertificateError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
+            crate::operation::delete_server_certificate::DeleteServerCertificateError::DeleteConflictException(
+                inner,
+            ) => Error::DeleteConflictException(inner),
+            crate::operation::delete_server_certificate::DeleteServerCertificateError::LimitExceededException(
+                inner,
+            ) => Error::LimitExceededException(inner),
             crate::operation::delete_server_certificate::DeleteServerCertificateError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
             }
-            crate::operation::delete_server_certificate::DeleteServerCertificateError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
+            crate::operation::delete_server_certificate::DeleteServerCertificateError::ServiceFailureException(
+                inner,
+            ) => Error::ServiceFailureException(inner),
+            crate::operation::delete_server_certificate::DeleteServerCertificateError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::delete_server_certificate::DeleteServerCertificateError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -4147,9 +4034,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4159,20 +4044,20 @@ where
 }
 #[cfg(feature = "op_delete_service_linked_role")]
 impl From<crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError> for Error {
-    fn from(
-        err: crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError,
-    ) -> Self {
+    fn from(err: crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError) -> Self {
         match err {
-            crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
+            crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::LimitExceededException(
+                inner,
+            ) => Error::LimitExceededException(inner),
+            crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::NoSuchEntityException(
+                inner,
+            ) => Error::NoSuchEntityException(inner),
+            crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::ServiceFailureException(
+                inner,
+            ) => Error::ServiceFailureException(inner),
+            crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -4203,13 +4088,8 @@ where
     }
 }
 #[cfg(feature = "op_delete_service_specific_credential")]
-impl
-    From<crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialError>
-    for Error
-{
-    fn from(
-        err: crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialError,
-    ) -> Self {
+impl From<crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialError> for Error {
+    fn from(err: crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialError) -> Self {
         match err {
             crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
@@ -4236,9 +4116,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4248,9 +4126,7 @@ where
 }
 #[cfg(feature = "op_delete_signing_certificate")]
 impl From<crate::operation::delete_signing_certificate::DeleteSigningCertificateError> for Error {
-    fn from(
-        err: crate::operation::delete_signing_certificate::DeleteSigningCertificateError,
-    ) -> Self {
+    fn from(err: crate::operation::delete_signing_certificate::DeleteSigningCertificateError) -> Self {
         match err {
             crate::operation::delete_signing_certificate::DeleteSigningCertificateError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -4286,9 +4162,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4300,32 +4174,26 @@ where
 impl From<crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError> for Error {
     fn from(err: crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError) -> Self {
         match err {
-            crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_delete_user")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_user::DeleteUserError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user::DeleteUserError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_user::DeleteUserError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_user::DeleteUserError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4337,9 +4205,9 @@ where
 impl From<crate::operation::delete_user::DeleteUserError> for Error {
     fn from(err: crate::operation::delete_user::DeleteUserError) -> Self {
         match err {
-            crate::operation::delete_user::DeleteUserError::ConcurrentModificationException(
-                inner,
-            ) => Error::ConcurrentModificationException(inner),
+            crate::operation::delete_user::DeleteUserError::ConcurrentModificationException(inner) => {
+                Error::ConcurrentModificationException(inner)
+            }
             crate::operation::delete_user::DeleteUserError::DeleteConflictException(inner) => {
                 Error::DeleteConflictException(inner)
             }
@@ -4352,9 +4220,7 @@ impl From<crate::operation::delete_user::DeleteUserError> for Error {
             crate::operation::delete_user::DeleteUserError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::delete_user::DeleteUserError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_user::DeleteUserError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -4376,9 +4242,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4387,12 +4251,8 @@ where
     }
 }
 #[cfg(feature = "op_delete_user_permissions_boundary")]
-impl From<crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryError>
-    for Error
-{
-    fn from(
-        err: crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryError,
-    ) -> Self {
+impl From<crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryError> for Error {
+    fn from(err: crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryError) -> Self {
         match err {
             crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
@@ -4422,9 +4282,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4436,9 +4294,15 @@ where
 impl From<crate::operation::delete_user_policy::DeleteUserPolicyError> for Error {
     fn from(err: crate::operation::delete_user_policy::DeleteUserPolicyError) -> Self {
         match err {
-            crate::operation::delete_user_policy::DeleteUserPolicyError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::delete_user_policy::DeleteUserPolicyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::delete_user_policy::DeleteUserPolicyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::delete_user_policy::DeleteUserPolicyError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::delete_user_policy::DeleteUserPolicyError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::delete_user_policy::DeleteUserPolicyError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::delete_user_policy::DeleteUserPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -4461,9 +4325,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4512,9 +4374,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4526,10 +4386,18 @@ where
 impl From<crate::operation::detach_group_policy::DetachGroupPolicyError> for Error {
     fn from(err: crate::operation::detach_group_policy::DetachGroupPolicyError) -> Self {
         match err {
-            crate::operation::detach_group_policy::DetachGroupPolicyError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::detach_group_policy::DetachGroupPolicyError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::detach_group_policy::DetachGroupPolicyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::detach_group_policy::DetachGroupPolicyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::detach_group_policy::DetachGroupPolicyError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
+            crate::operation::detach_group_policy::DetachGroupPolicyError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::detach_group_policy::DetachGroupPolicyError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::detach_group_policy::DetachGroupPolicyError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::detach_group_policy::DetachGroupPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -4552,9 +4420,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4566,10 +4432,18 @@ where
 impl From<crate::operation::detach_role_policy::DetachRolePolicyError> for Error {
     fn from(err: crate::operation::detach_role_policy::DetachRolePolicyError) -> Self {
         match err {
-            crate::operation::detach_role_policy::DetachRolePolicyError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::detach_role_policy::DetachRolePolicyError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::detach_role_policy::DetachRolePolicyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::detach_role_policy::DetachRolePolicyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::detach_role_policy::DetachRolePolicyError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
+            crate::operation::detach_role_policy::DetachRolePolicyError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::detach_role_policy::DetachRolePolicyError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::detach_role_policy::DetachRolePolicyError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::detach_role_policy::DetachRolePolicyError::UnmodifiableEntityException(inner) => {
                 Error::UnmodifiableEntityException(inner)
             }
@@ -4595,9 +4469,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4609,10 +4481,18 @@ where
 impl From<crate::operation::detach_user_policy::DetachUserPolicyError> for Error {
     fn from(err: crate::operation::detach_user_policy::DetachUserPolicyError) -> Self {
         match err {
-            crate::operation::detach_user_policy::DetachUserPolicyError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::detach_user_policy::DetachUserPolicyError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::detach_user_policy::DetachUserPolicyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::detach_user_policy::DetachUserPolicyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::detach_user_policy::DetachUserPolicyError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
+            crate::operation::detach_user_policy::DetachUserPolicyError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::detach_user_policy::DetachUserPolicyError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::detach_user_policy::DetachUserPolicyError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::detach_user_policy::DetachUserPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -4720,8 +4600,12 @@ where
     }
 }
 #[cfg(feature = "op_disable_outbound_web_identity_federation")]
-impl From<crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationError> for Error {
-    fn from(err: crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationError) -> Self {
+impl From<crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationError>
+    for Error
+{
+    fn from(
+        err: crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationError,
+    ) -> Self {
         match err {
             crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationError::FeatureDisabledException(
                 inner,
@@ -4750,9 +4634,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4770,15 +4652,21 @@ impl From<crate::operation::enable_mfa_device::EnableMFADeviceError> for Error {
             crate::operation::enable_mfa_device::EnableMFADeviceError::EntityAlreadyExistsException(inner) => {
                 Error::EntityAlreadyExistsException(inner)
             }
-            crate::operation::enable_mfa_device::EnableMFADeviceError::EntityTemporarilyUnmodifiableException(inner) => {
-                Error::EntityTemporarilyUnmodifiableException(inner)
-            }
+            crate::operation::enable_mfa_device::EnableMFADeviceError::EntityTemporarilyUnmodifiableException(
+                inner,
+            ) => Error::EntityTemporarilyUnmodifiableException(inner),
             crate::operation::enable_mfa_device::EnableMFADeviceError::InvalidAuthenticationCodeException(inner) => {
                 Error::InvalidAuthenticationCodeException(inner)
             }
-            crate::operation::enable_mfa_device::EnableMFADeviceError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::enable_mfa_device::EnableMFADeviceError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::enable_mfa_device::EnableMFADeviceError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::enable_mfa_device::EnableMFADeviceError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::enable_mfa_device::EnableMFADeviceError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::enable_mfa_device::EnableMFADeviceError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::enable_mfa_device::EnableMFADeviceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -4849,13 +4737,8 @@ where
     }
 }
 #[cfg(feature = "op_enable_organizations_root_sessions")]
-impl
-    From<crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError>
-    for Error
-{
-    fn from(
-        err: crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError,
-    ) -> Self {
+impl From<crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError> for Error {
+    fn from(err: crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError) -> Self {
         match err {
             crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::AccountNotManagementOrDelegatedAdministratorException(inner) => Error::AccountNotManagementOrDelegatedAdministratorException(inner),
             crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError::CallerIsNotManagementAccountException(inner) => Error::CallerIsNotManagementAccountException(inner),
@@ -4893,8 +4776,12 @@ where
     }
 }
 #[cfg(feature = "op_enable_outbound_web_identity_federation")]
-impl From<crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationError> for Error {
-    fn from(err: crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationError) -> Self {
+impl From<crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationError>
+    for Error
+{
+    fn from(
+        err: crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationError,
+    ) -> Self {
         match err {
             crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationError::FeatureEnabledException(inner) => {
                 Error::FeatureEnabledException(inner)
@@ -4923,9 +4810,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -4935,17 +4820,17 @@ where
 }
 #[cfg(feature = "op_generate_credential_report")]
 impl From<crate::operation::generate_credential_report::GenerateCredentialReportError> for Error {
-    fn from(
-        err: crate::operation::generate_credential_report::GenerateCredentialReportError,
-    ) -> Self {
+    fn from(err: crate::operation::generate_credential_report::GenerateCredentialReportError) -> Self {
         match err {
-            crate::operation::generate_credential_report::GenerateCredentialReportError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
+            crate::operation::generate_credential_report::GenerateCredentialReportError::LimitExceededException(
+                inner,
+            ) => Error::LimitExceededException(inner),
+            crate::operation::generate_credential_report::GenerateCredentialReportError::ServiceFailureException(
+                inner,
+            ) => Error::ServiceFailureException(inner),
+            crate::operation::generate_credential_report::GenerateCredentialReportError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::generate_credential_report::GenerateCredentialReportError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::generate_credential_report::GenerateCredentialReportError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -4977,7 +4862,9 @@ where
 }
 #[cfg(feature = "op_generate_organizations_access_report")]
 impl From<crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportError> for Error {
-    fn from(err: crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportError) -> Self {
+    fn from(
+        err: crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportError,
+    ) -> Self {
         match err {
             crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportError::ReportGenerationLimitExceededException(inner) => Error::ReportGenerationLimitExceededException(inner),
             crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportError::Unhandled(inner) => Error::Unhandled(inner),
@@ -5012,7 +4899,9 @@ where
 }
 #[cfg(feature = "op_generate_service_last_accessed_details")]
 impl From<crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsError> for Error {
-    fn from(err: crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsError) -> Self {
+    fn from(
+        err: crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsError,
+    ) -> Self {
         match err {
             crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -5044,9 +4933,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5058,9 +4945,9 @@ where
 impl From<crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError> for Error {
     fn from(err: crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError) -> Self {
         match err {
-            crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError::Unhandled(
-                inner,
-            ) => Error::Unhandled(inner),
+            crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -5091,12 +4978,8 @@ where
     }
 }
 #[cfg(feature = "op_get_account_authorization_details")]
-impl From<crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError,
-    ) -> Self {
+impl From<crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError> for Error {
+    fn from(err: crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError) -> Self {
         match err {
             crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
@@ -5123,9 +5006,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5135,17 +5016,17 @@ where
 }
 #[cfg(feature = "op_get_account_password_policy")]
 impl From<crate::operation::get_account_password_policy::GetAccountPasswordPolicyError> for Error {
-    fn from(
-        err: crate::operation::get_account_password_policy::GetAccountPasswordPolicyError,
-    ) -> Self {
+    fn from(err: crate::operation::get_account_password_policy::GetAccountPasswordPolicyError) -> Self {
         match err {
-            crate::operation::get_account_password_policy::GetAccountPasswordPolicyError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
+            crate::operation::get_account_password_policy::GetAccountPasswordPolicyError::NoSuchEntityException(
+                inner,
+            ) => Error::NoSuchEntityException(inner),
+            crate::operation::get_account_password_policy::GetAccountPasswordPolicyError::ServiceFailureException(
+                inner,
+            ) => Error::ServiceFailureException(inner),
+            crate::operation::get_account_password_policy::GetAccountPasswordPolicyError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::get_account_password_policy::GetAccountPasswordPolicyError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::get_account_password_policy::GetAccountPasswordPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -5167,9 +5048,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5181,11 +5060,15 @@ where
 impl From<crate::operation::get_account_properties::GetAccountPropertiesError> for Error {
     fn from(err: crate::operation::get_account_properties::GetAccountPropertiesError) -> Self {
         match err {
-            crate::operation::get_account_properties::GetAccountPropertiesError::InvalidInputException(inner) => Error::InvalidInputException(inner),
+            crate::operation::get_account_properties::GetAccountPropertiesError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
             crate::operation::get_account_properties::GetAccountPropertiesError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::get_account_properties::GetAccountPropertiesError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::get_account_properties::GetAccountPropertiesError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -5207,9 +5090,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5221,7 +5102,9 @@ where
 impl From<crate::operation::get_account_summary::GetAccountSummaryError> for Error {
     fn from(err: crate::operation::get_account_summary::GetAccountSummaryError) -> Self {
         match err {
-            crate::operation::get_account_summary::GetAccountSummaryError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::get_account_summary::GetAccountSummaryError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::get_account_summary::GetAccountSummaryError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -5253,12 +5136,8 @@ where
     }
 }
 #[cfg(feature = "op_get_context_keys_for_custom_policy")]
-impl From<crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError,
-    ) -> Self {
+impl From<crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError> for Error {
+    fn from(err: crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError) -> Self {
         match err {
             crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -5295,7 +5174,9 @@ where
 }
 #[cfg(feature = "op_get_context_keys_for_principal_policy")]
 impl From<crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError> for Error {
-    fn from(err: crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError) -> Self {
+    fn from(
+        err: crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError,
+    ) -> Self {
         match err {
             crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -5327,9 +5208,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5341,19 +5220,21 @@ where
 impl From<crate::operation::get_credential_report::GetCredentialReportError> for Error {
     fn from(err: crate::operation::get_credential_report::GetCredentialReportError) -> Self {
         match err {
-            crate::operation::get_credential_report::GetCredentialReportError::CredentialReportExpiredException(inner) => {
-                Error::CredentialReportExpiredException(inner)
-            }
-            crate::operation::get_credential_report::GetCredentialReportError::CredentialReportNotPresentException(inner) => {
-                Error::CredentialReportNotPresentException(inner)
-            }
-            crate::operation::get_credential_report::GetCredentialReportError::CredentialReportNotReadyException(inner) => {
-                Error::CredentialReportNotReadyException(inner)
-            }
+            crate::operation::get_credential_report::GetCredentialReportError::CredentialReportExpiredException(
+                inner,
+            ) => Error::CredentialReportExpiredException(inner),
+            crate::operation::get_credential_report::GetCredentialReportError::CredentialReportNotPresentException(
+                inner,
+            ) => Error::CredentialReportNotPresentException(inner),
+            crate::operation::get_credential_report::GetCredentialReportError::CredentialReportNotReadyException(
+                inner,
+            ) => Error::CredentialReportNotReadyException(inner),
             crate::operation::get_credential_report::GetCredentialReportError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::get_credential_report::GetCredentialReportError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::get_credential_report::GetCredentialReportError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -5375,9 +5256,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5389,35 +5268,29 @@ where
 impl From<crate::operation::get_delegation_request::GetDelegationRequestError> for Error {
     fn from(err: crate::operation::get_delegation_request::GetDelegationRequestError) -> Self {
         match err {
-            crate::operation::get_delegation_request::GetDelegationRequestError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::get_delegation_request::GetDelegationRequestError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
             crate::operation::get_delegation_request::GetDelegationRequestError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::get_delegation_request::GetDelegationRequestError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::get_delegation_request::GetDelegationRequestError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_get_group")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_group::GetGroupError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_group::GetGroupError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_group::GetGroupError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_group::GetGroupError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5441,12 +5314,8 @@ impl From<crate::operation::get_group::GetGroupError> for Error {
 }
 #[cfg(feature = "op_get_group_policy")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_group_policy::GetGroupPolicyError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_group_policy::GetGroupPolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -5457,9 +5326,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5471,15 +5338,13 @@ where
 impl From<crate::operation::get_group_policy::GetGroupPolicyError> for Error {
     fn from(err: crate::operation::get_group_policy::GetGroupPolicyError) -> Self {
         match err {
-            crate::operation::get_group_policy::GetGroupPolicyError::NoSuchEntityException(
-                inner,
-            ) => Error::NoSuchEntityException(inner),
-            crate::operation::get_group_policy::GetGroupPolicyError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::get_group_policy::GetGroupPolicyError::Unhandled(inner) => {
-                Error::Unhandled(inner)
+            crate::operation::get_group_policy::GetGroupPolicyError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
             }
+            crate::operation::get_group_policy::GetGroupPolicyError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::get_group_policy::GetGroupPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -5501,9 +5366,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5513,20 +5376,20 @@ where
 }
 #[cfg(feature = "op_get_human_readable_summary")]
 impl From<crate::operation::get_human_readable_summary::GetHumanReadableSummaryError> for Error {
-    fn from(
-        err: crate::operation::get_human_readable_summary::GetHumanReadableSummaryError,
-    ) -> Self {
+    fn from(err: crate::operation::get_human_readable_summary::GetHumanReadableSummaryError) -> Self {
         match err {
-            crate::operation::get_human_readable_summary::GetHumanReadableSummaryError::InvalidInputException(inner) => {
-                Error::InvalidInputException(inner)
+            crate::operation::get_human_readable_summary::GetHumanReadableSummaryError::InvalidInputException(
+                inner,
+            ) => Error::InvalidInputException(inner),
+            crate::operation::get_human_readable_summary::GetHumanReadableSummaryError::NoSuchEntityException(
+                inner,
+            ) => Error::NoSuchEntityException(inner),
+            crate::operation::get_human_readable_summary::GetHumanReadableSummaryError::ServiceFailureException(
+                inner,
+            ) => Error::ServiceFailureException(inner),
+            crate::operation::get_human_readable_summary::GetHumanReadableSummaryError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::get_human_readable_summary::GetHumanReadableSummaryError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::get_human_readable_summary::GetHumanReadableSummaryError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::get_human_readable_summary::GetHumanReadableSummaryError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -5548,9 +5411,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5562,9 +5423,15 @@ where
 impl From<crate::operation::get_instance_profile::GetInstanceProfileError> for Error {
     fn from(err: crate::operation::get_instance_profile::GetInstanceProfileError) -> Self {
         match err {
-            crate::operation::get_instance_profile::GetInstanceProfileError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::get_instance_profile::GetInstanceProfileError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
-            crate::operation::get_instance_profile::GetInstanceProfileError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::get_instance_profile::GetInstanceProfileError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::get_instance_profile::GetInstanceProfileError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::get_instance_profile::GetInstanceProfileError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -5586,9 +5453,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5600,39 +5465,27 @@ where
 impl From<crate::operation::get_login_profile::GetLoginProfileError> for Error {
     fn from(err: crate::operation::get_login_profile::GetLoginProfileError) -> Self {
         match err {
-            crate::operation::get_login_profile::GetLoginProfileError::NoSuchEntityException(
-                inner,
-            ) => Error::NoSuchEntityException(inner),
-            crate::operation::get_login_profile::GetLoginProfileError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::get_login_profile::GetLoginProfileError::Unhandled(inner) => {
-                Error::Unhandled(inner)
+            crate::operation::get_login_profile::GetLoginProfileError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
             }
+            crate::operation::get_login_profile::GetLoginProfileError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::get_login_profile::GetLoginProfileError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_mfa_device")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_mfa_device::GetMFADeviceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_mfa_device::GetMFADeviceError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_mfa_device::GetMFADeviceError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_mfa_device::GetMFADeviceError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5650,9 +5503,7 @@ impl From<crate::operation::get_mfa_device::GetMFADeviceError> for Error {
             crate::operation::get_mfa_device::GetMFADeviceError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::get_mfa_device::GetMFADeviceError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_mfa_device::GetMFADeviceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -5674,9 +5525,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5686,20 +5535,20 @@ where
 }
 #[cfg(feature = "op_get_open_id_connect_provider")]
 impl From<crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError> for Error {
-    fn from(
-        err: crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
-    ) -> Self {
+    fn from(err: crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError) -> Self {
         match err {
-            crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::InvalidInputException(inner) => {
-                Error::InvalidInputException(inner)
+            crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::InvalidInputException(
+                inner,
+            ) => Error::InvalidInputException(inner),
+            crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::NoSuchEntityException(
+                inner,
+            ) => Error::NoSuchEntityException(inner),
+            crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::ServiceFailureException(
+                inner,
+            ) => Error::ServiceFailureException(inner),
+            crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -5721,9 +5570,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5732,12 +5579,8 @@ where
     }
 }
 #[cfg(feature = "op_get_organizations_access_report")]
-impl From<crate::operation::get_organizations_access_report::GetOrganizationsAccessReportError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_organizations_access_report::GetOrganizationsAccessReportError,
-    ) -> Self {
+impl From<crate::operation::get_organizations_access_report::GetOrganizationsAccessReportError> for Error {
+    fn from(err: crate::operation::get_organizations_access_report::GetOrganizationsAccessReportError) -> Self {
         match err {
             crate::operation::get_organizations_access_report::GetOrganizationsAccessReportError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
@@ -5773,8 +5616,12 @@ where
     }
 }
 #[cfg(feature = "op_get_outbound_web_identity_federation_info")]
-impl From<crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError> for Error {
-    fn from(err: crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError) -> Self {
+impl From<crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError>
+    for Error
+{
+    fn from(
+        err: crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError,
+    ) -> Self {
         match err {
             crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::FeatureDisabledException(
                 inner,
@@ -5786,26 +5633,16 @@ impl From<crate::operation::get_outbound_web_identity_federation_info::GetOutbou
     }
 }
 #[cfg(feature = "op_get_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_policy::GetPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_policy::GetPolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_policy::GetPolicyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_policy::GetPolicyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5826,9 +5663,7 @@ impl From<crate::operation::get_policy::GetPolicyError> for Error {
             crate::operation::get_policy::GetPolicyError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::get_policy::GetPolicyError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_policy::GetPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -5850,9 +5685,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5864,34 +5697,29 @@ where
 impl From<crate::operation::get_policy_version::GetPolicyVersionError> for Error {
     fn from(err: crate::operation::get_policy_version::GetPolicyVersionError) -> Self {
         match err {
-            crate::operation::get_policy_version::GetPolicyVersionError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::get_policy_version::GetPolicyVersionError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::get_policy_version::GetPolicyVersionError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::get_policy_version::GetPolicyVersionError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
+            crate::operation::get_policy_version::GetPolicyVersionError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::get_policy_version::GetPolicyVersionError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::get_policy_version::GetPolicyVersionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_role")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_role::GetRoleError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_role::GetRoleError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_role::GetRoleError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_role::GetRoleError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5915,12 +5743,8 @@ impl From<crate::operation::get_role::GetRoleError> for Error {
 }
 #[cfg(feature = "op_get_role_policy")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_role_policy::GetRolePolicyError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_role_policy::GetRolePolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -5931,9 +5755,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5948,12 +5770,10 @@ impl From<crate::operation::get_role_policy::GetRolePolicyError> for Error {
             crate::operation::get_role_policy::GetRolePolicyError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
             }
-            crate::operation::get_role_policy::GetRolePolicyError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::get_role_policy::GetRolePolicyError::Unhandled(inner) => {
-                Error::Unhandled(inner)
+            crate::operation::get_role_policy::GetRolePolicyError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
             }
+            crate::operation::get_role_policy::GetRolePolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -5975,9 +5795,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -5995,10 +5813,12 @@ impl From<crate::operation::get_role_template_version::GetRoleTemplateVersionErr
             crate::operation::get_role_template_version::GetRoleTemplateVersionError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
             }
-            crate::operation::get_role_template_version::GetRoleTemplateVersionError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
+            crate::operation::get_role_template_version::GetRoleTemplateVersionError::ServiceFailureException(
+                inner,
+            ) => Error::ServiceFailureException(inner),
+            crate::operation::get_role_template_version::GetRoleTemplateVersionError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::get_role_template_version::GetRoleTemplateVersionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -6020,9 +5840,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6034,18 +5852,16 @@ where
 impl From<crate::operation::get_saml_provider::GetSAMLProviderError> for Error {
     fn from(err: crate::operation::get_saml_provider::GetSAMLProviderError) -> Self {
         match err {
-            crate::operation::get_saml_provider::GetSAMLProviderError::InvalidInputException(
-                inner,
-            ) => Error::InvalidInputException(inner),
-            crate::operation::get_saml_provider::GetSAMLProviderError::NoSuchEntityException(
-                inner,
-            ) => Error::NoSuchEntityException(inner),
-            crate::operation::get_saml_provider::GetSAMLProviderError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::get_saml_provider::GetSAMLProviderError::Unhandled(inner) => {
-                Error::Unhandled(inner)
+            crate::operation::get_saml_provider::GetSAMLProviderError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
             }
+            crate::operation::get_saml_provider::GetSAMLProviderError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::get_saml_provider::GetSAMLProviderError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::get_saml_provider::GetSAMLProviderError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -6067,9 +5883,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6081,11 +5895,15 @@ where
 impl From<crate::operation::get_server_certificate::GetServerCertificateError> for Error {
     fn from(err: crate::operation::get_server_certificate::GetServerCertificateError) -> Self {
         match err {
-            crate::operation::get_server_certificate::GetServerCertificateError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::get_server_certificate::GetServerCertificateError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
             crate::operation::get_server_certificate::GetServerCertificateError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::get_server_certificate::GetServerCertificateError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::get_server_certificate::GetServerCertificateError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -6107,9 +5925,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6118,12 +5934,8 @@ where
     }
 }
 #[cfg(feature = "op_get_service_last_accessed_details")]
-impl From<crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError>
-    for Error
-{
-    fn from(
-        err: crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError,
-    ) -> Self {
+impl From<crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError> for Error {
+    fn from(err: crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError) -> Self {
         match err {
             crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -6198,8 +6010,12 @@ where
     }
 }
 #[cfg(feature = "op_get_service_linked_role_deletion_status")]
-impl From<crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError> for Error {
-    fn from(err: crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError) -> Self {
+impl From<crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError>
+    for Error
+{
+    fn from(
+        err: crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError,
+    ) -> Self {
         match err {
             crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -6234,9 +6050,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6248,35 +6062,26 @@ where
 impl From<crate::operation::get_ssh_public_key::GetSSHPublicKeyError> for Error {
     fn from(err: crate::operation::get_ssh_public_key::GetSSHPublicKeyError) -> Self {
         match err {
-            crate::operation::get_ssh_public_key::GetSSHPublicKeyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::get_ssh_public_key::GetSSHPublicKeyError::UnrecognizedPublicKeyEncodingException(inner) => {
-                Error::UnrecognizedPublicKeyEncodingException(inner)
+            crate::operation::get_ssh_public_key::GetSSHPublicKeyError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
             }
+            crate::operation::get_ssh_public_key::GetSSHPublicKeyError::UnrecognizedPublicKeyEncodingException(
+                inner,
+            ) => Error::UnrecognizedPublicKeyEncodingException(inner),
             crate::operation::get_ssh_public_key::GetSSHPublicKeyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_get_user")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_user::GetUserError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_user::GetUserError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_user::GetUserError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_user::GetUserError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6300,12 +6105,8 @@ impl From<crate::operation::get_user::GetUserError> for Error {
 }
 #[cfg(feature = "op_get_user_policy")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_user_policy::GetUserPolicyError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_user_policy::GetUserPolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -6316,9 +6117,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6333,23 +6132,17 @@ impl From<crate::operation::get_user_policy::GetUserPolicyError> for Error {
             crate::operation::get_user_policy::GetUserPolicyError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
             }
-            crate::operation::get_user_policy::GetUserPolicyError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::get_user_policy::GetUserPolicyError::Unhandled(inner) => {
-                Error::Unhandled(inner)
+            crate::operation::get_user_policy::GetUserPolicyError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
             }
+            crate::operation::get_user_policy::GetUserPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_access_keys")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_access_keys::ListAccessKeysError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_access_keys::ListAccessKeysError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -6360,9 +6153,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6374,15 +6165,13 @@ where
 impl From<crate::operation::list_access_keys::ListAccessKeysError> for Error {
     fn from(err: crate::operation::list_access_keys::ListAccessKeysError) -> Self {
         match err {
-            crate::operation::list_access_keys::ListAccessKeysError::NoSuchEntityException(
-                inner,
-            ) => Error::NoSuchEntityException(inner),
-            crate::operation::list_access_keys::ListAccessKeysError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::list_access_keys::ListAccessKeysError::Unhandled(inner) => {
-                Error::Unhandled(inner)
+            crate::operation::list_access_keys::ListAccessKeysError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
             }
+            crate::operation::list_access_keys::ListAccessKeysError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::list_access_keys::ListAccessKeysError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -6404,9 +6193,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6418,8 +6205,12 @@ where
 impl From<crate::operation::list_account_aliases::ListAccountAliasesError> for Error {
     fn from(err: crate::operation::list_account_aliases::ListAccountAliasesError) -> Self {
         match err {
-            crate::operation::list_account_aliases::ListAccountAliasesError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
-            crate::operation::list_account_aliases::ListAccountAliasesError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_account_aliases::ListAccountAliasesError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::list_account_aliases::ListAccountAliasesError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -6441,9 +6232,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6452,23 +6241,21 @@ where
     }
 }
 #[cfg(feature = "op_list_attached_group_policies")]
-impl From<crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError>
-    for Error
-{
-    fn from(
-        err: crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError,
-    ) -> Self {
+impl From<crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError> for Error {
+    fn from(err: crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError) -> Self {
         match err {
-            crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError::InvalidInputException(inner) => {
-                Error::InvalidInputException(inner)
+            crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError::InvalidInputException(
+                inner,
+            ) => Error::InvalidInputException(inner),
+            crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError::NoSuchEntityException(
+                inner,
+            ) => Error::NoSuchEntityException(inner),
+            crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError::ServiceFailureException(
+                inner,
+            ) => Error::ServiceFailureException(inner),
+            crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -6490,9 +6277,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6502,20 +6287,20 @@ where
 }
 #[cfg(feature = "op_list_attached_role_policies")]
 impl From<crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError> for Error {
-    fn from(
-        err: crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError,
-    ) -> Self {
+    fn from(err: crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError) -> Self {
         match err {
-            crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError::InvalidInputException(inner) => {
-                Error::InvalidInputException(inner)
+            crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError::InvalidInputException(
+                inner,
+            ) => Error::InvalidInputException(inner),
+            crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError::NoSuchEntityException(
+                inner,
+            ) => Error::NoSuchEntityException(inner),
+            crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError::ServiceFailureException(
+                inner,
+            ) => Error::ServiceFailureException(inner),
+            crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -6537,9 +6322,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6549,20 +6332,20 @@ where
 }
 #[cfg(feature = "op_list_attached_user_policies")]
 impl From<crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError> for Error {
-    fn from(
-        err: crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError,
-    ) -> Self {
+    fn from(err: crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError) -> Self {
         match err {
-            crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError::InvalidInputException(inner) => {
-                Error::InvalidInputException(inner)
+            crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError::InvalidInputException(
+                inner,
+            ) => Error::InvalidInputException(inner),
+            crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError::NoSuchEntityException(
+                inner,
+            ) => Error::NoSuchEntityException(inner),
+            crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError::ServiceFailureException(
+                inner,
+            ) => Error::ServiceFailureException(inner),
+            crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -6584,9 +6367,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6607,7 +6388,9 @@ impl From<crate::operation::list_delegation_requests::ListDelegationRequestsErro
             crate::operation::list_delegation_requests::ListDelegationRequestsError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::list_delegation_requests::ListDelegationRequestsError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_delegation_requests::ListDelegationRequestsError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -6629,9 +6412,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6652,7 +6433,9 @@ impl From<crate::operation::list_entities_for_policy::ListEntitiesForPolicyError
             crate::operation::list_entities_for_policy::ListEntitiesForPolicyError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::list_entities_for_policy::ListEntitiesForPolicyError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_entities_for_policy::ListEntitiesForPolicyError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -6674,9 +6457,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6688,33 +6469,27 @@ where
 impl From<crate::operation::list_group_policies::ListGroupPoliciesError> for Error {
     fn from(err: crate::operation::list_group_policies::ListGroupPoliciesError) -> Self {
         match err {
-            crate::operation::list_group_policies::ListGroupPoliciesError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::list_group_policies::ListGroupPoliciesError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::list_group_policies::ListGroupPoliciesError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::list_group_policies::ListGroupPoliciesError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::list_group_policies::ListGroupPoliciesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_groups")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_groups::ListGroupsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_groups::ListGroupsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_groups::ListGroupsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_groups::ListGroupsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6729,9 +6504,7 @@ impl From<crate::operation::list_groups::ListGroupsError> for Error {
             crate::operation::list_groups::ListGroupsError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::list_groups::ListGroupsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_groups::ListGroupsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -6753,9 +6526,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6767,8 +6538,12 @@ where
 impl From<crate::operation::list_groups_for_user::ListGroupsForUserError> for Error {
     fn from(err: crate::operation::list_groups_for_user::ListGroupsForUserError) -> Self {
         match err {
-            crate::operation::list_groups_for_user::ListGroupsForUserError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::list_groups_for_user::ListGroupsForUserError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::list_groups_for_user::ListGroupsForUserError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::list_groups_for_user::ListGroupsForUserError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::list_groups_for_user::ListGroupsForUserError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -6791,9 +6566,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6808,7 +6581,9 @@ impl From<crate::operation::list_instance_profiles::ListInstanceProfilesError> f
             crate::operation::list_instance_profiles::ListInstanceProfilesError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::list_instance_profiles::ListInstanceProfilesError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_instance_profiles::ListInstanceProfilesError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -6830,9 +6605,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6841,12 +6614,8 @@ where
     }
 }
 #[cfg(feature = "op_list_instance_profiles_for_role")]
-impl From<crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError>
-    for Error
-{
-    fn from(
-        err: crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError,
-    ) -> Self {
+impl From<crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError> for Error {
+    fn from(err: crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError) -> Self {
         match err {
             crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
@@ -6876,9 +6645,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6888,28 +6655,24 @@ where
 }
 #[cfg(feature = "op_list_instance_profile_tags")]
 impl From<crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError> for Error {
-    fn from(
-        err: crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError,
-    ) -> Self {
+    fn from(err: crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError) -> Self {
         match err {
-            crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
+            crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError::NoSuchEntityException(
+                inner,
+            ) => Error::NoSuchEntityException(inner),
+            crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError::ServiceFailureException(
+                inner,
+            ) => Error::ServiceFailureException(inner),
+            crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_mfa_devices")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_mfa_devices::ListMFADevicesError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_mfa_devices::ListMFADevicesError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -6920,9 +6683,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6934,15 +6695,13 @@ where
 impl From<crate::operation::list_mfa_devices::ListMFADevicesError> for Error {
     fn from(err: crate::operation::list_mfa_devices::ListMFADevicesError) -> Self {
         match err {
-            crate::operation::list_mfa_devices::ListMFADevicesError::NoSuchEntityException(
-                inner,
-            ) => Error::NoSuchEntityException(inner),
-            crate::operation::list_mfa_devices::ListMFADevicesError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::list_mfa_devices::ListMFADevicesError::Unhandled(inner) => {
-                Error::Unhandled(inner)
+            crate::operation::list_mfa_devices::ListMFADevicesError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
             }
+            crate::operation::list_mfa_devices::ListMFADevicesError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::list_mfa_devices::ListMFADevicesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -6964,9 +6723,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -6978,9 +6735,15 @@ where
 impl From<crate::operation::list_mfa_device_tags::ListMFADeviceTagsError> for Error {
     fn from(err: crate::operation::list_mfa_device_tags::ListMFADeviceTagsError) -> Self {
         match err {
-            crate::operation::list_mfa_device_tags::ListMFADeviceTagsError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::list_mfa_device_tags::ListMFADeviceTagsError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::list_mfa_device_tags::ListMFADeviceTagsError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::list_mfa_device_tags::ListMFADeviceTagsError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
+            crate::operation::list_mfa_device_tags::ListMFADeviceTagsError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::list_mfa_device_tags::ListMFADeviceTagsError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::list_mfa_device_tags::ListMFADeviceTagsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -7003,9 +6766,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7014,12 +6775,8 @@ where
     }
 }
 #[cfg(feature = "op_list_open_id_connect_providers")]
-impl From<crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError>
-    for Error
-{
-    fn from(
-        err: crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
-    ) -> Self {
+impl From<crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError> for Error {
+    fn from(err: crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError) -> Self {
         match err {
             crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
@@ -7055,12 +6812,8 @@ where
     }
 }
 #[cfg(feature = "op_list_open_id_connect_provider_tags")]
-impl From<crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError>
-    for Error
-{
-    fn from(
-        err: crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
-    ) -> Self {
+impl From<crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError> for Error {
+    fn from(err: crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError) -> Self {
         match err {
             crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -7093,9 +6846,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7105,9 +6856,7 @@ where
 }
 #[cfg(feature = "op_list_organizations_features")]
 impl From<crate::operation::list_organizations_features::ListOrganizationsFeaturesError> for Error {
-    fn from(
-        err: crate::operation::list_organizations_features::ListOrganizationsFeaturesError,
-    ) -> Self {
+    fn from(err: crate::operation::list_organizations_features::ListOrganizationsFeaturesError) -> Self {
         match err {
             crate::operation::list_organizations_features::ListOrganizationsFeaturesError::AccountNotManagementOrDelegatedAdministratorException(
                 inner,
@@ -7126,26 +6875,16 @@ impl From<crate::operation::list_organizations_features::ListOrganizationsFeatur
     }
 }
 #[cfg(feature = "op_list_policies")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_policies::ListPoliciesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_policies::ListPoliciesError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_policies::ListPoliciesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_policies::ListPoliciesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7160,9 +6899,7 @@ impl From<crate::operation::list_policies::ListPoliciesError> for Error {
             crate::operation::list_policies::ListPoliciesError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::list_policies::ListPoliciesError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_policies::ListPoliciesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -7194,7 +6931,9 @@ where
 }
 #[cfg(feature = "op_list_policies_granting_service_access")]
 impl From<crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessError> for Error {
-    fn from(err: crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessError) -> Self {
+    fn from(
+        err: crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessError,
+    ) -> Self {
         match err {
             crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -7210,12 +6949,8 @@ impl From<crate::operation::list_policies_granting_service_access::ListPoliciesG
 }
 #[cfg(feature = "op_list_policy_tags")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_policy_tags::ListPolicyTagsError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_policy_tags::ListPolicyTagsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -7226,9 +6961,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7240,18 +6973,16 @@ where
 impl From<crate::operation::list_policy_tags::ListPolicyTagsError> for Error {
     fn from(err: crate::operation::list_policy_tags::ListPolicyTagsError) -> Self {
         match err {
-            crate::operation::list_policy_tags::ListPolicyTagsError::InvalidInputException(
-                inner,
-            ) => Error::InvalidInputException(inner),
-            crate::operation::list_policy_tags::ListPolicyTagsError::NoSuchEntityException(
-                inner,
-            ) => Error::NoSuchEntityException(inner),
-            crate::operation::list_policy_tags::ListPolicyTagsError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::list_policy_tags::ListPolicyTagsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
+            crate::operation::list_policy_tags::ListPolicyTagsError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
             }
+            crate::operation::list_policy_tags::ListPolicyTagsError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::list_policy_tags::ListPolicyTagsError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::list_policy_tags::ListPolicyTagsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -7273,9 +7004,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7287,10 +7016,18 @@ where
 impl From<crate::operation::list_policy_versions::ListPolicyVersionsError> for Error {
     fn from(err: crate::operation::list_policy_versions::ListPolicyVersionsError) -> Self {
         match err {
-            crate::operation::list_policy_versions::ListPolicyVersionsError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::list_policy_versions::ListPolicyVersionsError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::list_policy_versions::ListPolicyVersionsError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
-            crate::operation::list_policy_versions::ListPolicyVersionsError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_policy_versions::ListPolicyVersionsError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
+            crate::operation::list_policy_versions::ListPolicyVersionsError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::list_policy_versions::ListPolicyVersionsError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::list_policy_versions::ListPolicyVersionsError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -7312,9 +7049,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7326,33 +7061,27 @@ where
 impl From<crate::operation::list_role_policies::ListRolePoliciesError> for Error {
     fn from(err: crate::operation::list_role_policies::ListRolePoliciesError) -> Self {
         match err {
-            crate::operation::list_role_policies::ListRolePoliciesError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::list_role_policies::ListRolePoliciesError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::list_role_policies::ListRolePoliciesError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::list_role_policies::ListRolePoliciesError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::list_role_policies::ListRolePoliciesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_roles")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_roles::ListRolesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_roles::ListRolesError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_roles::ListRolesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_roles::ListRolesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7367,33 +7096,21 @@ impl From<crate::operation::list_roles::ListRolesError> for Error {
             crate::operation::list_roles::ListRolesError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::list_roles::ListRolesError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_roles::ListRolesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_role_tags")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_role_tags::ListRoleTagsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_role_tags::ListRoleTagsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_role_tags::ListRoleTagsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_role_tags::ListRoleTagsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7411,9 +7128,7 @@ impl From<crate::operation::list_role_tags::ListRoleTagsError> for Error {
             crate::operation::list_role_tags::ListRoleTagsError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::list_role_tags::ListRoleTagsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_role_tags::ListRoleTagsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -7435,9 +7150,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7449,7 +7162,9 @@ where
 impl From<crate::operation::list_saml_providers::ListSAMLProvidersError> for Error {
     fn from(err: crate::operation::list_saml_providers::ListSAMLProvidersError) -> Self {
         match err {
-            crate::operation::list_saml_providers::ListSAMLProvidersError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::list_saml_providers::ListSAMLProvidersError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::list_saml_providers::ListSAMLProvidersError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -7472,9 +7187,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7486,12 +7199,18 @@ where
 impl From<crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError> for Error {
     fn from(err: crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError) -> Self {
         match err {
-            crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
+            crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
             crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -7513,9 +7232,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7530,7 +7247,9 @@ impl From<crate::operation::list_server_certificates::ListServerCertificatesErro
             crate::operation::list_server_certificates::ListServerCertificatesError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::list_server_certificates::ListServerCertificatesError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_server_certificates::ListServerCertificatesError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -7552,9 +7271,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7563,20 +7280,18 @@ where
     }
 }
 #[cfg(feature = "op_list_server_certificate_tags")]
-impl From<crate::operation::list_server_certificate_tags::ListServerCertificateTagsError>
-    for Error
-{
-    fn from(
-        err: crate::operation::list_server_certificate_tags::ListServerCertificateTagsError,
-    ) -> Self {
+impl From<crate::operation::list_server_certificate_tags::ListServerCertificateTagsError> for Error {
+    fn from(err: crate::operation::list_server_certificate_tags::ListServerCertificateTagsError) -> Self {
         match err {
-            crate::operation::list_server_certificate_tags::ListServerCertificateTagsError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
+            crate::operation::list_server_certificate_tags::ListServerCertificateTagsError::NoSuchEntityException(
+                inner,
+            ) => Error::NoSuchEntityException(inner),
+            crate::operation::list_server_certificate_tags::ListServerCertificateTagsError::ServiceFailureException(
+                inner,
+            ) => Error::ServiceFailureException(inner),
+            crate::operation::list_server_certificate_tags::ListServerCertificateTagsError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::list_server_certificate_tags::ListServerCertificateTagsError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::list_server_certificate_tags::ListServerCertificateTagsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -7607,12 +7322,8 @@ where
     }
 }
 #[cfg(feature = "op_list_service_specific_credentials")]
-impl From<crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsError>
-    for Error
-{
-    fn from(
-        err: crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsError,
-    ) -> Self {
+impl From<crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsError> for Error {
+    fn from(err: crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsError) -> Self {
         match err {
             crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
@@ -7642,9 +7353,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7654,17 +7363,17 @@ where
 }
 #[cfg(feature = "op_list_signing_certificates")]
 impl From<crate::operation::list_signing_certificates::ListSigningCertificatesError> for Error {
-    fn from(
-        err: crate::operation::list_signing_certificates::ListSigningCertificatesError,
-    ) -> Self {
+    fn from(err: crate::operation::list_signing_certificates::ListSigningCertificatesError) -> Self {
         match err {
             crate::operation::list_signing_certificates::ListSigningCertificatesError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
             }
-            crate::operation::list_signing_certificates::ListSigningCertificatesError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
+            crate::operation::list_signing_certificates::ListSigningCertificatesError::ServiceFailureException(
+                inner,
+            ) => Error::ServiceFailureException(inner),
+            crate::operation::list_signing_certificates::ListSigningCertificatesError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::list_signing_certificates::ListSigningCertificatesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -7686,9 +7395,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7700,7 +7407,9 @@ where
 impl From<crate::operation::list_ssh_public_keys::ListSSHPublicKeysError> for Error {
     fn from(err: crate::operation::list_ssh_public_keys::ListSSHPublicKeysError) -> Self {
         match err {
-            crate::operation::list_ssh_public_keys::ListSSHPublicKeysError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::list_ssh_public_keys::ListSSHPublicKeysError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
             crate::operation::list_ssh_public_keys::ListSSHPublicKeysError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -7723,9 +7432,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7737,33 +7444,27 @@ where
 impl From<crate::operation::list_user_policies::ListUserPoliciesError> for Error {
     fn from(err: crate::operation::list_user_policies::ListUserPoliciesError) -> Self {
         match err {
-            crate::operation::list_user_policies::ListUserPoliciesError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::list_user_policies::ListUserPoliciesError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::list_user_policies::ListUserPoliciesError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::list_user_policies::ListUserPoliciesError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::list_user_policies::ListUserPoliciesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_users")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_users::ListUsersError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_users::ListUsersError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_users::ListUsersError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_users::ListUsersError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7778,33 +7479,21 @@ impl From<crate::operation::list_users::ListUsersError> for Error {
             crate::operation::list_users::ListUsersError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::list_users::ListUsersError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_users::ListUsersError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_user_tags")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_user_tags::ListUserTagsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_user_tags::ListUserTagsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_user_tags::ListUserTagsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_user_tags::ListUserTagsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7822,9 +7511,7 @@ impl From<crate::operation::list_user_tags::ListUserTagsError> for Error {
             crate::operation::list_user_tags::ListUserTagsError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::list_user_tags::ListUserTagsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_user_tags::ListUserTagsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -7846,9 +7533,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7860,9 +7545,9 @@ where
 impl From<crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError> for Error {
     fn from(err: crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError) -> Self {
         match err {
-            crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError::Unhandled(
-                inner,
-            ) => Error::Unhandled(inner),
+            crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -7884,9 +7569,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7898,25 +7581,25 @@ where
 impl From<crate::operation::put_account_properties::PutAccountPropertiesError> for Error {
     fn from(err: crate::operation::put_account_properties::PutAccountPropertiesError) -> Self {
         match err {
-            crate::operation::put_account_properties::PutAccountPropertiesError::ConcurrentModificationException(inner) => {
-                Error::ConcurrentModificationException(inner)
+            crate::operation::put_account_properties::PutAccountPropertiesError::ConcurrentModificationException(
+                inner,
+            ) => Error::ConcurrentModificationException(inner),
+            crate::operation::put_account_properties::PutAccountPropertiesError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
             }
-            crate::operation::put_account_properties::PutAccountPropertiesError::InvalidInputException(inner) => Error::InvalidInputException(inner),
             crate::operation::put_account_properties::PutAccountPropertiesError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::put_account_properties::PutAccountPropertiesError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::put_account_properties::PutAccountPropertiesError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_put_group_policy")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_group_policy::PutGroupPolicyError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_group_policy::PutGroupPolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -7927,9 +7610,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7941,12 +7622,18 @@ where
 impl From<crate::operation::put_group_policy::PutGroupPolicyError> for Error {
     fn from(err: crate::operation::put_group_policy::PutGroupPolicyError) -> Self {
         match err {
-            crate::operation::put_group_policy::PutGroupPolicyError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::put_group_policy::PutGroupPolicyError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
             crate::operation::put_group_policy::PutGroupPolicyError::MalformedPolicyDocumentException(inner) => {
                 Error::MalformedPolicyDocumentException(inner)
             }
-            crate::operation::put_group_policy::PutGroupPolicyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::put_group_policy::PutGroupPolicyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::put_group_policy::PutGroupPolicyError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::put_group_policy::PutGroupPolicyError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::put_group_policy::PutGroupPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -7969,9 +7656,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -7980,12 +7665,8 @@ where
     }
 }
 #[cfg(feature = "op_put_role_permissions_boundary")]
-impl From<crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryError>
-    for Error
-{
-    fn from(
-        err: crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryError,
-    ) -> Self {
+impl From<crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryError> for Error {
+    fn from(err: crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryError) -> Self {
         match err {
             crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -8008,12 +7689,8 @@ impl From<crate::operation::put_role_permissions_boundary::PutRolePermissionsBou
 }
 #[cfg(feature = "op_put_role_policy")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_role_policy::PutRolePolicyError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_role_policy::PutRolePolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -8024,9 +7701,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8038,13 +7713,21 @@ where
 impl From<crate::operation::put_role_policy::PutRolePolicyError> for Error {
     fn from(err: crate::operation::put_role_policy::PutRolePolicyError) -> Self {
         match err {
-            crate::operation::put_role_policy::PutRolePolicyError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::put_role_policy::PutRolePolicyError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
             crate::operation::put_role_policy::PutRolePolicyError::MalformedPolicyDocumentException(inner) => {
                 Error::MalformedPolicyDocumentException(inner)
             }
-            crate::operation::put_role_policy::PutRolePolicyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::put_role_policy::PutRolePolicyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
-            crate::operation::put_role_policy::PutRolePolicyError::UnmodifiableEntityException(inner) => Error::UnmodifiableEntityException(inner),
+            crate::operation::put_role_policy::PutRolePolicyError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::put_role_policy::PutRolePolicyError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::put_role_policy::PutRolePolicyError::UnmodifiableEntityException(inner) => {
+                Error::UnmodifiableEntityException(inner)
+            }
             crate::operation::put_role_policy::PutRolePolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -8067,9 +7750,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8078,12 +7759,8 @@ where
     }
 }
 #[cfg(feature = "op_put_user_permissions_boundary")]
-impl From<crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryError>
-    for Error
-{
-    fn from(
-        err: crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryError,
-    ) -> Self {
+impl From<crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryError> for Error {
+    fn from(err: crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryError) -> Self {
         match err {
             crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -8103,12 +7780,8 @@ impl From<crate::operation::put_user_permissions_boundary::PutUserPermissionsBou
 }
 #[cfg(feature = "op_put_user_policy")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::put_user_policy::PutUserPolicyError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::put_user_policy::PutUserPolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -8119,9 +7792,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8133,12 +7804,18 @@ where
 impl From<crate::operation::put_user_policy::PutUserPolicyError> for Error {
     fn from(err: crate::operation::put_user_policy::PutUserPolicyError) -> Self {
         match err {
-            crate::operation::put_user_policy::PutUserPolicyError::LimitExceededException(inner) => Error::LimitExceededException(inner),
+            crate::operation::put_user_policy::PutUserPolicyError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
             crate::operation::put_user_policy::PutUserPolicyError::MalformedPolicyDocumentException(inner) => {
                 Error::MalformedPolicyDocumentException(inner)
             }
-            crate::operation::put_user_policy::PutUserPolicyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::put_user_policy::PutUserPolicyError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::put_user_policy::PutUserPolicyError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::put_user_policy::PutUserPolicyError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::put_user_policy::PutUserPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -8161,9 +7838,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8173,9 +7848,7 @@ where
 }
 #[cfg(feature = "op_reject_delegation_request")]
 impl From<crate::operation::reject_delegation_request::RejectDelegationRequestError> for Error {
-    fn from(
-        err: crate::operation::reject_delegation_request::RejectDelegationRequestError,
-    ) -> Self {
+    fn from(err: crate::operation::reject_delegation_request::RejectDelegationRequestError) -> Self {
         match err {
             crate::operation::reject_delegation_request::RejectDelegationRequestError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -8220,8 +7893,13 @@ where
     }
 }
 #[cfg(feature = "op_remove_client_id_from_open_id_connect_provider")]
-impl From<crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError> for Error {
-    fn from(err: crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError) -> Self {
+impl
+    From<crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError>
+    for Error
+{
+    fn from(
+        err: crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
+    ) -> Self {
         match err {
             crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError::ConcurrentModificationException(inner) => Error::ConcurrentModificationException(inner),
             crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError::InvalidInputException(inner) => Error::InvalidInputException(inner),
@@ -8249,9 +7927,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8260,12 +7936,8 @@ where
     }
 }
 #[cfg(feature = "op_remove_role_from_instance_profile")]
-impl From<crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileError>
-    for Error
-{
-    fn from(
-        err: crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileError,
-    ) -> Self {
+impl From<crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileError> for Error {
+    fn from(err: crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileError) -> Self {
         match err {
             crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileError::LimitExceededException(inner) => {
                 Error::LimitExceededException(inner)
@@ -8301,9 +7973,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8315,12 +7985,18 @@ where
 impl From<crate::operation::remove_user_from_group::RemoveUserFromGroupError> for Error {
     fn from(err: crate::operation::remove_user_from_group::RemoveUserFromGroupError) -> Self {
         match err {
-            crate::operation::remove_user_from_group::RemoveUserFromGroupError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::remove_user_from_group::RemoveUserFromGroupError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::remove_user_from_group::RemoveUserFromGroupError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::remove_user_from_group::RemoveUserFromGroupError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
             crate::operation::remove_user_from_group::RemoveUserFromGroupError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::remove_user_from_group::RemoveUserFromGroupError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::remove_user_from_group::RemoveUserFromGroupError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -8351,12 +8027,8 @@ where
     }
 }
 #[cfg(feature = "op_reset_service_specific_credential")]
-impl From<crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialError>
-    for Error
-{
-    fn from(
-        err: crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialError,
-    ) -> Self {
+impl From<crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialError> for Error {
+    fn from(err: crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialError) -> Self {
         match err {
             crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
@@ -8383,9 +8055,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8403,9 +8073,15 @@ impl From<crate::operation::resync_mfa_device::ResyncMFADeviceError> for Error {
             crate::operation::resync_mfa_device::ResyncMFADeviceError::InvalidAuthenticationCodeException(inner) => {
                 Error::InvalidAuthenticationCodeException(inner)
             }
-            crate::operation::resync_mfa_device::ResyncMFADeviceError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::resync_mfa_device::ResyncMFADeviceError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::resync_mfa_device::ResyncMFADeviceError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::resync_mfa_device::ResyncMFADeviceError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::resync_mfa_device::ResyncMFADeviceError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::resync_mfa_device::ResyncMFADeviceError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::resync_mfa_device::ResyncMFADeviceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -8428,9 +8104,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8442,15 +8116,21 @@ where
 impl From<crate::operation::send_delegation_token::SendDelegationTokenError> for Error {
     fn from(err: crate::operation::send_delegation_token::SendDelegationTokenError) -> Self {
         match err {
-            crate::operation::send_delegation_token::SendDelegationTokenError::ConcurrentModificationException(inner) => {
-                Error::ConcurrentModificationException(inner)
+            crate::operation::send_delegation_token::SendDelegationTokenError::ConcurrentModificationException(
+                inner,
+            ) => Error::ConcurrentModificationException(inner),
+            crate::operation::send_delegation_token::SendDelegationTokenError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
             }
-            crate::operation::send_delegation_token::SendDelegationTokenError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::send_delegation_token::SendDelegationTokenError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::send_delegation_token::SendDelegationTokenError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
             crate::operation::send_delegation_token::SendDelegationTokenError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::send_delegation_token::SendDelegationTokenError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::send_delegation_token::SendDelegationTokenError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -8472,9 +8152,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8484,23 +8162,23 @@ where
 }
 #[cfg(feature = "op_set_default_policy_version")]
 impl From<crate::operation::set_default_policy_version::SetDefaultPolicyVersionError> for Error {
-    fn from(
-        err: crate::operation::set_default_policy_version::SetDefaultPolicyVersionError,
-    ) -> Self {
+    fn from(err: crate::operation::set_default_policy_version::SetDefaultPolicyVersionError) -> Self {
         match err {
-            crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::InvalidInputException(inner) => {
-                Error::InvalidInputException(inner)
+            crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::InvalidInputException(
+                inner,
+            ) => Error::InvalidInputException(inner),
+            crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::LimitExceededException(
+                inner,
+            ) => Error::LimitExceededException(inner),
+            crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::NoSuchEntityException(
+                inner,
+            ) => Error::NoSuchEntityException(inner),
+            crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::ServiceFailureException(
+                inner,
+            ) => Error::ServiceFailureException(inner),
+            crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
-            crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::set_default_policy_version::SetDefaultPolicyVersionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -8532,7 +8210,9 @@ where
 }
 #[cfg(feature = "op_set_security_token_service_preferences")]
 impl From<crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesError> for Error {
-    fn from(err: crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesError) -> Self {
+    fn from(
+        err: crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesError,
+    ) -> Self {
         match err {
             crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
@@ -8561,9 +8241,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8575,11 +8253,15 @@ where
 impl From<crate::operation::simulate_custom_policy::SimulateCustomPolicyError> for Error {
     fn from(err: crate::operation::simulate_custom_policy::SimulateCustomPolicyError) -> Self {
         match err {
-            crate::operation::simulate_custom_policy::SimulateCustomPolicyError::InvalidInputException(inner) => Error::InvalidInputException(inner),
+            crate::operation::simulate_custom_policy::SimulateCustomPolicyError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
             crate::operation::simulate_custom_policy::SimulateCustomPolicyError::PolicyEvaluationException(inner) => {
                 Error::PolicyEvaluationException(inner)
             }
-            crate::operation::simulate_custom_policy::SimulateCustomPolicyError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::simulate_custom_policy::SimulateCustomPolicyError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -8601,9 +8283,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8613,9 +8293,7 @@ where
 }
 #[cfg(feature = "op_simulate_principal_policy")]
 impl From<crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError> for Error {
-    fn from(
-        err: crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError,
-    ) -> Self {
+    fn from(err: crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError) -> Self {
         match err {
             crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
@@ -8623,10 +8301,12 @@ impl From<crate::operation::simulate_principal_policy::SimulatePrincipalPolicyEr
             crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
             }
-            crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError::PolicyEvaluationException(inner) => {
-                Error::PolicyEvaluationException(inner)
+            crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError::PolicyEvaluationException(
+                inner,
+            ) => Error::PolicyEvaluationException(inner),
+            crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -8648,9 +8328,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8665,35 +8343,35 @@ impl From<crate::operation::tag_instance_profile::TagInstanceProfileError> for E
             crate::operation::tag_instance_profile::TagInstanceProfileError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
             }
-            crate::operation::tag_instance_profile::TagInstanceProfileError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::tag_instance_profile::TagInstanceProfileError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::tag_instance_profile::TagInstanceProfileError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::tag_instance_profile::TagInstanceProfileError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
-            crate::operation::tag_instance_profile::TagInstanceProfileError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::tag_instance_profile::TagInstanceProfileError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
+            crate::operation::tag_instance_profile::TagInstanceProfileError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::tag_instance_profile::TagInstanceProfileError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::tag_instance_profile::TagInstanceProfileError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::tag_instance_profile::TagInstanceProfileError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_tag_mfa_device")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_mfa_device::TagMFADeviceError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_mfa_device::TagMFADeviceError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_mfa_device::TagMFADeviceError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_mfa_device::TagMFADeviceError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8708,10 +8386,18 @@ impl From<crate::operation::tag_mfa_device::TagMFADeviceError> for Error {
             crate::operation::tag_mfa_device::TagMFADeviceError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
             }
-            crate::operation::tag_mfa_device::TagMFADeviceError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::tag_mfa_device::TagMFADeviceError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::tag_mfa_device::TagMFADeviceError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::tag_mfa_device::TagMFADeviceError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::tag_mfa_device::TagMFADeviceError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
+            crate::operation::tag_mfa_device::TagMFADeviceError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::tag_mfa_device::TagMFADeviceError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::tag_mfa_device::TagMFADeviceError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::tag_mfa_device::TagMFADeviceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -8734,9 +8420,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8746,9 +8430,7 @@ where
 }
 #[cfg(feature = "op_tag_open_id_connect_provider")]
 impl From<crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError> for Error {
-    fn from(
-        err: crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
-    ) -> Self {
+    fn from(err: crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError) -> Self {
         match err {
             crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -8770,26 +8452,16 @@ impl From<crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProvid
     }
 }
 #[cfg(feature = "op_tag_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_policy::TagPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_policy::TagPolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_policy::TagPolicyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_policy::TagPolicyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8801,9 +8473,9 @@ where
 impl From<crate::operation::tag_policy::TagPolicyError> for Error {
     fn from(err: crate::operation::tag_policy::TagPolicyError) -> Self {
         match err {
-            crate::operation::tag_policy::TagPolicyError::ConcurrentModificationException(
-                inner,
-            ) => Error::ConcurrentModificationException(inner),
+            crate::operation::tag_policy::TagPolicyError::ConcurrentModificationException(inner) => {
+                Error::ConcurrentModificationException(inner)
+            }
             crate::operation::tag_policy::TagPolicyError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
             }
@@ -8816,33 +8488,20 @@ impl From<crate::operation::tag_policy::TagPolicyError> for Error {
             crate::operation::tag_policy::TagPolicyError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::tag_policy::TagPolicyError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::tag_policy::TagPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_tag_role")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_role::TagRoleError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_role::TagRoleError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_role::TagRoleError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_role::TagRoleError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8891,9 +8550,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8908,10 +8565,18 @@ impl From<crate::operation::tag_saml_provider::TagSAMLProviderError> for Error {
             crate::operation::tag_saml_provider::TagSAMLProviderError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
             }
-            crate::operation::tag_saml_provider::TagSAMLProviderError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::tag_saml_provider::TagSAMLProviderError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::tag_saml_provider::TagSAMLProviderError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::tag_saml_provider::TagSAMLProviderError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::tag_saml_provider::TagSAMLProviderError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
+            crate::operation::tag_saml_provider::TagSAMLProviderError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::tag_saml_provider::TagSAMLProviderError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::tag_saml_provider::TagSAMLProviderError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::tag_saml_provider::TagSAMLProviderError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -8934,9 +8599,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -8948,42 +8611,37 @@ where
 impl From<crate::operation::tag_server_certificate::TagServerCertificateError> for Error {
     fn from(err: crate::operation::tag_server_certificate::TagServerCertificateError) -> Self {
         match err {
-            crate::operation::tag_server_certificate::TagServerCertificateError::ConcurrentModificationException(inner) => {
-                Error::ConcurrentModificationException(inner)
+            crate::operation::tag_server_certificate::TagServerCertificateError::ConcurrentModificationException(
+                inner,
+            ) => Error::ConcurrentModificationException(inner),
+            crate::operation::tag_server_certificate::TagServerCertificateError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
             }
-            crate::operation::tag_server_certificate::TagServerCertificateError::InvalidInputException(inner) => Error::InvalidInputException(inner),
             crate::operation::tag_server_certificate::TagServerCertificateError::LimitExceededException(inner) => {
                 Error::LimitExceededException(inner)
             }
-            crate::operation::tag_server_certificate::TagServerCertificateError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::tag_server_certificate::TagServerCertificateError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
             crate::operation::tag_server_certificate::TagServerCertificateError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::tag_server_certificate::TagServerCertificateError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::tag_server_certificate::TagServerCertificateError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_tag_user")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_user::TagUserError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_user::TagUserError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_user::TagUserError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_user::TagUserError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9032,9 +8690,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9046,26 +8702,28 @@ where
 impl From<crate::operation::untag_instance_profile::UntagInstanceProfileError> for Error {
     fn from(err: crate::operation::untag_instance_profile::UntagInstanceProfileError) -> Self {
         match err {
-            crate::operation::untag_instance_profile::UntagInstanceProfileError::ConcurrentModificationException(inner) => {
-                Error::ConcurrentModificationException(inner)
+            crate::operation::untag_instance_profile::UntagInstanceProfileError::ConcurrentModificationException(
+                inner,
+            ) => Error::ConcurrentModificationException(inner),
+            crate::operation::untag_instance_profile::UntagInstanceProfileError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
             }
-            crate::operation::untag_instance_profile::UntagInstanceProfileError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::untag_instance_profile::UntagInstanceProfileError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
+            crate::operation::untag_instance_profile::UntagInstanceProfileError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
             crate::operation::untag_instance_profile::UntagInstanceProfileError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::untag_instance_profile::UntagInstanceProfileError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::untag_instance_profile::UntagInstanceProfileError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_untag_mfa_device")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_mfa_device::UntagMFADeviceError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_mfa_device::UntagMFADeviceError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -9076,9 +8734,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9093,9 +8749,15 @@ impl From<crate::operation::untag_mfa_device::UntagMFADeviceError> for Error {
             crate::operation::untag_mfa_device::UntagMFADeviceError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
             }
-            crate::operation::untag_mfa_device::UntagMFADeviceError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::untag_mfa_device::UntagMFADeviceError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::untag_mfa_device::UntagMFADeviceError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::untag_mfa_device::UntagMFADeviceError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
+            crate::operation::untag_mfa_device::UntagMFADeviceError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::untag_mfa_device::UntagMFADeviceError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::untag_mfa_device::UntagMFADeviceError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -9118,9 +8780,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9129,12 +8789,8 @@ where
     }
 }
 #[cfg(feature = "op_untag_open_id_connect_provider")]
-impl From<crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError>
-    for Error
-{
-    fn from(
-        err: crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError,
-    ) -> Self {
+impl From<crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError> for Error {
+    fn from(err: crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError) -> Self {
         match err {
             crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -9153,26 +8809,16 @@ impl From<crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectPr
     }
 }
 #[cfg(feature = "op_untag_policy")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_policy::UntagPolicyError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_policy::UntagPolicyError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_policy::UntagPolicyError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_policy::UntagPolicyError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9184,9 +8830,9 @@ where
 impl From<crate::operation::untag_policy::UntagPolicyError> for Error {
     fn from(err: crate::operation::untag_policy::UntagPolicyError) -> Self {
         match err {
-            crate::operation::untag_policy::UntagPolicyError::ConcurrentModificationException(
-                inner,
-            ) => Error::ConcurrentModificationException(inner),
+            crate::operation::untag_policy::UntagPolicyError::ConcurrentModificationException(inner) => {
+                Error::ConcurrentModificationException(inner)
+            }
             crate::operation::untag_policy::UntagPolicyError::InvalidInputException(inner) => {
                 Error::InvalidInputException(inner)
             }
@@ -9196,33 +8842,21 @@ impl From<crate::operation::untag_policy::UntagPolicyError> for Error {
             crate::operation::untag_policy::UntagPolicyError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::untag_policy::UntagPolicyError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::untag_policy::UntagPolicyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_untag_role")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_role::UntagRoleError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_role::UntagRoleError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_role::UntagRoleError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_role::UntagRoleError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9234,18 +8868,16 @@ where
 impl From<crate::operation::untag_role::UntagRoleError> for Error {
     fn from(err: crate::operation::untag_role::UntagRoleError) -> Self {
         match err {
-            crate::operation::untag_role::UntagRoleError::ConcurrentModificationException(
-                inner,
-            ) => Error::ConcurrentModificationException(inner),
+            crate::operation::untag_role::UntagRoleError::ConcurrentModificationException(inner) => {
+                Error::ConcurrentModificationException(inner)
+            }
             crate::operation::untag_role::UntagRoleError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
             }
             crate::operation::untag_role::UntagRoleError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::untag_role::UntagRoleError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::untag_role::UntagRoleError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -9267,9 +8899,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9284,9 +8914,15 @@ impl From<crate::operation::untag_saml_provider::UntagSAMLProviderError> for Err
             crate::operation::untag_saml_provider::UntagSAMLProviderError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
             }
-            crate::operation::untag_saml_provider::UntagSAMLProviderError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::untag_saml_provider::UntagSAMLProviderError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::untag_saml_provider::UntagSAMLProviderError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::untag_saml_provider::UntagSAMLProviderError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
+            crate::operation::untag_saml_provider::UntagSAMLProviderError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::untag_saml_provider::UntagSAMLProviderError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::untag_saml_provider::UntagSAMLProviderError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -9309,9 +8945,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9340,26 +8974,16 @@ impl From<crate::operation::untag_server_certificate::UntagServerCertificateErro
     }
 }
 #[cfg(feature = "op_untag_user")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_user::UntagUserError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_user::UntagUserError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_user::UntagUserError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_user::UntagUserError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9371,18 +8995,16 @@ where
 impl From<crate::operation::untag_user::UntagUserError> for Error {
     fn from(err: crate::operation::untag_user::UntagUserError) -> Self {
         match err {
-            crate::operation::untag_user::UntagUserError::ConcurrentModificationException(
-                inner,
-            ) => Error::ConcurrentModificationException(inner),
+            crate::operation::untag_user::UntagUserError::ConcurrentModificationException(inner) => {
+                Error::ConcurrentModificationException(inner)
+            }
             crate::operation::untag_user::UntagUserError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
             }
             crate::operation::untag_user::UntagUserError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::untag_user::UntagUserError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::untag_user::UntagUserError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -9404,9 +9026,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9418,21 +9038,19 @@ where
 impl From<crate::operation::update_access_key::UpdateAccessKeyError> for Error {
     fn from(err: crate::operation::update_access_key::UpdateAccessKeyError) -> Self {
         match err {
-            crate::operation::update_access_key::UpdateAccessKeyError::InvalidInputException(
-                inner,
-            ) => Error::InvalidInputException(inner),
-            crate::operation::update_access_key::UpdateAccessKeyError::LimitExceededException(
-                inner,
-            ) => Error::LimitExceededException(inner),
-            crate::operation::update_access_key::UpdateAccessKeyError::NoSuchEntityException(
-                inner,
-            ) => Error::NoSuchEntityException(inner),
-            crate::operation::update_access_key::UpdateAccessKeyError::ServiceFailureException(
-                inner,
-            ) => Error::ServiceFailureException(inner),
-            crate::operation::update_access_key::UpdateAccessKeyError::Unhandled(inner) => {
-                Error::Unhandled(inner)
+            crate::operation::update_access_key::UpdateAccessKeyError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
             }
+            crate::operation::update_access_key::UpdateAccessKeyError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::update_access_key::UpdateAccessKeyError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::update_access_key::UpdateAccessKeyError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::update_access_key::UpdateAccessKeyError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -9454,9 +9072,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9465,12 +9081,8 @@ where
     }
 }
 #[cfg(feature = "op_update_account_password_policy")]
-impl From<crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyError>
-    for Error
-{
-    fn from(
-        err: crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyError,
-    ) -> Self {
+impl From<crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyError> for Error {
+    fn from(err: crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyError) -> Self {
         match err {
             crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyError::LimitExceededException(inner) => {
                 Error::LimitExceededException(inner)
@@ -9506,9 +9118,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9557,9 +9167,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9569,9 +9177,7 @@ where
 }
 #[cfg(feature = "op_update_delegation_request")]
 impl From<crate::operation::update_delegation_request::UpdateDelegationRequestError> for Error {
-    fn from(
-        err: crate::operation::update_delegation_request::UpdateDelegationRequestError,
-    ) -> Self {
+    fn from(err: crate::operation::update_delegation_request::UpdateDelegationRequestError) -> Self {
         match err {
             crate::operation::update_delegation_request::UpdateDelegationRequestError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -9590,26 +9196,16 @@ impl From<crate::operation::update_delegation_request::UpdateDelegationRequestEr
     }
 }
 #[cfg(feature = "op_update_group")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_group::UpdateGroupError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_group::UpdateGroupError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_group::UpdateGroupError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_group::UpdateGroupError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9621,9 +9217,9 @@ where
 impl From<crate::operation::update_group::UpdateGroupError> for Error {
     fn from(err: crate::operation::update_group::UpdateGroupError) -> Self {
         match err {
-            crate::operation::update_group::UpdateGroupError::EntityAlreadyExistsException(
-                inner,
-            ) => Error::EntityAlreadyExistsException(inner),
+            crate::operation::update_group::UpdateGroupError::EntityAlreadyExistsException(inner) => {
+                Error::EntityAlreadyExistsException(inner)
+            }
             crate::operation::update_group::UpdateGroupError::LimitExceededException(inner) => {
                 Error::LimitExceededException(inner)
             }
@@ -9633,9 +9229,7 @@ impl From<crate::operation::update_group::UpdateGroupError> for Error {
             crate::operation::update_group::UpdateGroupError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::update_group::UpdateGroupError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::update_group::UpdateGroupError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -9657,9 +9251,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9671,16 +9263,24 @@ where
 impl From<crate::operation::update_login_profile::UpdateLoginProfileError> for Error {
     fn from(err: crate::operation::update_login_profile::UpdateLoginProfileError) -> Self {
         match err {
-            crate::operation::update_login_profile::UpdateLoginProfileError::EntityTemporarilyUnmodifiableException(inner) => {
-                Error::EntityTemporarilyUnmodifiableException(inner)
+            crate::operation::update_login_profile::UpdateLoginProfileError::EntityTemporarilyUnmodifiableException(
+                inner,
+            ) => Error::EntityTemporarilyUnmodifiableException(inner),
+            crate::operation::update_login_profile::UpdateLoginProfileError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
             }
-            crate::operation::update_login_profile::UpdateLoginProfileError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::update_login_profile::UpdateLoginProfileError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::update_login_profile::UpdateLoginProfileError::PasswordPolicyViolationException(inner) => {
-                Error::PasswordPolicyViolationException(inner)
+            crate::operation::update_login_profile::UpdateLoginProfileError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
             }
-            crate::operation::update_login_profile::UpdateLoginProfileError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
-            crate::operation::update_login_profile::UpdateLoginProfileError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::update_login_profile::UpdateLoginProfileError::PasswordPolicyViolationException(
+                inner,
+            ) => Error::PasswordPolicyViolationException(inner),
+            crate::operation::update_login_profile::UpdateLoginProfileError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::update_login_profile::UpdateLoginProfileError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -9711,8 +9311,12 @@ where
     }
 }
 #[cfg(feature = "op_update_open_id_connect_provider_thumbprint")]
-impl From<crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError> for Error {
-    fn from(err: crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError) -> Self {
+impl From<crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError>
+    for Error
+{
+    fn from(
+        err: crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
+    ) -> Self {
         match err {
             crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::ConcurrentModificationException(inner) => Error::ConcurrentModificationException(inner),
             crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError::InvalidInputException(inner) => Error::InvalidInputException(inner),
@@ -9723,26 +9327,16 @@ impl From<crate::operation::update_open_id_connect_provider_thumbprint::UpdateOp
     }
 }
 #[cfg(feature = "op_update_role")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_role::UpdateRoleError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_role::UpdateRoleError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_role::UpdateRoleError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_role::UpdateRoleError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9763,9 +9357,7 @@ impl From<crate::operation::update_role::UpdateRoleError> for Error {
             crate::operation::update_role::UpdateRoleError::UnmodifiableEntityException(inner) => {
                 Error::UnmodifiableEntityException(inner)
             }
-            crate::operation::update_role::UpdateRoleError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::update_role::UpdateRoleError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -9787,9 +9379,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9807,10 +9397,12 @@ impl From<crate::operation::update_role_description::UpdateRoleDescriptionError>
             crate::operation::update_role_description::UpdateRoleDescriptionError::ServiceFailureException(inner) => {
                 Error::ServiceFailureException(inner)
             }
-            crate::operation::update_role_description::UpdateRoleDescriptionError::UnmodifiableEntityException(inner) => {
-                Error::UnmodifiableEntityException(inner)
+            crate::operation::update_role_description::UpdateRoleDescriptionError::UnmodifiableEntityException(
+                inner,
+            ) => Error::UnmodifiableEntityException(inner),
+            crate::operation::update_role_description::UpdateRoleDescriptionError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::update_role_description::UpdateRoleDescriptionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -9832,9 +9424,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9849,11 +9439,21 @@ impl From<crate::operation::update_saml_provider::UpdateSAMLProviderError> for E
             crate::operation::update_saml_provider::UpdateSAMLProviderError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
             }
-            crate::operation::update_saml_provider::UpdateSAMLProviderError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::update_saml_provider::UpdateSAMLProviderError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::update_saml_provider::UpdateSAMLProviderError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::update_saml_provider::UpdateSAMLProviderError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
-            crate::operation::update_saml_provider::UpdateSAMLProviderError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::update_saml_provider::UpdateSAMLProviderError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
+            crate::operation::update_saml_provider::UpdateSAMLProviderError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::update_saml_provider::UpdateSAMLProviderError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::update_saml_provider::UpdateSAMLProviderError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
+            crate::operation::update_saml_provider::UpdateSAMLProviderError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -9875,9 +9475,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9887,23 +9485,23 @@ where
 }
 #[cfg(feature = "op_update_server_certificate")]
 impl From<crate::operation::update_server_certificate::UpdateServerCertificateError> for Error {
-    fn from(
-        err: crate::operation::update_server_certificate::UpdateServerCertificateError,
-    ) -> Self {
+    fn from(err: crate::operation::update_server_certificate::UpdateServerCertificateError) -> Self {
         match err {
-            crate::operation::update_server_certificate::UpdateServerCertificateError::EntityAlreadyExistsException(inner) => {
-                Error::EntityAlreadyExistsException(inner)
-            }
-            crate::operation::update_server_certificate::UpdateServerCertificateError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
+            crate::operation::update_server_certificate::UpdateServerCertificateError::EntityAlreadyExistsException(
+                inner,
+            ) => Error::EntityAlreadyExistsException(inner),
+            crate::operation::update_server_certificate::UpdateServerCertificateError::LimitExceededException(
+                inner,
+            ) => Error::LimitExceededException(inner),
             crate::operation::update_server_certificate::UpdateServerCertificateError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
             }
-            crate::operation::update_server_certificate::UpdateServerCertificateError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
+            crate::operation::update_server_certificate::UpdateServerCertificateError::ServiceFailureException(
+                inner,
+            ) => Error::ServiceFailureException(inner),
+            crate::operation::update_server_certificate::UpdateServerCertificateError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::update_server_certificate::UpdateServerCertificateError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -9934,13 +9532,8 @@ where
     }
 }
 #[cfg(feature = "op_update_service_specific_credential")]
-impl
-    From<crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialError>
-    for Error
-{
-    fn from(
-        err: crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialError,
-    ) -> Self {
+impl From<crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialError> for Error {
+    fn from(err: crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialError) -> Self {
         match err {
             crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialError::NoSuchEntityException(inner) => {
                 Error::NoSuchEntityException(inner)
@@ -9967,9 +9560,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -9979,23 +9570,23 @@ where
 }
 #[cfg(feature = "op_update_signing_certificate")]
 impl From<crate::operation::update_signing_certificate::UpdateSigningCertificateError> for Error {
-    fn from(
-        err: crate::operation::update_signing_certificate::UpdateSigningCertificateError,
-    ) -> Self {
+    fn from(err: crate::operation::update_signing_certificate::UpdateSigningCertificateError) -> Self {
         match err {
-            crate::operation::update_signing_certificate::UpdateSigningCertificateError::InvalidInputException(inner) => {
-                Error::InvalidInputException(inner)
+            crate::operation::update_signing_certificate::UpdateSigningCertificateError::InvalidInputException(
+                inner,
+            ) => Error::InvalidInputException(inner),
+            crate::operation::update_signing_certificate::UpdateSigningCertificateError::LimitExceededException(
+                inner,
+            ) => Error::LimitExceededException(inner),
+            crate::operation::update_signing_certificate::UpdateSigningCertificateError::NoSuchEntityException(
+                inner,
+            ) => Error::NoSuchEntityException(inner),
+            crate::operation::update_signing_certificate::UpdateSigningCertificateError::ServiceFailureException(
+                inner,
+            ) => Error::ServiceFailureException(inner),
+            crate::operation::update_signing_certificate::UpdateSigningCertificateError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::update_signing_certificate::UpdateSigningCertificateError::LimitExceededException(inner) => {
-                Error::LimitExceededException(inner)
-            }
-            crate::operation::update_signing_certificate::UpdateSigningCertificateError::NoSuchEntityException(inner) => {
-                Error::NoSuchEntityException(inner)
-            }
-            crate::operation::update_signing_certificate::UpdateSigningCertificateError::ServiceFailureException(inner) => {
-                Error::ServiceFailureException(inner)
-            }
-            crate::operation::update_signing_certificate::UpdateSigningCertificateError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -10017,9 +9608,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -10031,33 +9620,29 @@ where
 impl From<crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError> for Error {
     fn from(err: crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError) -> Self {
         match err {
-            crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError::InvalidInputException(inner) => Error::InvalidInputException(inner),
-            crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError::InvalidInputException(inner) => {
+                Error::InvalidInputException(inner)
+            }
+            crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_update_user")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_user::UpdateUserError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_user::UpdateUserError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_user::UpdateUserError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::update_user::UpdateUserError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -10069,14 +9654,24 @@ where
 impl From<crate::operation::update_user::UpdateUserError> for Error {
     fn from(err: crate::operation::update_user::UpdateUserError) -> Self {
         match err {
-            crate::operation::update_user::UpdateUserError::ConcurrentModificationException(inner) => Error::ConcurrentModificationException(inner),
-            crate::operation::update_user::UpdateUserError::EntityAlreadyExistsException(inner) => Error::EntityAlreadyExistsException(inner),
+            crate::operation::update_user::UpdateUserError::ConcurrentModificationException(inner) => {
+                Error::ConcurrentModificationException(inner)
+            }
+            crate::operation::update_user::UpdateUserError::EntityAlreadyExistsException(inner) => {
+                Error::EntityAlreadyExistsException(inner)
+            }
             crate::operation::update_user::UpdateUserError::EntityTemporarilyUnmodifiableException(inner) => {
                 Error::EntityTemporarilyUnmodifiableException(inner)
             }
-            crate::operation::update_user::UpdateUserError::LimitExceededException(inner) => Error::LimitExceededException(inner),
-            crate::operation::update_user::UpdateUserError::NoSuchEntityException(inner) => Error::NoSuchEntityException(inner),
-            crate::operation::update_user::UpdateUserError::ServiceFailureException(inner) => Error::ServiceFailureException(inner),
+            crate::operation::update_user::UpdateUserError::LimitExceededException(inner) => {
+                Error::LimitExceededException(inner)
+            }
+            crate::operation::update_user::UpdateUserError::NoSuchEntityException(inner) => {
+                Error::NoSuchEntityException(inner)
+            }
+            crate::operation::update_user::UpdateUserError::ServiceFailureException(inner) => {
+                Error::ServiceFailureException(inner)
+            }
             crate::operation::update_user::UpdateUserError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -10099,9 +9694,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -10111,9 +9704,7 @@ where
 }
 #[cfg(feature = "op_upload_server_certificate")]
 impl From<crate::operation::upload_server_certificate::UploadServerCertificateError> for Error {
-    fn from(
-        err: crate::operation::upload_server_certificate::UploadServerCertificateError,
-    ) -> Self {
+    fn from(err: crate::operation::upload_server_certificate::UploadServerCertificateError) -> Self {
         match err {
             crate::operation::upload_server_certificate::UploadServerCertificateError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -10158,9 +9749,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -10170,9 +9759,7 @@ where
 }
 #[cfg(feature = "op_upload_signing_certificate")]
 impl From<crate::operation::upload_signing_certificate::UploadSigningCertificateError> for Error {
-    fn from(
-        err: crate::operation::upload_signing_certificate::UploadSigningCertificateError,
-    ) -> Self {
+    fn from(err: crate::operation::upload_signing_certificate::UploadSigningCertificateError) -> Self {
         match err {
             crate::operation::upload_signing_certificate::UploadSigningCertificateError::ConcurrentModificationException(inner) => {
                 Error::ConcurrentModificationException(inner)
@@ -10220,9 +9807,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -10249,8 +9834,7 @@ impl From<crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError> for 
         }
     }
 }
-impl<O, E> ::std::convert::From<::aws_smithy_runtime_api::client::waiters::error::WaiterError<O, E>>
-    for Error
+impl<O, E> ::std::convert::From<::aws_smithy_runtime_api::client::waiters::error::WaiterError<O, E>> for Error
 where
     O: ::std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
     E: ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
@@ -10554,10 +10138,7 @@ impl ::std::error::Error for Error {
                 feature = "op_upload_ssh_public_key"
             ))]
             Error::LimitExceededException(inner) => inner.source(),
-            #[cfg(any(
-                feature = "op_upload_server_certificate",
-                feature = "op_upload_signing_certificate"
-            ))]
+            #[cfg(any(feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
             Error::MalformedCertificateException(inner) => inner.source(),
             #[cfg(any(
                 feature = "op_acquire_role",
@@ -10742,10 +10323,7 @@ impl ::std::error::Error for Error {
                 feature = "op_update_login_profile"
             ))]
             Error::PasswordPolicyViolationException(inner) => inner.source(),
-            #[cfg(any(
-                feature = "op_simulate_custom_policy",
-                feature = "op_simulate_principal_policy"
-            ))]
+            #[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
             Error::PolicyEvaluationException(inner) => inner.source(),
             #[cfg(any(
                 feature = "op_attach_group_policy",
@@ -10942,10 +10520,7 @@ impl ::std::error::Error for Error {
                 feature = "op_update_role_description"
             ))]
             Error::UnmodifiableEntityException(inner) => inner.source(),
-            #[cfg(any(
-                feature = "op_get_ssh_public_key",
-                feature = "op_upload_ssh_public_key"
-            ))]
+            #[cfg(any(feature = "op_get_ssh_public_key", feature = "op_upload_ssh_public_key"))]
             Error::UnrecognizedPublicKeyEncodingException(inner) => inner.source(),
             Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source),
         }
@@ -11243,10 +10818,7 @@ impl ::aws_types::request_id::RequestId for Error {
                 feature = "op_upload_ssh_public_key"
             ))]
             Self::LimitExceededException(e) => e.request_id(),
-            #[cfg(any(
-                feature = "op_upload_server_certificate",
-                feature = "op_upload_signing_certificate"
-            ))]
+            #[cfg(any(feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
             Self::MalformedCertificateException(e) => e.request_id(),
             #[cfg(any(
                 feature = "op_acquire_role",
@@ -11431,10 +11003,7 @@ impl ::aws_types::request_id::RequestId for Error {
                 feature = "op_update_login_profile"
             ))]
             Self::PasswordPolicyViolationException(e) => e.request_id(),
-            #[cfg(any(
-                feature = "op_simulate_custom_policy",
-                feature = "op_simulate_principal_policy"
-            ))]
+            #[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
             Self::PolicyEvaluationException(e) => e.request_id(),
             #[cfg(any(
                 feature = "op_attach_group_policy",
@@ -11631,10 +11200,7 @@ impl ::aws_types::request_id::RequestId for Error {
                 feature = "op_update_role_description"
             ))]
             Self::UnmodifiableEntityException(e) => e.request_id(),
-            #[cfg(any(
-                feature = "op_get_ssh_public_key",
-                feature = "op_upload_ssh_public_key"
-            ))]
+            #[cfg(any(feature = "op_get_ssh_public_key", feature = "op_upload_ssh_public_key"))]
             Self::UnrecognizedPublicKeyEncodingException(e) => e.request_id(),
             Self::Unhandled(e) => e.meta.request_id(),
         }

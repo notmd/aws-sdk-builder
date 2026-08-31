@@ -10,8 +10,6 @@ impl super::Client {
     pub fn set_queue_attributes(
         &self,
     ) -> crate::operation::set_queue_attributes::builders::SetQueueAttributesFluentBuilder {
-        crate::operation::set_queue_attributes::builders::SetQueueAttributesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::set_queue_attributes::builders::SetQueueAttributesFluentBuilder::new(self.handle.clone())
     }
 }

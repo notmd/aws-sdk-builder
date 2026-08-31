@@ -15,8 +15,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeJobDefinitionsError>`](crate::operation::describe_job_definitions::DescribeJobDefinitionsError)
     pub fn describe_job_definitions(
         &self,
-    ) -> crate::operation::describe_job_definitions::builders::DescribeJobDefinitionsFluentBuilder
-    {
-        crate::operation::describe_job_definitions::builders::DescribeJobDefinitionsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::describe_job_definitions::builders::DescribeJobDefinitionsFluentBuilder {
+        crate::operation::describe_job_definitions::builders::DescribeJobDefinitionsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

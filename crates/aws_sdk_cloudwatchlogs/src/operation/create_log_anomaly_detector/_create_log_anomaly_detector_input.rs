@@ -18,9 +18,7 @@ pub struct CreateLogAnomalyDetectorInput {
     pub anomaly_visibility_time: ::std::option::Option<i64>,
     /// <p>An optional list of key-value pairs to associate with the resource.</p>
     /// <p>For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a></p>
-    pub tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl CreateLogAnomalyDetectorInput {
     /// <p>An array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.</p>
@@ -34,9 +32,7 @@ impl CreateLogAnomalyDetectorInput {
         self.detector_name.as_deref()
     }
     /// <p>Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for <code>evaluationFrequency</code> .</p>
-    pub fn evaluation_frequency(
-        &self,
-    ) -> ::std::option::Option<&crate::types::EvaluationFrequency> {
+    pub fn evaluation_frequency(&self) -> ::std::option::Option<&crate::types::EvaluationFrequency> {
         self.evaluation_frequency.as_ref()
     }
     /// <p>You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
@@ -56,25 +52,19 @@ impl CreateLogAnomalyDetectorInput {
     /// <p>For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a></p>
     pub fn tags(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
 }
 impl CreateLogAnomalyDetectorInput {
     /// Creates a new builder-style object to manufacture [`CreateLogAnomalyDetectorInput`](crate::operation::create_log_anomaly_detector::CreateLogAnomalyDetectorInput).
-    pub fn builder(
-    ) -> crate::operation::create_log_anomaly_detector::builders::CreateLogAnomalyDetectorInputBuilder
-    {
+    pub fn builder() -> crate::operation::create_log_anomaly_detector::builders::CreateLogAnomalyDetectorInputBuilder {
         crate::operation::create_log_anomaly_detector::builders::CreateLogAnomalyDetectorInputBuilder::default()
     }
 }
 
 /// A builder for [`CreateLogAnomalyDetectorInput`](crate::operation::create_log_anomaly_detector::CreateLogAnomalyDetectorInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateLogAnomalyDetectorInputBuilder {
     pub(crate) log_group_arn_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -83,9 +73,7 @@ pub struct CreateLogAnomalyDetectorInputBuilder {
     pub(crate) filter_pattern: ::std::option::Option<::std::string::String>,
     pub(crate) kms_key_id: ::std::option::Option<::std::string::String>,
     pub(crate) anomaly_visibility_time: ::std::option::Option<i64>,
-    pub(crate) tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl CreateLogAnomalyDetectorInputBuilder {
     /// Appends an item to `log_group_arn_list`.
@@ -93,10 +81,7 @@ impl CreateLogAnomalyDetectorInputBuilder {
     /// To override the contents of this collection use [`set_log_group_arn_list`](Self::set_log_group_arn_list).
     ///
     /// <p>An array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.</p>
-    pub fn log_group_arn_list(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_arn_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.log_group_arn_list.unwrap_or_default();
         v.push(input.into());
         self.log_group_arn_list = ::std::option::Option::Some(v);
@@ -111,24 +96,16 @@ impl CreateLogAnomalyDetectorInputBuilder {
         self
     }
     /// <p>An array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.</p>
-    pub fn get_log_group_arn_list(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_group_arn_list(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.log_group_arn_list
     }
     /// <p>A name for this anomaly detector.</p>
-    pub fn detector_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn detector_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.detector_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A name for this anomaly detector.</p>
-    pub fn set_detector_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_detector_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.detector_name = input;
         self
     }
@@ -142,32 +119,21 @@ impl CreateLogAnomalyDetectorInputBuilder {
         self
     }
     /// <p>Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for <code>evaluationFrequency</code> .</p>
-    pub fn set_evaluation_frequency(
-        mut self,
-        input: ::std::option::Option<crate::types::EvaluationFrequency>,
-    ) -> Self {
+    pub fn set_evaluation_frequency(mut self, input: ::std::option::Option<crate::types::EvaluationFrequency>) -> Self {
         self.evaluation_frequency = input;
         self
     }
     /// <p>Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for <code>evaluationFrequency</code> .</p>
-    pub fn get_evaluation_frequency(
-        &self,
-    ) -> &::std::option::Option<crate::types::EvaluationFrequency> {
+    pub fn get_evaluation_frequency(&self) -> &::std::option::Option<crate::types::EvaluationFrequency> {
         &self.evaluation_frequency
     }
     /// <p>You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
-    pub fn filter_pattern(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn filter_pattern(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.filter_pattern = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
-    pub fn set_filter_pattern(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_filter_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.filter_pattern = input;
         self
     }
@@ -226,9 +192,7 @@ impl CreateLogAnomalyDetectorInputBuilder {
     /// <p>For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a></p>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.tags = input;
         self
@@ -237,9 +201,7 @@ impl CreateLogAnomalyDetectorInputBuilder {
     /// <p>For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a></p>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`CreateLogAnomalyDetectorInput`](crate::operation::create_log_anomaly_detector::CreateLogAnomalyDetectorInput).

@@ -38,9 +38,7 @@ impl UpdateRoleInput {
 }
 
 /// A builder for [`UpdateRoleInput`](crate::operation::update_role::UpdateRoleInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateRoleInputBuilder {
     pub(crate) role_name: ::std::option::Option<::std::string::String>,

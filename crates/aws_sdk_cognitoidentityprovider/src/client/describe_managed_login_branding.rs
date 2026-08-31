@@ -11,7 +11,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeManagedLoginBrandingError>`](crate::operation::describe_managed_login_branding::DescribeManagedLoginBrandingError)
     pub fn describe_managed_login_branding(
         &self,
-    ) -> crate::operation::describe_managed_login_branding::builders::DescribeManagedLoginBrandingFluentBuilder{
-        crate::operation::describe_managed_login_branding::builders::DescribeManagedLoginBrandingFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::describe_managed_login_branding::builders::DescribeManagedLoginBrandingFluentBuilder {
+        crate::operation::describe_managed_login_branding::builders::DescribeManagedLoginBrandingFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

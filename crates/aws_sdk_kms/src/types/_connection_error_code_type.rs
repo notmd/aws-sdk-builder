@@ -111,9 +111,7 @@ impl ::std::convert::From<&str> for ConnectionErrorCodeType {
         match s {
             "CLUSTER_NOT_FOUND" => ConnectionErrorCodeType::ClusterNotFound,
             "INSUFFICIENT_CLOUDHSM_HSMS" => ConnectionErrorCodeType::InsufficientCloudhsmHsms,
-            "INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET" => {
-                ConnectionErrorCodeType::InsufficientFreeAddressesInSubnet
-            }
+            "INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET" => ConnectionErrorCodeType::InsufficientFreeAddressesInSubnet,
             "INTERNAL_ERROR" => ConnectionErrorCodeType::InternalError,
             "INVALID_CREDENTIALS" => ConnectionErrorCodeType::InvalidCredentials,
             "NETWORK_ERRORS" => ConnectionErrorCodeType::NetworkErrors,
@@ -122,24 +120,18 @@ impl ::std::convert::From<&str> for ConnectionErrorCodeType {
             "USER_LOGGED_IN" => ConnectionErrorCodeType::UserLoggedIn,
             "USER_NOT_FOUND" => ConnectionErrorCodeType::UserNotFound,
             "XKS_PROXY_ACCESS_DENIED" => ConnectionErrorCodeType::XksProxyAccessDenied,
-            "XKS_PROXY_INVALID_CONFIGURATION" => {
-                ConnectionErrorCodeType::XksProxyInvalidConfiguration
-            }
+            "XKS_PROXY_INVALID_CONFIGURATION" => ConnectionErrorCodeType::XksProxyInvalidConfiguration,
             "XKS_PROXY_INVALID_RESPONSE" => ConnectionErrorCodeType::XksProxyInvalidResponse,
-            "XKS_PROXY_INVALID_TLS_CONFIGURATION" => {
-                ConnectionErrorCodeType::XksProxyInvalidTlsConfiguration
-            }
+            "XKS_PROXY_INVALID_TLS_CONFIGURATION" => ConnectionErrorCodeType::XksProxyInvalidTlsConfiguration,
             "XKS_PROXY_NOT_REACHABLE" => ConnectionErrorCodeType::XksProxyNotReachable,
             "XKS_PROXY_TIMED_OUT" => ConnectionErrorCodeType::XksProxyTimedOut,
             "XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION" => {
                 ConnectionErrorCodeType::XksVpcEndpointServiceInvalidConfiguration
             }
-            "XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND" => {
-                ConnectionErrorCodeType::XksVpcEndpointServiceNotFound
-            }
-            other => ConnectionErrorCodeType::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            "XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND" => ConnectionErrorCodeType::XksVpcEndpointServiceNotFound,
+            other => ConnectionErrorCodeType::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -156,9 +148,7 @@ impl ConnectionErrorCodeType {
         match self {
             ConnectionErrorCodeType::ClusterNotFound => "CLUSTER_NOT_FOUND",
             ConnectionErrorCodeType::InsufficientCloudhsmHsms => "INSUFFICIENT_CLOUDHSM_HSMS",
-            ConnectionErrorCodeType::InsufficientFreeAddressesInSubnet => {
-                "INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET"
-            }
+            ConnectionErrorCodeType::InsufficientFreeAddressesInSubnet => "INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET",
             ConnectionErrorCodeType::InternalError => "INTERNAL_ERROR",
             ConnectionErrorCodeType::InvalidCredentials => "INVALID_CREDENTIALS",
             ConnectionErrorCodeType::NetworkErrors => "NETWORK_ERRORS",
@@ -167,21 +157,15 @@ impl ConnectionErrorCodeType {
             ConnectionErrorCodeType::UserLoggedIn => "USER_LOGGED_IN",
             ConnectionErrorCodeType::UserNotFound => "USER_NOT_FOUND",
             ConnectionErrorCodeType::XksProxyAccessDenied => "XKS_PROXY_ACCESS_DENIED",
-            ConnectionErrorCodeType::XksProxyInvalidConfiguration => {
-                "XKS_PROXY_INVALID_CONFIGURATION"
-            }
+            ConnectionErrorCodeType::XksProxyInvalidConfiguration => "XKS_PROXY_INVALID_CONFIGURATION",
             ConnectionErrorCodeType::XksProxyInvalidResponse => "XKS_PROXY_INVALID_RESPONSE",
-            ConnectionErrorCodeType::XksProxyInvalidTlsConfiguration => {
-                "XKS_PROXY_INVALID_TLS_CONFIGURATION"
-            }
+            ConnectionErrorCodeType::XksProxyInvalidTlsConfiguration => "XKS_PROXY_INVALID_TLS_CONFIGURATION",
             ConnectionErrorCodeType::XksProxyNotReachable => "XKS_PROXY_NOT_REACHABLE",
             ConnectionErrorCodeType::XksProxyTimedOut => "XKS_PROXY_TIMED_OUT",
             ConnectionErrorCodeType::XksVpcEndpointServiceInvalidConfiguration => {
                 "XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION"
             }
-            ConnectionErrorCodeType::XksVpcEndpointServiceNotFound => {
-                "XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND"
-            }
+            ConnectionErrorCodeType::XksVpcEndpointServiceNotFound => "XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND",
             ConnectionErrorCodeType::Unknown(value) => value.as_str(),
         }
     }
@@ -218,14 +202,10 @@ impl ConnectionErrorCodeType {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -234,9 +214,7 @@ impl ::std::fmt::Display for ConnectionErrorCodeType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
             ConnectionErrorCodeType::ClusterNotFound => write!(f, "CLUSTER_NOT_FOUND"),
-            ConnectionErrorCodeType::InsufficientCloudhsmHsms => {
-                write!(f, "INSUFFICIENT_CLOUDHSM_HSMS")
-            }
+            ConnectionErrorCodeType::InsufficientCloudhsmHsms => write!(f, "INSUFFICIENT_CLOUDHSM_HSMS"),
             ConnectionErrorCodeType::InsufficientFreeAddressesInSubnet => {
                 write!(f, "INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET")
             }
@@ -248,12 +226,8 @@ impl ::std::fmt::Display for ConnectionErrorCodeType {
             ConnectionErrorCodeType::UserLoggedIn => write!(f, "USER_LOGGED_IN"),
             ConnectionErrorCodeType::UserNotFound => write!(f, "USER_NOT_FOUND"),
             ConnectionErrorCodeType::XksProxyAccessDenied => write!(f, "XKS_PROXY_ACCESS_DENIED"),
-            ConnectionErrorCodeType::XksProxyInvalidConfiguration => {
-                write!(f, "XKS_PROXY_INVALID_CONFIGURATION")
-            }
-            ConnectionErrorCodeType::XksProxyInvalidResponse => {
-                write!(f, "XKS_PROXY_INVALID_RESPONSE")
-            }
+            ConnectionErrorCodeType::XksProxyInvalidConfiguration => write!(f, "XKS_PROXY_INVALID_CONFIGURATION"),
+            ConnectionErrorCodeType::XksProxyInvalidResponse => write!(f, "XKS_PROXY_INVALID_RESPONSE"),
             ConnectionErrorCodeType::XksProxyInvalidTlsConfiguration => {
                 write!(f, "XKS_PROXY_INVALID_TLS_CONFIGURATION")
             }
@@ -262,9 +236,7 @@ impl ::std::fmt::Display for ConnectionErrorCodeType {
             ConnectionErrorCodeType::XksVpcEndpointServiceInvalidConfiguration => {
                 write!(f, "XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION")
             }
-            ConnectionErrorCodeType::XksVpcEndpointServiceNotFound => {
-                write!(f, "XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND")
-            }
+            ConnectionErrorCodeType::XksVpcEndpointServiceNotFound => write!(f, "XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND"),
             ConnectionErrorCodeType::Unknown(value) => write!(f, "{value}"),
         }
     }

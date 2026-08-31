@@ -9,8 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteCapacityProviderError>`](crate::operation::delete_capacity_provider::DeleteCapacityProviderError)
     pub fn delete_capacity_provider(
         &self,
-    ) -> crate::operation::delete_capacity_provider::builders::DeleteCapacityProviderFluentBuilder
-    {
-        crate::operation::delete_capacity_provider::builders::DeleteCapacityProviderFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::delete_capacity_provider::builders::DeleteCapacityProviderFluentBuilder {
+        crate::operation::delete_capacity_provider::builders::DeleteCapacityProviderFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

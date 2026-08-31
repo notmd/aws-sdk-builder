@@ -39,9 +39,7 @@ impl ConverseOutput {
         self.metrics.as_ref()
     }
     /// <p>Additional fields in the response that are unique to the model.</p>
-    pub fn additional_model_response_fields(
-        &self,
-    ) -> ::std::option::Option<&::aws_smithy_types::Document> {
+    pub fn additional_model_response_fields(&self) -> ::std::option::Option<&::aws_smithy_types::Document> {
         self.additional_model_response_fields.as_ref()
     }
     /// <p>A trace object that contains information about the Guardrail behavior.</p>
@@ -49,9 +47,7 @@ impl ConverseOutput {
         self.trace.as_ref()
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn performance_config(
-        &self,
-    ) -> ::std::option::Option<&crate::types::PerformanceConfiguration> {
+    pub fn performance_config(&self) -> ::std::option::Option<&crate::types::PerformanceConfiguration> {
         self.performance_config.as_ref()
     }
     /// <p>Specifies the processing tier configuration used for serving the request.</p>
@@ -72,17 +68,14 @@ impl ConverseOutput {
 }
 
 /// A builder for [`ConverseOutput`](crate::operation::converse::ConverseOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ConverseOutputBuilder {
     pub(crate) output: ::std::option::Option<crate::types::ConverseOutput>,
     pub(crate) stop_reason: ::std::option::Option<crate::types::StopReason>,
     pub(crate) usage: ::std::option::Option<crate::types::TokenUsage>,
     pub(crate) metrics: ::std::option::Option<crate::types::ConverseMetrics>,
-    pub(crate) additional_model_response_fields:
-        ::std::option::Option<::aws_smithy_types::Document>,
+    pub(crate) additional_model_response_fields: ::std::option::Option<::aws_smithy_types::Document>,
     pub(crate) trace: ::std::option::Option<crate::types::ConverseTrace>,
     pub(crate) performance_config: ::std::option::Option<crate::types::PerformanceConfiguration>,
     pub(crate) service_tier: ::std::option::Option<crate::types::ServiceTier>,
@@ -96,10 +89,7 @@ impl ConverseOutputBuilder {
         self
     }
     /// <p>The result from the call to <code>Converse</code>.</p>
-    pub fn set_output(
-        mut self,
-        input: ::std::option::Option<crate::types::ConverseOutput>,
-    ) -> Self {
+    pub fn set_output(mut self, input: ::std::option::Option<crate::types::ConverseOutput>) -> Self {
         self.output = input;
         self
     }
@@ -114,10 +104,7 @@ impl ConverseOutputBuilder {
         self
     }
     /// <p>The reason why the model stopped generating output.</p>
-    pub fn set_stop_reason(
-        mut self,
-        input: ::std::option::Option<crate::types::StopReason>,
-    ) -> Self {
+    pub fn set_stop_reason(mut self, input: ::std::option::Option<crate::types::StopReason>) -> Self {
         self.stop_reason = input;
         self
     }
@@ -147,10 +134,7 @@ impl ConverseOutputBuilder {
         self
     }
     /// <p>Metrics for the call to <code>Converse</code>.</p>
-    pub fn set_metrics(
-        mut self,
-        input: ::std::option::Option<crate::types::ConverseMetrics>,
-    ) -> Self {
+    pub fn set_metrics(mut self, input: ::std::option::Option<crate::types::ConverseMetrics>) -> Self {
         self.metrics = input;
         self
     }
@@ -172,9 +156,7 @@ impl ConverseOutputBuilder {
         self
     }
     /// <p>Additional fields in the response that are unique to the model.</p>
-    pub fn get_additional_model_response_fields(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::Document> {
+    pub fn get_additional_model_response_fields(&self) -> &::std::option::Option<::aws_smithy_types::Document> {
         &self.additional_model_response_fields
     }
     /// <p>A trace object that contains information about the Guardrail behavior.</p>
@@ -205,9 +187,7 @@ impl ConverseOutputBuilder {
         self
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn get_performance_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::PerformanceConfiguration> {
+    pub fn get_performance_config(&self) -> &::std::option::Option<crate::types::PerformanceConfiguration> {
         &self.performance_config
     }
     /// <p>Specifies the processing tier configuration used for serving the request.</p>
@@ -216,10 +196,7 @@ impl ConverseOutputBuilder {
         self
     }
     /// <p>Specifies the processing tier configuration used for serving the request.</p>
-    pub fn set_service_tier(
-        mut self,
-        input: ::std::option::Option<crate::types::ServiceTier>,
-    ) -> Self {
+    pub fn set_service_tier(mut self, input: ::std::option::Option<crate::types::ServiceTier>) -> Self {
         self.service_tier = input;
         self
     }

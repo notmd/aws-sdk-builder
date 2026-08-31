@@ -80,7 +80,7 @@ impl ListCustomVerificationEmailTemplatesFluentBuilder {
             crate::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -91,7 +91,11 @@ impl ListCustomVerificationEmailTemplatesFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        crate::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplates::orchestrate(&runtime_plugins, input).await
+        crate::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplates::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -101,7 +105,7 @@ impl ListCustomVerificationEmailTemplatesFluentBuilder {
         crate::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesOutput,
         crate::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(

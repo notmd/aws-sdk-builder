@@ -26,8 +26,7 @@ impl crate::operation::delete_function_url_config::builders::DeleteFunctionUrlCo
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DeleteFunctionUrlConfigFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigInputBuilder,
+    inner: crate::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -60,8 +59,7 @@ impl DeleteFunctionUrlConfigFluentBuilder {
     /// Access the DeleteFunctionUrlConfig as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigInputBuilder
-    {
+    ) -> &crate::operation::delete_function_url_config::builders::DeleteFunctionUrlConfigInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,16 +83,14 @@ impl DeleteFunctionUrlConfigFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::delete_function_url_config::DeleteFunctionUrlConfig::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::delete_function_url_config::DeleteFunctionUrlConfig::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::delete_function_url_config::DeleteFunctionUrlConfig::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::delete_function_url_config::DeleteFunctionUrlConfig::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -133,10 +129,7 @@ impl DeleteFunctionUrlConfigFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -151,10 +144,7 @@ impl DeleteFunctionUrlConfigFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }

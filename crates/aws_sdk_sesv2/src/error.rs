@@ -18,16 +18,11 @@ pub struct UnknownVariantError {
 }
 impl UnknownVariantError {
     pub(crate) fn new(value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        Self {
-            value: value.into(),
-        }
+        Self { value: value.into() }
     }
 }
 impl ::std::fmt::Display for UnknownVariantError {
-    fn fmt(
-        &self,
-        f: &mut ::std::fmt::Formatter<'_>,
-    ) -> ::std::result::Result<(), ::std::fmt::Error> {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::result::Result<(), ::std::fmt::Error> {
         write!(f, "unknown enum variant: '{}'", self.value)
     }
 }

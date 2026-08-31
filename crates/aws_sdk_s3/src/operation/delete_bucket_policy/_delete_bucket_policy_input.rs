@@ -26,16 +26,13 @@ impl DeleteBucketPolicyInput {
 }
 impl DeleteBucketPolicyInput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketPolicyInput`](crate::operation::delete_bucket_policy::DeleteBucketPolicyInput).
-    pub fn builder(
-    ) -> crate::operation::delete_bucket_policy::builders::DeleteBucketPolicyInputBuilder {
+    pub fn builder() -> crate::operation::delete_bucket_policy::builders::DeleteBucketPolicyInputBuilder {
         crate::operation::delete_bucket_policy::builders::DeleteBucketPolicyInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteBucketPolicyInput`](crate::operation::delete_bucket_policy::DeleteBucketPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteBucketPolicyInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -63,20 +60,14 @@ impl DeleteBucketPolicyInputBuilder {
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
     /// </note>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
     /// </note>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -93,11 +84,9 @@ impl DeleteBucketPolicyInputBuilder {
         crate::operation::delete_bucket_policy::DeleteBucketPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_bucket_policy::DeleteBucketPolicyInput {
-                bucket: self.bucket,
-                expected_bucket_owner: self.expected_bucket_owner,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::delete_bucket_policy::DeleteBucketPolicyInput {
+            bucket: self.bucket,
+            expected_bucket_owner: self.expected_bucket_owner,
+        })
     }
 }

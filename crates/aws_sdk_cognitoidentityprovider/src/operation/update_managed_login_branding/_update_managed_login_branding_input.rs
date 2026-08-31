@@ -64,15 +64,14 @@ impl UpdateManagedLoginBrandingInput {
 }
 impl UpdateManagedLoginBrandingInput {
     /// Creates a new builder-style object to manufacture [`UpdateManagedLoginBrandingInput`](crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingInput).
-    pub fn builder() -> crate::operation::update_managed_login_branding::builders::UpdateManagedLoginBrandingInputBuilder{
+    pub fn builder() -> crate::operation::update_managed_login_branding::builders::UpdateManagedLoginBrandingInputBuilder
+    {
         crate::operation::update_managed_login_branding::builders::UpdateManagedLoginBrandingInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateManagedLoginBrandingInput`](crate::operation::update_managed_login_branding::UpdateManagedLoginBrandingInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateManagedLoginBrandingInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
@@ -97,18 +96,12 @@ impl UpdateManagedLoginBrandingInputBuilder {
         &self.user_pool_id
     }
     /// <p>The ID of the managed login branding style that you want to update.</p>
-    pub fn managed_login_branding_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn managed_login_branding_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.managed_login_branding_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ID of the managed login branding style that you want to update.</p>
-    pub fn set_managed_login_branding_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_managed_login_branding_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.managed_login_branding_id = input;
         self
     }
@@ -161,10 +154,7 @@ impl UpdateManagedLoginBrandingInputBuilder {
     /// <li>
     /// <p><code>languageSelector</code> (for localization, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html#managed-login-localization">Managed login localization)</a></p></li>
     /// </ul>
-    pub fn set_settings(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::Document>,
-    ) -> Self {
+    pub fn set_settings(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.settings = input;
         self
     }
@@ -195,10 +185,7 @@ impl UpdateManagedLoginBrandingInputBuilder {
         self
     }
     /// <p>An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.</p>
-    pub fn set_assets(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::AssetType>>,
-    ) -> Self {
+    pub fn set_assets(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AssetType>>) -> Self {
         self.assets = input;
         self
     }

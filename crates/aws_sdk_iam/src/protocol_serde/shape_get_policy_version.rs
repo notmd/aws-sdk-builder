@@ -9,79 +9,76 @@ pub fn de_get_policy_version_http_error(
     crate::operation::get_policy_version::GetPolicyVersionError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::get_policy_version::GetPolicyVersionError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::get_policy_version::GetPolicyVersionError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(
-                crate::operation::get_policy_version::GetPolicyVersionError::unhandled(generic),
-            )
+            return Err(crate::operation::get_policy_version::GetPolicyVersionError::unhandled(
+                generic,
+            ))
         }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InvalidInput" => {
-            crate::operation::get_policy_version::GetPolicyVersionError::InvalidInputException({
+        "InvalidInput" => crate::operation::get_policy_version::GetPolicyVersionError::InvalidInputException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InvalidInputExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::get_policy_version::GetPolicyVersionError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "NoSuchEntity" => {
-            crate::operation::get_policy_version::GetPolicyVersionError::NoSuchEntityException({
+                let mut output = crate::types::error::builders::InvalidInputExceptionBuilder::default();
+                output = crate::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::get_policy_version::GetPolicyVersionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NoSuchEntity" => crate::operation::get_policy_version::GetPolicyVersionError::NoSuchEntityException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::get_policy_version::GetPolicyVersionError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ServiceFailure" => {
-            crate::operation::get_policy_version::GetPolicyVersionError::ServiceFailureException({
+                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::get_policy_version::GetPolicyVersionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ServiceFailure" => crate::operation::get_policy_version::GetPolicyVersionError::ServiceFailureException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ServiceFailureExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::get_policy_version::GetPolicyVersionError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
+                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::get_policy_version::GetPolicyVersionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => crate::operation::get_policy_version::GetPolicyVersionError::generic(generic),
     })
 }
@@ -97,17 +94,10 @@ pub fn de_get_policy_version_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::get_policy_version::builders::GetPolicyVersionOutputBuilder::default(
-            );
-        output = crate::protocol_serde::shape_get_policy_version::de_get_policy_version(
-            _response_body,
-            output,
-        )
-        .map_err(crate::operation::get_policy_version::GetPolicyVersionError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::get_policy_version::builders::GetPolicyVersionOutputBuilder::default();
+        output = crate::protocol_serde::shape_get_policy_version::de_get_policy_version(_response_body, output)
+            .map_err(crate::operation::get_policy_version::GetPolicyVersionError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }

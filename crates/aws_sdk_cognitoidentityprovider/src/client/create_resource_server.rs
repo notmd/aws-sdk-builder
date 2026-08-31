@@ -13,8 +13,6 @@ impl super::Client {
     pub fn create_resource_server(
         &self,
     ) -> crate::operation::create_resource_server::builders::CreateResourceServerFluentBuilder {
-        crate::operation::create_resource_server::builders::CreateResourceServerFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::create_resource_server::builders::CreateResourceServerFluentBuilder::new(self.handle.clone())
     }
 }

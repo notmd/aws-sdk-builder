@@ -36,9 +36,7 @@ impl ListQuotaSharesInput {
 }
 
 /// A builder for [`ListQuotaSharesInput`](crate::operation::list_quota_shares::ListQuotaSharesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListQuotaSharesInputBuilder {
     pub(crate) job_queue: ::std::option::Option<::std::string::String>,

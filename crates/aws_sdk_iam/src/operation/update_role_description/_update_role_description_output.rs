@@ -20,17 +20,13 @@ impl ::aws_types::request_id::RequestId for UpdateRoleDescriptionOutput {
 }
 impl UpdateRoleDescriptionOutput {
     /// Creates a new builder-style object to manufacture [`UpdateRoleDescriptionOutput`](crate::operation::update_role_description::UpdateRoleDescriptionOutput).
-    pub fn builder(
-    ) -> crate::operation::update_role_description::builders::UpdateRoleDescriptionOutputBuilder
-    {
+    pub fn builder() -> crate::operation::update_role_description::builders::UpdateRoleDescriptionOutputBuilder {
         crate::operation::update_role_description::builders::UpdateRoleDescriptionOutputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateRoleDescriptionOutput`](crate::operation::update_role_description::UpdateRoleDescriptionOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateRoleDescriptionOutputBuilder {
     pub(crate) role: ::std::option::Option<crate::types::Role>,

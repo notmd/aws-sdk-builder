@@ -33,13 +33,10 @@ impl ListConnectorsOutput {
 }
 
 /// A builder for [`ListConnectorsOutput`](crate::operation::list_connectors::ListConnectorsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListConnectorsOutputBuilder {
-    pub(crate) connector_summaries:
-        ::std::option::Option<::std::vec::Vec<crate::types::ConnectorSummary>>,
+    pub(crate) connector_summaries: ::std::option::Option<::std::vec::Vec<crate::types::ConnectorSummary>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -64,9 +61,7 @@ impl ListConnectorsOutputBuilder {
         self
     }
     /// <p>A list of <code>ConnectorSummary</code> objects.</p>
-    pub fn get_connector_summaries(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ConnectorSummary>> {
+    pub fn get_connector_summaries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConnectorSummary>> {
         &self.connector_summaries
     }
     /// <p>The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>

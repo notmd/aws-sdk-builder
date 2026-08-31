@@ -60,8 +60,7 @@ impl AssociateResourceTypesFluentBuilder {
     /// Access the AssociateResourceTypes as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::associate_resource_types::builders::AssociateResourceTypesInputBuilder
-    {
+    ) -> &crate::operation::associate_resource_types::builders::AssociateResourceTypesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,16 +84,13 @@ impl AssociateResourceTypesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::associate_resource_types::AssociateResourceTypes::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::associate_resource_types::AssociateResourceTypes::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::associate_resource_types::AssociateResourceTypes::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::associate_resource_types::AssociateResourceTypes::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -123,18 +119,12 @@ impl AssociateResourceTypesFluentBuilder {
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the specified configuration recorder.</p>
-    pub fn configuration_recorder_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_recorder_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_recorder_arn(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the specified configuration recorder.</p>
-    pub fn set_configuration_recorder_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_recorder_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_recorder_arn(input);
         self
     }
@@ -161,9 +151,7 @@ impl AssociateResourceTypesFluentBuilder {
         self
     }
     /// <p>The list of resource types you want to add to the recording group of the specified configuration recorder.</p>
-    pub fn get_resource_types(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceType>> {
+    pub fn get_resource_types(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceType>> {
         self.inner.get_resource_types()
     }
 }

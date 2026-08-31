@@ -61,9 +61,7 @@ impl InsightsEvent {
 }
 
 /// A builder for [`InsightsEvent`](crate::types::InsightsEvent).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InsightsEventBuilder {
     pub(crate) timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -77,10 +75,7 @@ impl InsightsEventBuilder {
         self
     }
     /// <p>The timestamp of the event.</p>
-    pub fn set_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.timestamp = input;
         self
     }

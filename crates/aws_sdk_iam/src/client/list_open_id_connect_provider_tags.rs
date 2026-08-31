@@ -14,7 +14,10 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListOpenIDConnectProviderTagsError>`](crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError)
     pub fn list_open_id_connect_provider_tags(
         &self,
-    ) -> crate::operation::list_open_id_connect_provider_tags::builders::ListOpenIDConnectProviderTagsFluentBuilder{
-        crate::operation::list_open_id_connect_provider_tags::builders::ListOpenIDConnectProviderTagsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::list_open_id_connect_provider_tags::builders::ListOpenIDConnectProviderTagsFluentBuilder
+    {
+        crate::operation::list_open_id_connect_provider_tags::builders::ListOpenIDConnectProviderTagsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

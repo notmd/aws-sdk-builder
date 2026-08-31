@@ -28,13 +28,10 @@ impl SendBulkEmailOutput {
 }
 
 /// A builder for [`SendBulkEmailOutput`](crate::operation::send_bulk_email::SendBulkEmailOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SendBulkEmailOutputBuilder {
-    pub(crate) bulk_email_entry_results:
-        ::std::option::Option<::std::vec::Vec<crate::types::BulkEmailEntryResult>>,
+    pub(crate) bulk_email_entry_results: ::std::option::Option<::std::vec::Vec<crate::types::BulkEmailEntryResult>>,
     _request_id: Option<String>,
 }
 impl SendBulkEmailOutputBuilder {

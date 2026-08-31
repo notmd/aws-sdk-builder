@@ -10,7 +10,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateReputationEntityPolicyError>`](crate::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyError)
     pub fn update_reputation_entity_policy(
         &self,
-    ) -> crate::operation::update_reputation_entity_policy::builders::UpdateReputationEntityPolicyFluentBuilder{
-        crate::operation::update_reputation_entity_policy::builders::UpdateReputationEntityPolicyFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::update_reputation_entity_policy::builders::UpdateReputationEntityPolicyFluentBuilder {
+        crate::operation::update_reputation_entity_policy::builders::UpdateReputationEntityPolicyFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -94,9 +94,7 @@ impl AttributeValueUpdate {
 }
 
 /// A builder for [`AttributeValueUpdate`](crate::types::AttributeValueUpdate).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AttributeValueUpdateBuilder {
     pub(crate) value: ::std::option::Option<crate::types::AttributeValue>,
@@ -189,10 +187,7 @@ impl AttributeValueUpdateBuilder {
     /// <li>
     /// <p><code>ADD</code> - DynamoDB creates a new item with the supplied primary key and number (or set) for the attribute value. The only data types allowed are number, number set, string set or binary set.</p></li>
     /// </ul>
-    pub fn set_action(
-        mut self,
-        input: ::std::option::Option<crate::types::AttributeAction>,
-    ) -> Self {
+    pub fn set_action(mut self, input: ::std::option::Option<crate::types::AttributeAction>) -> Self {
         self.action = input;
         self
     }

@@ -3,9 +3,7 @@ pub use crate::operation::delete_imported_key_material::_delete_imported_key_mat
 
 pub use crate::operation::delete_imported_key_material::_delete_imported_key_material_output::DeleteImportedKeyMaterialOutputBuilder;
 
-impl
-    crate::operation::delete_imported_key_material::builders::DeleteImportedKeyMaterialInputBuilder
-{
+impl crate::operation::delete_imported_key_material::builders::DeleteImportedKeyMaterialInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -80,7 +78,9 @@ impl DeleteImportedKeyMaterialFluentBuilder {
         }
     }
     /// Access the DeleteImportedKeyMaterial as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_imported_key_material::builders::DeleteImportedKeyMaterialInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::delete_imported_key_material::builders::DeleteImportedKeyMaterialInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -104,16 +104,14 @@ impl DeleteImportedKeyMaterialFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::delete_imported_key_material::DeleteImportedKeyMaterial::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::delete_imported_key_material::DeleteImportedKeyMaterial::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::delete_imported_key_material::DeleteImportedKeyMaterial::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::delete_imported_key_material::DeleteImportedKeyMaterial::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -186,10 +184,7 @@ impl DeleteImportedKeyMaterialFluentBuilder {
     /// <p>If no KeyMaterialId is specified, KMS deletes the current key material.</p>
     /// </important>
     /// <p>To get the list of key material IDs associated with a KMS key, use <code>ListKeyRotations</code>.</p>
-    pub fn key_material_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn key_material_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.key_material_id(input.into());
         self
     }
@@ -197,10 +192,7 @@ impl DeleteImportedKeyMaterialFluentBuilder {
     /// <p>If no KeyMaterialId is specified, KMS deletes the current key material.</p>
     /// </important>
     /// <p>To get the list of key material IDs associated with a KMS key, use <code>ListKeyRotations</code>.</p>
-    pub fn set_key_material_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_key_material_id(input);
         self
     }

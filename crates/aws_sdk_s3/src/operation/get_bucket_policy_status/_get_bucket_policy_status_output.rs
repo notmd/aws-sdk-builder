@@ -26,17 +26,13 @@ impl ::aws_types::request_id::RequestId for GetBucketPolicyStatusOutput {
 }
 impl GetBucketPolicyStatusOutput {
     /// Creates a new builder-style object to manufacture [`GetBucketPolicyStatusOutput`](crate::operation::get_bucket_policy_status::GetBucketPolicyStatusOutput).
-    pub fn builder(
-    ) -> crate::operation::get_bucket_policy_status::builders::GetBucketPolicyStatusOutputBuilder
-    {
+    pub fn builder() -> crate::operation::get_bucket_policy_status::builders::GetBucketPolicyStatusOutputBuilder {
         crate::operation::get_bucket_policy_status::builders::GetBucketPolicyStatusOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetBucketPolicyStatusOutput`](crate::operation::get_bucket_policy_status::GetBucketPolicyStatusOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketPolicyStatusOutputBuilder {
     pub(crate) policy_status: ::std::option::Option<crate::types::PolicyStatus>,
@@ -50,10 +46,7 @@ impl GetBucketPolicyStatusOutputBuilder {
         self
     }
     /// <p>The policy status for the specified bucket.</p>
-    pub fn set_policy_status(
-        mut self,
-        input: ::std::option::Option<crate::types::PolicyStatus>,
-    ) -> Self {
+    pub fn set_policy_status(mut self, input: ::std::option::Option<crate::types::PolicyStatus>) -> Self {
         self.policy_status = input;
         self
     }
@@ -66,10 +59,7 @@ impl GetBucketPolicyStatusOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

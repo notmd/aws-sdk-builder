@@ -20,15 +20,14 @@ impl AdminDisableProviderForUserInput {
 }
 impl AdminDisableProviderForUserInput {
     /// Creates a new builder-style object to manufacture [`AdminDisableProviderForUserInput`](crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserInput).
-    pub fn builder() -> crate::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserInputBuilder {
         crate::operation::admin_disable_provider_for_user::builders::AdminDisableProviderForUserInputBuilder::default()
     }
 }
 
 /// A builder for [`AdminDisableProviderForUserInput`](crate::operation::admin_disable_provider_for_user::AdminDisableProviderForUserInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AdminDisableProviderForUserInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
@@ -57,10 +56,7 @@ impl AdminDisableProviderForUserInputBuilder {
         self
     }
     /// <p>The user profile that you want to delete a linked identity from.</p>
-    pub fn set_user(
-        mut self,
-        input: ::std::option::Option<crate::types::ProviderUserIdentifierType>,
-    ) -> Self {
+    pub fn set_user(mut self, input: ::std::option::Option<crate::types::ProviderUserIdentifierType>) -> Self {
         self.user = input;
         self
     }

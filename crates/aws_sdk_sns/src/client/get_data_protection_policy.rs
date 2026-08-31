@@ -9,8 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetDataProtectionPolicyError>`](crate::operation::get_data_protection_policy::GetDataProtectionPolicyError)
     pub fn get_data_protection_policy(
         &self,
-    ) -> crate::operation::get_data_protection_policy::builders::GetDataProtectionPolicyFluentBuilder
-    {
-        crate::operation::get_data_protection_policy::builders::GetDataProtectionPolicyFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::get_data_protection_policy::builders::GetDataProtectionPolicyFluentBuilder {
+        crate::operation::get_data_protection_policy::builders::GetDataProtectionPolicyFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -29,16 +29,13 @@ impl ::aws_types::request_id::RequestId for GetDedicatedIpsOutput {
 }
 impl GetDedicatedIpsOutput {
     /// Creates a new builder-style object to manufacture [`GetDedicatedIpsOutput`](crate::operation::get_dedicated_ips::GetDedicatedIpsOutput).
-    pub fn builder() -> crate::operation::get_dedicated_ips::builders::GetDedicatedIpsOutputBuilder
-    {
+    pub fn builder() -> crate::operation::get_dedicated_ips::builders::GetDedicatedIpsOutputBuilder {
         crate::operation::get_dedicated_ips::builders::GetDedicatedIpsOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetDedicatedIpsOutput`](crate::operation::get_dedicated_ips::GetDedicatedIpsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetDedicatedIpsOutputBuilder {
     pub(crate) dedicated_ips: ::std::option::Option<::std::vec::Vec<crate::types::DedicatedIp>>,
@@ -66,9 +63,7 @@ impl GetDedicatedIpsOutputBuilder {
         self
     }
     /// <p>A list of dedicated IP addresses that are associated with your Amazon Web Services account.</p>
-    pub fn get_dedicated_ips(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::DedicatedIp>> {
+    pub fn get_dedicated_ips(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DedicatedIp>> {
         &self.dedicated_ips
     }
     /// <p>A token that indicates that there are additional dedicated IP addresses to list. To view additional addresses, issue another request to <code>GetDedicatedIps</code>, passing this token in the <code>NextToken</code> parameter.</p>

@@ -61,7 +61,9 @@ impl SelectAggregateResourceConfigFluentBuilder {
         }
     }
     /// Access the SelectAggregateResourceConfig as a reference.
-    pub fn as_input(&self) -> &crate::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -90,7 +92,11 @@ impl SelectAggregateResourceConfigFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::select_aggregate_resource_config::SelectAggregateResourceConfig::orchestrate(&runtime_plugins, input).await
+        crate::operation::select_aggregate_resource_config::SelectAggregateResourceConfig::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -121,8 +127,13 @@ impl SelectAggregateResourceConfigFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::select_aggregate_resource_config::paginator::SelectAggregateResourceConfigPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::select_aggregate_resource_config::paginator::SelectAggregateResourceConfigPaginator{
-        crate::operation::select_aggregate_resource_config::paginator::SelectAggregateResourceConfigPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::select_aggregate_resource_config::paginator::SelectAggregateResourceConfigPaginator {
+        crate::operation::select_aggregate_resource_config::paginator::SelectAggregateResourceConfigPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The SQL query SELECT command.</p>
     pub fn expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -139,25 +150,17 @@ impl SelectAggregateResourceConfigFluentBuilder {
         self.inner.get_expression()
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn configuration_aggregator_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_aggregator_name(input.into());
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn set_configuration_aggregator_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_aggregator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_aggregator_name(input);
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn get_configuration_aggregator_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_configuration_aggregator_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_configuration_aggregator_name()
     }
     /// <p>The maximum number of query results returned on each page.</p>

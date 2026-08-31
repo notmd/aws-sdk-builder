@@ -13,8 +13,6 @@ impl super::Client {
     pub fn set_ui_customization(
         &self,
     ) -> crate::operation::set_ui_customization::builders::SetUICustomizationFluentBuilder {
-        crate::operation::set_ui_customization::builders::SetUICustomizationFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::set_ui_customization::builders::SetUICustomizationFluentBuilder::new(self.handle.clone())
     }
 }

@@ -7,10 +7,16 @@ pub fn de_add_client_id_to_open_id_connect_provider_http_error(
 ) -> std::result::Result<
     crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput,
     crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
->{
+> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(
+        crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError::unhandled,
+    )?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
@@ -120,14 +126,12 @@ pub fn de_add_client_id_to_open_id_connect_provider_http_response(
 ) -> std::result::Result<
     crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput,
     crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
->{
+> {
     Ok({
         #[allow(unused_mut)]
         let mut output =
             crate::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }

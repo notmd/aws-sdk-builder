@@ -10,8 +10,6 @@ impl super::Client {
     pub fn deactivate_mfa_device(
         &self,
     ) -> crate::operation::deactivate_mfa_device::builders::DeactivateMFADeviceFluentBuilder {
-        crate::operation::deactivate_mfa_device::builders::DeactivateMFADeviceFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::deactivate_mfa_device::builders::DeactivateMFADeviceFluentBuilder::new(self.handle.clone())
     }
 }

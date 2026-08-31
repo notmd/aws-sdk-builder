@@ -96,9 +96,7 @@ impl ListPackagesInput {
 }
 
 /// A builder for [`ListPackagesInput`](crate::operation::list_packages::ListPackagesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListPackagesInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -219,18 +217,12 @@ impl ListPackagesInputBuilder {
         &self.namespace
     }
     /// <p>A prefix used to filter requested packages. Only packages with names that start with <code>packagePrefix</code> are returned.</p>
-    pub fn package_prefix(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.package_prefix = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A prefix used to filter requested packages. Only packages with names that start with <code>packagePrefix</code> are returned.</p>
-    pub fn set_package_prefix(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.package_prefix = input;
         self
     }
@@ -286,10 +278,7 @@ impl ListPackagesInputBuilder {
         self
     }
     /// <p>The value of the <code>Upstream</code> package origin control restriction used to filter requested packages. Only packages with the provided restriction are returned. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</p>
-    pub fn set_upstream(
-        mut self,
-        input: ::std::option::Option<crate::types::AllowUpstream>,
-    ) -> Self {
+    pub fn set_upstream(mut self, input: ::std::option::Option<crate::types::AllowUpstream>) -> Self {
         self.upstream = input;
         self
     }

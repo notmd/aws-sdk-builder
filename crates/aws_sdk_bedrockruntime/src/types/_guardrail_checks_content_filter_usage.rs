@@ -21,9 +21,7 @@ impl GuardrailChecksContentFilterUsage {
 }
 
 /// A builder for [`GuardrailChecksContentFilterUsage`](crate::types::GuardrailChecksContentFilterUsage).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailChecksContentFilterUsageBuilder {
     pub(crate) text_units: ::std::option::Option<i32>,

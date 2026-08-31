@@ -11,8 +11,7 @@ pub struct GetUserAuthFactorsOutput {
     pub user_mfa_setting_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>The authentication types that are available to the user with <code>USER_AUTH</code> sign-in, for example <code>\["PASSWORD", "WEB_AUTHN"\]</code>.</p>
     /// <p><code>PASSWORD</code> can only be used as a first authentication factor. <code>SOFTWARE_TOKEN</code> can only be used as an MFA factor. <code>EMAIL_OTP</code>, <code>SMS_OTP</code>, and <code>WEB_AUTHN</code> can be used as either a first authentication factor or an MFA factor. <code>WEB_AUTHN</code> is available as an MFA factor only when passkey MFA is enabled at the user pool level.</p>
-    pub configured_user_auth_factors:
-        ::std::option::Option<::std::vec::Vec<crate::types::AuthFactorType>>,
+    pub configured_user_auth_factors: ::std::option::Option<::std::vec::Vec<crate::types::AuthFactorType>>,
     _request_id: Option<String>,
 }
 impl GetUserAuthFactorsOutput {
@@ -36,9 +35,7 @@ impl GetUserAuthFactorsOutput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.configured_user_auth_factors.is_none()`.
     pub fn configured_user_auth_factors(&self) -> &[crate::types::AuthFactorType] {
-        self.configured_user_auth_factors
-            .as_deref()
-            .unwrap_or_default()
+        self.configured_user_auth_factors.as_deref().unwrap_or_default()
     }
 }
 impl ::std::fmt::Debug for GetUserAuthFactorsOutput {
@@ -47,10 +44,7 @@ impl ::std::fmt::Debug for GetUserAuthFactorsOutput {
         formatter.field("username", &"*** Sensitive Data Redacted ***");
         formatter.field("preferred_mfa_setting", &self.preferred_mfa_setting);
         formatter.field("user_mfa_setting_list", &self.user_mfa_setting_list);
-        formatter.field(
-            "configured_user_auth_factors",
-            &self.configured_user_auth_factors,
-        );
+        formatter.field("configured_user_auth_factors", &self.configured_user_auth_factors);
         formatter.field("_request_id", &self._request_id);
         formatter.finish()
     }
@@ -62,10 +56,8 @@ impl ::aws_types::request_id::RequestId for GetUserAuthFactorsOutput {
 }
 impl GetUserAuthFactorsOutput {
     /// Creates a new builder-style object to manufacture [`GetUserAuthFactorsOutput`](crate::operation::get_user_auth_factors::GetUserAuthFactorsOutput).
-    pub fn builder(
-    ) -> crate::operation::get_user_auth_factors::builders::GetUserAuthFactorsOutputBuilder {
-        crate::operation::get_user_auth_factors::builders::GetUserAuthFactorsOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::get_user_auth_factors::builders::GetUserAuthFactorsOutputBuilder {
+        crate::operation::get_user_auth_factors::builders::GetUserAuthFactorsOutputBuilder::default()
     }
 }
 
@@ -76,8 +68,7 @@ pub struct GetUserAuthFactorsOutputBuilder {
     pub(crate) username: ::std::option::Option<::std::string::String>,
     pub(crate) preferred_mfa_setting: ::std::option::Option<::std::string::String>,
     pub(crate) user_mfa_setting_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) configured_user_auth_factors:
-        ::std::option::Option<::std::vec::Vec<crate::types::AuthFactorType>>,
+    pub(crate) configured_user_auth_factors: ::std::option::Option<::std::vec::Vec<crate::types::AuthFactorType>>,
     _request_id: Option<String>,
 }
 impl GetUserAuthFactorsOutputBuilder {
@@ -97,18 +88,12 @@ impl GetUserAuthFactorsOutputBuilder {
         &self.username
     }
     /// <p>The challenge method that Amazon Cognito returns to the user in response to sign-in requests. Users can prefer SMS message, email message, or TOTP MFA.</p>
-    pub fn preferred_mfa_setting(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn preferred_mfa_setting(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.preferred_mfa_setting = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The challenge method that Amazon Cognito returns to the user in response to sign-in requests. Users can prefer SMS message, email message, or TOTP MFA.</p>
-    pub fn set_preferred_mfa_setting(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_preferred_mfa_setting(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.preferred_mfa_setting = input;
         self
     }
@@ -121,10 +106,7 @@ impl GetUserAuthFactorsOutputBuilder {
     /// To override the contents of this collection use [`set_user_mfa_setting_list`](Self::set_user_mfa_setting_list).
     ///
     /// <p>The MFA options that are activated for the user. The possible values in this list are <code>SMS_MFA</code>, <code>EMAIL_OTP</code>, and <code>SOFTWARE_TOKEN_MFA</code>.</p>
-    pub fn user_mfa_setting_list(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn user_mfa_setting_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.user_mfa_setting_list.unwrap_or_default();
         v.push(input.into());
         self.user_mfa_setting_list = ::std::option::Option::Some(v);
@@ -139,9 +121,7 @@ impl GetUserAuthFactorsOutputBuilder {
         self
     }
     /// <p>The MFA options that are activated for the user. The possible values in this list are <code>SMS_MFA</code>, <code>EMAIL_OTP</code>, and <code>SOFTWARE_TOKEN_MFA</code>.</p>
-    pub fn get_user_mfa_setting_list(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_user_mfa_setting_list(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.user_mfa_setting_list
     }
     /// Appends an item to `configured_user_auth_factors`.
@@ -210,10 +190,7 @@ impl ::std::fmt::Debug for GetUserAuthFactorsOutputBuilder {
         formatter.field("username", &"*** Sensitive Data Redacted ***");
         formatter.field("preferred_mfa_setting", &self.preferred_mfa_setting);
         formatter.field("user_mfa_setting_list", &self.user_mfa_setting_list);
-        formatter.field(
-            "configured_user_auth_factors",
-            &self.configured_user_auth_factors,
-        );
+        formatter.field("configured_user_auth_factors", &self.configured_user_auth_factors);
         formatter.field("_request_id", &self._request_id);
         formatter.finish()
     }

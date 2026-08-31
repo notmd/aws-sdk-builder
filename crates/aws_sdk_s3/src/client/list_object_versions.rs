@@ -32,8 +32,6 @@ impl super::Client {
     pub fn list_object_versions(
         &self,
     ) -> crate::operation::list_object_versions::builders::ListObjectVersionsFluentBuilder {
-        crate::operation::list_object_versions::builders::ListObjectVersionsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::list_object_versions::builders::ListObjectVersionsFluentBuilder::new(self.handle.clone())
     }
 }

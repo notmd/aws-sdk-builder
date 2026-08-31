@@ -11,8 +11,6 @@ impl super::Client {
     pub fn stop_user_import_job(
         &self,
     ) -> crate::operation::stop_user_import_job::builders::StopUserImportJobFluentBuilder {
-        crate::operation::stop_user_import_job::builders::StopUserImportJobFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::stop_user_import_job::builders::StopUserImportJobFluentBuilder::new(self.handle.clone())
     }
 }

@@ -58,7 +58,9 @@ impl GetSMSSandboxAccountStatusFluentBuilder {
         }
     }
     /// Access the GetSMSSandboxAccountStatus as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,11 +84,12 @@ impl GetSMSSandboxAccountStatusFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatus::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatus::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatus::orchestrate(
             &runtime_plugins,
             input,

@@ -257,10 +257,7 @@ impl AssumeRoleProviderBuilder {
             None => crate::load_defaults(crate::BehaviorVersion::latest()).await,
         };
         // ignore a identity cache set from SdkConfig
-        conf = conf
-            .into_builder()
-            .identity_cache(IdentityCache::no_cache())
-            .build();
+        conf = conf.into_builder().identity_cache(IdentityCache::no_cache()).build();
 
         // set a region override if one exists
         if let Some(region) = self.region_override {
@@ -271,9 +268,9 @@ impl AssumeRoleProviderBuilder {
 
         let time_source = conf.time_source().expect("A time source must be provided.");
 
-        let session_name = self.session_name.unwrap_or_else(|| {
-            super::util::default_session_name("assume-role-provider", time_source.now())
-        });
+        let session_name = self
+            .session_name
+            .unwrap_or_else(|| super::util::default_session_name("assume-role-provider", time_source.now()));
 
         let sts_client = StsClient::from_conf(config.build());
         let fluent_builder = sts_client
@@ -292,10 +289,7 @@ impl AssumeRoleProviderBuilder {
     }
 
     /// Build a credentials provider for this role authorized by the given `provider`.
-    pub async fn build_from_provider(
-        mut self,
-        provider: impl ProvideCredentials + 'static,
-    ) -> AssumeRoleProvider {
+    pub async fn build_from_provider(mut self, provider: impl ProvideCredentials + 'static) -> AssumeRoleProvider {
         let conf = match self.sdk_config {
             Some(conf) => conf,
             None => crate::load_defaults(crate::BehaviorVersion::latest()).await,
@@ -320,22 +314,15 @@ impl Inner {
                     access_key_id = ?assumed.credentials.as_ref().map(|c| &c.access_key_id),
                     "obtained assumed credentials"
                 );
-                super::util::into_credentials(
-                    assumed.credentials,
-                    assumed.assumed_role_user,
-                    "AssumeRoleProvider",
-                )
+                super::util::into_credentials(assumed.credentials, assumed.assumed_role_user, "AssumeRoleProvider")
             }
             Err(SdkError::ServiceError(ref context))
                 if matches!(
                     context.err(),
-                    AssumeRoleError::RegionDisabledException(_)
-                        | AssumeRoleError::MalformedPolicyDocumentException(_)
+                    AssumeRoleError::RegionDisabledException(_) | AssumeRoleError::MalformedPolicyDocumentException(_)
                 ) =>
             {
-                Err(CredentialsError::invalid_configuration(
-                    assumed.err().unwrap(),
-                ))
+                Err(CredentialsError::invalid_configuration(assumed.err().unwrap()))
             }
             Err(SdkError::ServiceError(ref context)) => {
                 tracing::warn!(error = %DisplayErrorContext(context.err()), "STS refused to grant assume role");
@@ -358,11 +345,7 @@ impl ProvideCredentials for AssumeRoleProvider {
     where
         Self: 'a,
     {
-        future::ProvideCredentials::new(
-            self.inner
-                .credentials()
-                .instrument(tracing::debug_span!("assume_role")),
-        )
+        future::ProvideCredentials::new(self.inner.credentials().instrument(tracing::debug_span!("assume_role")))
     }
 }
 
@@ -402,9 +385,7 @@ mod test {
             .configure(&sdk_config)
             .region(Region::new("us-east-1"))
             .session_length(Duration::from_secs(1234567))
-            .build_from_provider(provide_credentials_fn(|| async {
-                Ok(Credentials::for_tests())
-            }))
+            .build_from_provider(provide_credentials_fn(|| async { Ok(Credentials::for_tests()) }))
             .await;
         let _ = dbg!(provider.provide_credentials().await);
         let req = request.expect_request();
@@ -423,19 +404,15 @@ mod test {
                 UNIX_EPOCH + Duration::from_secs(1234567890 - 120),
             ))
             .http_client(http_client)
-            .credentials_provider(SharedCredentialsProvider::new(provide_credentials_fn(
-                || async {
-                    panic!("don't call me — will be overridden");
-                },
-            )))
+            .credentials_provider(SharedCredentialsProvider::new(provide_credentials_fn(|| async {
+                panic!("don't call me — will be overridden");
+            })))
             .region(Region::from_static("us-west-2"))
             .build();
         let provider = AssumeRoleProvider::builder("myrole")
             .configure(&sdk_config)
             .session_length(Duration::from_secs(1234567))
-            .build_from_provider(provide_credentials_fn(|| async {
-                Ok(Credentials::for_tests())
-            }))
+            .build_from_provider(provide_credentials_fn(|| async { Ok(Credentials::for_tests()) }))
             .await;
         let _ = dbg!(provider.provide_credentials().await);
         let req = request.expect_request();
@@ -447,10 +424,7 @@ mod test {
     async fn build_method_from_sdk_config() {
         let _guard = capture_test_logs();
         let (http_client, request) = capture_request(Some(
-            http::Response::builder()
-                .status(404)
-                .body(SdkBody::from(""))
-                .unwrap(),
+            http::Response::builder().status(404).body(SdkBody::from("")).unwrap(),
         ));
         let conf = crate::defaults(BehaviorVersion::latest())
             .env(Env::from_slice(&[
@@ -464,10 +438,7 @@ mod test {
             .http_client(http_client)
             .load()
             .await;
-        let provider = AssumeRoleProvider::builder("role")
-            .configure(&conf)
-            .build()
-            .await;
+        let provider = AssumeRoleProvider::builder("role").configure(&conf).build().await;
         let _ = dbg!(provider.provide_credentials().await);
         let req = request.expect_request();
         let auth_header = req.headers().get(AUTHORIZATION).unwrap().to_string();

@@ -167,9 +167,8 @@ pub struct AdminRespondToAuthChallengeInput {
     /// </dd>
     /// </dl>
     /// <p>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>. For information about <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
-    pub challenge_responses: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub challenge_responses:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>The session identifier that maintains the state of authentication requests and challenge responses. If an <code>AdminInitiateAuth</code> or <code>AdminRespondToAuthChallenge</code> API request results in a determination that your application must pass another challenge, Amazon Cognito returns a session with other challenge parameters. Send this session identifier, unmodified, to the next <code>AdminRespondToAuthChallenge</code> request.</p>
     pub session: ::std::option::Option<::std::string::String>,
     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
@@ -190,9 +189,8 @@ pub struct AdminRespondToAuthChallengeInput {
     /// <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive information in this parameter.</p></li>
     /// </ul>
     /// </note>
-    pub client_metadata: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub client_metadata:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl AdminRespondToAuthChallengeInput {
     /// <p>The ID of the user pool where you want to respond to an authentication challenge.</p>
@@ -366,9 +364,7 @@ impl AdminRespondToAuthChallengeInput {
     /// <p>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>. For information about <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
     pub fn challenge_responses(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.challenge_responses.as_ref()
     }
     /// <p>The session identifier that maintains the state of authentication requests and challenge responses. If an <code>AdminInitiateAuth</code> or <code>AdminRespondToAuthChallenge</code> API request results in a determination that your application must pass another challenge, Amazon Cognito returns a session with other challenge parameters. Send this session identifier, unmodified, to the next <code>AdminRespondToAuthChallenge</code> request.</p>
@@ -376,9 +372,7 @@ impl AdminRespondToAuthChallengeInput {
         self.session.as_deref()
     }
     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
-    pub fn analytics_metadata(
-        &self,
-    ) -> ::std::option::Option<&crate::types::AnalyticsMetadataType> {
+    pub fn analytics_metadata(&self) -> ::std::option::Option<&crate::types::AnalyticsMetadataType> {
         self.analytics_metadata.as_ref()
     }
     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
@@ -401,9 +395,7 @@ impl AdminRespondToAuthChallengeInput {
     /// </note>
     pub fn client_metadata(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.client_metadata.as_ref()
     }
 }
@@ -423,7 +415,8 @@ impl ::std::fmt::Debug for AdminRespondToAuthChallengeInput {
 }
 impl AdminRespondToAuthChallengeInput {
     /// Creates a new builder-style object to manufacture [`AdminRespondToAuthChallengeInput`](crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeInput).
-    pub fn builder() -> crate::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeInputBuilder {
         crate::operation::admin_respond_to_auth_challenge::builders::AdminRespondToAuthChallengeInputBuilder::default()
     }
 }
@@ -435,15 +428,13 @@ pub struct AdminRespondToAuthChallengeInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
     pub(crate) client_id: ::std::option::Option<::std::string::String>,
     pub(crate) challenge_name: ::std::option::Option<crate::types::ChallengeNameType>,
-    pub(crate) challenge_responses: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) challenge_responses:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) session: ::std::option::Option<::std::string::String>,
     pub(crate) analytics_metadata: ::std::option::Option<crate::types::AnalyticsMetadataType>,
     pub(crate) context_data: ::std::option::Option<crate::types::ContextDataType>,
-    pub(crate) client_metadata: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) client_metadata:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl AdminRespondToAuthChallengeInputBuilder {
     /// <p>The ID of the user pool where you want to respond to an authentication challenge.</p>
@@ -559,10 +550,7 @@ impl AdminRespondToAuthChallengeInputBuilder {
     /// <p>To set up time-based one-time password (TOTP) MFA, use the session returned in this challenge from <code>InitiateAuth</code> or <code>AdminInitiateAuth</code> as an input to <code>AssociateSoftwareToken</code>. Then, use the session returned by <code>VerifySoftwareToken</code> as an input to <code>RespondToAuthChallenge</code> or <code>AdminRespondToAuthChallenge</code> with challenge name <code>MFA_SETUP</code> to complete sign-in.</p>
     /// <p>To set up SMS or email MFA, collect a <code>phone_number</code> or <code>email</code> attribute for the user. Then restart the authentication flow with an <code>InitiateAuth</code> or <code>AdminInitiateAuth</code> request.</p></li>
     /// </ul>
-    pub fn set_challenge_name(
-        mut self,
-        input: ::std::option::Option<crate::types::ChallengeNameType>,
-    ) -> Self {
+    pub fn set_challenge_name(mut self, input: ::std::option::Option<crate::types::ChallengeNameType>) -> Self {
         self.challenge_name = input;
         self
     }
@@ -862,9 +850,7 @@ impl AdminRespondToAuthChallengeInputBuilder {
     /// <p>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>. For information about <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
     pub fn set_challenge_responses(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.challenge_responses = input;
         self
@@ -990,9 +976,7 @@ impl AdminRespondToAuthChallengeInputBuilder {
     /// <p>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>. For information about <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
     pub fn get_challenge_responses(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.challenge_responses
     }
     /// <p>The session identifier that maintains the state of authentication requests and challenge responses. If an <code>AdminInitiateAuth</code> or <code>AdminRespondToAuthChallenge</code> API request results in a determination that your application must pass another challenge, Amazon Cognito returns a session with other challenge parameters. Send this session identifier, unmodified, to the next <code>AdminRespondToAuthChallenge</code> request.</p>
@@ -1015,17 +999,12 @@ impl AdminRespondToAuthChallengeInputBuilder {
         self
     }
     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
-    pub fn set_analytics_metadata(
-        mut self,
-        input: ::std::option::Option<crate::types::AnalyticsMetadataType>,
-    ) -> Self {
+    pub fn set_analytics_metadata(mut self, input: ::std::option::Option<crate::types::AnalyticsMetadataType>) -> Self {
         self.analytics_metadata = input;
         self
     }
     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
-    pub fn get_analytics_metadata(
-        &self,
-    ) -> &::std::option::Option<crate::types::AnalyticsMetadataType> {
+    pub fn get_analytics_metadata(&self) -> &::std::option::Option<crate::types::AnalyticsMetadataType> {
         &self.analytics_metadata
     }
     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
@@ -1036,10 +1015,7 @@ impl AdminRespondToAuthChallengeInputBuilder {
     }
     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in applications</a>.</p>
-    pub fn set_context_data(
-        mut self,
-        input: ::std::option::Option<crate::types::ContextDataType>,
-    ) -> Self {
+    pub fn set_context_data(mut self, input: ::std::option::Option<crate::types::ContextDataType>) -> Self {
         self.context_data = input;
         self
     }
@@ -1090,9 +1066,7 @@ impl AdminRespondToAuthChallengeInputBuilder {
     /// </note>
     pub fn set_client_metadata(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.client_metadata = input;
         self
@@ -1112,9 +1086,7 @@ impl AdminRespondToAuthChallengeInputBuilder {
     /// </note>
     pub fn get_client_metadata(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.client_metadata
     }
     /// Consumes the builder and constructs a [`AdminRespondToAuthChallengeInput`](crate::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeInput).

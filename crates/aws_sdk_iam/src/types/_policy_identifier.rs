@@ -52,9 +52,7 @@ impl PolicyIdentifier {
     }
     /// Tries to convert the enum instance into [`PolicyType`](crate::types::PolicyIdentifier::PolicyType), extracting the inner [`PolicyIdentifierPolicyType`](crate::types::PolicyIdentifierPolicyType).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_policy_type(
-        &self,
-    ) -> ::std::result::Result<&crate::types::PolicyIdentifierPolicyType, &Self> {
+    pub fn as_policy_type(&self) -> ::std::result::Result<&crate::types::PolicyIdentifierPolicyType, &Self> {
         if let PolicyIdentifier::PolicyType(val) = &self {
             ::std::result::Result::Ok(val)
         } else {

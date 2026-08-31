@@ -21,9 +21,7 @@ impl OutputLocation {
 }
 
 /// A builder for [`OutputLocation`](crate::types::OutputLocation).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct OutputLocationBuilder {
     pub(crate) s3: ::std::option::Option<crate::types::S3Location>,

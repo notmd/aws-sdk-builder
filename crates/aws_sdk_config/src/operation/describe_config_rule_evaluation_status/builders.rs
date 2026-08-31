@@ -3,7 +3,9 @@ pub use crate::operation::describe_config_rule_evaluation_status::_describe_conf
 
 pub use crate::operation::describe_config_rule_evaluation_status::_describe_config_rule_evaluation_status_output::DescribeConfigRuleEvaluationStatusOutputBuilder;
 
-impl crate::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusInputBuilder {
+impl
+    crate::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -76,7 +78,7 @@ impl DescribeConfigRuleEvaluationStatusFluentBuilder {
             crate::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +88,11 @@ impl DescribeConfigRuleEvaluationStatusFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatus::orchestrate(&runtime_plugins, input).await
+        crate::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatus::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +102,7 @@ impl DescribeConfigRuleEvaluationStatusFluentBuilder {
         crate::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusOutput,
         crate::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -117,7 +123,10 @@ impl DescribeConfigRuleEvaluationStatusFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_config_rule_evaluation_status::paginator::DescribeConfigRuleEvaluationStatusPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::describe_config_rule_evaluation_status::paginator::DescribeConfigRuleEvaluationStatusPaginator{
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::describe_config_rule_evaluation_status::paginator::DescribeConfigRuleEvaluationStatusPaginator
+    {
         crate::operation::describe_config_rule_evaluation_status::paginator::DescribeConfigRuleEvaluationStatusPaginator::new(self.handle, self.inner)
     }
     ///
@@ -126,10 +135,7 @@ impl DescribeConfigRuleEvaluationStatusFluentBuilder {
     /// To override the contents of this collection use [`set_config_rule_names`](Self::set_config_rule_names).
     ///
     /// <p>The name of the Config managed rules for which you want status information. If you do not specify any names, Config returns status information for all Config managed rules that you use.</p>
-    pub fn config_rule_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn config_rule_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.config_rule_names(input.into());
         self
     }
@@ -142,9 +148,7 @@ impl DescribeConfigRuleEvaluationStatusFluentBuilder {
         self
     }
     /// <p>The name of the Config managed rules for which you want status information. If you do not specify any names, Config returns status information for all Config managed rules that you use.</p>
-    pub fn get_config_rule_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_config_rule_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_config_rule_names()
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>

@@ -46,9 +46,7 @@ impl ChainedInvokeStartedDetails {
 }
 
 /// A builder for [`ChainedInvokeStartedDetails`](crate::types::ChainedInvokeStartedDetails).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ChainedInvokeStartedDetailsBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -60,18 +58,12 @@ pub struct ChainedInvokeStartedDetailsBuilder {
 impl ChainedInvokeStartedDetailsBuilder {
     /// <p>The name or ARN of the Lambda function being invoked.</p>
     /// This field is required.
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name or ARN of the Lambda function being invoked.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
     }
@@ -108,18 +100,12 @@ impl ChainedInvokeStartedDetailsBuilder {
         &self.input
     }
     /// <p>The version of the function that was executed.</p>
-    pub fn executed_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn executed_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.executed_version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The version of the function that was executed.</p>
-    pub fn set_executed_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_executed_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.executed_version = input;
         self
     }
@@ -128,18 +114,12 @@ impl ChainedInvokeStartedDetailsBuilder {
         &self.executed_version
     }
     /// <p>The Amazon Resource Name (ARN) that identifies the durable execution.</p>
-    pub fn durable_execution_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn durable_execution_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.durable_execution_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) that identifies the durable execution.</p>
-    pub fn set_durable_execution_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.durable_execution_arn = input;
         self
     }

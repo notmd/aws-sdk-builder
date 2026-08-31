@@ -26,9 +26,7 @@ impl ListDomainsInput {
 }
 
 /// A builder for [`ListDomainsInput`](crate::operation::list_domains::ListDomainsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListDomainsInputBuilder {
     pub(crate) max_results: ::std::option::Option<i32>,

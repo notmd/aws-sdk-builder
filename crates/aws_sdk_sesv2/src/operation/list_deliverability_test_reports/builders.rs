@@ -57,7 +57,9 @@ impl ListDeliverabilityTestReportsFluentBuilder {
         }
     }
     /// Access the ListDeliverabilityTestReports as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_deliverability_test_reports::builders::ListDeliverabilityTestReportsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_deliverability_test_reports::builders::ListDeliverabilityTestReportsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +88,11 @@ impl ListDeliverabilityTestReportsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_deliverability_test_reports::ListDeliverabilityTestReports::orchestrate(&runtime_plugins, input).await
+        crate::operation::list_deliverability_test_reports::ListDeliverabilityTestReports::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -117,8 +123,13 @@ impl ListDeliverabilityTestReportsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_deliverability_test_reports::paginator::ListDeliverabilityTestReportsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_deliverability_test_reports::paginator::ListDeliverabilityTestReportsPaginator{
-        crate::operation::list_deliverability_test_reports::paginator::ListDeliverabilityTestReportsPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::list_deliverability_test_reports::paginator::ListDeliverabilityTestReportsPaginator {
+        crate::operation::list_deliverability_test_reports::paginator::ListDeliverabilityTestReportsPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>A token returned from a previous call to <code>ListDeliverabilityTestReports</code> to indicate the position in the list of predictive inbox placement tests.</p>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

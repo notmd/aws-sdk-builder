@@ -22,9 +22,7 @@ impl DeleteVectorIndexAction {
 }
 
 /// A builder for [`DeleteVectorIndexAction`](crate::types::DeleteVectorIndexAction).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteVectorIndexActionBuilder {
     pub(crate) index_name: ::std::option::Option<::std::string::String>,
@@ -50,10 +48,8 @@ impl DeleteVectorIndexActionBuilder {
     /// - [`index_name`](crate::types::builders::DeleteVectorIndexActionBuilder::index_name)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::DeleteVectorIndexAction,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::DeleteVectorIndexAction, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::DeleteVectorIndexAction {
             index_name: self.index_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -9,8 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<CancelMessageMoveTaskError>`](crate::operation::cancel_message_move_task::CancelMessageMoveTaskError)
     pub fn cancel_message_move_task(
         &self,
-    ) -> crate::operation::cancel_message_move_task::builders::CancelMessageMoveTaskFluentBuilder
-    {
-        crate::operation::cancel_message_move_task::builders::CancelMessageMoveTaskFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::cancel_message_move_task::builders::CancelMessageMoveTaskFluentBuilder {
+        crate::operation::cancel_message_move_task::builders::CancelMessageMoveTaskFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

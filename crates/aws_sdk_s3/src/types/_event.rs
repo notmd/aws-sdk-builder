@@ -148,18 +148,14 @@ impl ::std::convert::From<&str> for Event {
             "s3:IntelligentTiering" => Event::S3IntelligentTiering,
             "s3:LifecycleExpiration:*" => Event::S3LifecycleExpiration,
             "s3:LifecycleExpiration:Delete" => Event::S3LifecycleExpirationDelete,
-            "s3:LifecycleExpiration:DeleteMarkerCreated" => {
-                Event::S3LifecycleExpirationDeleteMarkerCreated
-            }
+            "s3:LifecycleExpiration:DeleteMarkerCreated" => Event::S3LifecycleExpirationDeleteMarkerCreated,
             "s3:LifecycleTransition" => Event::S3LifecycleTransition,
             "s3:ObjectAcl:Put" => Event::S3ObjectAclPut,
             "s3:ObjectAnnotation:*" => Event::S3ObjectAnnotation,
             "s3:ObjectAnnotation:Delete" => Event::S3ObjectAnnotationDelete,
             "s3:ObjectAnnotation:Put" => Event::S3ObjectAnnotationPut,
             "s3:ObjectCreated:*" => Event::S3ObjectCreated,
-            "s3:ObjectCreated:CompleteMultipartUpload" => {
-                Event::S3ObjectCreatedCompleteMultipartUpload
-            }
+            "s3:ObjectCreated:CompleteMultipartUpload" => Event::S3ObjectCreatedCompleteMultipartUpload,
             "s3:ObjectCreated:Copy" => Event::S3ObjectCreatedCopy,
             "s3:ObjectCreated:Post" => Event::S3ObjectCreatedPost,
             "s3:ObjectCreated:Put" => Event::S3ObjectCreatedPut,
@@ -175,16 +171,10 @@ impl ::std::convert::From<&str> for Event {
             "s3:ObjectTagging:Put" => Event::S3ObjectTaggingPut,
             "s3:ReducedRedundancyLostObject" => Event::S3ReducedRedundancyLostObject,
             "s3:Replication:*" => Event::S3Replication,
-            "s3:Replication:OperationFailedReplication" => {
-                Event::S3ReplicationOperationFailedReplication
-            }
-            "s3:Replication:OperationMissedThreshold" => {
-                Event::S3ReplicationOperationMissedThreshold
-            }
+            "s3:Replication:OperationFailedReplication" => Event::S3ReplicationOperationFailedReplication,
+            "s3:Replication:OperationMissedThreshold" => Event::S3ReplicationOperationMissedThreshold,
             "s3:Replication:OperationNotTracked" => Event::S3ReplicationOperationNotTracked,
-            "s3:Replication:OperationReplicatedAfterThreshold" => {
-                Event::S3ReplicationOperationReplicatedAfterThreshold
-            }
+            "s3:Replication:OperationReplicatedAfterThreshold" => Event::S3ReplicationOperationReplicatedAfterThreshold,
             other => Event::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
                 other.to_owned(),
             )),
@@ -205,18 +195,14 @@ impl Event {
             Event::S3IntelligentTiering => "s3:IntelligentTiering",
             Event::S3LifecycleExpiration => "s3:LifecycleExpiration:*",
             Event::S3LifecycleExpirationDelete => "s3:LifecycleExpiration:Delete",
-            Event::S3LifecycleExpirationDeleteMarkerCreated => {
-                "s3:LifecycleExpiration:DeleteMarkerCreated"
-            }
+            Event::S3LifecycleExpirationDeleteMarkerCreated => "s3:LifecycleExpiration:DeleteMarkerCreated",
             Event::S3LifecycleTransition => "s3:LifecycleTransition",
             Event::S3ObjectAclPut => "s3:ObjectAcl:Put",
             Event::S3ObjectAnnotation => "s3:ObjectAnnotation:*",
             Event::S3ObjectAnnotationDelete => "s3:ObjectAnnotation:Delete",
             Event::S3ObjectAnnotationPut => "s3:ObjectAnnotation:Put",
             Event::S3ObjectCreated => "s3:ObjectCreated:*",
-            Event::S3ObjectCreatedCompleteMultipartUpload => {
-                "s3:ObjectCreated:CompleteMultipartUpload"
-            }
+            Event::S3ObjectCreatedCompleteMultipartUpload => "s3:ObjectCreated:CompleteMultipartUpload",
             Event::S3ObjectCreatedCopy => "s3:ObjectCreated:Copy",
             Event::S3ObjectCreatedPost => "s3:ObjectCreated:Post",
             Event::S3ObjectCreatedPut => "s3:ObjectCreated:Put",
@@ -232,16 +218,10 @@ impl Event {
             Event::S3ObjectTaggingPut => "s3:ObjectTagging:Put",
             Event::S3ReducedRedundancyLostObject => "s3:ReducedRedundancyLostObject",
             Event::S3Replication => "s3:Replication:*",
-            Event::S3ReplicationOperationFailedReplication => {
-                "s3:Replication:OperationFailedReplication"
-            }
-            Event::S3ReplicationOperationMissedThreshold => {
-                "s3:Replication:OperationMissedThreshold"
-            }
+            Event::S3ReplicationOperationFailedReplication => "s3:Replication:OperationFailedReplication",
+            Event::S3ReplicationOperationMissedThreshold => "s3:Replication:OperationMissedThreshold",
             Event::S3ReplicationOperationNotTracked => "s3:Replication:OperationNotTracked",
-            Event::S3ReplicationOperationReplicatedAfterThreshold => {
-                "s3:Replication:OperationReplicatedAfterThreshold"
-            }
+            Event::S3ReplicationOperationReplicatedAfterThreshold => "s3:Replication:OperationReplicatedAfterThreshold",
             Event::Unknown(value) => value.as_str(),
         }
     }
@@ -290,14 +270,10 @@ impl Event {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -308,26 +284,20 @@ impl ::std::fmt::Display for Event {
             Event::S3IntelligentTiering => write!(f, "s3:IntelligentTiering"),
             Event::S3LifecycleExpiration => write!(f, "s3:LifecycleExpiration:*"),
             Event::S3LifecycleExpirationDelete => write!(f, "s3:LifecycleExpiration:Delete"),
-            Event::S3LifecycleExpirationDeleteMarkerCreated => {
-                write!(f, "s3:LifecycleExpiration:DeleteMarkerCreated")
-            }
+            Event::S3LifecycleExpirationDeleteMarkerCreated => write!(f, "s3:LifecycleExpiration:DeleteMarkerCreated"),
             Event::S3LifecycleTransition => write!(f, "s3:LifecycleTransition"),
             Event::S3ObjectAclPut => write!(f, "s3:ObjectAcl:Put"),
             Event::S3ObjectAnnotation => write!(f, "s3:ObjectAnnotation:*"),
             Event::S3ObjectAnnotationDelete => write!(f, "s3:ObjectAnnotation:Delete"),
             Event::S3ObjectAnnotationPut => write!(f, "s3:ObjectAnnotation:Put"),
             Event::S3ObjectCreated => write!(f, "s3:ObjectCreated:*"),
-            Event::S3ObjectCreatedCompleteMultipartUpload => {
-                write!(f, "s3:ObjectCreated:CompleteMultipartUpload")
-            }
+            Event::S3ObjectCreatedCompleteMultipartUpload => write!(f, "s3:ObjectCreated:CompleteMultipartUpload"),
             Event::S3ObjectCreatedCopy => write!(f, "s3:ObjectCreated:Copy"),
             Event::S3ObjectCreatedPost => write!(f, "s3:ObjectCreated:Post"),
             Event::S3ObjectCreatedPut => write!(f, "s3:ObjectCreated:Put"),
             Event::S3ObjectRemoved => write!(f, "s3:ObjectRemoved:*"),
             Event::S3ObjectRemovedDelete => write!(f, "s3:ObjectRemoved:Delete"),
-            Event::S3ObjectRemovedDeleteMarkerCreated => {
-                write!(f, "s3:ObjectRemoved:DeleteMarkerCreated")
-            }
+            Event::S3ObjectRemovedDeleteMarkerCreated => write!(f, "s3:ObjectRemoved:DeleteMarkerCreated"),
             Event::S3ObjectRestore => write!(f, "s3:ObjectRestore:*"),
             Event::S3ObjectRestoreCompleted => write!(f, "s3:ObjectRestore:Completed"),
             Event::S3ObjectRestoreDelete => write!(f, "s3:ObjectRestore:Delete"),
@@ -337,15 +307,9 @@ impl ::std::fmt::Display for Event {
             Event::S3ObjectTaggingPut => write!(f, "s3:ObjectTagging:Put"),
             Event::S3ReducedRedundancyLostObject => write!(f, "s3:ReducedRedundancyLostObject"),
             Event::S3Replication => write!(f, "s3:Replication:*"),
-            Event::S3ReplicationOperationFailedReplication => {
-                write!(f, "s3:Replication:OperationFailedReplication")
-            }
-            Event::S3ReplicationOperationMissedThreshold => {
-                write!(f, "s3:Replication:OperationMissedThreshold")
-            }
-            Event::S3ReplicationOperationNotTracked => {
-                write!(f, "s3:Replication:OperationNotTracked")
-            }
+            Event::S3ReplicationOperationFailedReplication => write!(f, "s3:Replication:OperationFailedReplication"),
+            Event::S3ReplicationOperationMissedThreshold => write!(f, "s3:Replication:OperationMissedThreshold"),
+            Event::S3ReplicationOperationNotTracked => write!(f, "s3:Replication:OperationNotTracked"),
             Event::S3ReplicationOperationReplicatedAfterThreshold => {
                 write!(f, "s3:Replication:OperationReplicatedAfterThreshold")
             }

@@ -364,10 +364,7 @@ pub use crate::types::error::_oversized_configuration_item_exception::OversizedC
 ))]
 pub use crate::types::error::_resource_not_discovered_exception::ResourceNotDiscoveredExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_get_resource_config_history",
-    feature = "op_list_resource_evaluations"
-))]
+#[cfg(any(feature = "op_get_resource_config_history", feature = "op_list_resource_evaluations"))]
 pub use crate::types::error::_invalid_time_range_exception::InvalidTimeRangeExceptionBuilder;
 
 #[cfg(feature = "op_put_config_rule")]

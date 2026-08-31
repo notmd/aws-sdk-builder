@@ -27,9 +27,7 @@ impl TenantResource {
 }
 
 /// A builder for [`TenantResource`](crate::types::TenantResource).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TenantResourceBuilder {
     pub(crate) resource_type: ::std::option::Option<crate::types::ResourceType>,
@@ -42,10 +40,7 @@ impl TenantResourceBuilder {
         self
     }
     /// <p>The type of resource associated with the tenant. Valid values are <code>EMAIL_IDENTITY</code>, <code>CONFIGURATION_SET</code>, or <code>EMAIL_TEMPLATE</code>.</p>
-    pub fn set_resource_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ResourceType>,
-    ) -> Self {
+    pub fn set_resource_type(mut self, input: ::std::option::Option<crate::types::ResourceType>) -> Self {
         self.resource_type = input;
         self
     }

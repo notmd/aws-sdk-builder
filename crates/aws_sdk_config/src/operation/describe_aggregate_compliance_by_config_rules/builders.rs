@@ -45,7 +45,7 @@ impl
             crate::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRulesOutput,
             crate::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRulesError,
         >,
-    > {
+    >{
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -105,7 +105,7 @@ impl DescribeAggregateComplianceByConfigRulesFluentBuilder {
         crate::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRulesOutput,
         crate::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRulesError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -135,25 +135,17 @@ impl DescribeAggregateComplianceByConfigRulesFluentBuilder {
         )
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn configuration_aggregator_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_aggregator_name(input.into());
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn set_configuration_aggregator_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_aggregator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_aggregator_name(input);
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn get_configuration_aggregator_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_configuration_aggregator_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_configuration_aggregator_name()
     }
     /// <p>Filters the results by ConfigRuleComplianceFilters object.</p>
@@ -162,10 +154,7 @@ impl DescribeAggregateComplianceByConfigRulesFluentBuilder {
         self
     }
     /// <p>Filters the results by ConfigRuleComplianceFilters object.</p>
-    pub fn set_filters(
-        mut self,
-        input: ::std::option::Option<crate::types::ConfigRuleComplianceFilters>,
-    ) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<crate::types::ConfigRuleComplianceFilters>) -> Self {
         self.inner = self.inner.set_filters(input);
         self
     }

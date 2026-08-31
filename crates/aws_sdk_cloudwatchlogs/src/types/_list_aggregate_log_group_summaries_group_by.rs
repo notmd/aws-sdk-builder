@@ -61,12 +61,8 @@ pub enum ListAggregateLogGroupSummariesGroupBy {
 impl ::std::convert::From<&str> for ListAggregateLogGroupSummariesGroupBy {
     fn from(s: &str) -> Self {
         match s {
-            "DATA_SOURCE_NAME_AND_TYPE" => {
-                ListAggregateLogGroupSummariesGroupBy::DataSourceNameAndType
-            }
-            "DATA_SOURCE_NAME_TYPE_AND_FORMAT" => {
-                ListAggregateLogGroupSummariesGroupBy::DataSourceNameTypeAndFormat
-            }
+            "DATA_SOURCE_NAME_AND_TYPE" => ListAggregateLogGroupSummariesGroupBy::DataSourceNameAndType,
+            "DATA_SOURCE_NAME_TYPE_AND_FORMAT" => ListAggregateLogGroupSummariesGroupBy::DataSourceNameTypeAndFormat,
             other => ListAggregateLogGroupSummariesGroupBy::Unknown(
                 crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
             ),
@@ -84,21 +80,14 @@ impl ListAggregateLogGroupSummariesGroupBy {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
-            ListAggregateLogGroupSummariesGroupBy::DataSourceNameAndType => {
-                "DATA_SOURCE_NAME_AND_TYPE"
-            }
-            ListAggregateLogGroupSummariesGroupBy::DataSourceNameTypeAndFormat => {
-                "DATA_SOURCE_NAME_TYPE_AND_FORMAT"
-            }
+            ListAggregateLogGroupSummariesGroupBy::DataSourceNameAndType => "DATA_SOURCE_NAME_AND_TYPE",
+            ListAggregateLogGroupSummariesGroupBy::DataSourceNameTypeAndFormat => "DATA_SOURCE_NAME_TYPE_AND_FORMAT",
             ListAggregateLogGroupSummariesGroupBy::Unknown(value) => value.as_str(),
         }
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &[
-            "DATA_SOURCE_NAME_AND_TYPE",
-            "DATA_SOURCE_NAME_TYPE_AND_FORMAT",
-        ]
+        &["DATA_SOURCE_NAME_AND_TYPE", "DATA_SOURCE_NAME_TYPE_AND_FORMAT"]
     }
 }
 impl ::std::convert::AsRef<str> for ListAggregateLogGroupSummariesGroupBy {
@@ -110,14 +99,10 @@ impl ListAggregateLogGroupSummariesGroupBy {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -125,9 +110,7 @@ impl ListAggregateLogGroupSummariesGroupBy {
 impl ::std::fmt::Display for ListAggregateLogGroupSummariesGroupBy {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
-            ListAggregateLogGroupSummariesGroupBy::DataSourceNameAndType => {
-                write!(f, "DATA_SOURCE_NAME_AND_TYPE")
-            }
+            ListAggregateLogGroupSummariesGroupBy::DataSourceNameAndType => write!(f, "DATA_SOURCE_NAME_AND_TYPE"),
             ListAggregateLogGroupSummariesGroupBy::DataSourceNameTypeAndFormat => {
                 write!(f, "DATA_SOURCE_NAME_TYPE_AND_FORMAT")
             }

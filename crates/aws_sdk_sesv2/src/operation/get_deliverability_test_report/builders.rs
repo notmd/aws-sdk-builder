@@ -57,7 +57,9 @@ impl GetDeliverabilityTestReportFluentBuilder {
         }
     }
     /// Access the GetDeliverabilityTestReport as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_deliverability_test_report::builders::GetDeliverabilityTestReportInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_deliverability_test_report::builders::GetDeliverabilityTestReportInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,11 +83,12 @@ impl GetDeliverabilityTestReportFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_deliverability_test_report::GetDeliverabilityTestReport::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::get_deliverability_test_report::GetDeliverabilityTestReport::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::get_deliverability_test_report::GetDeliverabilityTestReport::orchestrate(
             &runtime_plugins,
             input,

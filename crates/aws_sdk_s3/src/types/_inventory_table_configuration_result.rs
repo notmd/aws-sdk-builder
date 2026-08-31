@@ -69,13 +69,10 @@ impl InventoryTableConfigurationResult {
 }
 
 /// A builder for [`InventoryTableConfigurationResult`](crate::types::InventoryTableConfigurationResult).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InventoryTableConfigurationResultBuilder {
-    pub(crate) configuration_state:
-        ::std::option::Option<crate::types::InventoryConfigurationState>,
+    pub(crate) configuration_state: ::std::option::Option<crate::types::InventoryConfigurationState>,
     pub(crate) table_status: ::std::option::Option<::std::string::String>,
     pub(crate) error: ::std::option::Option<crate::types::ErrorDetails>,
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
@@ -97,9 +94,7 @@ impl InventoryTableConfigurationResultBuilder {
         self
     }
     /// <p>The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.</p>
-    pub fn get_configuration_state(
-        &self,
-    ) -> &::std::option::Option<crate::types::InventoryConfigurationState> {
+    pub fn get_configuration_state(&self) -> &::std::option::Option<crate::types::InventoryConfigurationState> {
         &self.configuration_state
     }
     /// <p>The status of the inventory table. The status values are:</p>

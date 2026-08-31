@@ -14,12 +14,8 @@ impl DescribeAggregateComplianceByConfigRulesOutput {
     /// <p>Returns a list of AggregateComplianceByConfigRule object.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.aggregate_compliance_by_config_rules.is_none()`.
-    pub fn aggregate_compliance_by_config_rules(
-        &self,
-    ) -> &[crate::types::AggregateComplianceByConfigRule] {
-        self.aggregate_compliance_by_config_rules
-            .as_deref()
-            .unwrap_or_default()
+    pub fn aggregate_compliance_by_config_rules(&self) -> &[crate::types::AggregateComplianceByConfigRule] {
+        self.aggregate_compliance_by_config_rules.as_deref().unwrap_or_default()
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -40,9 +36,7 @@ impl DescribeAggregateComplianceByConfigRulesOutput {
 }
 
 /// A builder for [`DescribeAggregateComplianceByConfigRulesOutput`](crate::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRulesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeAggregateComplianceByConfigRulesOutputBuilder {
     pub(crate) aggregate_compliance_by_config_rules:
@@ -60,9 +54,7 @@ impl DescribeAggregateComplianceByConfigRulesOutputBuilder {
         mut self,
         input: crate::types::AggregateComplianceByConfigRule,
     ) -> Self {
-        let mut v = self
-            .aggregate_compliance_by_config_rules
-            .unwrap_or_default();
+        let mut v = self.aggregate_compliance_by_config_rules.unwrap_or_default();
         v.push(input);
         self.aggregate_compliance_by_config_rules = ::std::option::Option::Some(v);
         self
@@ -70,9 +62,7 @@ impl DescribeAggregateComplianceByConfigRulesOutputBuilder {
     /// <p>Returns a list of AggregateComplianceByConfigRule object.</p>
     pub fn set_aggregate_compliance_by_config_rules(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::AggregateComplianceByConfigRule>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::AggregateComplianceByConfigRule>>,
     ) -> Self {
         self.aggregate_compliance_by_config_rules = input;
         self
@@ -80,8 +70,7 @@ impl DescribeAggregateComplianceByConfigRulesOutputBuilder {
     /// <p>Returns a list of AggregateComplianceByConfigRule object.</p>
     pub fn get_aggregate_compliance_by_config_rules(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AggregateComplianceByConfigRule>>
-    {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AggregateComplianceByConfigRule>> {
         &self.aggregate_compliance_by_config_rules
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -108,7 +97,10 @@ impl DescribeAggregateComplianceByConfigRulesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeAggregateComplianceByConfigRulesOutput`](crate::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRulesOutput).
-    pub fn build(self) -> crate::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRulesOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRulesOutput
+    {
         crate::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRulesOutput {
             aggregate_compliance_by_config_rules: self.aggregate_compliance_by_config_rules,
             next_token: self.next_token,

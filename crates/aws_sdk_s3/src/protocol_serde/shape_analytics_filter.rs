@@ -2,8 +2,7 @@
 pub fn de_analytics_filter(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::AnalyticsFilter, ::aws_smithy_xml::decode::XmlDecodeError>
-{
+) -> ::std::result::Result<crate::types::AnalyticsFilter, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
             "maximum nesting depth exceeded",
@@ -42,9 +41,7 @@ pub fn de_analytics_filter(
             _unknown => base = Some(crate::types::AnalyticsFilter::Unknown),
         }
     }
-    base.ok_or_else(|| {
-        ::aws_smithy_xml::decode::XmlDecodeError::custom("expected union, got nothing")
-    })
+    base.ok_or_else(|| ::aws_smithy_xml::decode::XmlDecodeError::custom("expected union, got nothing"))
 }
 
 pub fn ser_analytics_filter(
@@ -63,17 +60,10 @@ pub fn ser_analytics_filter(
         }
         crate::types::AnalyticsFilter::And(inner) => {
             let inner_writer = scope_writer.start_el("And");
-            crate::protocol_serde::shape_analytics_and_operator::ser_analytics_and_operator(
-                inner,
-                inner_writer,
-            )?
+            crate::protocol_serde::shape_analytics_and_operator::ser_analytics_and_operator(inner, inner_writer)?
         }
         crate::types::AnalyticsFilter::Unknown => {
-            return Err(
-                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                    "AnalyticsFilter",
-                ),
-            )
+            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("AnalyticsFilter"))
         }
     }
     Ok(())

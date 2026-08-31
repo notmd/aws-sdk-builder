@@ -9,13 +9,19 @@ pub fn de_get_context_keys_for_principal_policy_http_error(
     crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body).map_err(
+            crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::unhandled,
+        )?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::unhandled(generic)),
+        None => return Err(
+            crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::unhandled(
+                generic,
+            ),
+        ),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -68,9 +74,7 @@ pub fn de_get_context_keys_for_principal_policy_http_response(
         let mut output = crate::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyOutputBuilder::default();
         output = crate::protocol_serde::shape_get_context_keys_for_principal_policy::de_get_context_keys_for_principal_policy(_response_body, output)
             .map_err(crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -82,7 +86,7 @@ pub fn de_get_context_keys_for_principal_policy(
 ) -> std::result::Result<
     crate::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyOutputBuilder,
     ::aws_smithy_xml::decode::XmlDecodeError,
->{
+> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

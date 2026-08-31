@@ -26,17 +26,13 @@ impl ::aws_types::request_id::RequestId for CreateServiceEnvironmentOutput {
 }
 impl CreateServiceEnvironmentOutput {
     /// Creates a new builder-style object to manufacture [`CreateServiceEnvironmentOutput`](crate::operation::create_service_environment::CreateServiceEnvironmentOutput).
-    pub fn builder(
-    ) -> crate::operation::create_service_environment::builders::CreateServiceEnvironmentOutputBuilder
-    {
+    pub fn builder() -> crate::operation::create_service_environment::builders::CreateServiceEnvironmentOutputBuilder {
         crate::operation::create_service_environment::builders::CreateServiceEnvironmentOutputBuilder::default()
     }
 }
 
 /// A builder for [`CreateServiceEnvironmentOutput`](crate::operation::create_service_environment::CreateServiceEnvironmentOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateServiceEnvironmentOutputBuilder {
     pub(crate) service_environment_name: ::std::option::Option<::std::string::String>,
@@ -46,18 +42,12 @@ pub struct CreateServiceEnvironmentOutputBuilder {
 impl CreateServiceEnvironmentOutputBuilder {
     /// <p>The name of the service environment.</p>
     /// This field is required.
-    pub fn service_environment_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_environment_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.service_environment_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the service environment.</p>
-    pub fn set_service_environment_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_service_environment_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.service_environment_name = input;
         self
     }
@@ -67,18 +57,12 @@ impl CreateServiceEnvironmentOutputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the service environment.</p>
     /// This field is required.
-    pub fn service_environment_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_environment_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.service_environment_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the service environment.</p>
-    pub fn set_service_environment_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_service_environment_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.service_environment_arn = input;
         self
     }
@@ -96,9 +80,7 @@ impl CreateServiceEnvironmentOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateServiceEnvironmentOutput`](crate::operation::create_service_environment::CreateServiceEnvironmentOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::create_service_environment::CreateServiceEnvironmentOutput {
+    pub fn build(self) -> crate::operation::create_service_environment::CreateServiceEnvironmentOutput {
         crate::operation::create_service_environment::CreateServiceEnvironmentOutput {
             service_environment_name: self.service_environment_name,
             service_environment_arn: self.service_environment_arn,

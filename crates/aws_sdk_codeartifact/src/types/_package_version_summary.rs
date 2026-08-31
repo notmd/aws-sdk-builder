@@ -40,9 +40,7 @@ impl PackageVersionSummary {
 }
 
 /// A builder for [`PackageVersionSummary`](crate::types::PackageVersionSummary).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PackageVersionSummaryBuilder {
     pub(crate) version: ::std::option::Option<::std::string::String>,
@@ -87,10 +85,7 @@ impl PackageVersionSummaryBuilder {
         self
     }
     /// <p>A string that contains the status of the package version. It can be one of the following:</p>
-    pub fn set_status(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageVersionStatus>,
-    ) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::PackageVersionStatus>) -> Self {
         self.status = input;
         self
     }
@@ -104,10 +99,7 @@ impl PackageVersionSummaryBuilder {
         self
     }
     /// <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionOrigin.html">PackageVersionOrigin</a> object that contains information about how the package version was added to the repository.</p>
-    pub fn set_origin(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageVersionOrigin>,
-    ) -> Self {
+    pub fn set_origin(mut self, input: ::std::option::Option<crate::types::PackageVersionOrigin>) -> Self {
         self.origin = input;
         self
     }
@@ -121,10 +113,8 @@ impl PackageVersionSummaryBuilder {
     /// - [`status`](crate::types::builders::PackageVersionSummaryBuilder::status)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::PackageVersionSummary,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::PackageVersionSummary, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::PackageVersionSummary {
             version: self.version.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

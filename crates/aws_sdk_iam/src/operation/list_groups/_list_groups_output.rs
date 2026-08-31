@@ -40,9 +40,7 @@ impl ListGroupsOutput {
 }
 
 /// A builder for [`ListGroupsOutput`](crate::operation::list_groups::ListGroupsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListGroupsOutputBuilder {
     pub(crate) groups: ::std::option::Option<::std::vec::Vec<crate::types::Group>>,
@@ -63,10 +61,7 @@ impl ListGroupsOutputBuilder {
         self
     }
     /// <p>A list of groups.</p>
-    pub fn set_groups(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Group>>,
-    ) -> Self {
+    pub fn set_groups(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Group>>) -> Self {
         self.groups = input;
         self
     }

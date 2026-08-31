@@ -22,14 +22,10 @@ impl GuardrailChecksPromptAttackResult {
 }
 
 /// A builder for [`GuardrailChecksPromptAttackResult`](crate::types::GuardrailChecksPromptAttackResult).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailChecksPromptAttackResultBuilder {
-    pub(crate) results: ::std::option::Option<
-        ::std::vec::Vec<crate::types::GuardrailChecksPromptAttackResultEntry>,
-    >,
+    pub(crate) results: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksPromptAttackResultEntry>>,
 }
 impl GuardrailChecksPromptAttackResultBuilder {
     /// Appends an item to `results`.
@@ -46,9 +42,7 @@ impl GuardrailChecksPromptAttackResultBuilder {
     /// <p>The per-category prompt attack results.</p>
     pub fn set_results(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GuardrailChecksPromptAttackResultEntry>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksPromptAttackResultEntry>>,
     ) -> Self {
         self.results = input;
         self
@@ -56,8 +50,7 @@ impl GuardrailChecksPromptAttackResultBuilder {
     /// <p>The per-category prompt attack results.</p>
     pub fn get_results(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksPromptAttackResultEntry>>
-    {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksPromptAttackResultEntry>> {
         &self.results
     }
     /// Consumes the builder and constructs a [`GuardrailChecksPromptAttackResult`](crate::types::GuardrailChecksPromptAttackResult).

@@ -60,8 +60,7 @@ impl DeleteComputeEnvironmentFluentBuilder {
     /// Access the DeleteComputeEnvironment as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::delete_compute_environment::builders::DeleteComputeEnvironmentInputBuilder
-    {
+    ) -> &crate::operation::delete_compute_environment::builders::DeleteComputeEnvironmentInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,16 +84,14 @@ impl DeleteComputeEnvironmentFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::delete_compute_environment::DeleteComputeEnvironment::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::delete_compute_environment::DeleteComputeEnvironment::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::delete_compute_environment::DeleteComputeEnvironment::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::delete_compute_environment::DeleteComputeEnvironment::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -123,18 +120,12 @@ impl DeleteComputeEnvironmentFluentBuilder {
         self
     }
     /// <p>The name or Amazon Resource Name (ARN) of the compute environment to delete.</p>
-    pub fn compute_environment(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn compute_environment(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.compute_environment(input.into());
         self
     }
     /// <p>The name or Amazon Resource Name (ARN) of the compute environment to delete.</p>
-    pub fn set_compute_environment(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_compute_environment(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_compute_environment(input);
         self
     }

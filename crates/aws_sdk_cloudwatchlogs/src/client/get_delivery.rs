@@ -7,9 +7,7 @@ impl super::Client {
     /// - On success, responds with [`GetDeliveryOutput`](crate::operation::get_delivery::GetDeliveryOutput) with field(s):
     ///   - [`delivery(Option<Delivery>)`](crate::operation::get_delivery::GetDeliveryOutput::delivery): <p>A structure that contains information about the delivery.</p>
     /// - On failure, responds with [`SdkError<GetDeliveryError>`](crate::operation::get_delivery::GetDeliveryError)
-    pub fn get_delivery(
-        &self,
-    ) -> crate::operation::get_delivery::builders::GetDeliveryFluentBuilder {
+    pub fn get_delivery(&self) -> crate::operation::get_delivery::builders::GetDeliveryFluentBuilder {
         crate::operation::get_delivery::builders::GetDeliveryFluentBuilder::new(self.handle.clone())
     }
 }

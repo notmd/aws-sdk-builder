@@ -50,9 +50,7 @@ impl GenerateDataKeyPairWithoutPlaintextOutput {
 }
 
 /// A builder for [`GenerateDataKeyPairWithoutPlaintextOutput`](crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GenerateDataKeyPairWithoutPlaintextOutputBuilder {
     pub(crate) private_key_ciphertext_blob: ::std::option::Option<::aws_smithy_types::Blob>,
@@ -69,17 +67,12 @@ impl GenerateDataKeyPairWithoutPlaintextOutputBuilder {
         self
     }
     /// <p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub fn set_private_key_ciphertext_blob(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::Blob>,
-    ) -> Self {
+    pub fn set_private_key_ciphertext_blob(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.private_key_ciphertext_blob = input;
         self
     }
     /// <p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub fn get_private_key_ciphertext_blob(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::Blob> {
+    pub fn get_private_key_ciphertext_blob(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.private_key_ciphertext_blob
     }
     /// <p>The public key (in plaintext). When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -88,10 +81,7 @@ impl GenerateDataKeyPairWithoutPlaintextOutputBuilder {
         self
     }
     /// <p>The public key (in plaintext). When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub fn set_public_key(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::Blob>,
-    ) -> Self {
+    pub fn set_public_key(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.public_key = input;
         self
     }
@@ -119,10 +109,7 @@ impl GenerateDataKeyPairWithoutPlaintextOutputBuilder {
         self
     }
     /// <p>The type of data key pair that was generated.</p>
-    pub fn set_key_pair_spec(
-        mut self,
-        input: ::std::option::Option<crate::types::DataKeyPairSpec>,
-    ) -> Self {
+    pub fn set_key_pair_spec(mut self, input: ::std::option::Option<crate::types::DataKeyPairSpec>) -> Self {
         self.key_pair_spec = input;
         self
     }
@@ -131,18 +118,12 @@ impl GenerateDataKeyPairWithoutPlaintextOutputBuilder {
         &self.key_pair_spec
     }
     /// <p>The identifier of the key material used to encrypt the private key.</p>
-    pub fn key_material_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn key_material_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key_material_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The identifier of the key material used to encrypt the private key.</p>
-    pub fn set_key_material_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_material_id = input;
         self
     }
@@ -160,7 +141,9 @@ impl GenerateDataKeyPairWithoutPlaintextOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GenerateDataKeyPairWithoutPlaintextOutput`](crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextOutput).
-    pub fn build(self) -> crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextOutput {
         crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextOutput {
             private_key_ciphertext_blob: self.private_key_ciphertext_blob,
             public_key: self.public_key,

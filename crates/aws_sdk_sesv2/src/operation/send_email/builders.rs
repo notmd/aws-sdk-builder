@@ -123,18 +123,12 @@ impl SendEmailFluentBuilder {
         self
     }
     /// <p>The email address to use as the "From" address for the email. The address that you specify has to be verified.</p>
-    pub fn from_email_address(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn from_email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.from_email_address(input.into());
         self
     }
     /// <p>The email address to use as the "From" address for the email. The address that you specify has to be verified.</p>
-    pub fn set_from_email_address(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_from_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_from_email_address(input);
         self
     }
@@ -146,10 +140,7 @@ impl SendEmailFluentBuilder {
     /// <p>For example, if the owner of example.com (which has ARN arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that authorizes you to use sender@example.com, then you would specify the <code>FromEmailAddressIdentityArn</code> to be arn:aws:ses:us-east-1:123456789012:identity/example.com, and the <code>FromEmailAddress</code> to be sender@example.com.</p>
     /// <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
     /// <p>For Raw emails, the <code>FromEmailAddressIdentityArn</code> value overrides the X-SES-SOURCE-ARN and X-SES-FROM-ARN headers specified in raw email message content.</p>
-    pub fn from_email_address_identity_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn from_email_address_identity_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.from_email_address_identity_arn(input.into());
         self
     }
@@ -157,10 +148,7 @@ impl SendEmailFluentBuilder {
     /// <p>For example, if the owner of example.com (which has ARN arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that authorizes you to use sender@example.com, then you would specify the <code>FromEmailAddressIdentityArn</code> to be arn:aws:ses:us-east-1:123456789012:identity/example.com, and the <code>FromEmailAddress</code> to be sender@example.com.</p>
     /// <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
     /// <p>For Raw emails, the <code>FromEmailAddressIdentityArn</code> value overrides the X-SES-SOURCE-ARN and X-SES-FROM-ARN headers specified in raw email message content.</p>
-    pub fn set_from_email_address_identity_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_from_email_address_identity_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_from_email_address_identity_arn(input);
         self
     }
@@ -168,9 +156,7 @@ impl SendEmailFluentBuilder {
     /// <p>For example, if the owner of example.com (which has ARN arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that authorizes you to use sender@example.com, then you would specify the <code>FromEmailAddressIdentityArn</code> to be arn:aws:ses:us-east-1:123456789012:identity/example.com, and the <code>FromEmailAddress</code> to be sender@example.com.</p>
     /// <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
     /// <p>For Raw emails, the <code>FromEmailAddressIdentityArn</code> value overrides the X-SES-SOURCE-ARN and X-SES-FROM-ARN headers specified in raw email message content.</p>
-    pub fn get_from_email_address_identity_arn(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_from_email_address_identity_arn(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_from_email_address_identity_arn()
     }
     /// <p>An object that contains the recipients of the email message.</p>
@@ -179,10 +165,7 @@ impl SendEmailFluentBuilder {
         self
     }
     /// <p>An object that contains the recipients of the email message.</p>
-    pub fn set_destination(
-        mut self,
-        input: ::std::option::Option<crate::types::Destination>,
-    ) -> Self {
+    pub fn set_destination(mut self, input: ::std::option::Option<crate::types::Destination>) -> Self {
         self.inner = self.inner.set_destination(input);
         self
     }
@@ -196,10 +179,7 @@ impl SendEmailFluentBuilder {
     /// To override the contents of this collection use [`set_reply_to_addresses`](Self::set_reply_to_addresses).
     ///
     /// <p>The "Reply-to" email addresses for the message. When the recipient replies to the message, each Reply-to address receives the reply.</p>
-    pub fn reply_to_addresses(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn reply_to_addresses(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.reply_to_addresses(input.into());
         self
     }
@@ -212,9 +192,7 @@ impl SendEmailFluentBuilder {
         self
     }
     /// <p>The "Reply-to" email addresses for the message. When the recipient replies to the message, each Reply-to address receives the reply.</p>
-    pub fn get_reply_to_addresses(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_reply_to_addresses(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_reply_to_addresses()
     }
     /// <p>The address that you want bounce and complaint notifications to be sent to.</p>
@@ -234,9 +212,7 @@ impl SendEmailFluentBuilder {
         self
     }
     /// <p>The address that you want bounce and complaint notifications to be sent to.</p>
-    pub fn get_feedback_forwarding_email_address(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_feedback_forwarding_email_address(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_feedback_forwarding_email_address()
     }
     /// <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>FeedbackForwardingEmailAddress</code> parameter.</p>
@@ -246,9 +222,7 @@ impl SendEmailFluentBuilder {
         mut self,
         input: impl ::std::convert::Into<::std::string::String>,
     ) -> Self {
-        self.inner = self
-            .inner
-            .feedback_forwarding_email_address_identity_arn(input.into());
+        self.inner = self.inner.feedback_forwarding_email_address_identity_arn(input.into());
         self
     }
     /// <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>FeedbackForwardingEmailAddress</code> parameter.</p>
@@ -258,19 +232,14 @@ impl SendEmailFluentBuilder {
         mut self,
         input: ::std::option::Option<::std::string::String>,
     ) -> Self {
-        self.inner = self
-            .inner
-            .set_feedback_forwarding_email_address_identity_arn(input);
+        self.inner = self.inner.set_feedback_forwarding_email_address_identity_arn(input);
         self
     }
     /// <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>FeedbackForwardingEmailAddress</code> parameter.</p>
     /// <p>For example, if the owner of example.com (which has ARN arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that authorizes you to use feedback@example.com, then you would specify the <code>FeedbackForwardingEmailAddressIdentityArn</code> to be arn:aws:ses:us-east-1:123456789012:identity/example.com, and the <code>FeedbackForwardingEmailAddress</code> to be feedback@example.com.</p>
     /// <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
-    pub fn get_feedback_forwarding_email_address_identity_arn(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
-        self.inner
-            .get_feedback_forwarding_email_address_identity_arn()
+    pub fn get_feedback_forwarding_email_address_identity_arn(&self) -> &::std::option::Option<::std::string::String> {
+        self.inner.get_feedback_forwarding_email_address_identity_arn()
     }
     /// <p>An object that contains the body of the message. You can send either a Simple message, Raw message, or a Templated message.</p>
     pub fn content(mut self, input: crate::types::EmailContent) -> Self {
@@ -297,32 +266,21 @@ impl SendEmailFluentBuilder {
         self
     }
     /// <p>A list of tags, in the form of name/value pairs, to apply to an email that you send using the <code>SendEmail</code> operation. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.</p>
-    pub fn set_email_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::MessageTag>>,
-    ) -> Self {
+    pub fn set_email_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MessageTag>>) -> Self {
         self.inner = self.inner.set_email_tags(input);
         self
     }
     /// <p>A list of tags, in the form of name/value pairs, to apply to an email that you send using the <code>SendEmail</code> operation. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.</p>
-    pub fn get_email_tags(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::MessageTag>> {
+    pub fn get_email_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MessageTag>> {
         self.inner.get_email_tags()
     }
     /// <p>The name of the configuration set to use when sending the email.</p>
-    pub fn configuration_set_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_set_name(input.into());
         self
     }
     /// <p>The name of the configuration set to use when sending the email.</p>
-    pub fn set_configuration_set_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_set_name(input);
         self
     }
@@ -378,9 +336,7 @@ impl SendEmailFluentBuilder {
         self
     }
     /// <p>An object used to specify a list or topic to which an email belongs, which will be used when a contact chooses to unsubscribe.</p>
-    pub fn get_list_management_options(
-        &self,
-    ) -> &::std::option::Option<crate::types::ListManagementOptions> {
+    pub fn get_list_management_options(&self) -> &::std::option::Option<crate::types::ListManagementOptions> {
         self.inner.get_list_management_options()
     }
     /// <p>An object that overrides, for this message only, settings that would otherwise apply to it. Each setting that you don't override keeps the value that already applies.</p>
@@ -397,9 +353,7 @@ impl SendEmailFluentBuilder {
         self
     }
     /// <p>An object that overrides, for this message only, settings that would otherwise apply to it. Each setting that you don't override keeps the value that already applies.</p>
-    pub fn get_configuration_overrides(
-        &self,
-    ) -> &::std::option::Option<crate::types::ConfigurationOverrides> {
+    pub fn get_configuration_overrides(&self) -> &::std::option::Option<crate::types::ConfigurationOverrides> {
         self.inner.get_configuration_overrides()
     }
 }

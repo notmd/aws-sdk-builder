@@ -22,14 +22,11 @@ impl GuardrailChecksContentFilterConfig {
 }
 
 /// A builder for [`GuardrailChecksContentFilterConfig`](crate::types::GuardrailChecksContentFilterConfig).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailChecksContentFilterConfigBuilder {
-    pub(crate) categories: ::std::option::Option<
-        ::std::vec::Vec<crate::types::GuardrailChecksContentFilterCategoryConfig>,
-    >,
+    pub(crate) categories:
+        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksContentFilterCategoryConfig>>,
 }
 impl GuardrailChecksContentFilterConfigBuilder {
     /// Appends an item to `categories`.
@@ -37,10 +34,7 @@ impl GuardrailChecksContentFilterConfigBuilder {
     /// To override the contents of this collection use [`set_categories`](Self::set_categories).
     ///
     /// <p>The content filter categories to evaluate.</p>
-    pub fn categories(
-        mut self,
-        input: crate::types::GuardrailChecksContentFilterCategoryConfig,
-    ) -> Self {
+    pub fn categories(mut self, input: crate::types::GuardrailChecksContentFilterCategoryConfig) -> Self {
         let mut v = self.categories.unwrap_or_default();
         v.push(input);
         self.categories = ::std::option::Option::Some(v);
@@ -49,9 +43,7 @@ impl GuardrailChecksContentFilterConfigBuilder {
     /// <p>The content filter categories to evaluate.</p>
     pub fn set_categories(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GuardrailChecksContentFilterCategoryConfig>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksContentFilterCategoryConfig>>,
     ) -> Self {
         self.categories = input;
         self
@@ -59,9 +51,7 @@ impl GuardrailChecksContentFilterConfigBuilder {
     /// <p>The content filter categories to evaluate.</p>
     pub fn get_categories(
         &self,
-    ) -> &::std::option::Option<
-        ::std::vec::Vec<crate::types::GuardrailChecksContentFilterCategoryConfig>,
-    > {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksContentFilterCategoryConfig>> {
         &self.categories
     }
     /// Consumes the builder and constructs a [`GuardrailChecksContentFilterConfig`](crate::types::GuardrailChecksContentFilterConfig).

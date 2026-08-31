@@ -44,9 +44,7 @@ impl GetAggregateDiscoveredResourceCountsInput {
 }
 
 /// A builder for [`GetAggregateDiscoveredResourceCountsInput`](crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetAggregateDiscoveredResourceCountsInputBuilder {
     pub(crate) configuration_aggregator_name: ::std::option::Option<::std::string::String>,
@@ -58,25 +56,17 @@ pub struct GetAggregateDiscoveredResourceCountsInputBuilder {
 impl GetAggregateDiscoveredResourceCountsInputBuilder {
     /// <p>The name of the configuration aggregator.</p>
     /// This field is required.
-    pub fn configuration_aggregator_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.configuration_aggregator_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn set_configuration_aggregator_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_aggregator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.configuration_aggregator_name = input;
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn get_configuration_aggregator_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_configuration_aggregator_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.configuration_aggregator_name
     }
     /// <p>Filters the results based on the <code>ResourceCountFilters</code> object.</p>
@@ -85,10 +75,7 @@ impl GetAggregateDiscoveredResourceCountsInputBuilder {
         self
     }
     /// <p>Filters the results based on the <code>ResourceCountFilters</code> object.</p>
-    pub fn set_filters(
-        mut self,
-        input: ::std::option::Option<crate::types::ResourceCountFilters>,
-    ) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<crate::types::ResourceCountFilters>) -> Self {
         self.filters = input;
         self
     }
@@ -102,10 +89,7 @@ impl GetAggregateDiscoveredResourceCountsInputBuilder {
         self
     }
     /// <p>The key to group the resource counts.</p>
-    pub fn set_group_by_key(
-        mut self,
-        input: ::std::option::Option<crate::types::ResourceCountGroupKey>,
-    ) -> Self {
+    pub fn set_group_by_key(mut self, input: ::std::option::Option<crate::types::ResourceCountGroupKey>) -> Self {
         self.group_by_key = input;
         self
     }
@@ -147,7 +131,7 @@ impl GetAggregateDiscoveredResourceCountsInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsInput {
                 configuration_aggregator_name: self.configuration_aggregator_name,

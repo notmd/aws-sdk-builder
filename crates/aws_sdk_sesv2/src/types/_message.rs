@@ -43,9 +43,7 @@ impl Message {
 }
 
 /// A builder for [`Message`](crate::types::Message).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct MessageBuilder {
     pub(crate) subject: ::std::option::Option<crate::types::Content>,
@@ -96,17 +94,12 @@ impl MessageBuilder {
         self
     }
     /// <p>The list of message headers that will be added to the email message.</p>
-    pub fn set_headers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::MessageHeader>>,
-    ) -> Self {
+    pub fn set_headers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MessageHeader>>) -> Self {
         self.headers = input;
         self
     }
     /// <p>The list of message headers that will be added to the email message.</p>
-    pub fn get_headers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::MessageHeader>> {
+    pub fn get_headers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MessageHeader>> {
         &self.headers
     }
     /// Appends an item to `attachments`.
@@ -121,17 +114,12 @@ impl MessageBuilder {
         self
     }
     /// <p>The List of attachments to include in your email. All recipients will receive the same attachments.</p>
-    pub fn set_attachments(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Attachment>>,
-    ) -> Self {
+    pub fn set_attachments(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Attachment>>) -> Self {
         self.attachments = input;
         self
     }
     /// <p>The List of attachments to include in your email. All recipients will receive the same attachments.</p>
-    pub fn get_attachments(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Attachment>> {
+    pub fn get_attachments(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Attachment>> {
         &self.attachments
     }
     /// Consumes the builder and constructs a [`Message`](crate::types::Message).

@@ -82,12 +82,11 @@ impl GetQueueUrlFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::get_queue_url::GetQueueUrl::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::get_queue_url::GetQueueUrl::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::get_queue_url::GetQueueUrl::orchestrate(&runtime_plugins, input).await
     }
 
@@ -131,18 +130,12 @@ impl GetQueueUrlFluentBuilder {
         self.inner.get_queue_name()
     }
     /// <p>(Optional) The Amazon Web Services account ID of the account that created the queue. This is only required when you are attempting to access a queue owned by another Amazon Web Services account.</p>
-    pub fn queue_owner_aws_account_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn queue_owner_aws_account_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.queue_owner_aws_account_id(input.into());
         self
     }
     /// <p>(Optional) The Amazon Web Services account ID of the account that created the queue. This is only required when you are attempting to access a queue owned by another Amazon Web Services account.</p>
-    pub fn set_queue_owner_aws_account_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_queue_owner_aws_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_queue_owner_aws_account_id(input);
         self
     }

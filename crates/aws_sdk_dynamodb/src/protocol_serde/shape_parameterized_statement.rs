@@ -12,19 +12,14 @@ pub fn ser_parameterized_statement(
             {
                 #[allow(unused_mut)]
                 let mut object_4 = array_2.value().start_object();
-                crate::protocol_serde::shape_attribute_value::ser_attribute_value(
-                    &mut object_4,
-                    item_3,
-                )?;
+                crate::protocol_serde::shape_attribute_value::ser_attribute_value(&mut object_4, item_3)?;
                 object_4.finish();
             }
         }
         array_2.finish();
     }
     if let Some(var_5) = &input.return_values_on_condition_check_failure {
-        object
-            .key("ReturnValuesOnConditionCheckFailure")
-            .string(var_5.as_str());
+        object.key("ReturnValuesOnConditionCheckFailure").string(var_5.as_str());
     }
     Ok(())
 }

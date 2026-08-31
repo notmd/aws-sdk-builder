@@ -61,7 +61,9 @@ impl DescribeRemediationExceptionsFluentBuilder {
         }
     }
     /// Access the DescribeRemediationExceptions as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,12 +87,17 @@ impl DescribeRemediationExceptionsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::describe_remediation_exceptions::DescribeRemediationExceptions::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::describe_remediation_exceptions::DescribeRemediationExceptions::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::describe_remediation_exceptions::DescribeRemediationExceptions::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::describe_remediation_exceptions::DescribeRemediationExceptions::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -121,22 +128,21 @@ impl DescribeRemediationExceptionsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_remediation_exceptions::paginator::DescribeRemediationExceptionsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::describe_remediation_exceptions::paginator::DescribeRemediationExceptionsPaginator{
-        crate::operation::describe_remediation_exceptions::paginator::DescribeRemediationExceptionsPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::describe_remediation_exceptions::paginator::DescribeRemediationExceptionsPaginator {
+        crate::operation::describe_remediation_exceptions::paginator::DescribeRemediationExceptionsPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The name of the Config rule.</p>
-    pub fn config_rule_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.config_rule_name(input.into());
         self
     }
     /// <p>The name of the Config rule.</p>
-    pub fn set_config_rule_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_config_rule_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_config_rule_name(input);
         self
     }
@@ -157,9 +163,7 @@ impl DescribeRemediationExceptionsFluentBuilder {
     /// <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys.</p>
     pub fn set_resource_keys(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::RemediationExceptionResourceKey>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>>,
     ) -> Self {
         self.inner = self.inner.set_resource_keys(input);
         self
@@ -167,8 +171,7 @@ impl DescribeRemediationExceptionsFluentBuilder {
     /// <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys.</p>
     pub fn get_resource_keys(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>>
-    {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>> {
         self.inner.get_resource_keys()
     }
     /// <p>The maximum number of RemediationExceptionResourceKey returned on each page. The default is 25. If you specify 0, Config uses the default.</p>

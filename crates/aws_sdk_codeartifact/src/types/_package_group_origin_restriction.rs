@@ -19,9 +19,7 @@ impl PackageGroupOriginRestriction {
         self.mode.as_ref()
     }
     /// <p>The effective package group origin restriction setting. If the value of <code>mode</code> is <code>ALLOW</code>, <code>ALLOW_SPECIFIC_REPOSITORIES</code>, or <code>BLOCK</code>, then the value of <code>effectiveMode</code> is the same. Otherwise, when the value of <code>mode</code> is <code>INHERIT</code>, then the value of <code>effectiveMode</code> is the value of <code>mode</code> of the first parent group which does not have a value of <code>INHERIT</code>.</p>
-    pub fn effective_mode(
-        &self,
-    ) -> ::std::option::Option<&crate::types::PackageGroupOriginRestrictionMode> {
+    pub fn effective_mode(&self) -> ::std::option::Option<&crate::types::PackageGroupOriginRestrictionMode> {
         self.effective_mode.as_ref()
     }
     /// <p>The parent package group that the package group origin restrictions are inherited from.</p>
@@ -41,14 +39,11 @@ impl PackageGroupOriginRestriction {
 }
 
 /// A builder for [`PackageGroupOriginRestriction`](crate::types::PackageGroupOriginRestriction).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PackageGroupOriginRestrictionBuilder {
     pub(crate) mode: ::std::option::Option<crate::types::PackageGroupOriginRestrictionMode>,
-    pub(crate) effective_mode:
-        ::std::option::Option<crate::types::PackageGroupOriginRestrictionMode>,
+    pub(crate) effective_mode: ::std::option::Option<crate::types::PackageGroupOriginRestrictionMode>,
     pub(crate) inherited_from: ::std::option::Option<crate::types::PackageGroupReference>,
     pub(crate) repositories_count: ::std::option::Option<i64>,
 }
@@ -59,24 +54,16 @@ impl PackageGroupOriginRestrictionBuilder {
         self
     }
     /// <p>The package group origin restriction setting. If the value of <code>mode</code> is <code>ALLOW</code>, <code>ALLOW_SPECIFIC_REPOSITORIES</code>, or <code>BLOCK</code>, then the value of <code>effectiveMode</code> is the same. Otherwise, when the value is <code>INHERIT</code>, then the value of <code>effectiveMode</code> is the value of <code>mode</code> of the first parent group which does not have a value of <code>INHERIT</code>.</p>
-    pub fn set_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageGroupOriginRestrictionMode>,
-    ) -> Self {
+    pub fn set_mode(mut self, input: ::std::option::Option<crate::types::PackageGroupOriginRestrictionMode>) -> Self {
         self.mode = input;
         self
     }
     /// <p>The package group origin restriction setting. If the value of <code>mode</code> is <code>ALLOW</code>, <code>ALLOW_SPECIFIC_REPOSITORIES</code>, or <code>BLOCK</code>, then the value of <code>effectiveMode</code> is the same. Otherwise, when the value is <code>INHERIT</code>, then the value of <code>effectiveMode</code> is the value of <code>mode</code> of the first parent group which does not have a value of <code>INHERIT</code>.</p>
-    pub fn get_mode(
-        &self,
-    ) -> &::std::option::Option<crate::types::PackageGroupOriginRestrictionMode> {
+    pub fn get_mode(&self) -> &::std::option::Option<crate::types::PackageGroupOriginRestrictionMode> {
         &self.mode
     }
     /// <p>The effective package group origin restriction setting. If the value of <code>mode</code> is <code>ALLOW</code>, <code>ALLOW_SPECIFIC_REPOSITORIES</code>, or <code>BLOCK</code>, then the value of <code>effectiveMode</code> is the same. Otherwise, when the value of <code>mode</code> is <code>INHERIT</code>, then the value of <code>effectiveMode</code> is the value of <code>mode</code> of the first parent group which does not have a value of <code>INHERIT</code>.</p>
-    pub fn effective_mode(
-        mut self,
-        input: crate::types::PackageGroupOriginRestrictionMode,
-    ) -> Self {
+    pub fn effective_mode(mut self, input: crate::types::PackageGroupOriginRestrictionMode) -> Self {
         self.effective_mode = ::std::option::Option::Some(input);
         self
     }
@@ -89,9 +76,7 @@ impl PackageGroupOriginRestrictionBuilder {
         self
     }
     /// <p>The effective package group origin restriction setting. If the value of <code>mode</code> is <code>ALLOW</code>, <code>ALLOW_SPECIFIC_REPOSITORIES</code>, or <code>BLOCK</code>, then the value of <code>effectiveMode</code> is the same. Otherwise, when the value of <code>mode</code> is <code>INHERIT</code>, then the value of <code>effectiveMode</code> is the value of <code>mode</code> of the first parent group which does not have a value of <code>INHERIT</code>.</p>
-    pub fn get_effective_mode(
-        &self,
-    ) -> &::std::option::Option<crate::types::PackageGroupOriginRestrictionMode> {
+    pub fn get_effective_mode(&self) -> &::std::option::Option<crate::types::PackageGroupOriginRestrictionMode> {
         &self.effective_mode
     }
     /// <p>The parent package group that the package group origin restrictions are inherited from.</p>
@@ -100,17 +85,12 @@ impl PackageGroupOriginRestrictionBuilder {
         self
     }
     /// <p>The parent package group that the package group origin restrictions are inherited from.</p>
-    pub fn set_inherited_from(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageGroupReference>,
-    ) -> Self {
+    pub fn set_inherited_from(mut self, input: ::std::option::Option<crate::types::PackageGroupReference>) -> Self {
         self.inherited_from = input;
         self
     }
     /// <p>The parent package group that the package group origin restrictions are inherited from.</p>
-    pub fn get_inherited_from(
-        &self,
-    ) -> &::std::option::Option<crate::types::PackageGroupReference> {
+    pub fn get_inherited_from(&self) -> &::std::option::Option<crate::types::PackageGroupReference> {
         &self.inherited_from
     }
     /// <p>The number of repositories in the allowed repository list.</p>

@@ -102,7 +102,9 @@ impl PutBucketMetricsConfigurationFluentBuilder {
         }
     }
     /// Access the PutBucketMetricsConfiguration as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_bucket_metrics_configuration::builders::PutBucketMetricsConfigurationInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::put_bucket_metrics_configuration::builders::PutBucketMetricsConfigurationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -131,7 +133,11 @@ impl PutBucketMetricsConfigurationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_bucket_metrics_configuration::PutBucketMetricsConfiguration::orchestrate(&runtime_plugins, input).await
+        crate::operation::put_bucket_metrics_configuration::PutBucketMetricsConfiguration::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -204,28 +210,20 @@ impl PutBucketMetricsConfigurationFluentBuilder {
         self
     }
     /// <p>Specifies the metrics configuration.</p>
-    pub fn get_metrics_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::MetricsConfiguration> {
+    pub fn get_metrics_configuration(&self) -> &::std::option::Option<crate::types::MetricsConfiguration> {
         self.inner.get_metrics_configuration()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
     /// </note>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
     /// </note>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

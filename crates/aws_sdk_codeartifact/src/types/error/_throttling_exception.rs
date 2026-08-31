@@ -51,9 +51,7 @@ impl ThrottlingException {
 }
 
 /// A builder for [`ThrottlingException`](crate::types::error::ThrottlingException).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ThrottlingExceptionBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
@@ -97,10 +95,7 @@ impl ThrottlingExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(
-        &mut self,
-        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> &mut Self {
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
         self.meta = meta;
         self
     }
@@ -109,10 +104,8 @@ impl ThrottlingExceptionBuilder {
     /// - [`message`](crate::types::error::builders::ThrottlingExceptionBuilder::message)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::error::ThrottlingException,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::error::ThrottlingException, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::error::ThrottlingException {
             message: self.message.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

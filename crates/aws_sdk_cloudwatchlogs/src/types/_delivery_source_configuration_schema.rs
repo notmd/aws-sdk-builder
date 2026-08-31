@@ -55,14 +55,11 @@ impl DeliverySourceConfigurationSchema {
 }
 
 /// A builder for [`DeliverySourceConfigurationSchema`](crate::types::DeliverySourceConfigurationSchema).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeliverySourceConfigurationSchemaBuilder {
     pub(crate) key_name: ::std::option::Option<::std::string::String>,
-    pub(crate) value_type:
-        ::std::option::Option<crate::types::DeliverySourceConfigurationSchemaValueType>,
+    pub(crate) value_type: ::std::option::Option<crate::types::DeliverySourceConfigurationSchemaValueType>,
     pub(crate) default_value: ::std::option::Option<::std::string::String>,
     pub(crate) supported_values: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) min_value: ::std::option::Option<f64>,
@@ -86,10 +83,7 @@ impl DeliverySourceConfigurationSchemaBuilder {
     }
     /// <p>The data type of the configuration value. Valid values are <code>string</code>, <code>boolean</code>, <code>int</code>, <code>double</code>, and <code>long</code>.</p>
     /// This field is required.
-    pub fn value_type(
-        mut self,
-        input: crate::types::DeliverySourceConfigurationSchemaValueType,
-    ) -> Self {
+    pub fn value_type(mut self, input: crate::types::DeliverySourceConfigurationSchemaValueType) -> Self {
         self.value_type = ::std::option::Option::Some(input);
         self
     }
@@ -102,25 +96,17 @@ impl DeliverySourceConfigurationSchemaBuilder {
         self
     }
     /// <p>The data type of the configuration value. Valid values are <code>string</code>, <code>boolean</code>, <code>int</code>, <code>double</code>, and <code>long</code>.</p>
-    pub fn get_value_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::DeliverySourceConfigurationSchemaValueType> {
+    pub fn get_value_type(&self) -> &::std::option::Option<crate::types::DeliverySourceConfigurationSchemaValueType> {
         &self.value_type
     }
     /// <p>The default value of the configuration that is used when a value is not specified in a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a> request.</p>
     /// This field is required.
-    pub fn default_value(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn default_value(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.default_value = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The default value of the configuration that is used when a value is not specified in a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a> request.</p>
-    pub fn set_default_value(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_default_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.default_value = input;
         self
     }
@@ -133,10 +119,7 @@ impl DeliverySourceConfigurationSchemaBuilder {
     /// To override the contents of this collection use [`set_supported_values`](Self::set_supported_values).
     ///
     /// <p>The list of allowed values for the configuration. Empty for free-form configuration.</p>
-    pub fn supported_values(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn supported_values(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.supported_values.unwrap_or_default();
         v.push(input.into());
         self.supported_values = ::std::option::Option::Some(v);
@@ -151,9 +134,7 @@ impl DeliverySourceConfigurationSchemaBuilder {
         self
     }
     /// <p>The list of allowed values for the configuration. Empty for free-form configuration.</p>
-    pub fn get_supported_values(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_supported_values(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.supported_values
     }
     /// <p>The minimum numeric value allowed for the configuration. This applies only when the <code>valueType</code> is a numeric type.</p>

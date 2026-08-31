@@ -20,15 +20,14 @@ impl DescribeDeliveryDestinationsInput {
 }
 impl DescribeDeliveryDestinationsInput {
     /// Creates a new builder-style object to manufacture [`DescribeDeliveryDestinationsInput`](crate::operation::describe_delivery_destinations::DescribeDeliveryDestinationsInput).
-    pub fn builder() -> crate::operation::describe_delivery_destinations::builders::DescribeDeliveryDestinationsInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::describe_delivery_destinations::builders::DescribeDeliveryDestinationsInputBuilder {
         crate::operation::describe_delivery_destinations::builders::DescribeDeliveryDestinationsInputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeDeliveryDestinationsInput`](crate::operation::describe_delivery_destinations::DescribeDeliveryDestinationsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeDeliveryDestinationsInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,

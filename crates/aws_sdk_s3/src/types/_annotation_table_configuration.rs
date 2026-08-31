@@ -7,8 +7,7 @@ pub struct AnnotationTableConfiguration {
     /// <p>The state of the annotation table. Valid values are <code>ENABLED</code> and <code>DISABLED</code>.</p>
     pub configuration_state: crate::types::AnnotationConfigurationState,
     /// <p>The encryption settings for an S3 Metadata journal table or inventory table configuration.</p>
-    pub encryption_configuration:
-        ::std::option::Option<crate::types::MetadataTableEncryptionConfiguration>,
+    pub encryption_configuration: ::std::option::Option<crate::types::MetadataTableEncryptionConfiguration>,
     /// <p>The ARN of the IAM role used to manage the annotation table.</p>
     pub role: ::std::option::Option<::std::string::String>,
 }
@@ -36,24 +35,17 @@ impl AnnotationTableConfiguration {
 }
 
 /// A builder for [`AnnotationTableConfiguration`](crate::types::AnnotationTableConfiguration).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AnnotationTableConfigurationBuilder {
-    pub(crate) configuration_state:
-        ::std::option::Option<crate::types::AnnotationConfigurationState>,
-    pub(crate) encryption_configuration:
-        ::std::option::Option<crate::types::MetadataTableEncryptionConfiguration>,
+    pub(crate) configuration_state: ::std::option::Option<crate::types::AnnotationConfigurationState>,
+    pub(crate) encryption_configuration: ::std::option::Option<crate::types::MetadataTableEncryptionConfiguration>,
     pub(crate) role: ::std::option::Option<::std::string::String>,
 }
 impl AnnotationTableConfigurationBuilder {
     /// <p>The state of the annotation table. Valid values are <code>ENABLED</code> and <code>DISABLED</code>.</p>
     /// This field is required.
-    pub fn configuration_state(
-        mut self,
-        input: crate::types::AnnotationConfigurationState,
-    ) -> Self {
+    pub fn configuration_state(mut self, input: crate::types::AnnotationConfigurationState) -> Self {
         self.configuration_state = ::std::option::Option::Some(input);
         self
     }
@@ -66,16 +58,11 @@ impl AnnotationTableConfigurationBuilder {
         self
     }
     /// <p>The state of the annotation table. Valid values are <code>ENABLED</code> and <code>DISABLED</code>.</p>
-    pub fn get_configuration_state(
-        &self,
-    ) -> &::std::option::Option<crate::types::AnnotationConfigurationState> {
+    pub fn get_configuration_state(&self) -> &::std::option::Option<crate::types::AnnotationConfigurationState> {
         &self.configuration_state
     }
     /// <p>The encryption settings for an S3 Metadata journal table or inventory table configuration.</p>
-    pub fn encryption_configuration(
-        mut self,
-        input: crate::types::MetadataTableEncryptionConfiguration,
-    ) -> Self {
+    pub fn encryption_configuration(mut self, input: crate::types::MetadataTableEncryptionConfiguration) -> Self {
         self.encryption_configuration = ::std::option::Option::Some(input);
         self
     }

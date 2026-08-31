@@ -15,15 +15,13 @@ impl StopConfigurationRecorderInput {
 }
 impl StopConfigurationRecorderInput {
     /// Creates a new builder-style object to manufacture [`StopConfigurationRecorderInput`](crate::operation::stop_configuration_recorder::StopConfigurationRecorderInput).
-    pub fn builder() -> crate::operation::stop_configuration_recorder::builders::StopConfigurationRecorderInputBuilder{
+    pub fn builder() -> crate::operation::stop_configuration_recorder::builders::StopConfigurationRecorderInputBuilder {
         crate::operation::stop_configuration_recorder::builders::StopConfigurationRecorderInputBuilder::default()
     }
 }
 
 /// A builder for [`StopConfigurationRecorderInput`](crate::operation::stop_configuration_recorder::StopConfigurationRecorderInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct StopConfigurationRecorderInputBuilder {
     pub(crate) configuration_recorder_name: ::std::option::Option<::std::string::String>,
@@ -31,18 +29,12 @@ pub struct StopConfigurationRecorderInputBuilder {
 impl StopConfigurationRecorderInputBuilder {
     /// <p>The name of the customer managed configuration recorder that you want to stop.</p>
     /// This field is required.
-    pub fn configuration_recorder_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_recorder_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.configuration_recorder_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the customer managed configuration recorder that you want to stop.</p>
-    pub fn set_configuration_recorder_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_recorder_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.configuration_recorder_name = input;
         self
     }

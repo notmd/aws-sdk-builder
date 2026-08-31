@@ -32,9 +32,7 @@ impl StartLiveTailOutput {
         crate::operation::start_live_tail::builders::StartLiveTailOutputBuilder::default()
     }
     #[allow(unused)]
-    pub(crate) fn into_builder(
-        self,
-    ) -> crate::operation::start_live_tail::builders::StartLiveTailOutputBuilder {
+    pub(crate) fn into_builder(self) -> crate::operation::start_live_tail::builders::StartLiveTailOutputBuilder {
         Self::builder().response_stream(self.response_stream)
     }
 }

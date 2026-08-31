@@ -19,39 +19,27 @@ pub struct EmailAddressInsightsMailboxEvaluations {
 }
 impl EmailAddressInsightsMailboxEvaluations {
     /// <p>Checks that the email address follows proper RFC standards and contains valid characters in the correct format.</p>
-    pub fn has_valid_syntax(
-        &self,
-    ) -> ::std::option::Option<&crate::types::EmailAddressInsightsVerdict> {
+    pub fn has_valid_syntax(&self) -> ::std::option::Option<&crate::types::EmailAddressInsightsVerdict> {
         self.has_valid_syntax.as_ref()
     }
     /// <p>Checks that the domain exists, has valid DNS records, and is conﬁgured to receive email.</p>
-    pub fn has_valid_dns_records(
-        &self,
-    ) -> ::std::option::Option<&crate::types::EmailAddressInsightsVerdict> {
+    pub fn has_valid_dns_records(&self) -> ::std::option::Option<&crate::types::EmailAddressInsightsVerdict> {
         self.has_valid_dns_records.as_ref()
     }
     /// <p>Checks that the mailbox exists and can receive messages without actually sending an email.</p>
-    pub fn mailbox_exists(
-        &self,
-    ) -> ::std::option::Option<&crate::types::EmailAddressInsightsVerdict> {
+    pub fn mailbox_exists(&self) -> ::std::option::Option<&crate::types::EmailAddressInsightsVerdict> {
         self.mailbox_exists.as_ref()
     }
     /// <p>Identiﬁes role-based addresses (such as admin@, support@, or info@) that may have lower engagement rates.</p>
-    pub fn is_role_address(
-        &self,
-    ) -> ::std::option::Option<&crate::types::EmailAddressInsightsVerdict> {
+    pub fn is_role_address(&self) -> ::std::option::Option<&crate::types::EmailAddressInsightsVerdict> {
         self.is_role_address.as_ref()
     }
     /// <p>Checks disposable or temporary email addresses that could negatively impact your sender reputation.</p>
-    pub fn is_disposable(
-        &self,
-    ) -> ::std::option::Option<&crate::types::EmailAddressInsightsVerdict> {
+    pub fn is_disposable(&self) -> ::std::option::Option<&crate::types::EmailAddressInsightsVerdict> {
         self.is_disposable.as_ref()
     }
     /// <p>Checks if the input appears to be random text.</p>
-    pub fn is_random_input(
-        &self,
-    ) -> ::std::option::Option<&crate::types::EmailAddressInsightsVerdict> {
+    pub fn is_random_input(&self) -> ::std::option::Option<&crate::types::EmailAddressInsightsVerdict> {
         self.is_random_input.as_ref()
     }
 }
@@ -63,14 +51,11 @@ impl EmailAddressInsightsMailboxEvaluations {
 }
 
 /// A builder for [`EmailAddressInsightsMailboxEvaluations`](crate::types::EmailAddressInsightsMailboxEvaluations).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EmailAddressInsightsMailboxEvaluationsBuilder {
     pub(crate) has_valid_syntax: ::std::option::Option<crate::types::EmailAddressInsightsVerdict>,
-    pub(crate) has_valid_dns_records:
-        ::std::option::Option<crate::types::EmailAddressInsightsVerdict>,
+    pub(crate) has_valid_dns_records: ::std::option::Option<crate::types::EmailAddressInsightsVerdict>,
     pub(crate) mailbox_exists: ::std::option::Option<crate::types::EmailAddressInsightsVerdict>,
     pub(crate) is_role_address: ::std::option::Option<crate::types::EmailAddressInsightsVerdict>,
     pub(crate) is_disposable: ::std::option::Option<crate::types::EmailAddressInsightsVerdict>,
@@ -91,16 +76,11 @@ impl EmailAddressInsightsMailboxEvaluationsBuilder {
         self
     }
     /// <p>Checks that the email address follows proper RFC standards and contains valid characters in the correct format.</p>
-    pub fn get_has_valid_syntax(
-        &self,
-    ) -> &::std::option::Option<crate::types::EmailAddressInsightsVerdict> {
+    pub fn get_has_valid_syntax(&self) -> &::std::option::Option<crate::types::EmailAddressInsightsVerdict> {
         &self.has_valid_syntax
     }
     /// <p>Checks that the domain exists, has valid DNS records, and is conﬁgured to receive email.</p>
-    pub fn has_valid_dns_records(
-        mut self,
-        input: crate::types::EmailAddressInsightsVerdict,
-    ) -> Self {
+    pub fn has_valid_dns_records(mut self, input: crate::types::EmailAddressInsightsVerdict) -> Self {
         self.has_valid_dns_records = ::std::option::Option::Some(input);
         self
     }
@@ -113,9 +93,7 @@ impl EmailAddressInsightsMailboxEvaluationsBuilder {
         self
     }
     /// <p>Checks that the domain exists, has valid DNS records, and is conﬁgured to receive email.</p>
-    pub fn get_has_valid_dns_records(
-        &self,
-    ) -> &::std::option::Option<crate::types::EmailAddressInsightsVerdict> {
+    pub fn get_has_valid_dns_records(&self) -> &::std::option::Option<crate::types::EmailAddressInsightsVerdict> {
         &self.has_valid_dns_records
     }
     /// <p>Checks that the mailbox exists and can receive messages without actually sending an email.</p>
@@ -132,9 +110,7 @@ impl EmailAddressInsightsMailboxEvaluationsBuilder {
         self
     }
     /// <p>Checks that the mailbox exists and can receive messages without actually sending an email.</p>
-    pub fn get_mailbox_exists(
-        &self,
-    ) -> &::std::option::Option<crate::types::EmailAddressInsightsVerdict> {
+    pub fn get_mailbox_exists(&self) -> &::std::option::Option<crate::types::EmailAddressInsightsVerdict> {
         &self.mailbox_exists
     }
     /// <p>Identiﬁes role-based addresses (such as admin@, support@, or info@) that may have lower engagement rates.</p>
@@ -151,9 +127,7 @@ impl EmailAddressInsightsMailboxEvaluationsBuilder {
         self
     }
     /// <p>Identiﬁes role-based addresses (such as admin@, support@, or info@) that may have lower engagement rates.</p>
-    pub fn get_is_role_address(
-        &self,
-    ) -> &::std::option::Option<crate::types::EmailAddressInsightsVerdict> {
+    pub fn get_is_role_address(&self) -> &::std::option::Option<crate::types::EmailAddressInsightsVerdict> {
         &self.is_role_address
     }
     /// <p>Checks disposable or temporary email addresses that could negatively impact your sender reputation.</p>
@@ -170,9 +144,7 @@ impl EmailAddressInsightsMailboxEvaluationsBuilder {
         self
     }
     /// <p>Checks disposable or temporary email addresses that could negatively impact your sender reputation.</p>
-    pub fn get_is_disposable(
-        &self,
-    ) -> &::std::option::Option<crate::types::EmailAddressInsightsVerdict> {
+    pub fn get_is_disposable(&self) -> &::std::option::Option<crate::types::EmailAddressInsightsVerdict> {
         &self.is_disposable
     }
     /// <p>Checks if the input appears to be random text.</p>
@@ -189,9 +161,7 @@ impl EmailAddressInsightsMailboxEvaluationsBuilder {
         self
     }
     /// <p>Checks if the input appears to be random text.</p>
-    pub fn get_is_random_input(
-        &self,
-    ) -> &::std::option::Option<crate::types::EmailAddressInsightsVerdict> {
+    pub fn get_is_random_input(&self) -> &::std::option::Option<crate::types::EmailAddressInsightsVerdict> {
         &self.is_random_input
     }
     /// Consumes the builder and constructs a [`EmailAddressInsightsMailboxEvaluations`](crate::types::EmailAddressInsightsMailboxEvaluations).

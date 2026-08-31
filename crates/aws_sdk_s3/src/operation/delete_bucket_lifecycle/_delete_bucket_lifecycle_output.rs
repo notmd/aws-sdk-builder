@@ -18,17 +18,13 @@ impl ::aws_types::request_id::RequestId for DeleteBucketLifecycleOutput {
 }
 impl DeleteBucketLifecycleOutput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketLifecycleOutput`](crate::operation::delete_bucket_lifecycle::DeleteBucketLifecycleOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_bucket_lifecycle::builders::DeleteBucketLifecycleOutputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_bucket_lifecycle::builders::DeleteBucketLifecycleOutputBuilder {
         crate::operation::delete_bucket_lifecycle::builders::DeleteBucketLifecycleOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteBucketLifecycleOutput`](crate::operation::delete_bucket_lifecycle::DeleteBucketLifecycleOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteBucketLifecycleOutputBuilder {
     _extended_request_id: Option<String>,
@@ -40,10 +36,7 @@ impl DeleteBucketLifecycleOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

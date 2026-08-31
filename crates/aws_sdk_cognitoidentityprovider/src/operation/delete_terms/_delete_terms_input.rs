@@ -26,9 +26,7 @@ impl DeleteTermsInput {
 }
 
 /// A builder for [`DeleteTermsInput`](crate::operation::delete_terms::DeleteTermsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteTermsInputBuilder {
     pub(crate) terms_id: ::std::option::Option<::std::string::String>,

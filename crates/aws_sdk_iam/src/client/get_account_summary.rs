@@ -9,8 +9,6 @@ impl super::Client {
     pub fn get_account_summary(
         &self,
     ) -> crate::operation::get_account_summary::builders::GetAccountSummaryFluentBuilder {
-        crate::operation::get_account_summary::builders::GetAccountSummaryFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_account_summary::builders::GetAccountSummaryFluentBuilder::new(self.handle.clone())
     }
 }

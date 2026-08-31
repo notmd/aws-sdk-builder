@@ -57,10 +57,7 @@ impl SetEndpointAttributesFluentBuilder {
         }
     }
     /// Access the SetEndpointAttributes as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::set_endpoint_attributes::builders::SetEndpointAttributesInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::set_endpoint_attributes::builders::SetEndpointAttributesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +81,13 @@ impl SetEndpointAttributesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::set_endpoint_attributes::SetEndpointAttributes::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::set_endpoint_attributes::SetEndpointAttributes::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::set_endpoint_attributes::SetEndpointAttributes::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::set_endpoint_attributes::SetEndpointAttributes::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -168,9 +162,7 @@ impl SetEndpointAttributesFluentBuilder {
     /// </ul>
     pub fn set_attributes(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_attributes(input);
         self
@@ -186,9 +178,7 @@ impl SetEndpointAttributesFluentBuilder {
     /// </ul>
     pub fn get_attributes(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_attributes()
     }
 }

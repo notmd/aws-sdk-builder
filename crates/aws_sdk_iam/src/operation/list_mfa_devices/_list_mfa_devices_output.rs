@@ -40,9 +40,7 @@ impl ListMfaDevicesOutput {
 }
 
 /// A builder for [`ListMfaDevicesOutput`](crate::operation::list_mfa_devices::ListMfaDevicesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListMfaDevicesOutputBuilder {
     pub(crate) mfa_devices: ::std::option::Option<::std::vec::Vec<crate::types::MfaDevice>>,
@@ -63,17 +61,12 @@ impl ListMfaDevicesOutputBuilder {
         self
     }
     /// <p>A list of MFA devices.</p>
-    pub fn set_mfa_devices(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::MfaDevice>>,
-    ) -> Self {
+    pub fn set_mfa_devices(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MfaDevice>>) -> Self {
         self.mfa_devices = input;
         self
     }
     /// <p>A list of MFA devices.</p>
-    pub fn get_mfa_devices(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::MfaDevice>> {
+    pub fn get_mfa_devices(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MfaDevice>> {
         &self.mfa_devices
     }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>

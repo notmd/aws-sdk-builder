@@ -16,8 +16,6 @@ impl super::Client {
     pub fn list_retirable_grants(
         &self,
     ) -> crate::operation::list_retirable_grants::builders::ListRetirableGrantsFluentBuilder {
-        crate::operation::list_retirable_grants::builders::ListRetirableGrantsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::list_retirable_grants::builders::ListRetirableGrantsFluentBuilder::new(self.handle.clone())
     }
 }

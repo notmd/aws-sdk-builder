@@ -27,8 +27,7 @@ impl crate::operation::update_delegation_request::builders::UpdateDelegationRequ
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct UpdateDelegationRequestFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::update_delegation_request::builders::UpdateDelegationRequestInputBuilder,
+    inner: crate::operation::update_delegation_request::builders::UpdateDelegationRequestInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -61,8 +60,7 @@ impl UpdateDelegationRequestFluentBuilder {
     /// Access the UpdateDelegationRequest as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::update_delegation_request::builders::UpdateDelegationRequestInputBuilder
-    {
+    ) -> &crate::operation::update_delegation_request::builders::UpdateDelegationRequestInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,16 +84,13 @@ impl UpdateDelegationRequestFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::update_delegation_request::UpdateDelegationRequest::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::update_delegation_request::UpdateDelegationRequest::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::update_delegation_request::UpdateDelegationRequest::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::update_delegation_request::UpdateDelegationRequest::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -124,18 +119,12 @@ impl UpdateDelegationRequestFluentBuilder {
         self
     }
     /// <p>The unique identifier of the delegation request to update.</p>
-    pub fn delegation_request_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delegation_request_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.delegation_request_id(input.into());
         self
     }
     /// <p>The unique identifier of the delegation request to update.</p>
-    pub fn set_delegation_request_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_delegation_request_id(input);
         self
     }

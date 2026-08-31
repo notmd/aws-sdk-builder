@@ -77,10 +77,7 @@ impl ReasoningTextBlockBuilder {
     /// - [`text`](crate::types::builders::ReasoningTextBlockBuilder::text)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::ReasoningTextBlock,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::ReasoningTextBlock, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ReasoningTextBlock {
             text: self.text.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

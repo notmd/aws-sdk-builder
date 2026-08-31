@@ -21,9 +21,7 @@ impl DeleteTenantInput {
 }
 
 /// A builder for [`DeleteTenantInput`](crate::operation::delete_tenant::DeleteTenantInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteTenantInputBuilder {
     pub(crate) tenant_name: ::std::option::Option<::std::string::String>,

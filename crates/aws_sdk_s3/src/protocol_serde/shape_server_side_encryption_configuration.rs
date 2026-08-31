@@ -9,7 +9,10 @@ pub fn ser_server_side_encryption_configuration(
         for list_item_1 in &input.rules {
             {
                 let inner_writer = scope.start_el("Rule");
-                crate::protocol_serde::shape_server_side_encryption_rule::ser_server_side_encryption_rule(list_item_1, inner_writer)?
+                crate::protocol_serde::shape_server_side_encryption_rule::ser_server_side_encryption_rule(
+                    list_item_1,
+                    inner_writer,
+                )?
             }
         }
     }
@@ -21,10 +24,7 @@ pub fn ser_server_side_encryption_configuration(
 pub fn de_server_side_encryption_configuration(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<
-    crate::types::ServerSideEncryptionConfiguration,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<crate::types::ServerSideEncryptionConfiguration, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
             "maximum nesting depth exceeded",

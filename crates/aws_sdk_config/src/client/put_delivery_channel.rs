@@ -9,8 +9,6 @@ impl super::Client {
     pub fn put_delivery_channel(
         &self,
     ) -> crate::operation::put_delivery_channel::builders::PutDeliveryChannelFluentBuilder {
-        crate::operation::put_delivery_channel::builders::PutDeliveryChannelFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::put_delivery_channel::builders::PutDeliveryChannelFluentBuilder::new(self.handle.clone())
     }
 }

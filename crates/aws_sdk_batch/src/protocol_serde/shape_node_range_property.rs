@@ -9,10 +9,7 @@ pub fn ser_node_range_property(
     if let Some(var_2) = &input.container {
         #[allow(unused_mut)]
         let mut object_3 = object.key("container").start_object();
-        crate::protocol_serde::shape_container_properties::ser_container_properties(
-            &mut object_3,
-            var_2,
-        )?;
+        crate::protocol_serde::shape_container_properties::ser_container_properties(&mut object_3, var_2)?;
         object_3.finish();
     }
     if let Some(var_4) = &input.instance_types {
@@ -39,7 +36,10 @@ pub fn ser_node_range_property(
     if let Some(var_11) = &input.consumable_resource_properties {
         #[allow(unused_mut)]
         let mut object_12 = object.key("consumableResourceProperties").start_object();
-        crate::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_12, var_11)?;
+        crate::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(
+            &mut object_12,
+            var_11,
+        )?;
         object_12.finish();
     }
     Ok(())
@@ -62,11 +62,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -76,69 +74,64 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "targetNodes" => {
-                                builder = builder.set_target_nodes(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key
+                        .to_unescaped()?
+                        .as_ref()
+                    {
+                        "targetNodes" => {
+                            builder = builder.set_target_nodes(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                                );
-                            }
-                            "container" => {
-                                builder = builder.set_container(crate::protocol_serde::shape_container_properties::de_container_properties(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
-                            }
-                            "instanceTypes" => {
-                                builder = builder.set_instance_types(
-                                    crate::protocol_serde::shape_string_list::de_string_list(
-                                        tokens,
-                                        _value,
-                                        depth + 1,
-                                    )?,
-                                );
-                            }
-                            "ecsProperties" => {
-                                builder = builder.set_ecs_properties(
-                                    crate::protocol_serde::shape_ecs_properties::de_ecs_properties(
-                                        tokens,
-                                        _value,
-                                        depth + 1,
-                                    )?,
-                                );
-                            }
-                            "eksProperties" => {
-                                builder = builder.set_eks_properties(
-                                    crate::protocol_serde::shape_eks_properties::de_eks_properties(
-                                        tokens,
-                                        _value,
-                                        depth + 1,
-                                    )?,
-                                );
-                            }
-                            "consumableResourceProperties" => {
-                                builder = builder.set_consumable_resource_properties(
+                            );
+                        }
+                        "container" => {
+                            builder = builder.set_container(
+                                crate::protocol_serde::shape_container_properties::de_container_properties(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
+                        "instanceTypes" => {
+                            builder = builder.set_instance_types(
+                                crate::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?,
+                            );
+                        }
+                        "ecsProperties" => {
+                            builder = builder.set_ecs_properties(
+                                crate::protocol_serde::shape_ecs_properties::de_ecs_properties(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
+                        "eksProperties" => {
+                            builder = builder.set_eks_properties(
+                                crate::protocol_serde::shape_eks_properties::de_eks_properties(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
+                        "consumableResourceProperties" => {
+                            builder = builder.set_consumable_resource_properties(
                                 crate::protocol_serde::shape_consumable_resource_properties::de_consumable_resource_properties(
                                     tokens,
                                     _value,
                                     depth + 1,
                                 )?,
                             );
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                    }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
@@ -146,10 +139,8 @@ where
                 crate::serde_util::node_range_property_correct_errors(builder).build(),
             ))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

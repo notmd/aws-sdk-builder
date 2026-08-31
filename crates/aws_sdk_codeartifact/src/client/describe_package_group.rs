@@ -12,8 +12,6 @@ impl super::Client {
     pub fn describe_package_group(
         &self,
     ) -> crate::operation::describe_package_group::builders::DescribePackageGroupFluentBuilder {
-        crate::operation::describe_package_group::builders::DescribePackageGroupFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::describe_package_group::builders::DescribePackageGroupFluentBuilder::new(self.handle.clone())
     }
 }

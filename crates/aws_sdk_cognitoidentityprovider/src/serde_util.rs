@@ -87,8 +87,7 @@ pub(crate) fn describe_resource_server_output_output_correct_errors(
 #[cfg(feature = "op_describe_risk_configuration")]
 pub(crate) fn describe_risk_configuration_output_output_correct_errors(
     mut builder: crate::operation::describe_risk_configuration::builders::DescribeRiskConfigurationOutputBuilder,
-) -> crate::operation::describe_risk_configuration::builders::DescribeRiskConfigurationOutputBuilder
-{
+) -> crate::operation::describe_risk_configuration::builders::DescribeRiskConfigurationOutputBuilder {
     if builder.risk_configuration.is_none() {
         builder.risk_configuration = {
             let builder = crate::types::builders::RiskConfigurationTypeBuilder::default();
@@ -114,7 +113,7 @@ pub(crate) fn get_device_output_output_correct_errors(
 #[cfg(feature = "op_get_identity_provider_by_identifier")]
 pub(crate) fn get_identity_provider_by_identifier_output_output_correct_errors(
     mut builder: crate::operation::get_identity_provider_by_identifier::builders::GetIdentityProviderByIdentifierOutputBuilder,
-) -> crate::operation::get_identity_provider_by_identifier::builders::GetIdentityProviderByIdentifierOutputBuilder{
+) -> crate::operation::get_identity_provider_by_identifier::builders::GetIdentityProviderByIdentifierOutputBuilder {
     if builder.identity_provider.is_none() {
         builder.identity_provider = {
             let builder = crate::types::builders::IdentityProviderTypeBuilder::default();
@@ -255,8 +254,7 @@ pub(crate) fn sign_up_output_output_correct_errors(
 #[cfg(feature = "op_start_web_authn_registration")]
 pub(crate) fn start_web_authn_registration_output_output_correct_errors(
     mut builder: crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationOutputBuilder,
-) -> crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationOutputBuilder
-{
+) -> crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationOutputBuilder {
     if builder.credential_creation_options.is_none() {
         builder.credential_creation_options = Some(Default::default())
     }
@@ -302,10 +300,7 @@ pub(crate) fn update_resource_server_output_output_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_get_provisioned_limit",
-    feature = "op_update_provisioned_limit"
-))]
+#[cfg(any(feature = "op_get_provisioned_limit", feature = "op_update_provisioned_limit"))]
 pub(crate) fn limit_type_correct_errors(
     mut builder: crate::types::builders::LimitTypeBuilder,
 ) -> crate::types::builders::LimitTypeBuilder {
@@ -363,14 +358,10 @@ pub(crate) fn terms_type_correct_errors(
         builder.terms_name = Some(Default::default())
     }
     if builder.terms_source.is_none() {
-        builder.terms_source = "no value was set"
-            .parse::<crate::types::TermsSourceType>()
-            .ok()
+        builder.terms_source = "no value was set".parse::<crate::types::TermsSourceType>().ok()
     }
     if builder.enforcement.is_none() {
-        builder.enforcement = "no value was set"
-            .parse::<crate::types::TermsEnforcementType>()
-            .ok()
+        builder.enforcement = "no value was set".parse::<crate::types::TermsEnforcementType>().ok()
     }
     if builder.links.is_none() {
         builder.links = Some(Default::default())
@@ -379,16 +370,12 @@ pub(crate) fn terms_type_correct_errors(
         builder.creation_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     if builder.last_modified_date.is_none() {
-        builder.last_modified_date =
-            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.last_modified_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }
 
-#[cfg(any(
-    feature = "op_get_provisioned_limit",
-    feature = "op_update_provisioned_limit"
-))]
+#[cfg(any(feature = "op_get_provisioned_limit", feature = "op_update_provisioned_limit"))]
 pub(crate) fn limit_definition_type_correct_errors(
     mut builder: crate::types::builders::LimitDefinitionTypeBuilder,
 ) -> crate::types::builders::LimitDefinitionTypeBuilder {
@@ -401,10 +388,7 @@ pub(crate) fn limit_definition_type_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) fn account_takeover_risk_configuration_type_correct_errors(
     mut builder: crate::types::builders::AccountTakeoverRiskConfigurationTypeBuilder,
 ) -> crate::types::builders::AccountTakeoverRiskConfigurationTypeBuilder {
@@ -440,17 +424,13 @@ pub(crate) fn attribute_type_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) fn compromised_credentials_risk_configuration_type_correct_errors(
     mut builder: crate::types::builders::CompromisedCredentialsRiskConfigurationTypeBuilder,
 ) -> crate::types::builders::CompromisedCredentialsRiskConfigurationTypeBuilder {
     if builder.actions.is_none() {
         builder.actions = {
-            let builder =
-                crate::types::builders::CompromisedCredentialsActionsTypeBuilder::default();
+            let builder = crate::types::builders::CompromisedCredentialsActionsTypeBuilder::default();
             crate::serde_util::compromised_credentials_actions_type_correct_errors(builder)
                 .build()
                 .ok()
@@ -515,16 +495,13 @@ pub(crate) fn terms_description_type_correct_errors(
         builder.terms_name = Some(Default::default())
     }
     if builder.enforcement.is_none() {
-        builder.enforcement = "no value was set"
-            .parse::<crate::types::TermsEnforcementType>()
-            .ok()
+        builder.enforcement = "no value was set".parse::<crate::types::TermsEnforcementType>().ok()
     }
     if builder.creation_date.is_none() {
         builder.creation_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     if builder.last_modified_date.is_none() {
-        builder.last_modified_date =
-            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.last_modified_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }
@@ -587,27 +564,18 @@ pub(crate) fn asset_type_correct_errors(
     mut builder: crate::types::builders::AssetTypeBuilder,
 ) -> crate::types::builders::AssetTypeBuilder {
     if builder.category.is_none() {
-        builder.category = "no value was set"
-            .parse::<crate::types::AssetCategoryType>()
-            .ok()
+        builder.category = "no value was set".parse::<crate::types::AssetCategoryType>().ok()
     }
     if builder.color_mode.is_none() {
-        builder.color_mode = "no value was set"
-            .parse::<crate::types::ColorSchemeModeType>()
-            .ok()
+        builder.color_mode = "no value was set".parse::<crate::types::ColorSchemeModeType>().ok()
     }
     if builder.extension.is_none() {
-        builder.extension = "no value was set"
-            .parse::<crate::types::AssetExtensionType>()
-            .ok()
+        builder.extension = "no value was set".parse::<crate::types::AssetExtensionType>().ok()
     }
     builder
 }
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) fn compromised_credentials_actions_type_correct_errors(
     mut builder: crate::types::builders::CompromisedCredentialsActionsTypeBuilder,
 ) -> crate::types::builders::CompromisedCredentialsActionsTypeBuilder {
@@ -680,9 +648,7 @@ pub(crate) fn event_feedback_type_correct_errors(
     mut builder: crate::types::builders::EventFeedbackTypeBuilder,
 ) -> crate::types::builders::EventFeedbackTypeBuilder {
     if builder.feedback_value.is_none() {
-        builder.feedback_value = "no value was set"
-            .parse::<crate::types::FeedbackValueType>()
-            .ok()
+        builder.feedback_value = "no value was set".parse::<crate::types::FeedbackValueType>().ok()
     }
     if builder.provider.is_none() {
         builder.provider = Some(Default::default())
@@ -721,17 +687,12 @@ pub(crate) fn log_configuration_type_correct_errors(
         builder.log_level = "no value was set".parse::<crate::types::LogLevel>().ok()
     }
     if builder.event_source.is_none() {
-        builder.event_source = "no value was set"
-            .parse::<crate::types::EventSourceName>()
-            .ok()
+        builder.event_source = "no value was set".parse::<crate::types::EventSourceName>().ok()
     }
     builder
 }
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) fn notify_configuration_type_correct_errors(
     mut builder: crate::types::builders::NotifyConfigurationTypeBuilder,
 ) -> crate::types::builders::NotifyConfigurationTypeBuilder {
@@ -779,10 +740,7 @@ pub(crate) fn resource_server_scope_type_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) fn account_takeover_action_type_correct_errors(
     mut builder: crate::types::builders::AccountTakeoverActionTypeBuilder,
 ) -> crate::types::builders::AccountTakeoverActionTypeBuilder {
@@ -797,10 +755,7 @@ pub(crate) fn account_takeover_action_type_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub(crate) fn notify_email_type_correct_errors(
     mut builder: crate::types::builders::NotifyEmailTypeBuilder,
 ) -> crate::types::builders::NotifyEmailTypeBuilder {
@@ -822,9 +777,7 @@ pub(crate) fn recovery_option_type_correct_errors(
         builder.priority = Some(Default::default())
     }
     if builder.name.is_none() {
-        builder.name = "no value was set"
-            .parse::<crate::types::RecoveryOptionNameType>()
-            .ok()
+        builder.name = "no value was set".parse::<crate::types::RecoveryOptionNameType>().ok()
     }
     builder
 }

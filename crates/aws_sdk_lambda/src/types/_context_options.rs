@@ -21,9 +21,7 @@ impl ContextOptions {
 }
 
 /// A builder for [`ContextOptions`](crate::types::ContextOptions).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ContextOptionsBuilder {
     pub(crate) replay_children: ::std::option::Option<bool>,

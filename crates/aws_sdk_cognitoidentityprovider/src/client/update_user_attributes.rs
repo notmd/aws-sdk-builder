@@ -12,8 +12,6 @@ impl super::Client {
     pub fn update_user_attributes(
         &self,
     ) -> crate::operation::update_user_attributes::builders::UpdateUserAttributesFluentBuilder {
-        crate::operation::update_user_attributes::builders::UpdateUserAttributesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::update_user_attributes::builders::UpdateUserAttributesFluentBuilder::new(self.handle.clone())
     }
 }

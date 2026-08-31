@@ -8,9 +8,7 @@ pub(crate) fn de_policy_status_payload(
     (!body.is_empty())
         .then(|| {
             crate::protocol_serde::shape_get_bucket_policy_status_output::de_policy_status(body)
-                .map_err(
-                crate::operation::get_bucket_policy_status::GetBucketPolicyStatusError::unhandled,
-            )
+                .map_err(crate::operation::get_bucket_policy_status::GetBucketPolicyStatusError::unhandled)
         })
         .transpose()
 }

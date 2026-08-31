@@ -33,9 +33,7 @@ impl GetResourceEvaluationSummaryOutput {
         self.evaluation_status.as_ref()
     }
     /// <p>The start timestamp when Config rule starts evaluating compliance for the provided resource details.</p>
-    pub fn evaluation_start_timestamp(
-        &self,
-    ) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn evaluation_start_timestamp(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.evaluation_start_timestamp.as_ref()
     }
     /// <p>The compliance status of the resource evaluation summary.</p>
@@ -58,15 +56,15 @@ impl ::aws_types::request_id::RequestId for GetResourceEvaluationSummaryOutput {
 }
 impl GetResourceEvaluationSummaryOutput {
     /// Creates a new builder-style object to manufacture [`GetResourceEvaluationSummaryOutput`](crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryOutput).
-    pub fn builder() -> crate::operation::get_resource_evaluation_summary::builders::GetResourceEvaluationSummaryOutputBuilder{
-        crate::operation::get_resource_evaluation_summary::builders::GetResourceEvaluationSummaryOutputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::get_resource_evaluation_summary::builders::GetResourceEvaluationSummaryOutputBuilder {
+        crate::operation::get_resource_evaluation_summary::builders::GetResourceEvaluationSummaryOutputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`GetResourceEvaluationSummaryOutput`](crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetResourceEvaluationSummaryOutputBuilder {
     pub(crate) resource_evaluation_id: ::std::option::Option<::std::string::String>,
@@ -80,18 +78,12 @@ pub struct GetResourceEvaluationSummaryOutputBuilder {
 }
 impl GetResourceEvaluationSummaryOutputBuilder {
     /// <p>The unique <code>ResourceEvaluationId</code> of Amazon Web Services resource execution for which you want to retrieve the evaluation summary.</p>
-    pub fn resource_evaluation_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_evaluation_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.resource_evaluation_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique <code>ResourceEvaluationId</code> of Amazon Web Services resource execution for which you want to retrieve the evaluation summary.</p>
-    pub fn set_resource_evaluation_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_resource_evaluation_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.resource_evaluation_id = input;
         self
     }
@@ -105,10 +97,7 @@ impl GetResourceEvaluationSummaryOutputBuilder {
         self
     }
     /// <p>Lists results of the mode that you requested to retrieve the resource evaluation summary. The valid values are Detective or Proactive.</p>
-    pub fn set_evaluation_mode(
-        mut self,
-        input: ::std::option::Option<crate::types::EvaluationMode>,
-    ) -> Self {
+    pub fn set_evaluation_mode(mut self, input: ::std::option::Option<crate::types::EvaluationMode>) -> Self {
         self.evaluation_mode = input;
         self
     }
@@ -122,10 +111,7 @@ impl GetResourceEvaluationSummaryOutputBuilder {
         self
     }
     /// <p>Returns an <code>EvaluationStatus</code> object.</p>
-    pub fn set_evaluation_status(
-        mut self,
-        input: ::std::option::Option<crate::types::EvaluationStatus>,
-    ) -> Self {
+    pub fn set_evaluation_status(mut self, input: ::std::option::Option<crate::types::EvaluationStatus>) -> Self {
         self.evaluation_status = input;
         self
     }
@@ -147,9 +133,7 @@ impl GetResourceEvaluationSummaryOutputBuilder {
         self
     }
     /// <p>The start timestamp when Config rule starts evaluating compliance for the provided resource details.</p>
-    pub fn get_evaluation_start_timestamp(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_evaluation_start_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.evaluation_start_timestamp
     }
     /// <p>The compliance status of the resource evaluation summary.</p>
@@ -158,10 +142,7 @@ impl GetResourceEvaluationSummaryOutputBuilder {
         self
     }
     /// <p>The compliance status of the resource evaluation summary.</p>
-    pub fn set_compliance(
-        mut self,
-        input: ::std::option::Option<crate::types::ComplianceType>,
-    ) -> Self {
+    pub fn set_compliance(mut self, input: ::std::option::Option<crate::types::ComplianceType>) -> Self {
         self.compliance = input;
         self
     }
@@ -175,17 +156,12 @@ impl GetResourceEvaluationSummaryOutputBuilder {
         self
     }
     /// <p>Returns an <code>EvaluationContext</code> object.</p>
-    pub fn set_evaluation_context(
-        mut self,
-        input: ::std::option::Option<crate::types::EvaluationContext>,
-    ) -> Self {
+    pub fn set_evaluation_context(mut self, input: ::std::option::Option<crate::types::EvaluationContext>) -> Self {
         self.evaluation_context = input;
         self
     }
     /// <p>Returns an <code>EvaluationContext</code> object.</p>
-    pub fn get_evaluation_context(
-        &self,
-    ) -> &::std::option::Option<crate::types::EvaluationContext> {
+    pub fn get_evaluation_context(&self) -> &::std::option::Option<crate::types::EvaluationContext> {
         &self.evaluation_context
     }
     /// <p>Returns a <code>ResourceDetails</code> object.</p>
@@ -194,10 +170,7 @@ impl GetResourceEvaluationSummaryOutputBuilder {
         self
     }
     /// <p>Returns a <code>ResourceDetails</code> object.</p>
-    pub fn set_resource_details(
-        mut self,
-        input: ::std::option::Option<crate::types::ResourceDetails>,
-    ) -> Self {
+    pub fn set_resource_details(mut self, input: ::std::option::Option<crate::types::ResourceDetails>) -> Self {
         self.resource_details = input;
         self
     }
@@ -215,9 +188,7 @@ impl GetResourceEvaluationSummaryOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetResourceEvaluationSummaryOutput`](crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryOutput {
+    pub fn build(self) -> crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryOutput {
         crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryOutput {
             resource_evaluation_id: self.resource_evaluation_id,
             evaluation_mode: self.evaluation_mode,

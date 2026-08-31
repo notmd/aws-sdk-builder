@@ -58,7 +58,10 @@ impl DeleteFunctionEventInvokeConfigFluentBuilder {
         }
     }
     /// Access the DeleteFunctionEventInvokeConfig as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::delete_function_event_invoke_config::builders::DeleteFunctionEventInvokeConfigInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -77,7 +80,7 @@ impl DeleteFunctionEventInvokeConfigFluentBuilder {
             crate::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -87,7 +90,11 @@ impl DeleteFunctionEventInvokeConfigFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfig::orchestrate(&runtime_plugins, input).await
+        crate::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfig::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -97,7 +104,7 @@ impl DeleteFunctionEventInvokeConfigFluentBuilder {
         crate::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigOutput,
         crate::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -126,10 +133,7 @@ impl DeleteFunctionEventInvokeConfigFluentBuilder {
     /// <p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -144,10 +148,7 @@ impl DeleteFunctionEventInvokeConfigFluentBuilder {
     /// <p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }

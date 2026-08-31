@@ -8,8 +8,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteRetentionPolicyError>`](crate::operation::delete_retention_policy::DeleteRetentionPolicyError)
     pub fn delete_retention_policy(
         &self,
-    ) -> crate::operation::delete_retention_policy::builders::DeleteRetentionPolicyFluentBuilder
-    {
+    ) -> crate::operation::delete_retention_policy::builders::DeleteRetentionPolicyFluentBuilder {
         crate::operation::delete_retention_policy::builders::DeleteRetentionPolicyFluentBuilder::new(
             self.handle.clone(),
         )

@@ -17,8 +17,7 @@ pub struct InventoryConfiguration {
     /// <p>Contains the optional fields that are included in the inventory results.</p><note>
     /// <p>The following optional fields are supported for directory buckets <code>Size | LastModifiedDate | StorageClass | ETag | IsMultipartUploaded | EncryptionStatus | BucketKeyStatus | ChecksumAlgorithm | LifecycleExpirationDate.</code> Throws MalformedXML error if unsupported optional field is provided.</p>
     /// </note>
-    pub optional_fields:
-        ::std::option::Option<::std::vec::Vec<crate::types::InventoryOptionalField>>,
+    pub optional_fields: ::std::option::Option<::std::vec::Vec<crate::types::InventoryOptionalField>>,
     /// <p>Specifies the schedule for generating inventory results.</p>
     pub schedule: ::std::option::Option<crate::types::InventorySchedule>,
 }
@@ -65,19 +64,15 @@ impl InventoryConfiguration {
 }
 
 /// A builder for [`InventoryConfiguration`](crate::types::InventoryConfiguration).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InventoryConfigurationBuilder {
     pub(crate) destination: ::std::option::Option<crate::types::InventoryDestination>,
     pub(crate) is_enabled: ::std::option::Option<bool>,
     pub(crate) filter: ::std::option::Option<crate::types::InventoryFilter>,
     pub(crate) id: ::std::option::Option<::std::string::String>,
-    pub(crate) included_object_versions:
-        ::std::option::Option<crate::types::InventoryIncludedObjectVersions>,
-    pub(crate) optional_fields:
-        ::std::option::Option<::std::vec::Vec<crate::types::InventoryOptionalField>>,
+    pub(crate) included_object_versions: ::std::option::Option<crate::types::InventoryIncludedObjectVersions>,
+    pub(crate) optional_fields: ::std::option::Option<::std::vec::Vec<crate::types::InventoryOptionalField>>,
     pub(crate) schedule: ::std::option::Option<crate::types::InventorySchedule>,
 }
 impl InventoryConfigurationBuilder {
@@ -88,10 +83,7 @@ impl InventoryConfigurationBuilder {
         self
     }
     /// <p>Contains information about where to publish the inventory results.</p>
-    pub fn set_destination(
-        mut self,
-        input: ::std::option::Option<crate::types::InventoryDestination>,
-    ) -> Self {
+    pub fn set_destination(mut self, input: ::std::option::Option<crate::types::InventoryDestination>) -> Self {
         self.destination = input;
         self
     }
@@ -120,10 +112,7 @@ impl InventoryConfigurationBuilder {
         self
     }
     /// <p>Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.</p>
-    pub fn set_filter(
-        mut self,
-        input: ::std::option::Option<crate::types::InventoryFilter>,
-    ) -> Self {
+    pub fn set_filter(mut self, input: ::std::option::Option<crate::types::InventoryFilter>) -> Self {
         self.filter = input;
         self
     }
@@ -148,10 +137,7 @@ impl InventoryConfigurationBuilder {
     }
     /// <p>Object versions to include in the inventory list. If set to <code>All</code>, the list includes all the object versions, which adds the version-related fields <code>VersionId</code>, <code>IsLatest</code>, and <code>DeleteMarker</code> to the list. If set to <code>Current</code>, the list does not contain these version-related fields.</p>
     /// This field is required.
-    pub fn included_object_versions(
-        mut self,
-        input: crate::types::InventoryIncludedObjectVersions,
-    ) -> Self {
+    pub fn included_object_versions(mut self, input: crate::types::InventoryIncludedObjectVersions) -> Self {
         self.included_object_versions = ::std::option::Option::Some(input);
         self
     }
@@ -195,9 +181,7 @@ impl InventoryConfigurationBuilder {
     /// <p>Contains the optional fields that are included in the inventory results.</p><note>
     /// <p>The following optional fields are supported for directory buckets <code>Size | LastModifiedDate | StorageClass | ETag | IsMultipartUploaded | EncryptionStatus | BucketKeyStatus | ChecksumAlgorithm | LifecycleExpirationDate.</code> Throws MalformedXML error if unsupported optional field is provided.</p>
     /// </note>
-    pub fn get_optional_fields(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::InventoryOptionalField>> {
+    pub fn get_optional_fields(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::InventoryOptionalField>> {
         &self.optional_fields
     }
     /// <p>Specifies the schedule for generating inventory results.</p>
@@ -207,10 +191,7 @@ impl InventoryConfigurationBuilder {
         self
     }
     /// <p>Specifies the schedule for generating inventory results.</p>
-    pub fn set_schedule(
-        mut self,
-        input: ::std::option::Option<crate::types::InventorySchedule>,
-    ) -> Self {
+    pub fn set_schedule(mut self, input: ::std::option::Option<crate::types::InventorySchedule>) -> Self {
         self.schedule = input;
         self
     }
@@ -225,10 +206,8 @@ impl InventoryConfigurationBuilder {
     /// - [`included_object_versions`](crate::types::builders::InventoryConfigurationBuilder::included_object_versions)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::InventoryConfiguration,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::InventoryConfiguration, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::InventoryConfiguration {
             destination: self.destination,
             is_enabled: self.is_enabled.ok_or_else(|| {

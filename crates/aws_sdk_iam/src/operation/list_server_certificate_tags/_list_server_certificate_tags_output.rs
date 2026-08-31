@@ -33,15 +33,14 @@ impl ::aws_types::request_id::RequestId for ListServerCertificateTagsOutput {
 }
 impl ListServerCertificateTagsOutput {
     /// Creates a new builder-style object to manufacture [`ListServerCertificateTagsOutput`](crate::operation::list_server_certificate_tags::ListServerCertificateTagsOutput).
-    pub fn builder() -> crate::operation::list_server_certificate_tags::builders::ListServerCertificateTagsOutputBuilder{
+    pub fn builder() -> crate::operation::list_server_certificate_tags::builders::ListServerCertificateTagsOutputBuilder
+    {
         crate::operation::list_server_certificate_tags::builders::ListServerCertificateTagsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListServerCertificateTagsOutput`](crate::operation::list_server_certificate_tags::ListServerCertificateTagsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListServerCertificateTagsOutputBuilder {
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
@@ -62,10 +61,7 @@ impl ListServerCertificateTagsOutputBuilder {
         self
     }
     /// <p>The list of tags that are currently attached to the IAM server certificate. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
@@ -119,16 +115,18 @@ impl ListServerCertificateTagsOutputBuilder {
         crate::operation::list_server_certificate_tags::ListServerCertificateTagsOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::list_server_certificate_tags::ListServerCertificateTagsOutput {
-            tags: self.tags.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "tags",
-                    "tags was not specified but it is required when building ListServerCertificateTagsOutput",
-                )
-            })?,
-            is_truncated: self.is_truncated.unwrap_or_default(),
-            marker: self.marker,
-            _request_id: self._request_id,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::list_server_certificate_tags::ListServerCertificateTagsOutput {
+                tags: self.tags.ok_or_else(|| {
+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
+                        "tags",
+                        "tags was not specified but it is required when building ListServerCertificateTagsOutput",
+                    )
+                })?,
+                is_truncated: self.is_truncated.unwrap_or_default(),
+                marker: self.marker,
+                _request_id: self._request_id,
+            },
+        )
     }
 }

@@ -60,9 +60,7 @@ impl SetSMSAttributesFluentBuilder {
         }
     }
     /// Access the SetSMSAttributes as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::set_sms_attributes::builders::SetSmsAttributesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::set_sms_attributes::builders::SetSmsAttributesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,14 +84,12 @@ impl SetSMSAttributesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::set_sms_attributes::SetSMSAttributes::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::set_sms_attributes::SetSMSAttributes::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::set_sms_attributes::SetSMSAttributes::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::set_sms_attributes::SetSMSAttributes::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -208,9 +204,7 @@ impl SetSMSAttributesFluentBuilder {
     /// <p>For an example bucket policy and usage report, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_stats.html">Monitoring SMS Activity</a> in the <i>Amazon SNS Developer Guide</i>.</p>
     pub fn set_attributes(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_attributes(input);
         self
@@ -253,9 +247,7 @@ impl SetSMSAttributesFluentBuilder {
     /// <p>For an example bucket policy and usage report, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_stats.html">Monitoring SMS Activity</a> in the <i>Amazon SNS Developer Guide</i>.</p>
     pub fn get_attributes(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_attributes()
     }
 }

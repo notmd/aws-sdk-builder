@@ -57,9 +57,7 @@ impl ListEmailIdentitiesFluentBuilder {
         }
     }
     /// Access the ListEmailIdentities as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_email_identities::builders::ListEmailIdentitiesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_email_identities::builders::ListEmailIdentitiesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,17 +81,12 @@ impl ListEmailIdentitiesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_email_identities::ListEmailIdentities::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::list_email_identities::ListEmailIdentities::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::list_email_identities::ListEmailIdentities::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::list_email_identities::ListEmailIdentities::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -124,13 +117,8 @@ impl ListEmailIdentitiesFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_email_identities::paginator::ListEmailIdentitiesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_email_identities::paginator::ListEmailIdentitiesPaginator {
-        crate::operation::list_email_identities::paginator::ListEmailIdentitiesPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_email_identities::paginator::ListEmailIdentitiesPaginator {
+        crate::operation::list_email_identities::paginator::ListEmailIdentitiesPaginator::new(self.handle, self.inner)
     }
     /// <p>A token returned from a previous call to <code>ListEmailIdentities</code> to indicate the position in the list of identities.</p>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

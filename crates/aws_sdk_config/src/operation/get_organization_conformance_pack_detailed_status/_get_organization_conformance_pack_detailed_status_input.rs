@@ -18,9 +18,7 @@ impl GetOrganizationConformancePackDetailedStatusInput {
         self.organization_conformance_pack_name.as_deref()
     }
     /// <p>An <code>OrganizationResourceDetailedStatusFilters</code> object.</p>
-    pub fn filters(
-        &self,
-    ) -> ::std::option::Option<&crate::types::OrganizationResourceDetailedStatusFilters> {
+    pub fn filters(&self) -> ::std::option::Option<&crate::types::OrganizationResourceDetailedStatusFilters> {
         self.filters.as_ref()
     }
     /// <p>The maximum number of <code>OrganizationConformancePackDetailedStatuses</code> returned on each page. If you do not specify a number, Config uses the default. The default is 100.</p>
@@ -41,14 +39,11 @@ impl GetOrganizationConformancePackDetailedStatusInput {
 }
 
 /// A builder for [`GetOrganizationConformancePackDetailedStatusInput`](crate::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetOrganizationConformancePackDetailedStatusInputBuilder {
     pub(crate) organization_conformance_pack_name: ::std::option::Option<::std::string::String>,
-    pub(crate) filters:
-        ::std::option::Option<crate::types::OrganizationResourceDetailedStatusFilters>,
+    pub(crate) filters: ::std::option::Option<crate::types::OrganizationResourceDetailedStatusFilters>,
     pub(crate) limit: ::std::option::Option<i32>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
 }
@@ -71,16 +66,11 @@ impl GetOrganizationConformancePackDetailedStatusInputBuilder {
         self
     }
     /// <p>The name of organization conformance pack for which you want status details for member accounts.</p>
-    pub fn get_organization_conformance_pack_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_organization_conformance_pack_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.organization_conformance_pack_name
     }
     /// <p>An <code>OrganizationResourceDetailedStatusFilters</code> object.</p>
-    pub fn filters(
-        mut self,
-        input: crate::types::OrganizationResourceDetailedStatusFilters,
-    ) -> Self {
+    pub fn filters(mut self, input: crate::types::OrganizationResourceDetailedStatusFilters) -> Self {
         self.filters = ::std::option::Option::Some(input);
         self
     }
@@ -93,9 +83,7 @@ impl GetOrganizationConformancePackDetailedStatusInputBuilder {
         self
     }
     /// <p>An <code>OrganizationResourceDetailedStatusFilters</code> object.</p>
-    pub fn get_filters(
-        &self,
-    ) -> &::std::option::Option<crate::types::OrganizationResourceDetailedStatusFilters> {
+    pub fn get_filters(&self) -> &::std::option::Option<crate::types::OrganizationResourceDetailedStatusFilters> {
         &self.filters
     }
     /// <p>The maximum number of <code>OrganizationConformancePackDetailedStatuses</code> returned on each page. If you do not specify a number, Config uses the default. The default is 100.</p>

@@ -3,9 +3,7 @@ pub use crate::operation::admin_delete_user_attributes::_admin_delete_user_attri
 
 pub use crate::operation::admin_delete_user_attributes::_admin_delete_user_attributes_output::AdminDeleteUserAttributesOutputBuilder;
 
-impl
-    crate::operation::admin_delete_user_attributes::builders::AdminDeleteUserAttributesInputBuilder
-{
+impl crate::operation::admin_delete_user_attributes::builders::AdminDeleteUserAttributesInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -68,7 +66,9 @@ impl AdminDeleteUserAttributesFluentBuilder {
         }
     }
     /// Access the AdminDeleteUserAttributes as a reference.
-    pub fn as_input(&self) -> &crate::operation::admin_delete_user_attributes::builders::AdminDeleteUserAttributesInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::admin_delete_user_attributes::builders::AdminDeleteUserAttributesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -92,16 +92,14 @@ impl AdminDeleteUserAttributesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributes::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributes::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributes::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::admin_delete_user_attributes::AdminDeleteUserAttributes::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -164,10 +162,7 @@ impl AdminDeleteUserAttributesFluentBuilder {
     ///
     /// <p>An array of strings representing the user attribute names you want to delete.</p>
     /// <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
-    pub fn user_attribute_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn user_attribute_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.user_attribute_names(input.into());
         self
     }
@@ -182,9 +177,7 @@ impl AdminDeleteUserAttributesFluentBuilder {
     }
     /// <p>An array of strings representing the user attribute names you want to delete.</p>
     /// <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
-    pub fn get_user_attribute_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_user_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_user_attribute_names()
     }
 }

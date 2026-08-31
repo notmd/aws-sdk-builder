@@ -59,7 +59,9 @@ impl ChangeMessageVisibilityBatchFluentBuilder {
         }
     }
     /// Access the ChangeMessageVisibilityBatch as a reference.
-    pub fn as_input(&self) -> &crate::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,12 +85,17 @@ impl ChangeMessageVisibilityBatchFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatch::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatch::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatch::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatch::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -139,19 +146,14 @@ impl ChangeMessageVisibilityBatchFluentBuilder {
     /// To override the contents of this collection use [`set_entries`](Self::set_entries).
     ///
     /// <p>Lists the receipt handles of the messages for which the visibility timeout must be changed.</p>
-    pub fn entries(
-        mut self,
-        input: crate::types::ChangeMessageVisibilityBatchRequestEntry,
-    ) -> Self {
+    pub fn entries(mut self, input: crate::types::ChangeMessageVisibilityBatchRequestEntry) -> Self {
         self.inner = self.inner.entries(input);
         self
     }
     /// <p>Lists the receipt handles of the messages for which the visibility timeout must be changed.</p>
     pub fn set_entries(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchRequestEntry>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchRequestEntry>>,
     ) -> Self {
         self.inner = self.inner.set_entries(input);
         self
@@ -159,9 +161,7 @@ impl ChangeMessageVisibilityBatchFluentBuilder {
     /// <p>Lists the receipt handles of the messages for which the visibility timeout must be changed.</p>
     pub fn get_entries(
         &self,
-    ) -> &::std::option::Option<
-        ::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchRequestEntry>,
-    > {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchRequestEntry>> {
         self.inner.get_entries()
     }
 }

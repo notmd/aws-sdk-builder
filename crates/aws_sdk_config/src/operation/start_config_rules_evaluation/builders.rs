@@ -74,7 +74,9 @@ impl StartConfigRulesEvaluationFluentBuilder {
         }
     }
     /// Access the StartConfigRulesEvaluation as a reference.
-    pub fn as_input(&self) -> &crate::operation::start_config_rules_evaluation::builders::StartConfigRulesEvaluationInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::start_config_rules_evaluation::builders::StartConfigRulesEvaluationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -98,11 +100,12 @@ impl StartConfigRulesEvaluationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluation::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluation::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluation::orchestrate(
             &runtime_plugins,
             input,
@@ -141,10 +144,7 @@ impl StartConfigRulesEvaluationFluentBuilder {
     /// To override the contents of this collection use [`set_config_rule_names`](Self::set_config_rule_names).
     ///
     /// <p>The list of names of Config rules that you want to run evaluations for.</p>
-    pub fn config_rule_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn config_rule_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.config_rule_names(input.into());
         self
     }
@@ -157,9 +157,7 @@ impl StartConfigRulesEvaluationFluentBuilder {
         self
     }
     /// <p>The list of names of Config rules that you want to run evaluations for.</p>
-    pub fn get_config_rule_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_config_rule_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_config_rule_names()
     }
 }

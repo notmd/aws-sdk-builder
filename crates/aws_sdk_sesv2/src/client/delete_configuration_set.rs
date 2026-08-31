@@ -8,8 +8,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteConfigurationSetError>`](crate::operation::delete_configuration_set::DeleteConfigurationSetError)
     pub fn delete_configuration_set(
         &self,
-    ) -> crate::operation::delete_configuration_set::builders::DeleteConfigurationSetFluentBuilder
-    {
-        crate::operation::delete_configuration_set::builders::DeleteConfigurationSetFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::delete_configuration_set::builders::DeleteConfigurationSetFluentBuilder {
+        crate::operation::delete_configuration_set::builders::DeleteConfigurationSetFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

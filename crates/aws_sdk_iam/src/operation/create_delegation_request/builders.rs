@@ -27,8 +27,7 @@ impl crate::operation::create_delegation_request::builders::CreateDelegationRequ
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateDelegationRequestFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::create_delegation_request::builders::CreateDelegationRequestInputBuilder,
+    inner: crate::operation::create_delegation_request::builders::CreateDelegationRequestInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -61,8 +60,7 @@ impl CreateDelegationRequestFluentBuilder {
     /// Access the CreateDelegationRequest as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::create_delegation_request::builders::CreateDelegationRequestInputBuilder
-    {
+    ) -> &crate::operation::create_delegation_request::builders::CreateDelegationRequestInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,16 +84,13 @@ impl CreateDelegationRequestFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_delegation_request::CreateDelegationRequest::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_delegation_request::CreateDelegationRequest::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::create_delegation_request::CreateDelegationRequest::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::create_delegation_request::CreateDelegationRequest::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -125,19 +120,13 @@ impl CreateDelegationRequestFluentBuilder {
     }
     /// <p>The Amazon Web Services account ID this delegation request is targeted to.</p>
     /// <p>If the account ID is not known, this parameter can be omitted, resulting in a request that can be associated by any account. If the account ID passed, then the created delegation request can only be associated with an identity of that target account.</p>
-    pub fn owner_account_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn owner_account_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.owner_account_id(input.into());
         self
     }
     /// <p>The Amazon Web Services account ID this delegation request is targeted to.</p>
     /// <p>If the account ID is not known, this parameter can be omitted, resulting in a request that can be associated by any account. If the account ID passed, then the created delegation request can only be associated with an identity of that target account.</p>
-    pub fn set_owner_account_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_owner_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_owner_account_id(input);
         self
     }
@@ -166,10 +155,7 @@ impl CreateDelegationRequestFluentBuilder {
         self
     }
     /// <p>The permissions to be delegated in this delegation request.</p>
-    pub fn set_permissions(
-        mut self,
-        input: ::std::option::Option<crate::types::DelegationPermission>,
-    ) -> Self {
+    pub fn set_permissions(mut self, input: ::std::option::Option<crate::types::DelegationPermission>) -> Self {
         self.inner = self.inner.set_permissions(input);
         self
     }
@@ -180,20 +166,14 @@ impl CreateDelegationRequestFluentBuilder {
     /// <p>A message explaining the reason for the delegation request.</p>
     /// <p>Requesters can utilize this field to add a custom note to the delegation request. This field is different from the description such that this is to be utilized for a custom messaging on a case-by-case basis.</p>
     /// <p>For example, if the current delegation request is in response to a previous request being rejected, this explanation can be added to the request via this field.</p>
-    pub fn request_message(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn request_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.request_message(input.into());
         self
     }
     /// <p>A message explaining the reason for the delegation request.</p>
     /// <p>Requesters can utilize this field to add a custom note to the delegation request. This field is different from the description such that this is to be utilized for a custom messaging on a case-by-case basis.</p>
     /// <p>For example, if the current delegation request is in response to a previous request being rejected, this explanation can be added to the request via this field.</p>
-    pub fn set_request_message(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_request_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_request_message(input);
         self
     }
@@ -206,20 +186,14 @@ impl CreateDelegationRequestFluentBuilder {
     /// <p>The workflow ID associated with the requestor.</p>
     /// <p>This is the unique identifier on the partner side that can be used to track the progress of the request.</p>
     /// <p>IAM maintains a uniqueness check on this workflow id for each request - if a workflow id for an existing request is passed, this API call will fail.</p>
-    pub fn requestor_workflow_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn requestor_workflow_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.requestor_workflow_id(input.into());
         self
     }
     /// <p>The workflow ID associated with the requestor.</p>
     /// <p>This is the unique identifier on the partner side that can be used to track the progress of the request.</p>
     /// <p>IAM maintains a uniqueness check on this workflow id for each request - if a workflow id for an existing request is passed, this API call will fail.</p>
-    pub fn set_requestor_workflow_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_requestor_workflow_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_requestor_workflow_id(input);
         self
     }
@@ -248,19 +222,13 @@ impl CreateDelegationRequestFluentBuilder {
     }
     /// <p>The notification channel for updates about the delegation request.</p>
     /// <p>At this time,only SNS topic ARNs are accepted for notification. This topic ARN must have a resource policy granting <code>SNS:Publish</code> permission to the IAM service principal (<code>iam.amazonaws.com</code>). See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation-partner-guide.html">partner onboarding documentation</a> for more details.</p>
-    pub fn notification_channel(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn notification_channel(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.notification_channel(input.into());
         self
     }
     /// <p>The notification channel for updates about the delegation request.</p>
     /// <p>At this time,only SNS topic ARNs are accepted for notification. This topic ARN must have a resource policy granting <code>SNS:Publish</code> permission to the IAM service principal (<code>iam.amazonaws.com</code>). See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation-partner-guide.html">partner onboarding documentation</a> for more details.</p>
-    pub fn set_notification_channel(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_notification_channel(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_notification_channel(input);
         self
     }

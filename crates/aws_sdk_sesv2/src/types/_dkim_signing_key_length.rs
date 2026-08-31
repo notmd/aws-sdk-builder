@@ -63,9 +63,9 @@ impl ::std::convert::From<&str> for DkimSigningKeyLength {
         match s {
             "RSA_1024_BIT" => DkimSigningKeyLength::Rsa1024Bit,
             "RSA_2048_BIT" => DkimSigningKeyLength::Rsa2048Bit,
-            other => DkimSigningKeyLength::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => DkimSigningKeyLength::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -99,14 +99,10 @@ impl DkimSigningKeyLength {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }

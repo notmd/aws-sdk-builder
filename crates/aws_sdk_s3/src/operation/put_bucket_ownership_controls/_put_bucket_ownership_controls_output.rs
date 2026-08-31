@@ -18,15 +18,14 @@ impl ::aws_types::request_id::RequestId for PutBucketOwnershipControlsOutput {
 }
 impl PutBucketOwnershipControlsOutput {
     /// Creates a new builder-style object to manufacture [`PutBucketOwnershipControlsOutput`](crate::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsOutput).
-    pub fn builder() -> crate::operation::put_bucket_ownership_controls::builders::PutBucketOwnershipControlsOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::put_bucket_ownership_controls::builders::PutBucketOwnershipControlsOutputBuilder {
         crate::operation::put_bucket_ownership_controls::builders::PutBucketOwnershipControlsOutputBuilder::default()
     }
 }
 
 /// A builder for [`PutBucketOwnershipControlsOutput`](crate::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutBucketOwnershipControlsOutputBuilder {
     _extended_request_id: Option<String>,
@@ -38,10 +37,7 @@ impl PutBucketOwnershipControlsOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -55,9 +51,7 @@ impl PutBucketOwnershipControlsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutBucketOwnershipControlsOutput`](crate::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsOutput {
+    pub fn build(self) -> crate::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsOutput {
         crate::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

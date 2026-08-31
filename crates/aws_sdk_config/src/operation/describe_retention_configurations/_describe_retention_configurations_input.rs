@@ -6,8 +6,7 @@ pub struct DescribeRetentionConfigurationsInput {
     /// <p>A list of names of retention configurations for which you want details. If you do not specify a name, Config returns details for all the retention configurations for that account.</p><note>
     /// <p>Currently, Config supports only one retention configuration per region in your account.</p>
     /// </note>
-    pub retention_configuration_names:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub retention_configuration_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
 }
@@ -18,9 +17,7 @@ impl DescribeRetentionConfigurationsInput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.retention_configuration_names.is_none()`.
     pub fn retention_configuration_names(&self) -> &[::std::string::String] {
-        self.retention_configuration_names
-            .as_deref()
-            .unwrap_or_default()
+        self.retention_configuration_names.as_deref().unwrap_or_default()
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -29,19 +26,18 @@ impl DescribeRetentionConfigurationsInput {
 }
 impl DescribeRetentionConfigurationsInput {
     /// Creates a new builder-style object to manufacture [`DescribeRetentionConfigurationsInput`](crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsInput).
-    pub fn builder() -> crate::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsInputBuilder
+    {
         crate::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsInputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeRetentionConfigurationsInput`](crate::operation::describe_retention_configurations::DescribeRetentionConfigurationsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeRetentionConfigurationsInputBuilder {
-    pub(crate) retention_configuration_names:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) retention_configuration_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
 }
 impl DescribeRetentionConfigurationsInputBuilder {
@@ -52,10 +48,7 @@ impl DescribeRetentionConfigurationsInputBuilder {
     /// <p>A list of names of retention configurations for which you want details. If you do not specify a name, Config returns details for all the retention configurations for that account.</p><note>
     /// <p>Currently, Config supports only one retention configuration per region in your account.</p>
     /// </note>
-    pub fn retention_configuration_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn retention_configuration_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.retention_configuration_names.unwrap_or_default();
         v.push(input.into());
         self.retention_configuration_names = ::std::option::Option::Some(v);
@@ -74,9 +67,7 @@ impl DescribeRetentionConfigurationsInputBuilder {
     /// <p>A list of names of retention configurations for which you want details. If you do not specify a name, Config returns details for all the retention configurations for that account.</p><note>
     /// <p>Currently, Config supports only one retention configuration per region in your account.</p>
     /// </note>
-    pub fn get_retention_configuration_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_retention_configuration_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.retention_configuration_names
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>

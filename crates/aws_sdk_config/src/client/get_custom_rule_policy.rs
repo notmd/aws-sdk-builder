@@ -10,8 +10,6 @@ impl super::Client {
     pub fn get_custom_rule_policy(
         &self,
     ) -> crate::operation::get_custom_rule_policy::builders::GetCustomRulePolicyFluentBuilder {
-        crate::operation::get_custom_rule_policy::builders::GetCustomRulePolicyFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_custom_rule_policy::builders::GetCustomRulePolicyFluentBuilder::new(self.handle.clone())
     }
 }

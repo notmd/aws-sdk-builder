@@ -32,9 +32,7 @@ impl PutStoredQueryInput {
 }
 
 /// A builder for [`PutStoredQueryInput`](crate::operation::put_stored_query::PutStoredQueryInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutStoredQueryInputBuilder {
     pub(crate) stored_query: ::std::option::Option<crate::types::StoredQuery>,
@@ -52,10 +50,7 @@ impl PutStoredQueryInputBuilder {
     /// <p>A list of <code>StoredQuery</code> objects. The mandatory fields are <code>QueryName</code> and <code>Expression</code>.</p><note>
     /// <p>When you are creating a query, you must provide a query name and an expression. When you are updating a query, you must provide a query name but updating the description is optional.</p>
     /// </note>
-    pub fn set_stored_query(
-        mut self,
-        input: ::std::option::Option<crate::types::StoredQuery>,
-    ) -> Self {
+    pub fn set_stored_query(mut self, input: ::std::option::Option<crate::types::StoredQuery>) -> Self {
         self.stored_query = input;
         self
     }
@@ -77,10 +72,7 @@ impl PutStoredQueryInputBuilder {
         self
     }
     /// <p>A list of <code>Tags</code> object.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self
     }

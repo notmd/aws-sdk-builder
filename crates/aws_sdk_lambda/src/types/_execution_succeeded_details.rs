@@ -21,9 +21,7 @@ impl ExecutionSucceededDetails {
 }
 
 /// A builder for [`ExecutionSucceededDetails`](crate::types::ExecutionSucceededDetails).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ExecutionSucceededDetailsBuilder {
     pub(crate) result: ::std::option::Option<crate::types::EventResult>,
@@ -46,8 +44,6 @@ impl ExecutionSucceededDetailsBuilder {
     }
     /// Consumes the builder and constructs a [`ExecutionSucceededDetails`](crate::types::ExecutionSucceededDetails).
     pub fn build(self) -> crate::types::ExecutionSucceededDetails {
-        crate::types::ExecutionSucceededDetails {
-            result: self.result,
-        }
+        crate::types::ExecutionSucceededDetails { result: self.result }
     }
 }

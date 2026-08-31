@@ -42,9 +42,7 @@ impl ::std::fmt::Debug for AdminListUserAuthEventsInput {
 }
 impl AdminListUserAuthEventsInput {
     /// Creates a new builder-style object to manufacture [`AdminListUserAuthEventsInput`](crate::operation::admin_list_user_auth_events::AdminListUserAuthEventsInput).
-    pub fn builder(
-    ) -> crate::operation::admin_list_user_auth_events::builders::AdminListUserAuthEventsInputBuilder
-    {
+    pub fn builder() -> crate::operation::admin_list_user_auth_events::builders::AdminListUserAuthEventsInputBuilder {
         crate::operation::admin_list_user_auth_events::builders::AdminListUserAuthEventsInputBuilder::default()
     }
 }

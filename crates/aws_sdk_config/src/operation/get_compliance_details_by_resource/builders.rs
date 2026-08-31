@@ -43,7 +43,7 @@ impl
             crate::operation::get_compliance_details_by_resource::GetComplianceDetailsByResourceOutput,
             crate::operation::get_compliance_details_by_resource::GetComplianceDetailsByResourceError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -57,7 +57,10 @@ impl GetComplianceDetailsByResourceFluentBuilder {
         }
     }
     /// Access the GetComplianceDetailsByResource as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_compliance_details_by_resource::builders::GetComplianceDetailsByResourceInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_compliance_details_by_resource::builders::GetComplianceDetailsByResourceInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +79,7 @@ impl GetComplianceDetailsByResourceFluentBuilder {
             crate::operation::get_compliance_details_by_resource::GetComplianceDetailsByResourceError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +89,11 @@ impl GetComplianceDetailsByResourceFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_compliance_details_by_resource::GetComplianceDetailsByResource::orchestrate(&runtime_plugins, input).await
+        crate::operation::get_compliance_details_by_resource::GetComplianceDetailsByResource::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -117,22 +124,21 @@ impl GetComplianceDetailsByResourceFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::get_compliance_details_by_resource::paginator::GetComplianceDetailsByResourcePaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::get_compliance_details_by_resource::paginator::GetComplianceDetailsByResourcePaginator{
-        crate::operation::get_compliance_details_by_resource::paginator::GetComplianceDetailsByResourcePaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::get_compliance_details_by_resource::paginator::GetComplianceDetailsByResourcePaginator {
+        crate::operation::get_compliance_details_by_resource::paginator::GetComplianceDetailsByResourcePaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The type of the Amazon Web Services resource for which you want compliance information.</p>
-    pub fn resource_type(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.resource_type(input.into());
         self
     }
     /// <p>The type of the Amazon Web Services resource for which you want compliance information.</p>
-    pub fn set_resource_type(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_resource_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_resource_type(input);
         self
     }
@@ -176,9 +182,7 @@ impl GetComplianceDetailsByResourceFluentBuilder {
     }
     /// <p>Filters the results by compliance.</p>
     /// <p><code>INSUFFICIENT_DATA</code> is a valid <code>ComplianceType</code> that is returned when an Config rule cannot be evaluated. However, <code>INSUFFICIENT_DATA</code> cannot be used as a <code>ComplianceType</code> for filtering results.</p>
-    pub fn get_compliance_types(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ComplianceType>> {
+    pub fn get_compliance_types(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ComplianceType>> {
         self.inner.get_compliance_types()
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -198,20 +202,14 @@ impl GetComplianceDetailsByResourceFluentBuilder {
     /// <p>The unique ID of Amazon Web Services resource execution for which you want to retrieve evaluation results.</p><note>
     /// <p>You need to only provide either a <code>ResourceEvaluationID</code> or a <code>ResourceID </code>and <code>ResourceType</code>.</p>
     /// </note>
-    pub fn resource_evaluation_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_evaluation_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.resource_evaluation_id(input.into());
         self
     }
     /// <p>The unique ID of Amazon Web Services resource execution for which you want to retrieve evaluation results.</p><note>
     /// <p>You need to only provide either a <code>ResourceEvaluationID</code> or a <code>ResourceID </code>and <code>ResourceType</code>.</p>
     /// </note>
-    pub fn set_resource_evaluation_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_resource_evaluation_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_resource_evaluation_id(input);
         self
     }

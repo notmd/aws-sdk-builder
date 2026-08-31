@@ -25,9 +25,7 @@ impl PutLogEventsOutput {
         self.next_sequence_token.as_deref()
     }
     /// <p>The rejected events.</p>
-    pub fn rejected_log_events_info(
-        &self,
-    ) -> ::std::option::Option<&crate::types::RejectedLogEventsInfo> {
+    pub fn rejected_log_events_info(&self) -> ::std::option::Option<&crate::types::RejectedLogEventsInfo> {
         self.rejected_log_events_info.as_ref()
     }
     /// <p>Information about why the entity is rejected when calling <code>PutLogEvents</code>. Only returned when the entity is rejected.</p><note>
@@ -50,9 +48,7 @@ impl PutLogEventsOutput {
 }
 
 /// A builder for [`PutLogEventsOutput`](crate::operation::put_log_events::PutLogEventsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutLogEventsOutputBuilder {
     pub(crate) next_sequence_token: ::std::option::Option<::std::string::String>,
@@ -65,10 +61,7 @@ impl PutLogEventsOutputBuilder {
     /// <p>This field has been deprecated.</p>
     /// <p>The sequence token is now ignored in <code>PutLogEvents</code> actions. <code>PutLogEvents</code> actions are always accepted even if the sequence token is not valid. You can use parallel <code>PutLogEvents</code> actions on the same log stream and you do not need to wait for the response of a previous <code>PutLogEvents</code> action to obtain the <code>nextSequenceToken</code> value.</p>
     /// </important>
-    pub fn next_sequence_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn next_sequence_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_sequence_token = ::std::option::Option::Some(input.into());
         self
     }
@@ -76,10 +69,7 @@ impl PutLogEventsOutputBuilder {
     /// <p>This field has been deprecated.</p>
     /// <p>The sequence token is now ignored in <code>PutLogEvents</code> actions. <code>PutLogEvents</code> actions are always accepted even if the sequence token is not valid. You can use parallel <code>PutLogEvents</code> actions on the same log stream and you do not need to wait for the response of a previous <code>PutLogEvents</code> action to obtain the <code>nextSequenceToken</code> value.</p>
     /// </important>
-    pub fn set_next_sequence_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_next_sequence_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_sequence_token = input;
         self
     }
@@ -104,9 +94,7 @@ impl PutLogEventsOutputBuilder {
         self
     }
     /// <p>The rejected events.</p>
-    pub fn get_rejected_log_events_info(
-        &self,
-    ) -> &::std::option::Option<crate::types::RejectedLogEventsInfo> {
+    pub fn get_rejected_log_events_info(&self) -> &::std::option::Option<crate::types::RejectedLogEventsInfo> {
         &self.rejected_log_events_info
     }
     /// <p>Information about why the entity is rejected when calling <code>PutLogEvents</code>. Only returned when the entity is rejected.</p><note>
@@ -119,19 +107,14 @@ impl PutLogEventsOutputBuilder {
     /// <p>Information about why the entity is rejected when calling <code>PutLogEvents</code>. Only returned when the entity is rejected.</p><note>
     /// <p>When the entity is rejected, the events may still be accepted.</p>
     /// </note>
-    pub fn set_rejected_entity_info(
-        mut self,
-        input: ::std::option::Option<crate::types::RejectedEntityInfo>,
-    ) -> Self {
+    pub fn set_rejected_entity_info(mut self, input: ::std::option::Option<crate::types::RejectedEntityInfo>) -> Self {
         self.rejected_entity_info = input;
         self
     }
     /// <p>Information about why the entity is rejected when calling <code>PutLogEvents</code>. Only returned when the entity is rejected.</p><note>
     /// <p>When the entity is rejected, the events may still be accepted.</p>
     /// </note>
-    pub fn get_rejected_entity_info(
-        &self,
-    ) -> &::std::option::Option<crate::types::RejectedEntityInfo> {
+    pub fn get_rejected_entity_info(&self) -> &::std::option::Option<crate::types::RejectedEntityInfo> {
         &self.rejected_entity_info
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

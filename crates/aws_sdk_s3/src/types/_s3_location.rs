@@ -69,9 +69,7 @@ impl S3Location {
 }
 
 /// A builder for [`S3Location`](crate::types::S3Location).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct S3LocationBuilder {
     pub(crate) bucket_name: ::std::option::Option<::std::string::String>,
@@ -120,10 +118,7 @@ impl S3LocationBuilder {
         self
     }
     /// <p>Contains the type of server-side encryption used.</p>
-    pub fn set_encryption(
-        mut self,
-        input: ::std::option::Option<crate::types::Encryption>,
-    ) -> Self {
+    pub fn set_encryption(mut self, input: ::std::option::Option<crate::types::Encryption>) -> Self {
         self.encryption = input;
         self
     }
@@ -137,10 +132,7 @@ impl S3LocationBuilder {
         self
     }
     /// <p>The canned ACL to apply to the restore results.</p>
-    pub fn set_canned_acl(
-        mut self,
-        input: ::std::option::Option<crate::types::ObjectCannedAcl>,
-    ) -> Self {
+    pub fn set_canned_acl(mut self, input: ::std::option::Option<crate::types::ObjectCannedAcl>) -> Self {
         self.canned_acl = input;
         self
     }
@@ -168,9 +160,7 @@ impl S3LocationBuilder {
         self
     }
     /// <p>A list of grants that control access to the staged results.</p>
-    pub fn get_access_control_list(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Grant>> {
+    pub fn get_access_control_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Grant>> {
         &self.access_control_list
     }
     /// <p>The tag-set that is applied to the restore results.</p>
@@ -207,9 +197,7 @@ impl S3LocationBuilder {
         self
     }
     /// <p>A list of metadata to store with the restore results in S3.</p>
-    pub fn get_user_metadata(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::MetadataEntry>> {
+    pub fn get_user_metadata(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MetadataEntry>> {
         &self.user_metadata
     }
     /// <p>The class of storage used to store the restore results.</p>
@@ -218,10 +206,7 @@ impl S3LocationBuilder {
         self
     }
     /// <p>The class of storage used to store the restore results.</p>
-    pub fn set_storage_class(
-        mut self,
-        input: ::std::option::Option<crate::types::StorageClass>,
-    ) -> Self {
+    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self {
         self.storage_class = input;
         self
     }
@@ -235,10 +220,7 @@ impl S3LocationBuilder {
     /// - [`prefix`](crate::types::builders::S3LocationBuilder::prefix)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::S3Location,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::S3Location, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::S3Location {
             bucket_name: self.bucket_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

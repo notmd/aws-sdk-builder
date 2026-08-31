@@ -16,18 +16,15 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder =
-                crate::types::builders::GlobalSecondaryIndexDescriptionBuilder::default();
+            let mut builder = crate::types::builders::GlobalSecondaryIndexDescriptionBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -35,48 +32,31 @@ where
                         match key.to_unescaped()?.as_ref() {
                             "IndexName" => {
                                 builder = builder.set_index_name(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "KeySchema" => {
                                 builder = builder.set_key_schema(
-                                    crate::protocol_serde::shape_key_schema::de_key_schema(
-                                        tokens,
-                                        _value,
-                                        depth + 1,
-                                    )?,
+                                    crate::protocol_serde::shape_key_schema::de_key_schema(tokens, _value, depth + 1)?,
                                 );
                             }
                             "Projection" => {
                                 builder = builder.set_projection(
-                                    crate::protocol_serde::shape_projection::de_projection(
-                                        tokens,
-                                        _value,
-                                        depth + 1,
-                                    )?,
+                                    crate::protocol_serde::shape_projection::de_projection(tokens, _value, depth + 1)?,
                                 );
                             }
                             "IndexStatus" => {
                                 builder = builder.set_index_status(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| crate::types::IndexStatus::from(u.as_ref()))
-                                    })
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| crate::types::IndexStatus::from(u.as_ref())))
+                                        .transpose()?,
                                 );
                             }
                             "Backfilling" => {
                                 builder = builder.set_backfilling(
-                                    ::aws_smithy_json::deserialize::token::expect_bool_or_null(
-                                        tokens.next(),
-                                    )?,
+                                    ::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?,
                                 );
                             }
                             "ProvisionedThroughput" => {
@@ -90,34 +70,32 @@ where
                             }
                             "IndexSizeBytes" => {
                                 builder = builder.set_index_size_bytes(
-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(i64::try_from)
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                        .map(i64::try_from)
+                                        .transpose()?,
                                 );
                             }
                             "ItemCount" => {
                                 builder = builder.set_item_count(
-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(i64::try_from)
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                        .map(i64::try_from)
+                                        .transpose()?,
                                 );
                             }
                             "IndexArn" => {
                                 builder = builder.set_index_arn(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "OnDemandThroughput" => {
                                 builder = builder.set_on_demand_throughput(
-                                    crate::protocol_serde::shape_on_demand_throughput::de_on_demand_throughput(tokens, _value, depth + 1)?,
+                                    crate::protocol_serde::shape_on_demand_throughput::de_on_demand_throughput(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
                                 );
                             }
                             "WarmThroughput" => {
@@ -129,20 +107,16 @@ where
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
             Ok(Some(builder.build()))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

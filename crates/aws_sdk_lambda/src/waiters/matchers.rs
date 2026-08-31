@@ -185,8 +185,7 @@ pub(crate) fn match_get_function_1cce2c05524fb92d4(
     >,
 ) -> bool {
     if let ::std::result::Result::Err(err) = _result {
-        if let ::std::option::Option::Some(code) =
-            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err)
+        if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err)
         {
             return code == "ResourceNotFoundException";
         }

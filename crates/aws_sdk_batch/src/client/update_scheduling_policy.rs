@@ -10,8 +10,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateSchedulingPolicyError>`](crate::operation::update_scheduling_policy::UpdateSchedulingPolicyError)
     pub fn update_scheduling_policy(
         &self,
-    ) -> crate::operation::update_scheduling_policy::builders::UpdateSchedulingPolicyFluentBuilder
-    {
-        crate::operation::update_scheduling_policy::builders::UpdateSchedulingPolicyFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::update_scheduling_policy::builders::UpdateSchedulingPolicyFluentBuilder {
+        crate::operation::update_scheduling_policy::builders::UpdateSchedulingPolicyFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

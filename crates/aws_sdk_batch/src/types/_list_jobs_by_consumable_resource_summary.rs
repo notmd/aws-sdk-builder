@@ -41,8 +41,7 @@ pub struct ListJobsByConsumableResourceSummary {
     /// <p>The Unix timestamp (in milliseconds) for when the consumable resource was created.</p>
     pub created_at: ::std::option::Option<i64>,
     /// <p>Contains a list of consumable resources required by the job.</p>
-    pub consumable_resource_properties:
-        ::std::option::Option<crate::types::ConsumableResourceProperties>,
+    pub consumable_resource_properties: ::std::option::Option<crate::types::ConsumableResourceProperties>,
 }
 impl ListJobsByConsumableResourceSummary {
     /// <p>The Amazon Resource Name (ARN) of the job.</p>
@@ -102,9 +101,7 @@ impl ListJobsByConsumableResourceSummary {
         self.created_at
     }
     /// <p>Contains a list of consumable resources required by the job.</p>
-    pub fn consumable_resource_properties(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ConsumableResourceProperties> {
+    pub fn consumable_resource_properties(&self) -> ::std::option::Option<&crate::types::ConsumableResourceProperties> {
         self.consumable_resource_properties.as_ref()
     }
 }
@@ -116,9 +113,7 @@ impl ListJobsByConsumableResourceSummary {
 }
 
 /// A builder for [`ListJobsByConsumableResourceSummary`](crate::types::ListJobsByConsumableResourceSummary).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListJobsByConsumableResourceSummaryBuilder {
     pub(crate) job_arn: ::std::option::Option<::std::string::String>,
@@ -131,8 +126,7 @@ pub struct ListJobsByConsumableResourceSummaryBuilder {
     pub(crate) status_reason: ::std::option::Option<::std::string::String>,
     pub(crate) started_at: ::std::option::Option<i64>,
     pub(crate) created_at: ::std::option::Option<i64>,
-    pub(crate) consumable_resource_properties:
-        ::std::option::Option<crate::types::ConsumableResourceProperties>,
+    pub(crate) consumable_resource_properties: ::std::option::Option<crate::types::ConsumableResourceProperties>,
 }
 impl ListJobsByConsumableResourceSummaryBuilder {
     /// <p>The Amazon Resource Name (ARN) of the job.</p>
@@ -152,18 +146,12 @@ impl ListJobsByConsumableResourceSummaryBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the job queue.</p>
     /// This field is required.
-    pub fn job_queue_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn job_queue_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.job_queue_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the job queue.</p>
-    pub fn set_job_queue_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_job_queue_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.job_queue_arn = input;
         self
     }
@@ -187,18 +175,12 @@ impl ListJobsByConsumableResourceSummaryBuilder {
         &self.job_name
     }
     /// <p>The Amazon Resource Name (ARN) of the job definition.</p>
-    pub fn job_definition_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn job_definition_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.job_definition_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the job definition.</p>
-    pub fn set_job_definition_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_job_definition_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.job_definition_arn = input;
         self
     }
@@ -207,18 +189,12 @@ impl ListJobsByConsumableResourceSummaryBuilder {
         &self.job_definition_arn
     }
     /// <p>The fair-share scheduling identifier for the job.</p>
-    pub fn share_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn share_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.share_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The fair-share scheduling identifier for the job.</p>
-    pub fn set_share_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_share_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.share_identifier = input;
         self
     }
@@ -305,18 +281,12 @@ impl ListJobsByConsumableResourceSummaryBuilder {
         &self.quantity
     }
     /// <p>A short, human-readable string to provide more details for the current status of the job.</p>
-    pub fn status_reason(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn status_reason(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.status_reason = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A short, human-readable string to provide more details for the current status of the job.</p>
-    pub fn set_status_reason(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_status_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.status_reason = input;
         self
     }
@@ -355,10 +325,7 @@ impl ListJobsByConsumableResourceSummaryBuilder {
     }
     /// <p>Contains a list of consumable resources required by the job.</p>
     /// This field is required.
-    pub fn consumable_resource_properties(
-        mut self,
-        input: crate::types::ConsumableResourceProperties,
-    ) -> Self {
+    pub fn consumable_resource_properties(mut self, input: crate::types::ConsumableResourceProperties) -> Self {
         self.consumable_resource_properties = ::std::option::Option::Some(input);
         self
     }

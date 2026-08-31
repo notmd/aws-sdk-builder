@@ -26,8 +26,7 @@ impl crate::operation::list_event_source_mappings::builders::ListEventSourceMapp
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListEventSourceMappingsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::list_event_source_mappings::builders::ListEventSourceMappingsInputBuilder,
+    inner: crate::operation::list_event_source_mappings::builders::ListEventSourceMappingsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -60,8 +59,7 @@ impl ListEventSourceMappingsFluentBuilder {
     /// Access the ListEventSourceMappings as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::list_event_source_mappings::builders::ListEventSourceMappingsInputBuilder
-    {
+    ) -> &crate::operation::list_event_source_mappings::builders::ListEventSourceMappingsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,16 +83,14 @@ impl ListEventSourceMappingsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_event_source_mappings::ListEventSourceMappings::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_event_source_mappings::ListEventSourceMappings::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::list_event_source_mappings::ListEventSourceMappings::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_event_source_mappings::ListEventSourceMappings::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -127,9 +123,11 @@ impl ListEventSourceMappingsFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::list_event_source_mappings::paginator::ListEventSourceMappingsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::list_event_source_mappings::paginator::ListEventSourceMappingsPaginator
-    {
-        crate::operation::list_event_source_mappings::paginator::ListEventSourceMappingsPaginator::new(self.handle, self.inner)
+    ) -> crate::operation::list_event_source_mappings::paginator::ListEventSourceMappingsPaginator {
+        crate::operation::list_event_source_mappings::paginator::ListEventSourceMappingsPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The Amazon Resource Name (ARN) of the event source.</p>
     /// <ul>
@@ -146,10 +144,7 @@ impl ListEventSourceMappingsFluentBuilder {
     /// <li>
     /// <p><b>Amazon DocumentDB</b> – The ARN of the DocumentDB change stream.</p></li>
     /// </ul>
-    pub fn event_source_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn event_source_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.event_source_arn(input.into());
         self
     }
@@ -168,10 +163,7 @@ impl ListEventSourceMappingsFluentBuilder {
     /// <li>
     /// <p><b>Amazon DocumentDB</b> – The ARN of the DocumentDB change stream.</p></li>
     /// </ul>
-    pub fn set_event_source_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_event_source_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_event_source_arn(input);
         self
     }
@@ -206,10 +198,7 @@ impl ListEventSourceMappingsFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -226,10 +215,7 @@ impl ListEventSourceMappingsFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }

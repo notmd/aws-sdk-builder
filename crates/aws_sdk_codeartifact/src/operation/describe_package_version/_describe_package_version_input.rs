@@ -90,17 +90,13 @@ impl DescribePackageVersionInput {
 }
 impl DescribePackageVersionInput {
     /// Creates a new builder-style object to manufacture [`DescribePackageVersionInput`](crate::operation::describe_package_version::DescribePackageVersionInput).
-    pub fn builder(
-    ) -> crate::operation::describe_package_version::builders::DescribePackageVersionInputBuilder
-    {
+    pub fn builder() -> crate::operation::describe_package_version::builders::DescribePackageVersionInputBuilder {
         crate::operation::describe_package_version::builders::DescribePackageVersionInputBuilder::default()
     }
 }
 
 /// A builder for [`DescribePackageVersionInput`](crate::operation::describe_package_version::DescribePackageVersionInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribePackageVersionInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,
@@ -262,18 +258,12 @@ impl DescribePackageVersionInputBuilder {
     }
     /// <p>A string that contains the package version (for example, <code>3.5.2</code>).</p>
     /// This field is required.
-    pub fn package_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.package_version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A string that contains the package version (for example, <code>3.5.2</code>).</p>
-    pub fn set_package_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.package_version = input;
         self
     }

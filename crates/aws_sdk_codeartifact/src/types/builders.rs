@@ -45,10 +45,7 @@ pub use crate::types::_package_description::PackageDescriptionBuilder;
 #[cfg(feature = "op_describe_package_version")]
 pub use crate::types::_package_version_description::PackageVersionDescriptionBuilder;
 
-#[cfg(any(
-    feature = "op_list_package_version_assets",
-    feature = "op_publish_package_version"
-))]
+#[cfg(any(feature = "op_list_package_version_assets", feature = "op_publish_package_version"))]
 pub use crate::types::_asset_summary::AssetSummaryBuilder;
 
 #[cfg(any(
@@ -119,10 +116,7 @@ pub use crate::types::_package_group_reference::PackageGroupReferenceBuilder;
 #[cfg(any(feature = "op_create_repository", feature = "op_update_repository"))]
 pub use crate::types::_upstream_repository::UpstreamRepositoryBuilder;
 
-#[cfg(any(
-    feature = "op_describe_package_version",
-    feature = "op_list_package_versions"
-))]
+#[cfg(any(feature = "op_describe_package_version", feature = "op_list_package_versions"))]
 pub use crate::types::_package_version_origin::PackageVersionOriginBuilder;
 
 #[cfg(feature = "op_list_associated_packages")]
@@ -131,10 +125,7 @@ pub use crate::types::_associated_package::AssociatedPackageBuilder;
 #[cfg(feature = "op_list_domains")]
 pub use crate::types::_domain_summary::DomainSummaryBuilder;
 
-#[cfg(any(
-    feature = "op_list_package_groups",
-    feature = "op_list_sub_package_groups"
-))]
+#[cfg(any(feature = "op_list_package_groups", feature = "op_list_sub_package_groups"))]
 pub use crate::types::_package_group_summary::PackageGroupSummaryBuilder;
 
 #[cfg(feature = "op_list_package_version_dependencies")]
@@ -143,10 +134,7 @@ pub use crate::types::_package_dependency::PackageDependencyBuilder;
 #[cfg(feature = "op_list_package_versions")]
 pub use crate::types::_package_version_summary::PackageVersionSummaryBuilder;
 
-#[cfg(any(
-    feature = "op_list_repositories",
-    feature = "op_list_repositories_in_domain"
-))]
+#[cfg(any(feature = "op_list_repositories", feature = "op_list_repositories_in_domain"))]
 pub use crate::types::_repository_summary::RepositorySummaryBuilder;
 
 #[cfg(feature = "op_update_package_group_origin_configuration")]
@@ -175,10 +163,7 @@ pub use crate::types::_repository_external_connection_info::RepositoryExternalCo
 #[cfg(feature = "op_describe_package_version")]
 pub use crate::types::_license_info::LicenseInfoBuilder;
 
-#[cfg(any(
-    feature = "op_describe_package_version",
-    feature = "op_list_package_versions"
-))]
+#[cfg(any(feature = "op_describe_package_version", feature = "op_list_package_versions"))]
 pub use crate::types::_domain_entry_point::DomainEntryPointBuilder;
 
 #[cfg(any(

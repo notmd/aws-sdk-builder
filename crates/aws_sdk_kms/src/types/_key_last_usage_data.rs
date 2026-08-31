@@ -39,9 +39,7 @@ impl KeyLastUsageData {
 }
 
 /// A builder for [`KeyLastUsageData`](crate::types::KeyLastUsageData).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct KeyLastUsageDataBuilder {
     pub(crate) operation: ::std::option::Option<crate::types::KeyLastUsageTrackingOperation>,
@@ -56,17 +54,12 @@ impl KeyLastUsageDataBuilder {
         self
     }
     /// <p>The last successful cryptographic operation the KMS key was used for. Absent if the key has not been used since KMS began tracking.</p>
-    pub fn set_operation(
-        mut self,
-        input: ::std::option::Option<crate::types::KeyLastUsageTrackingOperation>,
-    ) -> Self {
+    pub fn set_operation(mut self, input: ::std::option::Option<crate::types::KeyLastUsageTrackingOperation>) -> Self {
         self.operation = input;
         self
     }
     /// <p>The last successful cryptographic operation the KMS key was used for. Absent if the key has not been used since KMS began tracking.</p>
-    pub fn get_operation(
-        &self,
-    ) -> &::std::option::Option<crate::types::KeyLastUsageTrackingOperation> {
+    pub fn get_operation(&self) -> &::std::option::Option<crate::types::KeyLastUsageTrackingOperation> {
         &self.operation
     }
     /// <p>The date and time when the KMS key was most recently used for a successful cryptographic operation. Absent if the key has not been used since KMS began tracking.</p>
@@ -75,10 +68,7 @@ impl KeyLastUsageDataBuilder {
         self
     }
     /// <p>The date and time when the KMS key was most recently used for a successful cryptographic operation. Absent if the key has not been used since KMS began tracking.</p>
-    pub fn set_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.timestamp = input;
         self
     }
@@ -87,18 +77,12 @@ impl KeyLastUsageDataBuilder {
         &self.timestamp
     }
     /// <p>The CloudTrail <code>eventId</code> associated with the last successful cryptographic operation. Absent if the key has not been used since KMS began tracking.</p>
-    pub fn cloud_trail_event_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn cloud_trail_event_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.cloud_trail_event_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The CloudTrail <code>eventId</code> associated with the last successful cryptographic operation. Absent if the key has not been used since KMS began tracking.</p>
-    pub fn set_cloud_trail_event_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_cloud_trail_event_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.cloud_trail_event_id = input;
         self
     }
@@ -107,18 +91,12 @@ impl KeyLastUsageDataBuilder {
         &self.cloud_trail_event_id
     }
     /// <p>The KMS request ID associated with the last successful cryptographic operation. Absent if the key has not been used since KMS began tracking.</p>
-    pub fn kms_request_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn kms_request_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.kms_request_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The KMS request ID associated with the last successful cryptographic operation. Absent if the key has not been used since KMS began tracking.</p>
-    pub fn set_kms_request_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_kms_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.kms_request_id = input;
         self
     }

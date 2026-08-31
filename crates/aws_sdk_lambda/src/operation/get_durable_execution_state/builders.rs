@@ -58,7 +58,9 @@ impl GetDurableExecutionStateFluentBuilder {
         }
     }
     /// Access the GetDurableExecutionState as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_durable_execution_state::builders::GetDurableExecutionStateInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_durable_execution_state::builders::GetDurableExecutionStateInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,16 +84,14 @@ impl GetDurableExecutionStateFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_durable_execution_state::GetDurableExecutionState::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::get_durable_execution_state::GetDurableExecutionState::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::get_durable_execution_state::GetDurableExecutionState::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::get_durable_execution_state::GetDurableExecutionState::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -124,23 +124,19 @@ impl GetDurableExecutionStateFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::get_durable_execution_state::paginator::GetDurableExecutionStatePaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::get_durable_execution_state::paginator::GetDurableExecutionStatePaginator
-    {
-        crate::operation::get_durable_execution_state::paginator::GetDurableExecutionStatePaginator::new(self.handle, self.inner)
+    ) -> crate::operation::get_durable_execution_state::paginator::GetDurableExecutionStatePaginator {
+        crate::operation::get_durable_execution_state::paginator::GetDurableExecutionStatePaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-    pub fn durable_execution_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn durable_execution_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.durable_execution_arn(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-    pub fn set_durable_execution_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_durable_execution_arn(input);
         self
     }
@@ -149,18 +145,12 @@ impl GetDurableExecutionStateFluentBuilder {
         self.inner.get_durable_execution_arn()
     }
     /// <p>A checkpoint token that identifies the current state of the execution. This token is provided by the Lambda runtime and ensures that state retrieval is consistent with the current execution context.</p>
-    pub fn checkpoint_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn checkpoint_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.checkpoint_token(input.into());
         self
     }
     /// <p>A checkpoint token that identifies the current state of the execution. This token is provided by the Lambda runtime and ensures that state retrieval is consistent with the current execution context.</p>
-    pub fn set_checkpoint_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_checkpoint_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_checkpoint_token(input);
         self
     }

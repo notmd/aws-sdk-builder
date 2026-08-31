@@ -14,8 +14,6 @@ impl super::Client {
     pub fn get_object_legal_hold(
         &self,
     ) -> crate::operation::get_object_legal_hold::builders::GetObjectLegalHoldFluentBuilder {
-        crate::operation::get_object_legal_hold::builders::GetObjectLegalHoldFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_object_legal_hold::builders::GetObjectLegalHoldFluentBuilder::new(self.handle.clone())
     }
 }

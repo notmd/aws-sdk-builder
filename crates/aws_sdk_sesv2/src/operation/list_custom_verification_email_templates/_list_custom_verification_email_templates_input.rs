@@ -29,9 +29,7 @@ impl ListCustomVerificationEmailTemplatesInput {
 }
 
 /// A builder for [`ListCustomVerificationEmailTemplatesInput`](crate::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListCustomVerificationEmailTemplatesInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
@@ -75,7 +73,7 @@ impl ListCustomVerificationEmailTemplatesInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesInput {
                 next_token: self.next_token,

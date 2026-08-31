@@ -1288,22 +1288,13 @@ pub use crate::types::error::_tier_change_not_allowed_exception::TierChangeNotAl
 ))]
 pub use crate::types::error::_user_pool_tagging_exception::UserPoolTaggingException;
 
-#[cfg(any(
-    feature = "op_create_user_pool_client",
-    feature = "op_update_user_pool_client"
-))]
+#[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
 pub use crate::types::error::_invalid_o_auth_flow_exception::InvalidOAuthFlowException;
 
-#[cfg(any(
-    feature = "op_create_user_pool_client",
-    feature = "op_update_user_pool_client"
-))]
+#[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
 pub use crate::types::error::_scope_does_not_exist_exception::ScopeDoesNotExistException;
 
-#[cfg(any(
-    feature = "op_delete_identity_provider",
-    feature = "op_update_identity_provider"
-))]
+#[cfg(any(feature = "op_delete_identity_provider", feature = "op_update_identity_provider"))]
 pub use crate::types::error::_unsupported_identity_provider_exception::UnsupportedIdentityProviderException;
 
 #[cfg(feature = "op_get_tokens_from_refresh_token")]
@@ -1627,10 +1618,7 @@ mod _invalid_email_role_access_policy_exception;
 ))]
 mod _invalid_lambda_response_exception;
 
-#[cfg(any(
-    feature = "op_create_user_pool_client",
-    feature = "op_update_user_pool_client"
-))]
+#[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
 mod _invalid_o_auth_flow_exception;
 
 #[cfg(any(
@@ -2298,10 +2286,7 @@ mod _refresh_token_reuse_exception;
 ))]
 mod _resource_not_found_exception;
 
-#[cfg(any(
-    feature = "op_create_user_pool_client",
-    feature = "op_update_user_pool_client"
-))]
+#[cfg(any(feature = "op_create_user_pool_client", feature = "op_update_user_pool_client"))]
 mod _scope_does_not_exist_exception;
 
 #[cfg(feature = "op_update_provisioned_limit")]
@@ -2475,10 +2460,7 @@ mod _unauthorized_exception;
 ))]
 mod _unexpected_lambda_exception;
 
-#[cfg(any(
-    feature = "op_delete_identity_provider",
-    feature = "op_update_identity_provider"
-))]
+#[cfg(any(feature = "op_delete_identity_provider", feature = "op_update_identity_provider"))]
 mod _unsupported_identity_provider_exception;
 
 #[cfg(any(

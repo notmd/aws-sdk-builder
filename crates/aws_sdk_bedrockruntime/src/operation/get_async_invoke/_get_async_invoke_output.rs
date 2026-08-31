@@ -59,9 +59,7 @@ impl GetAsyncInvokeOutput {
         self.end_time.as_ref()
     }
     /// <p>Output data settings.</p>
-    pub fn output_data_config(
-        &self,
-    ) -> ::std::option::Option<&crate::types::AsyncInvokeOutputDataConfig> {
+    pub fn output_data_config(&self) -> ::std::option::Option<&crate::types::AsyncInvokeOutputDataConfig> {
         self.output_data_config.as_ref()
     }
 }
@@ -111,18 +109,12 @@ pub struct GetAsyncInvokeOutputBuilder {
 impl GetAsyncInvokeOutputBuilder {
     /// <p>The invocation's ARN.</p>
     /// This field is required.
-    pub fn invocation_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn invocation_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.invocation_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The invocation's ARN.</p>
-    pub fn set_invocation_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_invocation_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.invocation_arn = input;
         self
     }
@@ -146,18 +138,12 @@ impl GetAsyncInvokeOutputBuilder {
         &self.model_arn
     }
     /// <p>The invocation's idempotency token.</p>
-    pub fn client_request_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn client_request_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.client_request_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The invocation's idempotency token.</p>
-    pub fn set_client_request_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_client_request_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.client_request_token = input;
         self
     }
@@ -172,10 +158,7 @@ impl GetAsyncInvokeOutputBuilder {
         self
     }
     /// <p>The invocation's status.</p>
-    pub fn set_status(
-        mut self,
-        input: ::std::option::Option<crate::types::AsyncInvokeStatus>,
-    ) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::AsyncInvokeStatus>) -> Self {
         self.status = input;
         self
     }
@@ -184,18 +167,12 @@ impl GetAsyncInvokeOutputBuilder {
         &self.status
     }
     /// <p>An error message.</p>
-    pub fn failure_message(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn failure_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.failure_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>An error message.</p>
-    pub fn set_failure_message(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_failure_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.failure_message = input;
         self
     }
@@ -210,10 +187,7 @@ impl GetAsyncInvokeOutputBuilder {
         self
     }
     /// <p>When the invocation request was submitted.</p>
-    pub fn set_submit_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_submit_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.submit_time = input;
         self
     }
@@ -227,10 +201,7 @@ impl GetAsyncInvokeOutputBuilder {
         self
     }
     /// <p>The invocation's last modified time.</p>
-    pub fn set_last_modified_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_last_modified_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_modified_time = input;
         self
     }
@@ -244,10 +215,7 @@ impl GetAsyncInvokeOutputBuilder {
         self
     }
     /// <p>When the invocation ended.</p>
-    pub fn set_end_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_end_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.end_time = input;
         self
     }
@@ -270,9 +238,7 @@ impl GetAsyncInvokeOutputBuilder {
         self
     }
     /// <p>Output data settings.</p>
-    pub fn get_output_data_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::AsyncInvokeOutputDataConfig> {
+    pub fn get_output_data_config(&self) -> &::std::option::Option<crate::types::AsyncInvokeOutputDataConfig> {
         &self.output_data_config
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

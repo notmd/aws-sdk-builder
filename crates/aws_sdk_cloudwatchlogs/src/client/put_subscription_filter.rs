@@ -16,8 +16,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutSubscriptionFilterError>`](crate::operation::put_subscription_filter::PutSubscriptionFilterError)
     pub fn put_subscription_filter(
         &self,
-    ) -> crate::operation::put_subscription_filter::builders::PutSubscriptionFilterFluentBuilder
-    {
+    ) -> crate::operation::put_subscription_filter::builders::PutSubscriptionFilterFluentBuilder {
         crate::operation::put_subscription_filter::builders::PutSubscriptionFilterFluentBuilder::new(
             self.handle.clone(),
         )

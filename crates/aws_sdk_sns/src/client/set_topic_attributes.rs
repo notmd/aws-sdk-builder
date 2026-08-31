@@ -11,8 +11,6 @@ impl super::Client {
     pub fn set_topic_attributes(
         &self,
     ) -> crate::operation::set_topic_attributes::builders::SetTopicAttributesFluentBuilder {
-        crate::operation::set_topic_attributes::builders::SetTopicAttributesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::set_topic_attributes::builders::SetTopicAttributesFluentBuilder::new(self.handle.clone())
     }
 }

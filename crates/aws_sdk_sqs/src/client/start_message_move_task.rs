@@ -11,10 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<StartMessageMoveTaskError>`](crate::operation::start_message_move_task::StartMessageMoveTaskError)
     pub fn start_message_move_task(
         &self,
-    ) -> crate::operation::start_message_move_task::builders::StartMessageMoveTaskFluentBuilder
-    {
-        crate::operation::start_message_move_task::builders::StartMessageMoveTaskFluentBuilder::new(
-            self.handle.clone(),
-        )
+    ) -> crate::operation::start_message_move_task::builders::StartMessageMoveTaskFluentBuilder {
+        crate::operation::start_message_move_task::builders::StartMessageMoveTaskFluentBuilder::new(self.handle.clone())
     }
 }

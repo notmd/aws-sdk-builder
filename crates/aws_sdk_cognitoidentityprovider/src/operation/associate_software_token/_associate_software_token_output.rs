@@ -35,9 +35,7 @@ impl ::aws_types::request_id::RequestId for AssociateSoftwareTokenOutput {
 }
 impl AssociateSoftwareTokenOutput {
     /// Creates a new builder-style object to manufacture [`AssociateSoftwareTokenOutput`](crate::operation::associate_software_token::AssociateSoftwareTokenOutput).
-    pub fn builder(
-    ) -> crate::operation::associate_software_token::builders::AssociateSoftwareTokenOutputBuilder
-    {
+    pub fn builder() -> crate::operation::associate_software_token::builders::AssociateSoftwareTokenOutputBuilder {
         crate::operation::associate_software_token::builders::AssociateSoftwareTokenOutputBuilder::default()
     }
 }

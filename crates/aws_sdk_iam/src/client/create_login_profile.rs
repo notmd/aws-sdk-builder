@@ -12,8 +12,6 @@ impl super::Client {
     pub fn create_login_profile(
         &self,
     ) -> crate::operation::create_login_profile::builders::CreateLoginProfileFluentBuilder {
-        crate::operation::create_login_profile::builders::CreateLoginProfileFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::create_login_profile::builders::CreateLoginProfileFluentBuilder::new(self.handle.clone())
     }
 }

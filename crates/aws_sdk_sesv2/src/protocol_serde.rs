@@ -126,12 +126,8 @@ where
     E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
 {
     result
-        .map(|output| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output)
-        })
-        .map_err(|error| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error)
-        })
+        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))
+        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))
         .map_err(::std::convert::Into::into)
 }
 
@@ -1338,10 +1334,7 @@ pub(crate) mod shape_update_reputation_entity_policy_input;
 #[cfg(feature = "op_get_account")]
 pub(crate) mod shape_account_details;
 
-#[cfg(any(
-    feature = "op_create_configuration_set",
-    feature = "op_get_configuration_set"
-))]
+#[cfg(any(feature = "op_create_configuration_set", feature = "op_get_configuration_set"))]
 pub(crate) mod shape_archiving_options;
 
 #[cfg(feature = "op_batch_get_metric_data")]
@@ -1389,10 +1382,7 @@ pub(crate) mod shape_deliverability_test_report;
 #[cfg(feature = "op_list_deliverability_test_reports")]
 pub(crate) mod shape_deliverability_test_reports;
 
-#[cfg(any(
-    feature = "op_create_configuration_set",
-    feature = "op_get_configuration_set"
-))]
+#[cfg(any(feature = "op_create_configuration_set", feature = "op_get_configuration_set"))]
 pub(crate) mod shape_delivery_options;
 
 #[cfg(any(feature = "op_send_bulk_email", feature = "op_send_email"))]
@@ -1401,10 +1391,7 @@ pub(crate) mod shape_destination;
 #[cfg(feature = "op_create_multi_region_endpoint")]
 pub(crate) mod shape_details;
 
-#[cfg(any(
-    feature = "op_create_email_identity",
-    feature = "op_get_email_identity"
-))]
+#[cfg(any(feature = "op_create_email_identity", feature = "op_get_email_identity"))]
 pub(crate) mod shape_dkim_attributes;
 
 #[cfg(any(
@@ -1438,10 +1425,7 @@ pub(crate) mod shape_domain_deliverability_tracking_option;
 #[cfg(feature = "op_get_deliverability_dashboard_options")]
 pub(crate) mod shape_domain_deliverability_tracking_options;
 
-#[cfg(any(
-    feature = "op_create_deliverability_test_report",
-    feature = "op_send_email"
-))]
+#[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_email"))]
 pub(crate) mod shape_email_content;
 
 #[cfg(feature = "op_get_message_insights")]
@@ -1549,10 +1533,7 @@ pub(crate) mod shape_overall_volume;
 #[cfg(feature = "op_get_deliverability_test_report")]
 pub(crate) mod shape_placement_statistics;
 
-#[cfg(any(
-    feature = "op_get_email_identity",
-    feature = "op_get_email_identity_policies"
-))]
+#[cfg(any(feature = "op_get_email_identity", feature = "op_get_email_identity_policies"))]
 pub(crate) mod shape_policy_map;
 
 #[cfg(feature = "op_get_account")]
@@ -1564,16 +1545,10 @@ pub(crate) mod shape_recommendations_list;
 #[cfg(feature = "op_list_reputation_entities")]
 pub(crate) mod shape_reputation_entities_list;
 
-#[cfg(any(
-    feature = "op_get_reputation_entity",
-    feature = "op_list_reputation_entities"
-))]
+#[cfg(any(feature = "op_get_reputation_entity", feature = "op_list_reputation_entities"))]
 pub(crate) mod shape_reputation_entity;
 
-#[cfg(any(
-    feature = "op_create_configuration_set",
-    feature = "op_get_configuration_set"
-))]
+#[cfg(any(feature = "op_create_configuration_set", feature = "op_get_configuration_set"))]
 pub(crate) mod shape_reputation_options;
 
 #[cfg(feature = "op_list_resource_tenants")]
@@ -1585,10 +1560,7 @@ pub(crate) mod shape_routes;
 #[cfg(feature = "op_get_account")]
 pub(crate) mod shape_send_quota;
 
-#[cfg(any(
-    feature = "op_create_configuration_set",
-    feature = "op_get_configuration_set"
-))]
+#[cfg(any(feature = "op_create_configuration_set", feature = "op_get_configuration_set"))]
 pub(crate) mod shape_sending_options;
 
 #[cfg(feature = "op_get_suppressed_destination")]
@@ -1600,16 +1572,10 @@ pub(crate) mod shape_suppressed_destination_summaries;
 #[cfg(feature = "op_get_account")]
 pub(crate) mod shape_suppression_attributes;
 
-#[cfg(any(
-    feature = "op_create_configuration_set",
-    feature = "op_get_configuration_set"
-))]
+#[cfg(any(feature = "op_create_configuration_set", feature = "op_get_configuration_set"))]
 pub(crate) mod shape_suppression_options;
 
-#[cfg(any(
-    feature = "op_get_account",
-    feature = "op_put_account_suppression_attributes"
-))]
+#[cfg(any(feature = "op_get_account", feature = "op_put_account_suppression_attributes"))]
 pub(crate) mod shape_suppression_validation_attributes;
 
 #[cfg(any(
@@ -1687,10 +1653,7 @@ pub(crate) mod shape_topic_preference_list;
 #[cfg(feature = "op_get_contact_list")]
 pub(crate) mod shape_topics;
 
-#[cfg(any(
-    feature = "op_create_configuration_set",
-    feature = "op_get_configuration_set"
-))]
+#[cfg(any(feature = "op_create_configuration_set", feature = "op_get_configuration_set"))]
 pub(crate) mod shape_tracking_options;
 
 #[cfg(any(feature = "op_get_account", feature = "op_put_account_vdm_attributes"))]
@@ -1823,10 +1786,7 @@ pub(crate) mod shape_isp_placement;
 ))]
 pub(crate) mod shape_kinesis_firehose_destination;
 
-#[cfg(any(
-    feature = "op_create_deliverability_test_report",
-    feature = "op_send_email"
-))]
+#[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_email"))]
 pub(crate) mod shape_message;
 
 #[cfg(any(
@@ -1858,10 +1818,7 @@ pub(crate) mod shape_multi_region_endpoint;
 ))]
 pub(crate) mod shape_pinpoint_destination;
 
-#[cfg(any(
-    feature = "op_create_deliverability_test_report",
-    feature = "op_send_email"
-))]
+#[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_email"))]
 pub(crate) mod shape_raw_message;
 
 #[cfg(feature = "op_list_recommendations")]
@@ -1892,10 +1849,7 @@ pub(crate) mod shape_sns_destination;
 #[cfg(feature = "op_get_email_identity")]
 pub(crate) mod shape_soa_record;
 
-#[cfg(any(
-    feature = "op_get_reputation_entity",
-    feature = "op_list_reputation_entities"
-))]
+#[cfg(any(feature = "op_get_reputation_entity", feature = "op_list_reputation_entities"))]
 pub(crate) mod shape_status_record;
 
 #[cfg(feature = "op_get_suppressed_destination")]
@@ -1961,10 +1915,7 @@ pub(crate) mod shape_attachment;
 #[cfg(feature = "op_get_blacklist_reports")]
 pub(crate) mod shape_blacklist_entry;
 
-#[cfg(any(
-    feature = "op_create_deliverability_test_report",
-    feature = "op_send_email"
-))]
+#[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_email"))]
 pub(crate) mod shape_body;
 
 #[cfg(any(
@@ -1974,10 +1925,7 @@ pub(crate) mod shape_body;
 ))]
 pub(crate) mod shape_cloud_watch_dimension_configuration;
 
-#[cfg(any(
-    feature = "op_create_deliverability_test_report",
-    feature = "op_send_email"
-))]
+#[cfg(any(feature = "op_create_deliverability_test_report", feature = "op_send_email"))]
 pub(crate) mod shape_content;
 
 #[cfg(feature = "op_get_domain_statistics_report")]

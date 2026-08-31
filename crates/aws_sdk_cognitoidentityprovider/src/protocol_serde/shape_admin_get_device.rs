@@ -9,18 +9,17 @@ pub fn de_admin_get_device_http_error(
     crate::operation::admin_get_device::AdminGetDeviceError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::admin_get_device::AdminGetDeviceError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::admin_get_device::AdminGetDeviceError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(crate::operation::admin_get_device::AdminGetDeviceError::unhandled(generic))
+            return Err(crate::operation::admin_get_device::AdminGetDeviceError::unhandled(
+                generic,
+            ))
         }
     };
 
@@ -31,8 +30,11 @@ pub fn de_admin_get_device_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
-                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::admin_get_device::AdminGetDeviceError::unhandled)?;
+                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::admin_get_device::AdminGetDeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -41,27 +43,30 @@ pub fn de_admin_get_device_http_error(
             }
             tmp
         }),
-        "InvalidParameterException" => crate::operation::admin_get_device::AdminGetDeviceError::InvalidParameterException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "InvalidParameterException" => {
+            crate::operation::admin_get_device::AdminGetDeviceError::InvalidParameterException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
                     .map_err(crate::operation::admin_get_device::AdminGetDeviceError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "InvalidUserPoolConfigurationException" => {
             crate::operation::admin_get_device::AdminGetDeviceError::InvalidUserPoolConfigurationException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::InvalidUserPoolConfigurationExceptionBuilder::default();
+                    let mut output =
+                        crate::types::error::builders::InvalidUserPoolConfigurationExceptionBuilder::default();
                     output = crate::protocol_serde::shape_invalid_user_pool_configuration_exception::de_invalid_user_pool_configuration_exception_json_err(_response_body, output).map_err(crate::operation::admin_get_device::AdminGetDeviceError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
@@ -77,8 +82,11 @@ pub fn de_admin_get_device_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
-                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::admin_get_device::AdminGetDeviceError::unhandled)?;
+                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::admin_get_device::AdminGetDeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -87,52 +95,58 @@ pub fn de_admin_get_device_http_error(
             }
             tmp
         }),
-        "OperationNotEnabledException" => crate::operation::admin_get_device::AdminGetDeviceError::OperationNotEnabledException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "OperationNotEnabledException" => {
+            crate::operation::admin_get_device::AdminGetDeviceError::OperationNotEnabledException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                output =
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+                    output =
                     crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
                         .map_err(crate::operation::admin_get_device::AdminGetDeviceError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ResourceNotFoundException" => crate::operation::admin_get_device::AdminGetDeviceError::ResourceNotFoundException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ResourceNotFoundException" => {
+            crate::operation::admin_get_device::AdminGetDeviceError::ResourceNotFoundException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(crate::operation::admin_get_device::AdminGetDeviceError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "TooManyRequestsException" => crate::operation::admin_get_device::AdminGetDeviceError::TooManyRequestsException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "TooManyRequestsException" => {
+            crate::operation::admin_get_device::AdminGetDeviceError::TooManyRequestsException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(crate::operation::admin_get_device::AdminGetDeviceError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => crate::operation::admin_get_device::AdminGetDeviceError::generic(generic),
     })
 }
@@ -148,32 +162,21 @@ pub fn de_admin_get_device_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::admin_get_device::builders::AdminGetDeviceOutputBuilder::default();
-        output = crate::protocol_serde::shape_admin_get_device::de_admin_get_device(
-            _response_body,
-            output,
-        )
-        .map_err(crate::operation::admin_get_device::AdminGetDeviceError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::admin_get_device::builders::AdminGetDeviceOutputBuilder::default();
+        output = crate::protocol_serde::shape_admin_get_device::de_admin_get_device(_response_body, output)
+            .map_err(crate::operation::admin_get_device::AdminGetDeviceError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         crate::serde_util::admin_get_device_output_output_correct_errors(output).build()
     })
 }
 
 pub fn ser_admin_get_device_input(
     input: &crate::operation::admin_get_device::AdminGetDeviceInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_admin_get_device_input::ser_admin_get_device_input_input(
-        &mut object,
-        input,
-    )?;
+    crate::protocol_serde::shape_admin_get_device_input::ser_admin_get_device_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -185,10 +188,8 @@ pub(crate) fn de_admin_get_device(
     crate::operation::admin_get_device::builders::AdminGetDeviceOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -196,35 +197,27 @@ pub(crate) fn de_admin_get_device(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "Device" => {
-                        builder = builder.set_device(
-                            crate::protocol_serde::shape_device_type::de_device_type(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "Device" => {
+                    builder = builder.set_device(crate::protocol_serde::shape_device_type::de_device_type(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
-            }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

@@ -135,32 +135,21 @@ impl DescribeAggregateComplianceByConformancePacksFluentBuilder {
         )
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn configuration_aggregator_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_aggregator_name(input.into());
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn set_configuration_aggregator_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_aggregator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_aggregator_name(input);
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn get_configuration_aggregator_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_configuration_aggregator_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_configuration_aggregator_name()
     }
     /// <p>Filters the result by <code>AggregateConformancePackComplianceFilters</code> object.</p>
-    pub fn filters(
-        mut self,
-        input: crate::types::AggregateConformancePackComplianceFilters,
-    ) -> Self {
+    pub fn filters(mut self, input: crate::types::AggregateConformancePackComplianceFilters) -> Self {
         self.inner = self.inner.filters(input);
         self
     }
@@ -173,9 +162,7 @@ impl DescribeAggregateComplianceByConformancePacksFluentBuilder {
         self
     }
     /// <p>Filters the result by <code>AggregateConformancePackComplianceFilters</code> object.</p>
-    pub fn get_filters(
-        &self,
-    ) -> &::std::option::Option<crate::types::AggregateConformancePackComplianceFilters> {
+    pub fn get_filters(&self) -> &::std::option::Option<crate::types::AggregateConformancePackComplianceFilters> {
         self.inner.get_filters()
     }
     /// <p>The maximum number of conformance packs compliance details returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>

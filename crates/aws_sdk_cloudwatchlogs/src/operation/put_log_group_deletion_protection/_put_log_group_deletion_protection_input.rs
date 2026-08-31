@@ -32,15 +32,14 @@ impl PutLogGroupDeletionProtectionInput {
 }
 impl PutLogGroupDeletionProtectionInput {
     /// Creates a new builder-style object to manufacture [`PutLogGroupDeletionProtectionInput`](crate::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionInput).
-    pub fn builder() -> crate::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionInputBuilder {
         crate::operation::put_log_group_deletion_protection::builders::PutLogGroupDeletionProtectionInputBuilder::default()
     }
 }
 
 /// A builder for [`PutLogGroupDeletionProtectionInput`](crate::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutLogGroupDeletionProtectionInputBuilder {
     pub(crate) log_group_identifier: ::std::option::Option<::std::string::String>,
@@ -53,10 +52,7 @@ impl PutLogGroupDeletionProtectionInputBuilder {
     /// <p>Pattern: <code>\[\.\-_/#A-Za-z0-9\]+</code></p>
     /// <p>Required: Yes</p>
     /// This field is required.
-    pub fn log_group_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_identifier = ::std::option::Option::Some(input.into());
         self
     }
@@ -65,10 +61,7 @@ impl PutLogGroupDeletionProtectionInputBuilder {
     /// <p>Length Constraints: Minimum length of 1. Maximum length of 512.</p>
     /// <p>Pattern: <code>\[\.\-_/#A-Za-z0-9\]+</code></p>
     /// <p>Required: Yes</p>
-    pub fn set_log_group_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_identifier = input;
         self
     }
@@ -108,9 +101,11 @@ impl PutLogGroupDeletionProtectionInputBuilder {
         crate::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionInput {
-            log_group_identifier: self.log_group_identifier,
-            deletion_protection_enabled: self.deletion_protection_enabled,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionInput {
+                log_group_identifier: self.log_group_identifier,
+                deletion_protection_enabled: self.deletion_protection_enabled,
+            },
+        )
     }
 }

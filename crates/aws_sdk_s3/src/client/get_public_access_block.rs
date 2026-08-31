@@ -10,10 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetPublicAccessBlockError>`](crate::operation::get_public_access_block::GetPublicAccessBlockError)
     pub fn get_public_access_block(
         &self,
-    ) -> crate::operation::get_public_access_block::builders::GetPublicAccessBlockFluentBuilder
-    {
-        crate::operation::get_public_access_block::builders::GetPublicAccessBlockFluentBuilder::new(
-            self.handle.clone(),
-        )
+    ) -> crate::operation::get_public_access_block::builders::GetPublicAccessBlockFluentBuilder {
+        crate::operation::get_public_access_block::builders::GetPublicAccessBlockFluentBuilder::new(self.handle.clone())
     }
 }

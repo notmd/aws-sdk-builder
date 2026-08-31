@@ -10,8 +10,6 @@ impl super::Client {
     pub fn update_email_template(
         &self,
     ) -> crate::operation::update_email_template::builders::UpdateEmailTemplateFluentBuilder {
-        crate::operation::update_email_template::builders::UpdateEmailTemplateFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::update_email_template::builders::UpdateEmailTemplateFluentBuilder::new(self.handle.clone())
     }
 }

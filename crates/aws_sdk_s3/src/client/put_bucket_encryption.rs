@@ -13,8 +13,6 @@ impl super::Client {
     pub fn put_bucket_encryption(
         &self,
     ) -> crate::operation::put_bucket_encryption::builders::PutBucketEncryptionFluentBuilder {
-        crate::operation::put_bucket_encryption::builders::PutBucketEncryptionFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::put_bucket_encryption::builders::PutBucketEncryptionFluentBuilder::new(self.handle.clone())
     }
 }

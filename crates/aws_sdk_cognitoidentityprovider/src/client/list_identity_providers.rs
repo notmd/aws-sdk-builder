@@ -13,8 +13,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListIdentityProvidersError>`](crate::operation::list_identity_providers::ListIdentityProvidersError)
     pub fn list_identity_providers(
         &self,
-    ) -> crate::operation::list_identity_providers::builders::ListIdentityProvidersFluentBuilder
-    {
+    ) -> crate::operation::list_identity_providers::builders::ListIdentityProvidersFluentBuilder {
         crate::operation::list_identity_providers::builders::ListIdentityProvidersFluentBuilder::new(
             self.handle.clone(),
         )

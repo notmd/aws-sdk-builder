@@ -10,10 +10,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<AdminSetUserSettingsError>`](crate::operation::admin_set_user_settings::AdminSetUserSettingsError)
     pub fn admin_set_user_settings(
         &self,
-    ) -> crate::operation::admin_set_user_settings::builders::AdminSetUserSettingsFluentBuilder
-    {
-        crate::operation::admin_set_user_settings::builders::AdminSetUserSettingsFluentBuilder::new(
-            self.handle.clone(),
-        )
+    ) -> crate::operation::admin_set_user_settings::builders::AdminSetUserSettingsFluentBuilder {
+        crate::operation::admin_set_user_settings::builders::AdminSetUserSettingsFluentBuilder::new(self.handle.clone())
     }
 }

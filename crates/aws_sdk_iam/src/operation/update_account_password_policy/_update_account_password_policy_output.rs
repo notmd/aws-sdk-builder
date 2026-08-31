@@ -12,15 +12,14 @@ impl ::aws_types::request_id::RequestId for UpdateAccountPasswordPolicyOutput {
 }
 impl UpdateAccountPasswordPolicyOutput {
     /// Creates a new builder-style object to manufacture [`UpdateAccountPasswordPolicyOutput`](crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyOutput).
-    pub fn builder() -> crate::operation::update_account_password_policy::builders::UpdateAccountPasswordPolicyOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::update_account_password_policy::builders::UpdateAccountPasswordPolicyOutputBuilder {
         crate::operation::update_account_password_policy::builders::UpdateAccountPasswordPolicyOutputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateAccountPasswordPolicyOutput`](crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateAccountPasswordPolicyOutputBuilder {
     _request_id: Option<String>,
@@ -36,9 +35,7 @@ impl UpdateAccountPasswordPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateAccountPasswordPolicyOutput`](crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyOutput {
+    pub fn build(self) -> crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyOutput {
         crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyOutput {
             _request_id: self._request_id,
         }

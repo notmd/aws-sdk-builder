@@ -3,9 +3,7 @@ pub use crate::operation::describe_import_task_batches::_describe_import_task_ba
 
 pub use crate::operation::describe_import_task_batches::_describe_import_task_batches_output::DescribeImportTaskBatchesOutputBuilder;
 
-impl
-    crate::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesInputBuilder
-{
+impl crate::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -59,7 +57,9 @@ impl DescribeImportTaskBatchesFluentBuilder {
         }
     }
     /// Access the DescribeImportTaskBatches as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_import_task_batches::builders::DescribeImportTaskBatchesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,16 +83,14 @@ impl DescribeImportTaskBatchesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::describe_import_task_batches::DescribeImportTaskBatches::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::describe_import_task_batches::DescribeImportTaskBatches::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::describe_import_task_batches::DescribeImportTaskBatches::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::describe_import_task_batches::DescribeImportTaskBatches::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -153,9 +151,7 @@ impl DescribeImportTaskBatchesFluentBuilder {
         self
     }
     /// <p>Optional filter to list import batches by their status. Accepts multiple status values: IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</p>
-    pub fn get_batch_import_status(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ImportStatus>> {
+    pub fn get_batch_import_status(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ImportStatus>> {
         self.inner.get_batch_import_status()
     }
     /// <p>The maximum number of import batches to return in the response. Default: 10</p>

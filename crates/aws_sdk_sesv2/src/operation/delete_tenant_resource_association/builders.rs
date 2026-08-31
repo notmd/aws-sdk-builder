@@ -44,7 +44,7 @@ impl
             crate::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationOutput,
             crate::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -58,7 +58,10 @@ impl DeleteTenantResourceAssociationFluentBuilder {
         }
     }
     /// Access the DeleteTenantResourceAssociation as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -77,7 +80,7 @@ impl DeleteTenantResourceAssociationFluentBuilder {
             crate::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -87,7 +90,11 @@ impl DeleteTenantResourceAssociationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_tenant_resource_association::DeleteTenantResourceAssociation::orchestrate(&runtime_plugins, input).await
+        crate::operation::delete_tenant_resource_association::DeleteTenantResourceAssociation::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

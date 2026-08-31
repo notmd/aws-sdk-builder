@@ -76,7 +76,7 @@ impl SendDurableExecutionCallbackSuccessInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessInput {
                 callback_id: self.callback_id,

@@ -11,8 +11,6 @@ impl super::Client {
     pub fn admin_forget_device(
         &self,
     ) -> crate::operation::admin_forget_device::builders::AdminForgetDeviceFluentBuilder {
-        crate::operation::admin_forget_device::builders::AdminForgetDeviceFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::admin_forget_device::builders::AdminForgetDeviceFluentBuilder::new(self.handle.clone())
     }
 }

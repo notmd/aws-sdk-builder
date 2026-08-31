@@ -59,8 +59,7 @@ impl UpdateSchedulingPolicyFluentBuilder {
     /// Access the UpdateSchedulingPolicy as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::update_scheduling_policy::builders::UpdateSchedulingPolicyInputBuilder
-    {
+    ) -> &crate::operation::update_scheduling_policy::builders::UpdateSchedulingPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +83,13 @@ impl UpdateSchedulingPolicyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::update_scheduling_policy::UpdateSchedulingPolicy::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::update_scheduling_policy::UpdateSchedulingPolicy::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::update_scheduling_policy::UpdateSchedulingPolicy::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::update_scheduling_policy::UpdateSchedulingPolicy::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -141,10 +137,7 @@ impl UpdateSchedulingPolicyFluentBuilder {
         self
     }
     /// <p>The quota share scheduling policy details. Once set during creation, a quotaSharePolicy cannot be removed or changed to a fairsharePolicy.</p>
-    pub fn set_quota_share_policy(
-        mut self,
-        input: ::std::option::Option<crate::types::QuotaSharePolicy>,
-    ) -> Self {
+    pub fn set_quota_share_policy(mut self, input: ::std::option::Option<crate::types::QuotaSharePolicy>) -> Self {
         self.inner = self.inner.set_quota_share_policy(input);
         self
     }
@@ -158,10 +151,7 @@ impl UpdateSchedulingPolicyFluentBuilder {
         self
     }
     /// <p>The fair-share policy scheduling details. Once set during creation, a fairsharePolicy cannot be removed or changed to a quotaSharePolicy.</p>
-    pub fn set_fairshare_policy(
-        mut self,
-        input: ::std::option::Option<crate::types::FairsharePolicy>,
-    ) -> Self {
+    pub fn set_fairshare_policy(mut self, input: ::std::option::Option<crate::types::FairsharePolicy>) -> Self {
         self.inner = self.inner.set_fairshare_policy(input);
         self
     }

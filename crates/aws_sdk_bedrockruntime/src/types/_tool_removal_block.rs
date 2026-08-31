@@ -21,9 +21,7 @@ impl ToolRemovalBlock {
 }
 
 /// A builder for [`ToolRemovalBlock`](crate::types::ToolRemovalBlock).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ToolRemovalBlockBuilder {
     pub(crate) tool: ::std::option::Option<crate::types::ToolReference>,

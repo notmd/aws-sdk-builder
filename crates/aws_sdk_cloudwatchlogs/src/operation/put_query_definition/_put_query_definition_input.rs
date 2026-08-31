@@ -58,16 +58,13 @@ impl PutQueryDefinitionInput {
 }
 impl PutQueryDefinitionInput {
     /// Creates a new builder-style object to manufacture [`PutQueryDefinitionInput`](crate::operation::put_query_definition::PutQueryDefinitionInput).
-    pub fn builder(
-    ) -> crate::operation::put_query_definition::builders::PutQueryDefinitionInputBuilder {
+    pub fn builder() -> crate::operation::put_query_definition::builders::PutQueryDefinitionInputBuilder {
         crate::operation::put_query_definition::builders::PutQueryDefinitionInputBuilder::default()
     }
 }
 
 /// A builder for [`PutQueryDefinitionInput`](crate::operation::put_query_definition::PutQueryDefinitionInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutQueryDefinitionInputBuilder {
     pub(crate) query_language: ::std::option::Option<crate::types::QueryLanguage>,
@@ -85,10 +82,7 @@ impl PutQueryDefinitionInputBuilder {
         self
     }
     /// <p>Specify the query language to use for this query. The options are Logs Insights QL, OpenSearch PPL, and OpenSearch SQL. For more information about the query languages that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
-    pub fn set_query_language(
-        mut self,
-        input: ::std::option::Option<crate::types::QueryLanguage>,
-    ) -> Self {
+    pub fn set_query_language(mut self, input: ::std::option::Option<crate::types::QueryLanguage>) -> Self {
         self.query_language = input;
         self
     }
@@ -113,19 +107,13 @@ impl PutQueryDefinitionInputBuilder {
     }
     /// <p>If you are updating a query definition, use this parameter to specify the ID of the query definition that you want to update. You can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html">DescribeQueryDefinitions</a> to retrieve the IDs of your saved query definitions.</p>
     /// <p>If you are creating a query definition, do not specify this parameter. CloudWatch generates a unique ID for the new query definition and include it in the response to this operation.</p>
-    pub fn query_definition_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn query_definition_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.query_definition_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>If you are updating a query definition, use this parameter to specify the ID of the query definition that you want to update. You can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html">DescribeQueryDefinitions</a> to retrieve the IDs of your saved query definitions.</p>
     /// <p>If you are creating a query definition, do not specify this parameter. CloudWatch generates a unique ID for the new query definition and include it in the response to this operation.</p>
-    pub fn set_query_definition_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_query_definition_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.query_definition_id = input;
         self
     }
@@ -140,10 +128,7 @@ impl PutQueryDefinitionInputBuilder {
     ///
     /// <p>Use this parameter to include specific log groups as part of your query definition. If your query uses the OpenSearch Service query language, you specify the log group names inside the <code>querystring</code> instead of here.</p>
     /// <p>If you are updating an existing query definition for the Logs Insights QL or OpenSearch Service PPL and you omit this parameter, then the updated definition will contain no log groups.</p>
-    pub fn log_group_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.log_group_names.unwrap_or_default();
         v.push(input.into());
         self.log_group_names = ::std::option::Option::Some(v);
@@ -151,18 +136,13 @@ impl PutQueryDefinitionInputBuilder {
     }
     /// <p>Use this parameter to include specific log groups as part of your query definition. If your query uses the OpenSearch Service query language, you specify the log group names inside the <code>querystring</code> instead of here.</p>
     /// <p>If you are updating an existing query definition for the Logs Insights QL or OpenSearch Service PPL and you omit this parameter, then the updated definition will contain no log groups.</p>
-    pub fn set_log_group_names(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_log_group_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.log_group_names = input;
         self
     }
     /// <p>Use this parameter to include specific log groups as part of your query definition. If your query uses the OpenSearch Service query language, you specify the log group names inside the <code>querystring</code> instead of here.</p>
     /// <p>If you are updating an existing query definition for the Logs Insights QL or OpenSearch Service PPL and you omit this parameter, then the updated definition will contain no log groups.</p>
-    pub fn get_log_group_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_group_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.log_group_names
     }
     /// <p>The query string to use for this definition. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
@@ -214,9 +194,7 @@ impl PutQueryDefinitionInputBuilder {
         self
     }
     /// <p>Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the <code>{{parameterName}}</code> syntax in your query string to reference a parameter.</p>
-    pub fn get_parameters(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::QueryParameter>> {
+    pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::QueryParameter>> {
         &self.parameters
     }
     /// Consumes the builder and constructs a [`PutQueryDefinitionInput`](crate::operation::put_query_definition::PutQueryDefinitionInput).
@@ -226,16 +204,14 @@ impl PutQueryDefinitionInputBuilder {
         crate::operation::put_query_definition::PutQueryDefinitionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::put_query_definition::PutQueryDefinitionInput {
-                query_language: self.query_language,
-                name: self.name,
-                query_definition_id: self.query_definition_id,
-                log_group_names: self.log_group_names,
-                query_string: self.query_string,
-                client_token: self.client_token,
-                parameters: self.parameters,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::put_query_definition::PutQueryDefinitionInput {
+            query_language: self.query_language,
+            name: self.name,
+            query_definition_id: self.query_definition_id,
+            log_group_names: self.log_group_names,
+            query_string: self.query_string,
+            client_token: self.client_token,
+            parameters: self.parameters,
+        })
     }
 }

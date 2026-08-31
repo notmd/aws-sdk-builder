@@ -21,8 +21,6 @@ impl super::Client {
     pub fn copy_package_versions(
         &self,
     ) -> crate::operation::copy_package_versions::builders::CopyPackageVersionsFluentBuilder {
-        crate::operation::copy_package_versions::builders::CopyPackageVersionsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::copy_package_versions::builders::CopyPackageVersionsFluentBuilder::new(self.handle.clone())
     }
 }

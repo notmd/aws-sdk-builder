@@ -11,8 +11,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateUserPoolReplicaError>`](crate::operation::update_user_pool_replica::UpdateUserPoolReplicaError)
     pub fn update_user_pool_replica(
         &self,
-    ) -> crate::operation::update_user_pool_replica::builders::UpdateUserPoolReplicaFluentBuilder
-    {
-        crate::operation::update_user_pool_replica::builders::UpdateUserPoolReplicaFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::update_user_pool_replica::builders::UpdateUserPoolReplicaFluentBuilder {
+        crate::operation::update_user_pool_replica::builders::UpdateUserPoolReplicaFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

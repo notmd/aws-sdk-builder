@@ -19,8 +19,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListEntitiesForPolicyError>`](crate::operation::list_entities_for_policy::ListEntitiesForPolicyError)
     pub fn list_entities_for_policy(
         &self,
-    ) -> crate::operation::list_entities_for_policy::builders::ListEntitiesForPolicyFluentBuilder
-    {
-        crate::operation::list_entities_for_policy::builders::ListEntitiesForPolicyFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::list_entities_for_policy::builders::ListEntitiesForPolicyFluentBuilder {
+        crate::operation::list_entities_for_policy::builders::ListEntitiesForPolicyFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

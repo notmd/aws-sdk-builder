@@ -9,21 +9,14 @@ pub fn de_acquire_role_http_error(
     crate::operation::acquire_role::AcquireRoleError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::acquire_role::AcquireRoleError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::acquire_role::AcquireRoleError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(crate::operation::acquire_role::AcquireRoleError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(crate::operation::acquire_role::AcquireRoleError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -33,7 +26,7 @@ pub fn de_acquire_role_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
                     output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_xml_err(
                     _response_body,
                     output,
@@ -48,68 +41,64 @@ pub fn de_acquire_role_http_error(
                 tmp
             })
         }
-        "EntityAlreadyExists" => {
-            crate::operation::acquire_role::AcquireRoleError::EntityAlreadyExistsException({
+        "EntityAlreadyExists" => crate::operation::acquire_role::AcquireRoleError::EntityAlreadyExistsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::EntityAlreadyExistsExceptionBuilder::default(
-                        );
-                    output =
+                let mut output = crate::types::error::builders::EntityAlreadyExistsExceptionBuilder::default();
+                output =
                     crate::protocol_serde::shape_entity_already_exists_exception::de_entity_already_exists_exception_xml_err(_response_body, output)
                         .map_err(crate::operation::acquire_role::AcquireRoleError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "InvalidInput" => {
-            crate::operation::acquire_role::AcquireRoleError::InvalidInputException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidInput" => crate::operation::acquire_role::AcquireRoleError::InvalidInputException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InvalidInputExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::acquire_role::AcquireRoleError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "LimitExceeded" => {
-            crate::operation::acquire_role::AcquireRoleError::LimitExceededException({
+                let mut output = crate::types::error::builders::InvalidInputExceptionBuilder::default();
+                output = crate::protocol_serde::shape_invalid_input_exception::de_invalid_input_exception_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::acquire_role::AcquireRoleError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "LimitExceeded" => crate::operation::acquire_role::AcquireRoleError::LimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::LimitExceededExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::acquire_role::AcquireRoleError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
+                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::acquire_role::AcquireRoleError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "MalformedPolicyDocument" => {
             crate::operation::acquire_role::AcquireRoleError::MalformedPolicyDocumentException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::MalformedPolicyDocumentExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::MalformedPolicyDocumentExceptionBuilder::default();
                     output = crate::protocol_serde::shape_malformed_policy_document_exception::de_malformed_policy_document_exception_xml_err(
                     _response_body,
                     output,
@@ -124,98 +113,96 @@ pub fn de_acquire_role_http_error(
                 tmp
             })
         }
-        "NameConflict" => {
-            crate::operation::acquire_role::AcquireRoleError::NameConflictException({
+        "NameConflict" => crate::operation::acquire_role::AcquireRoleError::NameConflictException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::NameConflictExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_name_conflict_exception::de_name_conflict_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::acquire_role::AcquireRoleError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "NoSuchEntity" => {
-            crate::operation::acquire_role::AcquireRoleError::NoSuchEntityException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::acquire_role::AcquireRoleError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "RoleModified" => {
-            crate::operation::acquire_role::AcquireRoleError::RoleModifiedException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::RoleModifiedExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_role_modified_exception::de_role_modified_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::acquire_role::AcquireRoleError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "RoleTemplateDisabled" => {
-            crate::operation::acquire_role::AcquireRoleError::RoleTemplateDisabledException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::RoleTemplateDisabledExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_role_template_disabled_exception::de_role_template_disabled_exception_xml_err(
+                let mut output = crate::types::error::builders::NameConflictExceptionBuilder::default();
+                output = crate::protocol_serde::shape_name_conflict_exception::de_name_conflict_exception_xml_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::acquire_role::AcquireRoleError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ServiceFailure" => {
-            crate::operation::acquire_role::AcquireRoleError::ServiceFailureException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NoSuchEntity" => crate::operation::acquire_role::AcquireRoleError::NoSuchEntityException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ServiceFailureExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::acquire_role::AcquireRoleError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::acquire_role::AcquireRoleError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "RoleModified" => crate::operation::acquire_role::AcquireRoleError::RoleModifiedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::RoleModifiedExceptionBuilder::default();
+                output = crate::protocol_serde::shape_role_modified_exception::de_role_modified_exception_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::acquire_role::AcquireRoleError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "RoleTemplateDisabled" => crate::operation::acquire_role::AcquireRoleError::RoleTemplateDisabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::RoleTemplateDisabledExceptionBuilder::default();
+                output = crate::protocol_serde::shape_role_template_disabled_exception::de_role_template_disabled_exception_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::acquire_role::AcquireRoleError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ServiceFailure" => crate::operation::acquire_role::AcquireRoleError::ServiceFailureException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
+                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::acquire_role::AcquireRoleError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => crate::operation::acquire_role::AcquireRoleError::generic(generic),
     })
 }
@@ -231,13 +218,10 @@ pub fn de_acquire_role_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::acquire_role::builders::AcquireRoleOutputBuilder::default();
+        let mut output = crate::operation::acquire_role::builders::AcquireRoleOutputBuilder::default();
         output = crate::protocol_serde::shape_acquire_role::de_acquire_role(_response_body, output)
             .map_err(crate::operation::acquire_role::AcquireRoleError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         crate::serde_util::acquire_role_output_output_correct_errors(output).build()
     })
 }

@@ -14,8 +14,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<AdminListUserAuthEventsError>`](crate::operation::admin_list_user_auth_events::AdminListUserAuthEventsError)
     pub fn admin_list_user_auth_events(
         &self,
-    ) -> crate::operation::admin_list_user_auth_events::builders::AdminListUserAuthEventsFluentBuilder
-    {
-        crate::operation::admin_list_user_auth_events::builders::AdminListUserAuthEventsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::admin_list_user_auth_events::builders::AdminListUserAuthEventsFluentBuilder {
+        crate::operation::admin_list_user_auth_events::builders::AdminListUserAuthEventsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

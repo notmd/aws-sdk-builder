@@ -32,9 +32,7 @@ impl ListTermsInput {
 }
 
 /// A builder for [`ListTermsInput`](crate::operation::list_terms::ListTermsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListTermsInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,

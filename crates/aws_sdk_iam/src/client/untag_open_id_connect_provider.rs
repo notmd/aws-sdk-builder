@@ -9,7 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UntagOpenIDConnectProviderError>`](crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError)
     pub fn untag_open_id_connect_provider(
         &self,
-    ) -> crate::operation::untag_open_id_connect_provider::builders::UntagOpenIDConnectProviderFluentBuilder{
-        crate::operation::untag_open_id_connect_provider::builders::UntagOpenIDConnectProviderFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::untag_open_id_connect_provider::builders::UntagOpenIDConnectProviderFluentBuilder {
+        crate::operation::untag_open_id_connect_provider::builders::UntagOpenIDConnectProviderFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

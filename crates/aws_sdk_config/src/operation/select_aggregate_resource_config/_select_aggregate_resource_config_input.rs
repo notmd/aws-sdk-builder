@@ -38,15 +38,15 @@ impl SelectAggregateResourceConfigInput {
 }
 impl SelectAggregateResourceConfigInput {
     /// Creates a new builder-style object to manufacture [`SelectAggregateResourceConfigInput`](crate::operation::select_aggregate_resource_config::SelectAggregateResourceConfigInput).
-    pub fn builder() -> crate::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigInputBuilder{
-        crate::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigInputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigInputBuilder {
+        crate::operation::select_aggregate_resource_config::builders::SelectAggregateResourceConfigInputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`SelectAggregateResourceConfigInput`](crate::operation::select_aggregate_resource_config::SelectAggregateResourceConfigInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SelectAggregateResourceConfigInputBuilder {
     pub(crate) expression: ::std::option::Option<::std::string::String>,
@@ -73,25 +73,17 @@ impl SelectAggregateResourceConfigInputBuilder {
     }
     /// <p>The name of the configuration aggregator.</p>
     /// This field is required.
-    pub fn configuration_aggregator_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.configuration_aggregator_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn set_configuration_aggregator_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_aggregator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.configuration_aggregator_name = input;
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn get_configuration_aggregator_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_configuration_aggregator_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.configuration_aggregator_name
     }
     /// <p>The maximum number of query results returned on each page.</p>
@@ -143,12 +135,14 @@ impl SelectAggregateResourceConfigInputBuilder {
         crate::operation::select_aggregate_resource_config::SelectAggregateResourceConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::select_aggregate_resource_config::SelectAggregateResourceConfigInput {
-            expression: self.expression,
-            configuration_aggregator_name: self.configuration_aggregator_name,
-            limit: self.limit,
-            max_results: self.max_results,
-            next_token: self.next_token,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::select_aggregate_resource_config::SelectAggregateResourceConfigInput {
+                expression: self.expression,
+                configuration_aggregator_name: self.configuration_aggregator_name,
+                limit: self.limit,
+                max_results: self.max_results,
+                next_token: self.next_token,
+            },
+        )
     }
 }

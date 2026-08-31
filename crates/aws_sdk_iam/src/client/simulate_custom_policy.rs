@@ -24,8 +24,6 @@ impl super::Client {
     pub fn simulate_custom_policy(
         &self,
     ) -> crate::operation::simulate_custom_policy::builders::SimulateCustomPolicyFluentBuilder {
-        crate::operation::simulate_custom_policy::builders::SimulateCustomPolicyFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::simulate_custom_policy::builders::SimulateCustomPolicyFluentBuilder::new(self.handle.clone())
     }
 }

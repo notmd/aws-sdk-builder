@@ -19,9 +19,7 @@ impl PutEmailIdentityFeedbackAttributesOutput {
 }
 
 /// A builder for [`PutEmailIdentityFeedbackAttributesOutput`](crate::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutEmailIdentityFeedbackAttributesOutputBuilder {
     _request_id: Option<String>,
@@ -37,7 +35,9 @@ impl PutEmailIdentityFeedbackAttributesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutEmailIdentityFeedbackAttributesOutput`](crate::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesOutput).
-    pub fn build(self) -> crate::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesOutput {
         crate::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesOutput {
             _request_id: self._request_id,
         }

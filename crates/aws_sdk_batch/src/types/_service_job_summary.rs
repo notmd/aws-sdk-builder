@@ -7,8 +7,7 @@ pub struct ServiceJobSummary {
     /// <p>Information about the latest attempt for the service job.</p>
     pub latest_attempt: ::std::option::Option<crate::types::LatestServiceJobAttempt>,
     /// <p>The capacity usage information for this service job, including the unit of measure and quantity of resources being used.</p>
-    pub capacity_usage:
-        ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobCapacityUsageSummary>>,
+    pub capacity_usage: ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobCapacityUsageSummary>>,
     /// <p>The Unix timestamp (in milliseconds) for when the service job was created.</p>
     pub created_at: ::std::option::Option<i64>,
     /// <p>The Amazon Resource Name (ARN) of the service job.</p>
@@ -102,14 +101,11 @@ impl ServiceJobSummary {
 }
 
 /// A builder for [`ServiceJobSummary`](crate::types::ServiceJobSummary).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ServiceJobSummaryBuilder {
     pub(crate) latest_attempt: ::std::option::Option<crate::types::LatestServiceJobAttempt>,
-    pub(crate) capacity_usage:
-        ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobCapacityUsageSummary>>,
+    pub(crate) capacity_usage: ::std::option::Option<::std::vec::Vec<crate::types::ServiceJobCapacityUsageSummary>>,
     pub(crate) created_at: ::std::option::Option<i64>,
     pub(crate) job_arn: ::std::option::Option<::std::string::String>,
     pub(crate) job_id: ::std::option::Option<::std::string::String>,
@@ -130,17 +126,12 @@ impl ServiceJobSummaryBuilder {
         self
     }
     /// <p>Information about the latest attempt for the service job.</p>
-    pub fn set_latest_attempt(
-        mut self,
-        input: ::std::option::Option<crate::types::LatestServiceJobAttempt>,
-    ) -> Self {
+    pub fn set_latest_attempt(mut self, input: ::std::option::Option<crate::types::LatestServiceJobAttempt>) -> Self {
         self.latest_attempt = input;
         self
     }
     /// <p>Information about the latest attempt for the service job.</p>
-    pub fn get_latest_attempt(
-        &self,
-    ) -> &::std::option::Option<crate::types::LatestServiceJobAttempt> {
+    pub fn get_latest_attempt(&self) -> &::std::option::Option<crate::types::LatestServiceJobAttempt> {
         &self.latest_attempt
     }
     /// Appends an item to `capacity_usage`.
@@ -247,10 +238,7 @@ impl ServiceJobSummaryBuilder {
         self
     }
     /// <p>The type of service job. For SageMaker Training jobs, this value is <code>SAGEMAKER_TRAINING</code>.</p>
-    pub fn set_service_job_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ServiceJobType>,
-    ) -> Self {
+    pub fn set_service_job_type(mut self, input: ::std::option::Option<crate::types::ServiceJobType>) -> Self {
         self.service_job_type = input;
         self
     }
@@ -259,18 +247,12 @@ impl ServiceJobSummaryBuilder {
         &self.service_job_type
     }
     /// <p>The share identifier for the job.</p>
-    pub fn share_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn share_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.share_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The share identifier for the job.</p>
-    pub fn set_share_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_share_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.share_identifier = input;
         self
     }
@@ -279,18 +261,12 @@ impl ServiceJobSummaryBuilder {
         &self.share_identifier
     }
     /// <p>The quota share for the service job.</p>
-    pub fn quota_share_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn quota_share_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.quota_share_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The quota share for the service job.</p>
-    pub fn set_quota_share_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_quota_share_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.quota_share_name = input;
         self
     }
@@ -304,10 +280,7 @@ impl ServiceJobSummaryBuilder {
         self
     }
     /// <p>The current status of the service job.</p>
-    pub fn set_status(
-        mut self,
-        input: ::std::option::Option<crate::types::ServiceJobStatus>,
-    ) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ServiceJobStatus>) -> Self {
         self.status = input;
         self
     }
@@ -316,18 +289,12 @@ impl ServiceJobSummaryBuilder {
         &self.status
     }
     /// <p>A short string to provide more details on the current status of the service job.</p>
-    pub fn status_reason(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn status_reason(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.status_reason = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A short string to provide more details on the current status of the service job.</p>
-    pub fn set_status_reason(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_status_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.status_reason = input;
         self
     }

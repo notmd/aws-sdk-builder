@@ -58,8 +58,7 @@ impl crate::operation::get_parameters_for_import::builders::GetParametersForImpo
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GetParametersForImportFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::get_parameters_for_import::builders::GetParametersForImportInputBuilder,
+    inner: crate::operation::get_parameters_for_import::builders::GetParametersForImportInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -92,8 +91,7 @@ impl GetParametersForImportFluentBuilder {
     /// Access the GetParametersForImport as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::get_parameters_for_import::builders::GetParametersForImportInputBuilder
-    {
+    ) -> &crate::operation::get_parameters_for_import::builders::GetParametersForImportInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -117,16 +115,13 @@ impl GetParametersForImportFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_parameters_for_import::GetParametersForImport::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::get_parameters_for_import::GetParametersForImport::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::get_parameters_for_import::GetParametersForImport::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::get_parameters_for_import::GetParametersForImport::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -236,10 +231,7 @@ impl GetParametersForImportFluentBuilder {
     /// <li>
     /// <p><b>RSAES_PKCS1_V1_5</b> (Deprecated) — As of October 10, 2023, KMS does not support the RSAES_PKCS1_V1_5 wrapping algorithm.</p></li>
     /// </ul>
-    pub fn set_wrapping_algorithm(
-        mut self,
-        input: ::std::option::Option<crate::types::AlgorithmSpec>,
-    ) -> Self {
+    pub fn set_wrapping_algorithm(mut self, input: ::std::option::Option<crate::types::AlgorithmSpec>) -> Self {
         self.inner = self.inner.set_wrapping_algorithm(input);
         self
     }
@@ -273,10 +265,7 @@ impl GetParametersForImportFluentBuilder {
     /// <p>The type of RSA public key to return in the response. You will use this wrapping key with the specified wrapping algorithm to protect your key material during import.</p>
     /// <p>Use the longest RSA wrapping key that is practical.</p>
     /// <p>You cannot use an RSA_2048 public key to directly wrap an ECC_NIST_P521 private key. Instead, use an RSA_AES wrapping algorithm or choose a longer RSA public key.</p>
-    pub fn set_wrapping_key_spec(
-        mut self,
-        input: ::std::option::Option<crate::types::WrappingKeySpec>,
-    ) -> Self {
+    pub fn set_wrapping_key_spec(mut self, input: ::std::option::Option<crate::types::WrappingKeySpec>) -> Self {
         self.inner = self.inner.set_wrapping_key_spec(input);
         self
     }

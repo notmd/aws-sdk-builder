@@ -9,13 +9,20 @@ pub fn de_change_message_visibility_batch_http_error(
     crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled(generic)),
+        None => {
+            return Err(
+                crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled(
+                    generic,
+                ),
+            )
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -187,11 +194,12 @@ pub fn de_change_message_visibility_batch_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchOutputBuilder::default();
-        output = crate::protocol_serde::shape_change_message_visibility_batch::de_change_message_visibility_batch(_response_body, output)
-            .map_err(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output = crate::protocol_serde::shape_change_message_visibility_batch::de_change_message_visibility_batch(
+            _response_body,
+            output,
+        )
+        .map_err(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         crate::serde_util::change_message_visibility_batch_output_output_correct_errors(output)
             .build()
             .map_err(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?
@@ -200,10 +208,8 @@ pub fn de_change_message_visibility_batch_http_response(
 
 pub fn ser_change_message_visibility_batch_input(
     input: &crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
     crate::protocol_serde::shape_change_message_visibility_batch_input::ser_change_message_visibility_batch_input_input(&mut object, input)?;
@@ -217,11 +223,9 @@ pub(crate) fn de_change_message_visibility_batch(
 ) -> ::std::result::Result<
     crate::operation::change_message_visibility_batch::builders::ChangeMessageVisibilityBatchOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
->{
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+> {
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -245,20 +249,16 @@ pub(crate) fn de_change_message_visibility_batch(
                 }
             }
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

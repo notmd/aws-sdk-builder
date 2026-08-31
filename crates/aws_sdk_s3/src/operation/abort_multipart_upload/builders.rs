@@ -99,9 +99,7 @@ impl AbortMultipartUploadFluentBuilder {
         }
     }
     /// Access the AbortMultipartUpload as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::abort_multipart_upload::builders::AbortMultipartUploadInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::abort_multipart_upload::builders::AbortMultipartUploadInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -130,11 +128,7 @@ impl AbortMultipartUploadFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::abort_multipart_upload::AbortMultipartUpload::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::abort_multipart_upload::AbortMultipartUpload::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -229,10 +223,7 @@ impl AbortMultipartUploadFluentBuilder {
     /// <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If either the source or destination S3 bucket has Requester Pays enabled, the requester will pay for the corresponding charges. For information about downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_request_payer(
-        mut self,
-        input: ::std::option::Option<crate::types::RequestPayer>,
-    ) -> Self {
+    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
         self.inner = self.inner.set_request_payer(input);
         self
     }
@@ -243,18 +234,12 @@ impl AbortMultipartUploadFluentBuilder {
         self.inner.get_request_payer()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }
@@ -272,19 +257,14 @@ impl AbortMultipartUploadFluentBuilder {
     /// <p>If present, this header aborts an in progress multipart upload only if it was initiated on the provided timestamp. If the initiated timestamp of the multipart upload does not match the provided value, the operation returns a <code>412 Precondition Failed</code> error. If the initiated timestamp matches or if the multipart upload doesn’t exist, the operation returns a <code>204 Success (No Content)</code> response.</p><note>
     /// <p>This functionality is only supported for directory buckets.</p>
     /// </note>
-    pub fn set_if_match_initiated_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_if_match_initiated_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.inner = self.inner.set_if_match_initiated_time(input);
         self
     }
     /// <p>If present, this header aborts an in progress multipart upload only if it was initiated on the provided timestamp. If the initiated timestamp of the multipart upload does not match the provided value, the operation returns a <code>412 Precondition Failed</code> error. If the initiated timestamp matches or if the multipart upload doesn’t exist, the operation returns a <code>204 Success (No Content)</code> response.</p><note>
     /// <p>This functionality is only supported for directory buckets.</p>
     /// </note>
-    pub fn get_if_match_initiated_time(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_if_match_initiated_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         self.inner.get_if_match_initiated_time()
     }
 }

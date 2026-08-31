@@ -57,9 +57,7 @@ impl GetCustomRulePolicyFluentBuilder {
         }
     }
     /// Access the GetCustomRulePolicy as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_custom_rule_policy::builders::GetCustomRulePolicyInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_custom_rule_policy::builders::GetCustomRulePolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,11 +86,7 @@ impl GetCustomRulePolicyFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_custom_rule_policy::GetCustomRulePolicy::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::get_custom_rule_policy::GetCustomRulePolicy::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -121,18 +115,12 @@ impl GetCustomRulePolicyFluentBuilder {
         self
     }
     /// <p>The name of your Config Custom Policy rule.</p>
-    pub fn config_rule_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.config_rule_name(input.into());
         self
     }
     /// <p>The name of your Config Custom Policy rule.</p>
-    pub fn set_config_rule_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_config_rule_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_config_rule_name(input);
         self
     }

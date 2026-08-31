@@ -3,9 +3,7 @@ pub use crate::operation::describe_scheduling_policies::_describe_scheduling_pol
 
 pub use crate::operation::describe_scheduling_policies::_describe_scheduling_policies_output::DescribeSchedulingPoliciesOutputBuilder;
 
-impl
-    crate::operation::describe_scheduling_policies::builders::DescribeSchedulingPoliciesInputBuilder
-{
+impl crate::operation::describe_scheduling_policies::builders::DescribeSchedulingPoliciesInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -59,7 +57,9 @@ impl DescribeSchedulingPoliciesFluentBuilder {
         }
     }
     /// Access the DescribeSchedulingPolicies as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_scheduling_policies::builders::DescribeSchedulingPoliciesInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_scheduling_policies::builders::DescribeSchedulingPoliciesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,16 +83,14 @@ impl DescribeSchedulingPoliciesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::describe_scheduling_policies::DescribeSchedulingPolicies::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::describe_scheduling_policies::DescribeSchedulingPolicies::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::describe_scheduling_policies::DescribeSchedulingPolicies::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::describe_scheduling_policies::DescribeSchedulingPolicies::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -131,10 +129,7 @@ impl DescribeSchedulingPoliciesFluentBuilder {
         self
     }
     /// <p>A list of up to 100 scheduling policy Amazon Resource Name (ARN) entries.</p>
-    pub fn set_arns(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_arns(input);
         self
     }

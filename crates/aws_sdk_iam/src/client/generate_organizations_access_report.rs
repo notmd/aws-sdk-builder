@@ -10,7 +10,8 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GenerateOrganizationsAccessReportError>`](crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportError)
     pub fn generate_organizations_access_report(
         &self,
-    ) -> crate::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportFluentBuilder{
+    ) -> crate::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportFluentBuilder
+    {
         crate::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportFluentBuilder::new(self.handle.clone())
     }
 }

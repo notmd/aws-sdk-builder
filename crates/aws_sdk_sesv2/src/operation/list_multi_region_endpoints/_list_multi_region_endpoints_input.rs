@@ -21,17 +21,13 @@ impl ListMultiRegionEndpointsInput {
 }
 impl ListMultiRegionEndpointsInput {
     /// Creates a new builder-style object to manufacture [`ListMultiRegionEndpointsInput`](crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsInput).
-    pub fn builder(
-    ) -> crate::operation::list_multi_region_endpoints::builders::ListMultiRegionEndpointsInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_multi_region_endpoints::builders::ListMultiRegionEndpointsInputBuilder {
         crate::operation::list_multi_region_endpoints::builders::ListMultiRegionEndpointsInputBuilder::default()
     }
 }
 
 /// A builder for [`ListMultiRegionEndpointsInput`](crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListMultiRegionEndpointsInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,

@@ -13,7 +13,10 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutRepositoryPermissionsPolicyError>`](crate::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError)
     pub fn put_repository_permissions_policy(
         &self,
-    ) -> crate::operation::put_repository_permissions_policy::builders::PutRepositoryPermissionsPolicyFluentBuilder{
-        crate::operation::put_repository_permissions_policy::builders::PutRepositoryPermissionsPolicyFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::put_repository_permissions_policy::builders::PutRepositoryPermissionsPolicyFluentBuilder
+    {
+        crate::operation::put_repository_permissions_policy::builders::PutRepositoryPermissionsPolicyFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

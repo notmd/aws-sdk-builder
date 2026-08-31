@@ -9,20 +9,15 @@ pub struct GuardrailChecksResults {
     /// <p>The prompt attack check results.</p>
     pub prompt_attack: ::std::option::Option<crate::types::GuardrailChecksPromptAttackResult>,
     /// <p>The sensitive information check results.</p>
-    pub sensitive_information:
-        ::std::option::Option<crate::types::GuardrailChecksSensitiveInformationResult>,
+    pub sensitive_information: ::std::option::Option<crate::types::GuardrailChecksSensitiveInformationResult>,
 }
 impl GuardrailChecksResults {
     /// <p>The content filter check results.</p>
-    pub fn content_filter(
-        &self,
-    ) -> ::std::option::Option<&crate::types::GuardrailChecksContentFilterResult> {
+    pub fn content_filter(&self) -> ::std::option::Option<&crate::types::GuardrailChecksContentFilterResult> {
         self.content_filter.as_ref()
     }
     /// <p>The prompt attack check results.</p>
-    pub fn prompt_attack(
-        &self,
-    ) -> ::std::option::Option<&crate::types::GuardrailChecksPromptAttackResult> {
+    pub fn prompt_attack(&self) -> ::std::option::Option<&crate::types::GuardrailChecksPromptAttackResult> {
         self.prompt_attack.as_ref()
     }
     /// <p>The sensitive information check results.</p>
@@ -40,24 +35,16 @@ impl GuardrailChecksResults {
 }
 
 /// A builder for [`GuardrailChecksResults`](crate::types::GuardrailChecksResults).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailChecksResultsBuilder {
-    pub(crate) content_filter:
-        ::std::option::Option<crate::types::GuardrailChecksContentFilterResult>,
-    pub(crate) prompt_attack:
-        ::std::option::Option<crate::types::GuardrailChecksPromptAttackResult>,
-    pub(crate) sensitive_information:
-        ::std::option::Option<crate::types::GuardrailChecksSensitiveInformationResult>,
+    pub(crate) content_filter: ::std::option::Option<crate::types::GuardrailChecksContentFilterResult>,
+    pub(crate) prompt_attack: ::std::option::Option<crate::types::GuardrailChecksPromptAttackResult>,
+    pub(crate) sensitive_information: ::std::option::Option<crate::types::GuardrailChecksSensitiveInformationResult>,
 }
 impl GuardrailChecksResultsBuilder {
     /// <p>The content filter check results.</p>
-    pub fn content_filter(
-        mut self,
-        input: crate::types::GuardrailChecksContentFilterResult,
-    ) -> Self {
+    pub fn content_filter(mut self, input: crate::types::GuardrailChecksContentFilterResult) -> Self {
         self.content_filter = ::std::option::Option::Some(input);
         self
     }
@@ -70,9 +57,7 @@ impl GuardrailChecksResultsBuilder {
         self
     }
     /// <p>The content filter check results.</p>
-    pub fn get_content_filter(
-        &self,
-    ) -> &::std::option::Option<crate::types::GuardrailChecksContentFilterResult> {
+    pub fn get_content_filter(&self) -> &::std::option::Option<crate::types::GuardrailChecksContentFilterResult> {
         &self.content_filter
     }
     /// <p>The prompt attack check results.</p>
@@ -89,16 +74,11 @@ impl GuardrailChecksResultsBuilder {
         self
     }
     /// <p>The prompt attack check results.</p>
-    pub fn get_prompt_attack(
-        &self,
-    ) -> &::std::option::Option<crate::types::GuardrailChecksPromptAttackResult> {
+    pub fn get_prompt_attack(&self) -> &::std::option::Option<crate::types::GuardrailChecksPromptAttackResult> {
         &self.prompt_attack
     }
     /// <p>The sensitive information check results.</p>
-    pub fn sensitive_information(
-        mut self,
-        input: crate::types::GuardrailChecksSensitiveInformationResult,
-    ) -> Self {
+    pub fn sensitive_information(mut self, input: crate::types::GuardrailChecksSensitiveInformationResult) -> Self {
         self.sensitive_information = ::std::option::Option::Some(input);
         self
     }

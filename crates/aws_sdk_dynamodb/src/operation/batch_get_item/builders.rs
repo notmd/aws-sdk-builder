@@ -71,9 +71,7 @@ impl BatchGetItemFluentBuilder {
         }
     }
     /// Access the BatchGetItem as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::batch_get_item::builders::BatchGetItemInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::batch_get_item::builders::BatchGetItemInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -97,12 +95,11 @@ impl BatchGetItemFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::batch_get_item::BatchGetItem::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::batch_get_item::BatchGetItem::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::batch_get_item::BatchGetItem::orchestrate(&runtime_plugins, input).await
     }
 
@@ -281,9 +278,8 @@ impl BatchGetItemFluentBuilder {
     /// </ul>
     pub fn get_request_items(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::KeysAndAttributes>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::KeysAndAttributes>>
+    {
         self.inner.get_request_items()
     }
     /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
@@ -327,9 +323,7 @@ impl BatchGetItemFluentBuilder {
     /// <li>
     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
     /// </ul>
-    pub fn get_return_consumed_capacity(
-        &self,
-    ) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
+    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
         self.inner.get_return_consumed_capacity()
     }
 }

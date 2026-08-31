@@ -13,17 +13,13 @@ impl ::aws_types::request_id::RequestId for AddCustomAttributesOutput {
 }
 impl AddCustomAttributesOutput {
     /// Creates a new builder-style object to manufacture [`AddCustomAttributesOutput`](crate::operation::add_custom_attributes::AddCustomAttributesOutput).
-    pub fn builder(
-    ) -> crate::operation::add_custom_attributes::builders::AddCustomAttributesOutputBuilder {
-        crate::operation::add_custom_attributes::builders::AddCustomAttributesOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::add_custom_attributes::builders::AddCustomAttributesOutputBuilder {
+        crate::operation::add_custom_attributes::builders::AddCustomAttributesOutputBuilder::default()
     }
 }
 
 /// A builder for [`AddCustomAttributesOutput`](crate::operation::add_custom_attributes::AddCustomAttributesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AddCustomAttributesOutputBuilder {
     _request_id: Option<String>,

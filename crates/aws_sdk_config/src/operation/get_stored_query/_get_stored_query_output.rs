@@ -26,9 +26,7 @@ impl GetStoredQueryOutput {
 }
 
 /// A builder for [`GetStoredQueryOutput`](crate::operation::get_stored_query::GetStoredQueryOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetStoredQueryOutputBuilder {
     pub(crate) stored_query: ::std::option::Option<crate::types::StoredQuery>,
@@ -41,10 +39,7 @@ impl GetStoredQueryOutputBuilder {
         self
     }
     /// <p>Returns a <code>StoredQuery</code> object.</p>
-    pub fn set_stored_query(
-        mut self,
-        input: ::std::option::Option<crate::types::StoredQuery>,
-    ) -> Self {
+    pub fn set_stored_query(mut self, input: ::std::option::Option<crate::types::StoredQuery>) -> Self {
         self.stored_query = input;
         self
     }

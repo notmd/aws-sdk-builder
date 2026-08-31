@@ -71,8 +71,7 @@ pub(crate) fn evaluate_bdd<'a, Cond, Params, R, Context>(
                 let node = nodes.get(node_index)?;
                 let condition_index = node.condition_index as usize;
                 let condition = conditions.get(condition_index)?;
-                let condition_result =
-                    condition_evaluator(condition, params, context, diagnostic_collector);
+                let condition_result = condition_evaluator(condition, params, context, diagnostic_collector);
                 // Handle complement edges: complement inverts the branch selection
                 current_ref = if is_complement ^ condition_result {
                     node.high_ref

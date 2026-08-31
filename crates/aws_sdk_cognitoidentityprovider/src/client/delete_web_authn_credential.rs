@@ -7,7 +7,11 @@ impl super::Client {
     ///   - [`credential_id(impl Into<String>)`](crate::operation::delete_web_authn_credential::builders::DeleteWebAuthnCredentialFluentBuilder::credential_id) / [`set_credential_id(Option<String>)`](crate::operation::delete_web_authn_credential::builders::DeleteWebAuthnCredentialFluentBuilder::set_credential_id):<br>required: **true**<br><p>The unique identifier of the passkey that you want to delete.</p><br>
     /// - On success, responds with [`DeleteWebAuthnCredentialOutput`](crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialOutput)
     /// - On failure, responds with [`SdkError<DeleteWebAuthnCredentialError>`](crate::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError)
-    pub fn delete_web_authn_credential(&self) -> crate::operation::delete_web_authn_credential::builders::DeleteWebAuthnCredentialFluentBuilder{
-        crate::operation::delete_web_authn_credential::builders::DeleteWebAuthnCredentialFluentBuilder::new(self.handle.clone())
+    pub fn delete_web_authn_credential(
+        &self,
+    ) -> crate::operation::delete_web_authn_credential::builders::DeleteWebAuthnCredentialFluentBuilder {
+        crate::operation::delete_web_authn_credential::builders::DeleteWebAuthnCredentialFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

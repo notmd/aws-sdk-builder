@@ -76,7 +76,7 @@ impl DescribeRemediationExecutionStatusFluentBuilder {
             crate::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +86,11 @@ impl DescribeRemediationExecutionStatusFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatus::orchestrate(&runtime_plugins, input).await
+        crate::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatus::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +100,7 @@ impl DescribeRemediationExecutionStatusFluentBuilder {
         crate::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusOutput,
         crate::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -117,22 +121,19 @@ impl DescribeRemediationExecutionStatusFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_remediation_execution_status::paginator::DescribeRemediationExecutionStatusPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::describe_remediation_execution_status::paginator::DescribeRemediationExecutionStatusPaginator{
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::describe_remediation_execution_status::paginator::DescribeRemediationExecutionStatusPaginator
+    {
         crate::operation::describe_remediation_execution_status::paginator::DescribeRemediationExecutionStatusPaginator::new(self.handle, self.inner)
     }
     /// <p>The name of the Config rule.</p>
-    pub fn config_rule_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.config_rule_name(input.into());
         self
     }
     /// <p>The name of the Config rule.</p>
-    pub fn set_config_rule_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_config_rule_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_config_rule_name(input);
         self
     }
@@ -159,9 +160,7 @@ impl DescribeRemediationExecutionStatusFluentBuilder {
         self
     }
     /// <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.</p>
-    pub fn get_resource_keys(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>> {
+    pub fn get_resource_keys(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>> {
         self.inner.get_resource_keys()
     }
     /// <p>The maximum number of RemediationExecutionStatuses returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>

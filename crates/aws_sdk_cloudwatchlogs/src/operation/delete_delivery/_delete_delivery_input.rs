@@ -20,9 +20,7 @@ impl DeleteDeliveryInput {
 }
 
 /// A builder for [`DeleteDeliveryInput`](crate::operation::delete_delivery::DeleteDeliveryInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteDeliveryInputBuilder {
     pub(crate) id: ::std::option::Option<::std::string::String>,
@@ -50,8 +48,6 @@ impl DeleteDeliveryInputBuilder {
         crate::operation::delete_delivery::DeleteDeliveryInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::delete_delivery::DeleteDeliveryInput {
-            id: self.id,
-        })
+        ::std::result::Result::Ok(crate::operation::delete_delivery::DeleteDeliveryInput { id: self.id })
     }
 }

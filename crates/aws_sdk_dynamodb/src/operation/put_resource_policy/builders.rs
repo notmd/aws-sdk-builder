@@ -60,9 +60,7 @@ impl PutResourcePolicyFluentBuilder {
         }
     }
     /// Access the PutResourcePolicy as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::put_resource_policy::builders::PutResourcePolicyInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_resource_policy::builders::PutResourcePolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,17 +84,12 @@ impl PutResourcePolicyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::put_resource_policy::PutResourcePolicy::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::put_resource_policy::PutResourcePolicy::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::put_resource_policy::PutResourcePolicy::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::put_resource_policy::PutResourcePolicy::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -180,10 +173,7 @@ impl PutResourcePolicyFluentBuilder {
     /// <p>When you provide an expected revision ID, if the revision ID of the existing policy on the resource doesn't match or if there's no policy attached to the resource, your request will be rejected with a <code>PolicyNotFoundException</code>.</p>
     /// </note>
     /// <p>To conditionally attach a policy when no policy exists for the resource, specify <code>NO_POLICY</code> for the revision ID.</p>
-    pub fn expected_revision_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_revision_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_revision_id(input.into());
         self
     }
@@ -191,10 +181,7 @@ impl PutResourcePolicyFluentBuilder {
     /// <p>When you provide an expected revision ID, if the revision ID of the existing policy on the resource doesn't match or if there's no policy attached to the resource, your request will be rejected with a <code>PolicyNotFoundException</code>.</p>
     /// </note>
     /// <p>To conditionally attach a policy when no policy exists for the resource, specify <code>NO_POLICY</code> for the revision ID.</p>
-    pub fn set_expected_revision_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_revision_id(input);
         self
     }
@@ -211,10 +198,7 @@ impl PutResourcePolicyFluentBuilder {
         self
     }
     /// <p>Set this parameter to <code>true</code> to confirm that you want to remove your permissions to change the policy of this resource in the future.</p>
-    pub fn set_confirm_remove_self_resource_access(
-        mut self,
-        input: ::std::option::Option<bool>,
-    ) -> Self {
+    pub fn set_confirm_remove_self_resource_access(mut self, input: ::std::option::Option<bool>) -> Self {
         self.inner = self.inner.set_confirm_remove_self_resource_access(input);
         self
     }

@@ -11,8 +11,6 @@ impl super::Client {
     pub fn get_queue_attributes(
         &self,
     ) -> crate::operation::get_queue_attributes::builders::GetQueueAttributesFluentBuilder {
-        crate::operation::get_queue_attributes::builders::GetQueueAttributesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_queue_attributes::builders::GetQueueAttributesFluentBuilder::new(self.handle.clone())
     }
 }

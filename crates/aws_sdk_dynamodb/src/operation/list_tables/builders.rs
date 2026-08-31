@@ -121,18 +121,12 @@ impl ListTablesFluentBuilder {
         crate::operation::list_tables::paginator::ListTablesPaginator::new(self.handle, self.inner)
     }
     /// <p>The first table name that this operation will evaluate. Use the value that was returned for <code>LastEvaluatedTableName</code> in a previous operation, so that you can obtain the next page of results.</p>
-    pub fn exclusive_start_table_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn exclusive_start_table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.exclusive_start_table_name(input.into());
         self
     }
     /// <p>The first table name that this operation will evaluate. Use the value that was returned for <code>LastEvaluatedTableName</code> in a previous operation, so that you can obtain the next page of results.</p>
-    pub fn set_exclusive_start_table_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_exclusive_start_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_exclusive_start_table_name(input);
         self
     }

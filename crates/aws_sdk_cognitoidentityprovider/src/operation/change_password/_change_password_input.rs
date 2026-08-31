@@ -51,18 +51,12 @@ pub struct ChangePasswordInputBuilder {
 }
 impl ChangePasswordInputBuilder {
     /// <p>The user's previous password. Required if the user has a password. If the user has no password and only signs in with passwordless authentication options, you can omit this parameter.</p>
-    pub fn previous_password(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn previous_password(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.previous_password = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The user's previous password. Required if the user has a password. If the user has no password and only signs in with passwordless authentication options, you can omit this parameter.</p>
-    pub fn set_previous_password(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_previous_password(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.previous_password = input;
         self
     }
@@ -72,18 +66,12 @@ impl ChangePasswordInputBuilder {
     }
     /// <p>A new password that you prompted the user to enter in your application.</p>
     /// This field is required.
-    pub fn proposed_password(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn proposed_password(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.proposed_password = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A new password that you prompted the user to enter in your application.</p>
-    pub fn set_proposed_password(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_proposed_password(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.proposed_password = input;
         self
     }

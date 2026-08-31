@@ -186,10 +186,7 @@ pub use crate::types::_package_description::PackageDescription;
 #[cfg(feature = "op_describe_package_version")]
 pub use crate::types::_package_version_description::PackageVersionDescription;
 
-#[cfg(any(
-    feature = "op_get_associated_package_group",
-    feature = "op_list_associated_packages"
-))]
+#[cfg(any(feature = "op_get_associated_package_group", feature = "op_list_associated_packages"))]
 pub use crate::types::_package_group_association_type::PackageGroupAssociationType;
 
 #[cfg(feature = "op_get_repository_endpoint")]
@@ -227,16 +224,10 @@ pub use crate::types::_allow_upstream::AllowUpstream;
 #[cfg(feature = "op_list_package_versions")]
 pub use crate::types::_package_version_sort_type::PackageVersionSortType;
 
-#[cfg(any(
-    feature = "op_describe_package_version",
-    feature = "op_list_package_versions"
-))]
+#[cfg(any(feature = "op_describe_package_version", feature = "op_list_package_versions"))]
 pub use crate::types::_package_version_origin_type::PackageVersionOriginType;
 
-#[cfg(any(
-    feature = "op_list_package_version_assets",
-    feature = "op_publish_package_version"
-))]
+#[cfg(any(feature = "op_list_package_version_assets", feature = "op_publish_package_version"))]
 pub use crate::types::_asset_summary::AssetSummary;
 
 #[cfg(any(
@@ -315,10 +306,7 @@ pub use crate::types::_package_group_reference::PackageGroupReference;
 #[cfg(any(feature = "op_create_repository", feature = "op_update_repository"))]
 pub use crate::types::_upstream_repository::UpstreamRepository;
 
-#[cfg(any(
-    feature = "op_describe_package_version",
-    feature = "op_list_package_versions"
-))]
+#[cfg(any(feature = "op_describe_package_version", feature = "op_list_package_versions"))]
 pub use crate::types::_package_version_origin::PackageVersionOrigin;
 
 #[cfg(feature = "op_list_associated_packages")]
@@ -327,10 +315,7 @@ pub use crate::types::_associated_package::AssociatedPackage;
 #[cfg(feature = "op_list_domains")]
 pub use crate::types::_domain_summary::DomainSummary;
 
-#[cfg(any(
-    feature = "op_list_package_groups",
-    feature = "op_list_sub_package_groups"
-))]
+#[cfg(any(feature = "op_list_package_groups", feature = "op_list_sub_package_groups"))]
 pub use crate::types::_package_group_summary::PackageGroupSummary;
 
 #[cfg(feature = "op_list_package_version_dependencies")]
@@ -339,10 +324,7 @@ pub use crate::types::_package_dependency::PackageDependency;
 #[cfg(feature = "op_list_package_versions")]
 pub use crate::types::_package_version_summary::PackageVersionSummary;
 
-#[cfg(any(
-    feature = "op_list_repositories",
-    feature = "op_list_repositories_in_domain"
-))]
+#[cfg(any(feature = "op_list_repositories", feature = "op_list_repositories_in_domain"))]
 pub use crate::types::_repository_summary::RepositorySummary;
 
 #[cfg(any(
@@ -391,16 +373,10 @@ pub use crate::types::_package_version_error_code::PackageVersionErrorCode;
 #[cfg(feature = "op_describe_package_version")]
 pub use crate::types::_license_info::LicenseInfo;
 
-#[cfg(any(
-    feature = "op_describe_package_version",
-    feature = "op_list_package_versions"
-))]
+#[cfg(any(feature = "op_describe_package_version", feature = "op_list_package_versions"))]
 pub use crate::types::_domain_entry_point::DomainEntryPoint;
 
-#[cfg(any(
-    feature = "op_list_package_version_assets",
-    feature = "op_publish_package_version"
-))]
+#[cfg(any(feature = "op_list_package_version_assets", feature = "op_publish_package_version"))]
 pub use crate::types::_hash_algorithm::HashAlgorithm;
 
 #[cfg(feature = "op_update_package_group_origin_configuration")]
@@ -444,10 +420,7 @@ mod _allow_publish;
 ))]
 mod _allow_upstream;
 
-#[cfg(any(
-    feature = "op_list_package_version_assets",
-    feature = "op_publish_package_version"
-))]
+#[cfg(any(feature = "op_list_package_version_assets", feature = "op_publish_package_version"))]
 mod _asset_summary;
 
 #[cfg(feature = "op_list_associated_packages")]
@@ -460,10 +433,7 @@ mod _associated_package;
 ))]
 mod _domain_description;
 
-#[cfg(any(
-    feature = "op_describe_package_version",
-    feature = "op_list_package_versions"
-))]
+#[cfg(any(feature = "op_describe_package_version", feature = "op_list_package_versions"))]
 mod _domain_entry_point;
 
 #[cfg(any(
@@ -490,10 +460,7 @@ mod _endpoint_type;
 ))]
 mod _external_connection_status;
 
-#[cfg(any(
-    feature = "op_list_package_version_assets",
-    feature = "op_publish_package_version"
-))]
+#[cfg(any(feature = "op_list_package_version_assets", feature = "op_publish_package_version"))]
 mod _hash_algorithm;
 
 #[cfg(feature = "op_describe_package_version")]
@@ -539,10 +506,7 @@ mod _package_group_allowed_repository;
 #[cfg(feature = "op_update_package_group_origin_configuration")]
 mod _package_group_allowed_repository_update_type;
 
-#[cfg(any(
-    feature = "op_get_associated_package_group",
-    feature = "op_list_associated_packages"
-))]
+#[cfg(any(feature = "op_get_associated_package_group", feature = "op_list_associated_packages"))]
 mod _package_group_association_type;
 
 #[cfg(any(
@@ -616,10 +580,7 @@ mod _package_group_origin_restriction_type;
 ))]
 mod _package_group_reference;
 
-#[cfg(any(
-    feature = "op_list_package_groups",
-    feature = "op_list_sub_package_groups"
-))]
+#[cfg(any(feature = "op_list_package_groups", feature = "op_list_sub_package_groups"))]
 mod _package_group_summary;
 
 #[cfg(any(
@@ -660,16 +621,10 @@ mod _package_version_error;
 ))]
 mod _package_version_error_code;
 
-#[cfg(any(
-    feature = "op_describe_package_version",
-    feature = "op_list_package_versions"
-))]
+#[cfg(any(feature = "op_describe_package_version", feature = "op_list_package_versions"))]
 mod _package_version_origin;
 
-#[cfg(any(
-    feature = "op_describe_package_version",
-    feature = "op_list_package_versions"
-))]
+#[cfg(any(feature = "op_describe_package_version", feature = "op_list_package_versions"))]
 mod _package_version_origin_type;
 
 #[cfg(feature = "op_list_package_versions")]
@@ -709,10 +664,7 @@ mod _repository_description;
 ))]
 mod _repository_external_connection_info;
 
-#[cfg(any(
-    feature = "op_list_repositories",
-    feature = "op_list_repositories_in_domain"
-))]
+#[cfg(any(feature = "op_list_repositories", feature = "op_list_repositories_in_domain"))]
 mod _repository_summary;
 
 #[cfg(any(

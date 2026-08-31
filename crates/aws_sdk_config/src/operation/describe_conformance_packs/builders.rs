@@ -59,8 +59,7 @@ impl DescribeConformancePacksFluentBuilder {
     /// Access the DescribeConformancePacks as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::describe_conformance_packs::builders::DescribeConformancePacksInputBuilder
-    {
+    ) -> &crate::operation::describe_conformance_packs::builders::DescribeConformancePacksInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +83,14 @@ impl DescribeConformancePacksFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::describe_conformance_packs::DescribeConformancePacks::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::describe_conformance_packs::DescribeConformancePacks::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::describe_conformance_packs::DescribeConformancePacks::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::describe_conformance_packs::DescribeConformancePacks::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -126,9 +123,11 @@ impl DescribeConformancePacksFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::describe_conformance_packs::paginator::DescribeConformancePacksPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::describe_conformance_packs::paginator::DescribeConformancePacksPaginator
-    {
-        crate::operation::describe_conformance_packs::paginator::DescribeConformancePacksPaginator::new(self.handle, self.inner)
+    ) -> crate::operation::describe_conformance_packs::paginator::DescribeConformancePacksPaginator {
+        crate::operation::describe_conformance_packs::paginator::DescribeConformancePacksPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     ///
     /// Appends an item to `ConformancePackNames`.
@@ -136,10 +135,7 @@ impl DescribeConformancePacksFluentBuilder {
     /// To override the contents of this collection use [`set_conformance_pack_names`](Self::set_conformance_pack_names).
     ///
     /// <p>Comma-separated list of conformance pack names for which you want details. If you do not specify any names, Config returns details for all your conformance packs.</p>
-    pub fn conformance_pack_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn conformance_pack_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.conformance_pack_names(input.into());
         self
     }
@@ -152,9 +148,7 @@ impl DescribeConformancePacksFluentBuilder {
         self
     }
     /// <p>Comma-separated list of conformance pack names for which you want details. If you do not specify any names, Config returns details for all your conformance packs.</p>
-    pub fn get_conformance_pack_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_conformance_pack_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_conformance_pack_names()
     }
     /// <p>The maximum number of conformance packs returned on each page.</p>

@@ -22,17 +22,13 @@ impl AssociateResourceTypesInput {
 }
 impl AssociateResourceTypesInput {
     /// Creates a new builder-style object to manufacture [`AssociateResourceTypesInput`](crate::operation::associate_resource_types::AssociateResourceTypesInput).
-    pub fn builder(
-    ) -> crate::operation::associate_resource_types::builders::AssociateResourceTypesInputBuilder
-    {
+    pub fn builder() -> crate::operation::associate_resource_types::builders::AssociateResourceTypesInputBuilder {
         crate::operation::associate_resource_types::builders::AssociateResourceTypesInputBuilder::default()
     }
 }
 
 /// A builder for [`AssociateResourceTypesInput`](crate::operation::associate_resource_types::AssociateResourceTypesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AssociateResourceTypesInputBuilder {
     pub(crate) configuration_recorder_arn: ::std::option::Option<::std::string::String>,
@@ -41,18 +37,12 @@ pub struct AssociateResourceTypesInputBuilder {
 impl AssociateResourceTypesInputBuilder {
     /// <p>The Amazon Resource Name (ARN) of the specified configuration recorder.</p>
     /// This field is required.
-    pub fn configuration_recorder_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_recorder_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.configuration_recorder_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the specified configuration recorder.</p>
-    pub fn set_configuration_recorder_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_recorder_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.configuration_recorder_arn = input;
         self
     }
@@ -80,9 +70,7 @@ impl AssociateResourceTypesInputBuilder {
         self
     }
     /// <p>The list of resource types you want to add to the recording group of the specified configuration recorder.</p>
-    pub fn get_resource_types(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceType>> {
+    pub fn get_resource_types(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceType>> {
         &self.resource_types
     }
     /// Consumes the builder and constructs a [`AssociateResourceTypesInput`](crate::operation::associate_resource_types::AssociateResourceTypesInput).

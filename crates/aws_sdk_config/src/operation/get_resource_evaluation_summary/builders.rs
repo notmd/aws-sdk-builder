@@ -59,7 +59,9 @@ impl GetResourceEvaluationSummaryFluentBuilder {
         }
     }
     /// Access the GetResourceEvaluationSummary as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_resource_evaluation_summary::builders::GetResourceEvaluationSummaryInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_resource_evaluation_summary::builders::GetResourceEvaluationSummaryInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,12 +85,17 @@ impl GetResourceEvaluationSummaryFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummary::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummary::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummary::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::get_resource_evaluation_summary::GetResourceEvaluationSummary::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -117,18 +124,12 @@ impl GetResourceEvaluationSummaryFluentBuilder {
         self
     }
     /// <p>The unique <code>ResourceEvaluationId</code> of Amazon Web Services resource execution for which you want to retrieve the evaluation summary.</p>
-    pub fn resource_evaluation_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_evaluation_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.resource_evaluation_id(input.into());
         self
     }
     /// <p>The unique <code>ResourceEvaluationId</code> of Amazon Web Services resource execution for which you want to retrieve the evaluation summary.</p>
-    pub fn set_resource_evaluation_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_resource_evaluation_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_resource_evaluation_id(input);
         self
     }

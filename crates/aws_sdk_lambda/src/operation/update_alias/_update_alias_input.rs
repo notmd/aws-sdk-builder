@@ -54,9 +54,7 @@ impl UpdateAliasInput {
         self.description.as_deref()
     }
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing configuration</a> of the alias.</p>
-    pub fn routing_config(
-        &self,
-    ) -> ::std::option::Option<&crate::types::AliasRoutingConfiguration> {
+    pub fn routing_config(&self) -> ::std::option::Option<&crate::types::AliasRoutingConfiguration> {
         self.routing_config.as_ref()
     }
     /// <p>Only update the alias if the revision ID matches the ID that's specified. Use this option to avoid modifying an alias that has changed since you last read it.</p>
@@ -72,9 +70,7 @@ impl UpdateAliasInput {
 }
 
 /// A builder for [`UpdateAliasInput`](crate::operation::update_alias::UpdateAliasInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateAliasInputBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -97,10 +93,7 @@ impl UpdateAliasInputBuilder {
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     /// This field is required.
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
@@ -115,10 +108,7 @@ impl UpdateAliasInputBuilder {
     /// <p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
     }
@@ -152,18 +142,12 @@ impl UpdateAliasInputBuilder {
         &self.name
     }
     /// <p>The function version that the alias invokes.</p>
-    pub fn function_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The function version that the alias invokes.</p>
-    pub fn set_function_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_version = input;
         self
     }
@@ -191,17 +175,12 @@ impl UpdateAliasInputBuilder {
         self
     }
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing configuration</a> of the alias.</p>
-    pub fn set_routing_config(
-        mut self,
-        input: ::std::option::Option<crate::types::AliasRoutingConfiguration>,
-    ) -> Self {
+    pub fn set_routing_config(mut self, input: ::std::option::Option<crate::types::AliasRoutingConfiguration>) -> Self {
         self.routing_config = input;
         self
     }
     /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing configuration</a> of the alias.</p>
-    pub fn get_routing_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::AliasRoutingConfiguration> {
+    pub fn get_routing_config(&self) -> &::std::option::Option<crate::types::AliasRoutingConfiguration> {
         &self.routing_config
     }
     /// <p>Only update the alias if the revision ID matches the ID that's specified. Use this option to avoid modifying an alias that has changed since you last read it.</p>

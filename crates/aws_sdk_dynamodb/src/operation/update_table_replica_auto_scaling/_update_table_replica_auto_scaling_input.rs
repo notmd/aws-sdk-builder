@@ -9,22 +9,16 @@ pub struct UpdateTableReplicaAutoScalingInput {
     /// <p>The name of the global table to be updated. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
     pub table_name: ::std::option::Option<::std::string::String>,
     /// <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
-    pub provisioned_write_capacity_auto_scaling_update:
-        ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
+    pub provisioned_write_capacity_auto_scaling_update: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
     /// <p>Represents the auto scaling settings of replicas of the table that will be modified.</p>
-    pub replica_updates:
-        ::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingUpdate>>,
+    pub replica_updates: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingUpdate>>,
 }
 impl UpdateTableReplicaAutoScalingInput {
     /// <p>Represents the auto scaling settings of the global secondary indexes of the replica to be updated.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.global_secondary_index_updates.is_none()`.
-    pub fn global_secondary_index_updates(
-        &self,
-    ) -> &[crate::types::GlobalSecondaryIndexAutoScalingUpdate] {
-        self.global_secondary_index_updates
-            .as_deref()
-            .unwrap_or_default()
+    pub fn global_secondary_index_updates(&self) -> &[crate::types::GlobalSecondaryIndexAutoScalingUpdate] {
+        self.global_secondary_index_updates.as_deref().unwrap_or_default()
     }
     /// <p>The name of the global table to be updated. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
     pub fn table_name(&self) -> ::std::option::Option<&str> {
@@ -45,15 +39,14 @@ impl UpdateTableReplicaAutoScalingInput {
 }
 impl UpdateTableReplicaAutoScalingInput {
     /// Creates a new builder-style object to manufacture [`UpdateTableReplicaAutoScalingInput`](crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingInput).
-    pub fn builder() -> crate::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingInputBuilder {
         crate::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateTableReplicaAutoScalingInput`](crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateTableReplicaAutoScalingInputBuilder {
     pub(crate) global_secondary_index_updates:
@@ -61,8 +54,7 @@ pub struct UpdateTableReplicaAutoScalingInputBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
     pub(crate) provisioned_write_capacity_auto_scaling_update:
         ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
-    pub(crate) replica_updates:
-        ::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingUpdate>>,
+    pub(crate) replica_updates: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingUpdate>>,
 }
 impl UpdateTableReplicaAutoScalingInputBuilder {
     /// Appends an item to `global_secondary_index_updates`.
@@ -82,9 +74,7 @@ impl UpdateTableReplicaAutoScalingInputBuilder {
     /// <p>Represents the auto scaling settings of the global secondary indexes of the replica to be updated.</p>
     pub fn set_global_secondary_index_updates(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GlobalSecondaryIndexAutoScalingUpdate>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexAutoScalingUpdate>>,
     ) -> Self {
         self.global_secondary_index_updates = input;
         self
@@ -92,8 +82,7 @@ impl UpdateTableReplicaAutoScalingInputBuilder {
     /// <p>Represents the auto scaling settings of the global secondary indexes of the replica to be updated.</p>
     pub fn get_global_secondary_index_updates(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexAutoScalingUpdate>>
-    {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexAutoScalingUpdate>> {
         &self.global_secondary_index_updates
     }
     /// <p>The name of the global table to be updated. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
@@ -165,11 +154,13 @@ impl UpdateTableReplicaAutoScalingInputBuilder {
         crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingInput {
-            global_secondary_index_updates: self.global_secondary_index_updates,
-            table_name: self.table_name,
-            provisioned_write_capacity_auto_scaling_update: self.provisioned_write_capacity_auto_scaling_update,
-            replica_updates: self.replica_updates,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingInput {
+                global_secondary_index_updates: self.global_secondary_index_updates,
+                table_name: self.table_name,
+                provisioned_write_capacity_auto_scaling_update: self.provisioned_write_capacity_auto_scaling_update,
+                replica_updates: self.replica_updates,
+            },
+        )
     }
 }

@@ -35,8 +35,7 @@ impl ::std::fmt::Debug for GetRoleCredentialsInput {
 }
 impl GetRoleCredentialsInput {
     /// Creates a new builder-style object to manufacture [`GetRoleCredentialsInput`](crate::operation::get_role_credentials::GetRoleCredentialsInput).
-    pub fn builder(
-    ) -> crate::operation::get_role_credentials::builders::GetRoleCredentialsInputBuilder {
+    pub fn builder() -> crate::operation::get_role_credentials::builders::GetRoleCredentialsInputBuilder {
         crate::operation::get_role_credentials::builders::GetRoleCredentialsInputBuilder::default()
     }
 }
@@ -102,13 +101,11 @@ impl GetRoleCredentialsInputBuilder {
         crate::operation::get_role_credentials::GetRoleCredentialsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::get_role_credentials::GetRoleCredentialsInput {
-                role_name: self.role_name,
-                account_id: self.account_id,
-                access_token: self.access_token,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::get_role_credentials::GetRoleCredentialsInput {
+            role_name: self.role_name,
+            account_id: self.account_id,
+            access_token: self.access_token,
+        })
     }
 }
 impl ::std::fmt::Debug for GetRoleCredentialsInputBuilder {

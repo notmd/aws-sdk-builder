@@ -115,18 +115,12 @@ impl GetContactFluentBuilder {
         self
     }
     /// <p>The name of the contact list to which the contact belongs.</p>
-    pub fn contact_list_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn contact_list_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.contact_list_name(input.into());
         self
     }
     /// <p>The name of the contact list to which the contact belongs.</p>
-    pub fn set_contact_list_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_contact_list_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_contact_list_name(input);
         self
     }
@@ -135,18 +129,12 @@ impl GetContactFluentBuilder {
         self.inner.get_contact_list_name()
     }
     /// <p>The contact's email address.</p>
-    pub fn email_address(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.email_address(input.into());
         self
     }
     /// <p>The contact's email address.</p>
-    pub fn set_email_address(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_email_address(input);
         self
     }

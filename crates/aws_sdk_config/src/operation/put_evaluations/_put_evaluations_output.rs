@@ -29,9 +29,7 @@ impl PutEvaluationsOutput {
 }
 
 /// A builder for [`PutEvaluationsOutput`](crate::operation::put_evaluations::PutEvaluationsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutEvaluationsOutputBuilder {
     pub(crate) failed_evaluations: ::std::option::Option<::std::vec::Vec<crate::types::Evaluation>>,
@@ -58,9 +56,7 @@ impl PutEvaluationsOutputBuilder {
         self
     }
     /// <p>Requests that failed because of a client or server error.</p>
-    pub fn get_failed_evaluations(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Evaluation>> {
+    pub fn get_failed_evaluations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Evaluation>> {
         &self.failed_evaluations
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

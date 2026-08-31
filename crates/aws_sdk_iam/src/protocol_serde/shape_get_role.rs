@@ -4,17 +4,11 @@ pub fn de_get_role_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::get_role::GetRoleOutput,
-    crate::operation::get_role::GetRoleError,
-> {
+) -> std::result::Result<crate::operation::get_role::GetRoleOutput, crate::operation::get_role::GetRoleError> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::get_role::GetRoleError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::get_role::GetRoleError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
@@ -28,10 +22,12 @@ pub fn de_get_role_http_error(
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output =
-                    crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
-                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::get_role::GetRoleError::unhandled)?;
+                let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
+                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::get_role::GetRoleError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -44,10 +40,12 @@ pub fn de_get_role_http_error(
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
-                let mut output =
-                    crate::types::error::builders::ServiceFailureExceptionBuilder::default();
-                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::get_role::GetRoleError::unhandled)?;
+                let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
+                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::get_role::GetRoleError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -65,18 +63,13 @@ pub fn de_get_role_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    crate::operation::get_role::GetRoleOutput,
-    crate::operation::get_role::GetRoleError,
-> {
+) -> std::result::Result<crate::operation::get_role::GetRoleOutput, crate::operation::get_role::GetRoleError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::get_role::builders::GetRoleOutputBuilder::default();
         output = crate::protocol_serde::shape_get_role::de_get_role(_response_body, output)
             .map_err(crate::operation::get_role::GetRoleError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         crate::serde_util::get_role_output_output_correct_errors(output).build()
     })
 }

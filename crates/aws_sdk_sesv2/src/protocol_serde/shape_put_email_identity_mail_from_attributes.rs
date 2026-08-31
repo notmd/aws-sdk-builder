@@ -7,10 +7,16 @@ pub fn de_put_email_identity_mail_from_attributes_http_error(
 ) -> std::result::Result<
     crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesOutput,
     crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesError,
->{
+> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(
+        crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesError::unhandled,
+    )?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
@@ -84,24 +90,20 @@ pub fn de_put_email_identity_mail_from_attributes_http_response(
 ) -> std::result::Result<
     crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesOutput,
     crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesError,
->{
+> {
     Ok({
         #[allow(unused_mut)]
         let mut output =
             crate::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_put_email_identity_mail_from_attributes_input(
     input: &crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
     crate::protocol_serde::shape_put_email_identity_mail_from_attributes_input::ser_put_email_identity_mail_from_attributes_input_input(

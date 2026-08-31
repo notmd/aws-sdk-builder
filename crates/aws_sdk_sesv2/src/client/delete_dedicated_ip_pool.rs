@@ -8,8 +8,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteDedicatedIpPoolError>`](crate::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolError)
     pub fn delete_dedicated_ip_pool(
         &self,
-    ) -> crate::operation::delete_dedicated_ip_pool::builders::DeleteDedicatedIpPoolFluentBuilder
-    {
-        crate::operation::delete_dedicated_ip_pool::builders::DeleteDedicatedIpPoolFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::delete_dedicated_ip_pool::builders::DeleteDedicatedIpPoolFluentBuilder {
+        crate::operation::delete_dedicated_ip_pool::builders::DeleteDedicatedIpPoolFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

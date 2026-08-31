@@ -58,7 +58,8 @@ impl crate::operation::generate_organizations_access_report::builders::GenerateO
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GenerateOrganizationsAccessReportFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportInputBuilder,
+    inner:
+        crate::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -89,7 +90,10 @@ impl GenerateOrganizationsAccessReportFluentBuilder {
         }
     }
     /// Access the GenerateOrganizationsAccessReport as a reference.
-    pub fn as_input(&self) -> &crate::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -108,7 +112,7 @@ impl GenerateOrganizationsAccessReportFluentBuilder {
             crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -118,7 +122,11 @@ impl GenerateOrganizationsAccessReportFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReport::orchestrate(&runtime_plugins, input).await
+        crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReport::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -128,7 +136,7 @@ impl GenerateOrganizationsAccessReportFluentBuilder {
         crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportOutput,
         crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -162,19 +170,13 @@ impl GenerateOrganizationsAccessReportFluentBuilder {
     }
     /// <p>The identifier of the Organizations service control policy (SCP). This parameter is optional.</p>
     /// <p>This ID is used to generate information about when an account principal that is limited by the SCP attempted to access an Amazon Web Services service.</p>
-    pub fn organizations_policy_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn organizations_policy_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.organizations_policy_id(input.into());
         self
     }
     /// <p>The identifier of the Organizations service control policy (SCP). This parameter is optional.</p>
     /// <p>This ID is used to generate information about when an account principal that is limited by the SCP attempted to access an Amazon Web Services service.</p>
-    pub fn set_organizations_policy_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_organizations_policy_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_organizations_policy_id(input);
         self
     }

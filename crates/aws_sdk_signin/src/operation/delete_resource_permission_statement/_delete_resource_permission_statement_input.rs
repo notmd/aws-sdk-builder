@@ -21,15 +21,15 @@ impl DeleteResourcePermissionStatementInput {
 }
 impl DeleteResourcePermissionStatementInput {
     /// Creates a new builder-style object to manufacture [`DeleteResourcePermissionStatementInput`](crate::operation::delete_resource_permission_statement::DeleteResourcePermissionStatementInput).
-    pub fn builder() -> crate::operation::delete_resource_permission_statement::builders::DeleteResourcePermissionStatementInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::delete_resource_permission_statement::builders::DeleteResourcePermissionStatementInputBuilder
+    {
         crate::operation::delete_resource_permission_statement::builders::DeleteResourcePermissionStatementInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteResourcePermissionStatementInput`](crate::operation::delete_resource_permission_statement::DeleteResourcePermissionStatementInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteResourcePermissionStatementInputBuilder {
     pub(crate) statement_id: ::std::option::Option<::std::string::String>,
@@ -71,7 +71,7 @@ impl DeleteResourcePermissionStatementInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::delete_resource_permission_statement::DeleteResourcePermissionStatementInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::delete_resource_permission_statement::DeleteResourcePermissionStatementInput {
                 statement_id: self.statement_id,

@@ -6,8 +6,7 @@ pub struct PutRemediationExceptionsInput {
     /// <p>The name of the Config rule for which you want to create remediation exception.</p>
     pub config_rule_name: ::std::option::Option<::std::string::String>,
     /// <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys.</p>
-    pub resource_keys:
-        ::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>>,
+    pub resource_keys: ::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>>,
     /// <p>The message contains an explanation of the exception.</p>
     pub message: ::std::option::Option<::std::string::String>,
     /// <p>The exception is automatically deleted after the expiration date.</p>
@@ -35,40 +34,29 @@ impl PutRemediationExceptionsInput {
 }
 impl PutRemediationExceptionsInput {
     /// Creates a new builder-style object to manufacture [`PutRemediationExceptionsInput`](crate::operation::put_remediation_exceptions::PutRemediationExceptionsInput).
-    pub fn builder(
-    ) -> crate::operation::put_remediation_exceptions::builders::PutRemediationExceptionsInputBuilder
-    {
+    pub fn builder() -> crate::operation::put_remediation_exceptions::builders::PutRemediationExceptionsInputBuilder {
         crate::operation::put_remediation_exceptions::builders::PutRemediationExceptionsInputBuilder::default()
     }
 }
 
 /// A builder for [`PutRemediationExceptionsInput`](crate::operation::put_remediation_exceptions::PutRemediationExceptionsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutRemediationExceptionsInputBuilder {
     pub(crate) config_rule_name: ::std::option::Option<::std::string::String>,
-    pub(crate) resource_keys:
-        ::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>>,
+    pub(crate) resource_keys: ::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>>,
     pub(crate) message: ::std::option::Option<::std::string::String>,
     pub(crate) expiration_time: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
 impl PutRemediationExceptionsInputBuilder {
     /// <p>The name of the Config rule for which you want to create remediation exception.</p>
     /// This field is required.
-    pub fn config_rule_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.config_rule_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the Config rule for which you want to create remediation exception.</p>
-    pub fn set_config_rule_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_config_rule_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.config_rule_name = input;
         self
     }
@@ -90,9 +78,7 @@ impl PutRemediationExceptionsInputBuilder {
     /// <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys.</p>
     pub fn set_resource_keys(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::RemediationExceptionResourceKey>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>>,
     ) -> Self {
         self.resource_keys = input;
         self
@@ -100,8 +86,7 @@ impl PutRemediationExceptionsInputBuilder {
     /// <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys.</p>
     pub fn get_resource_keys(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>>
-    {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::RemediationExceptionResourceKey>> {
         &self.resource_keys
     }
     /// <p>The message contains an explanation of the exception.</p>
@@ -124,10 +109,7 @@ impl PutRemediationExceptionsInputBuilder {
         self
     }
     /// <p>The exception is automatically deleted after the expiration date.</p>
-    pub fn set_expiration_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_expiration_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.expiration_time = input;
         self
     }

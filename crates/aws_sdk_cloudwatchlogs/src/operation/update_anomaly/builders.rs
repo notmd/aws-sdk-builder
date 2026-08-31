@@ -59,9 +59,7 @@ impl UpdateAnomalyFluentBuilder {
         }
     }
     /// Access the UpdateAnomaly as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::update_anomaly::builders::UpdateAnomalyInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::update_anomaly::builders::UpdateAnomalyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,12 +83,11 @@ impl UpdateAnomalyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::update_anomaly::UpdateAnomaly::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::update_anomaly::UpdateAnomaly::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::update_anomaly::UpdateAnomaly::orchestrate(&runtime_plugins, input).await
     }
 
@@ -148,18 +145,12 @@ impl UpdateAnomalyFluentBuilder {
         self.inner.get_pattern_id()
     }
     /// <p>The ARN of the anomaly detector that this operation is to act on.</p>
-    pub fn anomaly_detector_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn anomaly_detector_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.anomaly_detector_arn(input.into());
         self
     }
     /// <p>The ARN of the anomaly detector that this operation is to act on.</p>
-    pub fn set_anomaly_detector_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_anomaly_detector_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_anomaly_detector_arn(input);
         self
     }
@@ -173,10 +164,7 @@ impl UpdateAnomalyFluentBuilder {
         self
     }
     /// <p>Use this to specify whether the suppression to be temporary or infinite. If you specify <code>LIMITED</code>, you must also specify a <code>suppressionPeriod</code>. If you specify <code>INFINITE</code>, any value for <code>suppressionPeriod</code> is ignored.</p>
-    pub fn set_suppression_type(
-        mut self,
-        input: ::std::option::Option<crate::types::SuppressionType>,
-    ) -> Self {
+    pub fn set_suppression_type(mut self, input: ::std::option::Option<crate::types::SuppressionType>) -> Self {
         self.inner = self.inner.set_suppression_type(input);
         self
     }
@@ -190,17 +178,12 @@ impl UpdateAnomalyFluentBuilder {
         self
     }
     /// <p>If you are temporarily suppressing an anomaly or pattern, use this structure to specify how long the suppression is to last.</p>
-    pub fn set_suppression_period(
-        mut self,
-        input: ::std::option::Option<crate::types::SuppressionPeriod>,
-    ) -> Self {
+    pub fn set_suppression_period(mut self, input: ::std::option::Option<crate::types::SuppressionPeriod>) -> Self {
         self.inner = self.inner.set_suppression_period(input);
         self
     }
     /// <p>If you are temporarily suppressing an anomaly or pattern, use this structure to specify how long the suppression is to last.</p>
-    pub fn get_suppression_period(
-        &self,
-    ) -> &::std::option::Option<crate::types::SuppressionPeriod> {
+    pub fn get_suppression_period(&self) -> &::std::option::Option<crate::types::SuppressionPeriod> {
         self.inner.get_suppression_period()
     }
     /// <p>Set this to <code>true</code> to prevent CloudWatch Logs from displaying this behavior as an anomaly in the future. The behavior is then treated as baseline behavior. However, if similar but more severe occurrences of this behavior occur in the future, those will still be reported as anomalies.</p>

@@ -4,8 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListIntegrationsOutput {
     /// <p>An array, where each object in the array contains information about one CloudWatch Logs integration in this account.</p>
-    pub integration_summaries:
-        ::std::option::Option<::std::vec::Vec<crate::types::IntegrationSummary>>,
+    pub integration_summaries: ::std::option::Option<::std::vec::Vec<crate::types::IntegrationSummary>>,
     _request_id: Option<String>,
 }
 impl ListIntegrationsOutput {
@@ -23,20 +22,16 @@ impl ::aws_types::request_id::RequestId for ListIntegrationsOutput {
 }
 impl ListIntegrationsOutput {
     /// Creates a new builder-style object to manufacture [`ListIntegrationsOutput`](crate::operation::list_integrations::ListIntegrationsOutput).
-    pub fn builder() -> crate::operation::list_integrations::builders::ListIntegrationsOutputBuilder
-    {
+    pub fn builder() -> crate::operation::list_integrations::builders::ListIntegrationsOutputBuilder {
         crate::operation::list_integrations::builders::ListIntegrationsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListIntegrationsOutput`](crate::operation::list_integrations::ListIntegrationsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListIntegrationsOutputBuilder {
-    pub(crate) integration_summaries:
-        ::std::option::Option<::std::vec::Vec<crate::types::IntegrationSummary>>,
+    pub(crate) integration_summaries: ::std::option::Option<::std::vec::Vec<crate::types::IntegrationSummary>>,
     _request_id: Option<String>,
 }
 impl ListIntegrationsOutputBuilder {

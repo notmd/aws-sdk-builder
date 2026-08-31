@@ -27,16 +27,13 @@ impl GlobalSecondaryIndexWarmThroughputDescription {
 }
 impl GlobalSecondaryIndexWarmThroughputDescription {
     /// Creates a new builder-style object to manufacture [`GlobalSecondaryIndexWarmThroughputDescription`](crate::types::GlobalSecondaryIndexWarmThroughputDescription).
-    pub fn builder() -> crate::types::builders::GlobalSecondaryIndexWarmThroughputDescriptionBuilder
-    {
+    pub fn builder() -> crate::types::builders::GlobalSecondaryIndexWarmThroughputDescriptionBuilder {
         crate::types::builders::GlobalSecondaryIndexWarmThroughputDescriptionBuilder::default()
     }
 }
 
 /// A builder for [`GlobalSecondaryIndexWarmThroughputDescription`](crate::types::GlobalSecondaryIndexWarmThroughputDescription).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GlobalSecondaryIndexWarmThroughputDescriptionBuilder {
     pub(crate) read_units_per_second: ::std::option::Option<i64>,

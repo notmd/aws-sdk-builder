@@ -26,9 +26,7 @@ impl DeleteFunctionOutput {
 }
 
 /// A builder for [`DeleteFunctionOutput`](crate::operation::delete_function::DeleteFunctionOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteFunctionOutputBuilder {
     pub(crate) status_code: ::std::option::Option<i32>,

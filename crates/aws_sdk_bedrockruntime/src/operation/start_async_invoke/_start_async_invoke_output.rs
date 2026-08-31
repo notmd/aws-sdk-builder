@@ -21,16 +21,13 @@ impl ::aws_types::request_id::RequestId for StartAsyncInvokeOutput {
 }
 impl StartAsyncInvokeOutput {
     /// Creates a new builder-style object to manufacture [`StartAsyncInvokeOutput`](crate::operation::start_async_invoke::StartAsyncInvokeOutput).
-    pub fn builder() -> crate::operation::start_async_invoke::builders::StartAsyncInvokeOutputBuilder
-    {
+    pub fn builder() -> crate::operation::start_async_invoke::builders::StartAsyncInvokeOutputBuilder {
         crate::operation::start_async_invoke::builders::StartAsyncInvokeOutputBuilder::default()
     }
 }
 
 /// A builder for [`StartAsyncInvokeOutput`](crate::operation::start_async_invoke::StartAsyncInvokeOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct StartAsyncInvokeOutputBuilder {
     pub(crate) invocation_arn: ::std::option::Option<::std::string::String>,
@@ -39,18 +36,12 @@ pub struct StartAsyncInvokeOutputBuilder {
 impl StartAsyncInvokeOutputBuilder {
     /// <p>The ARN of the invocation.</p>
     /// This field is required.
-    pub fn invocation_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn invocation_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.invocation_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the invocation.</p>
-    pub fn set_invocation_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_invocation_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.invocation_arn = input;
         self
     }

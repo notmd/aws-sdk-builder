@@ -14,16 +14,13 @@ impl DeleteStoredQueryInput {
 }
 impl DeleteStoredQueryInput {
     /// Creates a new builder-style object to manufacture [`DeleteStoredQueryInput`](crate::operation::delete_stored_query::DeleteStoredQueryInput).
-    pub fn builder(
-    ) -> crate::operation::delete_stored_query::builders::DeleteStoredQueryInputBuilder {
+    pub fn builder() -> crate::operation::delete_stored_query::builders::DeleteStoredQueryInputBuilder {
         crate::operation::delete_stored_query::builders::DeleteStoredQueryInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteStoredQueryInput`](crate::operation::delete_stored_query::DeleteStoredQueryInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteStoredQueryInputBuilder {
     pub(crate) query_name: ::std::option::Option<::std::string::String>,
@@ -51,10 +48,8 @@ impl DeleteStoredQueryInputBuilder {
         crate::operation::delete_stored_query::DeleteStoredQueryInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_stored_query::DeleteStoredQueryInput {
-                query_name: self.query_name,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::delete_stored_query::DeleteStoredQueryInput {
+            query_name: self.query_name,
+        })
     }
 }

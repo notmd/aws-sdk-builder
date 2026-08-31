@@ -21,9 +21,7 @@ impl RecordsEvent {
 }
 
 /// A builder for [`RecordsEvent`](crate::types::RecordsEvent).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RecordsEventBuilder {
     pub(crate) payload: ::std::option::Option<::aws_smithy_types::Blob>,
@@ -45,8 +43,6 @@ impl RecordsEventBuilder {
     }
     /// Consumes the builder and constructs a [`RecordsEvent`](crate::types::RecordsEvent).
     pub fn build(self) -> crate::types::RecordsEvent {
-        crate::types::RecordsEvent {
-            payload: self.payload,
-        }
+        crate::types::RecordsEvent { payload: self.payload }
     }
 }

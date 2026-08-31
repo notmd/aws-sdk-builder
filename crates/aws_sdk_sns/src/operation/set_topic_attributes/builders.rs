@@ -59,9 +59,7 @@ impl SetTopicAttributesFluentBuilder {
         }
     }
     /// Access the SetTopicAttributes as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::set_topic_attributes::builders::SetTopicAttributesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::set_topic_attributes::builders::SetTopicAttributesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,17 +83,12 @@ impl SetTopicAttributesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::set_topic_attributes::SetTopicAttributes::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::set_topic_attributes::SetTopicAttributes::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::set_topic_attributes::SetTopicAttributes::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::set_topic_attributes::SetTopicAttributes::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -246,10 +239,7 @@ impl SetTopicAttributesFluentBuilder {
     /// <p><code>MessageGroup</code> – The scope of deduplication is within each individual message group, which enables higher throughput per topic subject to regional quotas. For more information on quotas or to request an increase, see <a href="https://docs.aws.amazon.com/general/latest/gr/sns.html">Amazon SNS service quotas</a> in the Amazon Web Services General Reference.</p></li>
     /// </ul></li>
     /// </ul>
-    pub fn attribute_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn attribute_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.attribute_name(input.into());
         self
     }
@@ -362,10 +352,7 @@ impl SetTopicAttributesFluentBuilder {
     /// <p><code>MessageGroup</code> – The scope of deduplication is within each individual message group, which enables higher throughput per topic subject to regional quotas. For more information on quotas or to request an increase, see <a href="https://docs.aws.amazon.com/general/latest/gr/sns.html">Amazon SNS service quotas</a> in the Amazon Web Services General Reference.</p></li>
     /// </ul></li>
     /// </ul>
-    pub fn set_attribute_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_attribute_name(input);
         self
     }
@@ -482,18 +469,12 @@ impl SetTopicAttributesFluentBuilder {
         self.inner.get_attribute_name()
     }
     /// <p>The new value for the attribute.</p>
-    pub fn attribute_value(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn attribute_value(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.attribute_value(input.into());
         self
     }
     /// <p>The new value for the attribute.</p>
-    pub fn set_attribute_value(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_attribute_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_attribute_value(input);
         self
     }

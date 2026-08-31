@@ -10,8 +10,6 @@ impl super::Client {
     pub fn describe_global_table(
         &self,
     ) -> crate::operation::describe_global_table::builders::DescribeGlobalTableFluentBuilder {
-        crate::operation::describe_global_table::builders::DescribeGlobalTableFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::describe_global_table::builders::DescribeGlobalTableFluentBuilder::new(self.handle.clone())
     }
 }

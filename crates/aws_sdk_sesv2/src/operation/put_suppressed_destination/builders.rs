@@ -59,8 +59,7 @@ impl PutSuppressedDestinationFluentBuilder {
     /// Access the PutSuppressedDestination as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::put_suppressed_destination::builders::PutSuppressedDestinationInputBuilder
-    {
+    ) -> &crate::operation::put_suppressed_destination::builders::PutSuppressedDestinationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +83,14 @@ impl PutSuppressedDestinationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::put_suppressed_destination::PutSuppressedDestination::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::put_suppressed_destination::PutSuppressedDestination::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::put_suppressed_destination::PutSuppressedDestination::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::put_suppressed_destination::PutSuppressedDestination::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -122,18 +119,12 @@ impl PutSuppressedDestinationFluentBuilder {
         self
     }
     /// <p>The email address that should be added to the suppression list for your account or for the specified tenant.</p>
-    pub fn email_address(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.email_address(input.into());
         self
     }
     /// <p>The email address that should be added to the suppression list for your account or for the specified tenant.</p>
-    pub fn set_email_address(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_email_address(input);
         self
     }
@@ -147,10 +138,7 @@ impl PutSuppressedDestinationFluentBuilder {
         self
     }
     /// <p>The factors that should cause the email address to be added to the suppression list for your account or for the specified tenant.</p>
-    pub fn set_reason(
-        mut self,
-        input: ::std::option::Option<crate::types::SuppressionListReason>,
-    ) -> Self {
+    pub fn set_reason(mut self, input: ::std::option::Option<crate::types::SuppressionListReason>) -> Self {
         self.inner = self.inner.set_reason(input);
         self
     }

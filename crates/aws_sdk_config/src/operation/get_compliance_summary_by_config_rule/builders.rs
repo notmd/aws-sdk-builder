@@ -26,7 +26,8 @@ impl crate::operation::get_compliance_summary_by_config_rule::builders::GetCompl
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GetComplianceSummaryByConfigRuleFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleInputBuilder,
+    inner:
+        crate::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -57,7 +58,10 @@ impl GetComplianceSummaryByConfigRuleFluentBuilder {
         }
     }
     /// Access the GetComplianceSummaryByConfigRule as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +80,7 @@ impl GetComplianceSummaryByConfigRuleFluentBuilder {
             crate::operation::get_compliance_summary_by_config_rule::GetComplianceSummaryByConfigRuleError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +90,11 @@ impl GetComplianceSummaryByConfigRuleFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_compliance_summary_by_config_rule::GetComplianceSummaryByConfigRule::orchestrate(&runtime_plugins, input).await
+        crate::operation::get_compliance_summary_by_config_rule::GetComplianceSummaryByConfigRule::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +104,7 @@ impl GetComplianceSummaryByConfigRuleFluentBuilder {
         crate::operation::get_compliance_summary_by_config_rule::GetComplianceSummaryByConfigRuleOutput,
         crate::operation::get_compliance_summary_by_config_rule::GetComplianceSummaryByConfigRuleError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(

@@ -84,15 +84,11 @@ impl ImdsError {
     }
 
     pub(super) fn io_error(source: impl Into<Box<dyn Error + Send + Sync + 'static>>) -> Self {
-        Self::IoError(IoError {
-            source: source.into(),
-        })
+        Self::IoError(IoError { source: source.into() })
     }
 
     pub(super) fn unexpected(source: impl Into<Box<dyn Error + Send + Sync + 'static>>) -> Self {
-        Self::Unexpected(Unexpected {
-            source: source.into(),
-        })
+        Self::Unexpected(Unexpected { source: source.into() })
     }
 }
 
@@ -193,9 +189,7 @@ impl BuildError {
         }
     }
 
-    pub(super) fn invalid_endpoint_uri(
-        source: impl Into<Box<dyn Error + Send + Sync + 'static>>,
-    ) -> Self {
+    pub(super) fn invalid_endpoint_uri(source: impl Into<Box<dyn Error + Send + Sync + 'static>>) -> Self {
         Self {
             kind: BuildErrorKind::InvalidEndpointUri(source.into()),
         }

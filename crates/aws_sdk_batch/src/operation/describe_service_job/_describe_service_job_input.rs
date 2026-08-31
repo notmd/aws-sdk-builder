@@ -14,16 +14,13 @@ impl DescribeServiceJobInput {
 }
 impl DescribeServiceJobInput {
     /// Creates a new builder-style object to manufacture [`DescribeServiceJobInput`](crate::operation::describe_service_job::DescribeServiceJobInput).
-    pub fn builder(
-    ) -> crate::operation::describe_service_job::builders::DescribeServiceJobInputBuilder {
+    pub fn builder() -> crate::operation::describe_service_job::builders::DescribeServiceJobInputBuilder {
         crate::operation::describe_service_job::builders::DescribeServiceJobInputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeServiceJobInput`](crate::operation::describe_service_job::DescribeServiceJobInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeServiceJobInputBuilder {
     pub(crate) job_id: ::std::option::Option<::std::string::String>,
@@ -51,10 +48,8 @@ impl DescribeServiceJobInputBuilder {
         crate::operation::describe_service_job::DescribeServiceJobInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::describe_service_job::DescribeServiceJobInput {
-                job_id: self.job_id,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::describe_service_job::DescribeServiceJobInput {
+            job_id: self.job_id,
+        })
     }
 }

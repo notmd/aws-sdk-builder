@@ -22,9 +22,7 @@ impl StaticValue {
 }
 
 /// A builder for [`StaticValue`](crate::types::StaticValue).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct StaticValueBuilder {
     pub(crate) values: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -42,10 +40,7 @@ impl StaticValueBuilder {
         self
     }
     /// <p>A list of values. For example, the ARN of the assumed role.</p>
-    pub fn set_values(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.values = input;
         self
     }
@@ -58,10 +53,7 @@ impl StaticValueBuilder {
     /// - [`values`](crate::types::builders::StaticValueBuilder::values)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::StaticValue,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::StaticValue, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::StaticValue {
             values: self.values.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

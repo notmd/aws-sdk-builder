@@ -3,7 +3,9 @@ pub use crate::operation::describe_kinesis_streaming_destination::_describe_kine
 
 pub use crate::operation::describe_kinesis_streaming_destination::_describe_kinesis_streaming_destination_output::DescribeKinesisStreamingDestinationOutputBuilder;
 
-impl crate::operation::describe_kinesis_streaming_destination::builders::DescribeKinesisStreamingDestinationInputBuilder {
+impl
+    crate::operation::describe_kinesis_streaming_destination::builders::DescribeKinesisStreamingDestinationInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -76,7 +78,7 @@ impl DescribeKinesisStreamingDestinationFluentBuilder {
             crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -87,7 +89,11 @@ impl DescribeKinesisStreamingDestinationFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestination::orchestrate(&runtime_plugins, input).await
+        crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestination::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -97,7 +103,7 @@ impl DescribeKinesisStreamingDestinationFluentBuilder {
         crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationOutput,
         crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(

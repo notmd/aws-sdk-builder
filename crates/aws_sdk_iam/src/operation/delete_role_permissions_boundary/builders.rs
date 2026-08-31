@@ -60,7 +60,9 @@ impl DeleteRolePermissionsBoundaryFluentBuilder {
         }
     }
     /// Access the DeleteRolePermissionsBoundary as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_role_permissions_boundary::builders::DeleteRolePermissionsBoundaryInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::delete_role_permissions_boundary::builders::DeleteRolePermissionsBoundaryInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,7 +91,11 @@ impl DeleteRolePermissionsBoundaryFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundary::orchestrate(&runtime_plugins, input).await
+        crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundary::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

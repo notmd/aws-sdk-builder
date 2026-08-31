@@ -7,9 +7,7 @@ pub struct PlatformApplication {
     /// <p>PlatformApplicationArn for platform application object.</p>
     pub platform_application_arn: ::std::option::Option<::std::string::String>,
     /// <p>Attributes for platform application object.</p>
-    pub attributes: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl PlatformApplication {
     /// <p>PlatformApplicationArn for platform application object.</p>
@@ -19,9 +17,7 @@ impl PlatformApplication {
     /// <p>Attributes for platform application object.</p>
     pub fn attributes(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.attributes.as_ref()
     }
 }
@@ -33,30 +29,21 @@ impl PlatformApplication {
 }
 
 /// A builder for [`PlatformApplication`](crate::types::PlatformApplication).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PlatformApplicationBuilder {
     pub(crate) platform_application_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) attributes: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) attributes:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl PlatformApplicationBuilder {
     /// <p>PlatformApplicationArn for platform application object.</p>
-    pub fn platform_application_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn platform_application_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.platform_application_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>PlatformApplicationArn for platform application object.</p>
-    pub fn set_platform_application_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.platform_application_arn = input;
         self
     }
@@ -82,9 +69,7 @@ impl PlatformApplicationBuilder {
     /// <p>Attributes for platform application object.</p>
     pub fn set_attributes(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.attributes = input;
         self
@@ -92,9 +77,7 @@ impl PlatformApplicationBuilder {
     /// <p>Attributes for platform application object.</p>
     pub fn get_attributes(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.attributes
     }
     /// Consumes the builder and constructs a [`PlatformApplication`](crate::types::PlatformApplication).

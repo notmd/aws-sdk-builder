@@ -51,9 +51,7 @@ impl ConflictException {
 }
 
 /// A builder for [`ConflictException`](crate::types::error::ConflictException).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ConflictExceptionBuilder {
     pub(crate) error: ::std::option::Option<crate::types::OAuth2ErrorCode>,
@@ -68,10 +66,7 @@ impl ConflictExceptionBuilder {
         self
     }
     /// OAuth 2.0 error code indicating conflict Will be CONFLICT
-    pub fn set_error(
-        mut self,
-        input: ::std::option::Option<crate::types::OAuth2ErrorCode>,
-    ) -> Self {
+    pub fn set_error(mut self, input: ::std::option::Option<crate::types::OAuth2ErrorCode>) -> Self {
         self.error = input;
         self
     }
@@ -101,10 +96,7 @@ impl ConflictExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(
-        &mut self,
-        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> &mut Self {
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
         self.meta = meta;
         self
     }
@@ -114,10 +106,8 @@ impl ConflictExceptionBuilder {
     /// - [`message`](crate::types::error::builders::ConflictExceptionBuilder::message)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::error::ConflictException,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::error::ConflictException, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::error::ConflictException {
             error: self.error.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

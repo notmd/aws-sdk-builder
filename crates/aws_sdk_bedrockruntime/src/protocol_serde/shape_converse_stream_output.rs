@@ -10,8 +10,7 @@ pub fn de_stream_payload(
 > {
     let unmarshaller = crate::event_stream_serde::ConverseStreamOutputUnmarshaller::new();
     let body = std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());
-    let receiver = crate::event_receiver::EventReceiver::new(
-        ::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body),
-    );
+    let receiver =
+        crate::event_receiver::EventReceiver::new(::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body));
     Ok(receiver)
 }

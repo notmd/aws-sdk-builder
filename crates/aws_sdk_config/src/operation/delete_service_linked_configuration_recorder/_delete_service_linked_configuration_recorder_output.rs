@@ -35,9 +35,7 @@ impl DeleteServiceLinkedConfigurationRecorderOutput {
 }
 
 /// A builder for [`DeleteServiceLinkedConfigurationRecorderOutput`](crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteServiceLinkedConfigurationRecorderOutputBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,
@@ -93,7 +91,7 @@ impl DeleteServiceLinkedConfigurationRecorderOutputBuilder {
     ) -> ::std::result::Result<
         crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderOutput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderOutput {
                 arn: self.arn.ok_or_else(|| {

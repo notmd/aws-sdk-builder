@@ -17,10 +17,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateCustomKeyStoreError>`](crate::operation::update_custom_key_store::UpdateCustomKeyStoreError)
     pub fn update_custom_key_store(
         &self,
-    ) -> crate::operation::update_custom_key_store::builders::UpdateCustomKeyStoreFluentBuilder
-    {
-        crate::operation::update_custom_key_store::builders::UpdateCustomKeyStoreFluentBuilder::new(
-            self.handle.clone(),
-        )
+    ) -> crate::operation::update_custom_key_store::builders::UpdateCustomKeyStoreFluentBuilder {
+        crate::operation::update_custom_key_store::builders::UpdateCustomKeyStoreFluentBuilder::new(self.handle.clone())
     }
 }

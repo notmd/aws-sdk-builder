@@ -66,9 +66,7 @@ impl DescribeUserPoolFluentBuilder {
         }
     }
     /// Access the DescribeUserPool as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::describe_user_pool::builders::DescribeUserPoolInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::describe_user_pool::builders::DescribeUserPoolInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -92,14 +90,12 @@ impl DescribeUserPoolFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::describe_user_pool::DescribeUserPool::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::describe_user_pool::DescribeUserPool::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::describe_user_pool::DescribeUserPool::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::describe_user_pool::DescribeUserPool::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

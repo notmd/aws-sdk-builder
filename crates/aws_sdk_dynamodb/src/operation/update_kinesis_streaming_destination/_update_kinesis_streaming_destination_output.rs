@@ -41,15 +41,15 @@ impl ::aws_types::request_id::RequestId for UpdateKinesisStreamingDestinationOut
 }
 impl UpdateKinesisStreamingDestinationOutput {
     /// Creates a new builder-style object to manufacture [`UpdateKinesisStreamingDestinationOutput`](crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationOutput).
-    pub fn builder() -> crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationOutputBuilder
+    {
         crate::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationOutputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateKinesisStreamingDestinationOutput`](crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateKinesisStreamingDestinationOutputBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
@@ -94,17 +94,12 @@ impl UpdateKinesisStreamingDestinationOutputBuilder {
         self
     }
     /// <p>The status of the attempt to update the Kinesis streaming destination output.</p>
-    pub fn set_destination_status(
-        mut self,
-        input: ::std::option::Option<crate::types::DestinationStatus>,
-    ) -> Self {
+    pub fn set_destination_status(mut self, input: ::std::option::Option<crate::types::DestinationStatus>) -> Self {
         self.destination_status = input;
         self
     }
     /// <p>The status of the attempt to update the Kinesis streaming destination output.</p>
-    pub fn get_destination_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::DestinationStatus> {
+    pub fn get_destination_status(&self) -> &::std::option::Option<crate::types::DestinationStatus> {
         &self.destination_status
     }
     /// <p>The command to update the Kinesis streaming destination configuration.</p>
@@ -139,7 +134,9 @@ impl UpdateKinesisStreamingDestinationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateKinesisStreamingDestinationOutput`](crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationOutput).
-    pub fn build(self) -> crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationOutput {
         crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationOutput {
             table_name: self.table_name,
             stream_arn: self.stream_arn,

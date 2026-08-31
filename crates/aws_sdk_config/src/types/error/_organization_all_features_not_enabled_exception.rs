@@ -26,33 +26,26 @@ impl ::std::fmt::Display for OrganizationAllFeaturesNotEnabledException {
     }
 }
 impl ::std::error::Error for OrganizationAllFeaturesNotEnabledException {}
-impl ::aws_types::request_id::RequestId
-    for crate::types::error::OrganizationAllFeaturesNotEnabledException
-{
+impl ::aws_types::request_id::RequestId for crate::types::error::OrganizationAllFeaturesNotEnabledException {
     fn request_id(&self) -> Option<&str> {
         use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
         self.meta().request_id()
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
-    for OrganizationAllFeaturesNotEnabledException
-{
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for OrganizationAllFeaturesNotEnabledException {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         &self.meta
     }
 }
 impl OrganizationAllFeaturesNotEnabledException {
     /// Creates a new builder-style object to manufacture [`OrganizationAllFeaturesNotEnabledException`](crate::types::error::OrganizationAllFeaturesNotEnabledException).
-    pub fn builder(
-    ) -> crate::types::error::builders::OrganizationAllFeaturesNotEnabledExceptionBuilder {
+    pub fn builder() -> crate::types::error::builders::OrganizationAllFeaturesNotEnabledExceptionBuilder {
         crate::types::error::builders::OrganizationAllFeaturesNotEnabledExceptionBuilder::default()
     }
 }
 
 /// A builder for [`OrganizationAllFeaturesNotEnabledException`](crate::types::error::OrganizationAllFeaturesNotEnabledException).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct OrganizationAllFeaturesNotEnabledExceptionBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
@@ -80,10 +73,7 @@ impl OrganizationAllFeaturesNotEnabledExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(
-        &mut self,
-        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> &mut Self {
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
         self.meta = meta;
         self
     }

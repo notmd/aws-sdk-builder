@@ -40,17 +40,13 @@ impl UpdatePrimaryRegionInput {
 }
 impl UpdatePrimaryRegionInput {
     /// Creates a new builder-style object to manufacture [`UpdatePrimaryRegionInput`](crate::operation::update_primary_region::UpdatePrimaryRegionInput).
-    pub fn builder(
-    ) -> crate::operation::update_primary_region::builders::UpdatePrimaryRegionInputBuilder {
-        crate::operation::update_primary_region::builders::UpdatePrimaryRegionInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::update_primary_region::builders::UpdatePrimaryRegionInputBuilder {
+        crate::operation::update_primary_region::builders::UpdatePrimaryRegionInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdatePrimaryRegionInput`](crate::operation::update_primary_region::UpdatePrimaryRegionInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdatePrimaryRegionInputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
@@ -102,19 +98,13 @@ impl UpdatePrimaryRegionInputBuilder {
     /// <p>The Amazon Web Services Region of the new primary key. Enter the Region ID, such as <code>us-east-1</code> or <code>ap-southeast-2</code>. There must be an existing replica key in this Region.</p>
     /// <p>When the operation completes, the multi-Region key in this Region will be the primary key.</p>
     /// This field is required.
-    pub fn primary_region(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn primary_region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.primary_region = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Web Services Region of the new primary key. Enter the Region ID, such as <code>us-east-1</code> or <code>ap-southeast-2</code>. There must be an existing replica key in this Region.</p>
     /// <p>When the operation completes, the multi-Region key in this Region will be the primary key.</p>
-    pub fn set_primary_region(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_primary_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.primary_region = input;
         self
     }
@@ -130,11 +120,9 @@ impl UpdatePrimaryRegionInputBuilder {
         crate::operation::update_primary_region::UpdatePrimaryRegionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::update_primary_region::UpdatePrimaryRegionInput {
-                key_id: self.key_id,
-                primary_region: self.primary_region,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::update_primary_region::UpdatePrimaryRegionInput {
+            key_id: self.key_id,
+            primary_region: self.primary_region,
+        })
     }
 }

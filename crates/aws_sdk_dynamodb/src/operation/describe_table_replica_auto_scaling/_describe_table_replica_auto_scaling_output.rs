@@ -4,15 +4,12 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeTableReplicaAutoScalingOutput {
     /// <p>Represents the auto scaling properties of the table.</p>
-    pub table_auto_scaling_description:
-        ::std::option::Option<crate::types::TableAutoScalingDescription>,
+    pub table_auto_scaling_description: ::std::option::Option<crate::types::TableAutoScalingDescription>,
     _request_id: Option<String>,
 }
 impl DescribeTableReplicaAutoScalingOutput {
     /// <p>Represents the auto scaling properties of the table.</p>
-    pub fn table_auto_scaling_description(
-        &self,
-    ) -> ::std::option::Option<&crate::types::TableAutoScalingDescription> {
+    pub fn table_auto_scaling_description(&self) -> ::std::option::Option<&crate::types::TableAutoScalingDescription> {
         self.table_auto_scaling_description.as_ref()
     }
 }
@@ -23,27 +20,23 @@ impl ::aws_types::request_id::RequestId for DescribeTableReplicaAutoScalingOutpu
 }
 impl DescribeTableReplicaAutoScalingOutput {
     /// Creates a new builder-style object to manufacture [`DescribeTableReplicaAutoScalingOutput`](crate::operation::describe_table_replica_auto_scaling::DescribeTableReplicaAutoScalingOutput).
-    pub fn builder() -> crate::operation::describe_table_replica_auto_scaling::builders::DescribeTableReplicaAutoScalingOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::describe_table_replica_auto_scaling::builders::DescribeTableReplicaAutoScalingOutputBuilder
+    {
         crate::operation::describe_table_replica_auto_scaling::builders::DescribeTableReplicaAutoScalingOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeTableReplicaAutoScalingOutput`](crate::operation::describe_table_replica_auto_scaling::DescribeTableReplicaAutoScalingOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeTableReplicaAutoScalingOutputBuilder {
-    pub(crate) table_auto_scaling_description:
-        ::std::option::Option<crate::types::TableAutoScalingDescription>,
+    pub(crate) table_auto_scaling_description: ::std::option::Option<crate::types::TableAutoScalingDescription>,
     _request_id: Option<String>,
 }
 impl DescribeTableReplicaAutoScalingOutputBuilder {
     /// <p>Represents the auto scaling properties of the table.</p>
-    pub fn table_auto_scaling_description(
-        mut self,
-        input: crate::types::TableAutoScalingDescription,
-    ) -> Self {
+    pub fn table_auto_scaling_description(mut self, input: crate::types::TableAutoScalingDescription) -> Self {
         self.table_auto_scaling_description = ::std::option::Option::Some(input);
         self
     }
@@ -71,10 +64,7 @@ impl DescribeTableReplicaAutoScalingOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeTableReplicaAutoScalingOutput`](crate::operation::describe_table_replica_auto_scaling::DescribeTableReplicaAutoScalingOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::describe_table_replica_auto_scaling::DescribeTableReplicaAutoScalingOutput
-    {
+    pub fn build(self) -> crate::operation::describe_table_replica_auto_scaling::DescribeTableReplicaAutoScalingOutput {
         crate::operation::describe_table_replica_auto_scaling::DescribeTableReplicaAutoScalingOutput {
             table_auto_scaling_description: self.table_auto_scaling_description,
             _request_id: self._request_id,

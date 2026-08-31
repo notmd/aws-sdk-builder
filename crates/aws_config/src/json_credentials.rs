@@ -86,29 +86,26 @@ impl fmt::Debug for RefreshableCredentials<'_> {
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) enum JsonCredentials<'a> {
     RefreshableCredentials(RefreshableCredentials<'a>),
-    Error {
-        code: Cow<'a, str>,
-        message: Cow<'a, str>,
-    }, // TODO(https://github.com/awslabs/aws-sdk-rust/issues/340): Add support for static credentials:
-       //  {
-       //    "AccessKeyId" : "MUA...",
-       //    "SecretAccessKey" : "/7PC5om...."
-       //  }
+    Error { code: Cow<'a, str>, message: Cow<'a, str> }, // TODO(https://github.com/awslabs/aws-sdk-rust/issues/340): Add support for static credentials:
+                                                         //  {
+                                                         //    "AccessKeyId" : "MUA...",
+                                                         //    "SecretAccessKey" : "/7PC5om...."
+                                                         //  }
 
-       // TODO(https://github.com/awslabs/aws-sdk-rust/issues/340): Add support for Assume role credentials:
-       //   {
-       //     // fields to construct STS client:
-       //     "Region": "sts-region-name",
-       //     "AccessKeyId" : "MUA...",
-       //     "Expiration" : "2016-02-25T06:03:31Z", // optional
-       //     "SecretAccessKey" : "/7PC5om....",
-       //     "Token" : "AQoDY....=", // optional
-       //     // fields controlling the STS role:
-       //     "RoleArn": "...", // required
-       //     "RoleSessionName": "...", // required
-       //     // and also: DurationSeconds, ExternalId, SerialNumber, TokenCode, Policy
-       //     ...
-       //   }
+                                                         // TODO(https://github.com/awslabs/aws-sdk-rust/issues/340): Add support for Assume role credentials:
+                                                         //   {
+                                                         //     // fields to construct STS client:
+                                                         //     "Region": "sts-region-name",
+                                                         //     "AccessKeyId" : "MUA...",
+                                                         //     "Expiration" : "2016-02-25T06:03:31Z", // optional
+                                                         //     "SecretAccessKey" : "/7PC5om....",
+                                                         //     "Token" : "AQoDY....=", // optional
+                                                         //     // fields controlling the STS role:
+                                                         //     "RoleArn": "...", // required
+                                                         //     "RoleSessionName": "...", // required
+                                                         //     // and also: DurationSeconds, ExternalId, SerialNumber, TokenCode, Policy
+                                                         //     ...
+                                                         //   }
 }
 
 /// Deserialize an IMDS response from a string
@@ -147,14 +144,11 @@ pub(crate) fn parse_json_credentials(
             (key, Token::ValueString { value, .. }) if key.eq_ignore_ascii_case("AccessKeyId") => {
                 access_key_id = Some(value.to_unescaped()?);
             }
-            (key, Token::ValueString { value, .. })
-                if key.eq_ignore_ascii_case("SecretAccessKey") =>
-            {
+            (key, Token::ValueString { value, .. }) if key.eq_ignore_ascii_case("SecretAccessKey") => {
                 secret_access_key = Some(value.to_unescaped()?);
             }
             (key, Token::ValueString { value, .. })
-                if key.eq_ignore_ascii_case("Token")
-                    || key.eq_ignore_ascii_case("SessionToken") =>
+                if key.eq_ignore_ascii_case("Token") || key.eq_ignore_ascii_case("SessionToken") =>
             {
                 session_token = Some(value.to_unescaped()?);
             }
@@ -162,8 +156,7 @@ pub(crate) fn parse_json_credentials(
                 account_id = Some(value.to_unescaped()?);
             }
             (key, Token::ValueString { value, .. })
-                if key.eq_ignore_ascii_case("Expiration")
-                    || key.eq_ignore_ascii_case("ExpiresAt") =>
+                if key.eq_ignore_ascii_case("Expiration") || key.eq_ignore_ascii_case("ExpiresAt") =>
             {
                 expiration = Some(value.to_unescaped()?);
             }
@@ -180,36 +173,26 @@ pub(crate) fn parse_json_credentials(
         // IMDS does not appear to reply with a `Code` missing, but documentation indicates it
         // may be possible
         None | Some(Cow::Borrowed("Success")) => {
-            let access_key_id =
-                access_key_id.ok_or(InvalidJsonCredentials::MissingField("AccessKeyId"))?;
-            let secret_access_key =
-                secret_access_key.ok_or(InvalidJsonCredentials::MissingField("SecretAccessKey"))?;
-            let session_token =
-                session_token.ok_or(InvalidJsonCredentials::MissingField("Token"))?;
-            let expiration =
-                expiration.ok_or(InvalidJsonCredentials::MissingField("Expiration"))?;
-            let expiration = SystemTime::try_from(
-                DateTime::from_str(expiration.as_ref(), Format::DateTime).map_err(|err| {
-                    InvalidJsonCredentials::InvalidField {
-                        field: "Expiration",
-                        err: err.into(),
-                    }
-                })?,
-            )
-            .map_err(|_| {
-                InvalidJsonCredentials::Other(
-                    "credential expiration time cannot be represented by a SystemTime".into(),
-                )
-            })?;
-            Ok(JsonCredentials::RefreshableCredentials(
-                RefreshableCredentials {
-                    access_key_id,
-                    secret_access_key,
-                    session_token,
-                    account_id,
-                    expiration,
+            let access_key_id = access_key_id.ok_or(InvalidJsonCredentials::MissingField("AccessKeyId"))?;
+            let secret_access_key = secret_access_key.ok_or(InvalidJsonCredentials::MissingField("SecretAccessKey"))?;
+            let session_token = session_token.ok_or(InvalidJsonCredentials::MissingField("Token"))?;
+            let expiration = expiration.ok_or(InvalidJsonCredentials::MissingField("Expiration"))?;
+            let expiration = SystemTime::try_from(DateTime::from_str(expiration.as_ref(), Format::DateTime).map_err(
+                |err| InvalidJsonCredentials::InvalidField {
+                    field: "Expiration",
+                    err: err.into(),
                 },
-            ))
+            )?)
+            .map_err(|_| {
+                InvalidJsonCredentials::Other("credential expiration time cannot be represented by a SystemTime".into())
+            })?;
+            Ok(JsonCredentials::RefreshableCredentials(RefreshableCredentials {
+                access_key_id,
+                secret_access_key,
+                session_token,
+                account_id,
+                expiration,
+            }))
         }
         Some(other) => Ok(JsonCredentials::Error {
             code: other,

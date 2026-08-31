@@ -8,8 +8,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteInstanceProfileError>`](crate::operation::delete_instance_profile::DeleteInstanceProfileError)
     pub fn delete_instance_profile(
         &self,
-    ) -> crate::operation::delete_instance_profile::builders::DeleteInstanceProfileFluentBuilder
-    {
+    ) -> crate::operation::delete_instance_profile::builders::DeleteInstanceProfileFluentBuilder {
         crate::operation::delete_instance_profile::builders::DeleteInstanceProfileFluentBuilder::new(
             self.handle.clone(),
         )

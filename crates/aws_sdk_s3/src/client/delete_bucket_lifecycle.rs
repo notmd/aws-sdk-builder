@@ -9,8 +9,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteBucketLifecycleError>`](crate::operation::delete_bucket_lifecycle::DeleteBucketLifecycleError)
     pub fn delete_bucket_lifecycle(
         &self,
-    ) -> crate::operation::delete_bucket_lifecycle::builders::DeleteBucketLifecycleFluentBuilder
-    {
+    ) -> crate::operation::delete_bucket_lifecycle::builders::DeleteBucketLifecycleFluentBuilder {
         crate::operation::delete_bucket_lifecycle::builders::DeleteBucketLifecycleFluentBuilder::new(
             self.handle.clone(),
         )

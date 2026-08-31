@@ -61,9 +61,7 @@ impl ListTagsLogGroupFluentBuilder {
         }
     }
     /// Access the ListTagsLogGroup as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_tags_log_group::builders::ListTagsLogGroupInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_tags_log_group::builders::ListTagsLogGroupInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,17 +85,12 @@ impl ListTagsLogGroupFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_tags_log_group::ListTagsLogGroup::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::list_tags_log_group::ListTagsLogGroup::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::list_tags_log_group::ListTagsLogGroup::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::list_tags_log_group::ListTagsLogGroup::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -126,18 +119,12 @@ impl ListTagsLogGroupFluentBuilder {
         self
     }
     /// <p>The name of the log group.</p>
-    pub fn log_group_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_group_name(input.into());
         self
     }
     /// <p>The name of the log group.</p>
-    pub fn set_log_group_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_log_group_name(input);
         self
     }

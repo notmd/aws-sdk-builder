@@ -102,7 +102,7 @@ impl DeleteBucketMetadataTableConfigurationFluentBuilder {
             crate::operation::delete_bucket_metadata_table_configuration::DeleteBucketMetadataTableConfigurationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -124,7 +124,7 @@ impl DeleteBucketMetadataTableConfigurationFluentBuilder {
         crate::operation::delete_bucket_metadata_table_configuration::DeleteBucketMetadataTableConfigurationOutput,
         crate::operation::delete_bucket_metadata_table_configuration::DeleteBucketMetadataTableConfigurationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -157,18 +157,12 @@ impl DeleteBucketMetadataTableConfigurationFluentBuilder {
         self.inner.get_bucket()
     }
     /// <p>The expected bucket owner of the general purpose bucket that you want to remove the metadata table configuration from.</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The expected bucket owner of the general purpose bucket that you want to remove the metadata table configuration from.</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

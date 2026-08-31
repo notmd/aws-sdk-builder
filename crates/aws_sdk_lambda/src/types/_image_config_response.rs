@@ -27,9 +27,7 @@ impl ImageConfigResponse {
 }
 
 /// A builder for [`ImageConfigResponse`](crate::types::ImageConfigResponse).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ImageConfigResponseBuilder {
     pub(crate) image_config: ::std::option::Option<crate::types::ImageConfig>,
@@ -42,10 +40,7 @@ impl ImageConfigResponseBuilder {
         self
     }
     /// <p>Configuration values that override the container image Dockerfile.</p>
-    pub fn set_image_config(
-        mut self,
-        input: ::std::option::Option<crate::types::ImageConfig>,
-    ) -> Self {
+    pub fn set_image_config(mut self, input: ::std::option::Option<crate::types::ImageConfig>) -> Self {
         self.image_config = input;
         self
     }
@@ -59,10 +54,7 @@ impl ImageConfigResponseBuilder {
         self
     }
     /// <p>Error response to <code>GetFunctionConfiguration</code>.</p>
-    pub fn set_error(
-        mut self,
-        input: ::std::option::Option<crate::types::ImageConfigError>,
-    ) -> Self {
+    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ImageConfigError>) -> Self {
         self.error = input;
         self
     }

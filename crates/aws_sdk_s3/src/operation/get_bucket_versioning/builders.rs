@@ -73,9 +73,7 @@ impl GetBucketVersioningFluentBuilder {
         }
     }
     /// Access the GetBucketVersioning as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_bucket_versioning::builders::GetBucketVersioningInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_bucket_versioning::builders::GetBucketVersioningInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -99,17 +97,12 @@ impl GetBucketVersioningFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::get_bucket_versioning::GetBucketVersioning::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::get_bucket_versioning::GetBucketVersioning::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::get_bucket_versioning::GetBucketVersioning::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::get_bucket_versioning::GetBucketVersioning::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -152,18 +145,12 @@ impl GetBucketVersioningFluentBuilder {
         self.inner.get_bucket()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

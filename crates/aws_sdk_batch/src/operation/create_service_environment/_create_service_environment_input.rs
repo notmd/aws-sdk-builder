@@ -12,9 +12,7 @@ pub struct CreateServiceEnvironmentInput {
     /// <p>The capacity limits for the service environment. The number of instances a job consumes is the total number of instances requested in the submit training job request resource configuration.</p>
     pub capacity_limits: ::std::option::Option<::std::vec::Vec<crate::types::CapacityLimit>>,
     /// <p>The tags that you apply to the service environment to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
-    pub tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl CreateServiceEnvironmentInput {
     /// <p>The name for the service environment. It can be up to 128 characters long and can contain letters, numbers, hyphens (-), and underscores (_).</p>
@@ -22,9 +20,7 @@ impl CreateServiceEnvironmentInput {
         self.service_environment_name.as_deref()
     }
     /// <p>The type of service environment. For SageMaker Training jobs, specify <code>SAGEMAKER_TRAINING</code>.</p>
-    pub fn service_environment_type(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ServiceEnvironmentType> {
+    pub fn service_environment_type(&self) -> ::std::option::Option<&crate::types::ServiceEnvironmentType> {
         self.service_environment_type.as_ref()
     }
     /// <p>The state of the service environment. Valid values are <code>ENABLED</code> and <code>DISABLED</code>. The default value is <code>ENABLED</code>.</p>
@@ -40,51 +36,36 @@ impl CreateServiceEnvironmentInput {
     /// <p>The tags that you apply to the service environment to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
     pub fn tags(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
 }
 impl CreateServiceEnvironmentInput {
     /// Creates a new builder-style object to manufacture [`CreateServiceEnvironmentInput`](crate::operation::create_service_environment::CreateServiceEnvironmentInput).
-    pub fn builder(
-    ) -> crate::operation::create_service_environment::builders::CreateServiceEnvironmentInputBuilder
-    {
+    pub fn builder() -> crate::operation::create_service_environment::builders::CreateServiceEnvironmentInputBuilder {
         crate::operation::create_service_environment::builders::CreateServiceEnvironmentInputBuilder::default()
     }
 }
 
 /// A builder for [`CreateServiceEnvironmentInput`](crate::operation::create_service_environment::CreateServiceEnvironmentInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateServiceEnvironmentInputBuilder {
     pub(crate) service_environment_name: ::std::option::Option<::std::string::String>,
-    pub(crate) service_environment_type:
-        ::std::option::Option<crate::types::ServiceEnvironmentType>,
+    pub(crate) service_environment_type: ::std::option::Option<crate::types::ServiceEnvironmentType>,
     pub(crate) state: ::std::option::Option<crate::types::ServiceEnvironmentState>,
     pub(crate) capacity_limits: ::std::option::Option<::std::vec::Vec<crate::types::CapacityLimit>>,
-    pub(crate) tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl CreateServiceEnvironmentInputBuilder {
     /// <p>The name for the service environment. It can be up to 128 characters long and can contain letters, numbers, hyphens (-), and underscores (_).</p>
     /// This field is required.
-    pub fn service_environment_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_environment_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.service_environment_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name for the service environment. It can be up to 128 characters long and can contain letters, numbers, hyphens (-), and underscores (_).</p>
-    pub fn set_service_environment_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_service_environment_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.service_environment_name = input;
         self
     }
@@ -107,9 +88,7 @@ impl CreateServiceEnvironmentInputBuilder {
         self
     }
     /// <p>The type of service environment. For SageMaker Training jobs, specify <code>SAGEMAKER_TRAINING</code>.</p>
-    pub fn get_service_environment_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::ServiceEnvironmentType> {
+    pub fn get_service_environment_type(&self) -> &::std::option::Option<crate::types::ServiceEnvironmentType> {
         &self.service_environment_type
     }
     /// <p>The state of the service environment. Valid values are <code>ENABLED</code> and <code>DISABLED</code>. The default value is <code>ENABLED</code>.</p>
@@ -118,10 +97,7 @@ impl CreateServiceEnvironmentInputBuilder {
         self
     }
     /// <p>The state of the service environment. Valid values are <code>ENABLED</code> and <code>DISABLED</code>. The default value is <code>ENABLED</code>.</p>
-    pub fn set_state(
-        mut self,
-        input: ::std::option::Option<crate::types::ServiceEnvironmentState>,
-    ) -> Self {
+    pub fn set_state(mut self, input: ::std::option::Option<crate::types::ServiceEnvironmentState>) -> Self {
         self.state = input;
         self
     }
@@ -149,9 +125,7 @@ impl CreateServiceEnvironmentInputBuilder {
         self
     }
     /// <p>The capacity limits for the service environment. The number of instances a job consumes is the total number of instances requested in the submit training job request resource configuration.</p>
-    pub fn get_capacity_limits(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::CapacityLimit>> {
+    pub fn get_capacity_limits(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CapacityLimit>> {
         &self.capacity_limits
     }
     /// Adds a key-value pair to `tags`.
@@ -172,9 +146,7 @@ impl CreateServiceEnvironmentInputBuilder {
     /// <p>The tags that you apply to the service environment to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.tags = input;
         self
@@ -182,9 +154,7 @@ impl CreateServiceEnvironmentInputBuilder {
     /// <p>The tags that you apply to the service environment to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`CreateServiceEnvironmentInput`](crate::operation::create_service_environment::CreateServiceEnvironmentInput).

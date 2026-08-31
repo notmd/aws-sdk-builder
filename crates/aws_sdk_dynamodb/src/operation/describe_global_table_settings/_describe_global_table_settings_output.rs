@@ -6,8 +6,7 @@ pub struct DescribeGlobalTableSettingsOutput {
     /// <p>The name of the global table.</p>
     pub global_table_name: ::std::option::Option<::std::string::String>,
     /// <p>The Region-specific settings for the global table.</p>
-    pub replica_settings:
-        ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>>,
+    pub replica_settings: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>>,
     _request_id: Option<String>,
 }
 impl DescribeGlobalTableSettingsOutput {
@@ -29,36 +28,28 @@ impl ::aws_types::request_id::RequestId for DescribeGlobalTableSettingsOutput {
 }
 impl DescribeGlobalTableSettingsOutput {
     /// Creates a new builder-style object to manufacture [`DescribeGlobalTableSettingsOutput`](crate::operation::describe_global_table_settings::DescribeGlobalTableSettingsOutput).
-    pub fn builder() -> crate::operation::describe_global_table_settings::builders::DescribeGlobalTableSettingsOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::describe_global_table_settings::builders::DescribeGlobalTableSettingsOutputBuilder {
         crate::operation::describe_global_table_settings::builders::DescribeGlobalTableSettingsOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeGlobalTableSettingsOutput`](crate::operation::describe_global_table_settings::DescribeGlobalTableSettingsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeGlobalTableSettingsOutputBuilder {
     pub(crate) global_table_name: ::std::option::Option<::std::string::String>,
-    pub(crate) replica_settings:
-        ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>>,
+    pub(crate) replica_settings: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>>,
     _request_id: Option<String>,
 }
 impl DescribeGlobalTableSettingsOutputBuilder {
     /// <p>The name of the global table.</p>
-    pub fn global_table_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn global_table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.global_table_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the global table.</p>
-    pub fn set_global_table_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.global_table_name = input;
         self
     }
@@ -101,9 +92,7 @@ impl DescribeGlobalTableSettingsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeGlobalTableSettingsOutput`](crate::operation::describe_global_table_settings::DescribeGlobalTableSettingsOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::describe_global_table_settings::DescribeGlobalTableSettingsOutput {
+    pub fn build(self) -> crate::operation::describe_global_table_settings::DescribeGlobalTableSettingsOutput {
         crate::operation::describe_global_table_settings::DescribeGlobalTableSettingsOutput {
             global_table_name: self.global_table_name,
             replica_settings: self.replica_settings,

@@ -12,8 +12,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ServerSideEncryptionRule {
     /// <p>Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.</p>
-    pub apply_server_side_encryption_by_default:
-        ::std::option::Option<crate::types::ServerSideEncryptionByDefault>,
+    pub apply_server_side_encryption_by_default: ::std::option::Option<crate::types::ServerSideEncryptionByDefault>,
     /// <p>Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the <code>BucketKeyEnabled</code> element to <code>true</code> causes Amazon S3 to use an S3 Bucket Key.</p><note>
     /// <ul>
     /// <li>
@@ -49,9 +48,7 @@ impl ServerSideEncryptionRule {
     /// <p>A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block <code>PutObject</code>, <code>CopyObject</code>, <code>PostObject</code>, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html">Blocking or unblocking SSE-C for a general purpose bucket</a>.</p><note>
     /// <p>Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html">Using server-side encryption with customer-provided keys (SSE-C)</a>.</p>
     /// </note>
-    pub fn blocked_encryption_types(
-        &self,
-    ) -> ::std::option::Option<&crate::types::BlockedEncryptionTypes> {
+    pub fn blocked_encryption_types(&self) -> ::std::option::Option<&crate::types::BlockedEncryptionTypes> {
         self.blocked_encryption_types.as_ref()
     }
 }
@@ -63,16 +60,13 @@ impl ServerSideEncryptionRule {
 }
 
 /// A builder for [`ServerSideEncryptionRule`](crate::types::ServerSideEncryptionRule).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ServerSideEncryptionRuleBuilder {
     pub(crate) apply_server_side_encryption_by_default:
         ::std::option::Option<crate::types::ServerSideEncryptionByDefault>,
     pub(crate) bucket_key_enabled: ::std::option::Option<bool>,
-    pub(crate) blocked_encryption_types:
-        ::std::option::Option<crate::types::BlockedEncryptionTypes>,
+    pub(crate) blocked_encryption_types: ::std::option::Option<crate::types::BlockedEncryptionTypes>,
 }
 impl ServerSideEncryptionRuleBuilder {
     /// <p>Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.</p>
@@ -152,9 +146,7 @@ impl ServerSideEncryptionRuleBuilder {
     /// <p>A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block <code>PutObject</code>, <code>CopyObject</code>, <code>PostObject</code>, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html">Blocking or unblocking SSE-C for a general purpose bucket</a>.</p><note>
     /// <p>Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html">Using server-side encryption with customer-provided keys (SSE-C)</a>.</p>
     /// </note>
-    pub fn get_blocked_encryption_types(
-        &self,
-    ) -> &::std::option::Option<crate::types::BlockedEncryptionTypes> {
+    pub fn get_blocked_encryption_types(&self) -> &::std::option::Option<crate::types::BlockedEncryptionTypes> {
         &self.blocked_encryption_types
     }
     /// Consumes the builder and constructs a [`ServerSideEncryptionRule`](crate::types::ServerSideEncryptionRule).

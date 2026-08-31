@@ -57,7 +57,9 @@ impl GetDeliveryDestinationPolicyFluentBuilder {
         }
     }
     /// Access the GetDeliveryDestinationPolicy as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_delivery_destination_policy::builders::GetDeliveryDestinationPolicyInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_delivery_destination_policy::builders::GetDeliveryDestinationPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,12 +83,17 @@ impl GetDeliveryDestinationPolicyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_delivery_destination_policy::GetDeliveryDestinationPolicy::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::get_delivery_destination_policy::GetDeliveryDestinationPolicy::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::get_delivery_destination_policy::GetDeliveryDestinationPolicy::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::get_delivery_destination_policy::GetDeliveryDestinationPolicy::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -115,18 +122,12 @@ impl GetDeliveryDestinationPolicyFluentBuilder {
         self
     }
     /// <p>The name of the delivery destination that you want to retrieve the policy of.</p>
-    pub fn delivery_destination_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delivery_destination_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.delivery_destination_name(input.into());
         self
     }
     /// <p>The name of the delivery destination that you want to retrieve the policy of.</p>
-    pub fn set_delivery_destination_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delivery_destination_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_delivery_destination_name(input);
         self
     }

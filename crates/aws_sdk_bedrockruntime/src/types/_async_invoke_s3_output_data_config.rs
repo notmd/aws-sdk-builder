@@ -34,9 +34,7 @@ impl AsyncInvokeS3OutputDataConfig {
 }
 
 /// A builder for [`AsyncInvokeS3OutputDataConfig`](crate::types::AsyncInvokeS3OutputDataConfig).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AsyncInvokeS3OutputDataConfigBuilder {
     pub(crate) s3_uri: ::std::option::Option<::std::string::String>,

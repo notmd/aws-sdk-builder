@@ -15,10 +15,7 @@ pub fn ser_create_scheduling_policy_input_input(
     if let Some(var_4) = &input.quota_share_policy {
         #[allow(unused_mut)]
         let mut object_5 = object.key("quotaSharePolicy").start_object();
-        crate::protocol_serde::shape_quota_share_policy::ser_quota_share_policy(
-            &mut object_5,
-            var_4,
-        )?;
+        crate::protocol_serde::shape_quota_share_policy::ser_quota_share_policy(&mut object_5, var_4)?;
         object_5.finish();
     }
     if let Some(var_6) = &input.tags {

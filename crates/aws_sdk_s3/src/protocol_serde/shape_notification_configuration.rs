@@ -9,10 +9,7 @@ pub fn ser_notification_configuration(
         for list_item_2 in var_1 {
             {
                 let inner_writer = scope.start_el("TopicConfiguration");
-                crate::protocol_serde::shape_topic_configuration::ser_topic_configuration(
-                    list_item_2,
-                    inner_writer,
-                )?
+                crate::protocol_serde::shape_topic_configuration::ser_topic_configuration(list_item_2, inner_writer)?
             }
         }
     }
@@ -20,10 +17,7 @@ pub fn ser_notification_configuration(
         for list_item_4 in var_3 {
             {
                 let inner_writer = scope.start_el("QueueConfiguration");
-                crate::protocol_serde::shape_queue_configuration::ser_queue_configuration(
-                    list_item_4,
-                    inner_writer,
-                )?
+                crate::protocol_serde::shape_queue_configuration::ser_queue_configuration(list_item_4, inner_writer)?
             }
         }
     }
@@ -31,7 +25,10 @@ pub fn ser_notification_configuration(
         for list_item_6 in var_5 {
             {
                 let inner_writer = scope.start_el("CloudFunctionConfiguration");
-                crate::protocol_serde::shape_lambda_function_configuration::ser_lambda_function_configuration(list_item_6, inner_writer)?
+                crate::protocol_serde::shape_lambda_function_configuration::ser_lambda_function_configuration(
+                    list_item_6,
+                    inner_writer,
+                )?
             }
         }
     }

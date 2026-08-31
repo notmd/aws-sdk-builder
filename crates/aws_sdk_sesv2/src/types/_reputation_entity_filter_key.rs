@@ -89,9 +89,9 @@ impl ::std::convert::From<&str> for ReputationEntityFilterKey {
             "ENTITY_TYPE" => ReputationEntityFilterKey::EntityType,
             "REPUTATION_IMPACT" => ReputationEntityFilterKey::ReputationImpact,
             "SENDING_STATUS" => ReputationEntityFilterKey::Status,
-            other => ReputationEntityFilterKey::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => ReputationEntityFilterKey::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -132,14 +132,10 @@ impl ReputationEntityFilterKey {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -147,9 +143,7 @@ impl ReputationEntityFilterKey {
 impl ::std::fmt::Display for ReputationEntityFilterKey {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
-            ReputationEntityFilterKey::EntityReferencePrefix => {
-                write!(f, "ENTITY_REFERENCE_PREFIX")
-            }
+            ReputationEntityFilterKey::EntityReferencePrefix => write!(f, "ENTITY_REFERENCE_PREFIX"),
             ReputationEntityFilterKey::EntityType => write!(f, "ENTITY_TYPE"),
             ReputationEntityFilterKey::ReputationImpact => write!(f, "REPUTATION_IMPACT"),
             ReputationEntityFilterKey::Status => write!(f, "SENDING_STATUS"),

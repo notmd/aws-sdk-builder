@@ -14,7 +14,10 @@ pub fn ser_domain_deliverability_tracking_option(
     if let Some(var_3) = &input.inbox_placement_tracking_option {
         #[allow(unused_mut)]
         let mut object_4 = object.key("InboxPlacementTrackingOption").start_object();
-        crate::protocol_serde::shape_inbox_placement_tracking_option::ser_inbox_placement_tracking_option(&mut object_4, var_3)?;
+        crate::protocol_serde::shape_inbox_placement_tracking_option::ser_inbox_placement_tracking_option(
+            &mut object_4,
+            var_3,
+        )?;
         object_4.finish();
     }
     Ok(())
@@ -37,18 +40,15 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder =
-                crate::types::builders::DomainDeliverabilityTrackingOptionBuilder::default();
+            let mut builder = crate::types::builders::DomainDeliverabilityTrackingOptionBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -56,18 +56,18 @@ where
                         match key.to_unescaped()?.as_ref() {
                             "Domain" => {
                                 builder = builder.set_domain(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "SubscriptionStartDate" => {
-                                builder = builder.set_subscription_start_date(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-                                tokens.next(),
-                                ::aws_smithy_types::date_time::Format::EpochSeconds,
-                            )?);
+                                builder = builder.set_subscription_start_date(
+                                    ::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                                        tokens.next(),
+                                        ::aws_smithy_types::date_time::Format::EpochSeconds,
+                                    )?,
+                                );
                             }
                             "InboxPlacementTrackingOption" => {
                                 builder = builder.set_inbox_placement_tracking_option(
@@ -82,20 +82,16 @@ where
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
             Ok(Some(builder.build()))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

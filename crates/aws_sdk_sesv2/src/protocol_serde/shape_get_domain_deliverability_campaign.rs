@@ -9,14 +9,21 @@ pub fn de_get_domain_deliverability_campaign_http_error(
     crate::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body).map_err(
+            crate::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled,
+        )?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    let error_code = match generic.code() {
-        Some(code) => code,
-        None => return Err(crate::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled(generic)),
-    };
+    let error_code =
+        match generic.code() {
+            Some(code) => code,
+            None => return Err(
+                crate::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled(
+                    generic,
+                ),
+            ),
+        };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
@@ -84,13 +91,16 @@ pub fn de_get_domain_deliverability_campaign_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignOutputBuilder::default();
-        output = crate::protocol_serde::shape_get_domain_deliverability_campaign::de_get_domain_deliverability_campaign(_response_body, output)
-            .map_err(crate::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
-        crate::serde_util::get_domain_deliverability_campaign_output_output_correct_errors(output)
-            .build()
+        output =
+            crate::protocol_serde::shape_get_domain_deliverability_campaign::de_get_domain_deliverability_campaign(
+                _response_body,
+                output,
+            )
+            .map_err(
+                crate::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled,
+            )?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+        crate::serde_util::get_domain_deliverability_campaign_output_output_correct_errors(output).build()
     })
 }
 
@@ -100,11 +110,9 @@ pub(crate) fn de_get_domain_deliverability_campaign(
 ) -> ::std::result::Result<
     crate::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
->{
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+> {
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -123,20 +131,16 @@ pub(crate) fn de_get_domain_deliverability_campaign(
                 }
             }
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

@@ -38,17 +38,13 @@ impl DescribeImportTasksInput {
 }
 impl DescribeImportTasksInput {
     /// Creates a new builder-style object to manufacture [`DescribeImportTasksInput`](crate::operation::describe_import_tasks::DescribeImportTasksInput).
-    pub fn builder(
-    ) -> crate::operation::describe_import_tasks::builders::DescribeImportTasksInputBuilder {
-        crate::operation::describe_import_tasks::builders::DescribeImportTasksInputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::describe_import_tasks::builders::DescribeImportTasksInputBuilder {
+        crate::operation::describe_import_tasks::builders::DescribeImportTasksInputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeImportTasksInput`](crate::operation::describe_import_tasks::DescribeImportTasksInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeImportTasksInputBuilder {
     pub(crate) import_id: ::std::option::Option<::std::string::String>,
@@ -78,10 +74,7 @@ impl DescribeImportTasksInputBuilder {
         self
     }
     /// <p>Optional filter to list imports by their status. Valid values are IN_PROGRESS, CANCELLED, COMPLETED and FAILED.</p>
-    pub fn set_import_status(
-        mut self,
-        input: ::std::option::Option<crate::types::ImportStatus>,
-    ) -> Self {
+    pub fn set_import_status(mut self, input: ::std::option::Option<crate::types::ImportStatus>) -> Self {
         self.import_status = input;
         self
     }
@@ -90,18 +83,12 @@ impl DescribeImportTasksInputBuilder {
         &self.import_status
     }
     /// <p>Optional filter to list imports from a specific source</p>
-    pub fn import_source_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn import_source_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.import_source_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Optional filter to list imports from a specific source</p>
-    pub fn set_import_source_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_import_source_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.import_source_arn = input;
         self
     }
@@ -144,14 +131,12 @@ impl DescribeImportTasksInputBuilder {
         crate::operation::describe_import_tasks::DescribeImportTasksInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::describe_import_tasks::DescribeImportTasksInput {
-                import_id: self.import_id,
-                import_status: self.import_status,
-                import_source_arn: self.import_source_arn,
-                limit: self.limit,
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::describe_import_tasks::DescribeImportTasksInput {
+            import_id: self.import_id,
+            import_status: self.import_status,
+            import_source_arn: self.import_source_arn,
+            limit: self.limit,
+            next_token: self.next_token,
+        })
     }
 }

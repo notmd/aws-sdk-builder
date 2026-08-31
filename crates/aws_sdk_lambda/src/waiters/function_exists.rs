@@ -36,24 +36,20 @@ impl FunctionExistsFluentBuilder {
         crate::waiters::function_exists::FunctionExistsFinalPoll,
         crate::waiters::function_exists::WaitUntilFunctionExistsError,
     > {
-        let input = self.inner.build().map_err(
-            ::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure,
-        )?;
-        let runtime_plugins =
-            crate::operation::get_function::GetFunction::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                ::std::option::Option::None,
-            )
-            .with_operation_plugin(
-                crate::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new(),
-            );
+        let input = self
+            .inner
+            .build()
+            .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
+        let runtime_plugins = crate::operation::get_function::GetFunction::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            ::std::option::Option::None,
+        )
+        .with_operation_plugin(crate::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new());
         let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();
         let runtime_components_builder = runtime_plugins
             .apply_client_configuration(&mut cfg)
-            .map_err(
-                ::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure,
-            )?;
+            .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
         let time_components = runtime_components_builder.into_time_components();
         let sleep_impl = time_components
             .sleep_impl()
@@ -79,10 +75,7 @@ impl FunctionExistsFluentBuilder {
         let operation = move || {
             let input = input.clone();
             let runtime_plugins = runtime_plugins.clone();
-            async move {
-                crate::operation::get_function::GetFunction::orchestrate(&runtime_plugins, input)
-                    .await
-            }
+            async move { crate::operation::get_function::GetFunction::orchestrate(&runtime_plugins, input).await }
         };
         let orchestrator = ::aws_smithy_runtime::client::waiters::WaiterOrchestrator::builder()
             .min_delay(::std::time::Duration::from_secs(1))
@@ -93,10 +86,7 @@ impl FunctionExistsFluentBuilder {
             .acceptor(acceptor)
             .operation(operation)
             .build();
-        ::aws_smithy_runtime::client::waiters::attach_waiter_tracing_span(
-            orchestrator.orchestrate(),
-        )
-        .await
+        ::aws_smithy_runtime::client::waiters::attach_waiter_tracing_span(orchestrator.orchestrate()).await
     }
     /// <p>The name or ARN of the Lambda function, version, or alias.</p>
     /// <p class="title"><b>Name formats</b></p>
@@ -109,10 +99,7 @@ impl FunctionExistsFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -127,10 +114,7 @@ impl FunctionExistsFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }
@@ -174,8 +158,7 @@ pub type FunctionExistsFinalPoll = ::aws_smithy_runtime_api::client::waiters::Fi
 >;
 
 /// Error type for the `function_exists` waiter.
-pub type WaitUntilFunctionExistsError =
-    ::aws_smithy_runtime_api::client::waiters::error::WaiterError<
-        crate::operation::get_function::GetFunctionOutput,
-        crate::operation::get_function::GetFunctionError,
-    >;
+pub type WaitUntilFunctionExistsError = ::aws_smithy_runtime_api::client::waiters::error::WaiterError<
+    crate::operation::get_function::GetFunctionOutput,
+    crate::operation::get_function::GetFunctionError,
+>;

@@ -36,23 +36,19 @@ impl CreateResourceServerInput {
 }
 impl CreateResourceServerInput {
     /// Creates a new builder-style object to manufacture [`CreateResourceServerInput`](crate::operation::create_resource_server::CreateResourceServerInput).
-    pub fn builder(
-    ) -> crate::operation::create_resource_server::builders::CreateResourceServerInputBuilder {
+    pub fn builder() -> crate::operation::create_resource_server::builders::CreateResourceServerInputBuilder {
         crate::operation::create_resource_server::builders::CreateResourceServerInputBuilder::default()
     }
 }
 
 /// A builder for [`CreateResourceServerInput`](crate::operation::create_resource_server::CreateResourceServerInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateResourceServerInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
     pub(crate) identifier: ::std::option::Option<::std::string::String>,
     pub(crate) name: ::std::option::Option<::std::string::String>,
-    pub(crate) scopes:
-        ::std::option::Option<::std::vec::Vec<crate::types::ResourceServerScopeType>>,
+    pub(crate) scopes: ::std::option::Option<::std::vec::Vec<crate::types::ResourceServerScopeType>>,
 }
 impl CreateResourceServerInputBuilder {
     /// <p>The ID of the user pool where you want to create a resource server.</p>
@@ -123,9 +119,7 @@ impl CreateResourceServerInputBuilder {
         self
     }
     /// <p>A list of custom scopes. Each scope is a key-value map with the keys <code>ScopeName</code> and <code>ScopeDescription</code>. The name of a custom scope is a combination of <code>ScopeName</code> and the resource server <code>Name</code> in this request, for example <code>MyResourceServerName/MyScopeName</code>.</p>
-    pub fn get_scopes(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceServerScopeType>> {
+    pub fn get_scopes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceServerScopeType>> {
         &self.scopes
     }
     /// Consumes the builder and constructs a [`CreateResourceServerInput`](crate::operation::create_resource_server::CreateResourceServerInput).
@@ -135,13 +129,11 @@ impl CreateResourceServerInputBuilder {
         crate::operation::create_resource_server::CreateResourceServerInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::create_resource_server::CreateResourceServerInput {
-                user_pool_id: self.user_pool_id,
-                identifier: self.identifier,
-                name: self.name,
-                scopes: self.scopes,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::create_resource_server::CreateResourceServerInput {
+            user_pool_id: self.user_pool_id,
+            identifier: self.identifier,
+            name: self.name,
+            scopes: self.scopes,
+        })
     }
 }

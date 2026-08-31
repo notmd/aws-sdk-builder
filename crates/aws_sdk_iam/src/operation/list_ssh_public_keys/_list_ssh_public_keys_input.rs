@@ -30,16 +30,13 @@ impl ListSshPublicKeysInput {
 }
 impl ListSshPublicKeysInput {
     /// Creates a new builder-style object to manufacture [`ListSshPublicKeysInput`](crate::operation::list_ssh_public_keys::ListSshPublicKeysInput).
-    pub fn builder(
-    ) -> crate::operation::list_ssh_public_keys::builders::ListSshPublicKeysInputBuilder {
+    pub fn builder() -> crate::operation::list_ssh_public_keys::builders::ListSshPublicKeysInputBuilder {
         crate::operation::list_ssh_public_keys::builders::ListSshPublicKeysInputBuilder::default()
     }
 }
 
 /// A builder for [`ListSshPublicKeysInput`](crate::operation::list_ssh_public_keys::ListSshPublicKeysInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListSshPublicKeysInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -102,12 +99,10 @@ impl ListSshPublicKeysInputBuilder {
         crate::operation::list_ssh_public_keys::ListSshPublicKeysInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::list_ssh_public_keys::ListSshPublicKeysInput {
-                user_name: self.user_name,
-                marker: self.marker,
-                max_items: self.max_items,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::list_ssh_public_keys::ListSshPublicKeysInput {
+            user_name: self.user_name,
+            marker: self.marker,
+            max_items: self.max_items,
+        })
     }
 }

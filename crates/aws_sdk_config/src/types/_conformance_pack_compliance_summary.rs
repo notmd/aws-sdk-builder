@@ -16,9 +16,7 @@ impl ConformancePackComplianceSummary {
         self.conformance_pack_name.deref()
     }
     /// <p>The status of the conformance pack.</p>
-    pub fn conformance_pack_compliance_status(
-        &self,
-    ) -> &crate::types::ConformancePackComplianceType {
+    pub fn conformance_pack_compliance_status(&self) -> &crate::types::ConformancePackComplianceType {
         &self.conformance_pack_compliance_status
     }
 }
@@ -30,30 +28,21 @@ impl ConformancePackComplianceSummary {
 }
 
 /// A builder for [`ConformancePackComplianceSummary`](crate::types::ConformancePackComplianceSummary).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ConformancePackComplianceSummaryBuilder {
     pub(crate) conformance_pack_name: ::std::option::Option<::std::string::String>,
-    pub(crate) conformance_pack_compliance_status:
-        ::std::option::Option<crate::types::ConformancePackComplianceType>,
+    pub(crate) conformance_pack_compliance_status: ::std::option::Option<crate::types::ConformancePackComplianceType>,
 }
 impl ConformancePackComplianceSummaryBuilder {
     /// <p>The name of the conformance pack name.</p>
     /// This field is required.
-    pub fn conformance_pack_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn conformance_pack_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.conformance_pack_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the conformance pack name.</p>
-    pub fn set_conformance_pack_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_conformance_pack_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.conformance_pack_name = input;
         self
     }
@@ -63,10 +52,7 @@ impl ConformancePackComplianceSummaryBuilder {
     }
     /// <p>The status of the conformance pack.</p>
     /// This field is required.
-    pub fn conformance_pack_compliance_status(
-        mut self,
-        input: crate::types::ConformancePackComplianceType,
-    ) -> Self {
+    pub fn conformance_pack_compliance_status(mut self, input: crate::types::ConformancePackComplianceType) -> Self {
         self.conformance_pack_compliance_status = ::std::option::Option::Some(input);
         self
     }

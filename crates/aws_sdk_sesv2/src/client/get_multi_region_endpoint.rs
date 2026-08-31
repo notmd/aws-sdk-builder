@@ -14,8 +14,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetMultiRegionEndpointError>`](crate::operation::get_multi_region_endpoint::GetMultiRegionEndpointError)
     pub fn get_multi_region_endpoint(
         &self,
-    ) -> crate::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointFluentBuilder
-    {
-        crate::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointFluentBuilder {
+        crate::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

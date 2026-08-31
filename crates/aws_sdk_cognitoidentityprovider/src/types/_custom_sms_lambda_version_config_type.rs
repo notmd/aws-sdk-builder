@@ -30,13 +30,10 @@ impl CustomSmsLambdaVersionConfigType {
 }
 
 /// A builder for [`CustomSmsLambdaVersionConfigType`](crate::types::CustomSmsLambdaVersionConfigType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CustomSmsLambdaVersionConfigTypeBuilder {
-    pub(crate) lambda_version:
-        ::std::option::Option<crate::types::CustomSmsSenderLambdaVersionType>,
+    pub(crate) lambda_version: ::std::option::Option<crate::types::CustomSmsSenderLambdaVersionType>,
     pub(crate) lambda_arn: ::std::option::Option<::std::string::String>,
 }
 impl CustomSmsLambdaVersionConfigTypeBuilder {
@@ -58,9 +55,7 @@ impl CustomSmsLambdaVersionConfigTypeBuilder {
     }
     /// <p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p>
     /// <p>You must use a <code>LambdaVersion</code> of <code>V1_0</code> with a custom sender function.</p>
-    pub fn get_lambda_version(
-        &self,
-    ) -> &::std::option::Option<crate::types::CustomSmsSenderLambdaVersionType> {
+    pub fn get_lambda_version(&self) -> &::std::option::Option<crate::types::CustomSmsSenderLambdaVersionType> {
         &self.lambda_version
     }
     /// <p>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.</p>

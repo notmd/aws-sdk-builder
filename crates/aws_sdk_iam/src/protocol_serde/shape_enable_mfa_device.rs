@@ -9,103 +9,113 @@ pub fn de_enable_mfa_device_http_error(
     crate::operation::enable_mfa_device::EnableMFADeviceError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(
-                crate::operation::enable_mfa_device::EnableMFADeviceError::unhandled(generic),
-            )
+            return Err(crate::operation::enable_mfa_device::EnableMFADeviceError::unhandled(
+                generic,
+            ))
         }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "ConcurrentModification" => crate::operation::enable_mfa_device::EnableMFADeviceError::ConcurrentModificationException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "ConcurrentModification" => {
+            crate::operation::enable_mfa_device::EnableMFADeviceError::ConcurrentModificationException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
-                output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_xml_err(
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::ConcurrentModificationExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_xml_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "EntityAlreadyExists" => crate::operation::enable_mfa_device::EnableMFADeviceError::EntityAlreadyExistsException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "EntityAlreadyExists" => {
+            crate::operation::enable_mfa_device::EnableMFADeviceError::EntityAlreadyExistsException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::EntityAlreadyExistsExceptionBuilder::default();
-                output =
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::EntityAlreadyExistsExceptionBuilder::default();
+                    output =
                     crate::protocol_serde::shape_entity_already_exists_exception::de_entity_already_exists_exception_xml_err(_response_body, output)
                         .map_err(crate::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "EntityTemporarilyUnmodifiable" => crate::operation::enable_mfa_device::EnableMFADeviceError::EntityTemporarilyUnmodifiableException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "EntityTemporarilyUnmodifiable" => {
+            crate::operation::enable_mfa_device::EnableMFADeviceError::EntityTemporarilyUnmodifiableException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::EntityTemporarilyUnmodifiableExceptionBuilder::default();
-                output =
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output =
+                        crate::types::error::builders::EntityTemporarilyUnmodifiableExceptionBuilder::default();
+                    output =
                     crate::protocol_serde::shape_entity_temporarily_unmodifiable_exception::de_entity_temporarily_unmodifiable_exception_xml_err(
                         _response_body,
                         output,
                     )
                     .map_err(crate::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidAuthenticationCode" => crate::operation::enable_mfa_device::EnableMFADeviceError::InvalidAuthenticationCodeException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidAuthenticationCode" => {
+            crate::operation::enable_mfa_device::EnableMFADeviceError::InvalidAuthenticationCodeException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidAuthenticationCodeExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_authentication_code_exception::de_invalid_authentication_code_exception_xml_err(
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output =
+                        crate::types::error::builders::InvalidAuthenticationCodeExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_invalid_authentication_code_exception::de_invalid_authentication_code_exception_xml_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "LimitExceeded" => crate::operation::enable_mfa_device::EnableMFADeviceError::LimitExceededException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
-                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
+                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -119,8 +129,11 @@ pub fn de_enable_mfa_device_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::NoSuchEntityExceptionBuilder::default();
-                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
+                output = crate::protocol_serde::shape_no_such_entity_exception::de_no_such_entity_exception_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -134,8 +147,11 @@ pub fn de_enable_mfa_device_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::ServiceFailureExceptionBuilder::default();
-                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
+                output = crate::protocol_serde::shape_service_failure_exception::de_service_failure_exception_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::enable_mfa_device::EnableMFADeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -159,11 +175,8 @@ pub fn de_enable_mfa_device_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::enable_mfa_device::builders::EnableMfaDeviceOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::enable_mfa_device::builders::EnableMfaDeviceOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }

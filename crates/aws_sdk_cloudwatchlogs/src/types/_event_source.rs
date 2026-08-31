@@ -75,9 +75,9 @@ impl ::std::convert::From<&str> for EventSource {
             "EKSAudit" => EventSource::EksAudit,
             "Route53Resolver" => EventSource::Route53Resolver,
             "VPCFlow" => EventSource::VpcFlow,
-            other => EventSource::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => EventSource::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -102,13 +102,7 @@ impl EventSource {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &[
-            "AWSWAF",
-            "CloudTrail",
-            "EKSAudit",
-            "Route53Resolver",
-            "VPCFlow",
-        ]
+        &["AWSWAF", "CloudTrail", "EKSAudit", "Route53Resolver", "VPCFlow"]
     }
 }
 impl ::std::convert::AsRef<str> for EventSource {
@@ -120,14 +114,10 @@ impl EventSource {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }

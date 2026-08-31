@@ -57,9 +57,7 @@ impl DeleteScheduledQueryFluentBuilder {
         }
     }
     /// Access the DeleteScheduledQuery as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::delete_scheduled_query::builders::DeleteScheduledQueryInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::delete_scheduled_query::builders::DeleteScheduledQueryInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,11 +86,7 @@ impl DeleteScheduledQueryFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_scheduled_query::DeleteScheduledQuery::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::delete_scheduled_query::DeleteScheduledQuery::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

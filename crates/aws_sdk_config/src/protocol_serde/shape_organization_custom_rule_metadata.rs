@@ -12,9 +12,7 @@ pub fn ser_organization_custom_rule_metadata(
             .string(input.lambda_function_arn.as_str());
     }
     {
-        let mut array_2 = object
-            .key("OrganizationConfigRuleTriggerTypes")
-            .start_array();
+        let mut array_2 = object.key("OrganizationConfigRuleTriggerTypes").start_array();
         for item_3 in &input.organization_config_rule_trigger_types {
             {
                 array_2.value().string(item_3.as_str());
@@ -26,9 +24,7 @@ pub fn ser_organization_custom_rule_metadata(
         object.key("InputParameters").string(var_4.as_str());
     }
     if let Some(var_5) = &input.maximum_execution_frequency {
-        object
-            .key("MaximumExecutionFrequency")
-            .string(var_5.as_str());
+        object.key("MaximumExecutionFrequency").string(var_5.as_str());
     }
     if let Some(var_6) = &input.resource_types_scope {
         let mut array_7 = object.key("ResourceTypesScope").start_array();
@@ -68,114 +64,97 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder =
-                crate::types::builders::OrganizationCustomRuleMetadataBuilder::default();
+            let mut builder = crate::types::builders::OrganizationCustomRuleMetadataBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key
-                        .to_unescaped()?
-                        .as_ref()
-                    {
-                        "Description" => {
-                            builder = builder.set_description(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                    tokens.next(),
-                                )?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                            );
-                        }
-                        "LambdaFunctionArn" => {
-                            builder = builder.set_lambda_function_arn(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                    tokens.next(),
-                                )?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                            );
-                        }
-                        "OrganizationConfigRuleTriggerTypes" => {
-                            builder = builder.set_organization_config_rule_trigger_types(
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "Description" => {
+                                builder = builder.set_description(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
+                                );
+                            }
+                            "LambdaFunctionArn" => {
+                                builder = builder.set_lambda_function_arn(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
+                                );
+                            }
+                            "OrganizationConfigRuleTriggerTypes" => {
+                                builder = builder.set_organization_config_rule_trigger_types(
                                     crate::protocol_serde::shape_organization_config_rule_trigger_types::de_organization_config_rule_trigger_types(
                                         tokens,
                                         _value,
                                         depth + 1,
                                     )?,
                                 );
-                        }
-                        "InputParameters" => {
-                            builder = builder.set_input_parameters(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                    tokens.next(),
-                                )?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                            );
-                        }
-                        "MaximumExecutionFrequency" => {
-                            builder = builder.set_maximum_execution_frequency(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                    tokens.next(),
-                                )?
-                                .map(|s| {
-                                    s.to_unescaped().map(|u| {
-                                        crate::types::MaximumExecutionFrequency::from(u.as_ref())
-                                    })
-                                })
-                                .transpose()?,
-                            );
-                        }
-                        "ResourceTypesScope" => {
-                            builder = builder.set_resource_types_scope(
-                                    crate::protocol_serde::shape_resource_types_scope::de_resource_types_scope(tokens, _value, depth + 1)?,
+                            }
+                            "InputParameters" => {
+                                builder = builder.set_input_parameters(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
+                            }
+                            "MaximumExecutionFrequency" => {
+                                builder = builder.set_maximum_execution_frequency(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| {
+                                            s.to_unescaped()
+                                                .map(|u| crate::types::MaximumExecutionFrequency::from(u.as_ref()))
+                                        })
+                                        .transpose()?,
+                                );
+                            }
+                            "ResourceTypesScope" => {
+                                builder = builder.set_resource_types_scope(
+                                    crate::protocol_serde::shape_resource_types_scope::de_resource_types_scope(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
+                            }
+                            "ResourceIdScope" => {
+                                builder = builder.set_resource_id_scope(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
+                                );
+                            }
+                            "TagKeyScope" => {
+                                builder = builder.set_tag_key_scope(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
+                                );
+                            }
+                            "TagValueScope" => {
+                                builder = builder.set_tag_value_scope(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
+                                );
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        "ResourceIdScope" => {
-                            builder = builder.set_resource_id_scope(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                    tokens.next(),
-                                )?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                            );
-                        }
-                        "TagKeyScope" => {
-                            builder = builder.set_tag_key_scope(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                    tokens.next(),
-                                )?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                            );
-                        }
-                        "TagValueScope" => {
-                            builder = builder.set_tag_value_scope(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                    tokens.next(),
-                                )?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                            );
-                        }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
@@ -190,10 +169,8 @@ where
                     })?,
             ))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

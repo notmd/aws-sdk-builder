@@ -5,15 +5,15 @@
 pub struct DisableOrganizationsRootSessionsInput {}
 impl DisableOrganizationsRootSessionsInput {
     /// Creates a new builder-style object to manufacture [`DisableOrganizationsRootSessionsInput`](crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsInput).
-    pub fn builder() -> crate::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsInputBuilder
+    {
         crate::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsInputBuilder::default()
     }
 }
 
 /// A builder for [`DisableOrganizationsRootSessionsInput`](crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DisableOrganizationsRootSessionsInputBuilder {}
 impl DisableOrganizationsRootSessionsInputBuilder {
@@ -23,7 +23,9 @@ impl DisableOrganizationsRootSessionsInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
-        ::std::result::Result::Ok(crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsInput {})
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsInput {},
+        )
     }
 }

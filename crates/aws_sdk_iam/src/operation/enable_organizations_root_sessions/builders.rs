@@ -50,7 +50,7 @@ impl
             crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsOutput,
             crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -64,7 +64,10 @@ impl EnableOrganizationsRootSessionsFluentBuilder {
         }
     }
     /// Access the EnableOrganizationsRootSessions as a reference.
-    pub fn as_input(&self) -> &crate::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,7 +86,7 @@ impl EnableOrganizationsRootSessionsFluentBuilder {
             crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -93,7 +96,11 @@ impl EnableOrganizationsRootSessionsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessions::orchestrate(&runtime_plugins, input).await
+        crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessions::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

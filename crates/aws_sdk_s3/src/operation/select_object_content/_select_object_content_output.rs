@@ -34,10 +34,8 @@ impl ::aws_types::request_id::RequestId for SelectObjectContentOutput {
 }
 impl SelectObjectContentOutput {
     /// Creates a new builder-style object to manufacture [`SelectObjectContentOutput`](crate::operation::select_object_content::SelectObjectContentOutput).
-    pub fn builder(
-    ) -> crate::operation::select_object_content::builders::SelectObjectContentOutputBuilder {
-        crate::operation::select_object_content::builders::SelectObjectContentOutputBuilder::default(
-        )
+    pub fn builder() -> crate::operation::select_object_content::builders::SelectObjectContentOutputBuilder {
+        crate::operation::select_object_content::builders::SelectObjectContentOutputBuilder::default()
     }
 }
 
@@ -95,10 +93,7 @@ impl SelectObjectContentOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

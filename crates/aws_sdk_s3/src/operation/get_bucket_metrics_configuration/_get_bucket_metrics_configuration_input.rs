@@ -32,15 +32,15 @@ impl GetBucketMetricsConfigurationInput {
 }
 impl GetBucketMetricsConfigurationInput {
     /// Creates a new builder-style object to manufacture [`GetBucketMetricsConfigurationInput`](crate::operation::get_bucket_metrics_configuration::GetBucketMetricsConfigurationInput).
-    pub fn builder() -> crate::operation::get_bucket_metrics_configuration::builders::GetBucketMetricsConfigurationInputBuilder{
-        crate::operation::get_bucket_metrics_configuration::builders::GetBucketMetricsConfigurationInputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::get_bucket_metrics_configuration::builders::GetBucketMetricsConfigurationInputBuilder {
+        crate::operation::get_bucket_metrics_configuration::builders::GetBucketMetricsConfigurationInputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`GetBucketMetricsConfigurationInput`](crate::operation::get_bucket_metrics_configuration::GetBucketMetricsConfigurationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketMetricsConfigurationInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -84,20 +84,14 @@ impl GetBucketMetricsConfigurationInputBuilder {
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
     /// </note>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
     /// </note>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -114,10 +108,12 @@ impl GetBucketMetricsConfigurationInputBuilder {
         crate::operation::get_bucket_metrics_configuration::GetBucketMetricsConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_bucket_metrics_configuration::GetBucketMetricsConfigurationInput {
-            bucket: self.bucket,
-            id: self.id,
-            expected_bucket_owner: self.expected_bucket_owner,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::get_bucket_metrics_configuration::GetBucketMetricsConfigurationInput {
+                bucket: self.bucket,
+                id: self.id,
+                expected_bucket_owner: self.expected_bucket_owner,
+            },
+        )
     }
 }

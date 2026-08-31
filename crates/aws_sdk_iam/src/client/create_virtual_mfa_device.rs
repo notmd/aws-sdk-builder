@@ -11,8 +11,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<CreateVirtualMFADeviceError>`](crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError)
     pub fn create_virtual_mfa_device(
         &self,
-    ) -> crate::operation::create_virtual_mfa_device::builders::CreateVirtualMFADeviceFluentBuilder
-    {
-        crate::operation::create_virtual_mfa_device::builders::CreateVirtualMFADeviceFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::create_virtual_mfa_device::builders::CreateVirtualMFADeviceFluentBuilder {
+        crate::operation::create_virtual_mfa_device::builders::CreateVirtualMFADeviceFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

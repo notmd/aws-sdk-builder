@@ -5,9 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CancellationReason {
     /// <p>Item in the request which caused the transaction to get cancelled.</p>
-    pub item: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    >,
+    pub item: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     /// <p>Status code for the result of the cancelled transaction.</p>
     pub code: ::std::option::Option<::std::string::String>,
     /// <p>Cancellation reason message description.</p>
@@ -17,9 +15,7 @@ impl CancellationReason {
     /// <p>Item in the request which caused the transaction to get cancelled.</p>
     pub fn item(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
         self.item.as_ref()
     }
     /// <p>Status code for the result of the cancelled transaction.</p>
@@ -39,14 +35,11 @@ impl CancellationReason {
 }
 
 /// A builder for [`CancellationReason`](crate::types::CancellationReason).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CancellationReasonBuilder {
-    pub(crate) item: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    >,
+    pub(crate) item:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     pub(crate) code: ::std::option::Option<::std::string::String>,
     pub(crate) message: ::std::option::Option<::std::string::String>,
 }
@@ -69,9 +62,7 @@ impl CancellationReasonBuilder {
     /// <p>Item in the request which caused the transaction to get cancelled.</p>
     pub fn set_item(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     ) -> Self {
         self.item = input;
         self
@@ -79,9 +70,7 @@ impl CancellationReasonBuilder {
     /// <p>Item in the request which caused the transaction to get cancelled.</p>
     pub fn get_item(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
         &self.item
     }
     /// <p>Status code for the result of the cancelled transaction.</p>

@@ -51,9 +51,7 @@ impl VectorIndexDescription {
         self.projection.as_ref()
     }
     /// <p>The vector attribute configuration for the index.</p>
-    pub fn vector_attribute(
-        &self,
-    ) -> ::std::option::Option<&crate::types::VectorAttributeDefinition> {
+    pub fn vector_attribute(&self) -> ::std::option::Option<&crate::types::VectorAttributeDefinition> {
         self.vector_attribute.as_ref()
     }
     /// <p>The number of dimensions in each vector.</p>
@@ -61,9 +59,7 @@ impl VectorIndexDescription {
         self.dimensions
     }
     /// <p>The distance function used to calculate similarity between vectors.</p>
-    pub fn distance_function(
-        &self,
-    ) -> ::std::option::Option<&crate::types::VectorDistanceFunction> {
+    pub fn distance_function(&self) -> ::std::option::Option<&crate::types::VectorDistanceFunction> {
         self.distance_function.as_ref()
     }
     /// <p>The current state of the vector index:</p>
@@ -103,14 +99,11 @@ impl VectorIndexDescription {
 }
 
 /// A builder for [`VectorIndexDescription`](crate::types::VectorIndexDescription).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct VectorIndexDescriptionBuilder {
     pub(crate) index_name: ::std::option::Option<::std::string::String>,
-    pub(crate) search_schema:
-        ::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>>,
+    pub(crate) search_schema: ::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>>,
     pub(crate) projection: ::std::option::Option<crate::types::Projection>,
     pub(crate) vector_attribute: ::std::option::Option<crate::types::VectorAttributeDefinition>,
     pub(crate) dimensions: ::std::option::Option<i64>,
@@ -156,9 +149,7 @@ impl VectorIndexDescriptionBuilder {
         self
     }
     /// <p>The search schema that defines partition key and inline filter attributes for the vector index.</p>
-    pub fn get_search_schema(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>> {
+    pub fn get_search_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>> {
         &self.search_schema
     }
     /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
@@ -167,10 +158,7 @@ impl VectorIndexDescriptionBuilder {
         self
     }
     /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
-    pub fn set_projection(
-        mut self,
-        input: ::std::option::Option<crate::types::Projection>,
-    ) -> Self {
+    pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
         self.projection = input;
         self
     }
@@ -192,9 +180,7 @@ impl VectorIndexDescriptionBuilder {
         self
     }
     /// <p>The vector attribute configuration for the index.</p>
-    pub fn get_vector_attribute(
-        &self,
-    ) -> &::std::option::Option<crate::types::VectorAttributeDefinition> {
+    pub fn get_vector_attribute(&self) -> &::std::option::Option<crate::types::VectorAttributeDefinition> {
         &self.vector_attribute
     }
     /// <p>The number of dimensions in each vector.</p>
@@ -217,17 +203,12 @@ impl VectorIndexDescriptionBuilder {
         self
     }
     /// <p>The distance function used to calculate similarity between vectors.</p>
-    pub fn set_distance_function(
-        mut self,
-        input: ::std::option::Option<crate::types::VectorDistanceFunction>,
-    ) -> Self {
+    pub fn set_distance_function(mut self, input: ::std::option::Option<crate::types::VectorDistanceFunction>) -> Self {
         self.distance_function = input;
         self
     }
     /// <p>The distance function used to calculate similarity between vectors.</p>
-    pub fn get_distance_function(
-        &self,
-    ) -> &::std::option::Option<crate::types::VectorDistanceFunction> {
+    pub fn get_distance_function(&self) -> &::std::option::Option<crate::types::VectorDistanceFunction> {
         &self.distance_function
     }
     /// <p>The current state of the vector index:</p>
@@ -252,10 +233,7 @@ impl VectorIndexDescriptionBuilder {
     /// <li>
     /// <p><code>DELETING</code> - The index is being deleted.</p></li>
     /// </ul>
-    pub fn set_index_status(
-        mut self,
-        input: ::std::option::Option<crate::types::IndexStatus>,
-    ) -> Self {
+    pub fn set_index_status(mut self, input: ::std::option::Option<crate::types::IndexStatus>) -> Self {
         self.index_status = input;
         self
     }

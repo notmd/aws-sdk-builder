@@ -23,9 +23,7 @@ impl SubstituteString {
 }
 
 /// A builder for [`SubstituteString`](crate::types::SubstituteString).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SubstituteStringBuilder {
     pub(crate) entries: ::std::option::Option<::std::vec::Vec<crate::types::SubstituteStringEntry>>,
@@ -51,9 +49,7 @@ impl SubstituteStringBuilder {
         self
     }
     /// <p>An array of objects, where each object contains the information about one key to match and replace.</p>
-    pub fn get_entries(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::SubstituteStringEntry>> {
+    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SubstituteStringEntry>> {
         &self.entries
     }
     /// Consumes the builder and constructs a [`SubstituteString`](crate::types::SubstituteString).
@@ -61,10 +57,7 @@ impl SubstituteStringBuilder {
     /// - [`entries`](crate::types::builders::SubstituteStringBuilder::entries)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::SubstituteString,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::SubstituteString, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::SubstituteString {
             entries: self.entries.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

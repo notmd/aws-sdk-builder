@@ -24,18 +24,17 @@ pub fn ser_document_source(
                 {
                     #[allow(unused_mut)]
                     let mut object_4 = array_2.value().start_object();
-                    crate::protocol_serde::shape_document_content_block::ser_document_content_block(&mut object_4, item_3)?;
+                    crate::protocol_serde::shape_document_content_block::ser_document_content_block(
+                        &mut object_4,
+                        item_3,
+                    )?;
                     object_4.finish();
                 }
             }
             array_2.finish();
         }
         crate::types::DocumentSource::Unknown => {
-            return Err(
-                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                    "DocumentSource",
-                ),
-            )
+            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("DocumentSource"))
         }
     }
     Ok(())
@@ -45,10 +44,7 @@ pub(crate) fn de_document_source<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<
-    Option<crate::types::DocumentSource>,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
->
+) -> ::std::result::Result<Option<crate::types::DocumentSource>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<
         Item = Result<
@@ -58,11 +54,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     let mut variant = None;
     match tokens.next().transpose()? {
@@ -84,32 +78,49 @@ where
                         continue;
                     }
                     if variant.is_some() {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                "encountered mixed variants in union",
-                            ),
-                        );
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            "encountered mixed variants in union",
+                        ));
                     }
                     variant = match key.as_ref() {
                         "bytes" => Some(crate::types::DocumentSource::Bytes(
-                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?
-                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?,
+                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(
+                                || {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                        "value for 'bytes' cannot be null",
+                                    )
+                                },
+                            )?,
                         )),
                         "s3Location" => Some(crate::types::DocumentSource::S3Location(
-                            crate::protocol_serde::shape_s3_location::de_s3_location(tokens, _value, depth + 1)?.ok_or_else(|| {
-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 's3Location' cannot be null")
-                            })?,
+                            crate::protocol_serde::shape_s3_location::de_s3_location(tokens, _value, depth + 1)?
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                        "value for 's3Location' cannot be null",
+                                    )
+                                })?,
                         )),
                         "text" => Some(crate::types::DocumentSource::Text(
                             ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                 .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                 .transpose()?
-                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                        "value for 'text' cannot be null",
+                                    )
+                                })?,
                         )),
                         "content" => Some(crate::types::DocumentSource::Content(
-                            crate::protocol_serde::shape_document_content_blocks::de_document_content_blocks(tokens, _value, depth + 1)?.ok_or_else(
-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'content' cannot be null"),
-                            )?,
+                            crate::protocol_serde::shape_document_content_blocks::de_document_content_blocks(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                    "value for 'content' cannot be null",
+                                )
+                            })?,
                         )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
@@ -118,28 +129,22 @@ where
                     };
                 }
                 other => {
-                    return Err(
-                        ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )),
-                    )
+                    return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                        format!("expected object key or end object, found: {other:?}"),
+                    ))
                 }
             }
         },
         _ => {
-            return Err(
-                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                    "expected start object or null",
-                ),
-            )
+            return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ))
         }
     }
     if variant.is_none() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "Union did not contain a valid variant.",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "Union did not contain a valid variant.",
+        ));
     }
     Ok(variant)
 }

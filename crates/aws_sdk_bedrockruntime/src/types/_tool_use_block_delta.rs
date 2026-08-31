@@ -22,9 +22,7 @@ impl ToolUseBlockDelta {
 }
 
 /// A builder for [`ToolUseBlockDelta`](crate::types::ToolUseBlockDelta).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ToolUseBlockDeltaBuilder {
     pub(crate) input: ::std::option::Option<::std::string::String>,
@@ -50,10 +48,7 @@ impl ToolUseBlockDeltaBuilder {
     /// - [`input`](crate::types::builders::ToolUseBlockDeltaBuilder::input)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::ToolUseBlockDelta,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::ToolUseBlockDelta, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ToolUseBlockDelta {
             input: self.input.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -6,17 +6,14 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct OrderedOrganizationPolicyType {
     /// <p>A list of SCP documents that apply at this level of the Organizations hierarchy. Each document is specified as a string containing the complete, valid JSON text of an SCP.</p>
-    pub service_control_policy_input_list:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub service_control_policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl OrderedOrganizationPolicyType {
     /// <p>A list of SCP documents that apply at this level of the Organizations hierarchy. Each document is specified as a string containing the complete, valid JSON text of an SCP.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.service_control_policy_input_list.is_none()`.
     pub fn service_control_policy_input_list(&self) -> &[::std::string::String] {
-        self.service_control_policy_input_list
-            .as_deref()
-            .unwrap_or_default()
+        self.service_control_policy_input_list.as_deref().unwrap_or_default()
     }
 }
 impl OrderedOrganizationPolicyType {
@@ -27,13 +24,10 @@ impl OrderedOrganizationPolicyType {
 }
 
 /// A builder for [`OrderedOrganizationPolicyType`](crate::types::OrderedOrganizationPolicyType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct OrderedOrganizationPolicyTypeBuilder {
-    pub(crate) service_control_policy_input_list:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) service_control_policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl OrderedOrganizationPolicyTypeBuilder {
     /// Appends an item to `service_control_policy_input_list`.

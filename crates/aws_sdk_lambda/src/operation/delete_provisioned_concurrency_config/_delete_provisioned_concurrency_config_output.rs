@@ -18,9 +18,7 @@ impl DeleteProvisionedConcurrencyConfigOutput {
 }
 
 /// A builder for [`DeleteProvisionedConcurrencyConfigOutput`](crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteProvisionedConcurrencyConfigOutputBuilder {
     _request_id: Option<String>,
@@ -36,7 +34,9 @@ impl DeleteProvisionedConcurrencyConfigOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteProvisionedConcurrencyConfigOutput`](crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigOutput).
-    pub fn build(self) -> crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigOutput {
         crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigOutput {
             _request_id: self._request_id,
         }

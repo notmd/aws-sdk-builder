@@ -26,9 +26,7 @@ impl UpdateBucketMetadataJournalTableConfigurationOutput {
 }
 
 /// A builder for [`UpdateBucketMetadataJournalTableConfigurationOutput`](crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateBucketMetadataJournalTableConfigurationOutputBuilder {
     _extended_request_id: Option<String>,
@@ -40,10 +38,7 @@ impl UpdateBucketMetadataJournalTableConfigurationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

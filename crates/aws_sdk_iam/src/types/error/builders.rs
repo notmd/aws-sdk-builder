@@ -686,25 +686,16 @@ pub use crate::types::error::_credential_report_not_present_exception::Credentia
 #[cfg(feature = "op_get_credential_report")]
 pub use crate::types::error::_credential_report_not_ready_exception::CredentialReportNotReadyExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_get_ssh_public_key",
-    feature = "op_upload_ssh_public_key"
-))]
+#[cfg(any(feature = "op_get_ssh_public_key", feature = "op_upload_ssh_public_key"))]
 pub use crate::types::error::_unrecognized_public_key_encoding_exception::UnrecognizedPublicKeyEncodingExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub use crate::types::error::_policy_evaluation_exception::PolicyEvaluationExceptionBuilder;
 
 #[cfg(feature = "op_upload_server_certificate")]
 pub use crate::types::error::_key_pair_mismatch_exception::KeyPairMismatchExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_upload_server_certificate",
-    feature = "op_upload_signing_certificate"
-))]
+#[cfg(any(feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
 pub use crate::types::error::_malformed_certificate_exception::MalformedCertificateExceptionBuilder;
 
 #[cfg(feature = "op_upload_signing_certificate")]

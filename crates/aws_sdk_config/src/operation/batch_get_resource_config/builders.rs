@@ -33,8 +33,7 @@ impl crate::operation::batch_get_resource_config::builders::BatchGetResourceConf
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct BatchGetResourceConfigFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::batch_get_resource_config::builders::BatchGetResourceConfigInputBuilder,
+    inner: crate::operation::batch_get_resource_config::builders::BatchGetResourceConfigInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -67,8 +66,7 @@ impl BatchGetResourceConfigFluentBuilder {
     /// Access the BatchGetResourceConfig as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::batch_get_resource_config::builders::BatchGetResourceConfigInputBuilder
-    {
+    ) -> &crate::operation::batch_get_resource_config::builders::BatchGetResourceConfigInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -92,16 +90,13 @@ impl BatchGetResourceConfigFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::batch_get_resource_config::BatchGetResourceConfig::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::batch_get_resource_config::BatchGetResourceConfig::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::batch_get_resource_config::BatchGetResourceConfig::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::batch_get_resource_config::BatchGetResourceConfig::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -148,9 +143,7 @@ impl BatchGetResourceConfigFluentBuilder {
         self
     }
     /// <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.</p>
-    pub fn get_resource_keys(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>> {
+    pub fn get_resource_keys(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ResourceKey>> {
         self.inner.get_resource_keys()
     }
 }

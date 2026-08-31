@@ -4,8 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetBucketIntelligentTieringConfigurationOutput {
     /// <p>Container for S3 Intelligent-Tiering configuration.</p>
-    pub intelligent_tiering_configuration:
-        ::std::option::Option<crate::types::IntelligentTieringConfiguration>,
+    pub intelligent_tiering_configuration: ::std::option::Option<crate::types::IntelligentTieringConfiguration>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -36,22 +35,16 @@ impl GetBucketIntelligentTieringConfigurationOutput {
 }
 
 /// A builder for [`GetBucketIntelligentTieringConfigurationOutput`](crate::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketIntelligentTieringConfigurationOutputBuilder {
-    pub(crate) intelligent_tiering_configuration:
-        ::std::option::Option<crate::types::IntelligentTieringConfiguration>,
+    pub(crate) intelligent_tiering_configuration: ::std::option::Option<crate::types::IntelligentTieringConfiguration>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
 impl GetBucketIntelligentTieringConfigurationOutputBuilder {
     /// <p>Container for S3 Intelligent-Tiering configuration.</p>
-    pub fn intelligent_tiering_configuration(
-        mut self,
-        input: crate::types::IntelligentTieringConfiguration,
-    ) -> Self {
+    pub fn intelligent_tiering_configuration(mut self, input: crate::types::IntelligentTieringConfiguration) -> Self {
         self.intelligent_tiering_configuration = ::std::option::Option::Some(input);
         self
     }
@@ -74,10 +67,7 @@ impl GetBucketIntelligentTieringConfigurationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -91,7 +81,10 @@ impl GetBucketIntelligentTieringConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetBucketIntelligentTieringConfigurationOutput`](crate::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationOutput).
-    pub fn build(self) -> crate::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationOutput
+    {
         crate::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationOutput {
             intelligent_tiering_configuration: self.intelligent_tiering_configuration,
             _extended_request_id: self._extended_request_id,

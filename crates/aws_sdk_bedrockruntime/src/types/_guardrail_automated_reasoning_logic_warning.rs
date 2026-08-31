@@ -7,17 +7,13 @@ pub struct GuardrailAutomatedReasoningLogicWarning {
     /// <p>The category of the detected logical issue, such as statements that are always true or always false.</p>
     pub r#type: ::std::option::Option<crate::types::GuardrailAutomatedReasoningLogicWarningType>,
     /// <p>The logical statements that serve as premises under which the claims are validated.</p>
-    pub premises:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
+    pub premises: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
     /// <p>The logical statements that are validated while assuming the policy and premises.</p>
-    pub claims:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
+    pub claims: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
 }
 impl GuardrailAutomatedReasoningLogicWarning {
     /// <p>The category of the detected logical issue, such as statements that are always true or always false.</p>
-    pub fn r#type(
-        &self,
-    ) -> ::std::option::Option<&crate::types::GuardrailAutomatedReasoningLogicWarningType> {
+    pub fn r#type(&self) -> ::std::option::Option<&crate::types::GuardrailAutomatedReasoningLogicWarningType> {
         self.r#type.as_ref()
     }
     /// <p>The logical statements that serve as premises under which the claims are validated.</p>
@@ -41,24 +37,16 @@ impl GuardrailAutomatedReasoningLogicWarning {
 }
 
 /// A builder for [`GuardrailAutomatedReasoningLogicWarning`](crate::types::GuardrailAutomatedReasoningLogicWarning).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailAutomatedReasoningLogicWarningBuilder {
-    pub(crate) r#type:
-        ::std::option::Option<crate::types::GuardrailAutomatedReasoningLogicWarningType>,
-    pub(crate) premises:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
-    pub(crate) claims:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
+    pub(crate) r#type: ::std::option::Option<crate::types::GuardrailAutomatedReasoningLogicWarningType>,
+    pub(crate) premises: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
+    pub(crate) claims: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
 }
 impl GuardrailAutomatedReasoningLogicWarningBuilder {
     /// <p>The category of the detected logical issue, such as statements that are always true or always false.</p>
-    pub fn r#type(
-        mut self,
-        input: crate::types::GuardrailAutomatedReasoningLogicWarningType,
-    ) -> Self {
+    pub fn r#type(mut self, input: crate::types::GuardrailAutomatedReasoningLogicWarningType) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
@@ -71,9 +59,7 @@ impl GuardrailAutomatedReasoningLogicWarningBuilder {
         self
     }
     /// <p>The category of the detected logical issue, such as statements that are always true or always false.</p>
-    pub fn get_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::GuardrailAutomatedReasoningLogicWarningType> {
+    pub fn get_type(&self) -> &::std::option::Option<crate::types::GuardrailAutomatedReasoningLogicWarningType> {
         &self.r#type
     }
     /// Appends an item to `premises`.
@@ -90,9 +76,7 @@ impl GuardrailAutomatedReasoningLogicWarningBuilder {
     /// <p>The logical statements that serve as premises under which the claims are validated.</p>
     pub fn set_premises(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
     ) -> Self {
         self.premises = input;
         self
@@ -100,8 +84,7 @@ impl GuardrailAutomatedReasoningLogicWarningBuilder {
     /// <p>The logical statements that serve as premises under which the claims are validated.</p>
     pub fn get_premises(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>
-    {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>> {
         &self.premises
     }
     /// Appends an item to `claims`.
@@ -118,9 +101,7 @@ impl GuardrailAutomatedReasoningLogicWarningBuilder {
     /// <p>The logical statements that are validated while assuming the policy and premises.</p>
     pub fn set_claims(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>,
     ) -> Self {
         self.claims = input;
         self
@@ -128,8 +109,7 @@ impl GuardrailAutomatedReasoningLogicWarningBuilder {
     /// <p>The logical statements that are validated while assuming the policy and premises.</p>
     pub fn get_claims(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>>
-    {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningStatement>> {
         &self.claims
     }
     /// Consumes the builder and constructs a [`GuardrailAutomatedReasoningLogicWarning`](crate::types::GuardrailAutomatedReasoningLogicWarning).

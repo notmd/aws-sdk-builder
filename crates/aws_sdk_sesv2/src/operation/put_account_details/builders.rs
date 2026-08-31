@@ -57,9 +57,7 @@ impl PutAccountDetailsFluentBuilder {
         }
     }
     /// Access the PutAccountDetails as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::put_account_details::builders::PutAccountDetailsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_account_details::builders::PutAccountDetailsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,17 +81,12 @@ impl PutAccountDetailsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::put_account_details::PutAccountDetails::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::put_account_details::PutAccountDetails::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::put_account_details::PutAccountDetails::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::put_account_details::PutAccountDetails::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -155,10 +148,7 @@ impl PutAccountDetailsFluentBuilder {
         self
     }
     /// <p>The language you would prefer to be contacted with.</p>
-    pub fn set_contact_language(
-        mut self,
-        input: ::std::option::Option<crate::types::ContactLanguage>,
-    ) -> Self {
+    pub fn set_contact_language(mut self, input: ::std::option::Option<crate::types::ContactLanguage>) -> Self {
         self.inner = self.inner.set_contact_language(input);
         self
     }
@@ -167,18 +157,12 @@ impl PutAccountDetailsFluentBuilder {
         self.inner.get_contact_language()
     }
     /// <p>A description of the types of email that you plan to send.</p>
-    pub fn use_case_description(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn use_case_description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.use_case_description(input.into());
         self
     }
     /// <p>A description of the types of email that you plan to send.</p>
-    pub fn set_use_case_description(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_use_case_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_use_case_description(input);
         self
     }

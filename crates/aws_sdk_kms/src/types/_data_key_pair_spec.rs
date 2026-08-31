@@ -91,9 +91,9 @@ impl ::std::convert::From<&str> for DataKeyPairSpec {
             "RSA_3072" => DataKeyPairSpec::Rsa3072,
             "RSA_4096" => DataKeyPairSpec::Rsa4096,
             "SM2" => DataKeyPairSpec::Sm2,
-            other => DataKeyPairSpec::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => DataKeyPairSpec::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -144,14 +144,10 @@ impl DataKeyPairSpec {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }

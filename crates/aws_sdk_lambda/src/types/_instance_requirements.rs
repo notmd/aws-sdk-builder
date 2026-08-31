@@ -39,16 +39,12 @@ impl InstanceRequirements {
 }
 
 /// A builder for [`InstanceRequirements`](crate::types::InstanceRequirements).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InstanceRequirementsBuilder {
     pub(crate) architectures: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>,
-    pub(crate) allowed_instance_types:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) excluded_instance_types:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) allowed_instance_types: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) excluded_instance_types: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl InstanceRequirementsBuilder {
     /// Appends an item to `architectures`.
@@ -71,9 +67,7 @@ impl InstanceRequirementsBuilder {
         self
     }
     /// <p>A list of supported CPU architectures for compute instances. Valid values include <code>x86_64</code> and <code>arm64</code>.</p>
-    pub fn get_architectures(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Architecture>> {
+    pub fn get_architectures(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Architecture>> {
         &self.architectures
     }
     /// Appends an item to `allowed_instance_types`.
@@ -81,10 +75,7 @@ impl InstanceRequirementsBuilder {
     /// To override the contents of this collection use [`set_allowed_instance_types`](Self::set_allowed_instance_types).
     ///
     /// <p>A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.</p>
-    pub fn allowed_instance_types(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn allowed_instance_types(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.allowed_instance_types.unwrap_or_default();
         v.push(input.into());
         self.allowed_instance_types = ::std::option::Option::Some(v);
@@ -99,9 +90,7 @@ impl InstanceRequirementsBuilder {
         self
     }
     /// <p>A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.</p>
-    pub fn get_allowed_instance_types(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_allowed_instance_types(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.allowed_instance_types
     }
     /// Appends an item to `excluded_instance_types`.
@@ -109,10 +98,7 @@ impl InstanceRequirementsBuilder {
     /// To override the contents of this collection use [`set_excluded_instance_types`](Self::set_excluded_instance_types).
     ///
     /// <p>A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.</p>
-    pub fn excluded_instance_types(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn excluded_instance_types(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.excluded_instance_types.unwrap_or_default();
         v.push(input.into());
         self.excluded_instance_types = ::std::option::Option::Some(v);
@@ -127,9 +113,7 @@ impl InstanceRequirementsBuilder {
         self
     }
     /// <p>A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.</p>
-    pub fn get_excluded_instance_types(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_excluded_instance_types(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.excluded_instance_types
     }
     /// Consumes the builder and constructs a [`InstanceRequirements`](crate::types::InstanceRequirements).

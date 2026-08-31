@@ -43,7 +43,7 @@ impl
             crate::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesOutput,
             crate::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -57,7 +57,10 @@ impl PutAccountSuppressionAttributesFluentBuilder {
         }
     }
     /// Access the PutAccountSuppressionAttributes as a reference.
-    pub fn as_input(&self) -> &crate::operation::put_account_suppression_attributes::builders::PutAccountSuppressionAttributesInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::put_account_suppression_attributes::builders::PutAccountSuppressionAttributesInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +79,7 @@ impl PutAccountSuppressionAttributesFluentBuilder {
             crate::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +89,11 @@ impl PutAccountSuppressionAttributesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_account_suppression_attributes::PutAccountSuppressionAttributes::orchestrate(&runtime_plugins, input).await
+        crate::operation::put_account_suppression_attributes::PutAccountSuppressionAttributes::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -157,10 +164,7 @@ impl PutAccountSuppressionAttributesFluentBuilder {
         self.inner.get_suppressed_reasons()
     }
     /// <p>An object that contains additional suppression attributes for your account.</p>
-    pub fn validation_attributes(
-        mut self,
-        input: crate::types::SuppressionValidationAttributes,
-    ) -> Self {
+    pub fn validation_attributes(mut self, input: crate::types::SuppressionValidationAttributes) -> Self {
         self.inner = self.inner.validation_attributes(input);
         self
     }
@@ -173,9 +177,7 @@ impl PutAccountSuppressionAttributesFluentBuilder {
         self
     }
     /// <p>An object that contains additional suppression attributes for your account.</p>
-    pub fn get_validation_attributes(
-        &self,
-    ) -> &::std::option::Option<crate::types::SuppressionValidationAttributes> {
+    pub fn get_validation_attributes(&self) -> &::std::option::Option<crate::types::SuppressionValidationAttributes> {
         self.inner.get_validation_attributes()
     }
 }

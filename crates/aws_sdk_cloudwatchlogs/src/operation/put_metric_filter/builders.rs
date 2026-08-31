@@ -64,9 +64,7 @@ impl PutMetricFilterFluentBuilder {
         }
     }
     /// Access the PutMetricFilter as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::put_metric_filter::builders::PutMetricFilterInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_metric_filter::builders::PutMetricFilterInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -90,14 +88,12 @@ impl PutMetricFilterFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::put_metric_filter::PutMetricFilter::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::put_metric_filter::PutMetricFilter::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::put_metric_filter::PutMetricFilter::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::put_metric_filter::PutMetricFilter::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -126,18 +122,12 @@ impl PutMetricFilterFluentBuilder {
         self
     }
     /// <p>The name of the log group.</p>
-    pub fn log_group_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_group_name(input.into());
         self
     }
     /// <p>The name of the log group.</p>
-    pub fn set_log_group_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_log_group_name(input);
         self
     }
@@ -160,18 +150,12 @@ impl PutMetricFilterFluentBuilder {
         self.inner.get_filter_name()
     }
     /// <p>A filter pattern for extracting metric data out of ingested log events.</p>
-    pub fn filter_pattern(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn filter_pattern(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.filter_pattern(input.into());
         self
     }
     /// <p>A filter pattern for extracting metric data out of ingested log events.</p>
-    pub fn set_filter_pattern(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_filter_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_filter_pattern(input);
         self
     }
@@ -221,18 +205,12 @@ impl PutMetricFilterFluentBuilder {
         self.inner.get_apply_on_transformed_logs()
     }
     /// <p>A filter expression that specifies which log events should be processed by this metric filter based on system fields such as source account and source region. Uses selection criteria syntax with operators like <code>=</code>, <code>!=</code>, <code>AND</code>, <code>OR</code>, <code>IN</code>, <code>NOT IN</code>. Example: <code>@aws.region = "us-east-1"</code> or <code>@aws.account IN \["123456789012", "987654321098"\]</code>. Maximum length: 2000 characters.</p>
-    pub fn field_selection_criteria(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn field_selection_criteria(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.field_selection_criteria(input.into());
         self
     }
     /// <p>A filter expression that specifies which log events should be processed by this metric filter based on system fields such as source account and source region. Uses selection criteria syntax with operators like <code>=</code>, <code>!=</code>, <code>AND</code>, <code>OR</code>, <code>IN</code>, <code>NOT IN</code>. Example: <code>@aws.region = "us-east-1"</code> or <code>@aws.account IN \["123456789012", "987654321098"\]</code>. Maximum length: 2000 characters.</p>
-    pub fn set_field_selection_criteria(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_field_selection_criteria(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_field_selection_criteria(input);
         self
     }
@@ -246,10 +224,7 @@ impl PutMetricFilterFluentBuilder {
     /// To override the contents of this collection use [`set_emit_system_field_dimensions`](Self::set_emit_system_field_dimensions).
     ///
     /// <p>A list of system fields to emit as additional dimensions in the generated metrics. Valid values are <code>@aws.account</code> and <code>@aws.region</code>. These dimensions help identify the source of centralized log data and count toward the total dimension limit for metric filters.</p>
-    pub fn emit_system_field_dimensions(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn emit_system_field_dimensions(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.emit_system_field_dimensions(input.into());
         self
     }
@@ -262,9 +237,7 @@ impl PutMetricFilterFluentBuilder {
         self
     }
     /// <p>A list of system fields to emit as additional dimensions in the generated metrics. Valid values are <code>@aws.account</code> and <code>@aws.region</code>. These dimensions help identify the source of centralized log data and count toward the total dimension limit for metric filters.</p>
-    pub fn get_emit_system_field_dimensions(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_emit_system_field_dimensions(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_emit_system_field_dimensions()
     }
 }

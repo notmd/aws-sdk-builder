@@ -21,7 +21,8 @@ impl ::std::fmt::Debug for StartWebAuthnRegistrationInput {
 }
 impl StartWebAuthnRegistrationInput {
     /// Creates a new builder-style object to manufacture [`StartWebAuthnRegistrationInput`](crate::operation::start_web_authn_registration::StartWebAuthnRegistrationInput).
-    pub fn builder() -> crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationInputBuilder{
+    pub fn builder() -> crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationInputBuilder
+    {
         crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationInputBuilder::default()
     }
 }

@@ -85,13 +85,11 @@ impl DeleteObjectAnnotation {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(
-                crate::config::ConfigOverrideRuntimePlugin::new(
-                    config_override,
-                    client_config.config.clone(),
-                    &client_config.runtime_components,
-                ),
-            );
+            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+                config_override,
+                client_config.config.clone(),
+                &client_config.runtime_components,
+            ));
         }
         runtime_plugins
     }
@@ -100,11 +98,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for DeleteO
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("DeleteObjectAnnotation");
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                DeleteObjectAnnotationRequestSerializer,
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+            DeleteObjectAnnotationRequestSerializer,
+        ));
         cfg.store_put(
             ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
                 DeleteObjectAnnotationResponseDeserializer,
@@ -120,12 +116,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for DeleteO
             ),
         );
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-                "DeleteObjectAnnotation",
-                "S3",
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+            "DeleteObjectAnnotation",
+            "S3",
+        ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = false;
         signing_options.content_sha256_header = true;
@@ -143,39 +137,48 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for DeleteO
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<
-        '_,
-        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    > {
+    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
-        let mut rcb =
-            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteObjectAnnotation")
-                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                    DeleteObjectAnnotationTelemetryInputCaptureInterceptor,
-                ))
-                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                    ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-                ))
-                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                    DeleteObjectAnnotationEndpointParamsInterceptor,
-                ))
-                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                    crate::operation::delete_object_annotation::DeleteObjectAnnotationError,
-                >::new())
-                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                    crate::operation::delete_object_annotation::DeleteObjectAnnotationError,
-                >::new())
-                .with_retry_classifier(
-                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                        crate::operation::delete_object_annotation::DeleteObjectAnnotationError,
-                    >::builder()
-                    .transient_errors({
-                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-                        transient_errors.push("InternalError");
-                        ::std::borrow::Cow::Owned(transient_errors)
-                    })
-                    .build(),
-                );
+        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new(
+            "DeleteObjectAnnotation",
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                DeleteObjectAnnotationTelemetryInputCaptureInterceptor,
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
+            ),
+        )
+        .with_interceptor(
+            ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                DeleteObjectAnnotationEndpointParamsInterceptor,
+            ),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+                crate::operation::delete_object_annotation::DeleteObjectAnnotationError,
+            >::new(),
+        )
+        .with_retry_classifier(
+            ::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+                crate::operation::delete_object_annotation::DeleteObjectAnnotationError,
+            >::new(),
+        )
+        .with_retry_classifier(
+            ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+                crate::operation::delete_object_annotation::DeleteObjectAnnotationError,
+            >::builder()
+            .transient_errors({
+                let mut transient_errors: Vec<&'static str> =
+                    ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
+                transient_errors.push("InternalError");
+                ::std::borrow::Cow::Owned(transient_errors)
+            })
+            .build(),
+        );
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -210,10 +213,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) = context
-            .input()
-            .downcast_ref::<DeleteObjectAnnotationInput>()
-        else {
+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<DeleteObjectAnnotationInput>() else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
@@ -256,9 +256,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
 }
 #[derive(Debug)]
 struct DeleteObjectAnnotationResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
-    for DeleteObjectAnnotationResponseDeserializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for DeleteObjectAnnotationResponseDeserializer {
     fn deserialize_nonstreaming_with_config(
         &self,
         response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
@@ -270,26 +268,25 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
         #[allow(unused_mut)]
         let mut force_error = false;
         ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
-        if matches!(
-            crate::rest_xml_unwrapped_errors::body_is_error(body),
-            Ok(true)
-        ) {
+        if matches!(crate::rest_xml_unwrapped_errors::body_is_error(body), Ok(true)) {
             force_error = true;
         }
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 204 || force_error {
-            crate::protocol_serde::shape_delete_object_annotation::de_delete_object_annotation_http_error(status, headers, body)
+            crate::protocol_serde::shape_delete_object_annotation::de_delete_object_annotation_http_error(
+                status, headers, body,
+            )
         } else {
-            crate::protocol_serde::shape_delete_object_annotation::de_delete_object_annotation_http_response(status, headers, body)
+            crate::protocol_serde::shape_delete_object_annotation::de_delete_object_annotation_http_response(
+                status, headers, body,
+            )
         };
         crate::protocol_serde::type_erase_result(parse_result)
     }
 }
 #[derive(Debug)]
 struct DeleteObjectAnnotationRequestSerializer;
-impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
-    for DeleteObjectAnnotationRequestSerializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteObjectAnnotationRequestSerializer {
     #[allow(
         unused_mut,
         clippy::let_and_return,
@@ -316,20 +313,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_base(
                 _input: &crate::operation::delete_object_annotation::DeleteObjectAnnotationInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
                 let input_1 = &_input.key;
                 let input_1 = input_1.as_ref().ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "key",
-                        "cannot be empty or unset",
-                    )
+                    ::aws_smithy_types::error::operation::BuildError::missing_field("key", "cannot be empty or unset")
                 })?;
-                let key = ::aws_smithy_http::label::fmt_string(
-                    input_1,
-                    ::aws_smithy_http::label::EncodingStrategy::Greedy,
-                );
+                let key =
+                    ::aws_smithy_http::label::fmt_string(input_1, ::aws_smithy_http::label::EncodingStrategy::Greedy);
                 if key.is_empty() {
                     return ::std::result::Result::Err(
                         ::aws_smithy_types::error::operation::BuildError::missing_field(
@@ -344,8 +335,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn uri_query(
                 _input: &crate::operation::delete_object_annotation::DeleteObjectAnnotationInput,
                 mut output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 let mut query = ::aws_smithy_http::query::Writer::new(output);
                 query.push_v("annotation");
                 let inner_2 = &_input.annotation_name;
@@ -363,10 +353,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
                         ),
                     );
                 }
-                query.push_kv(
-                    "annotationName",
-                    &::aws_smithy_http::query::fmt_string(inner_2),
-                );
+                query.push_kv("annotationName", &::aws_smithy_http::query::fmt_string(inner_2));
                 if let ::std::option::Option::Some(inner_3) = &_input.version_id {
                     {
                         query.push_kv("versionId", &::aws_smithy_http::query::fmt_string(inner_3));
@@ -378,14 +365,15 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
             fn update_http_builder(
                 input: &crate::operation::delete_object_annotation::DeleteObjectAnnotationInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<
-                ::http_1x::request::Builder,
-                ::aws_smithy_types::error::operation::BuildError,
-            > {
+            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
-                let builder = crate::protocol_serde::shape_delete_object_annotation::ser_delete_object_annotation_headers(input, builder)?;
+                let builder =
+                    crate::protocol_serde::shape_delete_object_annotation::ser_delete_object_annotation_headers(
+                        input, builder,
+                    )?;
                 ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -393,22 +381,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest
         };
         let body = ::aws_smithy_types::body::SdkBody::from("");
 
-        ::std::result::Result::Ok(
-            request_builder
-                .body(body)
-                .expect("valid request")
-                .try_into()
-                .unwrap(),
-        )
+        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
 #[derive(Debug)]
 struct DeleteObjectAnnotationEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for DeleteObjectAnnotationEndpointParamsInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DeleteObjectAnnotationEndpointParamsInterceptor {
     fn name(&self) -> &'static str {
         "DeleteObjectAnnotationEndpointParamsInterceptor"
     }
@@ -429,18 +409,9 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             .ok_or("failed to downcast to DeleteObjectAnnotationInput")?;
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(
-                cfg.load::<::aws_types::region::Region>()
-                    .map(|r| r.as_ref().to_owned()),
-            )
-            .set_use_fips(
-                cfg.load::<::aws_types::endpoint_config::UseFips>()
-                    .map(|ty| ty.0),
-            )
-            .set_use_dual_stack(
-                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
-                    .map(|ty| ty.0),
-            )
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
             .set_endpoint(
                 cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
                     .map(|ty| ty.0.clone()),
@@ -453,8 +424,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             )
             .set_accelerate(cfg.load::<crate::config::Accelerate>().map(|ty| ty.0))
             .set_disable_s3_express_session_auth(
-                cfg.load::<crate::config::DisableS3ExpressSessionAuth>()
-                    .map(|ty| ty.0),
+                cfg.load::<crate::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0),
             )
             .set_bucket(Some(
                 _input
@@ -475,9 +445,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
                     err,
                 )
             })?;
-        cfg.interceptor_state().store_put(
-            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
-        );
+        cfg.interceptor_state()
+            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(
+                params,
+            ));
         ::std::result::Result::Ok(())
     }
 }
@@ -508,9 +479,7 @@ impl DeleteObjectAnnotationError {
     /// Creates the `DeleteObjectAnnotationError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -532,12 +501,8 @@ impl DeleteObjectAnnotationError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::NoSuchBucket(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::NoSuchKey(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::NoSuchBucket(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::NoSuchKey(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -587,23 +552,15 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for DeleteObjectAnnotationError
 impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DeleteObjectAnnotationError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::NoSuchBucket(_inner) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
-            }
-            Self::NoSuchKey(_inner) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner)
-            }
+            Self::NoSuchBucket(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
+            Self::NoSuchKey(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
             Self::Unhandled(_inner) => &_inner.meta,
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
-    for DeleteObjectAnnotationError
-{
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for DeleteObjectAnnotationError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -612,16 +569,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt
-    for crate::operation::delete_object_annotation::DeleteObjectAnnotationError
-{
+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_object_annotation::DeleteObjectAnnotationError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId
-    for crate::operation::delete_object_annotation::DeleteObjectAnnotationError
-{
+impl ::aws_types::request_id::RequestId for crate::operation::delete_object_annotation::DeleteObjectAnnotationError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

@@ -31,9 +31,7 @@ pub async fn use_dual_stack_provider(provider_config: &ProviderConfig) -> Option
         .env(env::USE_DUAL_STACK)
         .profile(profile_key::USE_DUAL_STACK)
         .validate(&env, profiles, parse_bool)
-        .map_err(
-            |err| tracing::warn!(err = %DisplayErrorContext(&err), "invalid value for dual-stack setting"),
-        )
+        .map_err(|err| tracing::warn!(err = %DisplayErrorContext(&err), "invalid value for dual-stack setting"))
         .unwrap_or(None)
 }
 
@@ -49,10 +47,8 @@ mod test {
     #[tokio::test]
     #[traced_test]
     async fn log_error_on_invalid_value() {
-        let conf = ProviderConfig::empty().with_env(Env::from_slice(&[(
-            "AWS_USE_DUALSTACK_ENDPOINT",
-            "not-a-boolean",
-        )]));
+        let conf =
+            ProviderConfig::empty().with_env(Env::from_slice(&[("AWS_USE_DUALSTACK_ENDPOINT", "not-a-boolean")]));
         assert_eq!(use_dual_stack_provider(&conf).await, None);
         assert!(logs_contain("invalid value for dual-stack setting"));
         assert!(logs_contain("AWS_USE_DUALSTACK_ENDPOINT"));
@@ -76,10 +72,7 @@ mod test {
                 ),
                 None,
             )
-            .with_fs(Fs::from_slice(&[(
-                "conf",
-                "[default]\nuse_dualstack_endpoint = false",
-            )]));
+            .with_fs(Fs::from_slice(&[("conf", "[default]\nuse_dualstack_endpoint = false")]));
         assert_eq!(use_dual_stack_provider(&conf).await, Some(true));
     }
 
@@ -100,10 +93,7 @@ mod test {
                 ),
                 None,
             )
-            .with_fs(Fs::from_slice(&[(
-                "conf",
-                "[default]\nuse_dualstack_endpoint = false",
-            )]));
+            .with_fs(Fs::from_slice(&[("conf", "[default]\nuse_dualstack_endpoint = false")]));
         assert_eq!(use_dual_stack_provider(&conf).await, Some(false));
     }
 }

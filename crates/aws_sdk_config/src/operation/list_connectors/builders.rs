@@ -57,9 +57,7 @@ impl ListConnectorsFluentBuilder {
         }
     }
     /// Access the ListConnectors as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_connectors::builders::ListConnectorsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_connectors::builders::ListConnectorsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,14 +81,12 @@ impl ListConnectorsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_connectors::ListConnectors::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::list_connectors::ListConnectors::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::list_connectors::ListConnectors::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::list_connectors::ListConnectors::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -121,13 +117,8 @@ impl ListConnectorsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_connectors::paginator::ListConnectorsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_connectors::paginator::ListConnectorsPaginator {
-        crate::operation::list_connectors::paginator::ListConnectorsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_connectors::paginator::ListConnectorsPaginator {
+        crate::operation::list_connectors::paginator::ListConnectorsPaginator::new(self.handle, self.inner)
     }
     /// <p>The maximum number of results to include in the response.</p>
     pub fn max_results(mut self, input: i32) -> Self {
@@ -168,17 +159,12 @@ impl ListConnectorsFluentBuilder {
         self
     }
     /// <p>Filters the results based on a list of <code>ConnectorFilter</code> objects that you specify.</p>
-    pub fn set_filters(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ConnectorFilter>>,
-    ) -> Self {
+    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConnectorFilter>>) -> Self {
         self.inner = self.inner.set_filters(input);
         self
     }
     /// <p>Filters the results based on a list of <code>ConnectorFilter</code> objects that you specify.</p>
-    pub fn get_filters(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ConnectorFilter>> {
+    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConnectorFilter>> {
         self.inner.get_filters()
     }
 }

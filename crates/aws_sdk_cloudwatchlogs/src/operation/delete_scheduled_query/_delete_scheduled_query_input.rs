@@ -14,16 +14,13 @@ impl DeleteScheduledQueryInput {
 }
 impl DeleteScheduledQueryInput {
     /// Creates a new builder-style object to manufacture [`DeleteScheduledQueryInput`](crate::operation::delete_scheduled_query::DeleteScheduledQueryInput).
-    pub fn builder(
-    ) -> crate::operation::delete_scheduled_query::builders::DeleteScheduledQueryInputBuilder {
+    pub fn builder() -> crate::operation::delete_scheduled_query::builders::DeleteScheduledQueryInputBuilder {
         crate::operation::delete_scheduled_query::builders::DeleteScheduledQueryInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteScheduledQueryInput`](crate::operation::delete_scheduled_query::DeleteScheduledQueryInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteScheduledQueryInputBuilder {
     pub(crate) identifier: ::std::option::Option<::std::string::String>,
@@ -51,10 +48,8 @@ impl DeleteScheduledQueryInputBuilder {
         crate::operation::delete_scheduled_query::DeleteScheduledQueryInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_scheduled_query::DeleteScheduledQueryInput {
-                identifier: self.identifier,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::delete_scheduled_query::DeleteScheduledQueryInput {
+            identifier: self.identifier,
+        })
     }
 }

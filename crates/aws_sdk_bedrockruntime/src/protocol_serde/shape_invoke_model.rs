@@ -9,139 +9,129 @@ pub fn de_invoke_model_http_error(
     crate::operation::invoke_model::InvokeModelError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::invoke_model::InvokeModelError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::invoke_model::InvokeModelError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(crate::operation::invoke_model::InvokeModelError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(crate::operation::invoke_model::InvokeModelError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AccessDeniedException" => {
-            crate::operation::invoke_model::InvokeModelError::AccessDeniedException({
+        "AccessDeniedException" => crate::operation::invoke_model::InvokeModelError::AccessDeniedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::AccessDeniedExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::invoke_model::InvokeModelError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "InternalServerException" => {
-            crate::operation::invoke_model::InvokeModelError::InternalServerException({
+                let mut output = crate::types::error::builders::AccessDeniedExceptionBuilder::default();
+                output = crate::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::invoke_model::InvokeModelError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalServerException" => crate::operation::invoke_model::InvokeModelError::InternalServerException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InternalServerExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::invoke_model::InvokeModelError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ModelErrorException" => {
-            crate::operation::invoke_model::InvokeModelError::ModelErrorException({
+                let mut output = crate::types::error::builders::InternalServerExceptionBuilder::default();
+                output = crate::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::invoke_model::InvokeModelError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ModelErrorException" => crate::operation::invoke_model::InvokeModelError::ModelErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ModelErrorExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_model_error_exception::de_model_error_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::invoke_model::InvokeModelError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ModelNotReadyException" => {
-            crate::operation::invoke_model::InvokeModelError::ModelNotReadyException({
+                let mut output = crate::types::error::builders::ModelErrorExceptionBuilder::default();
+                output = crate::protocol_serde::shape_model_error_exception::de_model_error_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::invoke_model::InvokeModelError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ModelNotReadyException" => crate::operation::invoke_model::InvokeModelError::ModelNotReadyException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ModelNotReadyExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_model_not_ready_exception::de_model_not_ready_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::invoke_model::InvokeModelError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ModelTimeoutException" => {
-            crate::operation::invoke_model::InvokeModelError::ModelTimeoutException({
+                let mut output = crate::types::error::builders::ModelNotReadyExceptionBuilder::default();
+                output = crate::protocol_serde::shape_model_not_ready_exception::de_model_not_ready_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::invoke_model::InvokeModelError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ModelTimeoutException" => crate::operation::invoke_model::InvokeModelError::ModelTimeoutException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ModelTimeoutExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_model_timeout_exception::de_model_timeout_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::invoke_model::InvokeModelError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ResourceNotFoundException" => {
-            crate::operation::invoke_model::InvokeModelError::ResourceNotFoundException({
+                let mut output = crate::types::error::builders::ModelTimeoutExceptionBuilder::default();
+                output = crate::protocol_serde::shape_model_timeout_exception::de_model_timeout_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::invoke_model::InvokeModelError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ResourceNotFoundException" => crate::operation::invoke_model::InvokeModelError::ResourceNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(crate::operation::invoke_model::InvokeModelError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ServiceQuotaExceededException" => {
             crate::operation::invoke_model::InvokeModelError::ServiceQuotaExceededException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
                     output = crate::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(
                     _response_body,
                     output,
@@ -161,9 +151,7 @@ pub fn de_invoke_model_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ServiceUnavailableExceptionBuilder::default(
-                        );
+                    let mut output = crate::types::error::builders::ServiceUnavailableExceptionBuilder::default();
                     output =
                     crate::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
                         .map_err(crate::operation::invoke_model::InvokeModelError::unhandled)?;
@@ -176,42 +164,42 @@ pub fn de_invoke_model_http_error(
                 tmp
             })
         }
-        "ThrottlingException" => {
-            crate::operation::invoke_model::InvokeModelError::ThrottlingException({
+        "ThrottlingException" => crate::operation::invoke_model::InvokeModelError::ThrottlingException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ThrottlingExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::invoke_model::InvokeModelError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ValidationException" => {
-            crate::operation::invoke_model::InvokeModelError::ValidationException({
+                let mut output = crate::types::error::builders::ThrottlingExceptionBuilder::default();
+                output = crate::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::invoke_model::InvokeModelError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ValidationException" => crate::operation::invoke_model::InvokeModelError::ValidationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ValidationExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::invoke_model::InvokeModelError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::ValidationExceptionBuilder::default();
+                output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::invoke_model::InvokeModelError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => crate::operation::invoke_model::InvokeModelError::generic(generic),
     })
 }
@@ -227,41 +215,37 @@ pub fn de_invoke_model_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::invoke_model::builders::InvokeModelOutputBuilder::default();
-        output = output.set_body(
-            crate::protocol_serde::shape_invoke_model_output::de_body_payload(_response_body)?,
-        );
+        let mut output = crate::operation::invoke_model::builders::InvokeModelOutputBuilder::default();
+        output = output.set_body(crate::protocol_serde::shape_invoke_model_output::de_body_payload(
+            _response_body,
+        )?);
         output = output.set_content_type(
-            crate::protocol_serde::shape_invoke_model_output::de_content_type_header(
-                _response_headers,
-            )
-            .map_err(|_| {
-                crate::operation::invoke_model::InvokeModelError::unhandled(
-                    "Failed to parse contentType from header `Content-Type",
-                )
-            })?,
+            crate::protocol_serde::shape_invoke_model_output::de_content_type_header(_response_headers).map_err(
+                |_| {
+                    crate::operation::invoke_model::InvokeModelError::unhandled(
+                        "Failed to parse contentType from header `Content-Type",
+                    )
+                },
+            )?,
         );
         output = output.set_performance_config_latency(
-            crate::protocol_serde::shape_invoke_model_output::de_performance_config_latency_header(_response_headers).map_err(|_| {
+            crate::protocol_serde::shape_invoke_model_output::de_performance_config_latency_header(_response_headers)
+                .map_err(|_| {
                 crate::operation::invoke_model::InvokeModelError::unhandled(
                     "Failed to parse performanceConfigLatency from header `X-Amzn-Bedrock-PerformanceConfig-Latency",
                 )
             })?,
         );
         output = output.set_service_tier(
-            crate::protocol_serde::shape_invoke_model_output::de_service_tier_header(
-                _response_headers,
-            )
-            .map_err(|_| {
-                crate::operation::invoke_model::InvokeModelError::unhandled(
-                    "Failed to parse serviceTier from header `X-Amzn-Bedrock-Service-Tier",
-                )
-            })?,
+            crate::protocol_serde::shape_invoke_model_output::de_service_tier_header(_response_headers).map_err(
+                |_| {
+                    crate::operation::invoke_model::InvokeModelError::unhandled(
+                        "Failed to parse serviceTier from header `X-Amzn-Bedrock-Service-Tier",
+                    )
+                },
+            )?,
         );
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         crate::serde_util::invoke_model_output_output_correct_errors(output)
             .build()
             .map_err(crate::operation::invoke_model::InvokeModelError::unhandled)?
@@ -271,20 +255,14 @@ pub fn de_invoke_model_http_response(
 pub fn ser_invoke_model_headers(
     input: &crate::operation::invoke_model::InvokeModelInput,
     mut builder: ::http_1x::request::Builder,
-) -> std::result::Result<
-    ::http_1x::request::Builder,
-    ::aws_smithy_types::error::operation::BuildError,
-> {
+) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.content_type {
         let formatted_2 = inner_1.as_str();
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "content_type",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("Content-Type", header_value);
@@ -295,10 +273,7 @@ pub fn ser_invoke_model_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "accept",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("Accept", header_value);
@@ -309,10 +284,7 @@ pub fn ser_invoke_model_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "trace",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("X-Amzn-Bedrock-Trace", header_value);
@@ -323,10 +295,7 @@ pub fn ser_invoke_model_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "guardrail_identifier",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("X-Amzn-Bedrock-GuardrailIdentifier", header_value);
@@ -337,10 +306,7 @@ pub fn ser_invoke_model_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "guardrail_version",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("X-Amzn-Bedrock-GuardrailVersion", header_value);
@@ -351,10 +317,7 @@ pub fn ser_invoke_model_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "performance_config_latency",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("X-Amzn-Bedrock-PerformanceConfig-Latency", header_value);
@@ -365,10 +328,7 @@ pub fn ser_invoke_model_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "service_tier",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("X-Amzn-Bedrock-Service-Tier", header_value);

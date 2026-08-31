@@ -76,9 +76,7 @@ impl ListRetirableGrantsFluentBuilder {
         }
     }
     /// Access the ListRetirableGrants as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_retirable_grants::builders::ListRetirableGrantsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_retirable_grants::builders::ListRetirableGrantsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -102,17 +100,12 @@ impl ListRetirableGrantsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_retirable_grants::ListRetirableGrants::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::list_retirable_grants::ListRetirableGrants::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::list_retirable_grants::ListRetirableGrants::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::list_retirable_grants::ListRetirableGrants::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -143,13 +136,8 @@ impl ListRetirableGrantsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_retirable_grants::paginator::ListRetirableGrantsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_retirable_grants::paginator::ListRetirableGrantsPaginator {
-        crate::operation::list_retirable_grants::paginator::ListRetirableGrantsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_retirable_grants::paginator::ListRetirableGrantsPaginator {
+        crate::operation::list_retirable_grants::paginator::ListRetirableGrantsPaginator::new(self.handle, self.inner)
     }
     /// <p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p>
     /// <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p>
@@ -185,20 +173,14 @@ impl ListRetirableGrantsFluentBuilder {
     /// <p>The retiring principal for which to list grants. Enter a principal in your Amazon Web Services account.</p>
     /// <p>To specify the retiring principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles, federated users, and assumed role users. For help with the ARN syntax for a principal, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i> <i>Identity and Access Management User Guide</i> </i>.</p>
     /// <p>You must specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
-    pub fn retiring_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn retiring_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.retiring_principal(input.into());
         self
     }
     /// <p>The retiring principal for which to list grants. Enter a principal in your Amazon Web Services account.</p>
     /// <p>To specify the retiring principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles, federated users, and assumed role users. For help with the ARN syntax for a principal, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i> <i>Identity and Access Management User Guide</i> </i>.</p>
     /// <p>You must specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
-    pub fn set_retiring_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_retiring_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_retiring_principal(input);
         self
     }
@@ -210,19 +192,13 @@ impl ListRetirableGrantsFluentBuilder {
     }
     /// <p>The retiring service principal for which to list grants. This filter is only usable by callers in a service principal.</p>
     /// <p>You must specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
-    pub fn retiring_service_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn retiring_service_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.retiring_service_principal(input.into());
         self
     }
     /// <p>The retiring service principal for which to list grants. This filter is only usable by callers in a service principal.</p>
     /// <p>You must specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
-    pub fn set_retiring_service_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_retiring_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_retiring_service_principal(input);
         self
     }

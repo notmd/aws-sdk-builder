@@ -19,12 +19,7 @@ use crate::endpoint_lib::diagnostic::DiagnosticCollector;
 ///
 /// ### Returns
 /// `Vec<&str>` containing the split parts
-pub(crate) fn split<'a>(
-    value: &'a str,
-    delimiter: &str,
-    limit: usize,
-    _dc: &mut DiagnosticCollector,
-) -> Vec<&'a str> {
+pub(crate) fn split<'a>(value: &'a str, delimiter: &str, limit: usize, _dc: &mut DiagnosticCollector) -> Vec<&'a str> {
     if limit == 0 {
         return value.split(delimiter).collect();
     }
@@ -45,12 +40,7 @@ mod tests {
             vec!["a", "b", "c"]
         );
         assert_eq!(
-            split(
-                "--x-s3--azid--suffix",
-                "--",
-                0,
-                &mut DiagnosticCollector::new()
-            ),
+            split("--x-s3--azid--suffix", "--", 0, &mut DiagnosticCollector::new()),
             vec!["", "x-s3", "azid", "suffix"]
         );
     }
@@ -62,12 +52,7 @@ mod tests {
             vec!["a", "b--c"]
         );
         assert_eq!(
-            split(
-                "--x-s3--azid--suffix",
-                "--",
-                2,
-                &mut DiagnosticCollector::new()
-            ),
+            split("--x-s3--azid--suffix", "--", 2, &mut DiagnosticCollector::new()),
             vec!["", "x-s3--azid--suffix"]
         );
     }
@@ -86,18 +71,12 @@ mod tests {
 
     #[test]
     fn test_split_empty_string() {
-        assert_eq!(
-            split("", "--", 0, &mut DiagnosticCollector::new()),
-            vec![""]
-        );
+        assert_eq!(split("", "--", 0, &mut DiagnosticCollector::new()), vec![""]);
     }
 
     #[test]
     fn test_split_delimiter_only() {
-        assert_eq!(
-            split("--", "--", 0, &mut DiagnosticCollector::new()),
-            vec!["", ""]
-        );
+        assert_eq!(split("--", "--", 0, &mut DiagnosticCollector::new()), vec!["", ""]);
         assert_eq!(
             split("----", "--", 0, &mut DiagnosticCollector::new()),
             vec!["", "", ""]
@@ -114,9 +93,6 @@ mod tests {
 
     #[test]
     fn test_split_no_delimiter_found() {
-        assert_eq!(
-            split("abc", "x", 0, &mut DiagnosticCollector::new()),
-            vec!["abc"]
-        );
+        assert_eq!(split("abc", "x", 0, &mut DiagnosticCollector::new()), vec!["abc"]);
     }
 }

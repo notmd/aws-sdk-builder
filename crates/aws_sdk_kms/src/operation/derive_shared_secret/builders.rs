@@ -93,9 +93,7 @@ impl DeriveSharedSecretFluentBuilder {
         }
     }
     /// Access the DeriveSharedSecret as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::derive_shared_secret::builders::DeriveSharedSecretInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::derive_shared_secret::builders::DeriveSharedSecretInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -119,17 +117,12 @@ impl DeriveSharedSecretFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::derive_shared_secret::DeriveSharedSecret::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::derive_shared_secret::DeriveSharedSecret::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::derive_shared_secret::DeriveSharedSecret::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::derive_shared_secret::DeriveSharedSecret::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -211,10 +204,7 @@ impl DeriveSharedSecretFluentBuilder {
         self.inner.get_key_id()
     }
     /// <p>Specifies the key agreement algorithm used to derive the shared secret. The only valid value is <code>ECDH</code>.</p>
-    pub fn key_agreement_algorithm(
-        mut self,
-        input: crate::types::KeyAgreementAlgorithmSpec,
-    ) -> Self {
+    pub fn key_agreement_algorithm(mut self, input: crate::types::KeyAgreementAlgorithmSpec) -> Self {
         self.inner = self.inner.key_agreement_algorithm(input);
         self
     }
@@ -227,9 +217,7 @@ impl DeriveSharedSecretFluentBuilder {
         self
     }
     /// <p>Specifies the key agreement algorithm used to derive the shared secret. The only valid value is <code>ECDH</code>.</p>
-    pub fn get_key_agreement_algorithm(
-        &self,
-    ) -> &::std::option::Option<crate::types::KeyAgreementAlgorithmSpec> {
+    pub fn get_key_agreement_algorithm(&self) -> &::std::option::Option<crate::types::KeyAgreementAlgorithmSpec> {
         self.inner.get_key_agreement_algorithm()
     }
     /// <p>Specifies the public key in your peer's NIST-standard elliptic curve (ECC) or SM2 (China Regions only) key pair.</p>
@@ -248,10 +236,7 @@ impl DeriveSharedSecretFluentBuilder {
     /// <p>If you use <a href="https://docs.aws.amazon.com/cli/v1/userguide/cli-chap-welcome.html">Amazon Web Services CLI version 1</a>, you must provide the DER-encoded X.509 public key in a file. Otherwise, the Amazon Web Services CLI Base64-encodes the public key a second time, resulting in a <code>ValidationException</code>.</p>
     /// </note>
     /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></path-to-file></code>) or in-line using a Base64 encoded string.</p>
-    pub fn set_public_key(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::Blob>,
-    ) -> Self {
+    pub fn set_public_key(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.inner = self.inner.set_public_key(input);
         self
     }
@@ -277,18 +262,13 @@ impl DeriveSharedSecretFluentBuilder {
     }
     /// <p>A list of grant tokens.</p>
     /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn set_grant_tokens(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_grant_tokens(input);
         self
     }
     /// <p>A list of grant tokens.</p>
     /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn get_grant_tokens(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_grant_tokens()
     }
     /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
@@ -320,10 +300,7 @@ impl DeriveSharedSecretFluentBuilder {
     /// <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM. To call DeriveSharedSecret generate an attestation document use either <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> for an Amazon Web Services Nitro Enclaves or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/attestation-get-doc.html">Amazon Web Services NitroTPM tools</a> for Amazon Web Services NitroTPM. Then use the Recipient parameter from any Amazon Web Services SDK to provide the attestation document for the attested environment.</p>
     /// <p>When you use this parameter, instead of returning a plaintext copy of the shared secret, KMS encrypts the plaintext shared secret under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the attested environment. The <code>CiphertextBlob</code> field in the response contains the encrypted shared secret derived from the KMS key specified by the <code>KeyId</code> parameter and public key specified by the <code>PublicKey</code> parameter. The <code>SharedSecret</code> field in the response is null or empty.</p>
     /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn set_recipient(
-        mut self,
-        input: ::std::option::Option<crate::types::RecipientInfo>,
-    ) -> Self {
+    pub fn set_recipient(mut self, input: ::std::option::Option<crate::types::RecipientInfo>) -> Self {
         self.inner = self.inner.set_recipient(input);
         self
     }

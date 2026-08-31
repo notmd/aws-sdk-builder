@@ -10,8 +10,6 @@ impl super::Client {
     pub fn delete_account_policy(
         &self,
     ) -> crate::operation::delete_account_policy::builders::DeleteAccountPolicyFluentBuilder {
-        crate::operation::delete_account_policy::builders::DeleteAccountPolicyFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_account_policy::builders::DeleteAccountPolicyFluentBuilder::new(self.handle.clone())
     }
 }

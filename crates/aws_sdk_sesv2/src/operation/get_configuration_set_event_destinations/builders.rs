@@ -79,7 +79,7 @@ impl GetConfigurationSetEventDestinationsFluentBuilder {
             crate::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -90,7 +90,11 @@ impl GetConfigurationSetEventDestinationsFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        crate::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinations::orchestrate(&runtime_plugins, input).await
+        crate::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinations::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -100,7 +104,7 @@ impl GetConfigurationSetEventDestinationsFluentBuilder {
         crate::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsOutput,
         crate::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -119,18 +123,12 @@ impl GetConfigurationSetEventDestinationsFluentBuilder {
         self
     }
     /// <p>The name of the configuration set that contains the event destination.</p>
-    pub fn configuration_set_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_set_name(input.into());
         self
     }
     /// <p>The name of the configuration set that contains the event destination.</p>
-    pub fn set_configuration_set_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_set_name(input);
         self
     }

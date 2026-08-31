@@ -20,16 +20,13 @@ impl ListMessageMoveTasksInput {
 }
 impl ListMessageMoveTasksInput {
     /// Creates a new builder-style object to manufacture [`ListMessageMoveTasksInput`](crate::operation::list_message_move_tasks::ListMessageMoveTasksInput).
-    pub fn builder(
-    ) -> crate::operation::list_message_move_tasks::builders::ListMessageMoveTasksInputBuilder {
+    pub fn builder() -> crate::operation::list_message_move_tasks::builders::ListMessageMoveTasksInputBuilder {
         crate::operation::list_message_move_tasks::builders::ListMessageMoveTasksInputBuilder::default()
     }
 }
 
 /// A builder for [`ListMessageMoveTasksInput`](crate::operation::list_message_move_tasks::ListMessageMoveTasksInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListMessageMoveTasksInputBuilder {
     pub(crate) source_arn: ::std::option::Option<::std::string::String>,
@@ -72,11 +69,9 @@ impl ListMessageMoveTasksInputBuilder {
         crate::operation::list_message_move_tasks::ListMessageMoveTasksInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::list_message_move_tasks::ListMessageMoveTasksInput {
-                source_arn: self.source_arn,
-                max_results: self.max_results,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::list_message_move_tasks::ListMessageMoveTasksInput {
+            source_arn: self.source_arn,
+            max_results: self.max_results,
+        })
     }
 }

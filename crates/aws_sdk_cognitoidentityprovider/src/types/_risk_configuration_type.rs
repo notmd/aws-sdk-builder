@@ -12,11 +12,9 @@ pub struct RiskConfigurationType {
     pub compromised_credentials_risk_configuration:
         ::std::option::Option<crate::types::CompromisedCredentialsRiskConfigurationType>,
     /// <p>The settings for automated responses and notification templates for adaptive authentication with threat protection.</p>
-    pub account_takeover_risk_configuration:
-        ::std::option::Option<crate::types::AccountTakeoverRiskConfigurationType>,
+    pub account_takeover_risk_configuration: ::std::option::Option<crate::types::AccountTakeoverRiskConfigurationType>,
     /// <p>Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.</p>
-    pub risk_exception_configuration:
-        ::std::option::Option<crate::types::RiskExceptionConfigurationType>,
+    pub risk_exception_configuration: ::std::option::Option<crate::types::RiskExceptionConfigurationType>,
     /// <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
     pub last_modified_date: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
@@ -42,9 +40,7 @@ impl RiskConfigurationType {
         self.account_takeover_risk_configuration.as_ref()
     }
     /// <p>Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.</p>
-    pub fn risk_exception_configuration(
-        &self,
-    ) -> ::std::option::Option<&crate::types::RiskExceptionConfigurationType> {
+    pub fn risk_exception_configuration(&self) -> ::std::option::Option<&crate::types::RiskExceptionConfigurationType> {
         self.risk_exception_configuration.as_ref()
     }
     /// <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
@@ -65,10 +61,7 @@ impl ::std::fmt::Debug for RiskConfigurationType {
             "account_takeover_risk_configuration",
             &self.account_takeover_risk_configuration,
         );
-        formatter.field(
-            "risk_exception_configuration",
-            &self.risk_exception_configuration,
-        );
+        formatter.field("risk_exception_configuration", &self.risk_exception_configuration);
         formatter.field("last_modified_date", &self.last_modified_date);
         formatter.finish()
     }
@@ -90,8 +83,7 @@ pub struct RiskConfigurationTypeBuilder {
         ::std::option::Option<crate::types::CompromisedCredentialsRiskConfigurationType>,
     pub(crate) account_takeover_risk_configuration:
         ::std::option::Option<crate::types::AccountTakeoverRiskConfigurationType>,
-    pub(crate) risk_exception_configuration:
-        ::std::option::Option<crate::types::RiskExceptionConfigurationType>,
+    pub(crate) risk_exception_configuration: ::std::option::Option<crate::types::RiskExceptionConfigurationType>,
     pub(crate) last_modified_date: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
 impl RiskConfigurationTypeBuilder {
@@ -168,10 +160,7 @@ impl RiskConfigurationTypeBuilder {
         &self.account_takeover_risk_configuration
     }
     /// <p>Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.</p>
-    pub fn risk_exception_configuration(
-        mut self,
-        input: crate::types::RiskExceptionConfigurationType,
-    ) -> Self {
+    pub fn risk_exception_configuration(mut self, input: crate::types::RiskExceptionConfigurationType) -> Self {
         self.risk_exception_configuration = ::std::option::Option::Some(input);
         self
     }
@@ -195,10 +184,7 @@ impl RiskConfigurationTypeBuilder {
         self
     }
     /// <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
-    pub fn set_last_modified_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_last_modified_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_modified_date = input;
         self
     }
@@ -211,8 +197,7 @@ impl RiskConfigurationTypeBuilder {
         crate::types::RiskConfigurationType {
             user_pool_id: self.user_pool_id,
             client_id: self.client_id,
-            compromised_credentials_risk_configuration: self
-                .compromised_credentials_risk_configuration,
+            compromised_credentials_risk_configuration: self.compromised_credentials_risk_configuration,
             account_takeover_risk_configuration: self.account_takeover_risk_configuration,
             risk_exception_configuration: self.risk_exception_configuration,
             last_modified_date: self.last_modified_date,
@@ -232,10 +217,7 @@ impl ::std::fmt::Debug for RiskConfigurationTypeBuilder {
             "account_takeover_risk_configuration",
             &self.account_takeover_risk_configuration,
         );
-        formatter.field(
-            "risk_exception_configuration",
-            &self.risk_exception_configuration,
-        );
+        formatter.field("risk_exception_configuration", &self.risk_exception_configuration);
         formatter.field("last_modified_date", &self.last_modified_date);
         formatter.finish()
     }

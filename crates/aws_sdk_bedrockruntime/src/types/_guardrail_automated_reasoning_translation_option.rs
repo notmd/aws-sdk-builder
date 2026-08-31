@@ -5,9 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GuardrailAutomatedReasoningTranslationOption {
     /// <p>Example translations that provide this possible interpretation of the input.</p>
-    pub translations: ::std::option::Option<
-        ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningTranslation>,
-    >,
+    pub translations: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningTranslation>>,
 }
 impl GuardrailAutomatedReasoningTranslationOption {
     /// <p>Example translations that provide this possible interpretation of the input.</p>
@@ -19,21 +17,17 @@ impl GuardrailAutomatedReasoningTranslationOption {
 }
 impl GuardrailAutomatedReasoningTranslationOption {
     /// Creates a new builder-style object to manufacture [`GuardrailAutomatedReasoningTranslationOption`](crate::types::GuardrailAutomatedReasoningTranslationOption).
-    pub fn builder() -> crate::types::builders::GuardrailAutomatedReasoningTranslationOptionBuilder
-    {
+    pub fn builder() -> crate::types::builders::GuardrailAutomatedReasoningTranslationOptionBuilder {
         crate::types::builders::GuardrailAutomatedReasoningTranslationOptionBuilder::default()
     }
 }
 
 /// A builder for [`GuardrailAutomatedReasoningTranslationOption`](crate::types::GuardrailAutomatedReasoningTranslationOption).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailAutomatedReasoningTranslationOptionBuilder {
-    pub(crate) translations: ::std::option::Option<
-        ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningTranslation>,
-    >,
+    pub(crate) translations:
+        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningTranslation>>,
 }
 impl GuardrailAutomatedReasoningTranslationOptionBuilder {
     /// Appends an item to `translations`.
@@ -41,10 +35,7 @@ impl GuardrailAutomatedReasoningTranslationOptionBuilder {
     /// To override the contents of this collection use [`set_translations`](Self::set_translations).
     ///
     /// <p>Example translations that provide this possible interpretation of the input.</p>
-    pub fn translations(
-        mut self,
-        input: crate::types::GuardrailAutomatedReasoningTranslation,
-    ) -> Self {
+    pub fn translations(mut self, input: crate::types::GuardrailAutomatedReasoningTranslation) -> Self {
         let mut v = self.translations.unwrap_or_default();
         v.push(input);
         self.translations = ::std::option::Option::Some(v);
@@ -53,9 +44,7 @@ impl GuardrailAutomatedReasoningTranslationOptionBuilder {
     /// <p>Example translations that provide this possible interpretation of the input.</p>
     pub fn set_translations(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GuardrailAutomatedReasoningTranslation>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningTranslation>>,
     ) -> Self {
         self.translations = input;
         self
@@ -63,8 +52,7 @@ impl GuardrailAutomatedReasoningTranslationOptionBuilder {
     /// <p>Example translations that provide this possible interpretation of the input.</p>
     pub fn get_translations(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningTranslation>>
-    {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailAutomatedReasoningTranslation>> {
         &self.translations
     }
     /// Consumes the builder and constructs a [`GuardrailAutomatedReasoningTranslationOption`](crate::types::GuardrailAutomatedReasoningTranslationOption).

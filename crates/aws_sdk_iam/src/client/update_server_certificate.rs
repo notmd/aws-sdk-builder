@@ -10,8 +10,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateServerCertificateError>`](crate::operation::update_server_certificate::UpdateServerCertificateError)
     pub fn update_server_certificate(
         &self,
-    ) -> crate::operation::update_server_certificate::builders::UpdateServerCertificateFluentBuilder
-    {
-        crate::operation::update_server_certificate::builders::UpdateServerCertificateFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::update_server_certificate::builders::UpdateServerCertificateFluentBuilder {
+        crate::operation::update_server_certificate::builders::UpdateServerCertificateFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

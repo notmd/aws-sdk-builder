@@ -75,9 +75,9 @@ impl ::std::convert::From<&str> for ImportStatus {
             "COMPLETED" => ImportStatus::Completed,
             "FAILED" => ImportStatus::Failed,
             "IN_PROGRESS" => ImportStatus::InProgress,
-            other => ImportStatus::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => ImportStatus::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -102,13 +102,7 @@ impl ImportStatus {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &[
-            "CANCELLED",
-            "CANCELLING",
-            "COMPLETED",
-            "FAILED",
-            "IN_PROGRESS",
-        ]
+        &["CANCELLED", "CANCELLING", "COMPLETED", "FAILED", "IN_PROGRESS"]
     }
 }
 impl ::std::convert::AsRef<str> for ImportStatus {
@@ -120,14 +114,10 @@ impl ImportStatus {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }

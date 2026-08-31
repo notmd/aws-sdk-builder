@@ -29,15 +29,11 @@ impl GuardrailWordPolicyAssessment {
 }
 
 /// A builder for [`GuardrailWordPolicyAssessment`](crate::types::GuardrailWordPolicyAssessment).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailWordPolicyAssessmentBuilder {
-    pub(crate) custom_words:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailCustomWord>>,
-    pub(crate) managed_word_lists:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailManagedWord>>,
+    pub(crate) custom_words: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailCustomWord>>,
+    pub(crate) managed_word_lists: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailManagedWord>>,
 }
 impl GuardrailWordPolicyAssessmentBuilder {
     /// Appends an item to `custom_words`.
@@ -60,9 +56,7 @@ impl GuardrailWordPolicyAssessmentBuilder {
         self
     }
     /// <p>Custom words in the assessment.</p>
-    pub fn get_custom_words(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailCustomWord>> {
+    pub fn get_custom_words(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailCustomWord>> {
         &self.custom_words
     }
     /// Appends an item to `managed_word_lists`.

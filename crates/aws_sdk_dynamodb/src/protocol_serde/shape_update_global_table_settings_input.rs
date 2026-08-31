@@ -10,20 +10,20 @@ pub fn ser_update_global_table_settings_input_input(
         object.key("GlobalTableBillingMode").string(var_2.as_str());
     }
     if let Some(var_3) = &input.global_table_provisioned_write_capacity_units {
-        object
-            .key("GlobalTableProvisionedWriteCapacityUnits")
-            .number(
-                #[allow(clippy::useless_conversion)]
-                ::aws_smithy_types::Number::NegInt((*var_3).into()),
-            );
+        object.key("GlobalTableProvisionedWriteCapacityUnits").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_3).into()),
+        );
     }
-    if let Some(var_4) = &input.global_table_provisioned_write_capacity_auto_scaling_settings_update
-    {
+    if let Some(var_4) = &input.global_table_provisioned_write_capacity_auto_scaling_settings_update {
         #[allow(unused_mut)]
         let mut object_5 = object
             .key("GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate")
             .start_object();
-        crate::protocol_serde::shape_auto_scaling_settings_update::ser_auto_scaling_settings_update(&mut object_5, var_4)?;
+        crate::protocol_serde::shape_auto_scaling_settings_update::ser_auto_scaling_settings_update(
+            &mut object_5,
+            var_4,
+        )?;
         object_5.finish();
     }
     if let Some(var_6) = &input.global_table_global_secondary_index_settings_update {

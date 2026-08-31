@@ -3,9 +3,7 @@ pub use crate::operation::list_organizations_features::_list_organizations_featu
 
 pub use crate::operation::list_organizations_features::_list_organizations_features_output::ListOrganizationsFeaturesOutputBuilder;
 
-impl
-    crate::operation::list_organizations_features::builders::ListOrganizationsFeaturesInputBuilder
-{
+impl crate::operation::list_organizations_features::builders::ListOrganizationsFeaturesInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -59,7 +57,9 @@ impl ListOrganizationsFeaturesFluentBuilder {
         }
     }
     /// Access the ListOrganizationsFeatures as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_organizations_features::builders::ListOrganizationsFeaturesInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_organizations_features::builders::ListOrganizationsFeaturesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,16 +83,14 @@ impl ListOrganizationsFeaturesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_organizations_features::ListOrganizationsFeatures::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_organizations_features::ListOrganizationsFeatures::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::list_organizations_features::ListOrganizationsFeatures::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_organizations_features::ListOrganizationsFeatures::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

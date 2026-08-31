@@ -48,14 +48,12 @@ pub struct InitiateAuthOutput {
     pub session: ::std::option::Option<::std::string::String>,
     /// <p>The required parameters of the <code>ChallengeName</code> challenge.</p>
     /// <p>All challenges require <code>USERNAME</code>. They also require <code>SECRET_HASH</code> if your app client has a client secret.</p>
-    pub challenge_parameters: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub challenge_parameters:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>The result of a successful and complete authentication request. This result is only returned if the user doesn't need to pass another challenge. If they must pass another challenge before they get tokens, Amazon Cognito returns a challenge in <code>ChallengeName</code>, <code>ChallengeParameters</code>, and <code>Session</code> response parameters.</p>
     pub authentication_result: ::std::option::Option<crate::types::AuthenticationResultType>,
     /// <p>This response parameter lists the available authentication challenges that users can select from in <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-selection-sdk.html#authentication-flows-selection-choice">choice-based authentication</a>. For example, they might be able to choose between passkey authentication, a one-time password from an SMS message, and a traditional password.</p>
-    pub available_challenges:
-        ::std::option::Option<::std::vec::Vec<crate::types::ChallengeNameType>>,
+    pub available_challenges: ::std::option::Option<::std::vec::Vec<crate::types::ChallengeNameType>>,
     _request_id: Option<String>,
 }
 impl InitiateAuthOutput {
@@ -109,15 +107,11 @@ impl InitiateAuthOutput {
     /// <p>All challenges require <code>USERNAME</code>. They also require <code>SECRET_HASH</code> if your app client has a client secret.</p>
     pub fn challenge_parameters(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.challenge_parameters.as_ref()
     }
     /// <p>The result of a successful and complete authentication request. This result is only returned if the user doesn't need to pass another challenge. If they must pass another challenge before they get tokens, Amazon Cognito returns a challenge in <code>ChallengeName</code>, <code>ChallengeParameters</code>, and <code>Session</code> response parameters.</p>
-    pub fn authentication_result(
-        &self,
-    ) -> ::std::option::Option<&crate::types::AuthenticationResultType> {
+    pub fn authentication_result(&self) -> ::std::option::Option<&crate::types::AuthenticationResultType> {
         self.authentication_result.as_ref()
     }
     /// <p>This response parameter lists the available authentication challenges that users can select from in <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-selection-sdk.html#authentication-flows-selection-choice">choice-based authentication</a>. For example, they might be able to choose between passkey authentication, a one-time password from an SMS message, and a traditional password.</p>
@@ -157,12 +151,10 @@ impl InitiateAuthOutput {
 pub struct InitiateAuthOutputBuilder {
     pub(crate) challenge_name: ::std::option::Option<crate::types::ChallengeNameType>,
     pub(crate) session: ::std::option::Option<::std::string::String>,
-    pub(crate) challenge_parameters: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) challenge_parameters:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) authentication_result: ::std::option::Option<crate::types::AuthenticationResultType>,
-    pub(crate) available_challenges:
-        ::std::option::Option<::std::vec::Vec<crate::types::ChallengeNameType>>,
+    pub(crate) available_challenges: ::std::option::Option<::std::vec::Vec<crate::types::ChallengeNameType>>,
     _request_id: Option<String>,
 }
 impl InitiateAuthOutputBuilder {
@@ -248,10 +240,7 @@ impl InitiateAuthOutputBuilder {
     /// <p>To set up time-based one-time password (TOTP) MFA, use the session returned in this challenge from <code>InitiateAuth</code> or <code>AdminInitiateAuth</code> as an input to <code>AssociateSoftwareToken</code>. Then, use the session returned by <code>VerifySoftwareToken</code> as an input to <code>RespondToAuthChallenge</code> or <code>AdminRespondToAuthChallenge</code> with challenge name <code>MFA_SETUP</code> to complete sign-in.</p>
     /// <p>To set up SMS or email MFA, collect a <code>phone_number</code> or <code>email</code> attribute for the user. Then restart the authentication flow with an <code>InitiateAuth</code> or <code>AdminInitiateAuth</code> request.</p></li>
     /// </ul>
-    pub fn set_challenge_name(
-        mut self,
-        input: ::std::option::Option<crate::types::ChallengeNameType>,
-    ) -> Self {
+    pub fn set_challenge_name(mut self, input: ::std::option::Option<crate::types::ChallengeNameType>) -> Self {
         self.challenge_name = input;
         self
     }
@@ -331,9 +320,7 @@ impl InitiateAuthOutputBuilder {
     /// <p>All challenges require <code>USERNAME</code>. They also require <code>SECRET_HASH</code> if your app client has a client secret.</p>
     pub fn set_challenge_parameters(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.challenge_parameters = input;
         self
@@ -342,9 +329,7 @@ impl InitiateAuthOutputBuilder {
     /// <p>All challenges require <code>USERNAME</code>. They also require <code>SECRET_HASH</code> if your app client has a client secret.</p>
     pub fn get_challenge_parameters(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.challenge_parameters
     }
     /// <p>The result of a successful and complete authentication request. This result is only returned if the user doesn't need to pass another challenge. If they must pass another challenge before they get tokens, Amazon Cognito returns a challenge in <code>ChallengeName</code>, <code>ChallengeParameters</code>, and <code>Session</code> response parameters.</p>
@@ -361,9 +346,7 @@ impl InitiateAuthOutputBuilder {
         self
     }
     /// <p>The result of a successful and complete authentication request. This result is only returned if the user doesn't need to pass another challenge. If they must pass another challenge before they get tokens, Amazon Cognito returns a challenge in <code>ChallengeName</code>, <code>ChallengeParameters</code>, and <code>Session</code> response parameters.</p>
-    pub fn get_authentication_result(
-        &self,
-    ) -> &::std::option::Option<crate::types::AuthenticationResultType> {
+    pub fn get_authentication_result(&self) -> &::std::option::Option<crate::types::AuthenticationResultType> {
         &self.authentication_result
     }
     /// Appends an item to `available_challenges`.
@@ -386,9 +369,7 @@ impl InitiateAuthOutputBuilder {
         self
     }
     /// <p>This response parameter lists the available authentication challenges that users can select from in <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-selection-sdk.html#authentication-flows-selection-choice">choice-based authentication</a>. For example, they might be able to choose between passkey authentication, a one-time password from an SMS message, and a traditional password.</p>
-    pub fn get_available_challenges(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ChallengeNameType>> {
+    pub fn get_available_challenges(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ChallengeNameType>> {
         &self.available_challenges
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

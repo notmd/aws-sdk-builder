@@ -35,9 +35,7 @@ impl AdminLinkProviderForUserInput {
     /// <p>The <code>ProviderName</code> should be set to <code>Cognito</code> for users in Cognito user pools.</p><important>
     /// <p>All attributes in the DestinationUser profile must be mutable. If you have assigned the user any immutable custom attributes, the operation won't succeed.</p>
     /// </important>
-    pub fn destination_user(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ProviderUserIdentifierType> {
+    pub fn destination_user(&self) -> ::std::option::Option<&crate::types::ProviderUserIdentifierType> {
         self.destination_user.as_ref()
     }
     /// <p>An external IdP account for a user who doesn't exist yet in the user pool. This user must be a federated user (for example, a SAML or Facebook user), not another native user.</p>
@@ -56,15 +54,13 @@ impl AdminLinkProviderForUserInput {
 }
 impl AdminLinkProviderForUserInput {
     /// Creates a new builder-style object to manufacture [`AdminLinkProviderForUserInput`](crate::operation::admin_link_provider_for_user::AdminLinkProviderForUserInput).
-    pub fn builder() -> crate::operation::admin_link_provider_for_user::builders::AdminLinkProviderForUserInputBuilder{
+    pub fn builder() -> crate::operation::admin_link_provider_for_user::builders::AdminLinkProviderForUserInputBuilder {
         crate::operation::admin_link_provider_for_user::builders::AdminLinkProviderForUserInputBuilder::default()
     }
 }
 
 /// A builder for [`AdminLinkProviderForUserInput`](crate::operation::admin_link_provider_for_user::AdminLinkProviderForUserInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AdminLinkProviderForUserInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
@@ -117,9 +113,7 @@ impl AdminLinkProviderForUserInputBuilder {
     /// <p>The <code>ProviderName</code> should be set to <code>Cognito</code> for users in Cognito user pools.</p><important>
     /// <p>All attributes in the DestinationUser profile must be mutable. If you have assigned the user any immutable custom attributes, the operation won't succeed.</p>
     /// </important>
-    pub fn get_destination_user(
-        &self,
-    ) -> &::std::option::Option<crate::types::ProviderUserIdentifierType> {
+    pub fn get_destination_user(&self) -> &::std::option::Option<crate::types::ProviderUserIdentifierType> {
         &self.destination_user
     }
     /// <p>An external IdP account for a user who doesn't exist yet in the user pool. This user must be a federated user (for example, a SAML or Facebook user), not another native user.</p>
@@ -147,10 +141,7 @@ impl AdminLinkProviderForUserInputBuilder {
     /// <li>
     /// <p>When you set <code>ProviderAttributeName</code> to <code>Cognito_Subject</code>, Amazon Cognito will automatically parse the default unique identifier found in the subject from the IdP token.</p></li>
     /// </ul>
-    pub fn set_source_user(
-        mut self,
-        input: ::std::option::Option<crate::types::ProviderUserIdentifierType>,
-    ) -> Self {
+    pub fn set_source_user(mut self, input: ::std::option::Option<crate::types::ProviderUserIdentifierType>) -> Self {
         self.source_user = input;
         self
     }
@@ -164,9 +155,7 @@ impl AdminLinkProviderForUserInputBuilder {
     /// <li>
     /// <p>When you set <code>ProviderAttributeName</code> to <code>Cognito_Subject</code>, Amazon Cognito will automatically parse the default unique identifier found in the subject from the IdP token.</p></li>
     /// </ul>
-    pub fn get_source_user(
-        &self,
-    ) -> &::std::option::Option<crate::types::ProviderUserIdentifierType> {
+    pub fn get_source_user(&self) -> &::std::option::Option<crate::types::ProviderUserIdentifierType> {
         &self.source_user
     }
     /// Consumes the builder and constructs a [`AdminLinkProviderForUserInput`](crate::operation::admin_link_provider_for_user::AdminLinkProviderForUserInput).

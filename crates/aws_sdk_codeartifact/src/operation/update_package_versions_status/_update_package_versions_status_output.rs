@@ -5,15 +5,11 @@
 pub struct UpdatePackageVersionsStatusOutput {
     /// <p>A list of <code>PackageVersionError</code> objects, one for each package version with a status that failed to update.</p>
     pub successful_versions: ::std::option::Option<
-        ::std::collections::HashMap<
-            ::std::string::String,
-            crate::types::SuccessfulPackageVersionInfo,
-        >,
+        ::std::collections::HashMap<::std::string::String, crate::types::SuccessfulPackageVersionInfo>,
     >,
     /// <p>A list of <code>SuccessfulPackageVersionInfo</code> objects, one for each package version with a status that successfully updated.</p>
-    pub failed_versions: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>,
-    >,
+    pub failed_versions:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>>,
     _request_id: Option<String>,
 }
 impl UpdatePackageVersionsStatusOutput {
@@ -21,19 +17,15 @@ impl UpdatePackageVersionsStatusOutput {
     pub fn successful_versions(
         &self,
     ) -> ::std::option::Option<
-        &::std::collections::HashMap<
-            ::std::string::String,
-            crate::types::SuccessfulPackageVersionInfo,
-        >,
+        &::std::collections::HashMap<::std::string::String, crate::types::SuccessfulPackageVersionInfo>,
     > {
         self.successful_versions.as_ref()
     }
     /// <p>A list of <code>SuccessfulPackageVersionInfo</code> objects, one for each package version with a status that successfully updated.</p>
     pub fn failed_versions(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>>
+    {
         self.failed_versions.as_ref()
     }
 }
@@ -44,26 +36,21 @@ impl ::aws_types::request_id::RequestId for UpdatePackageVersionsStatusOutput {
 }
 impl UpdatePackageVersionsStatusOutput {
     /// Creates a new builder-style object to manufacture [`UpdatePackageVersionsStatusOutput`](crate::operation::update_package_versions_status::UpdatePackageVersionsStatusOutput).
-    pub fn builder() -> crate::operation::update_package_versions_status::builders::UpdatePackageVersionsStatusOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::update_package_versions_status::builders::UpdatePackageVersionsStatusOutputBuilder {
         crate::operation::update_package_versions_status::builders::UpdatePackageVersionsStatusOutputBuilder::default()
     }
 }
 
 /// A builder for [`UpdatePackageVersionsStatusOutput`](crate::operation::update_package_versions_status::UpdatePackageVersionsStatusOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdatePackageVersionsStatusOutputBuilder {
     pub(crate) successful_versions: ::std::option::Option<
-        ::std::collections::HashMap<
-            ::std::string::String,
-            crate::types::SuccessfulPackageVersionInfo,
-        >,
+        ::std::collections::HashMap<::std::string::String, crate::types::SuccessfulPackageVersionInfo>,
     >,
-    pub(crate) failed_versions: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>,
-    >,
+    pub(crate) failed_versions:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>>,
     _request_id: Option<String>,
 }
 impl UpdatePackageVersionsStatusOutputBuilder {
@@ -86,10 +73,7 @@ impl UpdatePackageVersionsStatusOutputBuilder {
     pub fn set_successful_versions(
         mut self,
         input: ::std::option::Option<
-            ::std::collections::HashMap<
-                ::std::string::String,
-                crate::types::SuccessfulPackageVersionInfo,
-            >,
+            ::std::collections::HashMap<::std::string::String, crate::types::SuccessfulPackageVersionInfo>,
         >,
     ) -> Self {
         self.successful_versions = input;
@@ -99,10 +83,7 @@ impl UpdatePackageVersionsStatusOutputBuilder {
     pub fn get_successful_versions(
         &self,
     ) -> &::std::option::Option<
-        ::std::collections::HashMap<
-            ::std::string::String,
-            crate::types::SuccessfulPackageVersionInfo,
-        >,
+        ::std::collections::HashMap<::std::string::String, crate::types::SuccessfulPackageVersionInfo>,
     > {
         &self.successful_versions
     }
@@ -134,9 +115,8 @@ impl UpdatePackageVersionsStatusOutputBuilder {
     /// <p>A list of <code>SuccessfulPackageVersionInfo</code> objects, one for each package version with a status that successfully updated.</p>
     pub fn get_failed_versions(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PackageVersionError>>
+    {
         &self.failed_versions
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -149,9 +129,7 @@ impl UpdatePackageVersionsStatusOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdatePackageVersionsStatusOutput`](crate::operation::update_package_versions_status::UpdatePackageVersionsStatusOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::update_package_versions_status::UpdatePackageVersionsStatusOutput {
+    pub fn build(self) -> crate::operation::update_package_versions_status::UpdatePackageVersionsStatusOutput {
         crate::operation::update_package_versions_status::UpdatePackageVersionsStatusOutput {
             successful_versions: self.successful_versions,
             failed_versions: self.failed_versions,

@@ -10,8 +10,6 @@ impl super::Client {
     pub fn cancel_key_deletion(
         &self,
     ) -> crate::operation::cancel_key_deletion::builders::CancelKeyDeletionFluentBuilder {
-        crate::operation::cancel_key_deletion::builders::CancelKeyDeletionFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::cancel_key_deletion::builders::CancelKeyDeletionFluentBuilder::new(self.handle.clone())
     }
 }

@@ -23,9 +23,7 @@ impl LowerCaseString {
 }
 
 /// A builder for [`LowerCaseString`](crate::types::LowerCaseString).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct LowerCaseStringBuilder {
     pub(crate) with_keys: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -43,10 +41,7 @@ impl LowerCaseStringBuilder {
         self
     }
     /// <p>The array caontaining the keys of the fields to convert to lowercase.</p>
-    pub fn set_with_keys(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_with_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.with_keys = input;
         self
     }
@@ -59,10 +54,7 @@ impl LowerCaseStringBuilder {
     /// - [`with_keys`](crate::types::builders::LowerCaseStringBuilder::with_keys)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::LowerCaseString,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::LowerCaseString, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::LowerCaseString {
             with_keys: self.with_keys.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

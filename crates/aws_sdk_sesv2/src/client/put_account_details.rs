@@ -14,8 +14,6 @@ impl super::Client {
     pub fn put_account_details(
         &self,
     ) -> crate::operation::put_account_details::builders::PutAccountDetailsFluentBuilder {
-        crate::operation::put_account_details::builders::PutAccountDetailsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::put_account_details::builders::PutAccountDetailsFluentBuilder::new(self.handle.clone())
     }
 }

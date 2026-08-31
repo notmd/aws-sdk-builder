@@ -7,17 +7,15 @@ pub(crate) fn de_legal_hold_payload(
 > {
     (!body.is_empty())
         .then(|| {
-            crate::protocol_serde::shape_get_object_legal_hold_output::de_legal_hold(body).map_err(
-                crate::operation::get_object_legal_hold::GetObjectLegalHoldError::unhandled,
-            )
+            crate::protocol_serde::shape_get_object_legal_hold_output::de_legal_hold(body)
+                .map_err(crate::operation::get_object_legal_hold::GetObjectLegalHoldError::unhandled)
         })
         .transpose()
 }
 
 pub fn de_legal_hold(
     inp: &[u8],
-) -> std::result::Result<crate::types::ObjectLockLegalHold, ::aws_smithy_xml::decode::XmlDecodeError>
-{
+) -> std::result::Result<crate::types::ObjectLockLegalHold, ::aws_smithy_xml::decode::XmlDecodeError> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
     #[allow(unused_mut)]
     let mut decoder = doc.root_element()?;
@@ -29,8 +27,5 @@ pub fn de_legal_hold(
     }
     #[allow(unused_variables)]
     let depth = 0u32;
-    crate::protocol_serde::shape_object_lock_legal_hold::de_object_lock_legal_hold(
-        &mut decoder,
-        depth + 1,
-    )
+    crate::protocol_serde::shape_object_lock_legal_hold::de_object_lock_legal_hold(&mut decoder, depth + 1)
 }

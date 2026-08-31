@@ -114,19 +114,13 @@ pub use crate::types::_aggregator_filters::AggregatorFiltersBuilder;
 ))]
 pub use crate::types::_configuration_aggregator::ConfigurationAggregatorBuilder;
 
-#[cfg(any(
-    feature = "op_describe_conformance_packs",
-    feature = "op_put_conformance_pack"
-))]
+#[cfg(any(feature = "op_describe_conformance_packs", feature = "op_put_conformance_pack"))]
 pub use crate::types::_template_ssm_document_details::TemplateSsmDocumentDetailsBuilder;
 
 #[cfg(any(feature = "op_get_connector", feature = "op_put_connector"))]
 pub use crate::types::_connector_configuration::ConnectorConfigurationBuilder;
 
-#[cfg(any(
-    feature = "op_describe_delivery_channels",
-    feature = "op_put_delivery_channel"
-))]
+#[cfg(any(feature = "op_describe_delivery_channels", feature = "op_put_delivery_channel"))]
 pub use crate::types::_delivery_channel::DeliveryChannelBuilder;
 
 #[cfg(feature = "op_put_external_evaluation")]
@@ -395,10 +389,7 @@ pub use crate::types::_conformance_pack_input_parameter::ConformancePackInputPar
 #[cfg(any(feature = "op_get_connector", feature = "op_put_connector"))]
 pub use crate::types::_azure_connector_configuration::AzureConnectorConfigurationBuilder;
 
-#[cfg(any(
-    feature = "op_describe_delivery_channels",
-    feature = "op_put_delivery_channel"
-))]
+#[cfg(any(feature = "op_describe_delivery_channels", feature = "op_put_delivery_channel"))]
 pub use crate::types::_config_snapshot_delivery_properties::ConfigSnapshotDeliveryPropertiesBuilder;
 
 #[cfg(feature = "op_put_evaluations")]

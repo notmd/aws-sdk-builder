@@ -3,9 +3,7 @@ pub use crate::operation::create_o_auth2_token_with_iam::_create_o_auth2_token_w
 
 pub use crate::operation::create_o_auth2_token_with_iam::_create_o_auth2_token_with_iam_output::CreateOAuth2TokenWithIamOutputBuilder;
 
-impl
-    crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIamInputBuilder
-{
+impl crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIamInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -59,7 +57,9 @@ impl CreateOAuth2TokenWithIAMFluentBuilder {
         }
     }
     /// Access the CreateOAuth2TokenWithIAM as a reference.
-    pub fn as_input(&self) -> &crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIamInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::create_o_auth2_token_with_iam::builders::CreateOAuth2TokenWithIamInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,16 +83,14 @@ impl CreateOAuth2TokenWithIAMFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAM::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAM::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAM::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::create_o_auth2_token_with_iam::CreateOAuth2TokenWithIAM::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

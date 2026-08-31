@@ -16,8 +16,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListDiscoveredResourcesError>`](crate::operation::list_discovered_resources::ListDiscoveredResourcesError)
     pub fn list_discovered_resources(
         &self,
-    ) -> crate::operation::list_discovered_resources::builders::ListDiscoveredResourcesFluentBuilder
-    {
-        crate::operation::list_discovered_resources::builders::ListDiscoveredResourcesFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::list_discovered_resources::builders::ListDiscoveredResourcesFluentBuilder {
+        crate::operation::list_discovered_resources::builders::ListDiscoveredResourcesFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

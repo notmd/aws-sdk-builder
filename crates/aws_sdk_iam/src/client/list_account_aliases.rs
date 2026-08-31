@@ -14,8 +14,6 @@ impl super::Client {
     pub fn list_account_aliases(
         &self,
     ) -> crate::operation::list_account_aliases::builders::ListAccountAliasesFluentBuilder {
-        crate::operation::list_account_aliases::builders::ListAccountAliasesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::list_account_aliases::builders::ListAccountAliasesFluentBuilder::new(self.handle.clone())
     }
 }

@@ -73,9 +73,7 @@ impl MultiRegionEndpoint {
 }
 
 /// A builder for [`MultiRegionEndpoint`](crate::types::MultiRegionEndpoint).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct MultiRegionEndpointBuilder {
     pub(crate) endpoint_name: ::std::option::Option<::std::string::String>,
@@ -87,18 +85,12 @@ pub struct MultiRegionEndpointBuilder {
 }
 impl MultiRegionEndpointBuilder {
     /// <p>The name of the multi-region endpoint (global-endpoint).</p>
-    pub fn endpoint_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn endpoint_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.endpoint_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the multi-region endpoint (global-endpoint).</p>
-    pub fn set_endpoint_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_endpoint_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.endpoint_name = input;
         self
     }
@@ -176,10 +168,7 @@ impl MultiRegionEndpointBuilder {
         self
     }
     /// <p>Primary and secondary regions between which multi-region endpoint splits sending traffic.</p>
-    pub fn set_regions(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_regions(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.regions = input;
         self
     }
@@ -193,10 +182,7 @@ impl MultiRegionEndpointBuilder {
         self
     }
     /// <p>The time stamp of when the multi-region endpoint (global-endpoint) was created.</p>
-    pub fn set_created_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_created_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.created_timestamp = input;
         self
     }
@@ -210,17 +196,12 @@ impl MultiRegionEndpointBuilder {
         self
     }
     /// <p>The time stamp of when the multi-region endpoint (global-endpoint) was last updated.</p>
-    pub fn set_last_updated_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_last_updated_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_updated_timestamp = input;
         self
     }
     /// <p>The time stamp of when the multi-region endpoint (global-endpoint) was last updated.</p>
-    pub fn get_last_updated_timestamp(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_last_updated_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.last_updated_timestamp
     }
     /// Consumes the builder and constructs a [`MultiRegionEndpoint`](crate::types::MultiRegionEndpoint).

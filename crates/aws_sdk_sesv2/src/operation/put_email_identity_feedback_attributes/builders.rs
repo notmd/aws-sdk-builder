@@ -3,7 +3,9 @@ pub use crate::operation::put_email_identity_feedback_attributes::_put_email_ide
 
 pub use crate::operation::put_email_identity_feedback_attributes::_put_email_identity_feedback_attributes_output::PutEmailIdentityFeedbackAttributesOutputBuilder;
 
-impl crate::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesInputBuilder {
+impl
+    crate::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -78,7 +80,7 @@ impl PutEmailIdentityFeedbackAttributesFluentBuilder {
             crate::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -88,7 +90,11 @@ impl PutEmailIdentityFeedbackAttributesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributes::orchestrate(&runtime_plugins, input).await
+        crate::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributes::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -98,7 +104,7 @@ impl PutEmailIdentityFeedbackAttributesFluentBuilder {
         crate::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesOutput,
         crate::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -117,18 +123,12 @@ impl PutEmailIdentityFeedbackAttributesFluentBuilder {
         self
     }
     /// <p>The email identity.</p>
-    pub fn email_identity(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_identity(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.email_identity(input.into());
         self
     }
     /// <p>The email identity.</p>
-    pub fn set_email_identity(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_identity(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_email_identity(input);
         self
     }

@@ -113,9 +113,7 @@ impl ::std::convert::From<&str> for GrantOperation {
             "Encrypt" => GrantOperation::Encrypt,
             "GenerateDataKey" => GrantOperation::GenerateDataKey,
             "GenerateDataKeyPair" => GrantOperation::GenerateDataKeyPair,
-            "GenerateDataKeyPairWithoutPlaintext" => {
-                GrantOperation::GenerateDataKeyPairWithoutPlaintext
-            }
+            "GenerateDataKeyPairWithoutPlaintext" => GrantOperation::GenerateDataKeyPairWithoutPlaintext,
             "GenerateDataKeyWithoutPlaintext" => GrantOperation::GenerateDataKeyWithoutPlaintext,
             "GenerateMac" => GrantOperation::GenerateMac,
             "GetPublicKey" => GrantOperation::GetPublicKey,
@@ -125,9 +123,9 @@ impl ::std::convert::From<&str> for GrantOperation {
             "Sign" => GrantOperation::Sign,
             "Verify" => GrantOperation::Verify,
             "VerifyMac" => GrantOperation::VerifyMac,
-            other => GrantOperation::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => GrantOperation::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -149,9 +147,7 @@ impl GrantOperation {
             GrantOperation::Encrypt => "Encrypt",
             GrantOperation::GenerateDataKey => "GenerateDataKey",
             GrantOperation::GenerateDataKeyPair => "GenerateDataKeyPair",
-            GrantOperation::GenerateDataKeyPairWithoutPlaintext => {
-                "GenerateDataKeyPairWithoutPlaintext"
-            }
+            GrantOperation::GenerateDataKeyPairWithoutPlaintext => "GenerateDataKeyPairWithoutPlaintext",
             GrantOperation::GenerateDataKeyWithoutPlaintext => "GenerateDataKeyWithoutPlaintext",
             GrantOperation::GenerateMac => "GenerateMac",
             GrantOperation::GetPublicKey => "GetPublicKey",
@@ -196,14 +192,10 @@ impl GrantOperation {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -218,12 +210,8 @@ impl ::std::fmt::Display for GrantOperation {
             GrantOperation::Encrypt => write!(f, "Encrypt"),
             GrantOperation::GenerateDataKey => write!(f, "GenerateDataKey"),
             GrantOperation::GenerateDataKeyPair => write!(f, "GenerateDataKeyPair"),
-            GrantOperation::GenerateDataKeyPairWithoutPlaintext => {
-                write!(f, "GenerateDataKeyPairWithoutPlaintext")
-            }
-            GrantOperation::GenerateDataKeyWithoutPlaintext => {
-                write!(f, "GenerateDataKeyWithoutPlaintext")
-            }
+            GrantOperation::GenerateDataKeyPairWithoutPlaintext => write!(f, "GenerateDataKeyPairWithoutPlaintext"),
+            GrantOperation::GenerateDataKeyWithoutPlaintext => write!(f, "GenerateDataKeyWithoutPlaintext"),
             GrantOperation::GenerateMac => write!(f, "GenerateMac"),
             GrantOperation::GetPublicKey => write!(f, "GetPublicKey"),
             GrantOperation::ReEncryptFrom => write!(f, "ReEncryptFrom"),

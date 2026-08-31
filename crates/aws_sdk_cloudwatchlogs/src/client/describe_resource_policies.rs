@@ -13,8 +13,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeResourcePoliciesError>`](crate::operation::describe_resource_policies::DescribeResourcePoliciesError)
     pub fn describe_resource_policies(
         &self,
-    ) -> crate::operation::describe_resource_policies::builders::DescribeResourcePoliciesFluentBuilder
-    {
-        crate::operation::describe_resource_policies::builders::DescribeResourcePoliciesFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::describe_resource_policies::builders::DescribeResourcePoliciesFluentBuilder {
+        crate::operation::describe_resource_policies::builders::DescribeResourcePoliciesFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

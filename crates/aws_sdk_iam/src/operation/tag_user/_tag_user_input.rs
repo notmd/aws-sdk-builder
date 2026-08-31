@@ -30,9 +30,7 @@ impl TagUserInput {
 }
 
 /// A builder for [`TagUserInput`](crate::operation::tag_user::TagUserInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TagUserInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -69,10 +67,7 @@ impl TagUserInputBuilder {
         self
     }
     /// <p>The list of tags that you want to attach to the IAM user. Each tag consists of a key name and an associated value.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
@@ -83,10 +78,8 @@ impl TagUserInputBuilder {
     /// Consumes the builder and constructs a [`TagUserInput`](crate::operation::tag_user::TagUserInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::tag_user::TagUserInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::tag_user::TagUserInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::operation::tag_user::TagUserInput {
             user_name: self.user_name,
             tags: self.tags,

@@ -9,8 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GenerateCredentialReportError>`](crate::operation::generate_credential_report::GenerateCredentialReportError)
     pub fn generate_credential_report(
         &self,
-    ) -> crate::operation::generate_credential_report::builders::GenerateCredentialReportFluentBuilder
-    {
-        crate::operation::generate_credential_report::builders::GenerateCredentialReportFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::generate_credential_report::builders::GenerateCredentialReportFluentBuilder {
+        crate::operation::generate_credential_report::builders::GenerateCredentialReportFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

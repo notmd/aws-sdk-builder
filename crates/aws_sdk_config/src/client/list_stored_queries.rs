@@ -13,8 +13,6 @@ impl super::Client {
     pub fn list_stored_queries(
         &self,
     ) -> crate::operation::list_stored_queries::builders::ListStoredQueriesFluentBuilder {
-        crate::operation::list_stored_queries::builders::ListStoredQueriesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::list_stored_queries::builders::ListStoredQueriesFluentBuilder::new(self.handle.clone())
     }
 }

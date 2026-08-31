@@ -16,7 +16,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeConfigurationTemplatesError>`](crate::operation::describe_configuration_templates::DescribeConfigurationTemplatesError)
     pub fn describe_configuration_templates(
         &self,
-    ) -> crate::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesFluentBuilder{
-        crate::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesFluentBuilder {
+        crate::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

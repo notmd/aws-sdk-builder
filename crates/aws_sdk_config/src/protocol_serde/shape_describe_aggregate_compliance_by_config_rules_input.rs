@@ -4,14 +4,15 @@ pub fn ser_describe_aggregate_compliance_by_config_rules_input_input(
     input: &crate::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRulesInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     if let Some(var_1) = &input.configuration_aggregator_name {
-        object
-            .key("ConfigurationAggregatorName")
-            .string(var_1.as_str());
+        object.key("ConfigurationAggregatorName").string(var_1.as_str());
     }
     if let Some(var_2) = &input.filters {
         #[allow(unused_mut)]
         let mut object_3 = object.key("Filters").start_object();
-        crate::protocol_serde::shape_config_rule_compliance_filters::ser_config_rule_compliance_filters(&mut object_3, var_2)?;
+        crate::protocol_serde::shape_config_rule_compliance_filters::ser_config_rule_compliance_filters(
+            &mut object_3,
+            var_2,
+        )?;
         object_3.finish();
     }
     if let Some(var_4) = &input.limit {

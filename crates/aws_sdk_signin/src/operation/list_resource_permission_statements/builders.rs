@@ -26,7 +26,8 @@ impl crate::operation::list_resource_permission_statements::builders::ListResour
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListResourcePermissionStatementsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::list_resource_permission_statements::builders::ListResourcePermissionStatementsInputBuilder,
+    inner:
+        crate::operation::list_resource_permission_statements::builders::ListResourcePermissionStatementsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -57,7 +58,10 @@ impl ListResourcePermissionStatementsFluentBuilder {
         }
     }
     /// Access the ListResourcePermissionStatements as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_resource_permission_statements::builders::ListResourcePermissionStatementsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_resource_permission_statements::builders::ListResourcePermissionStatementsInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +80,7 @@ impl ListResourcePermissionStatementsFluentBuilder {
             crate::operation::list_resource_permission_statements::ListResourcePermissionStatementsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +90,11 @@ impl ListResourcePermissionStatementsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_resource_permission_statements::ListResourcePermissionStatements::orchestrate(&runtime_plugins, input).await
+        crate::operation::list_resource_permission_statements::ListResourcePermissionStatements::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +104,7 @@ impl ListResourcePermissionStatementsFluentBuilder {
         crate::operation::list_resource_permission_statements::ListResourcePermissionStatementsOutput,
         crate::operation::list_resource_permission_statements::ListResourcePermissionStatementsError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -117,8 +125,14 @@ impl ListResourcePermissionStatementsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_resource_permission_statements::paginator::ListResourcePermissionStatementsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_resource_permission_statements::paginator::ListResourcePermissionStatementsPaginator{
-        crate::operation::list_resource_permission_statements::paginator::ListResourcePermissionStatementsPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::list_resource_permission_statements::paginator::ListResourcePermissionStatementsPaginator
+    {
+        crate::operation::list_resource_permission_statements::paginator::ListResourcePermissionStatementsPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// Maximum number of results to return
     pub fn max_results(mut self, input: i32) -> Self {

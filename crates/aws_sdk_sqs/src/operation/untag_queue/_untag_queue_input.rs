@@ -28,9 +28,7 @@ impl UntagQueueInput {
 }
 
 /// A builder for [`UntagQueueInput`](crate::operation::untag_queue::UntagQueueInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UntagQueueInputBuilder {
     pub(crate) queue_url: ::std::option::Option<::std::string::String>,
@@ -64,10 +62,7 @@ impl UntagQueueInputBuilder {
         self
     }
     /// <p>The list of tags to be removed from the specified queue.</p>
-    pub fn set_tag_keys(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.tag_keys = input;
         self
     }

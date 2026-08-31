@@ -51,7 +51,7 @@ impl
             crate::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamOutput,
             crate::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -65,7 +65,9 @@ impl InvokeModelWithResponseStreamFluentBuilder {
         }
     }
     /// Access the InvokeModelWithResponseStream as a reference.
-    pub fn as_input(&self) -> &crate::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::invoke_model_with_response_stream::builders::InvokeModelWithResponseStreamInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -94,7 +96,11 @@ impl InvokeModelWithResponseStreamFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::invoke_model_with_response_stream::InvokeModelWithResponseStream::orchestrate(&runtime_plugins, input).await
+        crate::operation::invoke_model_with_response_stream::InvokeModelWithResponseStream::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -241,10 +247,7 @@ impl InvokeModelWithResponseStreamFluentBuilder {
     /// <li>
     /// <p>You provide a guardrail identifier, but <code>guardrailVersion</code> isn't specified.</p></li>
     /// </ul>
-    pub fn guardrail_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn guardrail_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.guardrail_identifier(input.into());
         self
     }
@@ -258,10 +261,7 @@ impl InvokeModelWithResponseStreamFluentBuilder {
     /// <li>
     /// <p>You provide a guardrail identifier, but <code>guardrailVersion</code> isn't specified.</p></li>
     /// </ul>
-    pub fn set_guardrail_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_guardrail_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_guardrail_identifier(input);
         self
     }
@@ -279,18 +279,12 @@ impl InvokeModelWithResponseStreamFluentBuilder {
         self.inner.get_guardrail_identifier()
     }
     /// <p>The version number for the guardrail. The value can also be <code>DRAFT</code>.</p>
-    pub fn guardrail_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn guardrail_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.guardrail_version(input.into());
         self
     }
     /// <p>The version number for the guardrail. The value can also be <code>DRAFT</code>.</p>
-    pub fn set_guardrail_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_guardrail_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_guardrail_version(input);
         self
     }
@@ -299,10 +293,7 @@ impl InvokeModelWithResponseStreamFluentBuilder {
         self.inner.get_guardrail_version()
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn performance_config_latency(
-        mut self,
-        input: crate::types::PerformanceConfigLatency,
-    ) -> Self {
+    pub fn performance_config_latency(mut self, input: crate::types::PerformanceConfigLatency) -> Self {
         self.inner = self.inner.performance_config_latency(input);
         self
     }
@@ -315,9 +306,7 @@ impl InvokeModelWithResponseStreamFluentBuilder {
         self
     }
     /// <p>Model performance settings for the request.</p>
-    pub fn get_performance_config_latency(
-        &self,
-    ) -> &::std::option::Option<crate::types::PerformanceConfigLatency> {
+    pub fn get_performance_config_latency(&self) -> &::std::option::Option<crate::types::PerformanceConfigLatency> {
         self.inner.get_performance_config_latency()
     }
     /// <p>Specifies the processing tier type used for serving the request.</p>
@@ -326,10 +315,7 @@ impl InvokeModelWithResponseStreamFluentBuilder {
         self
     }
     /// <p>Specifies the processing tier type used for serving the request.</p>
-    pub fn set_service_tier(
-        mut self,
-        input: ::std::option::Option<crate::types::ServiceTierType>,
-    ) -> Self {
+    pub fn set_service_tier(mut self, input: ::std::option::Option<crate::types::ServiceTierType>) -> Self {
         self.inner = self.inner.set_service_tier(input);
         self
     }
@@ -338,18 +324,12 @@ impl InvokeModelWithResponseStreamFluentBuilder {
         self.inner.get_service_tier()
     }
     /// <p>Key-value pairs that you can use to filter invocation logs.</p>
-    pub fn request_metadata(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn request_metadata(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.request_metadata(input.into());
         self
     }
     /// <p>Key-value pairs that you can use to filter invocation logs.</p>
-    pub fn set_request_metadata(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_request_metadata(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_request_metadata(input);
         self
     }

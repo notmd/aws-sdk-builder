@@ -121,19 +121,13 @@ impl CreateTokenOutputBuilder {
     }
     /// <p>A token that, if present, can be used to refresh a previously issued access token that might have expired.</p>
     /// <p>For more information about the features and limitations of the current IAM Identity Center OIDC implementation, see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center OIDC API Reference</a>.</p>
-    pub fn refresh_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn refresh_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.refresh_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A token that, if present, can be used to refresh a previously issued access token that might have expired.</p>
     /// <p>For more information about the features and limitations of the current IAM Identity Center OIDC implementation, see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center OIDC API Reference</a>.</p>
-    pub fn set_refresh_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_refresh_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.refresh_token = input;
         self
     }

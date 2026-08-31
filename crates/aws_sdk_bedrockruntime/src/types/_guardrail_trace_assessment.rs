@@ -7,15 +7,11 @@ pub struct GuardrailTraceAssessment {
     /// <p>The output from the model.</p>
     pub model_output: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>The input assessment.</p>
-    pub input_assessment: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::GuardrailAssessment>,
-    >,
+    pub input_assessment:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::GuardrailAssessment>>,
     /// <p>the output assessments.</p>
     pub output_assessments: ::std::option::Option<
-        ::std::collections::HashMap<
-            ::std::string::String,
-            ::std::vec::Vec<crate::types::GuardrailAssessment>,
-        >,
+        ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::GuardrailAssessment>>,
     >,
     /// <p>Provides the reason for the action taken when harmful content is detected.</p>
     pub action_reason: ::std::option::Option<::std::string::String>,
@@ -30,19 +26,15 @@ impl GuardrailTraceAssessment {
     /// <p>The input assessment.</p>
     pub fn input_assessment(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, crate::types::GuardrailAssessment>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::GuardrailAssessment>>
+    {
         self.input_assessment.as_ref()
     }
     /// <p>the output assessments.</p>
     pub fn output_assessments(
         &self,
     ) -> ::std::option::Option<
-        &::std::collections::HashMap<
-            ::std::string::String,
-            ::std::vec::Vec<crate::types::GuardrailAssessment>,
-        >,
+        &::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::GuardrailAssessment>>,
     > {
         self.output_assessments.as_ref()
     }
@@ -59,20 +51,14 @@ impl GuardrailTraceAssessment {
 }
 
 /// A builder for [`GuardrailTraceAssessment`](crate::types::GuardrailTraceAssessment).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailTraceAssessmentBuilder {
     pub(crate) model_output: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) input_assessment: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::GuardrailAssessment>,
-    >,
+    pub(crate) input_assessment:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::GuardrailAssessment>>,
     pub(crate) output_assessments: ::std::option::Option<
-        ::std::collections::HashMap<
-            ::std::string::String,
-            ::std::vec::Vec<crate::types::GuardrailAssessment>,
-        >,
+        ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::GuardrailAssessment>>,
     >,
     pub(crate) action_reason: ::std::option::Option<::std::string::String>,
 }
@@ -89,17 +75,12 @@ impl GuardrailTraceAssessmentBuilder {
         self
     }
     /// <p>The output from the model.</p>
-    pub fn set_model_output(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_model_output(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.model_output = input;
         self
     }
     /// <p>The output from the model.</p>
-    pub fn get_model_output(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_model_output(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.model_output
     }
     /// Adds a key-value pair to `input_assessment`.
@@ -130,9 +111,8 @@ impl GuardrailTraceAssessmentBuilder {
     /// <p>The input assessment.</p>
     pub fn get_input_assessment(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::GuardrailAssessment>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::GuardrailAssessment>>
+    {
         &self.input_assessment
     }
     /// Adds a key-value pair to `output_assessments`.
@@ -154,10 +134,7 @@ impl GuardrailTraceAssessmentBuilder {
     pub fn set_output_assessments(
         mut self,
         input: ::std::option::Option<
-            ::std::collections::HashMap<
-                ::std::string::String,
-                ::std::vec::Vec<crate::types::GuardrailAssessment>,
-            >,
+            ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::GuardrailAssessment>>,
         >,
     ) -> Self {
         self.output_assessments = input;
@@ -167,26 +144,17 @@ impl GuardrailTraceAssessmentBuilder {
     pub fn get_output_assessments(
         &self,
     ) -> &::std::option::Option<
-        ::std::collections::HashMap<
-            ::std::string::String,
-            ::std::vec::Vec<crate::types::GuardrailAssessment>,
-        >,
+        ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::GuardrailAssessment>>,
     > {
         &self.output_assessments
     }
     /// <p>Provides the reason for the action taken when harmful content is detected.</p>
-    pub fn action_reason(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn action_reason(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.action_reason = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Provides the reason for the action taken when harmful content is detected.</p>
-    pub fn set_action_reason(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_action_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.action_reason = input;
         self
     }

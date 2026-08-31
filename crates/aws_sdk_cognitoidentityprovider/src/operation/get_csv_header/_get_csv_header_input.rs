@@ -21,9 +21,7 @@ impl GetCsvHeaderInput {
 }
 
 /// A builder for [`GetCsvHeaderInput`](crate::operation::get_csv_header::GetCsvHeaderInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetCsvHeaderInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,

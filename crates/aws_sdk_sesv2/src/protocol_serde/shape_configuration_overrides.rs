@@ -6,7 +6,10 @@ pub fn ser_configuration_overrides(
     if let Some(var_1) = &input.tracking {
         #[allow(unused_mut)]
         let mut object_2 = object.key("Tracking").start_object();
-        crate::protocol_serde::shape_tracking_configuration_overrides::ser_tracking_configuration_overrides(&mut object_2, var_1)?;
+        crate::protocol_serde::shape_tracking_configuration_overrides::ser_tracking_configuration_overrides(
+            &mut object_2,
+            var_1,
+        )?;
         object_2.finish();
     }
     Ok(())

@@ -57,7 +57,9 @@ impl ListPackageVersionAssetsFluentBuilder {
         }
     }
     /// Access the ListPackageVersionAssets as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_package_version_assets::builders::ListPackageVersionAssetsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_package_version_assets::builders::ListPackageVersionAssetsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,16 +83,14 @@ impl ListPackageVersionAssetsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_package_version_assets::ListPackageVersionAssets::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_package_version_assets::ListPackageVersionAssets::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::list_package_version_assets::ListPackageVersionAssets::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_package_version_assets::ListPackageVersionAssets::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -123,9 +123,11 @@ impl ListPackageVersionAssetsFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::list_package_version_assets::paginator::ListPackageVersionAssetsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::list_package_version_assets::paginator::ListPackageVersionAssetsPaginator
-    {
-        crate::operation::list_package_version_assets::paginator::ListPackageVersionAssetsPaginator::new(self.handle, self.inner)
+    ) -> crate::operation::list_package_version_assets::paginator::ListPackageVersionAssetsPaginator {
+        crate::operation::list_package_version_assets::paginator::ListPackageVersionAssetsPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The name of the domain that contains the repository associated with the package version assets.</p>
     pub fn domain(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -272,18 +274,12 @@ impl ListPackageVersionAssetsFluentBuilder {
         self.inner.get_package()
     }
     /// <p>A string that contains the package version (for example, <code>3.5.2</code>).</p>
-    pub fn package_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn package_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.package_version(input.into());
         self
     }
     /// <p>A string that contains the package version (for example, <code>3.5.2</code>).</p>
-    pub fn set_package_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_package_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_package_version(input);
         self
     }

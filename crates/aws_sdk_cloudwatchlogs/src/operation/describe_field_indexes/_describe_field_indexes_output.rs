@@ -28,16 +28,13 @@ impl ::aws_types::request_id::RequestId for DescribeFieldIndexesOutput {
 }
 impl DescribeFieldIndexesOutput {
     /// Creates a new builder-style object to manufacture [`DescribeFieldIndexesOutput`](crate::operation::describe_field_indexes::DescribeFieldIndexesOutput).
-    pub fn builder(
-    ) -> crate::operation::describe_field_indexes::builders::DescribeFieldIndexesOutputBuilder {
+    pub fn builder() -> crate::operation::describe_field_indexes::builders::DescribeFieldIndexesOutputBuilder {
         crate::operation::describe_field_indexes::builders::DescribeFieldIndexesOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeFieldIndexesOutput`](crate::operation::describe_field_indexes::DescribeFieldIndexesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeFieldIndexesOutputBuilder {
     pub(crate) field_indexes: ::std::option::Option<::std::vec::Vec<crate::types::FieldIndex>>,
@@ -65,9 +62,7 @@ impl DescribeFieldIndexesOutputBuilder {
         self
     }
     /// <p>An array containing the field index information.</p>
-    pub fn get_field_indexes(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::FieldIndex>> {
+    pub fn get_field_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FieldIndex>> {
         &self.field_indexes
     }
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>

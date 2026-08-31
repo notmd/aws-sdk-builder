@@ -35,9 +35,7 @@ impl InlinePolicyIdentifierType {
 }
 
 /// A builder for [`InlinePolicyIdentifierType`](crate::types::InlinePolicyIdentifierType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InlinePolicyIdentifierTypeBuilder {
     pub(crate) policy_name: ::std::option::Option<::std::string::String>,
@@ -67,10 +65,7 @@ impl InlinePolicyIdentifierTypeBuilder {
         self
     }
     /// <p>The type of IAM entity that the inline policy is attached to.</p>
-    pub fn set_attachment_type(
-        mut self,
-        input: ::std::option::Option<crate::types::AttachmentType>,
-    ) -> Self {
+    pub fn set_attachment_type(mut self, input: ::std::option::Option<crate::types::AttachmentType>) -> Self {
         self.attachment_type = input;
         self
     }
@@ -80,18 +75,12 @@ impl InlinePolicyIdentifierTypeBuilder {
     }
     /// <p>The name of the IAM user, group, or role that the inline policy is attached to. Wildcard characters are supported to match multiple entities: use at most one <code>*</code> (matches any sequence of characters, including none), and any number of <code>?</code> (each matches exactly one character).</p>
     /// This field is required.
-    pub fn attachment_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn attachment_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.attachment_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the IAM user, group, or role that the inline policy is attached to. Wildcard characters are supported to match multiple entities: use at most one <code>*</code> (matches any sequence of characters, including none), and any number of <code>?</code> (each matches exactly one character).</p>
-    pub fn set_attachment_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_attachment_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.attachment_name = input;
         self
     }
@@ -106,10 +95,8 @@ impl InlinePolicyIdentifierTypeBuilder {
     /// - [`attachment_name`](crate::types::builders::InlinePolicyIdentifierTypeBuilder::attachment_name)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::InlinePolicyIdentifierType,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::InlinePolicyIdentifierType, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::InlinePolicyIdentifierType {
             policy_name: self.policy_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -57,9 +57,7 @@ impl StopDurableExecutionFluentBuilder {
         }
     }
     /// Access the StopDurableExecution as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::stop_durable_execution::builders::StopDurableExecutionInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::stop_durable_execution::builders::StopDurableExecutionInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,11 +86,7 @@ impl StopDurableExecutionFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::stop_durable_execution::StopDurableExecution::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::stop_durable_execution::StopDurableExecution::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -121,18 +115,12 @@ impl StopDurableExecutionFluentBuilder {
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-    pub fn durable_execution_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn durable_execution_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.durable_execution_arn(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-    pub fn set_durable_execution_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_durable_execution_arn(input);
         self
     }

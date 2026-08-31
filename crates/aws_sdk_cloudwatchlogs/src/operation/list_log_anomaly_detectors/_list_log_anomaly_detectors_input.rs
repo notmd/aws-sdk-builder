@@ -26,17 +26,13 @@ impl ListLogAnomalyDetectorsInput {
 }
 impl ListLogAnomalyDetectorsInput {
     /// Creates a new builder-style object to manufacture [`ListLogAnomalyDetectorsInput`](crate::operation::list_log_anomaly_detectors::ListLogAnomalyDetectorsInput).
-    pub fn builder(
-    ) -> crate::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsInputBuilder {
         crate::operation::list_log_anomaly_detectors::builders::ListLogAnomalyDetectorsInputBuilder::default()
     }
 }
 
 /// A builder for [`ListLogAnomalyDetectorsInput`](crate::operation::list_log_anomaly_detectors::ListLogAnomalyDetectorsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListLogAnomalyDetectorsInputBuilder {
     pub(crate) filter_log_group_arn: ::std::option::Option<::std::string::String>,
@@ -45,18 +41,12 @@ pub struct ListLogAnomalyDetectorsInputBuilder {
 }
 impl ListLogAnomalyDetectorsInputBuilder {
     /// <p>Use this to optionally filter the results to only include anomaly detectors that are associated with the specified log group.</p>
-    pub fn filter_log_group_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn filter_log_group_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.filter_log_group_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Use this to optionally filter the results to only include anomaly detectors that are associated with the specified log group.</p>
-    pub fn set_filter_log_group_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_filter_log_group_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.filter_log_group_arn = input;
         self
     }

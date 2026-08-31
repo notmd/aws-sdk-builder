@@ -20,16 +20,13 @@ impl ::aws_types::request_id::RequestId for UpdatePackageGroupOutput {
 }
 impl UpdatePackageGroupOutput {
     /// Creates a new builder-style object to manufacture [`UpdatePackageGroupOutput`](crate::operation::update_package_group::UpdatePackageGroupOutput).
-    pub fn builder(
-    ) -> crate::operation::update_package_group::builders::UpdatePackageGroupOutputBuilder {
+    pub fn builder() -> crate::operation::update_package_group::builders::UpdatePackageGroupOutputBuilder {
         crate::operation::update_package_group::builders::UpdatePackageGroupOutputBuilder::default()
     }
 }
 
 /// A builder for [`UpdatePackageGroupOutput`](crate::operation::update_package_group::UpdatePackageGroupOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdatePackageGroupOutputBuilder {
     pub(crate) package_group: ::std::option::Option<crate::types::PackageGroupDescription>,
@@ -42,17 +39,12 @@ impl UpdatePackageGroupOutputBuilder {
         self
     }
     /// <p>The package group and information about it after the request has been processed.</p>
-    pub fn set_package_group(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageGroupDescription>,
-    ) -> Self {
+    pub fn set_package_group(mut self, input: ::std::option::Option<crate::types::PackageGroupDescription>) -> Self {
         self.package_group = input;
         self
     }
     /// <p>The package group and information about it after the request has been processed.</p>
-    pub fn get_package_group(
-        &self,
-    ) -> &::std::option::Option<crate::types::PackageGroupDescription> {
+    pub fn get_package_group(&self) -> &::std::option::Option<crate::types::PackageGroupDescription> {
         &self.package_group
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

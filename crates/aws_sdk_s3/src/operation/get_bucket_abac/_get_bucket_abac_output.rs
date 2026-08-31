@@ -32,9 +32,7 @@ impl GetBucketAbacOutput {
 }
 
 /// A builder for [`GetBucketAbacOutput`](crate::operation::get_bucket_abac::GetBucketAbacOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketAbacOutputBuilder {
     pub(crate) abac_status: ::std::option::Option<crate::types::AbacStatus>,
@@ -48,10 +46,7 @@ impl GetBucketAbacOutputBuilder {
         self
     }
     /// <p>The ABAC status of the general purpose bucket.</p>
-    pub fn set_abac_status(
-        mut self,
-        input: ::std::option::Option<crate::types::AbacStatus>,
-    ) -> Self {
+    pub fn set_abac_status(mut self, input: ::std::option::Option<crate::types::AbacStatus>) -> Self {
         self.abac_status = input;
         self
     }
@@ -64,10 +59,7 @@ impl GetBucketAbacOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }

@@ -85,13 +85,11 @@ impl GetLogObject {
             for plugin in config_override.runtime_plugins.iter().cloned() {
                 runtime_plugins = runtime_plugins.with_operation_plugin(plugin);
             }
-            runtime_plugins = runtime_plugins.with_operation_plugin(
-                crate::config::ConfigOverrideRuntimePlugin::new(
-                    config_override,
-                    client_config.config.clone(),
-                    &client_config.runtime_components,
-                ),
-            );
+            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(
+                config_override,
+                client_config.config.clone(),
+                &client_config.runtime_components,
+            ));
         }
         runtime_plugins
     }
@@ -100,15 +98,11 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetLogO
     fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {
         let mut cfg = ::aws_smithy_types::config_bag::Layer::new("GetLogObject");
 
+        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
+            GetLogObjectRequestSerializer,
+        ));
         cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(
-                GetLogObjectRequestSerializer,
-            ),
-        );
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(
-                GetLogObjectResponseDeserializer,
-            ),
+            ::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(GetLogObjectResponseDeserializer),
         );
 
         cfg.store_put(
@@ -120,12 +114,10 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetLogO
             ),
         );
 
-        cfg.store_put(
-            ::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-                "GetLogObject",
-                "CloudWatch Logs",
-            ),
-        );
+        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+            "GetLogObject",
+            "CloudWatch Logs",
+        ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
         signing_options.double_uri_encode = true;
         signing_options.content_sha256_header = false;
@@ -143,40 +135,33 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetLogO
     fn runtime_components(
         &self,
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    ) -> ::std::borrow::Cow<
-        '_,
-        ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-    > {
+    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
         let mut rcb =
-            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new(
-                "GetLogObject",
-            )
-            .with_interceptor(
-                ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                    GetLogObjectTelemetryInputCaptureInterceptor,
-                ),
-            )
-            .with_interceptor(
-                ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                    GetLogObjectEndpointParamsInterceptor,
-                ),
-            )
-            .with_retry_classifier(
-                ::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetLogObject")
+                .with_interceptor(
+                    ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                        GetLogObjectTelemetryInputCaptureInterceptor,
+                    ),
+                )
+                .with_interceptor(
+                    ::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                        GetLogObjectEndpointParamsInterceptor,
+                    ),
+                )
+                .with_retry_classifier(
+                    ::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+                        crate::operation::get_log_object::GetLogObjectError,
+                    >::new(),
+                )
+                .with_retry_classifier(
+                    ::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+                        crate::operation::get_log_object::GetLogObjectError,
+                    >::new(),
+                )
+                .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
                     crate::operation::get_log_object::GetLogObjectError,
-                >::new(),
-            )
-            .with_retry_classifier(
-                ::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                    crate::operation::get_log_object::GetLogObjectError,
-                >::new(),
-            )
-            .with_retry_classifier(
-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                    crate::operation::get_log_object::GetLogObjectError,
-                >::new(),
-            );
+                >::new());
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -186,9 +171,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetLogO
 struct GetLogObjectTelemetryInputCaptureInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for GetLogObjectTelemetryInputCaptureInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetLogObjectTelemetryInputCaptureInterceptor {
     fn name(&self) -> &'static str {
         "GetLogObjectTelemetryInputCaptureInterceptor"
     }
@@ -211,9 +194,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             return ::std::result::Result::Ok(());
         };
 
-        let ::std::option::Option::Some(input) =
-            context.input().downcast_ref::<GetLogObjectInput>()
-        else {
+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<GetLogObjectInput>() else {
             // A mismatched input is not this interceptor's concern; skip quietly.
             return ::std::result::Result::Ok(());
         };
@@ -231,14 +212,11 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
 }
 #[derive(Debug)]
 struct GetLogObjectResponseDeserializer;
-impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse
-    for GetLogObjectResponseDeserializer
-{
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetLogObjectResponseDeserializer {
     fn deserialize_streaming(
         &self,
         response: &mut ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-    ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError>
-    {
+    ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
         #[allow(unused_mut)]
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
@@ -297,8 +275,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetLogObject
             fn uri_base(
                 _input: &crate::operation::get_log_object::GetLogObjectInput,
                 output: &mut ::std::string::String,
-            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError>
-            {
+            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {
                 use ::std::fmt::Write as _;
                 ::std::write!(output, "/").expect("formatting should succeed");
                 ::std::result::Result::Ok(())
@@ -307,10 +284,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetLogObject
             fn update_http_builder(
                 input: &crate::operation::get_log_object::GetLogObjectInput,
                 builder: ::http_1x::request::Builder,
-            ) -> ::std::result::Result<
-                ::http_1x::request::Builder,
-                ::aws_smithy_types::error::operation::BuildError,
-            > {
+            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError>
+            {
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
@@ -339,22 +314,14 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetLogObject
                 &content_length,
             );
         }
-        ::std::result::Result::Ok(
-            request_builder
-                .body(body)
-                .expect("valid request")
-                .try_into()
-                .unwrap(),
-        )
+        ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
     }
 }
 #[derive(Debug)]
 struct GetLogObjectEndpointParamsInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for GetLogObjectEndpointParamsInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetLogObjectEndpointParamsInterceptor {
     fn name(&self) -> &'static str {
         "GetLogObjectEndpointParamsInterceptor"
     }
@@ -374,30 +341,19 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
             .downcast_ref::<GetLogObjectInput>()
             .ok_or("failed to downcast to GetLogObjectInput")?;
 
-        let endpoint_prefix = ::aws_smithy_runtime_api::client::endpoint::EndpointPrefix::new(
-            "stream-",
-        )
-        .map_err(|err| {
-            ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(
-                "endpoint prefix could not be built",
-                err,
-            )
-        })?;
+        let endpoint_prefix =
+            ::aws_smithy_runtime_api::client::endpoint::EndpointPrefix::new("stream-").map_err(|err| {
+                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(
+                    "endpoint prefix could not be built",
+                    err,
+                )
+            })?;
         cfg.interceptor_state().store_put(endpoint_prefix);
 
         let params = crate::config::endpoint::Params::builder()
-            .set_region(
-                cfg.load::<::aws_types::region::Region>()
-                    .map(|r| r.as_ref().to_owned()),
-            )
-            .set_use_dual_stack(
-                cfg.load::<::aws_types::endpoint_config::UseDualStack>()
-                    .map(|ty| ty.0),
-            )
-            .set_use_fips(
-                cfg.load::<::aws_types::endpoint_config::UseFips>()
-                    .map(|ty| ty.0),
-            )
+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_endpoint(
                 cfg.load::<::aws_types::endpoint_config::EndpointUrl>()
                     .map(|ty| ty.0.clone()),
@@ -409,9 +365,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept
                     err,
                 )
             })?;
-        cfg.interceptor_state().store_put(
-            ::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params),
-        );
+        cfg.interceptor_state()
+            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(
+                params,
+            ));
         ::std::result::Result::Ok(())
     }
 }
@@ -450,9 +407,7 @@ impl GetLogObjectError {
     /// Creates the `GetLogObjectError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -474,24 +429,12 @@ impl GetLogObjectError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::AccessDeniedException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::InvalidOperationException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::InvalidParameterException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::LimitExceededException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::ResourceNotFoundException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::InternalStreamingException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::AccessDeniedException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidOperationException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InvalidParameterException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::LimitExceededException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ResourceNotFoundException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::InternalStreamingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -589,9 +532,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetLogObjectE
 }
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetLogObjectError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {

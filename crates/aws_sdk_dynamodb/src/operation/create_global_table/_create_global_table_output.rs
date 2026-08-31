@@ -9,9 +9,7 @@ pub struct CreateGlobalTableOutput {
 }
 impl CreateGlobalTableOutput {
     /// <p>Contains the details of the global table.</p>
-    pub fn global_table_description(
-        &self,
-    ) -> ::std::option::Option<&crate::types::GlobalTableDescription> {
+    pub fn global_table_description(&self) -> ::std::option::Option<&crate::types::GlobalTableDescription> {
         self.global_table_description.as_ref()
     }
 }
@@ -22,20 +20,16 @@ impl ::aws_types::request_id::RequestId for CreateGlobalTableOutput {
 }
 impl CreateGlobalTableOutput {
     /// Creates a new builder-style object to manufacture [`CreateGlobalTableOutput`](crate::operation::create_global_table::CreateGlobalTableOutput).
-    pub fn builder(
-    ) -> crate::operation::create_global_table::builders::CreateGlobalTableOutputBuilder {
+    pub fn builder() -> crate::operation::create_global_table::builders::CreateGlobalTableOutputBuilder {
         crate::operation::create_global_table::builders::CreateGlobalTableOutputBuilder::default()
     }
 }
 
 /// A builder for [`CreateGlobalTableOutput`](crate::operation::create_global_table::CreateGlobalTableOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateGlobalTableOutputBuilder {
-    pub(crate) global_table_description:
-        ::std::option::Option<crate::types::GlobalTableDescription>,
+    pub(crate) global_table_description: ::std::option::Option<crate::types::GlobalTableDescription>,
     _request_id: Option<String>,
 }
 impl CreateGlobalTableOutputBuilder {
@@ -53,9 +47,7 @@ impl CreateGlobalTableOutputBuilder {
         self
     }
     /// <p>Contains the details of the global table.</p>
-    pub fn get_global_table_description(
-        &self,
-    ) -> &::std::option::Option<crate::types::GlobalTableDescription> {
+    pub fn get_global_table_description(&self) -> &::std::option::Option<crate::types::GlobalTableDescription> {
         &self.global_table_description
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

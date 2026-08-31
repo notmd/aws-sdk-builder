@@ -4,8 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListSyslogConfigurationsOutput {
     /// <p>The list of syslog configurations.</p>
-    pub syslog_configurations:
-        ::std::option::Option<::std::vec::Vec<crate::types::SyslogConfiguration>>,
+    pub syslog_configurations: ::std::option::Option<::std::vec::Vec<crate::types::SyslogConfiguration>>,
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -29,21 +28,16 @@ impl ::aws_types::request_id::RequestId for ListSyslogConfigurationsOutput {
 }
 impl ListSyslogConfigurationsOutput {
     /// Creates a new builder-style object to manufacture [`ListSyslogConfigurationsOutput`](crate::operation::list_syslog_configurations::ListSyslogConfigurationsOutput).
-    pub fn builder(
-    ) -> crate::operation::list_syslog_configurations::builders::ListSyslogConfigurationsOutputBuilder
-    {
+    pub fn builder() -> crate::operation::list_syslog_configurations::builders::ListSyslogConfigurationsOutputBuilder {
         crate::operation::list_syslog_configurations::builders::ListSyslogConfigurationsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListSyslogConfigurationsOutput`](crate::operation::list_syslog_configurations::ListSyslogConfigurationsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListSyslogConfigurationsOutputBuilder {
-    pub(crate) syslog_configurations:
-        ::std::option::Option<::std::vec::Vec<crate::types::SyslogConfiguration>>,
+    pub(crate) syslog_configurations: ::std::option::Option<::std::vec::Vec<crate::types::SyslogConfiguration>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -97,9 +91,7 @@ impl ListSyslogConfigurationsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListSyslogConfigurationsOutput`](crate::operation::list_syslog_configurations::ListSyslogConfigurationsOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::list_syslog_configurations::ListSyslogConfigurationsOutput {
+    pub fn build(self) -> crate::operation::list_syslog_configurations::ListSyslogConfigurationsOutput {
         crate::operation::list_syslog_configurations::ListSyslogConfigurationsOutput {
             syslog_configurations: self.syslog_configurations,
             next_token: self.next_token,

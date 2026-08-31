@@ -16,9 +16,7 @@ pub struct CreateConsumableResourceInput {
     /// </ul>
     pub resource_type: ::std::option::Option<::std::string::String>,
     /// <p>The tags that you apply to the consumable resource to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
-    pub tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl CreateConsumableResourceInput {
     /// <p>The name of the consumable resource. Must be unique.</p>
@@ -42,49 +40,35 @@ impl CreateConsumableResourceInput {
     /// <p>The tags that you apply to the consumable resource to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
     pub fn tags(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
 }
 impl CreateConsumableResourceInput {
     /// Creates a new builder-style object to manufacture [`CreateConsumableResourceInput`](crate::operation::create_consumable_resource::CreateConsumableResourceInput).
-    pub fn builder(
-    ) -> crate::operation::create_consumable_resource::builders::CreateConsumableResourceInputBuilder
-    {
+    pub fn builder() -> crate::operation::create_consumable_resource::builders::CreateConsumableResourceInputBuilder {
         crate::operation::create_consumable_resource::builders::CreateConsumableResourceInputBuilder::default()
     }
 }
 
 /// A builder for [`CreateConsumableResourceInput`](crate::operation::create_consumable_resource::CreateConsumableResourceInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateConsumableResourceInputBuilder {
     pub(crate) consumable_resource_name: ::std::option::Option<::std::string::String>,
     pub(crate) total_quantity: ::std::option::Option<i64>,
     pub(crate) resource_type: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl CreateConsumableResourceInputBuilder {
     /// <p>The name of the consumable resource. Must be unique.</p>
     /// This field is required.
-    pub fn consumable_resource_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn consumable_resource_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.consumable_resource_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the consumable resource. Must be unique.</p>
-    pub fn set_consumable_resource_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_consumable_resource_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.consumable_resource_name = input;
         self
     }
@@ -113,10 +97,7 @@ impl CreateConsumableResourceInputBuilder {
     /// <li>
     /// <p><code>NON_REPLENISHABLE</code></p></li>
     /// </ul>
-    pub fn resource_type(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.resource_type = ::std::option::Option::Some(input.into());
         self
     }
@@ -127,10 +108,7 @@ impl CreateConsumableResourceInputBuilder {
     /// <li>
     /// <p><code>NON_REPLENISHABLE</code></p></li>
     /// </ul>
-    pub fn set_resource_type(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_resource_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.resource_type = input;
         self
     }
@@ -162,9 +140,7 @@ impl CreateConsumableResourceInputBuilder {
     /// <p>The tags that you apply to the consumable resource to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.tags = input;
         self
@@ -172,9 +148,7 @@ impl CreateConsumableResourceInputBuilder {
     /// <p>The tags that you apply to the consumable resource to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     /// Consumes the builder and constructs a [`CreateConsumableResourceInput`](crate::operation::create_consumable_resource::CreateConsumableResourceInput).

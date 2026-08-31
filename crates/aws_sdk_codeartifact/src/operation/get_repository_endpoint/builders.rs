@@ -75,10 +75,7 @@ impl GetRepositoryEndpointFluentBuilder {
         }
     }
     /// Access the GetRepositoryEndpoint as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_repository_endpoint::builders::GetRepositoryEndpointInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::get_repository_endpoint::builders::GetRepositoryEndpointInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -102,16 +99,13 @@ impl GetRepositoryEndpointFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::get_repository_endpoint::GetRepositoryEndpoint::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::get_repository_endpoint::GetRepositoryEndpoint::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::get_repository_endpoint::GetRepositoryEndpoint::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::get_repository_endpoint::GetRepositoryEndpoint::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -201,10 +195,7 @@ impl GetRepositoryEndpointFluentBuilder {
         self
     }
     /// <p>A string that specifies the type of endpoint.</p>
-    pub fn set_endpoint_type(
-        mut self,
-        input: ::std::option::Option<crate::types::EndpointType>,
-    ) -> Self {
+    pub fn set_endpoint_type(mut self, input: ::std::option::Option<crate::types::EndpointType>) -> Self {
         self.inner = self.inner.set_endpoint_type(input);
         self
     }

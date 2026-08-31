@@ -28,7 +28,7 @@ impl ::std::fmt::Debug for DescribeRiskConfigurationInput {
 }
 impl DescribeRiskConfigurationInput {
     /// Creates a new builder-style object to manufacture [`DescribeRiskConfigurationInput`](crate::operation::describe_risk_configuration::DescribeRiskConfigurationInput).
-    pub fn builder() -> crate::operation::describe_risk_configuration::builders::DescribeRiskConfigurationInputBuilder{
+    pub fn builder() -> crate::operation::describe_risk_configuration::builders::DescribeRiskConfigurationInputBuilder {
         crate::operation::describe_risk_configuration::builders::DescribeRiskConfigurationInputBuilder::default()
     }
 }

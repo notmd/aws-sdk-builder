@@ -11,11 +11,7 @@ impl super::Client {
     ///   - [`connector_summaries(Vec::<ConnectorSummary>)`](crate::operation::list_connectors::ListConnectorsOutput::connector_summaries): <p>A list of <code>ConnectorSummary</code> objects.</p>
     ///   - [`next_token(Option<String>)`](crate::operation::list_connectors::ListConnectorsOutput::next_token): <p>The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     /// - On failure, responds with [`SdkError<ListConnectorsError>`](crate::operation::list_connectors::ListConnectorsError)
-    pub fn list_connectors(
-        &self,
-    ) -> crate::operation::list_connectors::builders::ListConnectorsFluentBuilder {
-        crate::operation::list_connectors::builders::ListConnectorsFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn list_connectors(&self) -> crate::operation::list_connectors::builders::ListConnectorsFluentBuilder {
+        crate::operation::list_connectors::builders::ListConnectorsFluentBuilder::new(self.handle.clone())
     }
 }

@@ -4,7 +4,7 @@ pub(crate) fn de_get_bucket_metadata_table_configuration_result_payload(
 ) -> std::result::Result<
     ::std::option::Option<crate::types::GetBucketMetadataTableConfigurationResult>,
     crate::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationError,
->{
+> {
     (!body.is_empty())
         .then(|| {
             crate::protocol_serde::shape_get_bucket_metadata_table_configuration_output::de_get_bucket_metadata_table_configuration_result(body)

@@ -7,18 +7,14 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListTagsLogGroupOutput {
     /// <p>The tags for the log group.</p>
-    pub tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     _request_id: Option<String>,
 }
 impl ListTagsLogGroupOutput {
     /// <p>The tags for the log group.</p>
     pub fn tags(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
 }
@@ -29,21 +25,16 @@ impl ::aws_types::request_id::RequestId for ListTagsLogGroupOutput {
 }
 impl ListTagsLogGroupOutput {
     /// Creates a new builder-style object to manufacture [`ListTagsLogGroupOutput`](crate::operation::list_tags_log_group::ListTagsLogGroupOutput).
-    pub fn builder(
-    ) -> crate::operation::list_tags_log_group::builders::ListTagsLogGroupOutputBuilder {
+    pub fn builder() -> crate::operation::list_tags_log_group::builders::ListTagsLogGroupOutputBuilder {
         crate::operation::list_tags_log_group::builders::ListTagsLogGroupOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListTagsLogGroupOutput`](crate::operation::list_tags_log_group::ListTagsLogGroupOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListTagsLogGroupOutputBuilder {
-    pub(crate) tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     _request_id: Option<String>,
 }
 impl ListTagsLogGroupOutputBuilder {
@@ -65,9 +56,7 @@ impl ListTagsLogGroupOutputBuilder {
     /// <p>The tags for the log group.</p>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.tags = input;
         self
@@ -75,9 +64,7 @@ impl ListTagsLogGroupOutputBuilder {
     /// <p>The tags for the log group.</p>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

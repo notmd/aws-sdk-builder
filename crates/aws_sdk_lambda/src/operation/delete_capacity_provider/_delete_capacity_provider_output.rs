@@ -20,17 +20,13 @@ impl ::aws_types::request_id::RequestId for DeleteCapacityProviderOutput {
 }
 impl DeleteCapacityProviderOutput {
     /// Creates a new builder-style object to manufacture [`DeleteCapacityProviderOutput`](crate::operation::delete_capacity_provider::DeleteCapacityProviderOutput).
-    pub fn builder(
-    ) -> crate::operation::delete_capacity_provider::builders::DeleteCapacityProviderOutputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_capacity_provider::builders::DeleteCapacityProviderOutputBuilder {
         crate::operation::delete_capacity_provider::builders::DeleteCapacityProviderOutputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteCapacityProviderOutput`](crate::operation::delete_capacity_provider::DeleteCapacityProviderOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteCapacityProviderOutputBuilder {
     pub(crate) capacity_provider: ::std::option::Option<crate::types::CapacityProvider>,
@@ -44,10 +40,7 @@ impl DeleteCapacityProviderOutputBuilder {
         self
     }
     /// <p>Information about the deleted capacity provider.</p>
-    pub fn set_capacity_provider(
-        mut self,
-        input: ::std::option::Option<crate::types::CapacityProvider>,
-    ) -> Self {
+    pub fn set_capacity_provider(mut self, input: ::std::option::Option<crate::types::CapacityProvider>) -> Self {
         self.capacity_provider = input;
         self
     }

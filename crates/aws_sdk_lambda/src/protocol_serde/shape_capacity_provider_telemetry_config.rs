@@ -6,7 +6,10 @@ pub fn ser_capacity_provider_telemetry_config(
     if let Some(var_1) = &input.logging_config {
         #[allow(unused_mut)]
         let mut object_2 = object.key("LoggingConfig").start_object();
-        crate::protocol_serde::shape_capacity_provider_logging_config::ser_capacity_provider_logging_config(&mut object_2, var_1)?;
+        crate::protocol_serde::shape_capacity_provider_logging_config::ser_capacity_provider_logging_config(
+            &mut object_2,
+            var_1,
+        )?;
         object_2.finish();
     }
     Ok(())
@@ -29,18 +32,15 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder =
-                crate::types::builders::CapacityProviderTelemetryConfigBuilder::default();
+            let mut builder = crate::types::builders::CapacityProviderTelemetryConfigBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
@@ -59,20 +59,16 @@ where
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
             Ok(Some(builder.build()))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

@@ -3,10 +3,7 @@
 pub fn de_storage_class_analysis(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<
-    crate::types::StorageClassAnalysis,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<crate::types::StorageClassAnalysis, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
             "maximum nesting depth exceeded",
@@ -40,7 +37,10 @@ pub fn ser_storage_class_analysis(
     let mut scope = writer.finish();
     if let Some(var_2) = &input.data_export {
         let inner_writer = scope.start_el("DataExport");
-        crate::protocol_serde::shape_storage_class_analysis_data_export::ser_storage_class_analysis_data_export(var_2, inner_writer)?
+        crate::protocol_serde::shape_storage_class_analysis_data_export::ser_storage_class_analysis_data_export(
+            var_2,
+            inner_writer,
+        )?
     }
     scope.finish();
     Ok(())

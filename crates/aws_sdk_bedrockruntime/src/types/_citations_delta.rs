@@ -9,8 +9,7 @@ pub struct CitationsDelta {
     /// <p>The source from the original search result that provided the cited content.</p>
     pub source: ::std::option::Option<::std::string::String>,
     /// <p>The specific content from the source document that was referenced or cited in the generated response.</p>
-    pub source_content:
-        ::std::option::Option<::std::vec::Vec<crate::types::CitationSourceContentDelta>>,
+    pub source_content: ::std::option::Option<::std::vec::Vec<crate::types::CitationSourceContentDelta>>,
     /// <p>Specifies the precise location within a source document where cited content can be found. This can include character-level positions, page numbers, or document chunks depending on the document type and indexing method.</p>
     pub location: ::std::option::Option<crate::types::CitationLocation>,
 }
@@ -42,15 +41,12 @@ impl CitationsDelta {
 }
 
 /// A builder for [`CitationsDelta`](crate::types::CitationsDelta).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CitationsDeltaBuilder {
     pub(crate) title: ::std::option::Option<::std::string::String>,
     pub(crate) source: ::std::option::Option<::std::string::String>,
-    pub(crate) source_content:
-        ::std::option::Option<::std::vec::Vec<crate::types::CitationSourceContentDelta>>,
+    pub(crate) source_content: ::std::option::Option<::std::vec::Vec<crate::types::CitationSourceContentDelta>>,
     pub(crate) location: ::std::option::Option<crate::types::CitationLocation>,
 }
 impl CitationsDeltaBuilder {
@@ -113,10 +109,7 @@ impl CitationsDeltaBuilder {
         self
     }
     /// <p>Specifies the precise location within a source document where cited content can be found. This can include character-level positions, page numbers, or document chunks depending on the document type and indexing method.</p>
-    pub fn set_location(
-        mut self,
-        input: ::std::option::Option<crate::types::CitationLocation>,
-    ) -> Self {
+    pub fn set_location(mut self, input: ::std::option::Option<crate::types::CitationLocation>) -> Self {
         self.location = input;
         self
     }

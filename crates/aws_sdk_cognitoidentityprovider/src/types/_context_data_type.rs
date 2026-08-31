@@ -49,9 +49,7 @@ impl ContextDataType {
 }
 
 /// A builder for [`ContextDataType`](crate::types::ContextDataType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ContextDataTypeBuilder {
     pub(crate) ip_address: ::std::option::Option<::std::string::String>,
@@ -118,17 +116,12 @@ impl ContextDataTypeBuilder {
         self
     }
     /// <p>The HTTP headers from your user's authentication request.</p>
-    pub fn set_http_headers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::HttpHeader>>,
-    ) -> Self {
+    pub fn set_http_headers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::HttpHeader>>) -> Self {
         self.http_headers = input;
         self
     }
     /// <p>The HTTP headers from your user's authentication request.</p>
-    pub fn get_http_headers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::HttpHeader>> {
+    pub fn get_http_headers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::HttpHeader>> {
         &self.http_headers
     }
     /// <p>Encoded device-fingerprint details that your app collected with the Amazon Cognito context data collection library. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint">Adding user device and session data to API requests</a>.</p>
@@ -153,10 +146,7 @@ impl ContextDataTypeBuilder {
     /// - [`http_headers`](crate::types::builders::ContextDataTypeBuilder::http_headers)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::ContextDataType,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::ContextDataType, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ContextDataType {
             ip_address: self.ip_address.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

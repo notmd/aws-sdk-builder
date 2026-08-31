@@ -57,7 +57,9 @@ impl DeleteUserPoolClientSecretFluentBuilder {
         }
     }
     /// Access the DeleteUserPoolClientSecret as a reference.
-    pub fn as_input(&self) -> &crate::operation::delete_user_pool_client_secret::builders::DeleteUserPoolClientSecretInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::delete_user_pool_client_secret::builders::DeleteUserPoolClientSecretInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,11 +83,12 @@ impl DeleteUserPoolClientSecretFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecret::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecret::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecret::orchestrate(
             &runtime_plugins,
             input,
@@ -147,18 +150,12 @@ impl DeleteUserPoolClientSecretFluentBuilder {
         self.inner.get_client_id()
     }
     /// <p>The unique identifier of the client secret you want to delete.</p>
-    pub fn client_secret_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn client_secret_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.client_secret_id(input.into());
         self
     }
     /// <p>The unique identifier of the client secret you want to delete.</p>
-    pub fn set_client_secret_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_client_secret_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_client_secret_id(input);
         self
     }

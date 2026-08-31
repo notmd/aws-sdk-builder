@@ -26,17 +26,13 @@ impl PutDataProtectionPolicyInput {
 }
 impl PutDataProtectionPolicyInput {
     /// Creates a new builder-style object to manufacture [`PutDataProtectionPolicyInput`](crate::operation::put_data_protection_policy::PutDataProtectionPolicyInput).
-    pub fn builder(
-    ) -> crate::operation::put_data_protection_policy::builders::PutDataProtectionPolicyInputBuilder
-    {
+    pub fn builder() -> crate::operation::put_data_protection_policy::builders::PutDataProtectionPolicyInputBuilder {
         crate::operation::put_data_protection_policy::builders::PutDataProtectionPolicyInputBuilder::default()
     }
 }
 
 /// A builder for [`PutDataProtectionPolicyInput`](crate::operation::put_data_protection_policy::PutDataProtectionPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutDataProtectionPolicyInputBuilder {
     pub(crate) resource_arn: ::std::option::Option<::std::string::String>,
@@ -65,20 +61,14 @@ impl PutDataProtectionPolicyInputBuilder {
     /// <p>The <code>DataProtectionPolicy</code> must be in JSON string format.</p>
     /// <p>Length Constraints: Maximum length of 30,720.</p>
     /// This field is required.
-    pub fn data_protection_policy(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn data_protection_policy(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.data_protection_policy = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The JSON serialization of the topic's <code>DataProtectionPolicy</code>.</p>
     /// <p>The <code>DataProtectionPolicy</code> must be in JSON string format.</p>
     /// <p>Length Constraints: Maximum length of 30,720.</p>
-    pub fn set_data_protection_policy(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_data_protection_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.data_protection_policy = input;
         self
     }

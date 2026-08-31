@@ -18,10 +18,7 @@ pub use crate::types::_platform_application::PlatformApplicationBuilder;
 #[cfg(feature = "op_list_sms_sandbox_phone_numbers")]
 pub use crate::types::_sms_sandbox_phone_number::SmsSandboxPhoneNumberBuilder;
 
-#[cfg(any(
-    feature = "op_list_subscriptions",
-    feature = "op_list_subscriptions_by_topic"
-))]
+#[cfg(any(feature = "op_list_subscriptions", feature = "op_list_subscriptions_by_topic"))]
 pub use crate::types::_subscription::SubscriptionBuilder;
 
 #[cfg(feature = "op_list_topics")]

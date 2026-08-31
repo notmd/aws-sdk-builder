@@ -10,8 +10,6 @@ impl super::Client {
     pub fn detach_group_policy(
         &self,
     ) -> crate::operation::detach_group_policy::builders::DetachGroupPolicyFluentBuilder {
-        crate::operation::detach_group_policy::builders::DetachGroupPolicyFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::detach_group_policy::builders::DetachGroupPolicyFluentBuilder::new(self.handle.clone())
     }
 }

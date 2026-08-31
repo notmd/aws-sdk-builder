@@ -16,30 +16,23 @@ impl TransactGetItemsInput {
         self.transact_items.as_deref().unwrap_or_default()
     }
     /// <p>A value of <code>TOTAL</code> causes consumed capacity information to be returned, and a value of <code>NONE</code> prevents that information from being returned. No other value is valid.</p>
-    pub fn return_consumed_capacity(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ReturnConsumedCapacity> {
+    pub fn return_consumed_capacity(&self) -> ::std::option::Option<&crate::types::ReturnConsumedCapacity> {
         self.return_consumed_capacity.as_ref()
     }
 }
 impl TransactGetItemsInput {
     /// Creates a new builder-style object to manufacture [`TransactGetItemsInput`](crate::operation::transact_get_items::TransactGetItemsInput).
-    pub fn builder() -> crate::operation::transact_get_items::builders::TransactGetItemsInputBuilder
-    {
+    pub fn builder() -> crate::operation::transact_get_items::builders::TransactGetItemsInputBuilder {
         crate::operation::transact_get_items::builders::TransactGetItemsInputBuilder::default()
     }
 }
 
 /// A builder for [`TransactGetItemsInput`](crate::operation::transact_get_items::TransactGetItemsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TransactGetItemsInputBuilder {
-    pub(crate) transact_items:
-        ::std::option::Option<::std::vec::Vec<crate::types::TransactGetItem>>,
-    pub(crate) return_consumed_capacity:
-        ::std::option::Option<crate::types::ReturnConsumedCapacity>,
+    pub(crate) transact_items: ::std::option::Option<::std::vec::Vec<crate::types::TransactGetItem>>,
+    pub(crate) return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
 }
 impl TransactGetItemsInputBuilder {
     /// Appends an item to `transact_items`.
@@ -62,9 +55,7 @@ impl TransactGetItemsInputBuilder {
         self
     }
     /// <p>An ordered array of up to 100 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure.</p>
-    pub fn get_transact_items(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::TransactGetItem>> {
+    pub fn get_transact_items(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TransactGetItem>> {
         &self.transact_items
     }
     /// <p>A value of <code>TOTAL</code> causes consumed capacity information to be returned, and a value of <code>NONE</code> prevents that information from being returned. No other value is valid.</p>
@@ -81,9 +72,7 @@ impl TransactGetItemsInputBuilder {
         self
     }
     /// <p>A value of <code>TOTAL</code> causes consumed capacity information to be returned, and a value of <code>NONE</code> prevents that information from being returned. No other value is valid.</p>
-    pub fn get_return_consumed_capacity(
-        &self,
-    ) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
+    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
         &self.return_consumed_capacity
     }
     /// Consumes the builder and constructs a [`TransactGetItemsInput`](crate::operation::transact_get_items::TransactGetItemsInput).
@@ -93,11 +82,9 @@ impl TransactGetItemsInputBuilder {
         crate::operation::transact_get_items::TransactGetItemsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::transact_get_items::TransactGetItemsInput {
-                transact_items: self.transact_items,
-                return_consumed_capacity: self.return_consumed_capacity,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::transact_get_items::TransactGetItemsInput {
+            transact_items: self.transact_items,
+            return_consumed_capacity: self.return_consumed_capacity,
+        })
     }
 }

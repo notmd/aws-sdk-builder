@@ -13,8 +13,6 @@ impl super::Client {
     pub fn describe_lookup_tables(
         &self,
     ) -> crate::operation::describe_lookup_tables::builders::DescribeLookupTablesFluentBuilder {
-        crate::operation::describe_lookup_tables::builders::DescribeLookupTablesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::describe_lookup_tables::builders::DescribeLookupTablesFluentBuilder::new(self.handle.clone())
     }
 }

@@ -27,9 +27,7 @@ impl AdminUpdateDeviceStatusInput {
         self.device_key.as_deref()
     }
     /// <p>To enable device authentication with the specified device, set to <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
-    pub fn device_remembered_status(
-        &self,
-    ) -> ::std::option::Option<&crate::types::DeviceRememberedStatusType> {
+    pub fn device_remembered_status(&self) -> ::std::option::Option<&crate::types::DeviceRememberedStatusType> {
         self.device_remembered_status.as_ref()
     }
 }
@@ -45,9 +43,7 @@ impl ::std::fmt::Debug for AdminUpdateDeviceStatusInput {
 }
 impl AdminUpdateDeviceStatusInput {
     /// Creates a new builder-style object to manufacture [`AdminUpdateDeviceStatusInput`](crate::operation::admin_update_device_status::AdminUpdateDeviceStatusInput).
-    pub fn builder(
-    ) -> crate::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusInputBuilder
-    {
+    pub fn builder() -> crate::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusInputBuilder {
         crate::operation::admin_update_device_status::builders::AdminUpdateDeviceStatusInputBuilder::default()
     }
 }
@@ -59,8 +55,7 @@ pub struct AdminUpdateDeviceStatusInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
     pub(crate) username: ::std::option::Option<::std::string::String>,
     pub(crate) device_key: ::std::option::Option<::std::string::String>,
-    pub(crate) device_remembered_status:
-        ::std::option::Option<crate::types::DeviceRememberedStatusType>,
+    pub(crate) device_remembered_status: ::std::option::Option<crate::types::DeviceRememberedStatusType>,
 }
 impl AdminUpdateDeviceStatusInputBuilder {
     /// <p>The ID of the user pool where you want to change a user's device status.</p>
@@ -109,10 +104,7 @@ impl AdminUpdateDeviceStatusInputBuilder {
         &self.device_key
     }
     /// <p>To enable device authentication with the specified device, set to <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
-    pub fn device_remembered_status(
-        mut self,
-        input: crate::types::DeviceRememberedStatusType,
-    ) -> Self {
+    pub fn device_remembered_status(mut self, input: crate::types::DeviceRememberedStatusType) -> Self {
         self.device_remembered_status = ::std::option::Option::Some(input);
         self
     }
@@ -125,9 +117,7 @@ impl AdminUpdateDeviceStatusInputBuilder {
         self
     }
     /// <p>To enable device authentication with the specified device, set to <code>remembered</code>.To disable, set to <code>not_remembered</code>.</p>
-    pub fn get_device_remembered_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::DeviceRememberedStatusType> {
+    pub fn get_device_remembered_status(&self) -> &::std::option::Option<crate::types::DeviceRememberedStatusType> {
         &self.device_remembered_status
     }
     /// Consumes the builder and constructs a [`AdminUpdateDeviceStatusInput`](crate::operation::admin_update_device_status::AdminUpdateDeviceStatusInput).

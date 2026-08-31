@@ -3,9 +3,7 @@ pub use crate::operation::start_web_authn_registration::_start_web_authn_registr
 
 pub use crate::operation::start_web_authn_registration::_start_web_authn_registration_output::StartWebAuthnRegistrationOutputBuilder;
 
-impl
-    crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationInputBuilder
-{
+impl crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -60,7 +58,9 @@ impl StartWebAuthnRegistrationFluentBuilder {
         }
     }
     /// Access the StartWebAuthnRegistration as a reference.
-    pub fn as_input(&self) -> &crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::start_web_authn_registration::builders::StartWebAuthnRegistrationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +84,14 @@ impl StartWebAuthnRegistrationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::start_web_authn_registration::StartWebAuthnRegistration::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::start_web_authn_registration::StartWebAuthnRegistration::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::start_web_authn_registration::StartWebAuthnRegistration::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::start_web_authn_registration::StartWebAuthnRegistration::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

@@ -35,14 +35,10 @@ pub fn ser_re_encrypt_input_input(
         object_9.finish();
     }
     if let Some(var_12) = &input.source_encryption_algorithm {
-        object
-            .key("SourceEncryptionAlgorithm")
-            .string(var_12.as_str());
+        object.key("SourceEncryptionAlgorithm").string(var_12.as_str());
     }
     if let Some(var_13) = &input.destination_encryption_algorithm {
-        object
-            .key("DestinationEncryptionAlgorithm")
-            .string(var_13.as_str());
+        object.key("DestinationEncryptionAlgorithm").string(var_13.as_str());
     }
     if let Some(var_14) = &input.grant_tokens {
         let mut array_15 = object.key("GrantTokens").start_array();

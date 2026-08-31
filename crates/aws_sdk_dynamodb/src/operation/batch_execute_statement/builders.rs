@@ -61,10 +61,7 @@ impl BatchExecuteStatementFluentBuilder {
         }
     }
     /// Access the BatchExecuteStatement as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::batch_execute_statement::builders::BatchExecuteStatementInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::batch_execute_statement::builders::BatchExecuteStatementInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,16 +85,13 @@ impl BatchExecuteStatementFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::batch_execute_statement::BatchExecuteStatement::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::batch_execute_statement::BatchExecuteStatement::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::batch_execute_statement::BatchExecuteStatement::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::batch_execute_statement::BatchExecuteStatement::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -144,9 +138,7 @@ impl BatchExecuteStatementFluentBuilder {
         self
     }
     /// <p>The list of PartiQL statements representing the batch to run.</p>
-    pub fn get_statements(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchStatementRequest>> {
+    pub fn get_statements(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchStatementRequest>> {
         self.inner.get_statements()
     }
     /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
@@ -190,9 +182,7 @@ impl BatchExecuteStatementFluentBuilder {
     /// <li>
     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
     /// </ul>
-    pub fn get_return_consumed_capacity(
-        &self,
-    ) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
+    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
         self.inner.get_return_consumed_capacity()
     }
 }

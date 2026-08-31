@@ -77,11 +77,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -113,16 +111,21 @@ where
                             )?);
                             }
                             "Isp" => {
-                                builder = builder.set_isp(crate::protocol_serde::shape_isp_filter_list::de_isp_filter_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                                builder =
+                                    builder.set_isp(crate::protocol_serde::shape_isp_filter_list::de_isp_filter_list(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?);
                             }
                             "LastDeliveryEvent" => {
                                 builder = builder.set_last_delivery_event(
-                                crate::protocol_serde::shape_last_delivery_event_list::de_last_delivery_event_list(tokens, _value, depth + 1)?,
-                            );
+                                    crate::protocol_serde::shape_last_delivery_event_list::de_last_delivery_event_list(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "LastEngagementEvent" => {
                                 builder = builder.set_last_engagement_event(
@@ -133,20 +136,16 @@ where
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
             Ok(Some(builder.build()))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

@@ -78,7 +78,7 @@ impl DisableOutboundWebIdentityFederationFluentBuilder {
             crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -89,7 +89,11 @@ impl DisableOutboundWebIdentityFederationFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederation::orchestrate(&runtime_plugins, input).await
+        crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederation::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -99,7 +103,7 @@ impl DisableOutboundWebIdentityFederationFluentBuilder {
         crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationOutput,
         crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(

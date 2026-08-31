@@ -32,9 +32,7 @@ impl MetricsConfiguration {
 }
 
 /// A builder for [`MetricsConfiguration`](crate::types::MetricsConfiguration).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct MetricsConfigurationBuilder {
     pub(crate) id: ::std::option::Option<::std::string::String>,
@@ -81,10 +79,8 @@ impl MetricsConfigurationBuilder {
     /// - [`id`](crate::types::builders::MetricsConfigurationBuilder::id)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::MetricsConfiguration,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::MetricsConfiguration, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::MetricsConfiguration {
             id: self.id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

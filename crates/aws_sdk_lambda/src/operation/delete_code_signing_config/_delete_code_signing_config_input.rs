@@ -14,17 +14,13 @@ impl DeleteCodeSigningConfigInput {
 }
 impl DeleteCodeSigningConfigInput {
     /// Creates a new builder-style object to manufacture [`DeleteCodeSigningConfigInput`](crate::operation::delete_code_signing_config::DeleteCodeSigningConfigInput).
-    pub fn builder(
-    ) -> crate::operation::delete_code_signing_config::builders::DeleteCodeSigningConfigInputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_code_signing_config::builders::DeleteCodeSigningConfigInputBuilder {
         crate::operation::delete_code_signing_config::builders::DeleteCodeSigningConfigInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteCodeSigningConfigInput`](crate::operation::delete_code_signing_config::DeleteCodeSigningConfigInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteCodeSigningConfigInputBuilder {
     pub(crate) code_signing_config_arn: ::std::option::Option<::std::string::String>,
@@ -32,18 +28,12 @@ pub struct DeleteCodeSigningConfigInputBuilder {
 impl DeleteCodeSigningConfigInputBuilder {
     /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
     /// This field is required.
-    pub fn code_signing_config_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn code_signing_config_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.code_signing_config_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
-    pub fn set_code_signing_config_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_code_signing_config_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.code_signing_config_arn = input;
         self
     }

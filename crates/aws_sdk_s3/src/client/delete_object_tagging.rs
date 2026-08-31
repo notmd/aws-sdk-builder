@@ -13,8 +13,6 @@ impl super::Client {
     pub fn delete_object_tagging(
         &self,
     ) -> crate::operation::delete_object_tagging::builders::DeleteObjectTaggingFluentBuilder {
-        crate::operation::delete_object_tagging::builders::DeleteObjectTaggingFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_object_tagging::builders::DeleteObjectTaggingFluentBuilder::new(self.handle.clone())
     }
 }

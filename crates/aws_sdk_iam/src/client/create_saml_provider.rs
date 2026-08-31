@@ -15,8 +15,6 @@ impl super::Client {
     pub fn create_saml_provider(
         &self,
     ) -> crate::operation::create_saml_provider::builders::CreateSAMLProviderFluentBuilder {
-        crate::operation::create_saml_provider::builders::CreateSAMLProviderFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::create_saml_provider::builders::CreateSAMLProviderFluentBuilder::new(self.handle.clone())
     }
 }

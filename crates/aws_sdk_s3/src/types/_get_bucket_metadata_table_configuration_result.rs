@@ -7,8 +7,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetBucketMetadataTableConfigurationResult {
     /// <p>The V1 S3 Metadata configuration for a general purpose bucket.</p>
-    pub metadata_table_configuration_result:
-        ::std::option::Option<crate::types::MetadataTableConfigurationResult>,
+    pub metadata_table_configuration_result: ::std::option::Option<crate::types::MetadataTableConfigurationResult>,
     /// <p>The status of the metadata table. The status values are:</p>
     /// <ul>
     /// <li>
@@ -55,9 +54,7 @@ impl GetBucketMetadataTableConfigurationResult {
 }
 
 /// A builder for [`GetBucketMetadataTableConfigurationResult`](crate::types::GetBucketMetadataTableConfigurationResult).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketMetadataTableConfigurationResultBuilder {
     pub(crate) metadata_table_configuration_result:

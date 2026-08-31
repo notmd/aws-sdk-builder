@@ -14,8 +14,6 @@ impl super::Client {
     pub fn describe_destinations(
         &self,
     ) -> crate::operation::describe_destinations::builders::DescribeDestinationsFluentBuilder {
-        crate::operation::describe_destinations::builders::DescribeDestinationsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::describe_destinations::builders::DescribeDestinationsFluentBuilder::new(self.handle.clone())
     }
 }

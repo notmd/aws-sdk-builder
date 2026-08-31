@@ -28,7 +28,8 @@ impl ::std::fmt::Debug for VerifySmsSandboxPhoneNumberInput {
 }
 impl VerifySmsSandboxPhoneNumberInput {
     /// Creates a new builder-style object to manufacture [`VerifySmsSandboxPhoneNumberInput`](crate::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberInput).
-    pub fn builder() -> crate::operation::verify_sms_sandbox_phone_number::builders::VerifySmsSandboxPhoneNumberInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::verify_sms_sandbox_phone_number::builders::VerifySmsSandboxPhoneNumberInputBuilder {
         crate::operation::verify_sms_sandbox_phone_number::builders::VerifySmsSandboxPhoneNumberInputBuilder::default()
     }
 }
@@ -58,18 +59,12 @@ impl VerifySmsSandboxPhoneNumberInputBuilder {
     }
     /// <p>The OTP sent to the destination number from the <code>CreateSMSSandBoxPhoneNumber</code> call.</p>
     /// This field is required.
-    pub fn one_time_password(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn one_time_password(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.one_time_password = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The OTP sent to the destination number from the <code>CreateSMSSandBoxPhoneNumber</code> call.</p>
-    pub fn set_one_time_password(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_one_time_password(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.one_time_password = input;
         self
     }

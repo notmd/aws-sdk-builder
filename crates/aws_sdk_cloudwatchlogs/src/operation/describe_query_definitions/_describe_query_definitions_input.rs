@@ -32,17 +32,13 @@ impl DescribeQueryDefinitionsInput {
 }
 impl DescribeQueryDefinitionsInput {
     /// Creates a new builder-style object to manufacture [`DescribeQueryDefinitionsInput`](crate::operation::describe_query_definitions::DescribeQueryDefinitionsInput).
-    pub fn builder(
-    ) -> crate::operation::describe_query_definitions::builders::DescribeQueryDefinitionsInputBuilder
-    {
+    pub fn builder() -> crate::operation::describe_query_definitions::builders::DescribeQueryDefinitionsInputBuilder {
         crate::operation::describe_query_definitions::builders::DescribeQueryDefinitionsInputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeQueryDefinitionsInput`](crate::operation::describe_query_definitions::DescribeQueryDefinitionsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeQueryDefinitionsInputBuilder {
     pub(crate) query_language: ::std::option::Option<crate::types::QueryLanguage>,
@@ -57,10 +53,7 @@ impl DescribeQueryDefinitionsInputBuilder {
         self
     }
     /// <p>The query language used for this query. For more information about the query languages that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
-    pub fn set_query_language(
-        mut self,
-        input: ::std::option::Option<crate::types::QueryLanguage>,
-    ) -> Self {
+    pub fn set_query_language(mut self, input: ::std::option::Option<crate::types::QueryLanguage>) -> Self {
         self.query_language = input;
         self
     }
@@ -69,25 +62,17 @@ impl DescribeQueryDefinitionsInputBuilder {
         &self.query_language
     }
     /// <p>Use this parameter to filter your results to only the query definitions that have names that start with the prefix you specify.</p>
-    pub fn query_definition_name_prefix(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn query_definition_name_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.query_definition_name_prefix = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Use this parameter to filter your results to only the query definitions that have names that start with the prefix you specify.</p>
-    pub fn set_query_definition_name_prefix(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_query_definition_name_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.query_definition_name_prefix = input;
         self
     }
     /// <p>Use this parameter to filter your results to only the query definitions that have names that start with the prefix you specify.</p>
-    pub fn get_query_definition_name_prefix(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_query_definition_name_prefix(&self) -> &::std::option::Option<::std::string::String> {
         &self.query_definition_name_prefix
     }
     /// <p>Limits the number of returned query definitions to the specified number.</p>

@@ -3,7 +3,9 @@ pub use crate::operation::list_endpoints_by_platform_application::_list_endpoint
 
 pub use crate::operation::list_endpoints_by_platform_application::_list_endpoints_by_platform_application_output::ListEndpointsByPlatformApplicationOutputBuilder;
 
-impl crate::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationInputBuilder {
+impl
+    crate::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -77,7 +79,7 @@ impl ListEndpointsByPlatformApplicationFluentBuilder {
             crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -87,7 +89,11 @@ impl ListEndpointsByPlatformApplicationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplication::orchestrate(&runtime_plugins, input).await
+        crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplication::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -97,7 +103,7 @@ impl ListEndpointsByPlatformApplicationFluentBuilder {
         crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput,
         crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -118,22 +124,19 @@ impl ListEndpointsByPlatformApplicationFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_endpoints_by_platform_application::paginator::ListEndpointsByPlatformApplicationPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_endpoints_by_platform_application::paginator::ListEndpointsByPlatformApplicationPaginator{
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::list_endpoints_by_platform_application::paginator::ListEndpointsByPlatformApplicationPaginator
+    {
         crate::operation::list_endpoints_by_platform_application::paginator::ListEndpointsByPlatformApplicationPaginator::new(self.handle, self.inner)
     }
     /// <p><code>PlatformApplicationArn</code> for <code>ListEndpointsByPlatformApplicationInput</code> action.</p>
-    pub fn platform_application_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn platform_application_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.platform_application_arn(input.into());
         self
     }
     /// <p><code>PlatformApplicationArn</code> for <code>ListEndpointsByPlatformApplicationInput</code> action.</p>
-    pub fn set_platform_application_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_platform_application_arn(input);
         self
     }

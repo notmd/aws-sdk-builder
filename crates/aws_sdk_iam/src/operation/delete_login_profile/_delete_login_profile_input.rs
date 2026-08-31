@@ -18,16 +18,13 @@ impl DeleteLoginProfileInput {
 }
 impl DeleteLoginProfileInput {
     /// Creates a new builder-style object to manufacture [`DeleteLoginProfileInput`](crate::operation::delete_login_profile::DeleteLoginProfileInput).
-    pub fn builder(
-    ) -> crate::operation::delete_login_profile::builders::DeleteLoginProfileInputBuilder {
+    pub fn builder() -> crate::operation::delete_login_profile::builders::DeleteLoginProfileInputBuilder {
         crate::operation::delete_login_profile::builders::DeleteLoginProfileInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteLoginProfileInput`](crate::operation::delete_login_profile::DeleteLoginProfileInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteLoginProfileInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -60,10 +57,8 @@ impl DeleteLoginProfileInputBuilder {
         crate::operation::delete_login_profile::DeleteLoginProfileInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_login_profile::DeleteLoginProfileInput {
-                user_name: self.user_name,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::delete_login_profile::DeleteLoginProfileInput {
+            user_name: self.user_name,
+        })
     }
 }

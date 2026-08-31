@@ -6,8 +6,7 @@ pub struct PublishBatchInput {
     /// <p>The Amazon resource name (ARN) of the topic you want to batch publish to.</p>
     pub topic_arn: ::std::option::Option<::std::string::String>,
     /// <p>A list of <code>PublishBatch</code> request entries to be sent to the SNS topic.</p>
-    pub publish_batch_request_entries:
-        ::std::option::Option<::std::vec::Vec<crate::types::PublishBatchRequestEntry>>,
+    pub publish_batch_request_entries: ::std::option::Option<::std::vec::Vec<crate::types::PublishBatchRequestEntry>>,
 }
 impl PublishBatchInput {
     /// <p>The Amazon resource name (ARN) of the topic you want to batch publish to.</p>
@@ -18,9 +17,7 @@ impl PublishBatchInput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.publish_batch_request_entries.is_none()`.
     pub fn publish_batch_request_entries(&self) -> &[crate::types::PublishBatchRequestEntry] {
-        self.publish_batch_request_entries
-            .as_deref()
-            .unwrap_or_default()
+        self.publish_batch_request_entries.as_deref().unwrap_or_default()
     }
 }
 impl PublishBatchInput {
@@ -31,9 +28,7 @@ impl PublishBatchInput {
 }
 
 /// A builder for [`PublishBatchInput`](crate::operation::publish_batch::PublishBatchInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PublishBatchInputBuilder {
     pub(crate) topic_arn: ::std::option::Option<::std::string::String>,
@@ -61,10 +56,7 @@ impl PublishBatchInputBuilder {
     /// To override the contents of this collection use [`set_publish_batch_request_entries`](Self::set_publish_batch_request_entries).
     ///
     /// <p>A list of <code>PublishBatch</code> request entries to be sent to the SNS topic.</p>
-    pub fn publish_batch_request_entries(
-        mut self,
-        input: crate::types::PublishBatchRequestEntry,
-    ) -> Self {
+    pub fn publish_batch_request_entries(mut self, input: crate::types::PublishBatchRequestEntry) -> Self {
         let mut v = self.publish_batch_request_entries.unwrap_or_default();
         v.push(input);
         self.publish_batch_request_entries = ::std::option::Option::Some(v);

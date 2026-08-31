@@ -41,9 +41,7 @@ impl ChangeMessageVisibilityBatchRequestEntry {
 }
 
 /// A builder for [`ChangeMessageVisibilityBatchRequestEntry`](crate::types::ChangeMessageVisibilityBatchRequestEntry).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ChangeMessageVisibilityBatchRequestEntryBuilder {
     pub(crate) id: ::std::option::Option<::std::string::String>,
@@ -77,18 +75,12 @@ impl ChangeMessageVisibilityBatchRequestEntryBuilder {
     }
     /// <p>A receipt handle.</p>
     /// This field is required.
-    pub fn receipt_handle(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn receipt_handle(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.receipt_handle = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A receipt handle.</p>
-    pub fn set_receipt_handle(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_receipt_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.receipt_handle = input;
         self
     }

@@ -28,9 +28,7 @@ impl ::std::fmt::Debug for AdminGetUserAuthFactorsInput {
 }
 impl AdminGetUserAuthFactorsInput {
     /// Creates a new builder-style object to manufacture [`AdminGetUserAuthFactorsInput`](crate::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsInput).
-    pub fn builder(
-    ) -> crate::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsInputBuilder
-    {
+    pub fn builder() -> crate::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsInputBuilder {
         crate::operation::admin_get_user_auth_factors::builders::AdminGetUserAuthFactorsInputBuilder::default()
     }
 }

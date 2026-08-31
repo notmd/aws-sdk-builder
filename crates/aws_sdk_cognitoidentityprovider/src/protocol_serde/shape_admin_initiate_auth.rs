@@ -9,46 +9,46 @@ pub fn de_admin_initiate_auth_http_error(
     crate::operation::admin_initiate_auth::AdminInitiateAuthError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(
-                crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled(generic),
-            )
-        }
+        None => return Err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InternalErrorException" => crate::operation::admin_initiate_auth::AdminInitiateAuthError::InternalErrorException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "InternalErrorException" => {
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError::InternalErrorException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
-                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "InvalidEmailRoleAccessPolicyException" => {
             crate::operation::admin_initiate_auth::AdminInitiateAuthError::InvalidEmailRoleAccessPolicyException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::InvalidEmailRoleAccessPolicyExceptionBuilder::default();
+                    let mut output =
+                        crate::types::error::builders::InvalidEmailRoleAccessPolicyExceptionBuilder::default();
                     output = crate::protocol_serde::shape_invalid_email_role_access_policy_exception::de_invalid_email_role_access_policy_exception_json_err(_response_body, output).map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
@@ -59,45 +59,50 @@ pub fn de_admin_initiate_auth_http_error(
                 tmp
             })
         }
-        "InvalidLambdaResponseException" => crate::operation::admin_initiate_auth::AdminInitiateAuthError::InvalidLambdaResponseException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "InvalidLambdaResponseException" => {
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError::InvalidLambdaResponseException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidParameterException" => crate::operation::admin_initiate_auth::AdminInitiateAuthError::InvalidParameterException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidParameterException" => {
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError::InvalidParameterException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
                     .map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "InvalidSmsRoleAccessPolicyException" => {
             crate::operation::admin_initiate_auth::AdminInitiateAuthError::InvalidSmsRoleAccessPolicyException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
+                    let mut output =
+                        crate::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
                     output =
                         crate::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
                             _response_body,
@@ -118,7 +123,8 @@ pub fn de_admin_initiate_auth_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::InvalidSmsRoleTrustRelationshipExceptionBuilder::default();
+                    let mut output =
+                        crate::types::error::builders::InvalidSmsRoleTrustRelationshipExceptionBuilder::default();
                     output = crate::protocol_serde::shape_invalid_sms_role_trust_relationship_exception::de_invalid_sms_role_trust_relationship_exception_json_err(_response_body, output).map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
@@ -134,7 +140,8 @@ pub fn de_admin_initiate_auth_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::InvalidUserPoolConfigurationExceptionBuilder::default();
+                    let mut output =
+                        crate::types::error::builders::InvalidUserPoolConfigurationExceptionBuilder::default();
                     output = crate::protocol_serde::shape_invalid_user_pool_configuration_exception::de_invalid_user_pool_configuration_exception_json_err(_response_body, output).map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
@@ -145,180 +152,210 @@ pub fn de_admin_initiate_auth_http_error(
                 tmp
             })
         }
-        "MFAMethodNotFoundException" => crate::operation::admin_initiate_auth::AdminInitiateAuthError::MfaMethodNotFoundException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "MFAMethodNotFoundException" => {
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError::MfaMethodNotFoundException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::MfaMethodNotFoundExceptionBuilder::default();
-                output =
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::MfaMethodNotFoundExceptionBuilder::default();
+                    output =
                     crate::protocol_serde::shape_mfa_method_not_found_exception::de_mfa_method_not_found_exception_json_err(_response_body, output)
                         .map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "NotAuthorizedException" => crate::operation::admin_initiate_auth::AdminInitiateAuthError::NotAuthorizedException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "NotAuthorizedException" => {
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError::NotAuthorizedException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
-                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "OperationNotEnabledException" => crate::operation::admin_initiate_auth::AdminInitiateAuthError::OperationNotEnabledException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "OperationNotEnabledException" => {
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError::OperationNotEnabledException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                output =
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+                    output =
                     crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
                         .map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "PasswordResetRequiredException" => crate::operation::admin_initiate_auth::AdminInitiateAuthError::PasswordResetRequiredException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "PasswordResetRequiredException" => {
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError::PasswordResetRequiredException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::PasswordResetRequiredExceptionBuilder::default();
-                output = crate::protocol_serde::shape_password_reset_required_exception::de_password_reset_required_exception_json_err(
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::PasswordResetRequiredExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_password_reset_required_exception::de_password_reset_required_exception_json_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ResourceNotFoundException" => crate::operation::admin_initiate_auth::AdminInitiateAuthError::ResourceNotFoundException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ResourceNotFoundException" => {
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError::ResourceNotFoundException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "TooManyRequestsException" => crate::operation::admin_initiate_auth::AdminInitiateAuthError::TooManyRequestsException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "TooManyRequestsException" => {
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError::TooManyRequestsException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "UnexpectedLambdaException" => crate::operation::admin_initiate_auth::AdminInitiateAuthError::UnexpectedLambdaException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "UnexpectedLambdaException" => {
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError::UnexpectedLambdaException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
-                output = crate::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
                     .map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "UnsupportedOperationException" => crate::operation::admin_initiate_auth::AdminInitiateAuthError::UnsupportedOperationException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "UnsupportedOperationException" => {
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError::UnsupportedOperationException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UnsupportedOperationExceptionBuilder::default();
-                output =
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::UnsupportedOperationExceptionBuilder::default();
+                    output =
                     crate::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(_response_body, output)
                         .map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "UserLambdaValidationException" => crate::operation::admin_initiate_auth::AdminInitiateAuthError::UserLambdaValidationException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "UserLambdaValidationException" => {
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError::UserLambdaValidationException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UserLambdaValidationExceptionBuilder::default();
-                output = crate::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::UserLambdaValidationExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
                     _response_body,
                     output,
                 )
                 .map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "UserNotConfirmedException" => crate::operation::admin_initiate_auth::AdminInitiateAuthError::UserNotConfirmedException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "UserNotConfirmedException" => {
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError::UserNotConfirmedException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UserNotConfirmedExceptionBuilder::default();
-                output = crate::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::UserNotConfirmedExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(_response_body, output)
                     .map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "UserNotFoundException" => crate::operation::admin_initiate_auth::AdminInitiateAuthError::UserNotFoundException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "UserNotFoundException" => {
+            crate::operation::admin_initiate_auth::AdminInitiateAuthError::UserNotFoundException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UserNotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::UserNotFoundExceptionBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => crate::operation::admin_initiate_auth::AdminInitiateAuthError::generic(generic),
     })
 }
@@ -335,30 +372,20 @@ pub fn de_admin_initiate_auth_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::admin_initiate_auth::builders::AdminInitiateAuthOutputBuilder::default();
-        output = crate::protocol_serde::shape_admin_initiate_auth::de_admin_initiate_auth(
-            _response_body,
-            output,
-        )
-        .map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output = crate::protocol_serde::shape_admin_initiate_auth::de_admin_initiate_auth(_response_body, output)
+            .map_err(crate::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_admin_initiate_auth_input(
     input: &crate::operation::admin_initiate_auth::AdminInitiateAuthInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_admin_initiate_auth_input::ser_admin_initiate_auth_input_input(
-        &mut object,
-        input,
-    )?;
+    crate::protocol_serde::shape_admin_initiate_auth_input::ser_admin_initiate_auth_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -370,10 +397,8 @@ pub(crate) fn de_admin_initiate_auth(
     crate::operation::admin_initiate_auth::builders::AdminInitiateAuthOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -385,33 +410,37 @@ pub(crate) fn de_admin_initiate_auth(
                 match key.to_unescaped()?.as_ref() {
                     "ChallengeName" => {
                         builder = builder.set_challenge_name(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                tokens.next(),
-                            )?
-                            .map(|s| {
-                                s.to_unescaped()
-                                    .map(|u| crate::types::ChallengeNameType::from(u.as_ref()))
-                            })
-                            .transpose()?,
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| {
+                                    s.to_unescaped()
+                                        .map(|u| crate::types::ChallengeNameType::from(u.as_ref()))
+                                })
+                                .transpose()?,
                         );
                     }
                     "Session" => {
                         builder = builder.set_session(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                tokens.next(),
-                            )?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                .transpose()?,
                         );
                     }
                     "ChallengeParameters" => {
                         builder = builder.set_challenge_parameters(
-                            crate::protocol_serde::shape_challenge_parameters_type::de_challenge_parameters_type(tokens, _value, depth + 1)?,
+                            crate::protocol_serde::shape_challenge_parameters_type::de_challenge_parameters_type(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?,
                         );
                     }
                     "AuthenticationResult" => {
                         builder = builder.set_authentication_result(
-                            crate::protocol_serde::shape_authentication_result_type::de_authentication_result_type(tokens, _value, depth + 1)?,
+                            crate::protocol_serde::shape_authentication_result_type::de_authentication_result_type(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?,
                         );
                     }
                     "AvailableChallenges" => {
@@ -423,20 +452,16 @@ pub(crate) fn de_admin_initiate_auth(
                 }
             }
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

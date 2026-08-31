@@ -10,8 +10,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetBucketPolicyStatusError>`](crate::operation::get_bucket_policy_status::GetBucketPolicyStatusError)
     pub fn get_bucket_policy_status(
         &self,
-    ) -> crate::operation::get_bucket_policy_status::builders::GetBucketPolicyStatusFluentBuilder
-    {
-        crate::operation::get_bucket_policy_status::builders::GetBucketPolicyStatusFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::get_bucket_policy_status::builders::GetBucketPolicyStatusFluentBuilder {
+        crate::operation::get_bucket_policy_status::builders::GetBucketPolicyStatusFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

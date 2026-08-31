@@ -67,9 +67,7 @@ impl CreateLogStreamFluentBuilder {
         }
     }
     /// Access the CreateLogStream as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::create_log_stream::builders::CreateLogStreamInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::create_log_stream::builders::CreateLogStreamInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -93,14 +91,12 @@ impl CreateLogStreamFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::create_log_stream::CreateLogStream::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::create_log_stream::CreateLogStream::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::create_log_stream::CreateLogStream::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::create_log_stream::CreateLogStream::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -129,18 +125,12 @@ impl CreateLogStreamFluentBuilder {
         self
     }
     /// <p>The name of the log group.</p>
-    pub fn log_group_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_group_name(input.into());
         self
     }
     /// <p>The name of the log group.</p>
-    pub fn set_log_group_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_log_group_name(input);
         self
     }
@@ -149,18 +139,12 @@ impl CreateLogStreamFluentBuilder {
         self.inner.get_log_group_name()
     }
     /// <p>The name of the log stream.</p>
-    pub fn log_stream_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_stream_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_stream_name(input.into());
         self
     }
     /// <p>The name of the log stream.</p>
-    pub fn set_log_stream_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_stream_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_log_stream_name(input);
         self
     }

@@ -60,9 +60,7 @@ impl ConfirmSignUpFluentBuilder {
         }
     }
     /// Access the ConfirmSignUp as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::confirm_sign_up::builders::ConfirmSignUpInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::confirm_sign_up::builders::ConfirmSignUpInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,12 +84,11 @@ impl ConfirmSignUpFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::confirm_sign_up::ConfirmSignUp::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::confirm_sign_up::ConfirmSignUp::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::confirm_sign_up::ConfirmSignUp::orchestrate(&runtime_plugins, input).await
     }
 
@@ -163,18 +160,12 @@ impl ConfirmSignUpFluentBuilder {
         self.inner.get_username()
     }
     /// <p>The confirmation code that your user pool sent in response to the <code>SignUp</code> request.</p>
-    pub fn confirmation_code(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn confirmation_code(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.confirmation_code(input.into());
         self
     }
     /// <p>The confirmation code that your user pool sent in response to the <code>SignUp</code> request.</p>
-    pub fn set_confirmation_code(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_confirmation_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_confirmation_code(input);
         self
     }
@@ -211,17 +202,12 @@ impl ConfirmSignUpFluentBuilder {
         self
     }
     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
-    pub fn set_analytics_metadata(
-        mut self,
-        input: ::std::option::Option<crate::types::AnalyticsMetadataType>,
-    ) -> Self {
+    pub fn set_analytics_metadata(mut self, input: ::std::option::Option<crate::types::AnalyticsMetadataType>) -> Self {
         self.inner = self.inner.set_analytics_metadata(input);
         self
     }
     /// <p>Information that supports analytics outcomes with Amazon Pinpoint, including the user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier, email address, or phone number.</p>
-    pub fn get_analytics_metadata(
-        &self,
-    ) -> &::std::option::Option<crate::types::AnalyticsMetadataType> {
+    pub fn get_analytics_metadata(&self) -> &::std::option::Option<crate::types::AnalyticsMetadataType> {
         self.inner.get_analytics_metadata()
     }
     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
@@ -232,18 +218,13 @@ impl ConfirmSignUpFluentBuilder {
     }
     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in applications</a>.</p>
-    pub fn set_user_context_data(
-        mut self,
-        input: ::std::option::Option<crate::types::UserContextDataType>,
-    ) -> Self {
+    pub fn set_user_context_data(mut self, input: ::std::option::Option<crate::types::UserContextDataType>) -> Self {
         self.inner = self.inner.set_user_context_data(input);
         self
     }
     /// <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito when it makes API requests.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in applications</a>.</p>
-    pub fn get_user_context_data(
-        &self,
-    ) -> &::std::option::Option<crate::types::UserContextDataType> {
+    pub fn get_user_context_data(&self) -> &::std::option::Option<crate::types::UserContextDataType> {
         self.inner.get_user_context_data()
     }
     ///
@@ -287,9 +268,7 @@ impl ConfirmSignUpFluentBuilder {
     /// </note>
     pub fn set_client_metadata(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_client_metadata(input);
         self
@@ -309,9 +288,7 @@ impl ConfirmSignUpFluentBuilder {
     /// </note>
     pub fn get_client_metadata(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_client_metadata()
     }
     /// <p>The optional session ID from a <code>SignUp</code> API request. You can sign in a user directly from the sign-up process with the <code>USER_AUTH</code> authentication flow.</p>

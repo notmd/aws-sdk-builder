@@ -34,9 +34,7 @@ impl ListJobsOutput {
 }
 
 /// A builder for [`ListJobsOutput`](crate::operation::list_jobs::ListJobsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListJobsOutputBuilder {
     pub(crate) job_summary_list: ::std::option::Option<::std::vec::Vec<crate::types::JobSummary>>,
@@ -64,9 +62,7 @@ impl ListJobsOutputBuilder {
         self
     }
     /// <p>A list of job summaries that match the request.</p>
-    pub fn get_job_summary_list(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::JobSummary>> {
+    pub fn get_job_summary_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::JobSummary>> {
         &self.job_summary_list
     }
     /// <p>The <code>nextToken</code> value to include in a future <code>ListJobs</code> request. When the results of a <code>ListJobs</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>

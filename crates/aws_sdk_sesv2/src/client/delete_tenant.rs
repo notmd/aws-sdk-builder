@@ -6,11 +6,7 @@ impl super::Client {
     ///   - [`tenant_name(impl Into<String>)`](crate::operation::delete_tenant::builders::DeleteTenantFluentBuilder::tenant_name) / [`set_tenant_name(Option<String>)`](crate::operation::delete_tenant::builders::DeleteTenantFluentBuilder::set_tenant_name):<br>required: **true**<br><p>The name of the tenant to delete.</p><br>
     /// - On success, responds with [`DeleteTenantOutput`](crate::operation::delete_tenant::DeleteTenantOutput)
     /// - On failure, responds with [`SdkError<DeleteTenantError>`](crate::operation::delete_tenant::DeleteTenantError)
-    pub fn delete_tenant(
-        &self,
-    ) -> crate::operation::delete_tenant::builders::DeleteTenantFluentBuilder {
-        crate::operation::delete_tenant::builders::DeleteTenantFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn delete_tenant(&self) -> crate::operation::delete_tenant::builders::DeleteTenantFluentBuilder {
+        crate::operation::delete_tenant::builders::DeleteTenantFluentBuilder::new(self.handle.clone())
     }
 }

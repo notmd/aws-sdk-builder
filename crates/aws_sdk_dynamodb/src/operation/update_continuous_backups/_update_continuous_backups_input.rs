@@ -6,8 +6,7 @@ pub struct UpdateContinuousBackupsInput {
     /// <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
     pub table_name: ::std::option::Option<::std::string::String>,
     /// <p>Represents the settings used to enable point in time recovery.</p>
-    pub point_in_time_recovery_specification:
-        ::std::option::Option<crate::types::PointInTimeRecoverySpecification>,
+    pub point_in_time_recovery_specification: ::std::option::Option<crate::types::PointInTimeRecoverySpecification>,
 }
 impl UpdateContinuousBackupsInput {
     /// <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
@@ -23,17 +22,13 @@ impl UpdateContinuousBackupsInput {
 }
 impl UpdateContinuousBackupsInput {
     /// Creates a new builder-style object to manufacture [`UpdateContinuousBackupsInput`](crate::operation::update_continuous_backups::UpdateContinuousBackupsInput).
-    pub fn builder(
-    ) -> crate::operation::update_continuous_backups::builders::UpdateContinuousBackupsInputBuilder
-    {
+    pub fn builder() -> crate::operation::update_continuous_backups::builders::UpdateContinuousBackupsInputBuilder {
         crate::operation::update_continuous_backups::builders::UpdateContinuousBackupsInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateContinuousBackupsInput`](crate::operation::update_continuous_backups::UpdateContinuousBackupsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateContinuousBackupsInputBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,

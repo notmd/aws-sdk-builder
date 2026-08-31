@@ -78,7 +78,7 @@ impl ListFunctionVersionsByCapacityProviderFluentBuilder {
             crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -100,7 +100,7 @@ impl ListFunctionVersionsByCapacityProviderFluentBuilder {
         crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderOutput,
         crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -130,18 +130,12 @@ impl ListFunctionVersionsByCapacityProviderFluentBuilder {
         )
     }
     /// <p>The name of the capacity provider to list function versions for.</p>
-    pub fn capacity_provider_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn capacity_provider_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.capacity_provider_name(input.into());
         self
     }
     /// <p>The name of the capacity provider to list function versions for.</p>
-    pub fn set_capacity_provider_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_capacity_provider_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_capacity_provider_name(input);
         self
     }

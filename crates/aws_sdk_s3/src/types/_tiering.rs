@@ -27,9 +27,7 @@ impl Tiering {
 }
 
 /// A builder for [`Tiering`](crate::types::Tiering).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TieringBuilder {
     pub(crate) days: ::std::option::Option<i32>,
@@ -58,17 +56,12 @@ impl TieringBuilder {
         self
     }
     /// <p>S3 Intelligent-Tiering access tier. See <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access">Storage class for automatically optimizing frequently and infrequently accessed objects</a> for a list of access tiers in the S3 Intelligent-Tiering storage class.</p>
-    pub fn set_access_tier(
-        mut self,
-        input: ::std::option::Option<crate::types::IntelligentTieringAccessTier>,
-    ) -> Self {
+    pub fn set_access_tier(mut self, input: ::std::option::Option<crate::types::IntelligentTieringAccessTier>) -> Self {
         self.access_tier = input;
         self
     }
     /// <p>S3 Intelligent-Tiering access tier. See <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access">Storage class for automatically optimizing frequently and infrequently accessed objects</a> for a list of access tiers in the S3 Intelligent-Tiering storage class.</p>
-    pub fn get_access_tier(
-        &self,
-    ) -> &::std::option::Option<crate::types::IntelligentTieringAccessTier> {
+    pub fn get_access_tier(&self) -> &::std::option::Option<crate::types::IntelligentTieringAccessTier> {
         &self.access_tier
     }
     /// Consumes the builder and constructs a [`Tiering`](crate::types::Tiering).
@@ -77,10 +70,7 @@ impl TieringBuilder {
     /// - [`access_tier`](crate::types::builders::TieringBuilder::access_tier)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::Tiering,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::Tiering, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Tiering {
             days: self.days.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

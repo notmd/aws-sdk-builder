@@ -13,8 +13,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<CreateConsumableResourceError>`](crate::operation::create_consumable_resource::CreateConsumableResourceError)
     pub fn create_consumable_resource(
         &self,
-    ) -> crate::operation::create_consumable_resource::builders::CreateConsumableResourceFluentBuilder
-    {
-        crate::operation::create_consumable_resource::builders::CreateConsumableResourceFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::create_consumable_resource::builders::CreateConsumableResourceFluentBuilder {
+        crate::operation::create_consumable_resource::builders::CreateConsumableResourceFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

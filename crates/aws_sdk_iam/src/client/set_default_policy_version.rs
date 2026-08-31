@@ -9,8 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<SetDefaultPolicyVersionError>`](crate::operation::set_default_policy_version::SetDefaultPolicyVersionError)
     pub fn set_default_policy_version(
         &self,
-    ) -> crate::operation::set_default_policy_version::builders::SetDefaultPolicyVersionFluentBuilder
-    {
-        crate::operation::set_default_policy_version::builders::SetDefaultPolicyVersionFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::set_default_policy_version::builders::SetDefaultPolicyVersionFluentBuilder {
+        crate::operation::set_default_policy_version::builders::SetDefaultPolicyVersionFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

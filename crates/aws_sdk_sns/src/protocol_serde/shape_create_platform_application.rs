@@ -9,72 +9,81 @@ pub fn de_create_platform_application_http_error(
     crate::operation::create_platform_application::CreatePlatformApplicationError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(
-        crate::operation::create_platform_application::CreatePlatformApplicationError::unhandled,
-    )?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::create_platform_application::CreatePlatformApplicationError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(crate::operation::create_platform_application::CreatePlatformApplicationError::unhandled(
-                generic,
-            ))
+            return Err(
+                crate::operation::create_platform_application::CreatePlatformApplicationError::unhandled(generic),
+            )
         }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AuthorizationError" => crate::operation::create_platform_application::CreatePlatformApplicationError::AuthorizationErrorException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::AuthorizationErrorExceptionBuilder::default();
-                output = crate::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
+        "AuthorizationError" => {
+            crate::operation::create_platform_application::CreatePlatformApplicationError::AuthorizationErrorException(
+                {
+                    #[allow(unused_mut)]
+                    let mut tmp = {
+                        #[allow(unused_mut)]
+                        let mut output = crate::types::error::builders::AuthorizationErrorExceptionBuilder::default();
+                        output = crate::protocol_serde::shape_authorization_error_exception::de_authorization_error_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::create_platform_application::CreatePlatformApplicationError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InternalError" => crate::operation::create_platform_application::CreatePlatformApplicationError::InternalErrorException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                        let output = output.meta(generic);
+                        output.build()
+                    };
+                    if tmp.message.is_none() {
+                        tmp.message = _error_message;
+                    }
+                    tmp
+                },
+            )
+        }
+        "InternalError" => {
+            crate::operation::create_platform_application::CreatePlatformApplicationError::InternalErrorException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
-                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(_response_body, output)
-                    .map_err(crate::operation::create_platform_application::CreatePlatformApplicationError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidParameter" => crate::operation::create_platform_application::CreatePlatformApplicationError::InvalidParameterException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_xml_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(
+                            crate::operation::create_platform_application::CreatePlatformApplicationError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidParameter" => {
+            crate::operation::create_platform_application::CreatePlatformApplicationError::InvalidParameterException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_xml_err(_response_body, output)
                     .map_err(crate::operation::create_platform_application::CreatePlatformApplicationError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => crate::operation::create_platform_application::CreatePlatformApplicationError::generic(generic),
     })
 }
@@ -90,12 +99,14 @@ pub fn de_create_platform_application_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::create_platform_application::builders::CreatePlatformApplicationOutputBuilder::default();
-        output = crate::protocol_serde::shape_create_platform_application::de_create_platform_application(_response_body, output)
-            .map_err(crate::operation::create_platform_application::CreatePlatformApplicationError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output =
+            crate::operation::create_platform_application::builders::CreatePlatformApplicationOutputBuilder::default();
+        output = crate::protocol_serde::shape_create_platform_application::de_create_platform_application(
+            _response_body,
+            output,
+        )
+        .map_err(crate::operation::create_platform_application::CreatePlatformApplicationError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }

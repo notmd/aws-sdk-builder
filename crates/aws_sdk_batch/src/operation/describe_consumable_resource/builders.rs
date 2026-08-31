@@ -3,9 +3,7 @@ pub use crate::operation::describe_consumable_resource::_describe_consumable_res
 
 pub use crate::operation::describe_consumable_resource::_describe_consumable_resource_output::DescribeConsumableResourceOutputBuilder;
 
-impl
-    crate::operation::describe_consumable_resource::builders::DescribeConsumableResourceInputBuilder
-{
+impl crate::operation::describe_consumable_resource::builders::DescribeConsumableResourceInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -59,7 +57,9 @@ impl DescribeConsumableResourceFluentBuilder {
         }
     }
     /// Access the DescribeConsumableResource as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_consumable_resource::builders::DescribeConsumableResourceInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_consumable_resource::builders::DescribeConsumableResourceInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,16 +83,14 @@ impl DescribeConsumableResourceFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::describe_consumable_resource::DescribeConsumableResource::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::describe_consumable_resource::DescribeConsumableResource::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::describe_consumable_resource::DescribeConsumableResource::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::describe_consumable_resource::DescribeConsumableResource::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -121,18 +119,12 @@ impl DescribeConsumableResourceFluentBuilder {
         self
     }
     /// <p>The name or ARN of the consumable resource whose description will be returned.</p>
-    pub fn consumable_resource(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn consumable_resource(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.consumable_resource(input.into());
         self
     }
     /// <p>The name or ARN of the consumable resource whose description will be returned.</p>
-    pub fn set_consumable_resource(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_consumable_resource(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_consumable_resource(input);
         self
     }

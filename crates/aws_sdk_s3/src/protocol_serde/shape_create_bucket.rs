@@ -9,14 +9,10 @@ pub fn de_create_bucket_http_error(
     crate::operation::create_bucket::CreateBucketError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::create_bucket::CreateBucketError::unhandled)?;
-    generic_builder =
-        crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::create_bucket::CreateBucketError::unhandled)?;
+    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
@@ -26,31 +22,30 @@ pub fn de_create_bucket_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "BucketAlreadyExists" => {
-            crate::operation::create_bucket::CreateBucketError::BucketAlreadyExists({
+        "BucketAlreadyExists" => crate::operation::create_bucket::CreateBucketError::BucketAlreadyExists({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::BucketAlreadyExistsBuilder::default();
-                    output = crate::protocol_serde::shape_bucket_already_exists::de_bucket_already_exists_xml_err(_response_body, output)
-                    .map_err(crate::operation::create_bucket::CreateBucketError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::BucketAlreadyExistsBuilder::default();
+                output = crate::protocol_serde::shape_bucket_already_exists::de_bucket_already_exists_xml_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::create_bucket::CreateBucketError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "BucketAlreadyOwnedByYou" => {
             crate::operation::create_bucket::CreateBucketError::BucketAlreadyOwnedByYou({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::BucketAlreadyOwnedByYouBuilder::default();
+                    let mut output = crate::types::error::builders::BucketAlreadyOwnedByYouBuilder::default();
                     output = crate::protocol_serde::shape_bucket_already_owned_by_you::de_bucket_already_owned_by_you_xml_err(_response_body, output)
                     .map_err(crate::operation::create_bucket::CreateBucketError::unhandled)?;
                     let output = output.meta(generic);
@@ -77,35 +72,27 @@ pub fn de_create_bucket_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::create_bucket::builders::CreateBucketOutputBuilder::default();
+        let mut output = crate::operation::create_bucket::builders::CreateBucketOutputBuilder::default();
         output = output.set_bucket_arn(
-            crate::protocol_serde::shape_create_bucket_output::de_bucket_arn_header(
-                _response_headers,
-            )
-            .map_err(|_| {
-                crate::operation::create_bucket::CreateBucketError::unhandled(
-                    "Failed to parse BucketArn from header `x-amz-bucket-arn",
-                )
-            })?,
+            crate::protocol_serde::shape_create_bucket_output::de_bucket_arn_header(_response_headers).map_err(
+                |_| {
+                    crate::operation::create_bucket::CreateBucketError::unhandled(
+                        "Failed to parse BucketArn from header `x-amz-bucket-arn",
+                    )
+                },
+            )?,
         );
         output = output.set_location(
-            crate::protocol_serde::shape_create_bucket_output::de_location_header(
-                _response_headers,
-            )
-            .map_err(|_| {
+            crate::protocol_serde::shape_create_bucket_output::de_location_header(_response_headers).map_err(|_| {
                 crate::operation::create_bucket::CreateBucketError::unhandled(
                     "Failed to parse Location from header `Location",
                 )
             })?,
         );
         output._set_extended_request_id(
-            crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers)
-                .map(str::to_string),
+            crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string),
         );
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -113,20 +100,14 @@ pub fn de_create_bucket_http_response(
 pub fn ser_create_bucket_headers(
     input: &crate::operation::create_bucket::CreateBucketInput,
     mut builder: ::http_1x::request::Builder,
-) -> std::result::Result<
-    ::http_1x::request::Builder,
-    ::aws_smithy_types::error::operation::BuildError,
-> {
+) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.acl {
         let formatted_2 = inner_1.as_str();
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "acl",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-acl", header_value);
@@ -137,10 +118,7 @@ pub fn ser_create_bucket_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "grant_full_control",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-grant-full-control", header_value);
@@ -151,10 +129,7 @@ pub fn ser_create_bucket_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "grant_read",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-grant-read", header_value);
@@ -165,10 +140,7 @@ pub fn ser_create_bucket_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "grant_read_acp",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-grant-read-acp", header_value);
@@ -179,10 +151,7 @@ pub fn ser_create_bucket_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "grant_write",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-grant-write", header_value);
@@ -193,10 +162,7 @@ pub fn ser_create_bucket_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "grant_write_acp",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-grant-write-acp", header_value);
@@ -208,10 +174,7 @@ pub fn ser_create_bucket_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "object_lock_enabled_for_bucket",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-bucket-object-lock-enabled", header_value);
@@ -222,10 +185,7 @@ pub fn ser_create_bucket_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "object_ownership",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-object-ownership", header_value);
@@ -236,10 +196,7 @@ pub fn ser_create_bucket_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "bucket_namespace",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-bucket-namespace", header_value);

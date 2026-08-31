@@ -4,8 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribePendingAggregationRequestsOutput {
     /// <p>Returns a PendingAggregationRequests object.</p>
-    pub pending_aggregation_requests:
-        ::std::option::Option<::std::vec::Vec<crate::types::PendingAggregationRequest>>,
+    pub pending_aggregation_requests: ::std::option::Option<::std::vec::Vec<crate::types::PendingAggregationRequest>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -15,9 +14,7 @@ impl DescribePendingAggregationRequestsOutput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.pending_aggregation_requests.is_none()`.
     pub fn pending_aggregation_requests(&self) -> &[crate::types::PendingAggregationRequest] {
-        self.pending_aggregation_requests
-            .as_deref()
-            .unwrap_or_default()
+        self.pending_aggregation_requests.as_deref().unwrap_or_default()
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -37,9 +34,7 @@ impl DescribePendingAggregationRequestsOutput {
 }
 
 /// A builder for [`DescribePendingAggregationRequestsOutput`](crate::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribePendingAggregationRequestsOutputBuilder {
     pub(crate) pending_aggregation_requests:
@@ -53,10 +48,7 @@ impl DescribePendingAggregationRequestsOutputBuilder {
     /// To override the contents of this collection use [`set_pending_aggregation_requests`](Self::set_pending_aggregation_requests).
     ///
     /// <p>Returns a PendingAggregationRequests object.</p>
-    pub fn pending_aggregation_requests(
-        mut self,
-        input: crate::types::PendingAggregationRequest,
-    ) -> Self {
+    pub fn pending_aggregation_requests(mut self, input: crate::types::PendingAggregationRequest) -> Self {
         let mut v = self.pending_aggregation_requests.unwrap_or_default();
         v.push(input);
         self.pending_aggregation_requests = ::std::option::Option::Some(v);
@@ -100,7 +92,9 @@ impl DescribePendingAggregationRequestsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribePendingAggregationRequestsOutput`](crate::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsOutput).
-    pub fn build(self) -> crate::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsOutput {
         crate::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsOutput {
             pending_aggregation_requests: self.pending_aggregation_requests,
             next_token: self.next_token,

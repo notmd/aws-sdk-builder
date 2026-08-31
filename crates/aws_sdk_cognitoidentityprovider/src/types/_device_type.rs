@@ -31,15 +31,11 @@ impl DeviceType {
         self.device_create_date.as_ref()
     }
     /// <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
-    pub fn device_last_modified_date(
-        &self,
-    ) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn device_last_modified_date(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.device_last_modified_date.as_ref()
     }
     /// <p>The date when the user last signed in with the device.</p>
-    pub fn device_last_authenticated_date(
-        &self,
-    ) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn device_last_authenticated_date(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.device_last_authenticated_date.as_ref()
     }
 }
@@ -51,14 +47,11 @@ impl DeviceType {
 }
 
 /// A builder for [`DeviceType`](crate::types::DeviceType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeviceTypeBuilder {
     pub(crate) device_key: ::std::option::Option<::std::string::String>,
-    pub(crate) device_attributes:
-        ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>,
+    pub(crate) device_attributes: ::std::option::Option<::std::vec::Vec<crate::types::AttributeType>>,
     pub(crate) device_create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) device_last_modified_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) device_last_authenticated_date: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -98,9 +91,7 @@ impl DeviceTypeBuilder {
         self
     }
     /// <p>Metadata about a user's device, like name and last-access source IP.</p>
-    pub fn get_device_attributes(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeType>> {
+    pub fn get_device_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeType>> {
         &self.device_attributes
     }
     /// <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
@@ -109,10 +100,7 @@ impl DeviceTypeBuilder {
         self
     }
     /// <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
-    pub fn set_device_create_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_device_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.device_create_date = input;
         self
     }
@@ -126,17 +114,12 @@ impl DeviceTypeBuilder {
         self
     }
     /// <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
-    pub fn set_device_last_modified_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_device_last_modified_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.device_last_modified_date = input;
         self
     }
     /// <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
-    pub fn get_device_last_modified_date(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_device_last_modified_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.device_last_modified_date
     }
     /// <p>The date when the user last signed in with the device.</p>
@@ -153,9 +136,7 @@ impl DeviceTypeBuilder {
         self
     }
     /// <p>The date when the user last signed in with the device.</p>
-    pub fn get_device_last_authenticated_date(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_device_last_authenticated_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.device_last_authenticated_date
     }
     /// Consumes the builder and constructs a [`DeviceType`](crate::types::DeviceType).

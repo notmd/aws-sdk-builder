@@ -14,14 +14,11 @@ pub fn de_converse_stream_http_response(
     let _response_headers = response.headers();
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::converse_stream::builders::ConverseStreamOutputBuilder::default();
+        let mut output = crate::operation::converse_stream::builders::ConverseStreamOutputBuilder::default();
         output = output.set_stream(Some(
             crate::protocol_serde::shape_converse_stream_output::de_stream_payload(_response_body)?,
         ));
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output
             .build()
             .map_err(crate::operation::converse_stream::ConverseStreamError::unhandled)?
@@ -38,120 +35,118 @@ pub fn de_converse_stream_http_error(
     crate::operation::converse_stream::ConverseStreamError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::converse_stream::ConverseStreamError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::converse_stream::ConverseStreamError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(crate::operation::converse_stream::ConverseStreamError::unhandled(generic))
+            return Err(crate::operation::converse_stream::ConverseStreamError::unhandled(
+                generic,
+            ))
         }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AccessDeniedException" => {
-            crate::operation::converse_stream::ConverseStreamError::AccessDeniedException({
+        "AccessDeniedException" => crate::operation::converse_stream::ConverseStreamError::AccessDeniedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::AccessDeniedExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::converse_stream::ConverseStreamError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "InternalServerException" => {
-            crate::operation::converse_stream::ConverseStreamError::InternalServerException({
+                let mut output = crate::types::error::builders::AccessDeniedExceptionBuilder::default();
+                output = crate::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::converse_stream::ConverseStreamError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalServerException" => crate::operation::converse_stream::ConverseStreamError::InternalServerException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InternalServerExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::converse_stream::ConverseStreamError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ModelErrorException" => {
-            crate::operation::converse_stream::ConverseStreamError::ModelErrorException({
+                let mut output = crate::types::error::builders::InternalServerExceptionBuilder::default();
+                output = crate::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::converse_stream::ConverseStreamError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ModelErrorException" => crate::operation::converse_stream::ConverseStreamError::ModelErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ModelErrorExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_model_error_exception::de_model_error_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::converse_stream::ConverseStreamError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ModelNotReadyException" => {
-            crate::operation::converse_stream::ConverseStreamError::ModelNotReadyException({
+                let mut output = crate::types::error::builders::ModelErrorExceptionBuilder::default();
+                output = crate::protocol_serde::shape_model_error_exception::de_model_error_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::converse_stream::ConverseStreamError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ModelNotReadyException" => crate::operation::converse_stream::ConverseStreamError::ModelNotReadyException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ModelNotReadyExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_model_not_ready_exception::de_model_not_ready_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::converse_stream::ConverseStreamError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ModelTimeoutException" => {
-            crate::operation::converse_stream::ConverseStreamError::ModelTimeoutException({
+                let mut output = crate::types::error::builders::ModelNotReadyExceptionBuilder::default();
+                output = crate::protocol_serde::shape_model_not_ready_exception::de_model_not_ready_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::converse_stream::ConverseStreamError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ModelTimeoutException" => crate::operation::converse_stream::ConverseStreamError::ModelTimeoutException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ModelTimeoutExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_model_timeout_exception::de_model_timeout_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::converse_stream::ConverseStreamError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::ModelTimeoutExceptionBuilder::default();
+                output = crate::protocol_serde::shape_model_timeout_exception::de_model_timeout_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::converse_stream::ConverseStreamError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ResourceNotFoundException" => {
             crate::operation::converse_stream::ConverseStreamError::ResourceNotFoundException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                     output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(crate::operation::converse_stream::ConverseStreamError::unhandled)?;
                     let output = output.meta(generic);
@@ -168,9 +163,7 @@ pub fn de_converse_stream_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ServiceUnavailableExceptionBuilder::default(
-                        );
+                    let mut output = crate::types::error::builders::ServiceUnavailableExceptionBuilder::default();
                     output =
                     crate::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
                         .map_err(crate::operation::converse_stream::ConverseStreamError::unhandled)?;
@@ -183,49 +176,48 @@ pub fn de_converse_stream_http_error(
                 tmp
             })
         }
-        "ThrottlingException" => {
-            crate::operation::converse_stream::ConverseStreamError::ThrottlingException({
+        "ThrottlingException" => crate::operation::converse_stream::ConverseStreamError::ThrottlingException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ThrottlingExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::converse_stream::ConverseStreamError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ValidationException" => {
-            crate::operation::converse_stream::ConverseStreamError::ValidationException({
+                let mut output = crate::types::error::builders::ThrottlingExceptionBuilder::default();
+                output = crate::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::converse_stream::ConverseStreamError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ValidationException" => crate::operation::converse_stream::ConverseStreamError::ValidationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ValidationExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::converse_stream::ConverseStreamError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::ValidationExceptionBuilder::default();
+                output = crate::protocol_serde::shape_validation_exception::de_validation_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::converse_stream::ConverseStreamError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ModelStreamErrorException" => {
             crate::operation::converse_stream::ConverseStreamError::ModelStreamErrorException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ModelStreamErrorExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::ModelStreamErrorExceptionBuilder::default();
                     output = crate::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_json_err(_response_body, output)
                     .map_err(crate::operation::converse_stream::ConverseStreamError::unhandled)?;
                     let output = output.meta(generic);
@@ -243,16 +235,11 @@ pub fn de_converse_stream_http_error(
 
 pub fn ser_converse_stream_input(
     input: &crate::operation::converse_stream::ConverseStreamInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_converse_stream_input::ser_converse_stream_input_input(
-        &mut object,
-        input,
-    )?;
+    crate::protocol_serde::shape_converse_stream_input::ser_converse_stream_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

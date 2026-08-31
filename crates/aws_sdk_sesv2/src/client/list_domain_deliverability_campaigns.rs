@@ -15,7 +15,8 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListDomainDeliverabilityCampaignsError>`](crate::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError)
     pub fn list_domain_deliverability_campaigns(
         &self,
-    ) -> crate::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsFluentBuilder{
+    ) -> crate::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsFluentBuilder
+    {
         crate::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsFluentBuilder::new(self.handle.clone())
     }
 }

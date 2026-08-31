@@ -14,16 +14,13 @@ impl CancelExportTaskInput {
 }
 impl CancelExportTaskInput {
     /// Creates a new builder-style object to manufacture [`CancelExportTaskInput`](crate::operation::cancel_export_task::CancelExportTaskInput).
-    pub fn builder() -> crate::operation::cancel_export_task::builders::CancelExportTaskInputBuilder
-    {
+    pub fn builder() -> crate::operation::cancel_export_task::builders::CancelExportTaskInputBuilder {
         crate::operation::cancel_export_task::builders::CancelExportTaskInputBuilder::default()
     }
 }
 
 /// A builder for [`CancelExportTaskInput`](crate::operation::cancel_export_task::CancelExportTaskInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CancelExportTaskInputBuilder {
     pub(crate) task_id: ::std::option::Option<::std::string::String>,
@@ -51,10 +48,6 @@ impl CancelExportTaskInputBuilder {
         crate::operation::cancel_export_task::CancelExportTaskInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::cancel_export_task::CancelExportTaskInput {
-                task_id: self.task_id,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::cancel_export_task::CancelExportTaskInput { task_id: self.task_id })
     }
 }

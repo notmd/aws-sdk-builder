@@ -28,16 +28,13 @@ impl ::aws_types::request_id::RequestId for ListQuotaSharesOutput {
 }
 impl ListQuotaSharesOutput {
     /// Creates a new builder-style object to manufacture [`ListQuotaSharesOutput`](crate::operation::list_quota_shares::ListQuotaSharesOutput).
-    pub fn builder() -> crate::operation::list_quota_shares::builders::ListQuotaSharesOutputBuilder
-    {
+    pub fn builder() -> crate::operation::list_quota_shares::builders::ListQuotaSharesOutputBuilder {
         crate::operation::list_quota_shares::builders::ListQuotaSharesOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListQuotaSharesOutput`](crate::operation::list_quota_shares::ListQuotaSharesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListQuotaSharesOutputBuilder {
     pub(crate) quota_shares: ::std::option::Option<::std::vec::Vec<crate::types::QuotaShareDetail>>,
@@ -65,9 +62,7 @@ impl ListQuotaSharesOutputBuilder {
         self
     }
     /// <p>A list of quota shares that match the request.</p>
-    pub fn get_quota_shares(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::QuotaShareDetail>> {
+    pub fn get_quota_shares(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::QuotaShareDetail>> {
         &self.quota_shares
     }
     /// <p>The <code>nextToken</code> value to include in a future <code>ListQuotaShares</code> request. When the results of a <code>ListQuotaShares</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>

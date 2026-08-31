@@ -4,8 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeCustomKeyStoresOutput {
     /// <p>Contains metadata about each custom key store.</p>
-    pub custom_key_stores:
-        ::std::option::Option<::std::vec::Vec<crate::types::CustomKeyStoresListEntry>>,
+    pub custom_key_stores: ::std::option::Option<::std::vec::Vec<crate::types::CustomKeyStoresListEntry>>,
     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
     pub next_marker: ::std::option::Option<::std::string::String>,
     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
@@ -35,21 +34,16 @@ impl ::aws_types::request_id::RequestId for DescribeCustomKeyStoresOutput {
 }
 impl DescribeCustomKeyStoresOutput {
     /// Creates a new builder-style object to manufacture [`DescribeCustomKeyStoresOutput`](crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresOutput).
-    pub fn builder(
-    ) -> crate::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresOutputBuilder
-    {
+    pub fn builder() -> crate::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresOutputBuilder {
         crate::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeCustomKeyStoresOutput`](crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeCustomKeyStoresOutputBuilder {
-    pub(crate) custom_key_stores:
-        ::std::option::Option<::std::vec::Vec<crate::types::CustomKeyStoresListEntry>>,
+    pub(crate) custom_key_stores: ::std::option::Option<::std::vec::Vec<crate::types::CustomKeyStoresListEntry>>,
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
     pub(crate) truncated: ::std::option::Option<bool>,
     _request_id: Option<String>,
@@ -118,9 +112,7 @@ impl DescribeCustomKeyStoresOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeCustomKeyStoresOutput`](crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresOutput {
+    pub fn build(self) -> crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresOutput {
         crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresOutput {
             custom_key_stores: self.custom_key_stores,
             next_marker: self.next_marker,

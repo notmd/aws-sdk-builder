@@ -57,9 +57,7 @@ impl GetWebIdentityTokenFluentBuilder {
         }
     }
     /// Access the GetWebIdentityToken as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_web_identity_token::builders::GetWebIdentityTokenInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_web_identity_token::builders::GetWebIdentityTokenInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,11 +86,7 @@ impl GetWebIdentityTokenFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_web_identity_token::GetWebIdentityToken::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::get_web_identity_token::GetWebIdentityToken::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -131,10 +125,7 @@ impl GetWebIdentityTokenFluentBuilder {
         self
     }
     /// <p>The intended recipient of the web identity token. This value populates the <code>aud</code> claim in the JWT and should identify the service or application that will validate and use the token. The external service should verify this claim to ensure the token was intended for their use.</p>
-    pub fn set_audience(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_audience(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.inner = self.inner.set_audience(input);
         self
     }
@@ -157,18 +148,12 @@ impl GetWebIdentityTokenFluentBuilder {
         self.inner.get_duration_seconds()
     }
     /// <p>The cryptographic algorithm to use for signing the JSON Web Token (JWT). Valid values are RS256 (RSA with SHA-256) and ES384 (ECDSA using P-384 curve with SHA-384).</p>
-    pub fn signing_algorithm(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn signing_algorithm(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.signing_algorithm(input.into());
         self
     }
     /// <p>The cryptographic algorithm to use for signing the JSON Web Token (JWT). Valid values are RS256 (RSA with SHA-256) and ES384 (ECDSA using P-384 curve with SHA-384).</p>
-    pub fn set_signing_algorithm(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_signing_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_signing_algorithm(input);
         self
     }
@@ -187,10 +172,7 @@ impl GetWebIdentityTokenFluentBuilder {
         self
     }
     /// <p>An optional list of tags to include in the JSON Web Token (JWT). These tags are added as custom claims to the JWT and can be used by the downstream service for authorization decisions.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.inner = self.inner.set_tags(input);
         self
     }

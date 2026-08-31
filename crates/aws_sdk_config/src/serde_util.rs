@@ -28,7 +28,7 @@ pub(crate) fn delete_service_linked_configuration_recorder_output_output_correct
 #[cfg(feature = "op_describe_conformance_pack_compliance")]
 pub(crate) fn describe_conformance_pack_compliance_output_output_correct_errors(
     mut builder: crate::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceOutputBuilder,
-) -> crate::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceOutputBuilder{
+) -> crate::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceOutputBuilder {
     if builder.conformance_pack_name.is_none() {
         builder.conformance_pack_name = Some(Default::default())
     }
@@ -41,8 +41,7 @@ pub(crate) fn describe_conformance_pack_compliance_output_output_correct_errors(
 #[cfg(feature = "op_disassociate_resource_types")]
 pub(crate) fn disassociate_resource_types_output_output_correct_errors(
     mut builder: crate::operation::disassociate_resource_types::builders::DisassociateResourceTypesOutputBuilder,
-) -> crate::operation::disassociate_resource_types::builders::DisassociateResourceTypesOutputBuilder
-{
+) -> crate::operation::disassociate_resource_types::builders::DisassociateResourceTypesOutputBuilder {
     if builder.configuration_recorder.is_none() {
         builder.configuration_recorder = {
             let builder = crate::types::builders::ConfigurationRecorderBuilder::default();
@@ -65,7 +64,8 @@ pub(crate) fn get_aggregate_discovered_resource_counts_output_output_correct_err
 #[cfg(feature = "op_get_conformance_pack_compliance_details")]
 pub(crate) fn get_conformance_pack_compliance_details_output_output_correct_errors(
     mut builder: crate::operation::get_conformance_pack_compliance_details::builders::GetConformancePackComplianceDetailsOutputBuilder,
-) -> crate::operation::get_conformance_pack_compliance_details::builders::GetConformancePackComplianceDetailsOutputBuilder{
+) -> crate::operation::get_conformance_pack_compliance_details::builders::GetConformancePackComplianceDetailsOutputBuilder
+{
     if builder.conformance_pack_name.is_none() {
         builder.conformance_pack_name = Some(Default::default())
     }
@@ -79,9 +79,7 @@ pub(crate) fn get_connector_output_output_correct_errors(
     if builder.connector.is_none() {
         builder.connector = {
             let builder = crate::types::builders::ConnectorBuilder::default();
-            crate::serde_util::connector_correct_errors(builder)
-                .build()
-                .ok()
+            crate::serde_util::connector_correct_errors(builder).build().ok()
         }
     }
     builder
@@ -90,8 +88,7 @@ pub(crate) fn get_connector_output_output_correct_errors(
 #[cfg(feature = "op_list_configuration_recorders")]
 pub(crate) fn list_configuration_recorders_output_output_correct_errors(
     mut builder: crate::operation::list_configuration_recorders::builders::ListConfigurationRecordersOutputBuilder,
-) -> crate::operation::list_configuration_recorders::builders::ListConfigurationRecordersOutputBuilder
-{
+) -> crate::operation::list_configuration_recorders::builders::ListConfigurationRecordersOutputBuilder {
     if builder.configuration_recorder_summaries.is_none() {
         builder.configuration_recorder_summaries = Some(Default::default())
     }
@@ -101,7 +98,8 @@ pub(crate) fn list_configuration_recorders_output_output_correct_errors(
 #[cfg(feature = "op_list_conformance_pack_compliance_scores")]
 pub(crate) fn list_conformance_pack_compliance_scores_output_output_correct_errors(
     mut builder: crate::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresOutputBuilder,
-) -> crate::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresOutputBuilder{
+) -> crate::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresOutputBuilder
+{
     if builder.conformance_pack_compliance_scores.is_none() {
         builder.conformance_pack_compliance_scores = Some(Default::default())
     }
@@ -238,9 +236,7 @@ pub(crate) fn aggregate_resource_identifier_correct_errors(
         builder.resource_id = Some(Default::default())
     }
     if builder.resource_type.is_none() {
-        builder.resource_type = "no value was set"
-            .parse::<crate::types::ResourceType>()
-            .ok()
+        builder.resource_type = "no value was set".parse::<crate::types::ResourceType>().ok()
     }
     builder
 }
@@ -252,9 +248,7 @@ pub(crate) fn config_rule_correct_errors(
     if builder.source.is_none() {
         builder.source = {
             let builder = crate::types::builders::SourceBuilder::default();
-            crate::serde_util::source_correct_errors(builder)
-                .build()
-                .ok()
+            crate::serde_util::source_correct_errors(builder).build().ok()
         }
     }
     builder
@@ -271,9 +265,7 @@ pub(crate) fn configuration_recorder_summary_correct_errors(
         builder.name = Some(Default::default())
     }
     if builder.recording_scope.is_none() {
-        builder.recording_scope = "no value was set"
-            .parse::<crate::types::RecordingScope>()
-            .ok()
+        builder.recording_scope = "no value was set".parse::<crate::types::RecordingScope>().ok()
     }
     builder
 }
@@ -325,12 +317,10 @@ pub(crate) fn conformance_pack_evaluation_result_correct_errors(
         }
     }
     if builder.config_rule_invoked_time.is_none() {
-        builder.config_rule_invoked_time =
-            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.config_rule_invoked_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     if builder.result_recorded_time.is_none() {
-        builder.result_recorded_time =
-            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.result_recorded_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }
@@ -349,16 +339,13 @@ pub(crate) fn conformance_pack_status_detail_correct_errors(
         builder.conformance_pack_arn = Some(Default::default())
     }
     if builder.conformance_pack_state.is_none() {
-        builder.conformance_pack_state = "no value was set"
-            .parse::<crate::types::ConformancePackState>()
-            .ok()
+        builder.conformance_pack_state = "no value was set".parse::<crate::types::ConformancePackState>().ok()
     }
     if builder.stack_arn.is_none() {
         builder.stack_arn = Some(Default::default())
     }
     if builder.last_update_requested_time.is_none() {
-        builder.last_update_requested_time =
-            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.last_update_requested_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }
@@ -396,13 +383,10 @@ pub(crate) fn evaluation_correct_errors(
         builder.compliance_resource_id = Some(Default::default())
     }
     if builder.compliance_type.is_none() {
-        builder.compliance_type = "no value was set"
-            .parse::<crate::types::ComplianceType>()
-            .ok()
+        builder.compliance_type = "no value was set".parse::<crate::types::ComplianceType>().ok()
     }
     if builder.ordering_timestamp.is_none() {
-        builder.ordering_timestamp =
-            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.ordering_timestamp = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }
@@ -431,9 +415,7 @@ pub(crate) fn member_account_status_correct_errors(
         builder.config_rule_name = Some(Default::default())
     }
     if builder.member_account_rule_status.is_none() {
-        builder.member_account_rule_status = "no value was set"
-            .parse::<crate::types::MemberAccountRuleStatus>()
-            .ok()
+        builder.member_account_rule_status = "no value was set".parse::<crate::types::MemberAccountRuleStatus>().ok()
     }
     builder
 }
@@ -472,9 +454,7 @@ pub(crate) fn organization_config_rule_status_correct_errors(
         builder.organization_config_rule_name = Some(Default::default())
     }
     if builder.organization_rule_status.is_none() {
-        builder.organization_rule_status = "no value was set"
-            .parse::<crate::types::OrganizationRuleStatus>()
-            .ok()
+        builder.organization_rule_status = "no value was set".parse::<crate::types::OrganizationRuleStatus>().ok()
     }
     builder
 }
@@ -490,8 +470,7 @@ pub(crate) fn organization_conformance_pack_correct_errors(
         builder.organization_conformance_pack_arn = Some(Default::default())
     }
     if builder.last_update_time.is_none() {
-        builder.last_update_time =
-            Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+        builder.last_update_time = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }
@@ -539,9 +518,7 @@ pub(crate) fn recording_mode_correct_errors(
     mut builder: crate::types::builders::RecordingModeBuilder,
 ) -> crate::types::builders::RecordingModeBuilder {
     if builder.recording_frequency.is_none() {
-        builder.recording_frequency = "no value was set"
-            .parse::<crate::types::RecordingFrequency>()
-            .ok()
+        builder.recording_frequency = "no value was set".parse::<crate::types::RecordingFrequency>().ok()
     }
     builder
 }
@@ -557,9 +534,7 @@ pub(crate) fn remediation_configuration_correct_errors(
         builder.config_rule_name = Some(Default::default())
     }
     if builder.target_type.is_none() {
-        builder.target_type = "no value was set"
-            .parse::<crate::types::RemediationTargetType>()
-            .ok()
+        builder.target_type = "no value was set".parse::<crate::types::RemediationTargetType>().ok()
     }
     if builder.target_id.is_none() {
         builder.target_id = Some(Default::default())
@@ -595,9 +570,7 @@ pub(crate) fn resource_key_correct_errors(
     mut builder: crate::types::builders::ResourceKeyBuilder,
 ) -> crate::types::builders::ResourceKeyBuilder {
     if builder.resource_type.is_none() {
-        builder.resource_type = "no value was set"
-            .parse::<crate::types::ResourceType>()
-            .ok()
+        builder.resource_type = "no value was set".parse::<crate::types::ResourceType>().ok()
     }
     if builder.resource_id.is_none() {
         builder.resource_id = Some(Default::default())
@@ -705,10 +678,7 @@ pub(crate) fn source_correct_errors(
     builder
 }
 
-#[cfg(any(
-    feature = "op_describe_conformance_packs",
-    feature = "op_put_conformance_pack"
-))]
+#[cfg(any(feature = "op_describe_conformance_packs", feature = "op_put_conformance_pack"))]
 pub(crate) fn template_ssm_document_details_correct_errors(
     mut builder: crate::types::builders::TemplateSsmDocumentDetailsBuilder,
 ) -> crate::types::builders::TemplateSsmDocumentDetailsBuilder {
@@ -762,9 +732,7 @@ pub(crate) fn recording_mode_override_correct_errors(
         builder.resource_types = Some(Default::default())
     }
     if builder.recording_frequency.is_none() {
-        builder.recording_frequency = "no value was set"
-            .parse::<crate::types::RecordingFrequency>()
-            .ok()
+        builder.recording_frequency = "no value was set".parse::<crate::types::RecordingFrequency>().ok()
     }
     builder
 }
@@ -777,9 +745,7 @@ pub(crate) fn resource_value_correct_errors(
     mut builder: crate::types::builders::ResourceValueBuilder,
 ) -> crate::types::builders::ResourceValueBuilder {
     if builder.value.is_none() {
-        builder.value = "no value was set"
-            .parse::<crate::types::ResourceValueType>()
-            .ok()
+        builder.value = "no value was set".parse::<crate::types::ResourceValueType>().ok()
     }
     builder
 }

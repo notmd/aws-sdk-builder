@@ -27,9 +27,7 @@ impl ListTablesInput {
 }
 
 /// A builder for [`ListTablesInput`](crate::operation::list_tables::ListTablesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListTablesInputBuilder {
     pub(crate) exclusive_start_table_name: ::std::option::Option<::std::string::String>,
@@ -37,18 +35,12 @@ pub struct ListTablesInputBuilder {
 }
 impl ListTablesInputBuilder {
     /// <p>The first table name that this operation will evaluate. Use the value that was returned for <code>LastEvaluatedTableName</code> in a previous operation, so that you can obtain the next page of results.</p>
-    pub fn exclusive_start_table_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn exclusive_start_table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.exclusive_start_table_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The first table name that this operation will evaluate. Use the value that was returned for <code>LastEvaluatedTableName</code> in a previous operation, so that you can obtain the next page of results.</p>
-    pub fn set_exclusive_start_table_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_exclusive_start_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.exclusive_start_table_name = input;
         self
     }

@@ -21,9 +21,7 @@ impl WaitDetails {
 }
 
 /// A builder for [`WaitDetails`](crate::types::WaitDetails).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct WaitDetailsBuilder {
     pub(crate) scheduled_end_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -35,17 +33,12 @@ impl WaitDetailsBuilder {
         self
     }
     /// <p>The date and time when the wait operation is scheduled to complete, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    pub fn set_scheduled_end_timestamp(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_scheduled_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.scheduled_end_timestamp = input;
         self
     }
     /// <p>The date and time when the wait operation is scheduled to complete, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    pub fn get_scheduled_end_timestamp(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_scheduled_end_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.scheduled_end_timestamp
     }
     /// Consumes the builder and constructs a [`WaitDetails`](crate::types::WaitDetails).

@@ -12,15 +12,14 @@ impl ::aws_types::request_id::RequestId for SetSubscriptionAttributesOutput {
 }
 impl SetSubscriptionAttributesOutput {
     /// Creates a new builder-style object to manufacture [`SetSubscriptionAttributesOutput`](crate::operation::set_subscription_attributes::SetSubscriptionAttributesOutput).
-    pub fn builder() -> crate::operation::set_subscription_attributes::builders::SetSubscriptionAttributesOutputBuilder{
+    pub fn builder() -> crate::operation::set_subscription_attributes::builders::SetSubscriptionAttributesOutputBuilder
+    {
         crate::operation::set_subscription_attributes::builders::SetSubscriptionAttributesOutputBuilder::default()
     }
 }
 
 /// A builder for [`SetSubscriptionAttributesOutput`](crate::operation::set_subscription_attributes::SetSubscriptionAttributesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SetSubscriptionAttributesOutputBuilder {
     _request_id: Option<String>,
@@ -36,9 +35,7 @@ impl SetSubscriptionAttributesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`SetSubscriptionAttributesOutput`](crate::operation::set_subscription_attributes::SetSubscriptionAttributesOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::set_subscription_attributes::SetSubscriptionAttributesOutput {
+    pub fn build(self) -> crate::operation::set_subscription_attributes::SetSubscriptionAttributesOutput {
         crate::operation::set_subscription_attributes::SetSubscriptionAttributesOutput {
             _request_id: self._request_id,
         }

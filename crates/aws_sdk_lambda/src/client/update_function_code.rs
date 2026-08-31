@@ -61,8 +61,6 @@ impl super::Client {
     pub fn update_function_code(
         &self,
     ) -> crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder {
-        crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::new(self.handle.clone())
     }
 }

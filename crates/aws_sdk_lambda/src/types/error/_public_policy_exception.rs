@@ -53,9 +53,7 @@ impl PublicPolicyException {
 }
 
 /// A builder for [`PublicPolicyException`](crate::types::error::PublicPolicyException).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PublicPolicyExceptionBuilder {
     pub(crate) r#type: ::std::option::Option<::std::string::String>,
@@ -98,10 +96,7 @@ impl PublicPolicyExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(
-        &mut self,
-        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> &mut Self {
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
         self.meta = meta;
         self
     }

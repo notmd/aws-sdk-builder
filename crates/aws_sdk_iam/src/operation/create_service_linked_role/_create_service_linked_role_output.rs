@@ -20,17 +20,13 @@ impl ::aws_types::request_id::RequestId for CreateServiceLinkedRoleOutput {
 }
 impl CreateServiceLinkedRoleOutput {
     /// Creates a new builder-style object to manufacture [`CreateServiceLinkedRoleOutput`](crate::operation::create_service_linked_role::CreateServiceLinkedRoleOutput).
-    pub fn builder(
-    ) -> crate::operation::create_service_linked_role::builders::CreateServiceLinkedRoleOutputBuilder
-    {
+    pub fn builder() -> crate::operation::create_service_linked_role::builders::CreateServiceLinkedRoleOutputBuilder {
         crate::operation::create_service_linked_role::builders::CreateServiceLinkedRoleOutputBuilder::default()
     }
 }
 
 /// A builder for [`CreateServiceLinkedRoleOutput`](crate::operation::create_service_linked_role::CreateServiceLinkedRoleOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateServiceLinkedRoleOutputBuilder {
     pub(crate) role: ::std::option::Option<crate::types::Role>,
@@ -61,9 +57,7 @@ impl CreateServiceLinkedRoleOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateServiceLinkedRoleOutput`](crate::operation::create_service_linked_role::CreateServiceLinkedRoleOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::create_service_linked_role::CreateServiceLinkedRoleOutput {
+    pub fn build(self) -> crate::operation::create_service_linked_role::CreateServiceLinkedRoleOutput {
         crate::operation::create_service_linked_role::CreateServiceLinkedRoleOutput {
             role: self.role,
             _request_id: self._request_id,

@@ -12,9 +12,7 @@ use crate::profile::credentials::ProfileFileError;
 use crate::provider_config::ProviderConfig;
 use crate::sts;
 use crate::web_identity_token::{StaticConfiguration, WebIdentityTokenCredentialsProvider};
-use aws_credential_types::provider::{
-    self, error::CredentialsError, ProvideCredentials, SharedCredentialsProvider,
-};
+use aws_credential_types::provider::{self, error::CredentialsError, ProvideCredentials, SharedCredentialsProvider};
 use aws_sdk_sts::config::Credentials;
 use aws_sdk_sts::Client as StsClient;
 use aws_smithy_async::time::SharedTimeSource;
@@ -31,19 +29,17 @@ pub(super) struct AssumeRoleProvider {
 }
 
 impl AssumeRoleProvider {
-    pub(super) async fn credentials(
-        &self,
-        input_credentials: Credentials,
-        sdk_config: &SdkConfig,
-    ) -> provider::Result {
+    pub(super) async fn credentials(&self, input_credentials: Credentials, sdk_config: &SdkConfig) -> provider::Result {
         let config = sdk_config
             .to_builder()
             .credentials_provider(SharedCredentialsProvider::new(input_credentials))
             .build();
         let client = StsClient::new(&config);
-        let session_name = &self.session_name.as_ref().cloned().unwrap_or_else(|| {
-            sts::util::default_session_name("assume-role-from-profile", self.time_source.now())
-        });
+        let session_name = &self
+            .session_name
+            .as_ref()
+            .cloned()
+            .unwrap_or_else(|| sts::util::default_session_name("assume-role-from-profile", self.time_source.now()));
         let assume_role_output = client
             .assume_role()
             .role_arn(&self.role_arn)
@@ -83,13 +79,9 @@ impl ProviderChain {
         factory: &named::NamedProviderFactory,
     ) -> Result<Self, ProfileFileError> {
         let base = match repr.base() {
-            BaseProvider::NamedSource(name) => {
-                factory
-                    .provider(name)
-                    .ok_or(ProfileFileError::UnknownProvider {
-                        name: name.to_string(),
-                    })?
-            }
+            BaseProvider::NamedSource(name) => factory
+                .provider(name)
+                .ok_or(ProfileFileError::UnknownProvider { name: name.to_string() })?,
             BaseProvider::AccessKey(key) => Arc::new(key.clone()),
             BaseProvider::CredentialProcess {
                 command_with_sensitive_args,
@@ -98,11 +90,9 @@ impl ProviderChain {
                 #[cfg(feature = "credentials-process")]
                 {
                     Arc::new({
-                        let mut builder = CredentialProcessProvider::builder()
-                            .command(command_with_sensitive_args.to_owned_string());
-                        builder.set_account_id(
-                            account_id.map(aws_credential_types::attributes::AccountId::from),
-                        );
+                        let mut builder =
+                            CredentialProcessProvider::builder().command(command_with_sensitive_args.to_owned_string());
+                        builder.set_account_id(account_id.map(aws_credential_types::attributes::AccountId::from));
                         builder.build()
                     })
                 }
@@ -112,8 +102,7 @@ impl ProviderChain {
                     Err(ProfileFileError::FeatureNotEnabled {
                         feature: "credentials-process".into(),
                         message: Some(
-                            "In order to spawn a subprocess, the `credentials-process` feature must be enabled."
-                                .into(),
+                            "In order to spawn a subprocess, the `credentials-process` feature must be enabled.".into(),
                         ),
                     })?
                 }
@@ -149,14 +138,12 @@ impl ProviderChain {
                     .static_configuration(StaticConfiguration {
                         web_identity_token_file: web_identity_token_file.into(),
                         role_arn: role_arn.to_string(),
-                        session_name: session_name.map(|sess| sess.to_string()).unwrap_or_else(
-                            || {
-                                sts::util::default_session_name(
-                                    "web-identity-token-profile",
-                                    provider_config.time_source().now(),
-                                )
-                            },
-                        ),
+                        session_name: session_name.map(|sess| sess.to_string()).unwrap_or_else(|| {
+                            sts::util::default_session_name(
+                                "web-identity-token-profile",
+                                provider_config.time_source().now(),
+                            )
+                        }),
                     })
                     .configure(provider_config)
                     .build();
@@ -175,9 +162,7 @@ impl ProviderChain {
                     use crate::sso::{credentials::SsoProviderConfig, SsoCredentialsProvider};
                     use aws_types::region::Region;
 
-                    let (Some(sso_account_id), Some(sso_role_name)) =
-                        (sso_account_id, sso_role_name)
-                    else {
+                    let (Some(sso_account_id), Some(sso_role_name)) = (sso_account_id, sso_role_name) else {
                         return Err(ProfileFileError::TokenProviderConfig {});
                     };
                     let sso_config = SsoProviderConfig {
@@ -236,13 +221,8 @@ pub(super) mod named {
     }
 
     impl NamedProviderFactory {
-        pub(crate) fn new(
-            providers: HashMap<Cow<'static, str>, Arc<dyn ProvideCredentials>>,
-        ) -> Self {
-            let providers = providers
-                .into_iter()
-                .map(|(k, v)| (lower_cow(k), v))
-                .collect();
+        pub(crate) fn new(providers: HashMap<Cow<'static, str>, Arc<dyn ProvideCredentials>>) -> Self {
+            let providers = providers.into_iter().map(|(k, v)| (lower_cow(k), v)).collect();
             Self { providers }
         }
 
@@ -267,10 +247,7 @@ mod test {
     #[test]
     fn providers_case_insensitive() {
         let mut base = HashMap::new();
-        base.insert(
-            "Environment".into(),
-            Arc::new(Credentials::for_tests()) as _,
-        );
+        base.insert("Environment".into(), Arc::new(Credentials::for_tests()) as _);
         let provider = NamedProviderFactory::new(base);
         assert!(provider.provider("environment").is_some());
         assert!(provider.provider("envIROnment").is_some());
@@ -291,9 +268,7 @@ mod test {
         );
         let err = chain.expect_err("no source by that name");
         assert!(
-            format!("{}", err).contains(
-                "profile referenced `floozle` provider but that provider is not supported"
-            ),
+            format!("{}", err).contains("profile referenced `floozle` provider but that provider is not supported"),
             "`{}` did not match expected error",
             err
         );

@@ -3,7 +3,9 @@ pub use crate::operation::describe_configuration_recorder_status::_describe_conf
 
 pub use crate::operation::describe_configuration_recorder_status::_describe_configuration_recorder_status_output::DescribeConfigurationRecorderStatusOutputBuilder;
 
-impl crate::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusInputBuilder {
+impl
+    crate::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -80,7 +82,7 @@ impl DescribeConfigurationRecorderStatusFluentBuilder {
             crate::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -91,7 +93,11 @@ impl DescribeConfigurationRecorderStatusFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        crate::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatus::orchestrate(&runtime_plugins, input).await
+        crate::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatus::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -101,7 +107,7 @@ impl DescribeConfigurationRecorderStatusFluentBuilder {
         crate::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusOutput,
         crate::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -127,10 +133,7 @@ impl DescribeConfigurationRecorderStatusFluentBuilder {
     /// <p>The name of the configuration recorder. If the name is not specified, the operation returns the status for the customer managed configuration recorder configured for the account, if applicable.</p><note>
     /// <p>When making a request to this operation, you can only specify one configuration recorder.</p>
     /// </note>
-    pub fn configuration_recorder_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_recorder_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_recorder_names(input.into());
         self
     }
@@ -147,24 +150,16 @@ impl DescribeConfigurationRecorderStatusFluentBuilder {
     /// <p>The name of the configuration recorder. If the name is not specified, the operation returns the status for the customer managed configuration recorder configured for the account, if applicable.</p><note>
     /// <p>When making a request to this operation, you can only specify one configuration recorder.</p>
     /// </note>
-    pub fn get_configuration_recorder_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_configuration_recorder_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_configuration_recorder_names()
     }
     /// <p>For service-linked configuration recorders, you can use the service principal of the linked Amazon Web Services service to specify the configuration recorder. This field is only supported for Amazon Web Services service principals. For third-party service-linked configuration recorders, use <code>Arn</code> instead.</p>
-    pub fn service_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.service_principal(input.into());
         self
     }
     /// <p>For service-linked configuration recorders, you can use the service principal of the linked Amazon Web Services service to specify the configuration recorder. This field is only supported for Amazon Web Services service principals. For third-party service-linked configuration recorders, use <code>Arn</code> instead.</p>
-    pub fn set_service_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_service_principal(input);
         self
     }

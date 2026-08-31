@@ -10,8 +10,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ChangeMessageVisibilityError>`](crate::operation::change_message_visibility::ChangeMessageVisibilityError)
     pub fn change_message_visibility(
         &self,
-    ) -> crate::operation::change_message_visibility::builders::ChangeMessageVisibilityFluentBuilder
-    {
-        crate::operation::change_message_visibility::builders::ChangeMessageVisibilityFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::change_message_visibility::builders::ChangeMessageVisibilityFluentBuilder {
+        crate::operation::change_message_visibility::builders::ChangeMessageVisibilityFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

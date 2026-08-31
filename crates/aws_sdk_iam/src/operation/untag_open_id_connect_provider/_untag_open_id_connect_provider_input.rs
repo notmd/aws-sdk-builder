@@ -24,15 +24,14 @@ impl UntagOpenIdConnectProviderInput {
 }
 impl UntagOpenIdConnectProviderInput {
     /// Creates a new builder-style object to manufacture [`UntagOpenIdConnectProviderInput`](crate::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderInput).
-    pub fn builder() -> crate::operation::untag_open_id_connect_provider::builders::UntagOpenIdConnectProviderInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::untag_open_id_connect_provider::builders::UntagOpenIdConnectProviderInputBuilder {
         crate::operation::untag_open_id_connect_provider::builders::UntagOpenIdConnectProviderInputBuilder::default()
     }
 }
 
 /// A builder for [`UntagOpenIdConnectProviderInput`](crate::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UntagOpenIdConnectProviderInputBuilder {
     pub(crate) open_id_connect_provider_arn: ::std::option::Option<::std::string::String>,
@@ -42,27 +41,19 @@ impl UntagOpenIdConnectProviderInputBuilder {
     /// <p>The ARN of the OIDC provider in IAM from which you want to remove tags.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     /// This field is required.
-    pub fn open_id_connect_provider_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn open_id_connect_provider_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.open_id_connect_provider_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the OIDC provider in IAM from which you want to remove tags.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn set_open_id_connect_provider_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_open_id_connect_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.open_id_connect_provider_arn = input;
         self
     }
     /// <p>The ARN of the OIDC provider in IAM from which you want to remove tags.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn get_open_id_connect_provider_arn(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_open_id_connect_provider_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.open_id_connect_provider_arn
     }
     /// Appends an item to `tag_keys`.
@@ -77,10 +68,7 @@ impl UntagOpenIdConnectProviderInputBuilder {
         self
     }
     /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified OIDC provider.</p>
-    pub fn set_tag_keys(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.tag_keys = input;
         self
     }

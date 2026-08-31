@@ -3,10 +3,7 @@
 pub fn de_redirect_all_requests_to(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<
-    crate::types::RedirectAllRequestsTo,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<crate::types::RedirectAllRequestsTo, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
             "maximum nesting depth exceeded",
@@ -46,11 +43,9 @@ pub fn de_redirect_all_requests_to(
             _ => {}
         }
     }
-    Ok(
-        crate::serde_util::redirect_all_requests_to_correct_errors(builder)
-            .build()
-            .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?,
-    )
+    Ok(crate::serde_util::redirect_all_requests_to_correct_errors(builder)
+        .build()
+        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
 }
 
 pub fn ser_redirect_all_requests_to(

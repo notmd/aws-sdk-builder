@@ -7,9 +7,7 @@ impl super::Client {
     ///   - [`tags(impl Into<String>, impl Into<String>)`](crate::operation::tag_resource::builders::TagResourceFluentBuilder::tags) / [`set_tags(Option<HashMap::<String, String>>)`](crate::operation::tag_resource::builders::TagResourceFluentBuilder::set_tags):<br>required: **true**<br><p>An array of tag keys and values that you want to assign to the user pool.</p><br>
     /// - On success, responds with [`TagResourceOutput`](crate::operation::tag_resource::TagResourceOutput)
     /// - On failure, responds with [`SdkError<TagResourceError>`](crate::operation::tag_resource::TagResourceError)
-    pub fn tag_resource(
-        &self,
-    ) -> crate::operation::tag_resource::builders::TagResourceFluentBuilder {
+    pub fn tag_resource(&self) -> crate::operation::tag_resource::builders::TagResourceFluentBuilder {
         crate::operation::tag_resource::builders::TagResourceFluentBuilder::new(self.handle.clone())
     }
 }

@@ -18,8 +18,6 @@ impl super::Client {
     pub fn put_object_retention(
         &self,
     ) -> crate::operation::put_object_retention::builders::PutObjectRetentionFluentBuilder {
-        crate::operation::put_object_retention::builders::PutObjectRetentionFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::put_object_retention::builders::PutObjectRetentionFluentBuilder::new(self.handle.clone())
     }
 }

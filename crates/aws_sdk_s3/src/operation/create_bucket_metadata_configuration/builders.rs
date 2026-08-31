@@ -77,7 +77,8 @@ impl crate::operation::create_bucket_metadata_configuration::builders::CreateBuc
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct CreateBucketMetadataConfigurationFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::create_bucket_metadata_configuration::builders::CreateBucketMetadataConfigurationInputBuilder,
+    inner:
+        crate::operation::create_bucket_metadata_configuration::builders::CreateBucketMetadataConfigurationInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -108,7 +109,10 @@ impl CreateBucketMetadataConfigurationFluentBuilder {
         }
     }
     /// Access the CreateBucketMetadataConfiguration as a reference.
-    pub fn as_input(&self) -> &crate::operation::create_bucket_metadata_configuration::builders::CreateBucketMetadataConfigurationInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::create_bucket_metadata_configuration::builders::CreateBucketMetadataConfigurationInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -127,7 +131,7 @@ impl CreateBucketMetadataConfigurationFluentBuilder {
             crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -137,7 +141,11 @@ impl CreateBucketMetadataConfigurationFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfiguration::orchestrate(&runtime_plugins, input).await
+        crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfiguration::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -147,7 +155,7 @@ impl CreateBucketMetadataConfigurationFluentBuilder {
         crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationOutput,
         crate::operation::create_bucket_metadata_configuration::CreateBucketMetadataConfigurationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -199,17 +207,12 @@ impl CreateBucketMetadataConfigurationFluentBuilder {
         self
     }
     /// <p>The checksum algorithm to use with your metadata configuration.</p>
-    pub fn set_checksum_algorithm(
-        mut self,
-        input: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-    ) -> Self {
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
         self.inner = self.inner.set_checksum_algorithm(input);
         self
     }
     /// <p>The checksum algorithm to use with your metadata configuration.</p>
-    pub fn get_checksum_algorithm(
-        &self,
-    ) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
         self.inner.get_checksum_algorithm()
     }
     /// <p>The contents of your metadata configuration.</p>
@@ -226,24 +229,16 @@ impl CreateBucketMetadataConfigurationFluentBuilder {
         self
     }
     /// <p>The contents of your metadata configuration.</p>
-    pub fn get_metadata_configuration(
-        &self,
-    ) -> &::std::option::Option<crate::types::MetadataConfiguration> {
+    pub fn get_metadata_configuration(&self) -> &::std::option::Option<crate::types::MetadataConfiguration> {
         self.inner.get_metadata_configuration()
     }
     /// <p>The expected owner of the general purpose bucket that corresponds to your metadata configuration.</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The expected owner of the general purpose bucket that corresponds to your metadata configuration.</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }

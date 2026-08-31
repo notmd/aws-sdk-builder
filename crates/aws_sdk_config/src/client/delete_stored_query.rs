@@ -9,8 +9,6 @@ impl super::Client {
     pub fn delete_stored_query(
         &self,
     ) -> crate::operation::delete_stored_query::builders::DeleteStoredQueryFluentBuilder {
-        crate::operation::delete_stored_query::builders::DeleteStoredQueryFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_stored_query::builders::DeleteStoredQueryFluentBuilder::new(self.handle.clone())
     }
 }

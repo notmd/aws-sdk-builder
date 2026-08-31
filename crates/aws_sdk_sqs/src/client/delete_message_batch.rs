@@ -12,8 +12,6 @@ impl super::Client {
     pub fn delete_message_batch(
         &self,
     ) -> crate::operation::delete_message_batch::builders::DeleteMessageBatchFluentBuilder {
-        crate::operation::delete_message_batch::builders::DeleteMessageBatchFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_message_batch::builders::DeleteMessageBatchFluentBuilder::new(self.handle.clone())
     }
 }

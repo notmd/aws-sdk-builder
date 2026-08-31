@@ -21,10 +21,7 @@ pub fn ser_create_vector_index_action(
             {
                 #[allow(unused_mut)]
                 let mut object_6 = array_4.value().start_object();
-                crate::protocol_serde::shape_search_schema_element::ser_search_schema_element(
-                    &mut object_6,
-                    item_5,
-                )?;
+                crate::protocol_serde::shape_search_schema_element::ser_search_schema_element(&mut object_6, item_5)?;
                 object_6.finish();
             }
         }
@@ -43,9 +40,7 @@ pub fn ser_create_vector_index_action(
         );
     }
     {
-        object
-            .key("DistanceFunction")
-            .string(input.distance_function.as_str());
+        object.key("DistanceFunction").string(input.distance_function.as_str());
     }
     Ok(())
 }

@@ -21,8 +21,6 @@ impl super::Client {
     pub fn generate_data_key_pair(
         &self,
     ) -> crate::operation::generate_data_key_pair::builders::GenerateDataKeyPairFluentBuilder {
-        crate::operation::generate_data_key_pair::builders::GenerateDataKeyPairFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::generate_data_key_pair::builders::GenerateDataKeyPairFluentBuilder::new(self.handle.clone())
     }
 }

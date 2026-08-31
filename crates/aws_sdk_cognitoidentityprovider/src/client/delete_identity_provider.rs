@@ -9,8 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteIdentityProviderError>`](crate::operation::delete_identity_provider::DeleteIdentityProviderError)
     pub fn delete_identity_provider(
         &self,
-    ) -> crate::operation::delete_identity_provider::builders::DeleteIdentityProviderFluentBuilder
-    {
-        crate::operation::delete_identity_provider::builders::DeleteIdentityProviderFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::delete_identity_provider::builders::DeleteIdentityProviderFluentBuilder {
+        crate::operation::delete_identity_provider::builders::DeleteIdentityProviderFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

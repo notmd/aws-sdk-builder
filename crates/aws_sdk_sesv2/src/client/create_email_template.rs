@@ -11,8 +11,6 @@ impl super::Client {
     pub fn create_email_template(
         &self,
     ) -> crate::operation::create_email_template::builders::CreateEmailTemplateFluentBuilder {
-        crate::operation::create_email_template::builders::CreateEmailTemplateFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::create_email_template::builders::CreateEmailTemplateFluentBuilder::new(self.handle.clone())
     }
 }

@@ -332,10 +332,7 @@ pub use crate::types::error::_import_not_found_exception::ImportNotFoundExceptio
 #[cfg(feature = "op_execute_statement")]
 pub use crate::types::error::_duplicate_item_exception::DuplicateItemExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_execute_transaction",
-    feature = "op_transact_write_items"
-))]
+#[cfg(any(feature = "op_execute_transaction", feature = "op_transact_write_items"))]
 pub use crate::types::error::_idempotent_parameter_mismatch_exception::IdempotentParameterMismatchExceptionBuilder;
 
 #[cfg(any(
@@ -345,10 +342,7 @@ pub use crate::types::error::_idempotent_parameter_mismatch_exception::Idempoten
 ))]
 pub use crate::types::error::_transaction_canceled_exception::TransactionCanceledExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_execute_transaction",
-    feature = "op_transact_write_items"
-))]
+#[cfg(any(feature = "op_execute_transaction", feature = "op_transact_write_items"))]
 pub use crate::types::error::_transaction_in_progress_exception::TransactionInProgressExceptionBuilder;
 
 #[cfg(feature = "op_export_table_to_point_in_time")]
@@ -378,10 +372,7 @@ pub use crate::types::error::_invalid_restore_time_exception::InvalidRestoreTime
 #[cfg(feature = "op_update_global_table")]
 pub use crate::types::error::_replica_already_exists_exception::ReplicaAlreadyExistsExceptionBuilder;
 
-#[cfg(any(
-    feature = "op_update_global_table",
-    feature = "op_update_global_table_settings"
-))]
+#[cfg(any(feature = "op_update_global_table", feature = "op_update_global_table_settings"))]
 pub use crate::types::error::_replica_not_found_exception::ReplicaNotFoundExceptionBuilder;
 
 #[cfg(feature = "op_update_global_table_settings")]

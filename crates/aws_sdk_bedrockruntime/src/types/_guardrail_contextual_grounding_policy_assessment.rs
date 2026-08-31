@@ -5,8 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GuardrailContextualGroundingPolicyAssessment {
     /// <p>The filter details for the guardrails contextual grounding filter.</p>
-    pub filters:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContextualGroundingFilter>>,
+    pub filters: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContextualGroundingFilter>>,
 }
 impl GuardrailContextualGroundingPolicyAssessment {
     /// <p>The filter details for the guardrails contextual grounding filter.</p>
@@ -18,20 +17,16 @@ impl GuardrailContextualGroundingPolicyAssessment {
 }
 impl GuardrailContextualGroundingPolicyAssessment {
     /// Creates a new builder-style object to manufacture [`GuardrailContextualGroundingPolicyAssessment`](crate::types::GuardrailContextualGroundingPolicyAssessment).
-    pub fn builder() -> crate::types::builders::GuardrailContextualGroundingPolicyAssessmentBuilder
-    {
+    pub fn builder() -> crate::types::builders::GuardrailContextualGroundingPolicyAssessmentBuilder {
         crate::types::builders::GuardrailContextualGroundingPolicyAssessmentBuilder::default()
     }
 }
 
 /// A builder for [`GuardrailContextualGroundingPolicyAssessment`](crate::types::GuardrailContextualGroundingPolicyAssessment).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailContextualGroundingPolicyAssessmentBuilder {
-    pub(crate) filters:
-        ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContextualGroundingFilter>>,
+    pub(crate) filters: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContextualGroundingFilter>>,
 }
 impl GuardrailContextualGroundingPolicyAssessmentBuilder {
     /// Appends an item to `filters`.
@@ -48,9 +43,7 @@ impl GuardrailContextualGroundingPolicyAssessmentBuilder {
     /// <p>The filter details for the guardrails contextual grounding filter.</p>
     pub fn set_filters(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GuardrailContextualGroundingFilter>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailContextualGroundingFilter>>,
     ) -> Self {
         self.filters = input;
         self
@@ -58,14 +51,11 @@ impl GuardrailContextualGroundingPolicyAssessmentBuilder {
     /// <p>The filter details for the guardrails contextual grounding filter.</p>
     pub fn get_filters(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailContextualGroundingFilter>>
-    {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailContextualGroundingFilter>> {
         &self.filters
     }
     /// Consumes the builder and constructs a [`GuardrailContextualGroundingPolicyAssessment`](crate::types::GuardrailContextualGroundingPolicyAssessment).
     pub fn build(self) -> crate::types::GuardrailContextualGroundingPolicyAssessment {
-        crate::types::GuardrailContextualGroundingPolicyAssessment {
-            filters: self.filters,
-        }
+        crate::types::GuardrailContextualGroundingPolicyAssessment { filters: self.filters }
     }
 }

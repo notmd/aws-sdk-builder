@@ -9,34 +9,109 @@ pub fn de_update_event_source_mapping_http_error(
     crate::operation::update_event_source_mapping::UpdateEventSourceMappingError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(
-        crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled,
-    )?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(
-            crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled(
-                generic,
-            ),
-        ),
+        None => {
+            return Err(
+                crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled(generic),
+            )
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
         "InvalidParameterValueException" => {
-            crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::InvalidParameterValueException({
+            crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::InvalidParameterValueException(
+                {
+                    #[allow(unused_mut)]
+                    let mut tmp = {
+                        #[allow(unused_mut)]
+                        let mut output =
+                            crate::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                        output = crate::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled)?;
+                        let output = output.meta(generic);
+                        output.build()
+                    };
+                    if tmp.message.is_none() {
+                        tmp.message = _error_message;
+                    }
+                    tmp
+                },
+            )
+        }
+        "ResourceConflictException" => {
+            crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::ResourceConflictException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output = crate::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
+                    let mut output = crate::types::error::builders::ResourceConflictExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_resource_conflict_exception::de_resource_conflict_exception_json_err(_response_body, output)
+                    .map_err(crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ResourceInUseException" => {
+            crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::ResourceInUseException({
+                #[allow(unused_mut)]
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::ResourceInUseExceptionBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(
+                            crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ResourceNotFoundException" => {
+            crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::ResourceNotFoundException({
+                #[allow(unused_mut)]
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ServiceException" => {
+            crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::ServiceException({
+                #[allow(unused_mut)]
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::ServiceExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_service_exception::de_service_exception_json_err(
                         _response_body,
                         output,
                     )
@@ -50,88 +125,33 @@ pub fn de_update_event_source_mapping_http_error(
                 tmp
             })
         }
-        "ResourceConflictException" => crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::ResourceConflictException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "TooManyRequestsException" => {
+            crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::TooManyRequestsException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ResourceConflictExceptionBuilder::default();
-                output = crate::protocol_serde::shape_resource_conflict_exception::de_resource_conflict_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ResourceInUseException" => crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::ResourceInUseException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ResourceInUseExceptionBuilder::default();
-                output = crate::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ResourceNotFoundException" => crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::ResourceNotFoundException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ServiceException" => crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::ServiceException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::ServiceExceptionBuilder::default();
-                output = crate::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "TooManyRequestsException" => crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::TooManyRequestsException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled)?;
-                output = output.set_retry_after_seconds(
-                    crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(_response_headers).map_err(|_| {
-                        crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled(
-                            "Failed to parse retryAfterSeconds from header `Retry-After",
+                    output = output.set_retry_after_seconds(
+                        crate::protocol_serde::shape_too_many_requests_exception::de_retry_after_seconds_header(
+                            _response_headers,
                         )
-                    })?,
-                );
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                        .map_err(|_| {
+                            crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled(
+                                "Failed to parse retryAfterSeconds from header `Retry-After",
+                            )
+                        })?,
+                    );
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::generic(generic),
     })
 }
@@ -147,25 +167,28 @@ pub fn de_update_event_source_mapping_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::update_event_source_mapping::builders::UpdateEventSourceMappingOutputBuilder::default();
-        output = crate::protocol_serde::shape_update_event_source_mapping::de_update_event_source_mapping(_response_body, output)
-            .map_err(crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output =
+            crate::operation::update_event_source_mapping::builders::UpdateEventSourceMappingOutputBuilder::default();
+        output = crate::protocol_serde::shape_update_event_source_mapping::de_update_event_source_mapping(
+            _response_body,
+            output,
+        )
+        .map_err(crate::operation::update_event_source_mapping::UpdateEventSourceMappingError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_update_event_source_mapping_input(
     input: &crate::operation::update_event_source_mapping::UpdateEventSourceMappingInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_update_event_source_mapping_input::ser_update_event_source_mapping_input_input(&mut object, input)?;
+    crate::protocol_serde::shape_update_event_source_mapping_input::ser_update_event_source_mapping_input_input(
+        &mut object,
+        input,
+    )?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -177,10 +200,8 @@ pub(crate) fn de_update_event_source_mapping(
     crate::operation::update_event_source_mapping::builders::UpdateEventSourceMappingOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -188,10 +209,7 @@ pub(crate) fn de_update_event_source_mapping(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key
-                .to_unescaped()?
-                .as_ref()
-            {
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "AmazonManagedKafkaEventSourceConfig" => {
                     builder = builder.set_amazon_managed_kafka_event_source_config(
                         crate::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(
@@ -203,11 +221,9 @@ pub(crate) fn de_update_event_source_mapping(
                 }
                 "BatchSize" => {
                     builder = builder.set_batch_size(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(
-                            tokens.next(),
-                        )?
-                        .map(i32::try_from)
-                        .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?,
                     );
                 }
                 "BisectBatchOnFunctionError" => {
@@ -231,76 +247,67 @@ pub(crate) fn de_update_event_source_mapping(
                 }
                 "EventSourceArn" => {
                     builder = builder.set_event_source_arn(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                            tokens.next(),
-                        )?
-                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                        .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
                     );
                 }
                 "EventSourceMappingArn" => {
                     builder = builder.set_event_source_mapping_arn(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                            tokens.next(),
-                        )?
-                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                        .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
                     );
                 }
                 "FilterCriteria" => {
                     builder = builder.set_filter_criteria(
-                        crate::protocol_serde::shape_filter_criteria::de_filter_criteria(
+                        crate::protocol_serde::shape_filter_criteria::de_filter_criteria(tokens, _value, depth + 1)?,
+                    );
+                }
+                "FilterCriteriaError" => {
+                    builder = builder.set_filter_criteria_error(
+                        crate::protocol_serde::shape_filter_criteria_error::de_filter_criteria_error(
                             tokens,
                             _value,
                             depth + 1,
                         )?,
                     );
                 }
-                "FilterCriteriaError" => {
-                    builder = builder.set_filter_criteria_error(crate::protocol_serde::shape_filter_criteria_error::de_filter_criteria_error(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
                 "FunctionArn" => {
                     builder = builder.set_function_arn(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                            tokens.next(),
-                        )?
-                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                        .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
                     );
                 }
                 "FunctionResponseTypes" => {
                     builder = builder.set_function_response_types(
-                        crate::protocol_serde::shape_function_response_type_list::de_function_response_type_list(tokens, _value, depth + 1)?,
+                        crate::protocol_serde::shape_function_response_type_list::de_function_response_type_list(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
                     );
                 }
                 "KMSKeyArn" => {
                     builder = builder.set_kms_key_arn(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                            tokens.next(),
-                        )?
-                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                        .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
                     );
                 }
                 "LastModified" => {
-                    builder = builder.set_last_modified(
-                        ::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                    builder =
+                        builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
                             tokens.next(),
                             ::aws_smithy_types::date_time::Format::EpochSeconds,
-                        )?,
-                    );
+                        )?);
                 }
                 "LastProcessingResult" => {
                     builder = builder.set_last_processing_result(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                            tokens.next(),
-                        )?
-                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                        .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
                     );
                 }
                 "LoggingConfig" => {
@@ -314,29 +321,23 @@ pub(crate) fn de_update_event_source_mapping(
                 }
                 "MaximumBatchingWindowInSeconds" => {
                     builder = builder.set_maximum_batching_window_in_seconds(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(
-                            tokens.next(),
-                        )?
-                        .map(i32::try_from)
-                        .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?,
                     );
                 }
                 "MaximumRecordAgeInSeconds" => {
                     builder = builder.set_maximum_record_age_in_seconds(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(
-                            tokens.next(),
-                        )?
-                        .map(i32::try_from)
-                        .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?,
                     );
                 }
                 "MaximumRetryAttempts" => {
                     builder = builder.set_maximum_retry_attempts(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(
-                            tokens.next(),
-                        )?
-                        .map(i32::try_from)
-                        .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?,
                     );
                 }
                 "MetricsConfig" => {
@@ -350,16 +351,18 @@ pub(crate) fn de_update_event_source_mapping(
                 }
                 "ParallelizationFactor" => {
                     builder = builder.set_parallelization_factor(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(
-                            tokens.next(),
-                        )?
-                        .map(i32::try_from)
-                        .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?,
                     );
                 }
                 "ProvisionedPollerConfig" => {
                     builder = builder.set_provisioned_poller_config(
-                        crate::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
+                        crate::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
                     );
                 }
                 "Queues" => {
@@ -371,16 +374,16 @@ pub(crate) fn de_update_event_source_mapping(
                 }
                 "ScalingConfig" => {
                     builder = builder.set_scaling_config(
-                        crate::protocol_serde::shape_scaling_config::de_scaling_config(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        crate::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?,
                     );
                 }
                 "SelfManagedEventSource" => {
                     builder = builder.set_self_managed_event_source(
-                        crate::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
+                        crate::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
                     );
                 }
                 "SelfManagedKafkaEventSourceConfig" => {
@@ -394,19 +397,21 @@ pub(crate) fn de_update_event_source_mapping(
                 }
                 "SourceAccessConfigurations" => {
                     builder = builder.set_source_access_configurations(
-                        crate::protocol_serde::shape_source_access_configurations::de_source_access_configurations(tokens, _value, depth + 1)?,
+                        crate::protocol_serde::shape_source_access_configurations::de_source_access_configurations(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
                     );
                 }
                 "StartingPosition" => {
                     builder = builder.set_starting_position(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                            tokens.next(),
-                        )?
-                        .map(|s| {
-                            s.to_unescaped()
-                                .map(|u| crate::types::EventSourcePosition::from(u.as_ref()))
-                        })
-                        .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| {
+                                s.to_unescaped()
+                                    .map(|u| crate::types::EventSourcePosition::from(u.as_ref()))
+                            })
+                            .transpose()?,
                     );
                 }
                 "StartingPositionTimestamp" => {
@@ -419,20 +424,16 @@ pub(crate) fn de_update_event_source_mapping(
                 }
                 "State" => {
                     builder = builder.set_state(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                            tokens.next(),
-                        )?
-                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                        .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
                     );
                 }
                 "StateTransitionReason" => {
                     builder = builder.set_state_transition_reason(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                            tokens.next(),
-                        )?
-                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                        .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
                     );
                 }
                 "Topics" => {
@@ -444,39 +445,31 @@ pub(crate) fn de_update_event_source_mapping(
                 }
                 "TumblingWindowInSeconds" => {
                     builder = builder.set_tumbling_window_in_seconds(
-                        ::aws_smithy_json::deserialize::token::expect_number_or_null(
-                            tokens.next(),
-                        )?
-                        .map(i32::try_from)
-                        .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?,
                     );
                 }
                 "UUID" => {
                     builder = builder.set_uuid(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                            tokens.next(),
-                        )?
-                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                        .transpose()?,
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

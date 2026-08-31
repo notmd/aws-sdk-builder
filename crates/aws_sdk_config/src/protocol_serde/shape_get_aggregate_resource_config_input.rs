@@ -4,14 +4,15 @@ pub fn ser_get_aggregate_resource_config_input_input(
     input: &crate::operation::get_aggregate_resource_config::GetAggregateResourceConfigInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     if let Some(var_1) = &input.configuration_aggregator_name {
-        object
-            .key("ConfigurationAggregatorName")
-            .string(var_1.as_str());
+        object.key("ConfigurationAggregatorName").string(var_1.as_str());
     }
     if let Some(var_2) = &input.resource_identifier {
         #[allow(unused_mut)]
         let mut object_3 = object.key("ResourceIdentifier").start_object();
-        crate::protocol_serde::shape_aggregate_resource_identifier::ser_aggregate_resource_identifier(&mut object_3, var_2)?;
+        crate::protocol_serde::shape_aggregate_resource_identifier::ser_aggregate_resource_identifier(
+            &mut object_3,
+            var_2,
+        )?;
         object_3.finish();
     }
     Ok(())

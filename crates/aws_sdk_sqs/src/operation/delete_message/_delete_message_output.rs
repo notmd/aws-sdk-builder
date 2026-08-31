@@ -18,9 +18,7 @@ impl DeleteMessageOutput {
 }
 
 /// A builder for [`DeleteMessageOutput`](crate::operation::delete_message::DeleteMessageOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteMessageOutputBuilder {
     _request_id: Option<String>,

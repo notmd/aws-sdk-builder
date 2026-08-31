@@ -32,10 +32,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<CreateUserPoolClientError>`](crate::operation::create_user_pool_client::CreateUserPoolClientError)
     pub fn create_user_pool_client(
         &self,
-    ) -> crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder
-    {
-        crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::new(
-            self.handle.clone(),
-        )
+    ) -> crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder {
+        crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::new(self.handle.clone())
     }
 }

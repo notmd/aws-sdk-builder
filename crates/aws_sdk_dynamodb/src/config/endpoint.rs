@@ -8,22 +8,19 @@ pub use ::aws_smithy_types::endpoint::Endpoint;
 pub(crate) struct EndpointOverrideFeatureTrackerInterceptor;
 
 #[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept
-    for EndpointOverrideFeatureTrackerInterceptor
-{
+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for EndpointOverrideFeatureTrackerInterceptor {
     fn name(&self) -> &'static str {
         "EndpointOverrideFeatureTrackerInterceptor"
     }
 
     fn read_before_execution(
         &self,
-        _context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<'_>,
+        _context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
+            '_,
+        >,
         cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-        if cfg
-            .load::<::aws_types::endpoint_config::EndpointUrl>()
-            .is_some()
-        {
+        if cfg.load::<::aws_types::endpoint_config::EndpointUrl>().is_some() {
             cfg.interceptor_state()
                 .store_append(::aws_runtime::sdk_feature::AwsSdkFeature::EndpointOverride);
         }
@@ -45,8 +42,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.af-south-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.af-south-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -66,8 +62,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.ap-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.ap-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -87,8 +82,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.ap-northeast-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.ap-northeast-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -108,8 +102,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.ap-northeast-2.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.ap-northeast-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -129,8 +122,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.ap-northeast-3.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.ap-northeast-3.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -150,8 +142,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.ap-south-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.ap-south-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -171,8 +162,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.ap-southeast-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.ap-southeast-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -192,8 +182,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.ap-southeast-2.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.ap-southeast-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -213,8 +202,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.ap-southeast-3.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.ap-southeast-3.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -234,8 +222,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.ca-central-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.ca-central-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -255,8 +242,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.ca-central-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.ca-central-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -276,8 +262,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.eu-central-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.eu-central-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -297,8 +282,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.eu-north-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.eu-north-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -318,8 +302,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.eu-south-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.eu-south-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -339,8 +322,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.eu-west-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.eu-west-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -360,8 +342,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.eu-west-2.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.eu-west-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -381,8 +362,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.eu-west-3.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.eu-west-3.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -427,8 +407,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.me-south-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.me-south-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -448,8 +427,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.sa-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.sa-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -469,8 +447,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -490,8 +467,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -511,8 +487,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-2.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -532,8 +507,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.us-east-2.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-east-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -553,8 +527,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-west-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-west-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -574,8 +547,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.us-west-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-west-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -595,8 +567,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-west-2.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-west-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -616,8 +587,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.us-west-2.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-west-2.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -637,8 +607,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -658,8 +627,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -679,8 +647,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -700,8 +667,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.cn-northwest-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.cn-northwest-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -721,7 +687,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.cn-north-1.api.amazonwebservices.com.cn");
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://dynamodb-fips.cn-north-1.api.amazonwebservices.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -741,8 +708,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -762,9 +728,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://dynamodb.cn-north-1.api.amazonwebservices.com.cn",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://dynamodb.cn-north-1.api.amazonwebservices.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -784,8 +749,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -805,8 +769,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -826,8 +789,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-gov-west-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-west-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -847,8 +809,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-gov-west-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-west-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -868,8 +829,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-gov-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-gov-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -889,8 +849,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -910,8 +869,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -931,8 +889,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-west-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-west-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -952,8 +909,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -973,8 +929,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-isob-east-1.sc2s.sgov.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-isob-east-1.sc2s.sgov.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -994,8 +949,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.us-isob-east-1.sc2s.sgov.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-isob-east-1.sc2s.sgov.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -1091,12 +1045,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let error = endpoint
-            .expect_err("expected error: Invalid Configuration: Missing Region [Missing region]");
-        assert_eq!(
-            format!("{}", error),
-            "Invalid Configuration: Missing Region"
-        )
+        let error = endpoint.expect_err("expected error: Invalid Configuration: Missing Region [Missing region]");
+        assert_eq!(format!("{}", error), "Invalid Configuration: Missing Region")
     }
 
     /// {UseFIPS=true, UseDualStack=true, AccountId=111111111111, AccountIdEndpointMode=preferred, Region=us-east-1, Endpoint=https://example.com}
@@ -1192,11 +1142,9 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -1221,11 +1169,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -1250,11 +1196,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -1279,11 +1223,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:s3:us-west-2:222222222222:stream/testStream".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -1308,11 +1250,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -1540,11 +1480,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -1565,11 +1503,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -1590,11 +1526,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -1615,11 +1549,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -1643,11 +1575,9 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -1779,11 +1709,9 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -1808,11 +1736,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -1837,11 +1763,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -1866,11 +1790,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:s3:us-west-2:222222222222:stream/testStream".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -1895,11 +1817,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -2127,11 +2047,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -2152,11 +2070,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -2177,11 +2093,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -2202,11 +2116,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -2230,11 +2142,9 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -2366,11 +2276,9 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -2395,11 +2303,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -2424,11 +2330,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -2453,11 +2357,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:s3:us-west-2:222222222222:stream/testStream".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -2482,11 +2384,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -2714,11 +2614,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -2739,11 +2637,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -2764,11 +2660,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -2789,11 +2683,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -2817,11 +2709,9 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("us-east-1".to_string())
             .endpoint("https://example.com".to_string())
@@ -2954,11 +2844,9 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("local".to_string())
             .build()
@@ -2987,11 +2875,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("local".to_string())
             .build()
@@ -3020,11 +2906,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("local".to_string())
             .build()
@@ -3053,11 +2937,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:s3:us-west-2:222222222222:stream/testStream".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("local".to_string())
             .build()
@@ -3086,11 +2968,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("local".to_string())
             .build()
@@ -3343,11 +3223,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("local".to_string())
             .build()
@@ -3367,11 +3245,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("local".to_string())
             .build()
@@ -3391,11 +3267,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("local".to_string())
             .build()
@@ -3415,11 +3289,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("local".to_string())
             .build()
@@ -3447,11 +3319,9 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("local".to_string())
             .build()
@@ -3592,11 +3462,9 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("local".to_string())
             .build()
@@ -3625,11 +3493,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("local".to_string())
             .build()
@@ -3658,11 +3524,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("local".to_string())
             .build()
@@ -3691,11 +3555,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:s3:us-west-2:222222222222:stream/testStream".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("local".to_string())
             .build()
@@ -3724,11 +3586,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("local".to_string())
             .build()
@@ -3981,11 +3841,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("local".to_string())
             .build()
@@ -4005,11 +3863,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("local".to_string())
             .build()
@@ -4029,11 +3885,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("local".to_string())
             .build()
@@ -4053,11 +3907,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("local".to_string())
             .build()
@@ -4085,11 +3937,9 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("local".to_string())
             .build()
@@ -4230,11 +4080,9 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("local".to_string())
             .build()
@@ -4263,11 +4111,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("local".to_string())
             .build()
@@ -4296,11 +4142,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("local".to_string())
             .build()
@@ -4329,11 +4173,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:s3:us-west-2:222222222222:stream/testStream".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("local".to_string())
             .build()
@@ -4362,11 +4204,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("local".to_string())
             .build()
@@ -4619,11 +4459,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("local".to_string())
             .build()
@@ -4643,11 +4481,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("local".to_string())
             .build()
@@ -4667,11 +4503,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("local".to_string())
             .build()
@@ -4691,11 +4525,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("local".to_string())
             .build()
@@ -4723,11 +4555,9 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("local".to_string())
             .build()
@@ -4787,8 +4617,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4810,8 +4639,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4833,8 +4661,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://111111111111.ddb.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://111111111111.ddb.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4857,8 +4684,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://111111111111.ddb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://111111111111.ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4875,19 +4701,16 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://333333333333.ddb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://333333333333.ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4905,19 +4728,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://222222222222.ddb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://222222222222.ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4935,19 +4755,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://333333333333.ddb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://333333333333.ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4965,19 +4782,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:s3:us-west-2:222222222222:stream/testStream".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://333333333333.ddb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://333333333333.ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -4995,19 +4809,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://111111111111.ddb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://111111111111.ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5034,8 +4845,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://111111111111.ddb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://111111111111.ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5078,8 +4888,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5101,8 +4910,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5124,8 +4932,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://222222222222.ddb.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://222222222222.ddb.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5148,8 +4955,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://222222222222.ddb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://222222222222.ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5172,8 +4978,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5195,8 +5000,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5218,8 +5022,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5234,19 +5037,16 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5261,19 +5061,16 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5288,19 +5085,16 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://333333333333.ddb.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://333333333333.ddb.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5316,19 +5110,16 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://333333333333.ddb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://333333333333.ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5345,19 +5136,16 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://222222222222.ddb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://222222222222.ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5379,8 +5167,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5442,8 +5229,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://111111111111.ddb.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://111111111111.ddb.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5466,8 +5252,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://111111111111.ddb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://111111111111.ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5484,19 +5269,16 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://333333333333.ddb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://333333333333.ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5514,19 +5296,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://222222222222.ddb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://222222222222.ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5544,19 +5323,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://333333333333.ddb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://333333333333.ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5574,19 +5350,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:s3:us-west-2:222222222222:stream/testStream".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://333333333333.ddb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://333333333333.ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5604,19 +5377,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://111111111111.ddb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://111111111111.ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5643,8 +5413,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://111111111111.ddb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://111111111111.ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5727,8 +5496,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://222222222222.ddb.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://222222222222.ddb.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5751,8 +5519,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://222222222222.ddb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://222222222222.ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5828,11 +5595,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("us-east-1".to_string())
             .build()
@@ -5852,11 +5617,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("us-east-1".to_string())
             .build()
@@ -5876,19 +5639,16 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://333333333333.ddb.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://333333333333.ddb.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5904,19 +5664,16 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://333333333333.ddb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://333333333333.ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -5933,19 +5690,16 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://222222222222.ddb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://222222222222.ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6061,11 +5815,9 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("cn-north-1".to_string())
             .build()
@@ -6087,11 +5839,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("cn-north-1".to_string())
             .build()
@@ -6113,11 +5863,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("cn-north-1".to_string())
             .build()
@@ -6139,11 +5887,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:s3:us-west-2:222222222222:stream/testStream".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("cn-north-1".to_string())
             .build()
@@ -6165,11 +5911,9 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("cn-north-1".to_string())
             .build()
@@ -6373,11 +6117,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("cn-north-1".to_string())
             .build()
@@ -6397,11 +6139,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("cn-north-1".to_string())
             .build()
@@ -6421,11 +6161,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("cn-north-1".to_string())
             .build()
@@ -6445,11 +6183,9 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("cn-north-1".to_string())
             .build()
@@ -6470,11 +6206,9 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("required".to_string())
             .region("cn-north-1".to_string())
             .build()
@@ -6520,8 +6254,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6543,8 +6276,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6566,8 +6298,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6589,8 +6320,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6606,19 +6336,16 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6635,19 +6362,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6664,19 +6388,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6693,19 +6414,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:s3:us-west-2:222222222222:stream/testStream".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6722,19 +6440,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6760,8 +6475,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6783,8 +6497,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6806,8 +6519,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6829,8 +6541,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6852,8 +6563,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6875,8 +6585,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6898,8 +6607,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6921,8 +6629,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6944,8 +6651,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6960,19 +6666,16 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -6987,19 +6690,16 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7014,19 +6714,16 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7041,19 +6738,16 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7069,19 +6763,16 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("disabled".to_string())
             .region("us-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7102,8 +6793,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7125,7 +6815,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.cn-north-1.api.amazonwebservices.com.cn");
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://dynamodb-fips.cn-north-1.api.amazonwebservices.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7147,8 +6838,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7170,9 +6860,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://dynamodb.cn-north-1.api.amazonwebservices.com.cn",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://dynamodb.cn-north-1.api.amazonwebservices.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7194,8 +6883,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7211,19 +6899,16 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("cn-north-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7240,19 +6925,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("cn-north-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7269,19 +6951,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("cn-north-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7298,19 +6977,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:s3:us-west-2:222222222222:stream/testStream".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("cn-north-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7327,19 +7003,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("cn-north-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7365,8 +7038,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7388,8 +7060,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7411,7 +7082,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.cn-north-1.api.amazonwebservices.com.cn");
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://dynamodb-fips.cn-north-1.api.amazonwebservices.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7433,8 +7105,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7456,9 +7127,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://dynamodb.cn-north-1.api.amazonwebservices.com.cn",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://dynamodb.cn-north-1.api.amazonwebservices.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7480,8 +7150,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7503,8 +7172,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7526,8 +7194,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7549,8 +7216,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7565,18 +7231,17 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("cn-north-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.cn-north-1.api.amazonwebservices.com.cn");
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://dynamodb-fips.cn-north-1.api.amazonwebservices.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7591,19 +7256,16 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("cn-north-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7618,20 +7280,17 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("cn-north-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://dynamodb.cn-north-1.api.amazonwebservices.com.cn",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://dynamodb.cn-north-1.api.amazonwebservices.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7646,19 +7305,16 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("cn-north-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7674,19 +7330,16 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("cn-north-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7707,8 +7360,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7730,8 +7382,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.us-iso-east-1.api.aws.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-iso-east-1.api.aws.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7753,8 +7404,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7776,8 +7426,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.api.aws.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.api.aws.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7799,8 +7448,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7816,19 +7464,16 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-iso-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7845,19 +7490,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-iso-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7874,19 +7516,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-iso-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7903,19 +7542,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:s3:us-west-2:222222222222:stream/testStream".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-iso-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7932,19 +7568,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-iso-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7970,8 +7603,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -7993,8 +7625,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8016,8 +7647,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.us-iso-east-1.api.aws.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-iso-east-1.api.aws.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8039,8 +7669,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8062,8 +7691,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.api.aws.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.api.aws.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8085,8 +7713,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8108,8 +7735,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8131,8 +7757,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8154,8 +7779,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8170,19 +7794,16 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-iso-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.us-iso-east-1.api.aws.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-iso-east-1.api.aws.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8197,19 +7818,16 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-iso-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb-fips.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8224,19 +7842,16 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-iso-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.api.aws.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.api.aws.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8251,19 +7866,16 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-iso-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8279,19 +7891,16 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-iso-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8312,8 +7921,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8335,8 +7943,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-gov-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-gov-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8358,8 +7965,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8381,8 +7987,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8404,8 +8009,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8421,19 +8025,16 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-gov-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8450,19 +8051,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-gov-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8479,19 +8077,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-gov-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8508,19 +8103,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:s3:us-west-2:222222222222:stream/testStream".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-gov-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8537,19 +8129,16 @@ mod test {
             .use_dual_stack(false)
             .account_id("111111111111".to_string())
             .resource_arn("arn:aws:dynamodb:us-west-2:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-west-2:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-gov-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8575,8 +8164,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8598,8 +8186,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8621,8 +8208,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-gov-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-gov-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8644,8 +8230,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8667,8 +8252,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8690,8 +8274,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8713,8 +8296,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8736,8 +8318,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8759,8 +8340,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8775,19 +8355,16 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-gov-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-gov-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb-fips.us-gov-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8802,19 +8379,16 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(true)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-gov-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8829,19 +8403,16 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(true)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-gov-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8856,19 +8427,16 @@ mod test {
         let params = crate::config::endpoint::Params::builder()
             .use_fips(false)
             .use_dual_stack(false)
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-gov-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8884,19 +8452,16 @@ mod test {
             .use_fips(false)
             .use_dual_stack(false)
             .resource_arn("arn:aws:dynamodb:us-east-1:222222222222:table/table_name".to_string())
-            .resource_arn_list(vec![
-                "arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
-                    .to_string()
-                    .into(),
-            ])
+            .resource_arn_list(vec!["arn:aws:dynamodb:us-east-1:333333333333:table/table_name"
+                .to_string()
+                .into()])
             .account_id_endpoint_mode("preferred".to_string())
             .region("us-gov-east-1".to_string())
             .build()
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8917,8 +8482,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8979,8 +8543,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://111111111111.ddb.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://111111111111.ddb.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -8999,9 +8562,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://vpce-1a2b3c4d-5e6f.dynamodb.us-east-1.vpce.api.aws",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://vpce-1a2b3c4d-5e6f.dynamodb.us-east-1.vpce.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -10926,8 +10488,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb-fips.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb-fips.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -10950,9 +10511,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://search-dynamodb-fips.us-east-1.amazonaws.com",
-        );
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb-fips.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -10975,8 +10534,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://111111111111.search-ddb.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://111111111111.search-ddb.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -11000,9 +10558,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://111111111111.search-ddb.us-east-1.amazonaws.com",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://111111111111.search-ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -11047,8 +10604,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb-fips.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb-fips.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -11071,9 +10627,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://search-dynamodb-fips.us-east-1.amazonaws.com",
-        );
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb-fips.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -11096,8 +10650,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://222222222222.search-ddb.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://222222222222.search-ddb.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -11121,9 +10674,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://222222222222.search-ddb.us-east-1.amazonaws.com",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://222222222222.search-ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -11147,8 +10699,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -11171,8 +10722,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -11195,8 +10745,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -11218,8 +10767,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -11284,8 +10832,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://111111111111.search-ddb.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://111111111111.search-ddb.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -11309,9 +10856,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://111111111111.search-ddb.us-east-1.amazonaws.com",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://111111111111.search-ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -11398,8 +10944,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://222222222222.search-ddb.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://222222222222.search-ddb.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -11423,9 +10968,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://222222222222.search-ddb.us-east-1.amazonaws.com",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://222222222222.search-ddb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -11804,8 +11348,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb-fips.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb-fips.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -11828,9 +11371,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://search-dynamodb-fips.us-east-1.amazonaws.com",
-        );
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb-fips.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -11853,8 +11394,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -11877,8 +11417,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -11901,8 +11440,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -11925,8 +11463,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb-fips.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb-fips.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -11949,9 +11486,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://search-dynamodb-fips.us-east-1.amazonaws.com",
-        );
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb-fips.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -11974,8 +11509,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -11998,8 +11532,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12022,8 +11555,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12046,8 +11578,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12070,8 +11601,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12093,8 +11623,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12117,7 +11646,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb-fips.cn-north-1.api.amazonwebservices.com.cn");
+        let endpoint = endpoint
+            .expect("Expected valid endpoint: https://search-dynamodb-fips.cn-north-1.api.amazonwebservices.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12140,9 +11670,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://search-dynamodb-fips.cn-north-1.amazonaws.com.cn",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://search-dynamodb-fips.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12165,7 +11694,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.cn-north-1.api.amazonwebservices.com.cn");
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://search-dynamodb.cn-north-1.api.amazonwebservices.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12188,8 +11718,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12212,8 +11741,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12236,7 +11764,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb-fips.cn-north-1.api.amazonwebservices.com.cn");
+        let endpoint = endpoint
+            .expect("Expected valid endpoint: https://search-dynamodb-fips.cn-north-1.api.amazonwebservices.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12259,9 +11788,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://search-dynamodb-fips.cn-north-1.amazonaws.com.cn",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://search-dynamodb-fips.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12284,7 +11812,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.cn-north-1.api.amazonwebservices.com.cn");
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://search-dynamodb.cn-north-1.api.amazonwebservices.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12307,8 +11836,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12331,8 +11859,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12355,8 +11882,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12379,8 +11905,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12402,8 +11927,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.cn-north-1.amazonaws.com.cn");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.cn-north-1.amazonaws.com.cn");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12426,9 +11950,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://search-dynamodb-fips.us-iso-east-1.api.aws.ic.gov",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://search-dynamodb-fips.us-iso-east-1.api.aws.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12451,9 +11974,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://search-dynamodb-fips.us-iso-east-1.c2s.ic.gov",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://search-dynamodb-fips.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12476,9 +11998,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://search-dynamodb.us-iso-east-1.api.aws.ic.gov",
-        );
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-iso-east-1.api.aws.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12501,8 +12021,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12525,8 +12044,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12549,9 +12067,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://search-dynamodb-fips.us-iso-east-1.api.aws.ic.gov",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://search-dynamodb-fips.us-iso-east-1.api.aws.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12574,9 +12091,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://search-dynamodb-fips.us-iso-east-1.c2s.ic.gov",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://search-dynamodb-fips.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12599,9 +12115,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://search-dynamodb.us-iso-east-1.api.aws.ic.gov",
-        );
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-iso-east-1.api.aws.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12624,8 +12138,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12648,8 +12161,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12672,8 +12184,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12696,8 +12207,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12719,8 +12229,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-iso-east-1.c2s.ic.gov");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-iso-east-1.c2s.ic.gov");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12743,8 +12252,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb-fips.us-gov-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb-fips.us-gov-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12767,8 +12275,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12791,8 +12298,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-gov-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-gov-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12815,8 +12321,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12839,8 +12344,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12863,8 +12367,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb-fips.us-gov-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb-fips.us-gov-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12887,8 +12390,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12911,8 +12413,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-gov-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-gov-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12935,8 +12436,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12959,8 +12459,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -12983,8 +12482,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -13007,8 +12505,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -13030,8 +12527,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint
-            .expect("Expected valid endpoint: https://search-dynamodb.us-gov-east-1.amazonaws.com");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://search-dynamodb.us-gov-east-1.amazonaws.com");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -13096,8 +12592,7 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint =
-            endpoint.expect("Expected valid endpoint: https://111111111111.ddb.us-east-1.api.aws");
+        let endpoint = endpoint.expect("Expected valid endpoint: https://111111111111.ddb.us-east-1.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -13117,9 +12612,8 @@ mod test {
             .expect("invalid params");
         let resolver = crate::config::endpoint::DefaultResolver::new();
         let endpoint = resolver.resolve_endpoint(&params);
-        let endpoint = endpoint.expect(
-            "Expected valid endpoint: https://vpce-1a2b3c4d-5e6f.dynamodb.us-east-1.vpce.api.aws",
-        );
+        let endpoint =
+            endpoint.expect("Expected valid endpoint: https://vpce-1a2b3c4d-5e6f.dynamodb.us-east-1.vpce.api.aws");
         assert_eq!(
             endpoint,
             ::aws_smithy_types::endpoint::Endpoint::builder()
@@ -13185,15 +12679,11 @@ pub trait ResolveEndpoint: ::std::marker::Send + ::std::marker::Sync + ::std::fm
     /// Convert this service-specific resolver into a `SharedEndpointResolver`
     ///
     /// The resulting resolver will downcast `EndpointResolverParams` into `crate::config::endpoint::Params`.
-    fn into_shared_resolver(
-        self,
-    ) -> ::aws_smithy_runtime_api::client::endpoint::SharedEndpointResolver
+    fn into_shared_resolver(self) -> ::aws_smithy_runtime_api::client::endpoint::SharedEndpointResolver
     where
         Self: Sized + 'static,
     {
-        ::aws_smithy_runtime_api::client::endpoint::SharedEndpointResolver::new(DowncastParams(
-            self,
-        ))
+        ::aws_smithy_runtime_api::client::endpoint::SharedEndpointResolver::new(DowncastParams(self))
     }
 }
 
@@ -13228,10 +12718,7 @@ where
             .map(|id| {
                 std::mem::replace(
                     id,
-                    ::aws_smithy_runtime_api::client::identity::Identity::new(
-                        (),
-                        ::std::option::Option::None,
-                    ),
+                    ::aws_smithy_runtime_api::client::identity::Identity::new((), ::std::option::Option::None),
                 )
             });
         match (
@@ -13240,20 +12727,14 @@ where
                 .as_ref()
                 .and_then(|id| id.property::<::aws_credential_types::attributes::AccountId>()),
         ) {
-            (
-                ::std::option::Option::Some(concrete_params),
-                ::std::option::Option::Some(account_id),
-            ) => {
-                concrete_params.account_id =
-                    ::std::option::Option::Some(account_id.as_str().to_string());
+            (::std::option::Option::Some(concrete_params), ::std::option::Option::Some(account_id)) => {
+                concrete_params.account_id = ::std::option::Option::Some(account_id.as_str().to_string());
             }
             (::std::option::Option::Some(_), ::std::option::Option::None) => {
                 // No account ID; nothing to do.
             }
             (::std::option::Option::None, _) => {
-                return ::std::result::Result::Err(
-                    "service-specific endpoint params was not present".into(),
-                );
+                return ::std::result::Result::Err("service-specific endpoint params was not present".into());
             }
         }
         ::std::result::Result::Ok(())
@@ -13264,9 +12745,7 @@ where
 /// The default endpoint resolver.
 pub struct DefaultResolver {
     partition_resolver: &'static crate::endpoint_lib::partition::PartitionResolver,
-    endpoint_cache: ::arc_swap::ArcSwap<
-        ::std::option::Option<(Params, ::aws_smithy_types::endpoint::Endpoint)>,
-    >,
+    endpoint_cache: ::arc_swap::ArcSwap<::std::option::Option<(Params, ::aws_smithy_types::endpoint::Endpoint)>>,
 }
 
 impl Default for DefaultResolver {
@@ -13300,10 +12779,8 @@ impl DefaultResolver {
     fn resolve_endpoint<'a>(
         &'a self,
         params: &'a crate::config::endpoint::Params,
-    ) -> ::std::result::Result<
-        ::aws_smithy_types::endpoint::Endpoint,
-        ::aws_smithy_runtime_api::box_error::BoxError,
-    > {
+    ) -> ::std::result::Result<::aws_smithy_types::endpoint::Endpoint, ::aws_smithy_runtime_api::box_error::BoxError>
+    {
         let mut _diagnostic_collector = crate::endpoint_lib::diagnostic::DiagnosticCollector::new();
         #[allow(unused_mut)]
         let mut context = ConditionContext::default();
@@ -13743,9 +13220,7 @@ out })
                 }
                 1 | -1 => {
                     return ::std::result::Result::Err(Box::new(
-                        ::aws_smithy_http::endpoint::ResolveEndpointError::message(
-                            "No endpoint rule matched",
-                        ),
+                        ::aws_smithy_http::endpoint::ResolveEndpointError::message("No endpoint rule matched"),
                     )
                         as ::aws_smithy_runtime_api::box_error::BoxError)
                 }
@@ -14042,18 +13517,16 @@ impl crate::config::endpoint::ResolveEndpoint for DefaultResolver {
         let cached = self.endpoint_cache.load();
         if let Some((cached_params, cached_endpoint)) = cached.as_ref() {
             if cached_params == params {
-                return ::aws_smithy_runtime_api::client::endpoint::EndpointFuture::ready(
-                    ::std::result::Result::Ok(cached_endpoint.clone()),
-                );
+                return ::aws_smithy_runtime_api::client::endpoint::EndpointFuture::ready(::std::result::Result::Ok(
+                    cached_endpoint.clone(),
+                ));
             }
         }
         drop(cached);
         let result = self.resolve_endpoint(params);
         if let ::std::result::Result::Ok(ref endpoint) = result {
-            self.endpoint_cache.store(::std::sync::Arc::new(Some((
-                params.clone(),
-                endpoint.clone(),
-            ))));
+            self.endpoint_cache
+                .store(::std::sync::Arc::new(Some((params.clone(), endpoint.clone()))));
         }
         ::aws_smithy_runtime_api::client::endpoint::EndpointFuture::ready(result)
     }
@@ -14551,9 +14024,7 @@ impl Params {
 }
 
 /// Builder for [`Params`]
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 pub struct ParamsBuilder {
     region: ::std::option::Option<::std::string::String>,
     use_dual_stack: ::std::option::Option<bool>,
@@ -14569,10 +14040,7 @@ impl ParamsBuilder {
     /// Consume this builder, creating [`Params`].
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::config::endpoint::Params,
-        crate::config::endpoint::InvalidParams,
-    > {
+    ) -> ::std::result::Result<crate::config::endpoint::Params, crate::config::endpoint::InvalidParams> {
         if let Some(region) = &self.region {
             if !crate::endpoint_lib::host::is_valid_host_label(
                 region.as_ref() as &str,
@@ -14589,9 +14057,10 @@ impl ParamsBuilder {
             #[allow(clippy::unnecessary_lazy_evaluations)]
             crate::config::endpoint::Params {
                 region: self.region,
-                use_dual_stack: self.use_dual_stack.or_else(|| Some(false)).ok_or_else(|| {
-                    crate::config::endpoint::InvalidParams::missing("use_dual_stack")
-                })?,
+                use_dual_stack: self
+                    .use_dual_stack
+                    .or_else(|| Some(false))
+                    .ok_or_else(|| crate::config::endpoint::InvalidParams::missing("use_dual_stack"))?,
                 use_fips: self
                     .use_fips
                     .or_else(|| Some(false))
@@ -14717,10 +14186,7 @@ impl ParamsBuilder {
     /// Sets the value for resource_arn_list
     ///
     /// ResourceArnList containing list of resource arns
-    pub fn resource_arn_list(
-        mut self,
-        value: impl Into<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn resource_arn_list(mut self, value: impl Into<::std::vec::Vec<::std::string::String>>) -> Self {
         self.resource_arn_list = Some(value.into());
         self
     }
@@ -14728,10 +14194,7 @@ impl ParamsBuilder {
     /// Sets the value for resource_arn_list
     ///
     /// ResourceArnList containing list of resource arns
-    pub fn set_resource_arn_list(
-        mut self,
-        param: Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_resource_arn_list(mut self, param: Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.resource_arn_list = param;
         self
     }
@@ -14787,9 +14250,7 @@ impl InvalidParams {
 impl std::fmt::Display for InvalidParams {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self.kind {
-            InvalidParamsErrorKind::MissingField => {
-                write!(f, "a required field was missing: `{}`", self.field)
-            }
+            InvalidParamsErrorKind::MissingField => write!(f, "a required field was missing: `{}`", self.field),
             InvalidParamsErrorKind::InvalidValue { message } => {
                 write!(f, "invalid value for field: `{}` - {}", self.field, message)
             }

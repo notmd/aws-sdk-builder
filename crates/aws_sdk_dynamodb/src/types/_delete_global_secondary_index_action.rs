@@ -22,9 +22,7 @@ impl DeleteGlobalSecondaryIndexAction {
 }
 
 /// A builder for [`DeleteGlobalSecondaryIndexAction`](crate::types::DeleteGlobalSecondaryIndexAction).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteGlobalSecondaryIndexActionBuilder {
     pub(crate) index_name: ::std::option::Option<::std::string::String>,

@@ -14,8 +14,6 @@ impl super::Client {
     pub fn schedule_key_deletion(
         &self,
     ) -> crate::operation::schedule_key_deletion::builders::ScheduleKeyDeletionFluentBuilder {
-        crate::operation::schedule_key_deletion::builders::ScheduleKeyDeletionFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::schedule_key_deletion::builders::ScheduleKeyDeletionFluentBuilder::new(self.handle.clone())
     }
 }

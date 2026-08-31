@@ -14,8 +14,6 @@ impl super::Client {
     pub fn set_risk_configuration(
         &self,
     ) -> crate::operation::set_risk_configuration::builders::SetRiskConfigurationFluentBuilder {
-        crate::operation::set_risk_configuration::builders::SetRiskConfigurationFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::set_risk_configuration::builders::SetRiskConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

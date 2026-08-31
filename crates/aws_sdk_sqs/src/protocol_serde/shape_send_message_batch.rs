@@ -9,77 +9,87 @@ pub fn de_send_message_batch_http_error(
     crate::operation::send_message_batch::SendMessageBatchError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(
-                crate::operation::send_message_batch::SendMessageBatchError::unhandled(generic),
-            )
+            return Err(crate::operation::send_message_batch::SendMessageBatchError::unhandled(
+                generic,
+            ))
         }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AWS.SimpleQueueService.BatchEntryIdsNotDistinct" => crate::operation::send_message_batch::SendMessageBatchError::BatchEntryIdsNotDistinct({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "AWS.SimpleQueueService.BatchEntryIdsNotDistinct" => {
+            crate::operation::send_message_batch::SendMessageBatchError::BatchEntryIdsNotDistinct({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::BatchEntryIdsNotDistinctBuilder::default();
-                output = crate::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::BatchEntryIdsNotDistinctBuilder::default();
+                    output = crate::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(_response_body, output)
                     .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "AWS.SimpleQueueService.BatchRequestTooLong" => crate::operation::send_message_batch::SendMessageBatchError::BatchRequestTooLong({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "AWS.SimpleQueueService.BatchRequestTooLong" => {
+            crate::operation::send_message_batch::SendMessageBatchError::BatchRequestTooLong({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::BatchRequestTooLongBuilder::default();
-                output = crate::protocol_serde::shape_batch_request_too_long::de_batch_request_too_long_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::BatchRequestTooLongBuilder::default();
+                    output = crate::protocol_serde::shape_batch_request_too_long::de_batch_request_too_long_json_err(
+                        _response_body,
+                        output,
+                    )
                     .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "AWS.SimpleQueueService.EmptyBatchRequest" => crate::operation::send_message_batch::SendMessageBatchError::EmptyBatchRequest({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "AWS.SimpleQueueService.EmptyBatchRequest" => {
+            crate::operation::send_message_batch::SendMessageBatchError::EmptyBatchRequest({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::EmptyBatchRequestBuilder::default();
-                output = crate::protocol_serde::shape_empty_batch_request::de_empty_batch_request_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::EmptyBatchRequestBuilder::default();
+                    output = crate::protocol_serde::shape_empty_batch_request::de_empty_batch_request_json_err(
+                        _response_body,
+                        output,
+                    )
                     .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "InvalidAddress" => crate::operation::send_message_batch::SendMessageBatchError::InvalidAddress({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::InvalidAddressBuilder::default();
-                output = crate::protocol_serde::shape_invalid_address::de_invalid_address_json_err(_response_body, output)
-                    .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
+                output =
+                    crate::protocol_serde::shape_invalid_address::de_invalid_address_json_err(_response_body, output)
+                        .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -88,28 +98,34 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "AWS.SimpleQueueService.InvalidBatchEntryId" => crate::operation::send_message_batch::SendMessageBatchError::InvalidBatchEntryId({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "AWS.SimpleQueueService.InvalidBatchEntryId" => {
+            crate::operation::send_message_batch::SendMessageBatchError::InvalidBatchEntryId({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidBatchEntryIdBuilder::default();
-                output = crate::protocol_serde::shape_invalid_batch_entry_id::de_invalid_batch_entry_id_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::InvalidBatchEntryIdBuilder::default();
+                    output = crate::protocol_serde::shape_invalid_batch_entry_id::de_invalid_batch_entry_id_json_err(
+                        _response_body,
+                        output,
+                    )
                     .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "InvalidSecurity" => crate::operation::send_message_batch::SendMessageBatchError::InvalidSecurity({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::InvalidSecurityBuilder::default();
-                output = crate::protocol_serde::shape_invalid_security::de_invalid_security_json_err(_response_body, output)
-                    .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
+                output =
+                    crate::protocol_serde::shape_invalid_security::de_invalid_security_json_err(_response_body, output)
+                        .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -123,8 +139,11 @@ pub fn de_send_message_batch_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::KmsAccessDeniedBuilder::default();
-                output = crate::protocol_serde::shape_kms_access_denied::de_kms_access_denied_json_err(_response_body, output)
-                    .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
+                output = crate::protocol_serde::shape_kms_access_denied::de_kms_access_denied_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -148,28 +167,36 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "KMS.InvalidKeyUsageException" => crate::operation::send_message_batch::SendMessageBatchError::KmsInvalidKeyUsage({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "KMS.InvalidKeyUsageException" => {
+            crate::operation::send_message_batch::SendMessageBatchError::KmsInvalidKeyUsage({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::KmsInvalidKeyUsageBuilder::default();
-                output = crate::protocol_serde::shape_kms_invalid_key_usage::de_kms_invalid_key_usage_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::KmsInvalidKeyUsageBuilder::default();
+                    output = crate::protocol_serde::shape_kms_invalid_key_usage::de_kms_invalid_key_usage_json_err(
+                        _response_body,
+                        output,
+                    )
                     .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "KMS.InvalidStateException" => crate::operation::send_message_batch::SendMessageBatchError::KmsInvalidState({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::KmsInvalidStateBuilder::default();
-                output = crate::protocol_serde::shape_kms_invalid_state::de_kms_invalid_state_json_err(_response_body, output)
-                    .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
+                output = crate::protocol_serde::shape_kms_invalid_state::de_kms_invalid_state_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -198,8 +225,11 @@ pub fn de_send_message_batch_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::KmsOptInRequiredBuilder::default();
-                output = crate::protocol_serde::shape_kms_opt_in_required::de_kms_opt_in_required_json_err(_response_body, output)
-                    .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
+                output = crate::protocol_serde::shape_kms_opt_in_required::de_kms_opt_in_required_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -223,28 +253,36 @@ pub fn de_send_message_batch_http_error(
             }
             tmp
         }),
-        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::send_message_batch::SendMessageBatchError::QueueDoesNotExist({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "AWS.SimpleQueueService.NonExistentQueue" => {
+            crate::operation::send_message_batch::SendMessageBatchError::QueueDoesNotExist({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::QueueDoesNotExistBuilder::default();
-                output = crate::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::QueueDoesNotExistBuilder::default();
+                    output = crate::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(
+                        _response_body,
+                        output,
+                    )
                     .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "RequestThrottled" => crate::operation::send_message_batch::SendMessageBatchError::RequestThrottled({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::RequestThrottledBuilder::default();
-                output = crate::protocol_serde::shape_request_throttled::de_request_throttled_json_err(_response_body, output)
-                    .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
+                output = crate::protocol_serde::shape_request_throttled::de_request_throttled_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -273,21 +311,26 @@ pub fn de_send_message_batch_http_error(
                 tmp
             })
         }
-        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::send_message_batch::SendMessageBatchError::UnsupportedOperation({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "AWS.SimpleQueueService.UnsupportedOperation" => {
+            crate::operation::send_message_batch::SendMessageBatchError::UnsupportedOperation({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
-                output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
+                    output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(
+                        _response_body,
+                        output,
+                    )
                     .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => crate::operation::send_message_batch::SendMessageBatchError::generic(generic),
     })
 }
@@ -303,17 +346,10 @@ pub fn de_send_message_batch_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::send_message_batch::builders::SendMessageBatchOutputBuilder::default(
-            );
-        output = crate::protocol_serde::shape_send_message_batch::de_send_message_batch(
-            _response_body,
-            output,
-        )
-        .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::send_message_batch::builders::SendMessageBatchOutputBuilder::default();
+        output = crate::protocol_serde::shape_send_message_batch::de_send_message_batch(_response_body, output)
+            .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         crate::serde_util::send_message_batch_output_output_correct_errors(output)
             .build()
             .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?
@@ -322,16 +358,11 @@ pub fn de_send_message_batch_http_response(
 
 pub fn ser_send_message_batch_input(
     input: &crate::operation::send_message_batch::SendMessageBatchInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_send_message_batch_input::ser_send_message_batch_input_input(
-        &mut object,
-        input,
-    )?;
+    crate::protocol_serde::shape_send_message_batch_input::ser_send_message_batch_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -343,10 +374,8 @@ pub(crate) fn de_send_message_batch(
     crate::operation::send_message_batch::builders::SendMessageBatchOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -374,20 +403,16 @@ pub(crate) fn de_send_message_batch(
                 }
             }
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

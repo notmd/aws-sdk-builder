@@ -7,9 +7,7 @@
 use aws_runtime::sdk_feature::AwsSdkFeature;
 use aws_smithy_runtime_api::{
     box_error::BoxError,
-    client::interceptors::{
-        context::BeforeSerializationInterceptorContextRef, dyn_dispatch_hint, Intercept,
-    },
+    client::interceptors::{context::BeforeSerializationInterceptorContextRef, dyn_dispatch_hint, Intercept},
 };
 use aws_smithy_types::config_bag::ConfigBag;
 use aws_types::endpoint_config::AccountIdEndpointMode;
@@ -29,11 +27,7 @@ impl Intercept for AccountIdEndpointFeatureTrackerInterceptor {
         _context: &BeforeSerializationInterceptorContextRef<'_>,
         cfg: &mut ConfigBag,
     ) -> Result<(), BoxError> {
-        match cfg
-            .load::<AccountIdEndpointMode>()
-            .cloned()
-            .unwrap_or_default()
-        {
+        match cfg.load::<AccountIdEndpointMode>().cloned().unwrap_or_default() {
             AccountIdEndpointMode::Preferred => {
                 cfg.interceptor_state()
                     .store_append(AwsSdkFeature::AccountIdModePreferred);

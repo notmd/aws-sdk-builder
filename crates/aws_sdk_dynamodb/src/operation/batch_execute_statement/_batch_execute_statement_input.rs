@@ -34,31 +34,23 @@ impl BatchExecuteStatementInput {
     /// <li>
     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
     /// </ul>
-    pub fn return_consumed_capacity(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ReturnConsumedCapacity> {
+    pub fn return_consumed_capacity(&self) -> ::std::option::Option<&crate::types::ReturnConsumedCapacity> {
         self.return_consumed_capacity.as_ref()
     }
 }
 impl BatchExecuteStatementInput {
     /// Creates a new builder-style object to manufacture [`BatchExecuteStatementInput`](crate::operation::batch_execute_statement::BatchExecuteStatementInput).
-    pub fn builder(
-    ) -> crate::operation::batch_execute_statement::builders::BatchExecuteStatementInputBuilder
-    {
+    pub fn builder() -> crate::operation::batch_execute_statement::builders::BatchExecuteStatementInputBuilder {
         crate::operation::batch_execute_statement::builders::BatchExecuteStatementInputBuilder::default()
     }
 }
 
 /// A builder for [`BatchExecuteStatementInput`](crate::operation::batch_execute_statement::BatchExecuteStatementInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct BatchExecuteStatementInputBuilder {
-    pub(crate) statements:
-        ::std::option::Option<::std::vec::Vec<crate::types::BatchStatementRequest>>,
-    pub(crate) return_consumed_capacity:
-        ::std::option::Option<crate::types::ReturnConsumedCapacity>,
+    pub(crate) statements: ::std::option::Option<::std::vec::Vec<crate::types::BatchStatementRequest>>,
+    pub(crate) return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
 }
 impl BatchExecuteStatementInputBuilder {
     /// Appends an item to `statements`.
@@ -81,9 +73,7 @@ impl BatchExecuteStatementInputBuilder {
         self
     }
     /// <p>The list of PartiQL statements representing the batch to run.</p>
-    pub fn get_statements(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchStatementRequest>> {
+    pub fn get_statements(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchStatementRequest>> {
         &self.statements
     }
     /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
@@ -127,9 +117,7 @@ impl BatchExecuteStatementInputBuilder {
     /// <li>
     /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
     /// </ul>
-    pub fn get_return_consumed_capacity(
-        &self,
-    ) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
+    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
         &self.return_consumed_capacity
     }
     /// Consumes the builder and constructs a [`BatchExecuteStatementInput`](crate::operation::batch_execute_statement::BatchExecuteStatementInput).
@@ -139,11 +127,9 @@ impl BatchExecuteStatementInputBuilder {
         crate::operation::batch_execute_statement::BatchExecuteStatementInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::batch_execute_statement::BatchExecuteStatementInput {
-                statements: self.statements,
-                return_consumed_capacity: self.return_consumed_capacity,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::batch_execute_statement::BatchExecuteStatementInput {
+            statements: self.statements,
+            return_consumed_capacity: self.return_consumed_capacity,
+        })
     }
 }

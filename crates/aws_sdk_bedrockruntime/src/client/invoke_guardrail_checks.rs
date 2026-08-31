@@ -11,8 +11,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<InvokeGuardrailChecksError>`](crate::operation::invoke_guardrail_checks::InvokeGuardrailChecksError)
     pub fn invoke_guardrail_checks(
         &self,
-    ) -> crate::operation::invoke_guardrail_checks::builders::InvokeGuardrailChecksFluentBuilder
-    {
+    ) -> crate::operation::invoke_guardrail_checks::builders::InvokeGuardrailChecksFluentBuilder {
         crate::operation::invoke_guardrail_checks::builders::InvokeGuardrailChecksFluentBuilder::new(
             self.handle.clone(),
         )

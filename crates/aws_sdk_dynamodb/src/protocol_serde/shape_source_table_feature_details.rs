@@ -16,11 +16,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -34,32 +32,48 @@ where
                         match key.to_unescaped()?.as_ref() {
                             "LocalSecondaryIndexes" => {
                                 builder = builder.set_local_secondary_indexes(
-                                crate::protocol_serde::shape_local_secondary_indexes::de_local_secondary_indexes(tokens, _value, depth + 1)?,
-                            );
+                                    crate::protocol_serde::shape_local_secondary_indexes::de_local_secondary_indexes(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "GlobalSecondaryIndexes" => {
                                 builder = builder.set_global_secondary_indexes(
-                                crate::protocol_serde::shape_global_secondary_indexes::de_global_secondary_indexes(tokens, _value, depth + 1)?,
-                            );
+                                    crate::protocol_serde::shape_global_secondary_indexes::de_global_secondary_indexes(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "StreamDescription" => {
-                                builder = builder.set_stream_description(crate::protocol_serde::shape_stream_specification::de_stream_specification(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                                builder = builder.set_stream_description(
+                                    crate::protocol_serde::shape_stream_specification::de_stream_specification(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "TimeToLiveDescription" => {
                                 builder = builder.set_time_to_live_description(
-                                crate::protocol_serde::shape_time_to_live_description::de_time_to_live_description(tokens, _value, depth + 1)?,
-                            );
+                                    crate::protocol_serde::shape_time_to_live_description::de_time_to_live_description(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "SSEDescription" => {
-                                builder = builder.set_sse_description(crate::protocol_serde::shape_sse_description::de_sse_description(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                                builder = builder.set_sse_description(
+                                    crate::protocol_serde::shape_sse_description::de_sse_description(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "VectorIndexes" => {
                                 builder = builder.set_vector_indexes(
@@ -74,20 +88,16 @@ where
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
             Ok(Some(builder.build()))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

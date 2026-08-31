@@ -12,10 +12,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<SetUserMFAPreferenceError>`](crate::operation::set_user_mfa_preference::SetUserMFAPreferenceError)
     pub fn set_user_mfa_preference(
         &self,
-    ) -> crate::operation::set_user_mfa_preference::builders::SetUserMFAPreferenceFluentBuilder
-    {
-        crate::operation::set_user_mfa_preference::builders::SetUserMFAPreferenceFluentBuilder::new(
-            self.handle.clone(),
-        )
+    ) -> crate::operation::set_user_mfa_preference::builders::SetUserMFAPreferenceFluentBuilder {
+        crate::operation::set_user_mfa_preference::builders::SetUserMFAPreferenceFluentBuilder::new(self.handle.clone())
     }
 }

@@ -29,9 +29,7 @@ impl DeleteMessageInput {
 }
 
 /// A builder for [`DeleteMessageInput`](crate::operation::delete_message::DeleteMessageInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteMessageInputBuilder {
     pub(crate) queue_url: ::std::option::Option<::std::string::String>,
@@ -58,18 +56,12 @@ impl DeleteMessageInputBuilder {
     }
     /// <p>The receipt handle associated with the message to delete.</p>
     /// This field is required.
-    pub fn receipt_handle(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn receipt_handle(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.receipt_handle = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The receipt handle associated with the message to delete.</p>
-    pub fn set_receipt_handle(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_receipt_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.receipt_handle = input;
         self
     }

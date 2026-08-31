@@ -194,10 +194,7 @@ pub enum Error {
     #[cfg(feature = "op_create_queue")]
     /// <p>A queue with this name already exists. Amazon SQS returns this error only if the request includes attributes whose values differ from those of the existing queue.</p>
     QueueNameExists(crate::types::error::QueueNameExists),
-    #[cfg(any(
-        feature = "op_change_message_visibility",
-        feature = "op_delete_message"
-    ))]
+    #[cfg(any(feature = "op_change_message_visibility", feature = "op_delete_message"))]
     /// <p>The specified receipt handle isn't valid.</p>
     ReceiptHandleIsInvalid(crate::types::error::ReceiptHandleIsInvalid),
     #[cfg(any(
@@ -449,10 +446,7 @@ impl ::std::fmt::Display for Error {
             Error::QueueDoesNotExist(inner) => inner.fmt(f),
             #[cfg(feature = "op_create_queue")]
             Error::QueueNameExists(inner) => inner.fmt(f),
-            #[cfg(any(
-                feature = "op_change_message_visibility",
-                feature = "op_delete_message"
-            ))]
+            #[cfg(any(feature = "op_change_message_visibility", feature = "op_delete_message"))]
             Error::ReceiptHandleIsInvalid(inner) => inner.fmt(f),
             #[cfg(any(
                 feature = "op_add_permission",
@@ -702,10 +696,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
             Self::QueueDoesNotExist(inner) => inner.meta(),
             #[cfg(feature = "op_create_queue")]
             Self::QueueNameExists(inner) => inner.meta(),
-            #[cfg(any(
-                feature = "op_change_message_visibility",
-                feature = "op_delete_message"
-            ))]
+            #[cfg(any(feature = "op_change_message_visibility", feature = "op_delete_message"))]
             Self::ReceiptHandleIsInvalid(inner) => inner.meta(),
             #[cfg(any(
                 feature = "op_add_permission",
@@ -777,12 +768,8 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {
 }
 #[cfg(feature = "op_add_permission")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::add_permission::AddPermissionError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::add_permission::AddPermissionError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -793,9 +780,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -807,15 +792,11 @@ where
 impl From<crate::operation::add_permission::AddPermissionError> for Error {
     fn from(err: crate::operation::add_permission::AddPermissionError) -> Self {
         match err {
-            crate::operation::add_permission::AddPermissionError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
+            crate::operation::add_permission::AddPermissionError::InvalidAddress(inner) => Error::InvalidAddress(inner),
             crate::operation::add_permission::AddPermissionError::InvalidSecurity(inner) => {
                 Error::InvalidSecurity(inner)
             }
-            crate::operation::add_permission::AddPermissionError::OverLimit(inner) => {
-                Error::OverLimit(inner)
-            }
+            crate::operation::add_permission::AddPermissionError::OverLimit(inner) => Error::OverLimit(inner),
             crate::operation::add_permission::AddPermissionError::QueueDoesNotExist(inner) => {
                 Error::QueueDoesNotExist(inner)
             }
@@ -825,9 +806,7 @@ impl From<crate::operation::add_permission::AddPermissionError> for Error {
             crate::operation::add_permission::AddPermissionError::UnsupportedOperation(inner) => {
                 Error::UnsupportedOperation(inner)
             }
-            crate::operation::add_permission::AddPermissionError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::add_permission::AddPermissionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -849,9 +828,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -863,14 +840,24 @@ where
 impl From<crate::operation::cancel_message_move_task::CancelMessageMoveTaskError> for Error {
     fn from(err: crate::operation::cancel_message_move_task::CancelMessageMoveTaskError) -> Self {
         match err {
-            crate::operation::cancel_message_move_task::CancelMessageMoveTaskError::InvalidAddress(inner) => Error::InvalidAddress(inner),
-            crate::operation::cancel_message_move_task::CancelMessageMoveTaskError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
-            crate::operation::cancel_message_move_task::CancelMessageMoveTaskError::RequestThrottled(inner) => Error::RequestThrottled(inner),
-            crate::operation::cancel_message_move_task::CancelMessageMoveTaskError::ResourceNotFoundException(inner) => {
-                Error::ResourceNotFoundException(inner)
+            crate::operation::cancel_message_move_task::CancelMessageMoveTaskError::InvalidAddress(inner) => {
+                Error::InvalidAddress(inner)
             }
-            crate::operation::cancel_message_move_task::CancelMessageMoveTaskError::UnsupportedOperation(inner) => Error::UnsupportedOperation(inner),
-            crate::operation::cancel_message_move_task::CancelMessageMoveTaskError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::cancel_message_move_task::CancelMessageMoveTaskError::InvalidSecurity(inner) => {
+                Error::InvalidSecurity(inner)
+            }
+            crate::operation::cancel_message_move_task::CancelMessageMoveTaskError::RequestThrottled(inner) => {
+                Error::RequestThrottled(inner)
+            }
+            crate::operation::cancel_message_move_task::CancelMessageMoveTaskError::ResourceNotFoundException(
+                inner,
+            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::cancel_message_move_task::CancelMessageMoveTaskError::UnsupportedOperation(inner) => {
+                Error::UnsupportedOperation(inner)
+            }
+            crate::operation::cancel_message_move_task::CancelMessageMoveTaskError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -892,9 +879,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -904,22 +889,32 @@ where
 }
 #[cfg(feature = "op_change_message_visibility")]
 impl From<crate::operation::change_message_visibility::ChangeMessageVisibilityError> for Error {
-    fn from(
-        err: crate::operation::change_message_visibility::ChangeMessageVisibilityError,
-    ) -> Self {
+    fn from(err: crate::operation::change_message_visibility::ChangeMessageVisibilityError) -> Self {
         match err {
-            crate::operation::change_message_visibility::ChangeMessageVisibilityError::InvalidAddress(inner) => Error::InvalidAddress(inner),
-            crate::operation::change_message_visibility::ChangeMessageVisibilityError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
-            crate::operation::change_message_visibility::ChangeMessageVisibilityError::MessageNotInflight(inner) => Error::MessageNotInflight(inner),
-            crate::operation::change_message_visibility::ChangeMessageVisibilityError::QueueDoesNotExist(inner) => Error::QueueDoesNotExist(inner),
-            crate::operation::change_message_visibility::ChangeMessageVisibilityError::ReceiptHandleIsInvalid(inner) => {
-                Error::ReceiptHandleIsInvalid(inner)
+            crate::operation::change_message_visibility::ChangeMessageVisibilityError::InvalidAddress(inner) => {
+                Error::InvalidAddress(inner)
             }
-            crate::operation::change_message_visibility::ChangeMessageVisibilityError::RequestThrottled(inner) => Error::RequestThrottled(inner),
+            crate::operation::change_message_visibility::ChangeMessageVisibilityError::InvalidSecurity(inner) => {
+                Error::InvalidSecurity(inner)
+            }
+            crate::operation::change_message_visibility::ChangeMessageVisibilityError::MessageNotInflight(inner) => {
+                Error::MessageNotInflight(inner)
+            }
+            crate::operation::change_message_visibility::ChangeMessageVisibilityError::QueueDoesNotExist(inner) => {
+                Error::QueueDoesNotExist(inner)
+            }
+            crate::operation::change_message_visibility::ChangeMessageVisibilityError::ReceiptHandleIsInvalid(
+                inner,
+            ) => Error::ReceiptHandleIsInvalid(inner),
+            crate::operation::change_message_visibility::ChangeMessageVisibilityError::RequestThrottled(inner) => {
+                Error::RequestThrottled(inner)
+            }
             crate::operation::change_message_visibility::ChangeMessageVisibilityError::UnsupportedOperation(inner) => {
                 Error::UnsupportedOperation(inner)
             }
-            crate::operation::change_message_visibility::ChangeMessageVisibilityError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::change_message_visibility::ChangeMessageVisibilityError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -941,9 +936,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -952,12 +945,8 @@ where
     }
 }
 #[cfg(feature = "op_change_message_visibility_batch")]
-impl From<crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError>
-    for Error
-{
-    fn from(
-        err: crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError,
-    ) -> Self {
+impl From<crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError> for Error {
+    fn from(err: crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError) -> Self {
         match err {
             crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::BatchEntryIdsNotDistinct(inner) => {
                 Error::BatchEntryIdsNotDistinct(inner)
@@ -991,26 +980,16 @@ impl From<crate::operation::change_message_visibility_batch::ChangeMessageVisibi
     }
 }
 #[cfg(feature = "op_create_queue")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_queue::CreateQueueError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_queue::CreateQueueError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_queue::CreateQueueError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::create_queue::CreateQueueError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1022,44 +1001,30 @@ where
 impl From<crate::operation::create_queue::CreateQueueError> for Error {
     fn from(err: crate::operation::create_queue::CreateQueueError) -> Self {
         match err {
-            crate::operation::create_queue::CreateQueueError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
+            crate::operation::create_queue::CreateQueueError::InvalidAddress(inner) => Error::InvalidAddress(inner),
             crate::operation::create_queue::CreateQueueError::InvalidAttributeName(inner) => {
                 Error::InvalidAttributeName(inner)
             }
             crate::operation::create_queue::CreateQueueError::InvalidAttributeValue(inner) => {
                 Error::InvalidAttributeValue(inner)
             }
-            crate::operation::create_queue::CreateQueueError::InvalidSecurity(inner) => {
-                Error::InvalidSecurity(inner)
-            }
+            crate::operation::create_queue::CreateQueueError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
             crate::operation::create_queue::CreateQueueError::QueueDeletedRecently(inner) => {
                 Error::QueueDeletedRecently(inner)
             }
-            crate::operation::create_queue::CreateQueueError::QueueNameExists(inner) => {
-                Error::QueueNameExists(inner)
-            }
-            crate::operation::create_queue::CreateQueueError::RequestThrottled(inner) => {
-                Error::RequestThrottled(inner)
-            }
+            crate::operation::create_queue::CreateQueueError::QueueNameExists(inner) => Error::QueueNameExists(inner),
+            crate::operation::create_queue::CreateQueueError::RequestThrottled(inner) => Error::RequestThrottled(inner),
             crate::operation::create_queue::CreateQueueError::UnsupportedOperation(inner) => {
                 Error::UnsupportedOperation(inner)
             }
-            crate::operation::create_queue::CreateQueueError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::create_queue::CreateQueueError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_delete_message")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_message::DeleteMessageError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_message::DeleteMessageError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -1070,9 +1035,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1084,9 +1047,7 @@ where
 impl From<crate::operation::delete_message::DeleteMessageError> for Error {
     fn from(err: crate::operation::delete_message::DeleteMessageError) -> Self {
         match err {
-            crate::operation::delete_message::DeleteMessageError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
+            crate::operation::delete_message::DeleteMessageError::InvalidAddress(inner) => Error::InvalidAddress(inner),
             crate::operation::delete_message::DeleteMessageError::InvalidIdFormat(inner) => {
                 Error::InvalidIdFormat(inner)
             }
@@ -1105,9 +1066,7 @@ impl From<crate::operation::delete_message::DeleteMessageError> for Error {
             crate::operation::delete_message::DeleteMessageError::UnsupportedOperation(inner) => {
                 Error::UnsupportedOperation(inner)
             }
-            crate::operation::delete_message::DeleteMessageError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_message::DeleteMessageError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -1129,9 +1088,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1146,41 +1103,47 @@ impl From<crate::operation::delete_message_batch::DeleteMessageBatchError> for E
             crate::operation::delete_message_batch::DeleteMessageBatchError::BatchEntryIdsNotDistinct(inner) => {
                 Error::BatchEntryIdsNotDistinct(inner)
             }
-            crate::operation::delete_message_batch::DeleteMessageBatchError::EmptyBatchRequest(inner) => Error::EmptyBatchRequest(inner),
-            crate::operation::delete_message_batch::DeleteMessageBatchError::InvalidAddress(inner) => Error::InvalidAddress(inner),
-            crate::operation::delete_message_batch::DeleteMessageBatchError::InvalidBatchEntryId(inner) => Error::InvalidBatchEntryId(inner),
-            crate::operation::delete_message_batch::DeleteMessageBatchError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
-            crate::operation::delete_message_batch::DeleteMessageBatchError::QueueDoesNotExist(inner) => Error::QueueDoesNotExist(inner),
-            crate::operation::delete_message_batch::DeleteMessageBatchError::RequestThrottled(inner) => Error::RequestThrottled(inner),
+            crate::operation::delete_message_batch::DeleteMessageBatchError::EmptyBatchRequest(inner) => {
+                Error::EmptyBatchRequest(inner)
+            }
+            crate::operation::delete_message_batch::DeleteMessageBatchError::InvalidAddress(inner) => {
+                Error::InvalidAddress(inner)
+            }
+            crate::operation::delete_message_batch::DeleteMessageBatchError::InvalidBatchEntryId(inner) => {
+                Error::InvalidBatchEntryId(inner)
+            }
+            crate::operation::delete_message_batch::DeleteMessageBatchError::InvalidSecurity(inner) => {
+                Error::InvalidSecurity(inner)
+            }
+            crate::operation::delete_message_batch::DeleteMessageBatchError::QueueDoesNotExist(inner) => {
+                Error::QueueDoesNotExist(inner)
+            }
+            crate::operation::delete_message_batch::DeleteMessageBatchError::RequestThrottled(inner) => {
+                Error::RequestThrottled(inner)
+            }
             crate::operation::delete_message_batch::DeleteMessageBatchError::TooManyEntriesInBatchRequest(inner) => {
                 Error::TooManyEntriesInBatchRequest(inner)
             }
-            crate::operation::delete_message_batch::DeleteMessageBatchError::UnsupportedOperation(inner) => Error::UnsupportedOperation(inner),
-            crate::operation::delete_message_batch::DeleteMessageBatchError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::delete_message_batch::DeleteMessageBatchError::UnsupportedOperation(inner) => {
+                Error::UnsupportedOperation(inner)
+            }
+            crate::operation::delete_message_batch::DeleteMessageBatchError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_delete_queue")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_queue::DeleteQueueError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_queue::DeleteQueueError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_queue::DeleteQueueError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::delete_queue::DeleteQueueError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1192,24 +1155,16 @@ where
 impl From<crate::operation::delete_queue::DeleteQueueError> for Error {
     fn from(err: crate::operation::delete_queue::DeleteQueueError) -> Self {
         match err {
-            crate::operation::delete_queue::DeleteQueueError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
-            crate::operation::delete_queue::DeleteQueueError::InvalidSecurity(inner) => {
-                Error::InvalidSecurity(inner)
-            }
+            crate::operation::delete_queue::DeleteQueueError::InvalidAddress(inner) => Error::InvalidAddress(inner),
+            crate::operation::delete_queue::DeleteQueueError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
             crate::operation::delete_queue::DeleteQueueError::QueueDoesNotExist(inner) => {
                 Error::QueueDoesNotExist(inner)
             }
-            crate::operation::delete_queue::DeleteQueueError::RequestThrottled(inner) => {
-                Error::RequestThrottled(inner)
-            }
+            crate::operation::delete_queue::DeleteQueueError::RequestThrottled(inner) => Error::RequestThrottled(inner),
             crate::operation::delete_queue::DeleteQueueError::UnsupportedOperation(inner) => {
                 Error::UnsupportedOperation(inner)
             }
-            crate::operation::delete_queue::DeleteQueueError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::delete_queue::DeleteQueueError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -1231,9 +1186,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1245,37 +1198,41 @@ where
 impl From<crate::operation::get_queue_attributes::GetQueueAttributesError> for Error {
     fn from(err: crate::operation::get_queue_attributes::GetQueueAttributesError) -> Self {
         match err {
-            crate::operation::get_queue_attributes::GetQueueAttributesError::InvalidAddress(inner) => Error::InvalidAddress(inner),
-            crate::operation::get_queue_attributes::GetQueueAttributesError::InvalidAttributeName(inner) => Error::InvalidAttributeName(inner),
-            crate::operation::get_queue_attributes::GetQueueAttributesError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
-            crate::operation::get_queue_attributes::GetQueueAttributesError::QueueDoesNotExist(inner) => Error::QueueDoesNotExist(inner),
-            crate::operation::get_queue_attributes::GetQueueAttributesError::RequestThrottled(inner) => Error::RequestThrottled(inner),
-            crate::operation::get_queue_attributes::GetQueueAttributesError::UnsupportedOperation(inner) => Error::UnsupportedOperation(inner),
-            crate::operation::get_queue_attributes::GetQueueAttributesError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::get_queue_attributes::GetQueueAttributesError::InvalidAddress(inner) => {
+                Error::InvalidAddress(inner)
+            }
+            crate::operation::get_queue_attributes::GetQueueAttributesError::InvalidAttributeName(inner) => {
+                Error::InvalidAttributeName(inner)
+            }
+            crate::operation::get_queue_attributes::GetQueueAttributesError::InvalidSecurity(inner) => {
+                Error::InvalidSecurity(inner)
+            }
+            crate::operation::get_queue_attributes::GetQueueAttributesError::QueueDoesNotExist(inner) => {
+                Error::QueueDoesNotExist(inner)
+            }
+            crate::operation::get_queue_attributes::GetQueueAttributesError::RequestThrottled(inner) => {
+                Error::RequestThrottled(inner)
+            }
+            crate::operation::get_queue_attributes::GetQueueAttributesError::UnsupportedOperation(inner) => {
+                Error::UnsupportedOperation(inner)
+            }
+            crate::operation::get_queue_attributes::GetQueueAttributesError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_get_queue_url")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_queue_url::GetQueueUrlError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_queue_url::GetQueueUrlError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_queue_url::GetQueueUrlError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::get_queue_url::GetQueueUrlError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1287,12 +1244,8 @@ where
 impl From<crate::operation::get_queue_url::GetQueueUrlError> for Error {
     fn from(err: crate::operation::get_queue_url::GetQueueUrlError) -> Self {
         match err {
-            crate::operation::get_queue_url::GetQueueUrlError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
-            crate::operation::get_queue_url::GetQueueUrlError::InvalidSecurity(inner) => {
-                Error::InvalidSecurity(inner)
-            }
+            crate::operation::get_queue_url::GetQueueUrlError::InvalidAddress(inner) => Error::InvalidAddress(inner),
+            crate::operation::get_queue_url::GetQueueUrlError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
             crate::operation::get_queue_url::GetQueueUrlError::QueueDoesNotExist(inner) => {
                 Error::QueueDoesNotExist(inner)
             }
@@ -1302,9 +1255,7 @@ impl From<crate::operation::get_queue_url::GetQueueUrlError> for Error {
             crate::operation::get_queue_url::GetQueueUrlError::UnsupportedOperation(inner) => {
                 Error::UnsupportedOperation(inner)
             }
-            crate::operation::get_queue_url::GetQueueUrlError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::get_queue_url::GetQueueUrlError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -1326,9 +1277,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1337,27 +1286,27 @@ where
     }
 }
 #[cfg(feature = "op_list_dead_letter_source_queues")]
-impl From<crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError>
-    for Error
-{
-    fn from(
-        err: crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError,
-    ) -> Self {
+impl From<crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError> for Error {
+    fn from(err: crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError) -> Self {
         match err {
-            crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::InvalidAddress(inner) => Error::InvalidAddress(inner),
-            crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::InvalidSecurity(inner) => {
-                Error::InvalidSecurity(inner)
+            crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::InvalidAddress(
+                inner,
+            ) => Error::InvalidAddress(inner),
+            crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::InvalidSecurity(
+                inner,
+            ) => Error::InvalidSecurity(inner),
+            crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::QueueDoesNotExist(
+                inner,
+            ) => Error::QueueDoesNotExist(inner),
+            crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::RequestThrottled(
+                inner,
+            ) => Error::RequestThrottled(inner),
+            crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::UnsupportedOperation(
+                inner,
+            ) => Error::UnsupportedOperation(inner),
+            crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::Unhandled(inner) => {
+                Error::Unhandled(inner)
             }
-            crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::QueueDoesNotExist(inner) => {
-                Error::QueueDoesNotExist(inner)
-            }
-            crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::RequestThrottled(inner) => {
-                Error::RequestThrottled(inner)
-            }
-            crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::UnsupportedOperation(inner) => {
-                Error::UnsupportedOperation(inner)
-            }
-            crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -1379,9 +1328,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1393,38 +1340,38 @@ where
 impl From<crate::operation::list_message_move_tasks::ListMessageMoveTasksError> for Error {
     fn from(err: crate::operation::list_message_move_tasks::ListMessageMoveTasksError) -> Self {
         match err {
-            crate::operation::list_message_move_tasks::ListMessageMoveTasksError::InvalidAddress(inner) => Error::InvalidAddress(inner),
-            crate::operation::list_message_move_tasks::ListMessageMoveTasksError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
-            crate::operation::list_message_move_tasks::ListMessageMoveTasksError::RequestThrottled(inner) => Error::RequestThrottled(inner),
+            crate::operation::list_message_move_tasks::ListMessageMoveTasksError::InvalidAddress(inner) => {
+                Error::InvalidAddress(inner)
+            }
+            crate::operation::list_message_move_tasks::ListMessageMoveTasksError::InvalidSecurity(inner) => {
+                Error::InvalidSecurity(inner)
+            }
+            crate::operation::list_message_move_tasks::ListMessageMoveTasksError::RequestThrottled(inner) => {
+                Error::RequestThrottled(inner)
+            }
             crate::operation::list_message_move_tasks::ListMessageMoveTasksError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
-            crate::operation::list_message_move_tasks::ListMessageMoveTasksError::UnsupportedOperation(inner) => Error::UnsupportedOperation(inner),
-            crate::operation::list_message_move_tasks::ListMessageMoveTasksError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::list_message_move_tasks::ListMessageMoveTasksError::UnsupportedOperation(inner) => {
+                Error::UnsupportedOperation(inner)
+            }
+            crate::operation::list_message_move_tasks::ListMessageMoveTasksError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_list_queues")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_queues::ListQueuesError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_queues::ListQueuesError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_queues::ListQueuesError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_queues::ListQueuesError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1436,32 +1383,20 @@ where
 impl From<crate::operation::list_queues::ListQueuesError> for Error {
     fn from(err: crate::operation::list_queues::ListQueuesError) -> Self {
         match err {
-            crate::operation::list_queues::ListQueuesError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
-            crate::operation::list_queues::ListQueuesError::InvalidSecurity(inner) => {
-                Error::InvalidSecurity(inner)
-            }
-            crate::operation::list_queues::ListQueuesError::RequestThrottled(inner) => {
-                Error::RequestThrottled(inner)
-            }
+            crate::operation::list_queues::ListQueuesError::InvalidAddress(inner) => Error::InvalidAddress(inner),
+            crate::operation::list_queues::ListQueuesError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
+            crate::operation::list_queues::ListQueuesError::RequestThrottled(inner) => Error::RequestThrottled(inner),
             crate::operation::list_queues::ListQueuesError::UnsupportedOperation(inner) => {
                 Error::UnsupportedOperation(inner)
             }
-            crate::operation::list_queues::ListQueuesError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_queues::ListQueuesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_queue_tags")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_queue_tags::ListQueueTagsError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_queue_tags::ListQueueTagsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -1472,9 +1407,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1501,33 +1434,21 @@ impl From<crate::operation::list_queue_tags::ListQueueTagsError> for Error {
             crate::operation::list_queue_tags::ListQueueTagsError::UnsupportedOperation(inner) => {
                 Error::UnsupportedOperation(inner)
             }
-            crate::operation::list_queue_tags::ListQueueTagsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_queue_tags::ListQueueTagsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_purge_queue")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::purge_queue::PurgeQueueError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::purge_queue::PurgeQueueError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::purge_queue::PurgeQueueError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::purge_queue::PurgeQueueError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1539,38 +1460,24 @@ where
 impl From<crate::operation::purge_queue::PurgeQueueError> for Error {
     fn from(err: crate::operation::purge_queue::PurgeQueueError) -> Self {
         match err {
-            crate::operation::purge_queue::PurgeQueueError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
-            crate::operation::purge_queue::PurgeQueueError::InvalidSecurity(inner) => {
-                Error::InvalidSecurity(inner)
-            }
+            crate::operation::purge_queue::PurgeQueueError::InvalidAddress(inner) => Error::InvalidAddress(inner),
+            crate::operation::purge_queue::PurgeQueueError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
             crate::operation::purge_queue::PurgeQueueError::PurgeQueueInProgress(inner) => {
                 Error::PurgeQueueInProgress(inner)
             }
-            crate::operation::purge_queue::PurgeQueueError::QueueDoesNotExist(inner) => {
-                Error::QueueDoesNotExist(inner)
-            }
-            crate::operation::purge_queue::PurgeQueueError::RequestThrottled(inner) => {
-                Error::RequestThrottled(inner)
-            }
+            crate::operation::purge_queue::PurgeQueueError::QueueDoesNotExist(inner) => Error::QueueDoesNotExist(inner),
+            crate::operation::purge_queue::PurgeQueueError::RequestThrottled(inner) => Error::RequestThrottled(inner),
             crate::operation::purge_queue::PurgeQueueError::UnsupportedOperation(inner) => {
                 Error::UnsupportedOperation(inner)
             }
-            crate::operation::purge_queue::PurgeQueueError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::purge_queue::PurgeQueueError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_receive_message")]
 impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::receive_message::ReceiveMessageError,
-            R,
-        >,
-    > for Error
+    From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::receive_message::ReceiveMessageError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
@@ -1581,9 +1488,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1604,27 +1509,19 @@ impl From<crate::operation::receive_message::ReceiveMessageError> for Error {
             crate::operation::receive_message::ReceiveMessageError::KmsAccessDenied(inner) => {
                 Error::KmsAccessDenied(inner)
             }
-            crate::operation::receive_message::ReceiveMessageError::KmsDisabled(inner) => {
-                Error::KmsDisabled(inner)
-            }
+            crate::operation::receive_message::ReceiveMessageError::KmsDisabled(inner) => Error::KmsDisabled(inner),
             crate::operation::receive_message::ReceiveMessageError::KmsInvalidKeyUsage(inner) => {
                 Error::KmsInvalidKeyUsage(inner)
             }
             crate::operation::receive_message::ReceiveMessageError::KmsInvalidState(inner) => {
                 Error::KmsInvalidState(inner)
             }
-            crate::operation::receive_message::ReceiveMessageError::KmsNotFound(inner) => {
-                Error::KmsNotFound(inner)
-            }
+            crate::operation::receive_message::ReceiveMessageError::KmsNotFound(inner) => Error::KmsNotFound(inner),
             crate::operation::receive_message::ReceiveMessageError::KmsOptInRequired(inner) => {
                 Error::KmsOptInRequired(inner)
             }
-            crate::operation::receive_message::ReceiveMessageError::KmsThrottled(inner) => {
-                Error::KmsThrottled(inner)
-            }
-            crate::operation::receive_message::ReceiveMessageError::OverLimit(inner) => {
-                Error::OverLimit(inner)
-            }
+            crate::operation::receive_message::ReceiveMessageError::KmsThrottled(inner) => Error::KmsThrottled(inner),
+            crate::operation::receive_message::ReceiveMessageError::OverLimit(inner) => Error::OverLimit(inner),
             crate::operation::receive_message::ReceiveMessageError::QueueDoesNotExist(inner) => {
                 Error::QueueDoesNotExist(inner)
             }
@@ -1634,9 +1531,7 @@ impl From<crate::operation::receive_message::ReceiveMessageError> for Error {
             crate::operation::receive_message::ReceiveMessageError::UnsupportedOperation(inner) => {
                 Error::UnsupportedOperation(inner)
             }
-            crate::operation::receive_message::ReceiveMessageError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::receive_message::ReceiveMessageError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -1658,9 +1553,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1678,42 +1571,30 @@ impl From<crate::operation::remove_permission::RemovePermissionError> for Error 
             crate::operation::remove_permission::RemovePermissionError::InvalidSecurity(inner) => {
                 Error::InvalidSecurity(inner)
             }
-            crate::operation::remove_permission::RemovePermissionError::QueueDoesNotExist(
-                inner,
-            ) => Error::QueueDoesNotExist(inner),
+            crate::operation::remove_permission::RemovePermissionError::QueueDoesNotExist(inner) => {
+                Error::QueueDoesNotExist(inner)
+            }
             crate::operation::remove_permission::RemovePermissionError::RequestThrottled(inner) => {
                 Error::RequestThrottled(inner)
             }
-            crate::operation::remove_permission::RemovePermissionError::UnsupportedOperation(
-                inner,
-            ) => Error::UnsupportedOperation(inner),
-            crate::operation::remove_permission::RemovePermissionError::Unhandled(inner) => {
-                Error::Unhandled(inner)
+            crate::operation::remove_permission::RemovePermissionError::UnsupportedOperation(inner) => {
+                Error::UnsupportedOperation(inner)
             }
+            crate::operation::remove_permission::RemovePermissionError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_send_message")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::send_message::SendMessageError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::send_message::SendMessageError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::send_message::SendMessageError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::send_message::SendMessageError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1725,48 +1606,28 @@ where
 impl From<crate::operation::send_message::SendMessageError> for Error {
     fn from(err: crate::operation::send_message::SendMessageError) -> Self {
         match err {
-            crate::operation::send_message::SendMessageError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
+            crate::operation::send_message::SendMessageError::InvalidAddress(inner) => Error::InvalidAddress(inner),
             crate::operation::send_message::SendMessageError::InvalidMessageContents(inner) => {
                 Error::InvalidMessageContents(inner)
             }
-            crate::operation::send_message::SendMessageError::InvalidSecurity(inner) => {
-                Error::InvalidSecurity(inner)
-            }
-            crate::operation::send_message::SendMessageError::KmsAccessDenied(inner) => {
-                Error::KmsAccessDenied(inner)
-            }
-            crate::operation::send_message::SendMessageError::KmsDisabled(inner) => {
-                Error::KmsDisabled(inner)
-            }
+            crate::operation::send_message::SendMessageError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
+            crate::operation::send_message::SendMessageError::KmsAccessDenied(inner) => Error::KmsAccessDenied(inner),
+            crate::operation::send_message::SendMessageError::KmsDisabled(inner) => Error::KmsDisabled(inner),
             crate::operation::send_message::SendMessageError::KmsInvalidKeyUsage(inner) => {
                 Error::KmsInvalidKeyUsage(inner)
             }
-            crate::operation::send_message::SendMessageError::KmsInvalidState(inner) => {
-                Error::KmsInvalidState(inner)
-            }
-            crate::operation::send_message::SendMessageError::KmsNotFound(inner) => {
-                Error::KmsNotFound(inner)
-            }
-            crate::operation::send_message::SendMessageError::KmsOptInRequired(inner) => {
-                Error::KmsOptInRequired(inner)
-            }
-            crate::operation::send_message::SendMessageError::KmsThrottled(inner) => {
-                Error::KmsThrottled(inner)
-            }
+            crate::operation::send_message::SendMessageError::KmsInvalidState(inner) => Error::KmsInvalidState(inner),
+            crate::operation::send_message::SendMessageError::KmsNotFound(inner) => Error::KmsNotFound(inner),
+            crate::operation::send_message::SendMessageError::KmsOptInRequired(inner) => Error::KmsOptInRequired(inner),
+            crate::operation::send_message::SendMessageError::KmsThrottled(inner) => Error::KmsThrottled(inner),
             crate::operation::send_message::SendMessageError::QueueDoesNotExist(inner) => {
                 Error::QueueDoesNotExist(inner)
             }
-            crate::operation::send_message::SendMessageError::RequestThrottled(inner) => {
-                Error::RequestThrottled(inner)
-            }
+            crate::operation::send_message::SendMessageError::RequestThrottled(inner) => Error::RequestThrottled(inner),
             crate::operation::send_message::SendMessageError::UnsupportedOperation(inner) => {
                 Error::UnsupportedOperation(inner)
             }
-            crate::operation::send_message::SendMessageError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::send_message::SendMessageError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -1788,9 +1649,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1802,25 +1661,57 @@ where
 impl From<crate::operation::send_message_batch::SendMessageBatchError> for Error {
     fn from(err: crate::operation::send_message_batch::SendMessageBatchError) -> Self {
         match err {
-            crate::operation::send_message_batch::SendMessageBatchError::BatchEntryIdsNotDistinct(inner) => Error::BatchEntryIdsNotDistinct(inner),
-            crate::operation::send_message_batch::SendMessageBatchError::BatchRequestTooLong(inner) => Error::BatchRequestTooLong(inner),
-            crate::operation::send_message_batch::SendMessageBatchError::EmptyBatchRequest(inner) => Error::EmptyBatchRequest(inner),
-            crate::operation::send_message_batch::SendMessageBatchError::InvalidAddress(inner) => Error::InvalidAddress(inner),
-            crate::operation::send_message_batch::SendMessageBatchError::InvalidBatchEntryId(inner) => Error::InvalidBatchEntryId(inner),
-            crate::operation::send_message_batch::SendMessageBatchError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
-            crate::operation::send_message_batch::SendMessageBatchError::KmsAccessDenied(inner) => Error::KmsAccessDenied(inner),
-            crate::operation::send_message_batch::SendMessageBatchError::KmsDisabled(inner) => Error::KmsDisabled(inner),
-            crate::operation::send_message_batch::SendMessageBatchError::KmsInvalidKeyUsage(inner) => Error::KmsInvalidKeyUsage(inner),
-            crate::operation::send_message_batch::SendMessageBatchError::KmsInvalidState(inner) => Error::KmsInvalidState(inner),
-            crate::operation::send_message_batch::SendMessageBatchError::KmsNotFound(inner) => Error::KmsNotFound(inner),
-            crate::operation::send_message_batch::SendMessageBatchError::KmsOptInRequired(inner) => Error::KmsOptInRequired(inner),
-            crate::operation::send_message_batch::SendMessageBatchError::KmsThrottled(inner) => Error::KmsThrottled(inner),
-            crate::operation::send_message_batch::SendMessageBatchError::QueueDoesNotExist(inner) => Error::QueueDoesNotExist(inner),
-            crate::operation::send_message_batch::SendMessageBatchError::RequestThrottled(inner) => Error::RequestThrottled(inner),
+            crate::operation::send_message_batch::SendMessageBatchError::BatchEntryIdsNotDistinct(inner) => {
+                Error::BatchEntryIdsNotDistinct(inner)
+            }
+            crate::operation::send_message_batch::SendMessageBatchError::BatchRequestTooLong(inner) => {
+                Error::BatchRequestTooLong(inner)
+            }
+            crate::operation::send_message_batch::SendMessageBatchError::EmptyBatchRequest(inner) => {
+                Error::EmptyBatchRequest(inner)
+            }
+            crate::operation::send_message_batch::SendMessageBatchError::InvalidAddress(inner) => {
+                Error::InvalidAddress(inner)
+            }
+            crate::operation::send_message_batch::SendMessageBatchError::InvalidBatchEntryId(inner) => {
+                Error::InvalidBatchEntryId(inner)
+            }
+            crate::operation::send_message_batch::SendMessageBatchError::InvalidSecurity(inner) => {
+                Error::InvalidSecurity(inner)
+            }
+            crate::operation::send_message_batch::SendMessageBatchError::KmsAccessDenied(inner) => {
+                Error::KmsAccessDenied(inner)
+            }
+            crate::operation::send_message_batch::SendMessageBatchError::KmsDisabled(inner) => {
+                Error::KmsDisabled(inner)
+            }
+            crate::operation::send_message_batch::SendMessageBatchError::KmsInvalidKeyUsage(inner) => {
+                Error::KmsInvalidKeyUsage(inner)
+            }
+            crate::operation::send_message_batch::SendMessageBatchError::KmsInvalidState(inner) => {
+                Error::KmsInvalidState(inner)
+            }
+            crate::operation::send_message_batch::SendMessageBatchError::KmsNotFound(inner) => {
+                Error::KmsNotFound(inner)
+            }
+            crate::operation::send_message_batch::SendMessageBatchError::KmsOptInRequired(inner) => {
+                Error::KmsOptInRequired(inner)
+            }
+            crate::operation::send_message_batch::SendMessageBatchError::KmsThrottled(inner) => {
+                Error::KmsThrottled(inner)
+            }
+            crate::operation::send_message_batch::SendMessageBatchError::QueueDoesNotExist(inner) => {
+                Error::QueueDoesNotExist(inner)
+            }
+            crate::operation::send_message_batch::SendMessageBatchError::RequestThrottled(inner) => {
+                Error::RequestThrottled(inner)
+            }
             crate::operation::send_message_batch::SendMessageBatchError::TooManyEntriesInBatchRequest(inner) => {
                 Error::TooManyEntriesInBatchRequest(inner)
             }
-            crate::operation::send_message_batch::SendMessageBatchError::UnsupportedOperation(inner) => Error::UnsupportedOperation(inner),
+            crate::operation::send_message_batch::SendMessageBatchError::UnsupportedOperation(inner) => {
+                Error::UnsupportedOperation(inner)
+            }
             crate::operation::send_message_batch::SendMessageBatchError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
@@ -1843,9 +1734,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1857,15 +1746,33 @@ where
 impl From<crate::operation::set_queue_attributes::SetQueueAttributesError> for Error {
     fn from(err: crate::operation::set_queue_attributes::SetQueueAttributesError) -> Self {
         match err {
-            crate::operation::set_queue_attributes::SetQueueAttributesError::InvalidAddress(inner) => Error::InvalidAddress(inner),
-            crate::operation::set_queue_attributes::SetQueueAttributesError::InvalidAttributeName(inner) => Error::InvalidAttributeName(inner),
-            crate::operation::set_queue_attributes::SetQueueAttributesError::InvalidAttributeValue(inner) => Error::InvalidAttributeValue(inner),
-            crate::operation::set_queue_attributes::SetQueueAttributesError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
-            crate::operation::set_queue_attributes::SetQueueAttributesError::OverLimit(inner) => Error::OverLimit(inner),
-            crate::operation::set_queue_attributes::SetQueueAttributesError::QueueDoesNotExist(inner) => Error::QueueDoesNotExist(inner),
-            crate::operation::set_queue_attributes::SetQueueAttributesError::RequestThrottled(inner) => Error::RequestThrottled(inner),
-            crate::operation::set_queue_attributes::SetQueueAttributesError::UnsupportedOperation(inner) => Error::UnsupportedOperation(inner),
-            crate::operation::set_queue_attributes::SetQueueAttributesError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::set_queue_attributes::SetQueueAttributesError::InvalidAddress(inner) => {
+                Error::InvalidAddress(inner)
+            }
+            crate::operation::set_queue_attributes::SetQueueAttributesError::InvalidAttributeName(inner) => {
+                Error::InvalidAttributeName(inner)
+            }
+            crate::operation::set_queue_attributes::SetQueueAttributesError::InvalidAttributeValue(inner) => {
+                Error::InvalidAttributeValue(inner)
+            }
+            crate::operation::set_queue_attributes::SetQueueAttributesError::InvalidSecurity(inner) => {
+                Error::InvalidSecurity(inner)
+            }
+            crate::operation::set_queue_attributes::SetQueueAttributesError::OverLimit(inner) => {
+                Error::OverLimit(inner)
+            }
+            crate::operation::set_queue_attributes::SetQueueAttributesError::QueueDoesNotExist(inner) => {
+                Error::QueueDoesNotExist(inner)
+            }
+            crate::operation::set_queue_attributes::SetQueueAttributesError::RequestThrottled(inner) => {
+                Error::RequestThrottled(inner)
+            }
+            crate::operation::set_queue_attributes::SetQueueAttributesError::UnsupportedOperation(inner) => {
+                Error::UnsupportedOperation(inner)
+            }
+            crate::operation::set_queue_attributes::SetQueueAttributesError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -1887,9 +1794,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1901,38 +1806,38 @@ where
 impl From<crate::operation::start_message_move_task::StartMessageMoveTaskError> for Error {
     fn from(err: crate::operation::start_message_move_task::StartMessageMoveTaskError) -> Self {
         match err {
-            crate::operation::start_message_move_task::StartMessageMoveTaskError::InvalidAddress(inner) => Error::InvalidAddress(inner),
-            crate::operation::start_message_move_task::StartMessageMoveTaskError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
-            crate::operation::start_message_move_task::StartMessageMoveTaskError::RequestThrottled(inner) => Error::RequestThrottled(inner),
+            crate::operation::start_message_move_task::StartMessageMoveTaskError::InvalidAddress(inner) => {
+                Error::InvalidAddress(inner)
+            }
+            crate::operation::start_message_move_task::StartMessageMoveTaskError::InvalidSecurity(inner) => {
+                Error::InvalidSecurity(inner)
+            }
+            crate::operation::start_message_move_task::StartMessageMoveTaskError::RequestThrottled(inner) => {
+                Error::RequestThrottled(inner)
+            }
             crate::operation::start_message_move_task::StartMessageMoveTaskError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
-            crate::operation::start_message_move_task::StartMessageMoveTaskError::UnsupportedOperation(inner) => Error::UnsupportedOperation(inner),
-            crate::operation::start_message_move_task::StartMessageMoveTaskError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::start_message_move_task::StartMessageMoveTaskError::UnsupportedOperation(inner) => {
+                Error::UnsupportedOperation(inner)
+            }
+            crate::operation::start_message_move_task::StartMessageMoveTaskError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
 #[cfg(feature = "op_tag_queue")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_queue::TagQueueError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_queue::TagQueueError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_queue::TagQueueError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::tag_queue::TagQueueError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1944,18 +1849,10 @@ where
 impl From<crate::operation::tag_queue::TagQueueError> for Error {
     fn from(err: crate::operation::tag_queue::TagQueueError) -> Self {
         match err {
-            crate::operation::tag_queue::TagQueueError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
-            crate::operation::tag_queue::TagQueueError::InvalidSecurity(inner) => {
-                Error::InvalidSecurity(inner)
-            }
-            crate::operation::tag_queue::TagQueueError::QueueDoesNotExist(inner) => {
-                Error::QueueDoesNotExist(inner)
-            }
-            crate::operation::tag_queue::TagQueueError::RequestThrottled(inner) => {
-                Error::RequestThrottled(inner)
-            }
+            crate::operation::tag_queue::TagQueueError::InvalidAddress(inner) => Error::InvalidAddress(inner),
+            crate::operation::tag_queue::TagQueueError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
+            crate::operation::tag_queue::TagQueueError::QueueDoesNotExist(inner) => Error::QueueDoesNotExist(inner),
+            crate::operation::tag_queue::TagQueueError::RequestThrottled(inner) => Error::RequestThrottled(inner),
             crate::operation::tag_queue::TagQueueError::UnsupportedOperation(inner) => {
                 Error::UnsupportedOperation(inner)
             }
@@ -1964,26 +1861,16 @@ impl From<crate::operation::tag_queue::TagQueueError> for Error {
     }
 }
 #[cfg(feature = "op_untag_queue")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_queue::UntagQueueError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_queue::UntagQueueError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::untag_queue::UntagQueueError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::untag_queue::UntagQueueError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -1995,24 +1882,14 @@ where
 impl From<crate::operation::untag_queue::UntagQueueError> for Error {
     fn from(err: crate::operation::untag_queue::UntagQueueError) -> Self {
         match err {
-            crate::operation::untag_queue::UntagQueueError::InvalidAddress(inner) => {
-                Error::InvalidAddress(inner)
-            }
-            crate::operation::untag_queue::UntagQueueError::InvalidSecurity(inner) => {
-                Error::InvalidSecurity(inner)
-            }
-            crate::operation::untag_queue::UntagQueueError::QueueDoesNotExist(inner) => {
-                Error::QueueDoesNotExist(inner)
-            }
-            crate::operation::untag_queue::UntagQueueError::RequestThrottled(inner) => {
-                Error::RequestThrottled(inner)
-            }
+            crate::operation::untag_queue::UntagQueueError::InvalidAddress(inner) => Error::InvalidAddress(inner),
+            crate::operation::untag_queue::UntagQueueError::InvalidSecurity(inner) => Error::InvalidSecurity(inner),
+            crate::operation::untag_queue::UntagQueueError::QueueDoesNotExist(inner) => Error::QueueDoesNotExist(inner),
+            crate::operation::untag_queue::UntagQueueError::RequestThrottled(inner) => Error::RequestThrottled(inner),
             crate::operation::untag_queue::UntagQueueError::UnsupportedOperation(inner) => {
                 Error::UnsupportedOperation(inner)
             }
-            crate::operation::untag_queue::UntagQueueError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::untag_queue::UntagQueueError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
@@ -2180,10 +2057,7 @@ impl ::std::error::Error for Error {
             Error::QueueDoesNotExist(inner) => inner.source(),
             #[cfg(feature = "op_create_queue")]
             Error::QueueNameExists(inner) => inner.source(),
-            #[cfg(any(
-                feature = "op_change_message_visibility",
-                feature = "op_delete_message"
-            ))]
+            #[cfg(any(feature = "op_change_message_visibility", feature = "op_delete_message"))]
             Error::ReceiptHandleIsInvalid(inner) => inner.source(),
             #[cfg(any(
                 feature = "op_add_permission",
@@ -2417,10 +2291,7 @@ impl ::aws_types::request_id::RequestId for Error {
             Self::QueueDoesNotExist(e) => e.request_id(),
             #[cfg(feature = "op_create_queue")]
             Self::QueueNameExists(e) => e.request_id(),
-            #[cfg(any(
-                feature = "op_change_message_visibility",
-                feature = "op_delete_message"
-            ))]
+            #[cfg(any(feature = "op_change_message_visibility", feature = "op_delete_message"))]
             Self::ReceiptHandleIsInvalid(e) => e.request_id(),
             #[cfg(any(
                 feature = "op_add_permission",

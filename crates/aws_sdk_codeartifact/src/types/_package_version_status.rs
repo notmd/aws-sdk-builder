@@ -79,9 +79,9 @@ impl ::std::convert::From<&str> for PackageVersionStatus {
             "Published" => PackageVersionStatus::Published,
             "Unfinished" => PackageVersionStatus::Unfinished,
             "Unlisted" => PackageVersionStatus::Unlisted,
-            other => PackageVersionStatus::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => PackageVersionStatus::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -107,14 +107,7 @@ impl PackageVersionStatus {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &[
-            "Archived",
-            "Deleted",
-            "Disposed",
-            "Published",
-            "Unfinished",
-            "Unlisted",
-        ]
+        &["Archived", "Deleted", "Disposed", "Published", "Unfinished", "Unlisted"]
     }
 }
 impl ::std::convert::AsRef<str> for PackageVersionStatus {
@@ -126,14 +119,10 @@ impl PackageVersionStatus {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }

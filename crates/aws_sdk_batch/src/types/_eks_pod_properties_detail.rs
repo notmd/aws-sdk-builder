@@ -91,19 +91,15 @@ impl EksPodPropertiesDetail {
 }
 
 /// A builder for [`EksPodPropertiesDetail`](crate::types::EksPodPropertiesDetail).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EksPodPropertiesDetailBuilder {
     pub(crate) service_account_name: ::std::option::Option<::std::string::String>,
     pub(crate) host_network: ::std::option::Option<bool>,
     pub(crate) dns_policy: ::std::option::Option<::std::string::String>,
-    pub(crate) image_pull_secrets:
-        ::std::option::Option<::std::vec::Vec<crate::types::ImagePullSecret>>,
+    pub(crate) image_pull_secrets: ::std::option::Option<::std::vec::Vec<crate::types::ImagePullSecret>>,
     pub(crate) containers: ::std::option::Option<::std::vec::Vec<crate::types::EksContainerDetail>>,
-    pub(crate) init_containers:
-        ::std::option::Option<::std::vec::Vec<crate::types::EksContainerDetail>>,
+    pub(crate) init_containers: ::std::option::Option<::std::vec::Vec<crate::types::EksContainerDetail>>,
     pub(crate) volumes: ::std::option::Option<::std::vec::Vec<crate::types::EksVolume>>,
     pub(crate) pod_name: ::std::option::Option<::std::string::String>,
     pub(crate) node_name: ::std::option::Option<::std::string::String>,
@@ -112,18 +108,12 @@ pub struct EksPodPropertiesDetailBuilder {
 }
 impl EksPodPropertiesDetailBuilder {
     /// <p>The name of the service account that's used to run the pod. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html">Kubernetes service accounts</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html">Configure a Kubernetes service account to assume an IAM role</a> in the <i>Amazon EKS User Guide</i> and <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/">Configure service accounts for pods</a> in the <i>Kubernetes documentation</i>.</p>
-    pub fn service_account_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn service_account_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.service_account_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the service account that's used to run the pod. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html">Kubernetes service accounts</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html">Configure a Kubernetes service account to assume an IAM role</a> in the <i>Amazon EKS User Guide</i> and <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/">Configure service accounts for pods</a> in the <i>Kubernetes documentation</i>.</p>
-    pub fn set_service_account_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_service_account_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.service_account_name = input;
         self
     }
@@ -182,9 +172,7 @@ impl EksPodPropertiesDetailBuilder {
         self
     }
     /// <p>Displays the reference pointer to the Kubernetes secret resource. These secrets help to gain access to pull an images from a private registry.</p>
-    pub fn get_image_pull_secrets(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ImagePullSecret>> {
+    pub fn get_image_pull_secrets(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ImagePullSecret>> {
         &self.image_pull_secrets
     }
     /// Appends an item to `containers`.
@@ -207,9 +195,7 @@ impl EksPodPropertiesDetailBuilder {
         self
     }
     /// <p>The properties of the container that's used on the Amazon EKS pod.</p>
-    pub fn get_containers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::EksContainerDetail>> {
+    pub fn get_containers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EksContainerDetail>> {
         &self.containers
     }
     /// Appends an item to `init_containers`.
@@ -232,9 +218,7 @@ impl EksPodPropertiesDetailBuilder {
         self
     }
     /// <p>The container registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store.</p>
-    pub fn get_init_containers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::EksContainerDetail>> {
+    pub fn get_init_containers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EksContainerDetail>> {
         &self.init_containers
     }
     /// Appends an item to `volumes`.
@@ -249,10 +233,7 @@ impl EksPodPropertiesDetailBuilder {
         self
     }
     /// <p>Specifies the volumes for a job definition using Amazon EKS resources.</p>
-    pub fn set_volumes(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::EksVolume>>,
-    ) -> Self {
+    pub fn set_volumes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EksVolume>>) -> Self {
         self.volumes = input;
         self
     }

@@ -7,10 +7,16 @@ pub fn de_generate_service_last_accessed_details_http_error(
 ) -> std::result::Result<
     crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsOutput,
     crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsError,
->{
+> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(
+        crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsError::unhandled,
+    )?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
@@ -62,7 +68,7 @@ pub fn de_generate_service_last_accessed_details_http_response(
 ) -> std::result::Result<
     crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsOutput,
     crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsError,
->{
+> {
     Ok({
         #[allow(unused_mut)]
         let mut output =
@@ -70,9 +76,7 @@ pub fn de_generate_service_last_accessed_details_http_response(
         output =
             crate::protocol_serde::shape_generate_service_last_accessed_details::de_generate_service_last_accessed_details(_response_body, output)
                 .map_err(crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -84,7 +88,7 @@ pub fn de_generate_service_last_accessed_details(
 ) -> std::result::Result<
     crate::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsOutputBuilder,
     ::aws_smithy_xml::decode::XmlDecodeError,
->{
+> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

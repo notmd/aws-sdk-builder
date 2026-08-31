@@ -22,9 +22,7 @@ impl EventBridgeDestination {
 }
 
 /// A builder for [`EventBridgeDestination`](crate::types::EventBridgeDestination).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EventBridgeDestinationBuilder {
     pub(crate) event_bus_arn: ::std::option::Option<::std::string::String>,
@@ -32,18 +30,12 @@ pub struct EventBridgeDestinationBuilder {
 impl EventBridgeDestinationBuilder {
     /// <p>The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.</p>
     /// This field is required.
-    pub fn event_bus_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn event_bus_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.event_bus_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.</p>
-    pub fn set_event_bus_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_event_bus_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.event_bus_arn = input;
         self
     }
@@ -56,10 +48,8 @@ impl EventBridgeDestinationBuilder {
     /// - [`event_bus_arn`](crate::types::builders::EventBridgeDestinationBuilder::event_bus_arn)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::EventBridgeDestination,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::EventBridgeDestination, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::EventBridgeDestination {
             event_bus_arn: self.event_bus_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

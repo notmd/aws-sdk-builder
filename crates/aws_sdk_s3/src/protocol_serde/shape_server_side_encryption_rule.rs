@@ -7,7 +7,10 @@ pub fn ser_server_side_encryption_rule(
     let mut scope = writer.finish();
     if let Some(var_1) = &input.apply_server_side_encryption_by_default {
         let inner_writer = scope.start_el("ApplyServerSideEncryptionByDefault");
-        crate::protocol_serde::shape_server_side_encryption_by_default::ser_server_side_encryption_by_default(var_1, inner_writer)?
+        crate::protocol_serde::shape_server_side_encryption_by_default::ser_server_side_encryption_by_default(
+            var_1,
+            inner_writer,
+        )?
     }
     if let Some(var_2) = &input.bucket_key_enabled {
         let mut inner_writer = scope.start_el("BucketKeyEnabled").finish();
@@ -15,10 +18,7 @@ pub fn ser_server_side_encryption_rule(
     }
     if let Some(var_3) = &input.blocked_encryption_types {
         let inner_writer = scope.start_el("BlockedEncryptionTypes");
-        crate::protocol_serde::shape_blocked_encryption_types::ser_blocked_encryption_types(
-            var_3,
-            inner_writer,
-        )?
+        crate::protocol_serde::shape_blocked_encryption_types::ser_blocked_encryption_types(var_3, inner_writer)?
     }
     scope.finish();
     Ok(())
@@ -28,10 +28,7 @@ pub fn ser_server_side_encryption_rule(
 pub fn de_server_side_encryption_rule(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<
-    crate::types::ServerSideEncryptionRule,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<crate::types::ServerSideEncryptionRule, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
             "maximum nesting depth exceeded",

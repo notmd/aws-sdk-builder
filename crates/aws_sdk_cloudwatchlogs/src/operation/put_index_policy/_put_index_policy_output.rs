@@ -26,9 +26,7 @@ impl PutIndexPolicyOutput {
 }
 
 /// A builder for [`PutIndexPolicyOutput`](crate::operation::put_index_policy::PutIndexPolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutIndexPolicyOutputBuilder {
     pub(crate) index_policy: ::std::option::Option<crate::types::IndexPolicy>,
@@ -41,10 +39,7 @@ impl PutIndexPolicyOutputBuilder {
         self
     }
     /// <p>The index policy that you just created or updated.</p>
-    pub fn set_index_policy(
-        mut self,
-        input: ::std::option::Option<crate::types::IndexPolicy>,
-    ) -> Self {
+    pub fn set_index_policy(mut self, input: ::std::option::Option<crate::types::IndexPolicy>) -> Self {
         self.index_policy = input;
         self
     }

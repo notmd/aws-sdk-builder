@@ -26,9 +26,7 @@ impl AssociateSourceToS3TableIntegrationOutput {
 }
 
 /// A builder for [`AssociateSourceToS3TableIntegrationOutput`](crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AssociateSourceToS3TableIntegrationOutputBuilder {
     pub(crate) identifier: ::std::option::Option<::std::string::String>,
@@ -59,7 +57,9 @@ impl AssociateSourceToS3TableIntegrationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`AssociateSourceToS3TableIntegrationOutput`](crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationOutput).
-    pub fn build(self) -> crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationOutput {
         crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationOutput {
             identifier: self.identifier,
             _request_id: self._request_id,

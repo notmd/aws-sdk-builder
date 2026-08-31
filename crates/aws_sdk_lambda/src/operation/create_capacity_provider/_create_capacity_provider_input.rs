@@ -12,14 +12,11 @@ pub struct CreateCapacityProviderInput {
     /// <p>The instance requirements that specify the compute instance characteristics, including architectures and allowed or excluded instance types.</p>
     pub instance_requirements: ::std::option::Option<crate::types::InstanceRequirements>,
     /// <p>The scaling configuration that defines how the capacity provider scales compute instances, including maximum vCPU count and scaling policies.</p>
-    pub capacity_provider_scaling_config:
-        ::std::option::Option<crate::types::CapacityProviderScalingConfig>,
+    pub capacity_provider_scaling_config: ::std::option::Option<crate::types::CapacityProviderScalingConfig>,
     /// <p>The ARN of the KMS key used to encrypt data associated with the capacity provider.</p>
     pub kms_key_arn: ::std::option::Option<::std::string::String>,
     /// <p>A list of tags to associate with the capacity provider.</p>
-    pub tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>The tag propagation configuration for the capacity provider. Specifies tags to apply to managed resources at launch.</p>
     pub propagate_tags: ::std::option::Option<crate::types::PropagateTags>,
     /// <p>The telemetry configuration for the capacity provider. Specifies logging settings for managed resources.</p>
@@ -35,15 +32,11 @@ impl CreateCapacityProviderInput {
         self.vpc_config.as_ref()
     }
     /// <p>The permissions configuration that specifies the IAM role ARN used by the capacity provider to manage compute resources.</p>
-    pub fn permissions_config(
-        &self,
-    ) -> ::std::option::Option<&crate::types::CapacityProviderPermissionsConfig> {
+    pub fn permissions_config(&self) -> ::std::option::Option<&crate::types::CapacityProviderPermissionsConfig> {
         self.permissions_config.as_ref()
     }
     /// <p>The instance requirements that specify the compute instance characteristics, including architectures and allowed or excluded instance types.</p>
-    pub fn instance_requirements(
-        &self,
-    ) -> ::std::option::Option<&crate::types::InstanceRequirements> {
+    pub fn instance_requirements(&self) -> ::std::option::Option<&crate::types::InstanceRequirements> {
         self.instance_requirements.as_ref()
     }
     /// <p>The scaling configuration that defines how the capacity provider scales compute instances, including maximum vCPU count and scaling policies.</p>
@@ -59,9 +52,7 @@ impl CreateCapacityProviderInput {
     /// <p>A list of tags to associate with the capacity provider.</p>
     pub fn tags(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
     /// <p>The tag propagation configuration for the capacity provider. Specifies tags to apply to managed resources at launch.</p>
@@ -69,57 +60,40 @@ impl CreateCapacityProviderInput {
         self.propagate_tags.as_ref()
     }
     /// <p>The telemetry configuration for the capacity provider. Specifies logging settings for managed resources.</p>
-    pub fn telemetry_config(
-        &self,
-    ) -> ::std::option::Option<&crate::types::CapacityProviderTelemetryConfig> {
+    pub fn telemetry_config(&self) -> ::std::option::Option<&crate::types::CapacityProviderTelemetryConfig> {
         self.telemetry_config.as_ref()
     }
 }
 impl CreateCapacityProviderInput {
     /// Creates a new builder-style object to manufacture [`CreateCapacityProviderInput`](crate::operation::create_capacity_provider::CreateCapacityProviderInput).
-    pub fn builder(
-    ) -> crate::operation::create_capacity_provider::builders::CreateCapacityProviderInputBuilder
-    {
+    pub fn builder() -> crate::operation::create_capacity_provider::builders::CreateCapacityProviderInputBuilder {
         crate::operation::create_capacity_provider::builders::CreateCapacityProviderInputBuilder::default()
     }
 }
 
 /// A builder for [`CreateCapacityProviderInput`](crate::operation::create_capacity_provider::CreateCapacityProviderInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateCapacityProviderInputBuilder {
     pub(crate) capacity_provider_name: ::std::option::Option<::std::string::String>,
     pub(crate) vpc_config: ::std::option::Option<crate::types::CapacityProviderVpcConfig>,
-    pub(crate) permissions_config:
-        ::std::option::Option<crate::types::CapacityProviderPermissionsConfig>,
+    pub(crate) permissions_config: ::std::option::Option<crate::types::CapacityProviderPermissionsConfig>,
     pub(crate) instance_requirements: ::std::option::Option<crate::types::InstanceRequirements>,
-    pub(crate) capacity_provider_scaling_config:
-        ::std::option::Option<crate::types::CapacityProviderScalingConfig>,
+    pub(crate) capacity_provider_scaling_config: ::std::option::Option<crate::types::CapacityProviderScalingConfig>,
     pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) propagate_tags: ::std::option::Option<crate::types::PropagateTags>,
-    pub(crate) telemetry_config:
-        ::std::option::Option<crate::types::CapacityProviderTelemetryConfig>,
+    pub(crate) telemetry_config: ::std::option::Option<crate::types::CapacityProviderTelemetryConfig>,
 }
 impl CreateCapacityProviderInputBuilder {
     /// <p>The name of the capacity provider.</p>
     /// This field is required.
-    pub fn capacity_provider_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn capacity_provider_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.capacity_provider_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the capacity provider.</p>
-    pub fn set_capacity_provider_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_capacity_provider_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.capacity_provider_name = input;
         self
     }
@@ -134,25 +108,17 @@ impl CreateCapacityProviderInputBuilder {
         self
     }
     /// <p>The VPC configuration for the capacity provider, including subnet IDs and security group IDs where compute instances will be launched.</p>
-    pub fn set_vpc_config(
-        mut self,
-        input: ::std::option::Option<crate::types::CapacityProviderVpcConfig>,
-    ) -> Self {
+    pub fn set_vpc_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderVpcConfig>) -> Self {
         self.vpc_config = input;
         self
     }
     /// <p>The VPC configuration for the capacity provider, including subnet IDs and security group IDs where compute instances will be launched.</p>
-    pub fn get_vpc_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::CapacityProviderVpcConfig> {
+    pub fn get_vpc_config(&self) -> &::std::option::Option<crate::types::CapacityProviderVpcConfig> {
         &self.vpc_config
     }
     /// <p>The permissions configuration that specifies the IAM role ARN used by the capacity provider to manage compute resources.</p>
     /// This field is required.
-    pub fn permissions_config(
-        mut self,
-        input: crate::types::CapacityProviderPermissionsConfig,
-    ) -> Self {
+    pub fn permissions_config(mut self, input: crate::types::CapacityProviderPermissionsConfig) -> Self {
         self.permissions_config = ::std::option::Option::Some(input);
         self
     }
@@ -165,9 +131,7 @@ impl CreateCapacityProviderInputBuilder {
         self
     }
     /// <p>The permissions configuration that specifies the IAM role ARN used by the capacity provider to manage compute resources.</p>
-    pub fn get_permissions_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::CapacityProviderPermissionsConfig> {
+    pub fn get_permissions_config(&self) -> &::std::option::Option<crate::types::CapacityProviderPermissionsConfig> {
         &self.permissions_config
     }
     /// <p>The instance requirements that specify the compute instance characteristics, including architectures and allowed or excluded instance types.</p>
@@ -184,16 +148,11 @@ impl CreateCapacityProviderInputBuilder {
         self
     }
     /// <p>The instance requirements that specify the compute instance characteristics, including architectures and allowed or excluded instance types.</p>
-    pub fn get_instance_requirements(
-        &self,
-    ) -> &::std::option::Option<crate::types::InstanceRequirements> {
+    pub fn get_instance_requirements(&self) -> &::std::option::Option<crate::types::InstanceRequirements> {
         &self.instance_requirements
     }
     /// <p>The scaling configuration that defines how the capacity provider scales compute instances, including maximum vCPU count and scaling policies.</p>
-    pub fn capacity_provider_scaling_config(
-        mut self,
-        input: crate::types::CapacityProviderScalingConfig,
-    ) -> Self {
+    pub fn capacity_provider_scaling_config(mut self, input: crate::types::CapacityProviderScalingConfig) -> Self {
         self.capacity_provider_scaling_config = ::std::option::Option::Some(input);
         self
     }
@@ -243,9 +202,7 @@ impl CreateCapacityProviderInputBuilder {
     /// <p>A list of tags to associate with the capacity provider.</p>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.tags = input;
         self
@@ -253,9 +210,7 @@ impl CreateCapacityProviderInputBuilder {
     /// <p>A list of tags to associate with the capacity provider.</p>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     /// <p>The tag propagation configuration for the capacity provider. Specifies tags to apply to managed resources at launch.</p>
@@ -264,10 +219,7 @@ impl CreateCapacityProviderInputBuilder {
         self
     }
     /// <p>The tag propagation configuration for the capacity provider. Specifies tags to apply to managed resources at launch.</p>
-    pub fn set_propagate_tags(
-        mut self,
-        input: ::std::option::Option<crate::types::PropagateTags>,
-    ) -> Self {
+    pub fn set_propagate_tags(mut self, input: ::std::option::Option<crate::types::PropagateTags>) -> Self {
         self.propagate_tags = input;
         self
     }
@@ -276,10 +228,7 @@ impl CreateCapacityProviderInputBuilder {
         &self.propagate_tags
     }
     /// <p>The telemetry configuration for the capacity provider. Specifies logging settings for managed resources.</p>
-    pub fn telemetry_config(
-        mut self,
-        input: crate::types::CapacityProviderTelemetryConfig,
-    ) -> Self {
+    pub fn telemetry_config(mut self, input: crate::types::CapacityProviderTelemetryConfig) -> Self {
         self.telemetry_config = ::std::option::Option::Some(input);
         self
     }
@@ -292,9 +241,7 @@ impl CreateCapacityProviderInputBuilder {
         self
     }
     /// <p>The telemetry configuration for the capacity provider. Specifies logging settings for managed resources.</p>
-    pub fn get_telemetry_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::CapacityProviderTelemetryConfig> {
+    pub fn get_telemetry_config(&self) -> &::std::option::Option<crate::types::CapacityProviderTelemetryConfig> {
         &self.telemetry_config
     }
     /// Consumes the builder and constructs a [`CreateCapacityProviderInput`](crate::operation::create_capacity_provider::CreateCapacityProviderInput).

@@ -7,7 +7,7 @@ pub fn de_get_outbound_web_identity_federation_info_http_error(
 ) -> std::result::Result<
     crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoOutput,
     crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError,
->{
+> {
     #[allow(unused_mut)]
     let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::unhandled)?;
@@ -53,7 +53,7 @@ pub fn de_get_outbound_web_identity_federation_info_http_response(
 ) -> std::result::Result<
     crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoOutput,
     crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError,
->{
+> {
     Ok({
         #[allow(unused_mut)]
         let mut output =
@@ -63,9 +63,7 @@ pub fn de_get_outbound_web_identity_federation_info_http_response(
             output,
         )
         .map_err(crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }

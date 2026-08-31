@@ -63,9 +63,7 @@ impl PutTransformerFluentBuilder {
         }
     }
     /// Access the PutTransformer as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::put_transformer::builders::PutTransformerInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::put_transformer::builders::PutTransformerInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,14 +87,12 @@ impl PutTransformerFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::put_transformer::PutTransformer::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::put_transformer::PutTransformer::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = crate::operation::put_transformer::PutTransformer::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::put_transformer::PutTransformer::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -125,18 +121,12 @@ impl PutTransformerFluentBuilder {
         self
     }
     /// <p>Specify either the name or ARN of the log group to create the transformer for.</p>
-    pub fn log_group_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.log_group_identifier(input.into());
         self
     }
     /// <p>Specify either the name or ARN of the log group to create the transformer for.</p>
-    pub fn set_log_group_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_log_group_identifier(input);
         self
     }
@@ -163,9 +153,7 @@ impl PutTransformerFluentBuilder {
         self
     }
     /// <p>This structure contains the configuration of this log transformer. A log transformer is an array of processors, where each processor applies one type of transformation to the log events that are ingested.</p>
-    pub fn get_transformer_config(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Processor>> {
+    pub fn get_transformer_config(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Processor>> {
         self.inner.get_transformer_config()
     }
 }

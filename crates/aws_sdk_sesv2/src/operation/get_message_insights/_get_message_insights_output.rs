@@ -61,8 +61,7 @@ impl ::aws_types::request_id::RequestId for GetMessageInsightsOutput {
 }
 impl GetMessageInsightsOutput {
     /// Creates a new builder-style object to manufacture [`GetMessageInsightsOutput`](crate::operation::get_message_insights::GetMessageInsightsOutput).
-    pub fn builder(
-    ) -> crate::operation::get_message_insights::builders::GetMessageInsightsOutputBuilder {
+    pub fn builder() -> crate::operation::get_message_insights::builders::GetMessageInsightsOutputBuilder {
         crate::operation::get_message_insights::builders::GetMessageInsightsOutputBuilder::default()
     }
 }
@@ -94,18 +93,12 @@ impl GetMessageInsightsOutputBuilder {
         &self.message_id
     }
     /// <p>The from address used to send the message.</p>
-    pub fn from_email_address(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn from_email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.from_email_address = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The from address used to send the message.</p>
-    pub fn set_from_email_address(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_from_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.from_email_address = input;
         self
     }
@@ -139,17 +132,12 @@ impl GetMessageInsightsOutputBuilder {
         self
     }
     /// <p>A list of tags, in the form of name/value pairs, that were applied to the email you sent, along with Amazon SES <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-using-event-publishing.html">Auto-Tags</a>.</p>
-    pub fn set_email_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::MessageTag>>,
-    ) -> Self {
+    pub fn set_email_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MessageTag>>) -> Self {
         self.email_tags = input;
         self
     }
     /// <p>A list of tags, in the form of name/value pairs, that were applied to the email you sent, along with Amazon SES <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-using-event-publishing.html">Auto-Tags</a>.</p>
-    pub fn get_email_tags(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::MessageTag>> {
+    pub fn get_email_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MessageTag>> {
         &self.email_tags
     }
     /// Appends an item to `insights`.
@@ -164,17 +152,12 @@ impl GetMessageInsightsOutputBuilder {
         self
     }
     /// <p>A set of insights associated with the message.</p>
-    pub fn set_insights(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::EmailInsights>>,
-    ) -> Self {
+    pub fn set_insights(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EmailInsights>>) -> Self {
         self.insights = input;
         self
     }
     /// <p>A set of insights associated with the message.</p>
-    pub fn get_insights(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::EmailInsights>> {
+    pub fn get_insights(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EmailInsights>> {
         &self.insights
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

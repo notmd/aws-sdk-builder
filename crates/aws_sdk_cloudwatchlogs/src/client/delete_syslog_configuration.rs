@@ -7,7 +7,11 @@ impl super::Client {
     ///   - [`vpc_endpoint_id(impl Into<String>)`](crate::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationFluentBuilder::vpc_endpoint_id) / [`set_vpc_endpoint_id(Option<String>)`](crate::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationFluentBuilder::set_vpc_endpoint_id):<br>required: **false**<br><p>The ID of the VPC endpoint associated with the syslog configuration to delete.</p><br>
     /// - On success, responds with [`DeleteSyslogConfigurationOutput`](crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationOutput)
     /// - On failure, responds with [`SdkError<DeleteSyslogConfigurationError>`](crate::operation::delete_syslog_configuration::DeleteSyslogConfigurationError)
-    pub fn delete_syslog_configuration(&self) -> crate::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationFluentBuilder{
-        crate::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationFluentBuilder::new(self.handle.clone())
+    pub fn delete_syslog_configuration(
+        &self,
+    ) -> crate::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationFluentBuilder {
+        crate::operation::delete_syslog_configuration::builders::DeleteSyslogConfigurationFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

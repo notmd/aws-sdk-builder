@@ -13,8 +13,6 @@ impl super::Client {
     pub fn get_delegation_request(
         &self,
     ) -> crate::operation::get_delegation_request::builders::GetDelegationRequestFluentBuilder {
-        crate::operation::get_delegation_request::builders::GetDelegationRequestFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_delegation_request::builders::GetDelegationRequestFluentBuilder::new(self.handle.clone())
     }
 }

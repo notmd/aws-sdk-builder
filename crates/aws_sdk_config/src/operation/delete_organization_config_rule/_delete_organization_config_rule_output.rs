@@ -12,15 +12,15 @@ impl ::aws_types::request_id::RequestId for DeleteOrganizationConfigRuleOutput {
 }
 impl DeleteOrganizationConfigRuleOutput {
     /// Creates a new builder-style object to manufacture [`DeleteOrganizationConfigRuleOutput`](crate::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleOutput).
-    pub fn builder() -> crate::operation::delete_organization_config_rule::builders::DeleteOrganizationConfigRuleOutputBuilder{
-        crate::operation::delete_organization_config_rule::builders::DeleteOrganizationConfigRuleOutputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::delete_organization_config_rule::builders::DeleteOrganizationConfigRuleOutputBuilder {
+        crate::operation::delete_organization_config_rule::builders::DeleteOrganizationConfigRuleOutputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`DeleteOrganizationConfigRuleOutput`](crate::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteOrganizationConfigRuleOutputBuilder {
     _request_id: Option<String>,
@@ -36,9 +36,7 @@ impl DeleteOrganizationConfigRuleOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteOrganizationConfigRuleOutput`](crate::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleOutput {
+    pub fn build(self) -> crate::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleOutput {
         crate::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleOutput {
             _request_id: self._request_id,
         }

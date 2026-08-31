@@ -12,15 +12,15 @@ impl ::aws_types::request_id::RequestId for PutBearerTokenAuthenticationOutput {
 }
 impl PutBearerTokenAuthenticationOutput {
     /// Creates a new builder-style object to manufacture [`PutBearerTokenAuthenticationOutput`](crate::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationOutput).
-    pub fn builder() -> crate::operation::put_bearer_token_authentication::builders::PutBearerTokenAuthenticationOutputBuilder{
-        crate::operation::put_bearer_token_authentication::builders::PutBearerTokenAuthenticationOutputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::put_bearer_token_authentication::builders::PutBearerTokenAuthenticationOutputBuilder {
+        crate::operation::put_bearer_token_authentication::builders::PutBearerTokenAuthenticationOutputBuilder::default(
+        )
     }
 }
 
 /// A builder for [`PutBearerTokenAuthenticationOutput`](crate::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutBearerTokenAuthenticationOutputBuilder {
     _request_id: Option<String>,
@@ -36,9 +36,7 @@ impl PutBearerTokenAuthenticationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutBearerTokenAuthenticationOutput`](crate::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationOutput {
+    pub fn build(self) -> crate::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationOutput {
         crate::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationOutput {
             _request_id: self._request_id,
         }

@@ -45,9 +45,7 @@ impl Grantee {
 }
 
 /// A builder for [`Grantee`](crate::types::Grantee).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GranteeBuilder {
     pub(crate) display_name: ::std::option::Option<::std::string::String>,
@@ -72,18 +70,12 @@ impl GranteeBuilder {
         &self.display_name
     }
     /// <p></p>
-    pub fn email_address(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.email_address = ::std::option::Option::Some(input.into());
         self
     }
     /// <p></p>
-    pub fn set_email_address(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.email_address = input;
         self
     }
@@ -139,10 +131,7 @@ impl GranteeBuilder {
     /// - [`r#type`](crate::types::builders::GranteeBuilder::type)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::Grantee,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::Grantee, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Grantee {
             display_name: self.display_name,
             email_address: self.email_address,

@@ -1,5 +1,15 @@
 # AWS SDK modularizer checkpoint log
 
+## 2026-08-31 — `01f5ce2bd` — format generated crates before computing diffs
+
+- Objective: persist transformed files before formatting them with Rust edition 2021, compute diffs from the formatted stage, embed every changed file's diff in `DIFF.MD`, and simplify the manifest's shared upstream configuration.
+- Generic rule: use one top-level manifest repository/revision and stage each transformed crate on disk; run Cargo fmt with rustfmt `edition=2021` before taking the post-transform snapshot, then emit deterministic per-file and unified diff artifacts.
+- Changed files: root workspace/default-member configuration, manifest parser/schema and documentation, conformance staging/diff generation, all 18 generated crates and their `DIFF.MD`/`DIFF.diff` artifacts, and the coverage summary.
+- Commands: generation passed; `AWS_SDK_MODULARIZER_ARCHIVE=/tmp/aws-sdk-rust.tar.gz RUSTFLAGS='-Awarnings' just conformance` passed for all 18 services; `cargo check --workspace`, `cargo test --workspace`, `cargo fmt --all -- --check`, and `git diff --check` passed.
+- Operation coverage: 1,149 -> 1,149 operations, coverage delta `+0`, with zero missing and zero ambiguous mappings.
+- Remaining blocker: none.
+- Next action: retain the top-level pinned source and post-format diff ordering for subsequent modularizer changes.
+
 ## 2026-08-31 — `d4c57da21` — staged upstream models and root package
 
 - Objective: remove committed model copies, resolve models from the temporary pinned AWS SDK archive, and make `aws-sdk-modularizer` the repository-root workspace package under `src/`.

@@ -59,15 +59,15 @@ impl ::aws_types::request_id::RequestId for GetAccountAuthorizationDetailsOutput
 }
 impl GetAccountAuthorizationDetailsOutput {
     /// Creates a new builder-style object to manufacture [`GetAccountAuthorizationDetailsOutput`](crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsOutput).
-    pub fn builder() -> crate::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsOutputBuilder
+    {
         crate::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetAccountAuthorizationDetailsOutput`](crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetAccountAuthorizationDetailsOutputBuilder {
     pub(crate) user_detail_list: ::std::option::Option<::std::vec::Vec<crate::types::UserDetail>>,
@@ -99,9 +99,7 @@ impl GetAccountAuthorizationDetailsOutputBuilder {
         self
     }
     /// <p>A list containing information about IAM users.</p>
-    pub fn get_user_detail_list(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::UserDetail>> {
+    pub fn get_user_detail_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::UserDetail>> {
         &self.user_detail_list
     }
     /// Appends an item to `group_detail_list`.
@@ -124,9 +122,7 @@ impl GetAccountAuthorizationDetailsOutputBuilder {
         self
     }
     /// <p>A list containing information about IAM groups.</p>
-    pub fn get_group_detail_list(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GroupDetail>> {
+    pub fn get_group_detail_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GroupDetail>> {
         &self.group_detail_list
     }
     /// Appends an item to `role_detail_list`.
@@ -149,9 +145,7 @@ impl GetAccountAuthorizationDetailsOutputBuilder {
         self
     }
     /// <p>A list containing information about IAM roles.</p>
-    pub fn get_role_detail_list(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::RoleDetail>> {
+    pub fn get_role_detail_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RoleDetail>> {
         &self.role_detail_list
     }
     /// Appends an item to `policies`.
@@ -174,9 +168,7 @@ impl GetAccountAuthorizationDetailsOutputBuilder {
         self
     }
     /// <p>A list containing information about managed policies.</p>
-    pub fn get_policies(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ManagedPolicyDetail>> {
+    pub fn get_policies(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ManagedPolicyDetail>> {
         &self.policies
     }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -217,10 +209,7 @@ impl GetAccountAuthorizationDetailsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetAccountAuthorizationDetailsOutput`](crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsOutput
-    {
+    pub fn build(self) -> crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsOutput {
         crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsOutput {
             user_detail_list: self.user_detail_list,
             group_detail_list: self.group_detail_list,

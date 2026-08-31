@@ -38,17 +38,13 @@ impl ListAttachedUserPoliciesInput {
 }
 impl ListAttachedUserPoliciesInput {
     /// Creates a new builder-style object to manufacture [`ListAttachedUserPoliciesInput`](crate::operation::list_attached_user_policies::ListAttachedUserPoliciesInput).
-    pub fn builder(
-    ) -> crate::operation::list_attached_user_policies::builders::ListAttachedUserPoliciesInputBuilder
-    {
+    pub fn builder() -> crate::operation::list_attached_user_policies::builders::ListAttachedUserPoliciesInputBuilder {
         crate::operation::list_attached_user_policies::builders::ListAttachedUserPoliciesInputBuilder::default()
     }
 }
 
 /// A builder for [`ListAttachedUserPoliciesInput`](crate::operation::list_attached_user_policies::ListAttachedUserPoliciesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListAttachedUserPoliciesInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,

@@ -13,8 +13,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetUserPoolMfaConfigError>`](crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigError)
     pub fn get_user_pool_mfa_config(
         &self,
-    ) -> crate::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigFluentBuilder
-    {
+    ) -> crate::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigFluentBuilder {
         crate::operation::get_user_pool_mfa_config::builders::GetUserPoolMfaConfigFluentBuilder::new(
             self.handle.clone(),
         )

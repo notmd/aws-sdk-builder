@@ -11,7 +11,10 @@ pub fn ser_suppression_condition_threshold(
     if let Some(var_1) = &input.overall_confidence_threshold {
         #[allow(unused_mut)]
         let mut object_2 = object.key("OverallConfidenceThreshold").start_object();
-        crate::protocol_serde::shape_suppression_confidence_threshold::ser_suppression_confidence_threshold(&mut object_2, var_1)?;
+        crate::protocol_serde::shape_suppression_confidence_threshold::ser_suppression_confidence_threshold(
+            &mut object_2,
+            var_1,
+        )?;
         object_2.finish();
     }
     Ok(())
@@ -34,53 +37,44 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder =
-                crate::types::builders::SuppressionConditionThresholdBuilder::default();
+            let mut builder = crate::types::builders::SuppressionConditionThresholdBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "ConditionThresholdEnabled" => {
-                                builder = builder.set_condition_threshold_enabled(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| crate::types::FeatureStatus::from(u.as_ref()))
-                                    })
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key
+                        .to_unescaped()?
+                        .as_ref()
+                    {
+                        "ConditionThresholdEnabled" => {
+                            builder = builder.set_condition_threshold_enabled(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| crate::types::FeatureStatus::from(u.as_ref())))
                                     .transpose()?,
-                                );
-                            }
-                            "OverallConfidenceThreshold" => {
-                                builder = builder.set_overall_confidence_threshold(
+                            );
+                        }
+                        "OverallConfidenceThreshold" => {
+                            builder = builder.set_overall_confidence_threshold(
                                 crate::protocol_serde::shape_suppression_confidence_threshold::de_suppression_confidence_threshold(
                                     tokens,
                                     _value,
                                     depth + 1,
                                 )?,
                             );
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                    }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
@@ -95,10 +89,8 @@ where
                     })?,
             ))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

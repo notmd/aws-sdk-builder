@@ -35,9 +35,7 @@ impl CustomPolicyDetails {
 }
 
 /// A builder for [`CustomPolicyDetails`](crate::types::CustomPolicyDetails).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CustomPolicyDetailsBuilder {
     pub(crate) policy_runtime: ::std::option::Option<::std::string::String>,
@@ -47,18 +45,12 @@ pub struct CustomPolicyDetailsBuilder {
 impl CustomPolicyDetailsBuilder {
     /// <p>The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the <a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub Repository</a>.</p>
     /// This field is required.
-    pub fn policy_runtime(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn policy_runtime(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.policy_runtime = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the <a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub Repository</a>.</p>
-    pub fn set_policy_runtime(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_policy_runtime(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy_runtime = input;
         self
     }
@@ -101,10 +93,8 @@ impl CustomPolicyDetailsBuilder {
     /// - [`policy_text`](crate::types::builders::CustomPolicyDetailsBuilder::policy_text)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::CustomPolicyDetails,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::CustomPolicyDetails, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::CustomPolicyDetails {
             policy_runtime: self.policy_runtime.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

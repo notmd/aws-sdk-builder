@@ -26,9 +26,7 @@ impl DescribePackageOutput {
 }
 
 /// A builder for [`DescribePackageOutput`](crate::operation::describe_package::DescribePackageOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribePackageOutputBuilder {
     pub(crate) package: ::std::option::Option<crate::types::PackageDescription>,
@@ -42,10 +40,7 @@ impl DescribePackageOutputBuilder {
         self
     }
     /// <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDescription.html">PackageDescription</a> object that contains information about the requested package.</p>
-    pub fn set_package(
-        mut self,
-        input: ::std::option::Option<crate::types::PackageDescription>,
-    ) -> Self {
+    pub fn set_package(mut self, input: ::std::option::Option<crate::types::PackageDescription>) -> Self {
         self.package = input;
         self
     }

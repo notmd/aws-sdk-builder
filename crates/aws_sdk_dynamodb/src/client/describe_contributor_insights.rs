@@ -16,7 +16,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeContributorInsightsError>`](crate::operation::describe_contributor_insights::DescribeContributorInsightsError)
     pub fn describe_contributor_insights(
         &self,
-    ) -> crate::operation::describe_contributor_insights::builders::DescribeContributorInsightsFluentBuilder{
-        crate::operation::describe_contributor_insights::builders::DescribeContributorInsightsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::describe_contributor_insights::builders::DescribeContributorInsightsFluentBuilder {
+        crate::operation::describe_contributor_insights::builders::DescribeContributorInsightsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

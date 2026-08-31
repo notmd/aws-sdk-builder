@@ -84,9 +84,7 @@ impl UpdateFunctionCodeInput {
     /// <li>
     /// <p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li>
     /// </ul>
-    pub fn s3_object_storage_mode(
-        &self,
-    ) -> ::std::option::Option<&crate::types::S3ObjectStorageMode> {
+    pub fn s3_object_storage_mode(&self) -> ::std::option::Option<&crate::types::S3ObjectStorageMode> {
         self.s3_object_storage_mode.as_ref()
     }
     /// <p>URI of a container image in the Amazon ECR registry. Do not use for a function defined with a .zip file archive.</p>
@@ -104,9 +102,7 @@ impl UpdateFunctionCodeInput {
         self.publish
     }
     /// <p>Specifies where to publish the function version or configuration.</p>
-    pub fn publish_to(
-        &self,
-    ) -> ::std::option::Option<&crate::types::FunctionVersionLatestPublished> {
+    pub fn publish_to(&self) -> ::std::option::Option<&crate::types::FunctionVersionLatestPublished> {
         self.publish_to.as_ref()
     }
     /// <p>Set to true to validate the request parameters and access permissions without modifying the function code.</p>
@@ -143,8 +139,7 @@ impl ::std::fmt::Debug for UpdateFunctionCodeInput {
 }
 impl UpdateFunctionCodeInput {
     /// Creates a new builder-style object to manufacture [`UpdateFunctionCodeInput`](crate::operation::update_function_code::UpdateFunctionCodeInput).
-    pub fn builder(
-    ) -> crate::operation::update_function_code::builders::UpdateFunctionCodeInputBuilder {
+    pub fn builder() -> crate::operation::update_function_code::builders::UpdateFunctionCodeInputBuilder {
         crate::operation::update_function_code::builders::UpdateFunctionCodeInputBuilder::default()
     }
 }
@@ -180,10 +175,7 @@ impl UpdateFunctionCodeInputBuilder {
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     /// This field is required.
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
@@ -198,10 +190,7 @@ impl UpdateFunctionCodeInputBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
     }
@@ -262,18 +251,12 @@ impl UpdateFunctionCodeInputBuilder {
         &self.s3_key
     }
     /// <p>For versioned objects, the version of the deployment package object to use.</p>
-    pub fn s3_object_version(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn s3_object_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.s3_object_version = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>For versioned objects, the version of the deployment package object to use.</p>
-    pub fn set_s3_object_version(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_s3_object_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.s3_object_version = input;
         self
     }
@@ -313,9 +296,7 @@ impl UpdateFunctionCodeInputBuilder {
     /// <li>
     /// <p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li>
     /// </ul>
-    pub fn get_s3_object_storage_mode(
-        &self,
-    ) -> &::std::option::Option<crate::types::S3ObjectStorageMode> {
+    pub fn get_s3_object_storage_mode(&self) -> &::std::option::Option<crate::types::S3ObjectStorageMode> {
         &self.s3_object_storage_mode
     }
     /// <p>URI of a container image in the Amazon ECR registry. Do not use for a function defined with a .zip file archive.</p>
@@ -352,9 +333,7 @@ impl UpdateFunctionCodeInputBuilder {
         self
     }
     /// <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
-    pub fn get_architectures(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Architecture>> {
+    pub fn get_architectures(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Architecture>> {
         &self.architectures
     }
     /// <p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <code>PublishVersion</code> separately.</p>
@@ -385,9 +364,7 @@ impl UpdateFunctionCodeInputBuilder {
         self
     }
     /// <p>Specifies where to publish the function version or configuration.</p>
-    pub fn get_publish_to(
-        &self,
-    ) -> &::std::option::Option<crate::types::FunctionVersionLatestPublished> {
+    pub fn get_publish_to(&self) -> &::std::option::Option<crate::types::FunctionVersionLatestPublished> {
         &self.publish_to
     }
     /// <p>Set to true to validate the request parameters and access permissions without modifying the function code.</p>
@@ -419,18 +396,12 @@ impl UpdateFunctionCodeInputBuilder {
         &self.revision_id
     }
     /// <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an Amazon Web Services managed key.</p>
-    pub fn source_kms_key_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn source_kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.source_kms_key_arn = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an Amazon Web Services managed key.</p>
-    pub fn set_source_kms_key_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_source_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.source_kms_key_arn = input;
         self
     }
@@ -445,23 +416,21 @@ impl UpdateFunctionCodeInputBuilder {
         crate::operation::update_function_code::UpdateFunctionCodeInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::update_function_code::UpdateFunctionCodeInput {
-                function_name: self.function_name,
-                zip_file: self.zip_file,
-                s3_bucket: self.s3_bucket,
-                s3_key: self.s3_key,
-                s3_object_version: self.s3_object_version,
-                s3_object_storage_mode: self.s3_object_storage_mode,
-                image_uri: self.image_uri,
-                architectures: self.architectures,
-                publish: self.publish,
-                publish_to: self.publish_to,
-                dry_run: self.dry_run,
-                revision_id: self.revision_id,
-                source_kms_key_arn: self.source_kms_key_arn,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::update_function_code::UpdateFunctionCodeInput {
+            function_name: self.function_name,
+            zip_file: self.zip_file,
+            s3_bucket: self.s3_bucket,
+            s3_key: self.s3_key,
+            s3_object_version: self.s3_object_version,
+            s3_object_storage_mode: self.s3_object_storage_mode,
+            image_uri: self.image_uri,
+            architectures: self.architectures,
+            publish: self.publish,
+            publish_to: self.publish_to,
+            dry_run: self.dry_run,
+            revision_id: self.revision_id,
+            source_kms_key_arn: self.source_kms_key_arn,
+        })
     }
 }
 impl ::std::fmt::Debug for UpdateFunctionCodeInputBuilder {

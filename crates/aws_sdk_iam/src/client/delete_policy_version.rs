@@ -10,8 +10,6 @@ impl super::Client {
     pub fn delete_policy_version(
         &self,
     ) -> crate::operation::delete_policy_version::builders::DeletePolicyVersionFluentBuilder {
-        crate::operation::delete_policy_version::builders::DeletePolicyVersionFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_policy_version::builders::DeletePolicyVersionFluentBuilder::new(self.handle.clone())
     }
 }

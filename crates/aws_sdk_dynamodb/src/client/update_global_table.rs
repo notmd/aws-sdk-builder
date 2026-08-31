@@ -11,8 +11,6 @@ impl super::Client {
     pub fn update_global_table(
         &self,
     ) -> crate::operation::update_global_table::builders::UpdateGlobalTableFluentBuilder {
-        crate::operation::update_global_table::builders::UpdateGlobalTableFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::update_global_table::builders::UpdateGlobalTableFluentBuilder::new(self.handle.clone())
     }
 }

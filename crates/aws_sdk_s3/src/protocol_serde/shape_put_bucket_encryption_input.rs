@@ -6,13 +6,16 @@ pub fn ser_server_side_encryption_configuration_http_payload(
         Some(t) => t,
         None => return Ok(crate::protocol_serde::rest_xml_unset_struct_payload()),
     };
-    Ok(crate::protocol_serde::shape_put_bucket_encryption_input::ser_server_side_encryption_configuration_payload(payload)?)
+    Ok(
+        crate::protocol_serde::shape_put_bucket_encryption_input::ser_server_side_encryption_configuration_payload(
+            payload,
+        )?,
+    )
 }
 
 pub fn ser_server_side_encryption_configuration_payload(
     input: &crate::types::ServerSideEncryptionConfiguration,
-) -> std::result::Result<std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError>
-{
+) -> std::result::Result<std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     {
         let mut writer = ::aws_smithy_xml::encode::XmlWriter::new(&mut out);
@@ -20,7 +23,9 @@ pub fn ser_server_side_encryption_configuration_payload(
         let mut root = writer
             .start_el("ServerSideEncryptionConfiguration")
             .write_ns("http://s3.amazonaws.com/doc/2006-03-01/", None);
-        crate::protocol_serde::shape_server_side_encryption_configuration::ser_server_side_encryption_configuration(input, root)?
+        crate::protocol_serde::shape_server_side_encryption_configuration::ser_server_side_encryption_configuration(
+            input, root,
+        )?
     }
     Ok(out.into_bytes())
 }

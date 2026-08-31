@@ -50,12 +50,8 @@ impl OrganizationConformancePack {
     /// <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.conformance_pack_input_parameters.is_none()`.
-    pub fn conformance_pack_input_parameters(
-        &self,
-    ) -> &[crate::types::ConformancePackInputParameter] {
-        self.conformance_pack_input_parameters
-            .as_deref()
-            .unwrap_or_default()
+    pub fn conformance_pack_input_parameters(&self) -> &[crate::types::ConformancePackInputParameter] {
+        self.conformance_pack_input_parameters.as_deref().unwrap_or_default()
     }
     /// <p>A comma-separated list of accounts excluded from organization conformance pack.</p>
     ///
@@ -76,9 +72,7 @@ impl OrganizationConformancePack {
 }
 
 /// A builder for [`OrganizationConformancePack`](crate::types::OrganizationConformancePack).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct OrganizationConformancePackBuilder {
     pub(crate) organization_conformance_pack_name: ::std::option::Option<::std::string::String>,
@@ -109,9 +103,7 @@ impl OrganizationConformancePackBuilder {
         self
     }
     /// <p>The name you assign to an organization conformance pack.</p>
-    pub fn get_organization_conformance_pack_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_organization_conformance_pack_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.organization_conformance_pack_name
     }
     /// <p>Amazon Resource Name (ARN) of organization conformance pack.</p>
@@ -132,28 +124,20 @@ impl OrganizationConformancePackBuilder {
         self
     }
     /// <p>Amazon Resource Name (ARN) of organization conformance pack.</p>
-    pub fn get_organization_conformance_pack_arn(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_organization_conformance_pack_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.organization_conformance_pack_arn
     }
     /// <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.</p><note>
     /// <p>This field is optional.</p>
     /// </note>
-    pub fn delivery_s3_bucket(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delivery_s3_bucket(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.delivery_s3_bucket = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.</p><note>
     /// <p>This field is optional.</p>
     /// </note>
-    pub fn set_delivery_s3_bucket(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delivery_s3_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delivery_s3_bucket = input;
         self
     }
@@ -166,20 +150,14 @@ impl OrganizationConformancePackBuilder {
     /// <p>Any folder structure you want to add to an Amazon S3 bucket.</p><note>
     /// <p>This field is optional.</p>
     /// </note>
-    pub fn delivery_s3_key_prefix(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delivery_s3_key_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.delivery_s3_key_prefix = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Any folder structure you want to add to an Amazon S3 bucket.</p><note>
     /// <p>This field is optional.</p>
     /// </note>
-    pub fn set_delivery_s3_key_prefix(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delivery_s3_key_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delivery_s3_key_prefix = input;
         self
     }
@@ -194,10 +172,7 @@ impl OrganizationConformancePackBuilder {
     /// To override the contents of this collection use [`set_conformance_pack_input_parameters`](Self::set_conformance_pack_input_parameters).
     ///
     /// <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-    pub fn conformance_pack_input_parameters(
-        mut self,
-        input: crate::types::ConformancePackInputParameter,
-    ) -> Self {
+    pub fn conformance_pack_input_parameters(mut self, input: crate::types::ConformancePackInputParameter) -> Self {
         let mut v = self.conformance_pack_input_parameters.unwrap_or_default();
         v.push(input);
         self.conformance_pack_input_parameters = ::std::option::Option::Some(v);
@@ -222,10 +197,7 @@ impl OrganizationConformancePackBuilder {
     /// To override the contents of this collection use [`set_excluded_accounts`](Self::set_excluded_accounts).
     ///
     /// <p>A comma-separated list of accounts excluded from organization conformance pack.</p>
-    pub fn excluded_accounts(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn excluded_accounts(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.excluded_accounts.unwrap_or_default();
         v.push(input.into());
         self.excluded_accounts = ::std::option::Option::Some(v);
@@ -240,9 +212,7 @@ impl OrganizationConformancePackBuilder {
         self
     }
     /// <p>A comma-separated list of accounts excluded from organization conformance pack.</p>
-    pub fn get_excluded_accounts(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_excluded_accounts(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.excluded_accounts
     }
     /// <p>Last time when organization conformation pack was updated.</p>
@@ -252,10 +222,7 @@ impl OrganizationConformancePackBuilder {
         self
     }
     /// <p>Last time when organization conformation pack was updated.</p>
-    pub fn set_last_update_time(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_last_update_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_update_time = input;
         self
     }

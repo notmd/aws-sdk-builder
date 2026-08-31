@@ -686,25 +686,16 @@ pub use crate::types::error::_credential_report_not_present_exception::Credentia
 #[cfg(feature = "op_get_credential_report")]
 pub use crate::types::error::_credential_report_not_ready_exception::CredentialReportNotReadyException;
 
-#[cfg(any(
-    feature = "op_get_ssh_public_key",
-    feature = "op_upload_ssh_public_key"
-))]
+#[cfg(any(feature = "op_get_ssh_public_key", feature = "op_upload_ssh_public_key"))]
 pub use crate::types::error::_unrecognized_public_key_encoding_exception::UnrecognizedPublicKeyEncodingException;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 pub use crate::types::error::_policy_evaluation_exception::PolicyEvaluationException;
 
 #[cfg(feature = "op_upload_server_certificate")]
 pub use crate::types::error::_key_pair_mismatch_exception::KeyPairMismatchException;
 
-#[cfg(any(
-    feature = "op_upload_server_certificate",
-    feature = "op_upload_signing_certificate"
-))]
+#[cfg(any(feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
 pub use crate::types::error::_malformed_certificate_exception::MalformedCertificateException;
 
 #[cfg(feature = "op_upload_signing_certificate")]
@@ -1028,10 +1019,7 @@ mod _key_pair_mismatch_exception;
 ))]
 mod _limit_exceeded_exception;
 
-#[cfg(any(
-    feature = "op_upload_server_certificate",
-    feature = "op_upload_signing_certificate"
-))]
+#[cfg(any(feature = "op_upload_server_certificate", feature = "op_upload_signing_certificate"))]
 mod _malformed_certificate_exception;
 
 #[cfg(any(
@@ -1224,10 +1212,7 @@ mod _organization_not_in_all_features_mode_exception;
 ))]
 mod _password_policy_violation_exception;
 
-#[cfg(any(
-    feature = "op_simulate_custom_policy",
-    feature = "op_simulate_principal_policy"
-))]
+#[cfg(any(feature = "op_simulate_custom_policy", feature = "op_simulate_principal_policy"))]
 mod _policy_evaluation_exception;
 
 #[cfg(any(
@@ -1433,10 +1418,7 @@ mod _service_not_supported_exception;
 ))]
 mod _unmodifiable_entity_exception;
 
-#[cfg(any(
-    feature = "op_get_ssh_public_key",
-    feature = "op_upload_ssh_public_key"
-))]
+#[cfg(any(feature = "op_get_ssh_public_key", feature = "op_upload_ssh_public_key"))]
 mod _unrecognized_public_key_encoding_exception;
 
 /// Builders

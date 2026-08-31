@@ -69,13 +69,11 @@ impl ::std::convert::From<&str> for KeyMaterialState {
         match s {
             "CURRENT" => KeyMaterialState::Current,
             "NON_CURRENT" => KeyMaterialState::NonCurrent,
-            "PENDING_MULTI_REGION_IMPORT_AND_ROTATION" => {
-                KeyMaterialState::PendingMultiRegionImportAndRotation
-            }
+            "PENDING_MULTI_REGION_IMPORT_AND_ROTATION" => KeyMaterialState::PendingMultiRegionImportAndRotation,
             "PENDING_ROTATION" => KeyMaterialState::PendingRotation,
-            other => KeyMaterialState::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => KeyMaterialState::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -92,9 +90,7 @@ impl KeyMaterialState {
         match self {
             KeyMaterialState::Current => "CURRENT",
             KeyMaterialState::NonCurrent => "NON_CURRENT",
-            KeyMaterialState::PendingMultiRegionImportAndRotation => {
-                "PENDING_MULTI_REGION_IMPORT_AND_ROTATION"
-            }
+            KeyMaterialState::PendingMultiRegionImportAndRotation => "PENDING_MULTI_REGION_IMPORT_AND_ROTATION",
             KeyMaterialState::PendingRotation => "PENDING_ROTATION",
             KeyMaterialState::Unknown(value) => value.as_str(),
         }
@@ -118,14 +114,10 @@ impl KeyMaterialState {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }

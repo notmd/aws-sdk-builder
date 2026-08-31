@@ -38,7 +38,10 @@ pub fn ser_export_table_to_point_in_time_input_input(
     if let Some(var_11) = &input.incremental_export_specification {
         #[allow(unused_mut)]
         let mut object_12 = object.key("IncrementalExportSpecification").start_object();
-        crate::protocol_serde::shape_incremental_export_specification::ser_incremental_export_specification(&mut object_12, var_11)?;
+        crate::protocol_serde::shape_incremental_export_specification::ser_incremental_export_specification(
+            &mut object_12,
+            var_11,
+        )?;
         object_12.finish();
     }
     Ok(())

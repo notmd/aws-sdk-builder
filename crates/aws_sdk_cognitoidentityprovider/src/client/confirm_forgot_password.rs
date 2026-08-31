@@ -15,8 +15,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ConfirmForgotPasswordError>`](crate::operation::confirm_forgot_password::ConfirmForgotPasswordError)
     pub fn confirm_forgot_password(
         &self,
-    ) -> crate::operation::confirm_forgot_password::builders::ConfirmForgotPasswordFluentBuilder
-    {
+    ) -> crate::operation::confirm_forgot_password::builders::ConfirmForgotPasswordFluentBuilder {
         crate::operation::confirm_forgot_password::builders::ConfirmForgotPasswordFluentBuilder::new(
             self.handle.clone(),
         )

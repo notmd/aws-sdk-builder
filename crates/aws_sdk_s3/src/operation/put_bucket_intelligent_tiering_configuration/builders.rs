@@ -85,7 +85,7 @@ impl
             crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationOutput,
             crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationError,
         >,
-    > {
+    >{
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -142,7 +142,7 @@ impl PutBucketIntelligentTieringConfigurationFluentBuilder {
         crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationOutput,
         crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -189,18 +189,12 @@ impl PutBucketIntelligentTieringConfigurationFluentBuilder {
         self.inner.get_id()
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.expected_bucket_owner(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_expected_bucket_owner(input);
         self
     }
@@ -209,10 +203,7 @@ impl PutBucketIntelligentTieringConfigurationFluentBuilder {
         self.inner.get_expected_bucket_owner()
     }
     /// <p>Container for S3 Intelligent-Tiering configuration.</p>
-    pub fn intelligent_tiering_configuration(
-        mut self,
-        input: crate::types::IntelligentTieringConfiguration,
-    ) -> Self {
+    pub fn intelligent_tiering_configuration(mut self, input: crate::types::IntelligentTieringConfiguration) -> Self {
         self.inner = self.inner.intelligent_tiering_configuration(input);
         self
     }

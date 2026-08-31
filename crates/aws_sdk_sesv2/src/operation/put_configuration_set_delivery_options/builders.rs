@@ -3,7 +3,9 @@ pub use crate::operation::put_configuration_set_delivery_options::_put_configura
 
 pub use crate::operation::put_configuration_set_delivery_options::_put_configuration_set_delivery_options_output::PutConfigurationSetDeliveryOptionsOutputBuilder;
 
-impl crate::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsInputBuilder {
+impl
+    crate::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -76,7 +78,7 @@ impl PutConfigurationSetDeliveryOptionsFluentBuilder {
             crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +88,11 @@ impl PutConfigurationSetDeliveryOptionsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptions::orchestrate(&runtime_plugins, input).await
+        crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptions::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +102,7 @@ impl PutConfigurationSetDeliveryOptionsFluentBuilder {
         crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsOutput,
         crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -115,18 +121,12 @@ impl PutConfigurationSetDeliveryOptionsFluentBuilder {
         self
     }
     /// <p>The name of the configuration set to associate with a dedicated IP pool.</p>
-    pub fn configuration_set_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_set_name(input.into());
         self
     }
     /// <p>The name of the configuration set to associate with a dedicated IP pool.</p>
-    pub fn set_configuration_set_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_set_name(input);
         self
     }
@@ -149,18 +149,12 @@ impl PutConfigurationSetDeliveryOptionsFluentBuilder {
         self.inner.get_tls_policy()
     }
     /// <p>The name of the dedicated IP pool to associate with the configuration set.</p>
-    pub fn sending_pool_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn sending_pool_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.sending_pool_name(input.into());
         self
     }
     /// <p>The name of the dedicated IP pool to associate with the configuration set.</p>
-    pub fn set_sending_pool_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_sending_pool_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_sending_pool_name(input);
         self
     }

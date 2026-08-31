@@ -21,15 +21,14 @@ impl DeleteSuppressedDestinationInput {
 }
 impl DeleteSuppressedDestinationInput {
     /// Creates a new builder-style object to manufacture [`DeleteSuppressedDestinationInput`](crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationInput).
-    pub fn builder() -> crate::operation::delete_suppressed_destination::builders::DeleteSuppressedDestinationInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::delete_suppressed_destination::builders::DeleteSuppressedDestinationInputBuilder {
         crate::operation::delete_suppressed_destination::builders::DeleteSuppressedDestinationInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteSuppressedDestinationInput`](crate::operation::delete_suppressed_destination::DeleteSuppressedDestinationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteSuppressedDestinationInputBuilder {
     pub(crate) email_address: ::std::option::Option<::std::string::String>,
@@ -38,18 +37,12 @@ pub struct DeleteSuppressedDestinationInputBuilder {
 impl DeleteSuppressedDestinationInputBuilder {
     /// <p>The suppressed email destination to remove from the suppression list for your account or for the specified tenant.</p>
     /// This field is required.
-    pub fn email_address(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.email_address = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The suppressed email destination to remove from the suppression list for your account or for the specified tenant.</p>
-    pub fn set_email_address(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.email_address = input;
         self
     }

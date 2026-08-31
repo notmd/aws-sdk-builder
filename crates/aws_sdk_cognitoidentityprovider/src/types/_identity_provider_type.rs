@@ -58,13 +58,11 @@ pub struct IdentityProviderType {
     /// <p>Describe response: <code>"ProviderDetails": { "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=", "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email", "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" }</code></p>
     /// </dd>
     /// </dl>
-    pub provider_details: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub provider_details:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>A mapping of IdP attributes to standard and custom user pool attributes.</p>
-    pub attribute_mapping: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub attribute_mapping:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>A list of IdP identifiers. IdP identifiers are strings that represent friendly names or domain names of IdPs, for example <code>MyIdP</code> or <code>auth.example.com</code>. You can choose to route user authorization requests to the right IdP with either IdP identifiers or IdP names. For more information, see <code>identity_provider</code> and <code>idp_identifier</code> at <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html#get-authorize-request-parameters">Authorize endpoint</a>.</p>
     pub idp_identifiers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
@@ -135,17 +133,13 @@ impl IdentityProviderType {
     /// </dl>
     pub fn provider_details(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.provider_details.as_ref()
     }
     /// <p>A mapping of IdP attributes to standard and custom user pool attributes.</p>
     pub fn attribute_mapping(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.attribute_mapping.as_ref()
     }
     /// <p>A list of IdP identifiers. IdP identifiers are strings that represent friendly names or domain names of IdPs, for example <code>MyIdP</code> or <code>auth.example.com</code>. You can choose to route user authorization requests to the right IdP with either IdP identifiers or IdP names. For more information, see <code>identity_provider</code> and <code>idp_identifier</code> at <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html#get-authorize-request-parameters">Authorize endpoint</a>.</p>
@@ -171,20 +165,16 @@ impl IdentityProviderType {
 }
 
 /// A builder for [`IdentityProviderType`](crate::types::IdentityProviderType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct IdentityProviderTypeBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
     pub(crate) provider_name: ::std::option::Option<::std::string::String>,
     pub(crate) provider_type: ::std::option::Option<crate::types::IdentityProviderTypeType>,
-    pub(crate) provider_details: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
-    pub(crate) attribute_mapping: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) provider_details:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) attribute_mapping:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) idp_identifiers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) last_modified_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) creation_date: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -205,18 +195,12 @@ impl IdentityProviderTypeBuilder {
         &self.user_pool_id
     }
     /// <p>A friendly name for the IdP.</p>
-    pub fn provider_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn provider_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.provider_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A friendly name for the IdP.</p>
-    pub fn set_provider_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_provider_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.provider_name = input;
         self
     }
@@ -230,17 +214,12 @@ impl IdentityProviderTypeBuilder {
         self
     }
     /// <p>The type of IdP. Either SAML, OIDC, or a named social identity provider.</p>
-    pub fn set_provider_type(
-        mut self,
-        input: ::std::option::Option<crate::types::IdentityProviderTypeType>,
-    ) -> Self {
+    pub fn set_provider_type(mut self, input: ::std::option::Option<crate::types::IdentityProviderTypeType>) -> Self {
         self.provider_type = input;
         self
     }
     /// <p>The type of IdP. Either SAML, OIDC, or a named social identity provider.</p>
-    pub fn get_provider_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::IdentityProviderTypeType> {
+    pub fn get_provider_type(&self) -> &::std::option::Option<crate::types::IdentityProviderTypeType> {
         &self.provider_type
     }
     /// Adds a key-value pair to `provider_details`.
@@ -355,9 +334,7 @@ impl IdentityProviderTypeBuilder {
     /// </dl>
     pub fn set_provider_details(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.provider_details = input;
         self
@@ -412,9 +389,7 @@ impl IdentityProviderTypeBuilder {
     /// </dl>
     pub fn get_provider_details(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.provider_details
     }
     /// Adds a key-value pair to `attribute_mapping`.
@@ -435,9 +410,7 @@ impl IdentityProviderTypeBuilder {
     /// <p>A mapping of IdP attributes to standard and custom user pool attributes.</p>
     pub fn set_attribute_mapping(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.attribute_mapping = input;
         self
@@ -445,9 +418,7 @@ impl IdentityProviderTypeBuilder {
     /// <p>A mapping of IdP attributes to standard and custom user pool attributes.</p>
     pub fn get_attribute_mapping(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.attribute_mapping
     }
     /// Appends an item to `idp_identifiers`.
@@ -455,27 +426,19 @@ impl IdentityProviderTypeBuilder {
     /// To override the contents of this collection use [`set_idp_identifiers`](Self::set_idp_identifiers).
     ///
     /// <p>A list of IdP identifiers. IdP identifiers are strings that represent friendly names or domain names of IdPs, for example <code>MyIdP</code> or <code>auth.example.com</code>. You can choose to route user authorization requests to the right IdP with either IdP identifiers or IdP names. For more information, see <code>identity_provider</code> and <code>idp_identifier</code> at <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html#get-authorize-request-parameters">Authorize endpoint</a>.</p>
-    pub fn idp_identifiers(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn idp_identifiers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.idp_identifiers.unwrap_or_default();
         v.push(input.into());
         self.idp_identifiers = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of IdP identifiers. IdP identifiers are strings that represent friendly names or domain names of IdPs, for example <code>MyIdP</code> or <code>auth.example.com</code>. You can choose to route user authorization requests to the right IdP with either IdP identifiers or IdP names. For more information, see <code>identity_provider</code> and <code>idp_identifier</code> at <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html#get-authorize-request-parameters">Authorize endpoint</a>.</p>
-    pub fn set_idp_identifiers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_idp_identifiers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.idp_identifiers = input;
         self
     }
     /// <p>A list of IdP identifiers. IdP identifiers are strings that represent friendly names or domain names of IdPs, for example <code>MyIdP</code> or <code>auth.example.com</code>. You can choose to route user authorization requests to the right IdP with either IdP identifiers or IdP names. For more information, see <code>identity_provider</code> and <code>idp_identifier</code> at <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html#get-authorize-request-parameters">Authorize endpoint</a>.</p>
-    pub fn get_idp_identifiers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_idp_identifiers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.idp_identifiers
     }
     /// <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
@@ -484,10 +447,7 @@ impl IdentityProviderTypeBuilder {
         self
     }
     /// <p>The date and time when the item was modified. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
-    pub fn set_last_modified_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_last_modified_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_modified_date = input;
         self
     }
@@ -501,10 +461,7 @@ impl IdentityProviderTypeBuilder {
         self
     }
     /// <p>The date and time when the item was created. Amazon Cognito returns this timestamp in UNIX epoch time format. Your SDK might render the output in a human-readable format like ISO 8601 or a Java <code>Date</code> object.</p>
-    pub fn set_creation_date(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.creation_date = input;
         self
     }

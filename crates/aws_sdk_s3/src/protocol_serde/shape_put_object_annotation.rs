@@ -9,81 +9,89 @@ pub fn de_put_object_annotation_http_error(
     crate::operation::put_object_annotation::PutObjectAnnotationError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled)?;
-    generic_builder =
-        crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled)?;
+    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(
-                crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
-                    generic,
-                ),
-            )
-        }
+        None => return Err(crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AnnotationLimitExceeded" => crate::operation::put_object_annotation::PutObjectAnnotationError::AnnotationLimitExceeded({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "AnnotationLimitExceeded" => {
+            crate::operation::put_object_annotation::PutObjectAnnotationError::AnnotationLimitExceeded({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::AnnotationLimitExceededBuilder::default();
-                output = crate::protocol_serde::shape_annotation_limit_exceeded::de_annotation_limit_exceeded_xml_err(_response_body, output)
-                    .map_err(crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "AnnotationNameTooLong" => crate::operation::put_object_annotation::PutObjectAnnotationError::AnnotationNameTooLong({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::AnnotationLimitExceededBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_annotation_limit_exceeded::de_annotation_limit_exceeded_xml_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "AnnotationNameTooLong" => {
+            crate::operation::put_object_annotation::PutObjectAnnotationError::AnnotationNameTooLong({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::AnnotationNameTooLongBuilder::default();
-                output = crate::protocol_serde::shape_annotation_name_too_long::de_annotation_name_too_long_xml_err(_response_body, output)
-                    .map_err(crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidAnnotationName" => crate::operation::put_object_annotation::PutObjectAnnotationError::InvalidAnnotationName({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::AnnotationNameTooLongBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_annotation_name_too_long::de_annotation_name_too_long_xml_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidAnnotationName" => {
+            crate::operation::put_object_annotation::PutObjectAnnotationError::InvalidAnnotationName({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidAnnotationNameBuilder::default();
-                output = crate::protocol_serde::shape_invalid_annotation_name::de_invalid_annotation_name_xml_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::InvalidAnnotationNameBuilder::default();
+                    output = crate::protocol_serde::shape_invalid_annotation_name::de_invalid_annotation_name_xml_err(
+                        _response_body,
+                        output,
+                    )
                     .map_err(crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "InvalidRequest" => crate::operation::put_object_annotation::PutObjectAnnotationError::InvalidRequest({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = crate::types::error::builders::InvalidRequestBuilder::default();
-                output = crate::protocol_serde::shape_invalid_request::de_invalid_request_xml_err(_response_body, output)
-                    .map_err(crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled)?;
+                output =
+                    crate::protocol_serde::shape_invalid_request::de_invalid_request_xml_err(_response_body, output)
+                        .map_err(crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -122,21 +130,26 @@ pub fn de_put_object_annotation_http_error(
             }
             tmp
         }),
-        "UnsupportedMediaType" => crate::operation::put_object_annotation::PutObjectAnnotationError::UnsupportedMediaType({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "UnsupportedMediaType" => {
+            crate::operation::put_object_annotation::PutObjectAnnotationError::UnsupportedMediaType({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UnsupportedMediaTypeBuilder::default();
-                output = crate::protocol_serde::shape_unsupported_media_type::de_unsupported_media_type_xml_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::UnsupportedMediaTypeBuilder::default();
+                    output = crate::protocol_serde::shape_unsupported_media_type::de_unsupported_media_type_xml_err(
+                        _response_body,
+                        output,
+                    )
                     .map_err(crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => crate::operation::put_object_annotation::PutObjectAnnotationError::generic(generic),
     })
 }
@@ -153,159 +166,135 @@ pub fn de_put_object_annotation_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::put_object_annotation::builders::PutObjectAnnotationOutputBuilder::default();
-        output = crate::protocol_serde::shape_put_object_annotation::de_put_object_annotation(
-            _response_body,
-            output,
-        )
-        .map_err(crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled)?;
+        output = crate::protocol_serde::shape_put_object_annotation::de_put_object_annotation(_response_body, output)
+            .map_err(crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled)?;
         output = output.set_checksum_crc32(
-            crate::protocol_serde::shape_put_object_annotation_output::de_checksum_crc32_header(
-                _response_headers,
-            )
-            .map_err(|_| {
-                crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
-                    "Failed to parse ChecksumCRC32 from header `x-amz-checksum-crc32",
-                )
-            })?,
+            crate::protocol_serde::shape_put_object_annotation_output::de_checksum_crc32_header(_response_headers)
+                .map_err(|_| {
+                    crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
+                        "Failed to parse ChecksumCRC32 from header `x-amz-checksum-crc32",
+                    )
+                })?,
         );
         output = output.set_checksum_crc32_c(
-            crate::protocol_serde::shape_put_object_annotation_output::de_checksum_crc32_c_header(
-                _response_headers,
-            )
-            .map_err(|_| {
-                crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
-                    "Failed to parse ChecksumCRC32C from header `x-amz-checksum-crc32c",
-                )
-            })?,
+            crate::protocol_serde::shape_put_object_annotation_output::de_checksum_crc32_c_header(_response_headers)
+                .map_err(|_| {
+                    crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
+                        "Failed to parse ChecksumCRC32C from header `x-amz-checksum-crc32c",
+                    )
+                })?,
         );
         output = output.set_checksum_crc64_nvme(
-            crate::protocol_serde::shape_put_object_annotation_output::de_checksum_crc64_nvme_header(_response_headers).map_err(|_| {
-                crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
-                    "Failed to parse ChecksumCRC64NVME from header `x-amz-checksum-crc64nvme",
-                )
-            })?,
+            crate::protocol_serde::shape_put_object_annotation_output::de_checksum_crc64_nvme_header(_response_headers)
+                .map_err(|_| {
+                    crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
+                        "Failed to parse ChecksumCRC64NVME from header `x-amz-checksum-crc64nvme",
+                    )
+                })?,
         );
         output = output.set_checksum_md5(
-            crate::protocol_serde::shape_put_object_annotation_output::de_checksum_md5_header(
-                _response_headers,
-            )
-            .map_err(|_| {
-                crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
-                    "Failed to parse ChecksumMD5 from header `x-amz-checksum-md5",
-                )
-            })?,
+            crate::protocol_serde::shape_put_object_annotation_output::de_checksum_md5_header(_response_headers)
+                .map_err(|_| {
+                    crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
+                        "Failed to parse ChecksumMD5 from header `x-amz-checksum-md5",
+                    )
+                })?,
         );
         output = output.set_checksum_sha1(
-            crate::protocol_serde::shape_put_object_annotation_output::de_checksum_sha1_header(
-                _response_headers,
-            )
-            .map_err(|_| {
-                crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
-                    "Failed to parse ChecksumSHA1 from header `x-amz-checksum-sha1",
-                )
-            })?,
+            crate::protocol_serde::shape_put_object_annotation_output::de_checksum_sha1_header(_response_headers)
+                .map_err(|_| {
+                    crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
+                        "Failed to parse ChecksumSHA1 from header `x-amz-checksum-sha1",
+                    )
+                })?,
         );
         output = output.set_checksum_sha256(
-            crate::protocol_serde::shape_put_object_annotation_output::de_checksum_sha256_header(
-                _response_headers,
-            )
-            .map_err(|_| {
-                crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
-                    "Failed to parse ChecksumSHA256 from header `x-amz-checksum-sha256",
-                )
-            })?,
+            crate::protocol_serde::shape_put_object_annotation_output::de_checksum_sha256_header(_response_headers)
+                .map_err(|_| {
+                    crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
+                        "Failed to parse ChecksumSHA256 from header `x-amz-checksum-sha256",
+                    )
+                })?,
         );
         output = output.set_checksum_sha512(
-            crate::protocol_serde::shape_put_object_annotation_output::de_checksum_sha512_header(
-                _response_headers,
-            )
-            .map_err(|_| {
-                crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
-                    "Failed to parse ChecksumSHA512 from header `x-amz-checksum-sha512",
-                )
-            })?,
+            crate::protocol_serde::shape_put_object_annotation_output::de_checksum_sha512_header(_response_headers)
+                .map_err(|_| {
+                    crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
+                        "Failed to parse ChecksumSHA512 from header `x-amz-checksum-sha512",
+                    )
+                })?,
         );
         output = output.set_checksum_type(
-            crate::protocol_serde::shape_put_object_annotation_output::de_checksum_type_header(
-                _response_headers,
-            )
-            .map_err(|_| {
-                crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
-                    "Failed to parse ChecksumType from header `x-amz-checksum-type",
-                )
-            })?,
+            crate::protocol_serde::shape_put_object_annotation_output::de_checksum_type_header(_response_headers)
+                .map_err(|_| {
+                    crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
+                        "Failed to parse ChecksumType from header `x-amz-checksum-type",
+                    )
+                })?,
         );
         output = output.set_checksum_xxhash128(
-            crate::protocol_serde::shape_put_object_annotation_output::de_checksum_xxhash128_header(_response_headers).map_err(|_| {
-                crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
-                    "Failed to parse ChecksumXXHASH128 from header `x-amz-checksum-xxhash128",
-                )
-            })?,
+            crate::protocol_serde::shape_put_object_annotation_output::de_checksum_xxhash128_header(_response_headers)
+                .map_err(|_| {
+                    crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
+                        "Failed to parse ChecksumXXHASH128 from header `x-amz-checksum-xxhash128",
+                    )
+                })?,
         );
         output = output.set_checksum_xxhash3(
-            crate::protocol_serde::shape_put_object_annotation_output::de_checksum_xxhash3_header(
-                _response_headers,
-            )
-            .map_err(|_| {
-                crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
-                    "Failed to parse ChecksumXXHASH3 from header `x-amz-checksum-xxhash3",
-                )
-            })?,
+            crate::protocol_serde::shape_put_object_annotation_output::de_checksum_xxhash3_header(_response_headers)
+                .map_err(|_| {
+                    crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
+                        "Failed to parse ChecksumXXHASH3 from header `x-amz-checksum-xxhash3",
+                    )
+                })?,
         );
         output = output.set_checksum_xxhash64(
-            crate::protocol_serde::shape_put_object_annotation_output::de_checksum_xxhash64_header(
-                _response_headers,
-            )
-            .map_err(|_| {
+            crate::protocol_serde::shape_put_object_annotation_output::de_checksum_xxhash64_header(_response_headers)
+                .map_err(|_| {
                 crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
                     "Failed to parse ChecksumXXHASH64 from header `x-amz-checksum-xxhash64",
                 )
             })?,
         );
         output = output.set_e_tag(
-            crate::protocol_serde::shape_put_object_annotation_output::de_e_tag_header(
-                _response_headers,
-            )
-            .map_err(|_| {
-                crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
-                    "Failed to parse ETag from header `ETag",
-                )
-            })?,
+            crate::protocol_serde::shape_put_object_annotation_output::de_e_tag_header(_response_headers).map_err(
+                |_| {
+                    crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
+                        "Failed to parse ETag from header `ETag",
+                    )
+                },
+            )?,
         );
         output = output.set_object_version_id(
-            crate::protocol_serde::shape_put_object_annotation_output::de_object_version_id_header(
-                _response_headers,
-            )
-            .map_err(|_| {
+            crate::protocol_serde::shape_put_object_annotation_output::de_object_version_id_header(_response_headers)
+                .map_err(|_| {
                 crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
                     "Failed to parse ObjectVersionId from header `x-amz-object-version-id",
                 )
             })?,
         );
         output = output.set_request_charged(
-            crate::protocol_serde::shape_put_object_annotation_output::de_request_charged_header(
+            crate::protocol_serde::shape_put_object_annotation_output::de_request_charged_header(_response_headers)
+                .map_err(|_| {
+                    crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
+                        "Failed to parse RequestCharged from header `x-amz-request-charged",
+                    )
+                })?,
+        );
+        output = output.set_server_side_encryption(
+            crate::protocol_serde::shape_put_object_annotation_output::de_server_side_encryption_header(
                 _response_headers,
             )
             .map_err(|_| {
-                crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
-                    "Failed to parse RequestCharged from header `x-amz-request-charged",
-                )
-            })?,
-        );
-        output = output.set_server_side_encryption(
-            crate::protocol_serde::shape_put_object_annotation_output::de_server_side_encryption_header(_response_headers).map_err(|_| {
                 crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
                     "Failed to parse ServerSideEncryption from header `x-amz-server-side-encryption",
                 )
             })?,
         );
         output._set_extended_request_id(
-            crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers)
-                .map(str::to_string),
+            crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string),
         );
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
@@ -313,20 +302,14 @@ pub fn de_put_object_annotation_http_response(
 pub fn ser_put_object_annotation_headers(
     input: &crate::operation::put_object_annotation::PutObjectAnnotationInput,
     mut builder: ::http_1x::request::Builder,
-) -> std::result::Result<
-    ::http_1x::request::Builder,
-    ::aws_smithy_types::error::operation::BuildError,
-> {
+) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
     if let ::std::option::Option::Some(inner_1) = &input.object_if_match {
         let formatted_2 = inner_1.as_str();
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "object_if_match",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-object-if-match", header_value);
@@ -337,10 +320,7 @@ pub fn ser_put_object_annotation_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_algorithm",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-sdk-checksum-algorithm", header_value);
@@ -351,10 +331,7 @@ pub fn ser_put_object_annotation_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_crc32",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-checksum-crc32", header_value);
@@ -365,10 +342,7 @@ pub fn ser_put_object_annotation_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_crc32_c",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-checksum-crc32c", header_value);
@@ -379,10 +353,7 @@ pub fn ser_put_object_annotation_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_crc64_nvme",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-checksum-crc64nvme", header_value);
@@ -393,10 +364,7 @@ pub fn ser_put_object_annotation_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_sha1",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-checksum-sha1", header_value);
@@ -407,10 +375,7 @@ pub fn ser_put_object_annotation_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_sha256",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-checksum-sha256", header_value);
@@ -421,10 +386,7 @@ pub fn ser_put_object_annotation_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_sha512",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-checksum-sha512", header_value);
@@ -435,10 +397,7 @@ pub fn ser_put_object_annotation_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_md5",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-checksum-md5", header_value);
@@ -449,10 +408,7 @@ pub fn ser_put_object_annotation_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_xxhash64",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-checksum-xxhash64", header_value);
@@ -463,10 +419,7 @@ pub fn ser_put_object_annotation_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_xxhash3",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-checksum-xxhash3", header_value);
@@ -477,10 +430,7 @@ pub fn ser_put_object_annotation_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "checksum_xxhash128",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-checksum-xxhash128", header_value);
@@ -491,10 +441,7 @@ pub fn ser_put_object_annotation_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "content_md5",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("Content-MD5", header_value);
@@ -505,10 +452,7 @@ pub fn ser_put_object_annotation_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "request_payer",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-request-payer", header_value);
@@ -519,10 +463,7 @@ pub fn ser_put_object_annotation_headers(
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
                 "expected_bucket_owner",
-                format!(
-                    "`{}` cannot be used as a header value: {}",
-                    &header_value, err
-                ),
+                format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
         builder = builder.header("x-amz-expected-bucket-owner", header_value);

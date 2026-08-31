@@ -16,61 +16,56 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
         Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
             #[allow(unused_mut)]
-            let mut builder =
-                crate::types::builders::GuardrailAutomatedReasoningLogicWarningBuilder::default();
+            let mut builder = crate::types::builders::GuardrailAutomatedReasoningLogicWarningBuilder::default();
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "type" => {
-                                builder = builder.set_type(
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key
+                        .to_unescaped()?
+                        .as_ref()
+                    {
+                        "type" => {
+                            builder = builder.set_type(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| crate::types::GuardrailAutomatedReasoningLogicWarningType::from(u.as_ref()))
+                                        s.to_unescaped().map(|u| {
+                                            crate::types::GuardrailAutomatedReasoningLogicWarningType::from(u.as_ref())
+                                        })
                                     })
                                     .transpose()?,
                             );
-                            }
-                            "premises" => {
-                                builder = builder.set_premises(
-                                    crate::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?
-                                );
-                            }
-                            "claims" => {
-                                builder = builder.set_claims(
-                                    crate::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?
-                                );
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                    }
+                        "premises" => {
+                            builder = builder.set_premises(
+                                    crate::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?
+                                );
+                        }
+                        "claims" => {
+                            builder = builder.set_claims(
+                                    crate::protocol_serde::shape_guardrail_automated_reasoning_statement_list::de_guardrail_automated_reasoning_statement_list(tokens, _value, depth + 1)?
+                                );
+                        }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
             Ok(Some(builder.build()))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

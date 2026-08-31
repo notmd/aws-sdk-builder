@@ -42,7 +42,10 @@ pub fn ser_eks_container_override(
     if let Some(var_13) = &input.resources {
         #[allow(unused_mut)]
         let mut object_14 = object.key("resources").start_object();
-        crate::protocol_serde::shape_eks_container_resource_requirements::ser_eks_container_resource_requirements(&mut object_14, var_13)?;
+        crate::protocol_serde::shape_eks_container_resource_requirements::ser_eks_container_resource_requirements(
+            &mut object_14,
+            var_13,
+        )?;
         object_14.finish();
     }
     Ok(())

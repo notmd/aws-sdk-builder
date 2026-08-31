@@ -16,8 +16,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListAssociatedPackagesError>`](crate::operation::list_associated_packages::ListAssociatedPackagesError)
     pub fn list_associated_packages(
         &self,
-    ) -> crate::operation::list_associated_packages::builders::ListAssociatedPackagesFluentBuilder
-    {
-        crate::operation::list_associated_packages::builders::ListAssociatedPackagesFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::list_associated_packages::builders::ListAssociatedPackagesFluentBuilder {
+        crate::operation::list_associated_packages::builders::ListAssociatedPackagesFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

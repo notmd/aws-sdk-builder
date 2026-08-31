@@ -11,8 +11,6 @@ impl super::Client {
     pub fn upload_ssh_public_key(
         &self,
     ) -> crate::operation::upload_ssh_public_key::builders::UploadSSHPublicKeyFluentBuilder {
-        crate::operation::upload_ssh_public_key::builders::UploadSSHPublicKeyFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::upload_ssh_public_key::builders::UploadSSHPublicKeyFluentBuilder::new(self.handle.clone())
     }
 }

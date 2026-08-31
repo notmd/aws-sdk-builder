@@ -46,9 +46,7 @@ impl GetTransformerOutput {
 }
 
 /// A builder for [`GetTransformerOutput`](crate::operation::get_transformer::GetTransformerOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetTransformerOutputBuilder {
     pub(crate) log_group_identifier: ::std::option::Option<::std::string::String>,
@@ -59,18 +57,12 @@ pub struct GetTransformerOutputBuilder {
 }
 impl GetTransformerOutputBuilder {
     /// <p>The ARN of the log group that you specified in your request.</p>
-    pub fn log_group_identifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_identifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_identifier = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The ARN of the log group that you specified in your request.</p>
-    pub fn set_log_group_identifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_identifier = input;
         self
     }
@@ -126,9 +118,7 @@ impl GetTransformerOutputBuilder {
         self
     }
     /// <p>This sructure contains the configuration of the requested transformer.</p>
-    pub fn get_transformer_config(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Processor>> {
+    pub fn get_transformer_config(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Processor>> {
         &self.transformer_config
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

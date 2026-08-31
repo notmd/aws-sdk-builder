@@ -257,9 +257,7 @@ pub(crate) fn match_describe_kinesis_streaming_destination_ce975c8fb2b65f98f(
         let _fprj_14 = _fld_6
             .iter()
             .filter({
-                fn filter(
-                    _v: &crate::types::KinesisDataStreamDestination,
-                ) -> ::std::option::Option<bool> {
+                fn filter(_v: &crate::types::KinesisDataStreamDestination) -> ::std::option::Option<bool> {
                     let _fld_7 = _v.destination_status.as_ref()?;
                     let _tmp_21 = _fld_7.as_str();
                     const _LIT_8: &str = "DISABLED";
@@ -330,8 +328,7 @@ pub(crate) fn match_describe_table_1cce2c05524fb92d4(
     >,
 ) -> bool {
     if let ::std::result::Result::Err(err) = _result {
-        if let ::std::option::Option::Some(code) =
-            ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err)
+        if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err)
         {
             return code == "ResourceNotFoundException";
         }

@@ -9,10 +9,7 @@ pub fn ser_delete(
         for list_item_1 in &input.objects {
             {
                 let inner_writer = scope.start_el("Object");
-                crate::protocol_serde::shape_object_identifier::ser_object_identifier(
-                    list_item_1,
-                    inner_writer,
-                )?
+                crate::protocol_serde::shape_object_identifier::ser_object_identifier(list_item_1, inner_writer)?
             }
         }
     }

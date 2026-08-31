@@ -63,10 +63,7 @@ impl DeleteConformancePackFluentBuilder {
         }
     }
     /// Access the DeleteConformancePack as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::delete_conformance_pack::builders::DeleteConformancePackInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::delete_conformance_pack::builders::DeleteConformancePackInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -90,16 +87,13 @@ impl DeleteConformancePackFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::delete_conformance_pack::DeleteConformancePack::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::delete_conformance_pack::DeleteConformancePack::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::delete_conformance_pack::DeleteConformancePack::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::delete_conformance_pack::DeleteConformancePack::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -128,18 +122,12 @@ impl DeleteConformancePackFluentBuilder {
         self
     }
     /// <p>Name of the conformance pack you want to delete.</p>
-    pub fn conformance_pack_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn conformance_pack_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.conformance_pack_name(input.into());
         self
     }
     /// <p>Name of the conformance pack you want to delete.</p>
-    pub fn set_conformance_pack_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_conformance_pack_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_conformance_pack_name(input);
         self
     }

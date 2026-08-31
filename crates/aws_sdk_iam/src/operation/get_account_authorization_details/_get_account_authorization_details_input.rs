@@ -32,15 +32,14 @@ impl GetAccountAuthorizationDetailsInput {
 }
 impl GetAccountAuthorizationDetailsInput {
     /// Creates a new builder-style object to manufacture [`GetAccountAuthorizationDetailsInput`](crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsInput).
-    pub fn builder() -> crate::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsInputBuilder {
         crate::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsInputBuilder::default()
     }
 }
 
 /// A builder for [`GetAccountAuthorizationDetailsInput`](crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetAccountAuthorizationDetailsInputBuilder {
     pub(crate) filter: ::std::option::Option<::std::vec::Vec<crate::types::EntityType>>,
@@ -62,10 +61,7 @@ impl GetAccountAuthorizationDetailsInputBuilder {
     }
     /// <p>A list of entity types used to filter the results. Only the entities that match the types you specify are included in the output. Use the value <code>LocalManagedPolicy</code> to include customer managed policies.</p>
     /// <p>The format for this parameter is a comma-separated (if more than one) list of strings. Each string value in the list must be one of the valid values listed below.</p>
-    pub fn set_filter(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::EntityType>>,
-    ) -> Self {
+    pub fn set_filter(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EntityType>>) -> Self {
         self.filter = input;
         self
     }
@@ -112,10 +108,12 @@ impl GetAccountAuthorizationDetailsInputBuilder {
         crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsInput {
-            filter: self.filter,
-            max_items: self.max_items,
-            marker: self.marker,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsInput {
+                filter: self.filter,
+                max_items: self.max_items,
+                marker: self.marker,
+            },
+        )
     }
 }

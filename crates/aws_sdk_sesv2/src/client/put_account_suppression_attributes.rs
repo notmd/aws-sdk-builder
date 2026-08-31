@@ -9,7 +9,8 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutAccountSuppressionAttributesError>`](crate::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesError)
     pub fn put_account_suppression_attributes(
         &self,
-    ) -> crate::operation::put_account_suppression_attributes::builders::PutAccountSuppressionAttributesFluentBuilder{
+    ) -> crate::operation::put_account_suppression_attributes::builders::PutAccountSuppressionAttributesFluentBuilder
+    {
         crate::operation::put_account_suppression_attributes::builders::PutAccountSuppressionAttributesFluentBuilder::new(self.handle.clone())
     }
 }

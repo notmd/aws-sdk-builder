@@ -44,9 +44,7 @@ impl DescribeQueriesInput {
 }
 
 /// A builder for [`DescribeQueriesInput`](crate::operation::describe_queries::DescribeQueriesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeQueriesInputBuilder {
     pub(crate) log_group_name: ::std::option::Option<::std::string::String>,
@@ -57,18 +55,12 @@ pub struct DescribeQueriesInputBuilder {
 }
 impl DescribeQueriesInputBuilder {
     /// <p>Limits the returned queries to only those for the specified log group.</p>
-    pub fn log_group_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Limits the returned queries to only those for the specified log group.</p>
-    pub fn set_log_group_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_log_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group_name = input;
         self
     }
@@ -124,10 +116,7 @@ impl DescribeQueriesInputBuilder {
         self
     }
     /// <p>Limits the returned queries to only the queries that use the specified query language.</p>
-    pub fn set_query_language(
-        mut self,
-        input: ::std::option::Option<crate::types::QueryLanguage>,
-    ) -> Self {
+    pub fn set_query_language(mut self, input: ::std::option::Option<crate::types::QueryLanguage>) -> Self {
         self.query_language = input;
         self
     }

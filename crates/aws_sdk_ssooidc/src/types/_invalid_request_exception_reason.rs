@@ -114,14 +114,10 @@ impl InvalidRequestExceptionReason {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -130,12 +126,8 @@ impl ::std::fmt::Display for InvalidRequestExceptionReason {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
             InvalidRequestExceptionReason::KmsDisabledKey => write!(f, "KMS_DisabledException"),
-            InvalidRequestExceptionReason::KmsInvalidKeyUsage => {
-                write!(f, "KMS_InvalidKeyUsageException")
-            }
-            InvalidRequestExceptionReason::KmsInvalidState => {
-                write!(f, "KMS_InvalidStateException")
-            }
+            InvalidRequestExceptionReason::KmsInvalidKeyUsage => write!(f, "KMS_InvalidKeyUsageException"),
+            InvalidRequestExceptionReason::KmsInvalidState => write!(f, "KMS_InvalidStateException"),
             InvalidRequestExceptionReason::KmsKeyNotFound => write!(f, "KMS_NotFoundException"),
             InvalidRequestExceptionReason::Unknown(value) => write!(f, "{value}"),
         }

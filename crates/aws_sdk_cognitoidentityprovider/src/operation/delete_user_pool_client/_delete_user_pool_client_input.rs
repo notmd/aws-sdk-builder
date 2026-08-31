@@ -29,8 +29,7 @@ impl ::std::fmt::Debug for DeleteUserPoolClientInput {
 }
 impl DeleteUserPoolClientInput {
     /// Creates a new builder-style object to manufacture [`DeleteUserPoolClientInput`](crate::operation::delete_user_pool_client::DeleteUserPoolClientInput).
-    pub fn builder(
-    ) -> crate::operation::delete_user_pool_client::builders::DeleteUserPoolClientInputBuilder {
+    pub fn builder() -> crate::operation::delete_user_pool_client::builders::DeleteUserPoolClientInputBuilder {
         crate::operation::delete_user_pool_client::builders::DeleteUserPoolClientInputBuilder::default()
     }
 }
@@ -80,12 +79,10 @@ impl DeleteUserPoolClientInputBuilder {
         crate::operation::delete_user_pool_client::DeleteUserPoolClientInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::delete_user_pool_client::DeleteUserPoolClientInput {
-                user_pool_id: self.user_pool_id,
-                client_id: self.client_id,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::delete_user_pool_client::DeleteUserPoolClientInput {
+            user_pool_id: self.user_pool_id,
+            client_id: self.client_id,
+        })
     }
 }
 impl ::std::fmt::Debug for DeleteUserPoolClientInputBuilder {

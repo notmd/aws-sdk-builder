@@ -105,7 +105,7 @@ impl InvokeModelWithBidirectionalStreamInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamInput {
                 model_id: self.model_id,

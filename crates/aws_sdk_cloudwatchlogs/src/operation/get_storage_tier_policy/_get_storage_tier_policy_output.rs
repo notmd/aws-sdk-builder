@@ -26,17 +26,13 @@ impl ::aws_types::request_id::RequestId for GetStorageTierPolicyOutput {
 }
 impl GetStorageTierPolicyOutput {
     /// Creates a new builder-style object to manufacture [`GetStorageTierPolicyOutput`](crate::operation::get_storage_tier_policy::GetStorageTierPolicyOutput).
-    pub fn builder(
-    ) -> crate::operation::get_storage_tier_policy::builders::GetStorageTierPolicyOutputBuilder
-    {
+    pub fn builder() -> crate::operation::get_storage_tier_policy::builders::GetStorageTierPolicyOutputBuilder {
         crate::operation::get_storage_tier_policy::builders::GetStorageTierPolicyOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetStorageTierPolicyOutput`](crate::operation::get_storage_tier_policy::GetStorageTierPolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetStorageTierPolicyOutputBuilder {
     pub(crate) storage_tier: ::std::option::Option<crate::types::StorageTier>,
@@ -50,10 +46,7 @@ impl GetStorageTierPolicyOutputBuilder {
         self
     }
     /// <p>The current storage tier for the account.</p>
-    pub fn set_storage_tier(
-        mut self,
-        input: ::std::option::Option<crate::types::StorageTier>,
-    ) -> Self {
+    pub fn set_storage_tier(mut self, input: ::std::option::Option<crate::types::StorageTier>) -> Self {
         self.storage_tier = input;
         self
     }

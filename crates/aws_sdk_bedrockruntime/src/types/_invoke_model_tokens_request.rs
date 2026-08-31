@@ -54,10 +54,8 @@ impl InvokeModelTokensRequestBuilder {
     /// - [`body`](crate::types::builders::InvokeModelTokensRequestBuilder::body)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::InvokeModelTokensRequest,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::InvokeModelTokensRequest, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::InvokeModelTokensRequest {
             body: self.body.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -27,8 +27,7 @@ impl FunctionActiveFluentBuilder {
     /// Access the GetFunctionConfiguration as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::get_function_configuration::builders::GetFunctionConfigurationInputBuilder
-    {
+    ) -> &crate::operation::get_function_configuration::builders::GetFunctionConfigurationInputBuilder {
         &self.inner
     }
     /// Waits for the function's State to be Active. This waiter uses GetFunctionConfiguration API. This should be used after new function creation.
@@ -39,21 +38,21 @@ impl FunctionActiveFluentBuilder {
         crate::waiters::function_active::FunctionActiveFinalPoll,
         crate::waiters::function_active::WaitUntilFunctionActiveError,
     > {
-        let input = self.inner.build().map_err(
-            ::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure,
-        )?;
-        let runtime_plugins = crate::operation::get_function_configuration::GetFunctionConfiguration::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            ::std::option::Option::None,
-        )
-        .with_operation_plugin(crate::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new());
+        let input = self
+            .inner
+            .build()
+            .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
+        let runtime_plugins =
+            crate::operation::get_function_configuration::GetFunctionConfiguration::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                ::std::option::Option::None,
+            )
+            .with_operation_plugin(crate::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new());
         let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();
         let runtime_components_builder = runtime_plugins
             .apply_client_configuration(&mut cfg)
-            .map_err(
-                ::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure,
-            )?;
+            .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;
         let time_components = runtime_components_builder.into_time_components();
         let sleep_impl = time_components
             .sleep_impl()
@@ -67,18 +66,15 @@ impl FunctionActiveFluentBuilder {
             &crate::operation::get_function_configuration::GetFunctionConfigurationError,
         >| {
             // Matches: {"output":{"path":"State","expected":"Active","comparator":"stringEquals"}}
-            if crate::waiters::matchers::match_get_function_configuration_9fb739f92fd5b515a(result)
-            {
+            if crate::waiters::matchers::match_get_function_configuration_9fb739f92fd5b515a(result) {
                 return ::aws_smithy_runtime::client::waiters::AcceptorState::Success;
             }
             // Matches: {"output":{"path":"State","expected":"Failed","comparator":"stringEquals"}}
-            if crate::waiters::matchers::match_get_function_configuration_87a1a2d4cc2e2d1e1(result)
-            {
+            if crate::waiters::matchers::match_get_function_configuration_87a1a2d4cc2e2d1e1(result) {
                 return ::aws_smithy_runtime::client::waiters::AcceptorState::Failure;
             }
             // Matches: {"output":{"path":"State","expected":"Pending","comparator":"stringEquals"}}
-            if crate::waiters::matchers::match_get_function_configuration_ff08d54fec9077aeb(result)
-            {
+            if crate::waiters::matchers::match_get_function_configuration_ff08d54fec9077aeb(result) {
                 return ::aws_smithy_runtime::client::waiters::AcceptorState::Retry;
             }
             ::aws_smithy_runtime::client::waiters::AcceptorState::NoAcceptorsMatched
@@ -103,10 +99,7 @@ impl FunctionActiveFluentBuilder {
             .acceptor(acceptor)
             .operation(operation)
             .build();
-        ::aws_smithy_runtime::client::waiters::attach_waiter_tracing_span(
-            orchestrator.orchestrate(),
-        )
-        .await
+        ::aws_smithy_runtime::client::waiters::attach_waiter_tracing_span(orchestrator.orchestrate()).await
     }
     /// <p>The name or ARN of the Lambda function, version, or alias.</p>
     /// <p class="title"><b>Name formats</b></p>
@@ -119,10 +112,7 @@ impl FunctionActiveFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn function_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.function_name(input.into());
         self
     }
@@ -137,10 +127,7 @@ impl FunctionActiveFluentBuilder {
     /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
     /// </ul>
     /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn set_function_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_function_name(input);
         self
     }
@@ -184,8 +171,7 @@ pub type FunctionActiveFinalPoll = ::aws_smithy_runtime_api::client::waiters::Fi
 >;
 
 /// Error type for the `function_active` waiter.
-pub type WaitUntilFunctionActiveError =
-    ::aws_smithy_runtime_api::client::waiters::error::WaiterError<
-        crate::operation::get_function_configuration::GetFunctionConfigurationOutput,
-        crate::operation::get_function_configuration::GetFunctionConfigurationError,
-    >;
+pub type WaitUntilFunctionActiveError = ::aws_smithy_runtime_api::client::waiters::error::WaiterError<
+    crate::operation::get_function_configuration::GetFunctionConfigurationOutput,
+    crate::operation::get_function_configuration::GetFunctionConfigurationError,
+>;

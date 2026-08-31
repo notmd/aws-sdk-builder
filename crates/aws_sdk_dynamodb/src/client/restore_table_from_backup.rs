@@ -17,8 +17,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<RestoreTableFromBackupError>`](crate::operation::restore_table_from_backup::RestoreTableFromBackupError)
     pub fn restore_table_from_backup(
         &self,
-    ) -> crate::operation::restore_table_from_backup::builders::RestoreTableFromBackupFluentBuilder
-    {
-        crate::operation::restore_table_from_backup::builders::RestoreTableFromBackupFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::restore_table_from_backup::builders::RestoreTableFromBackupFluentBuilder {
+        crate::operation::restore_table_from_backup::builders::RestoreTableFromBackupFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

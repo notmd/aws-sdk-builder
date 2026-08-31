@@ -13,15 +13,14 @@ impl ::aws_types::request_id::RequestId for StartConfigRulesEvaluationOutput {
 }
 impl StartConfigRulesEvaluationOutput {
     /// Creates a new builder-style object to manufacture [`StartConfigRulesEvaluationOutput`](crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluationOutput).
-    pub fn builder() -> crate::operation::start_config_rules_evaluation::builders::StartConfigRulesEvaluationOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::start_config_rules_evaluation::builders::StartConfigRulesEvaluationOutputBuilder {
         crate::operation::start_config_rules_evaluation::builders::StartConfigRulesEvaluationOutputBuilder::default()
     }
 }
 
 /// A builder for [`StartConfigRulesEvaluationOutput`](crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct StartConfigRulesEvaluationOutputBuilder {
     _request_id: Option<String>,
@@ -37,9 +36,7 @@ impl StartConfigRulesEvaluationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`StartConfigRulesEvaluationOutput`](crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluationOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluationOutput {
+    pub fn build(self) -> crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluationOutput {
         crate::operation::start_config_rules_evaluation::StartConfigRulesEvaluationOutput {
             _request_id: self._request_id,
         }

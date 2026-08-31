@@ -9,8 +9,6 @@ impl super::Client {
     pub fn delete_scheduled_query(
         &self,
     ) -> crate::operation::delete_scheduled_query::builders::DeleteScheduledQueryFluentBuilder {
-        crate::operation::delete_scheduled_query::builders::DeleteScheduledQueryFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_scheduled_query::builders::DeleteScheduledQueryFluentBuilder::new(self.handle.clone())
     }
 }

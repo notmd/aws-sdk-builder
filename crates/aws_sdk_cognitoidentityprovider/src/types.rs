@@ -53,10 +53,7 @@ pub use crate::types::_auth_flow_type::AuthFlowType;
 ))]
 pub use crate::types::_analytics_metadata_type::AnalyticsMetadataType;
 
-#[cfg(any(
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_respond_to_auth_challenge"
-))]
+#[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge"))]
 pub use crate::types::_context_data_type::ContextDataType;
 
 #[cfg(any(
@@ -76,28 +73,16 @@ pub use crate::types::_challenge_name_type::ChallengeNameType;
 ))]
 pub use crate::types::_authentication_result_type::AuthenticationResultType;
 
-#[cfg(any(
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_set_user_mfa_preference"
-))]
+#[cfg(any(feature = "op_admin_set_user_mfa_preference", feature = "op_set_user_mfa_preference"))]
 pub use crate::types::_sms_mfa_settings_type::SmsMfaSettingsType;
 
-#[cfg(any(
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_set_user_mfa_preference"
-))]
+#[cfg(any(feature = "op_admin_set_user_mfa_preference", feature = "op_set_user_mfa_preference"))]
 pub use crate::types::_software_token_mfa_settings_type::SoftwareTokenMfaSettingsType;
 
-#[cfg(any(
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_set_user_mfa_preference"
-))]
+#[cfg(any(feature = "op_admin_set_user_mfa_preference", feature = "op_set_user_mfa_preference"))]
 pub use crate::types::_email_mfa_settings_type::EmailMfaSettingsType;
 
-#[cfg(any(
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_set_user_mfa_preference"
-))]
+#[cfg(any(feature = "op_admin_set_user_mfa_preference", feature = "op_set_user_mfa_preference"))]
 pub use crate::types::_web_authn_mfa_settings_type::WebAuthnMfaSettingsType;
 
 #[cfg(any(
@@ -107,10 +92,7 @@ pub use crate::types::_web_authn_mfa_settings_type::WebAuthnMfaSettingsType;
 ))]
 pub use crate::types::_feedback_value_type::FeedbackValueType;
 
-#[cfg(any(
-    feature = "op_admin_update_device_status",
-    feature = "op_update_device_status"
-))]
+#[cfg(any(feature = "op_admin_update_device_status", feature = "op_update_device_status"))]
 pub use crate::types::_device_remembered_status_type::DeviceRememberedStatusType;
 
 #[cfg(feature = "op_confirm_device")]
@@ -382,10 +364,7 @@ pub use crate::types::_routing_type::RoutingType;
 ))]
 pub use crate::types::_user_pool_replica_type::UserPoolReplicaType;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub use crate::types::_risk_configuration_type::RiskConfigurationType;
 
 #[cfg(feature = "op_describe_user_pool_domain")]
@@ -406,64 +385,34 @@ pub use crate::types::_code_delivery_details_type::CodeDeliveryDetailsType;
 ))]
 pub use crate::types::_log_delivery_configuration_type::LogDeliveryConfigurationType;
 
-#[cfg(any(
-    feature = "op_get_provisioned_limit",
-    feature = "op_update_provisioned_limit"
-))]
+#[cfg(any(feature = "op_get_provisioned_limit", feature = "op_update_provisioned_limit"))]
 pub use crate::types::_limit_definition_type::LimitDefinitionType;
 
-#[cfg(any(
-    feature = "op_get_provisioned_limit",
-    feature = "op_update_provisioned_limit"
-))]
+#[cfg(any(feature = "op_get_provisioned_limit", feature = "op_update_provisioned_limit"))]
 pub use crate::types::_limit_type::LimitType;
 
-#[cfg(any(
-    feature = "op_get_ui_customization",
-    feature = "op_set_ui_customization"
-))]
+#[cfg(any(feature = "op_get_ui_customization", feature = "op_set_ui_customization"))]
 pub use crate::types::_ui_customization_type::UiCustomizationType;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 pub use crate::types::_sms_mfa_config_type::SmsMfaConfigType;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 pub use crate::types::_software_token_mfa_config_type::SoftwareTokenMfaConfigType;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 pub use crate::types::_email_mfa_config_type::EmailMfaConfigType;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 pub use crate::types::_web_authn_configuration_type::WebAuthnConfigurationType;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub use crate::types::_compromised_credentials_risk_configuration_type::CompromisedCredentialsRiskConfigurationType;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub use crate::types::_account_takeover_risk_configuration_type::AccountTakeoverRiskConfigurationType;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub use crate::types::_risk_exception_configuration_type::RiskExceptionConfigurationType;
 
 #[cfg(feature = "op_update_user_pool_replica")]
@@ -753,22 +702,13 @@ pub use crate::types::_replica_role_type::ReplicaRoleType;
 #[cfg(feature = "op_describe_user_pool_domain")]
 pub use crate::types::_domain_status_type::DomainStatusType;
 
-#[cfg(any(
-    feature = "op_get_provisioned_limit",
-    feature = "op_update_provisioned_limit"
-))]
+#[cfg(any(feature = "op_get_provisioned_limit", feature = "op_update_provisioned_limit"))]
 pub use crate::types::_limit_class::LimitClass;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 pub use crate::types::_user_verification_type::UserVerificationType;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 pub use crate::types::_web_authn_factor_configuration_type::WebAuthnFactorConfigurationType;
 
 #[cfg(feature = "op_list_identity_providers")]
@@ -792,22 +732,13 @@ pub use crate::types::_web_authn_credential_description::WebAuthnCredentialDescr
 ))]
 pub use crate::types::_log_configuration_type::LogConfigurationType;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub use crate::types::_compromised_credentials_actions_type::CompromisedCredentialsActionsType;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub use crate::types::_notify_configuration_type::NotifyConfigurationType;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub use crate::types::_account_takeover_actions_type::AccountTakeoverActionsType;
 
 #[cfg(any(
@@ -831,10 +762,7 @@ pub use crate::types::_number_attribute_constraints_type::NumberAttributeConstra
 ))]
 pub use crate::types::_string_attribute_constraints_type::StringAttributeConstraintsType;
 
-#[cfg(any(
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_respond_to_auth_challenge"
-))]
+#[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge"))]
 pub use crate::types::_http_header::HttpHeader;
 
 #[cfg(feature = "op_admin_list_user_auth_events")]
@@ -952,28 +880,16 @@ pub use crate::types::_s3_configuration_type::S3ConfigurationType;
 ))]
 pub use crate::types::_firehose_configuration_type::FirehoseConfigurationType;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub use crate::types::_event_filter_type::EventFilterType;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub use crate::types::_compromised_credentials_event_action_type::CompromisedCredentialsEventActionType;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub use crate::types::_notify_email_type::NotifyEmailType;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub use crate::types::_account_takeover_action_type::AccountTakeoverActionType;
 
 #[cfg(feature = "op_admin_list_user_auth_events")]
@@ -992,10 +908,7 @@ pub use crate::types::_challenge_response_type::ChallengeResponseType;
 ))]
 pub use crate::types::_recovery_option_name_type::RecoveryOptionNameType;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 pub use crate::types::_account_takeover_event_action_type::AccountTakeoverEventActionType;
 
 #[cfg(feature = "op_admin_list_user_auth_events")]
@@ -1011,28 +924,16 @@ pub use crate::types::_challenge_response::ChallengeResponse;
 ))]
 mod _account_recovery_setting_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 mod _account_takeover_action_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 mod _account_takeover_actions_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 mod _account_takeover_event_action_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 mod _account_takeover_risk_configuration_type;
 
 #[cfg(any(
@@ -1203,28 +1104,16 @@ mod _code_delivery_details_type;
 ))]
 mod _color_scheme_mode_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 mod _compromised_credentials_actions_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 mod _compromised_credentials_event_action_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 mod _compromised_credentials_risk_configuration_type;
 
-#[cfg(any(
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_respond_to_auth_challenge"
-))]
+#[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge"))]
 mod _context_data_type;
 
 #[cfg(any(
@@ -1303,10 +1192,7 @@ mod _delivery_medium_type;
 ))]
 mod _device_configuration_type;
 
-#[cfg(any(
-    feature = "op_admin_update_device_status",
-    feature = "op_update_device_status"
-))]
+#[cfg(any(feature = "op_admin_update_device_status", feature = "op_update_device_status"))]
 mod _device_remembered_status_type;
 
 #[cfg(feature = "op_confirm_device")]
@@ -1333,16 +1219,10 @@ mod _domain_status_type;
 ))]
 mod _email_configuration_type;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 mod _email_mfa_config_type;
 
-#[cfg(any(
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_set_user_mfa_preference"
-))]
+#[cfg(any(feature = "op_admin_set_user_mfa_preference", feature = "op_set_user_mfa_preference"))]
 mod _email_mfa_settings_type;
 
 #[cfg(any(
@@ -1374,10 +1254,7 @@ mod _event_context_data_type;
 #[cfg(feature = "op_admin_list_user_auth_events")]
 mod _event_feedback_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 mod _event_filter_type;
 
 #[cfg(feature = "op_admin_list_user_auth_events")]
@@ -1438,10 +1315,7 @@ mod _firehose_configuration_type;
 ))]
 mod _group_type;
 
-#[cfg(any(
-    feature = "op_admin_initiate_auth",
-    feature = "op_admin_respond_to_auth_challenge"
-))]
+#[cfg(any(feature = "op_admin_initiate_auth", feature = "op_admin_respond_to_auth_challenge"))]
 mod _http_header;
 
 #[cfg(any(
@@ -1506,22 +1380,13 @@ mod _key_configuration_type;
 ))]
 mod _lambda_config_type;
 
-#[cfg(any(
-    feature = "op_get_provisioned_limit",
-    feature = "op_update_provisioned_limit"
-))]
+#[cfg(any(feature = "op_get_provisioned_limit", feature = "op_update_provisioned_limit"))]
 mod _limit_class;
 
-#[cfg(any(
-    feature = "op_get_provisioned_limit",
-    feature = "op_update_provisioned_limit"
-))]
+#[cfg(any(feature = "op_get_provisioned_limit", feature = "op_update_provisioned_limit"))]
 mod _limit_definition_type;
 
-#[cfg(any(
-    feature = "op_get_provisioned_limit",
-    feature = "op_update_provisioned_limit"
-))]
+#[cfg(any(feature = "op_get_provisioned_limit", feature = "op_update_provisioned_limit"))]
 mod _limit_type;
 
 #[cfg(any(
@@ -1580,16 +1445,10 @@ mod _mfa_option_type;
 ))]
 mod _new_device_metadata_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 mod _notify_configuration_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 mod _notify_email_type;
 
 #[cfg(any(
@@ -1707,19 +1566,13 @@ mod _resource_server_scope_type;
 ))]
 mod _resource_server_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 mod _risk_configuration_type;
 
 #[cfg(feature = "op_admin_list_user_auth_events")]
 mod _risk_decision_type;
 
-#[cfg(any(
-    feature = "op_describe_risk_configuration",
-    feature = "op_set_risk_configuration"
-))]
+#[cfg(any(feature = "op_describe_risk_configuration", feature = "op_set_risk_configuration"))]
 mod _risk_exception_configuration_type;
 
 #[cfg(feature = "op_admin_list_user_auth_events")]
@@ -1768,28 +1621,16 @@ mod _sign_in_policy_type;
 ))]
 mod _sms_configuration_type;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 mod _sms_mfa_config_type;
 
-#[cfg(any(
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_set_user_mfa_preference"
-))]
+#[cfg(any(feature = "op_admin_set_user_mfa_preference", feature = "op_set_user_mfa_preference"))]
 mod _sms_mfa_settings_type;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 mod _software_token_mfa_config_type;
 
-#[cfg(any(
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_set_user_mfa_preference"
-))]
+#[cfg(any(feature = "op_admin_set_user_mfa_preference", feature = "op_set_user_mfa_preference"))]
 mod _software_token_mfa_settings_type;
 
 #[cfg(any(
@@ -1845,10 +1686,7 @@ mod _time_units_type;
 ))]
 mod _token_validity_units_type;
 
-#[cfg(any(
-    feature = "op_get_ui_customization",
-    feature = "op_set_ui_customization"
-))]
+#[cfg(any(feature = "op_get_ui_customization", feature = "op_set_ui_customization"))]
 mod _ui_customization_type;
 
 #[cfg(feature = "op_update_user_pool_replica")]
@@ -1959,10 +1797,7 @@ mod _user_status_type;
 ))]
 mod _user_type;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 mod _user_verification_type;
 
 #[cfg(any(feature = "op_create_user_pool", feature = "op_describe_user_pool"))]
@@ -1988,25 +1823,16 @@ mod _verified_attribute_type;
 #[cfg(feature = "op_verify_software_token")]
 mod _verify_software_token_response_type;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 mod _web_authn_configuration_type;
 
 #[cfg(feature = "op_list_web_authn_credentials")]
 mod _web_authn_credential_description;
 
-#[cfg(any(
-    feature = "op_get_user_pool_mfa_config",
-    feature = "op_set_user_pool_mfa_config"
-))]
+#[cfg(any(feature = "op_get_user_pool_mfa_config", feature = "op_set_user_pool_mfa_config"))]
 mod _web_authn_factor_configuration_type;
 
-#[cfg(any(
-    feature = "op_admin_set_user_mfa_preference",
-    feature = "op_set_user_mfa_preference"
-))]
+#[cfg(any(feature = "op_admin_set_user_mfa_preference", feature = "op_set_user_mfa_preference"))]
 mod _web_authn_mfa_settings_type;
 
 /// Builders

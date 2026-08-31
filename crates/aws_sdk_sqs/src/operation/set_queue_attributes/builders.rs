@@ -66,9 +66,7 @@ impl SetQueueAttributesFluentBuilder {
         }
     }
     /// Access the SetQueueAttributes as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::set_queue_attributes::builders::SetQueueAttributesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::set_queue_attributes::builders::SetQueueAttributesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -92,17 +90,12 @@ impl SetQueueAttributesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::set_queue_attributes::SetQueueAttributes::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::set_queue_attributes::SetQueueAttributes::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::set_queue_attributes::SetQueueAttributes::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::set_queue_attributes::SetQueueAttributes::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -450,9 +443,8 @@ impl SetQueueAttributesFluentBuilder {
     /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
     pub fn get_attributes(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>>
+    {
         self.inner.get_attributes()
     }
 }

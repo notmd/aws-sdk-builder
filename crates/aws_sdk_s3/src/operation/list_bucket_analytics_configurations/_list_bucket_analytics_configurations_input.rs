@@ -26,15 +26,15 @@ impl ListBucketAnalyticsConfigurationsInput {
 }
 impl ListBucketAnalyticsConfigurationsInput {
     /// Creates a new builder-style object to manufacture [`ListBucketAnalyticsConfigurationsInput`](crate::operation::list_bucket_analytics_configurations::ListBucketAnalyticsConfigurationsInput).
-    pub fn builder() -> crate::operation::list_bucket_analytics_configurations::builders::ListBucketAnalyticsConfigurationsInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::list_bucket_analytics_configurations::builders::ListBucketAnalyticsConfigurationsInputBuilder
+    {
         crate::operation::list_bucket_analytics_configurations::builders::ListBucketAnalyticsConfigurationsInputBuilder::default()
     }
 }
 
 /// A builder for [`ListBucketAnalyticsConfigurationsInput`](crate::operation::list_bucket_analytics_configurations::ListBucketAnalyticsConfigurationsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListBucketAnalyticsConfigurationsInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -58,18 +58,12 @@ impl ListBucketAnalyticsConfigurationsInputBuilder {
         &self.bucket
     }
     /// <p>The <code>ContinuationToken</code> that represents a placeholder from where this request should begin.</p>
-    pub fn continuation_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn continuation_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The <code>ContinuationToken</code> that represents a placeholder from where this request should begin.</p>
-    pub fn set_continuation_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.continuation_token = input;
         self
     }
@@ -78,18 +72,12 @@ impl ListBucketAnalyticsConfigurationsInputBuilder {
         &self.continuation_token
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn expected_bucket_owner(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn set_expected_bucket_owner(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
     }
@@ -103,7 +91,7 @@ impl ListBucketAnalyticsConfigurationsInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::list_bucket_analytics_configurations::ListBucketAnalyticsConfigurationsInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::list_bucket_analytics_configurations::ListBucketAnalyticsConfigurationsInput {
                 bucket: self.bucket,

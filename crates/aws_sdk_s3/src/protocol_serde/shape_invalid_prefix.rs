@@ -3,10 +3,8 @@
 pub fn de_invalid_prefix_xml_err(
     inp: &[u8],
     mut builder: crate::types::error::builders::InvalidPrefixBuilder,
-) -> std::result::Result<
-    crate::types::error::builders::InvalidPrefixBuilder,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> std::result::Result<crate::types::error::builders::InvalidPrefixBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
+{
     if inp.is_empty() {
         return Ok(builder);
     }

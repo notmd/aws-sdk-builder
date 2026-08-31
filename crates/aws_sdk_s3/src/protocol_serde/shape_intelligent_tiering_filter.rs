@@ -3,10 +3,7 @@
 pub fn de_intelligent_tiering_filter(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<
-    crate::types::IntelligentTieringFilter,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<crate::types::IntelligentTieringFilter, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
             "maximum nesting depth exceeded",
@@ -71,7 +68,10 @@ pub fn ser_intelligent_tiering_filter(
     }
     if let Some(var_6) = &input.and {
         let inner_writer = scope.start_el("And");
-        crate::protocol_serde::shape_intelligent_tiering_and_operator::ser_intelligent_tiering_and_operator(var_6, inner_writer)?
+        crate::protocol_serde::shape_intelligent_tiering_and_operator::ser_intelligent_tiering_and_operator(
+            var_6,
+            inner_writer,
+        )?
     }
     scope.finish();
     Ok(())

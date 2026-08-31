@@ -11,11 +11,7 @@ impl super::Client {
     ///   - [`expected_bucket_owner(impl Into<String>)`](crate::operation::put_bucket_policy::builders::PutBucketPolicyFluentBuilder::expected_bucket_owner) / [`set_expected_bucket_owner(Option<String>)`](crate::operation::put_bucket_policy::builders::PutBucketPolicyFluentBuilder::set_expected_bucket_owner):<br>required: **false**<br><p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>  <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p> </note><br>
     /// - On success, responds with [`PutBucketPolicyOutput`](crate::operation::put_bucket_policy::PutBucketPolicyOutput)
     /// - On failure, responds with [`SdkError<PutBucketPolicyError>`](crate::operation::put_bucket_policy::PutBucketPolicyError)
-    pub fn put_bucket_policy(
-        &self,
-    ) -> crate::operation::put_bucket_policy::builders::PutBucketPolicyFluentBuilder {
-        crate::operation::put_bucket_policy::builders::PutBucketPolicyFluentBuilder::new(
-            self.handle.clone(),
-        )
+    pub fn put_bucket_policy(&self) -> crate::operation::put_bucket_policy::builders::PutBucketPolicyFluentBuilder {
+        crate::operation::put_bucket_policy::builders::PutBucketPolicyFluentBuilder::new(self.handle.clone())
     }
 }

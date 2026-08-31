@@ -32,9 +32,7 @@ impl RetentionConfiguration {
 }
 
 /// A builder for [`RetentionConfiguration`](crate::types::RetentionConfiguration).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RetentionConfigurationBuilder {
     pub(crate) name: ::std::option::Option<::std::string::String>,
@@ -83,10 +81,8 @@ impl RetentionConfigurationBuilder {
     /// - [`retention_period_in_days`](crate::types::builders::RetentionConfigurationBuilder::retention_period_in_days)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::RetentionConfiguration,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::RetentionConfiguration, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::RetentionConfiguration {
             name: self.name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -28,8 +28,7 @@ impl crate::operation::list_signing_certificates::builders::ListSigningCertifica
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListSigningCertificatesFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::list_signing_certificates::builders::ListSigningCertificatesInputBuilder,
+    inner: crate::operation::list_signing_certificates::builders::ListSigningCertificatesInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -62,8 +61,7 @@ impl ListSigningCertificatesFluentBuilder {
     /// Access the ListSigningCertificates as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::list_signing_certificates::builders::ListSigningCertificatesInputBuilder
-    {
+    ) -> &crate::operation::list_signing_certificates::builders::ListSigningCertificatesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,16 +85,13 @@ impl ListSigningCertificatesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_signing_certificates::ListSigningCertificates::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_signing_certificates::ListSigningCertificates::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::list_signing_certificates::ListSigningCertificates::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_signing_certificates::ListSigningCertificates::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -129,9 +124,11 @@ impl ListSigningCertificatesFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::list_signing_certificates::paginator::ListSigningCertificatesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::list_signing_certificates::paginator::ListSigningCertificatesPaginator
-    {
-        crate::operation::list_signing_certificates::paginator::ListSigningCertificatesPaginator::new(self.handle, self.inner)
+    ) -> crate::operation::list_signing_certificates::paginator::ListSigningCertificatesPaginator {
+        crate::operation::list_signing_certificates::paginator::ListSigningCertificatesPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The name of the IAM user whose signing certificates you want to examine.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>

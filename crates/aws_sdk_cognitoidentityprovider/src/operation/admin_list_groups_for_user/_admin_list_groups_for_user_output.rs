@@ -28,17 +28,13 @@ impl ::aws_types::request_id::RequestId for AdminListGroupsForUserOutput {
 }
 impl AdminListGroupsForUserOutput {
     /// Creates a new builder-style object to manufacture [`AdminListGroupsForUserOutput`](crate::operation::admin_list_groups_for_user::AdminListGroupsForUserOutput).
-    pub fn builder(
-    ) -> crate::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserOutputBuilder
-    {
+    pub fn builder() -> crate::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserOutputBuilder {
         crate::operation::admin_list_groups_for_user::builders::AdminListGroupsForUserOutputBuilder::default()
     }
 }
 
 /// A builder for [`AdminListGroupsForUserOutput`](crate::operation::admin_list_groups_for_user::AdminListGroupsForUserOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AdminListGroupsForUserOutputBuilder {
     pub(crate) groups: ::std::option::Option<::std::vec::Vec<crate::types::GroupType>>,
@@ -58,10 +54,7 @@ impl AdminListGroupsForUserOutputBuilder {
         self
     }
     /// <p>An array of groups and information about them.</p>
-    pub fn set_groups(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::GroupType>>,
-    ) -> Self {
+    pub fn set_groups(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GroupType>>) -> Self {
         self.groups = input;
         self
     }
@@ -93,9 +86,7 @@ impl AdminListGroupsForUserOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`AdminListGroupsForUserOutput`](crate::operation::admin_list_groups_for_user::AdminListGroupsForUserOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::admin_list_groups_for_user::AdminListGroupsForUserOutput {
+    pub fn build(self) -> crate::operation::admin_list_groups_for_user::AdminListGroupsForUserOutput {
         crate::operation::admin_list_groups_for_user::AdminListGroupsForUserOutput {
             groups: self.groups,
             next_token: self.next_token,

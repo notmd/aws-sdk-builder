@@ -60,9 +60,7 @@ impl DeleteUserAttributesFluentBuilder {
         }
     }
     /// Access the DeleteUserAttributes as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::delete_user_attributes::builders::DeleteUserAttributesInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::delete_user_attributes::builders::DeleteUserAttributesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -91,11 +89,7 @@ impl DeleteUserAttributesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_user_attributes::DeleteUserAttributes::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::delete_user_attributes::DeleteUserAttributes::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -130,10 +124,7 @@ impl DeleteUserAttributesFluentBuilder {
     ///
     /// <p>An array of strings representing the user attribute names you want to delete.</p>
     /// <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name, for example <code>custom:department</code>.</p>
-    pub fn user_attribute_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn user_attribute_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.user_attribute_names(input.into());
         self
     }
@@ -148,9 +139,7 @@ impl DeleteUserAttributesFluentBuilder {
     }
     /// <p>An array of strings representing the user attribute names you want to delete.</p>
     /// <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name, for example <code>custom:department</code>.</p>
-    pub fn get_user_attribute_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_user_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_user_attribute_names()
     }
     /// <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for <code>aws.cognito.signin.user.admin</code>.</p>

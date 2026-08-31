@@ -54,11 +54,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -68,60 +66,45 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "StringValue" => {
-                                builder = builder.set_string_value(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key
+                        .to_unescaped()?
+                        .as_ref()
+                    {
+                        "StringValue" => {
+                            builder = builder.set_string_value(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                     .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                     .transpose()?,
-                                );
-                            }
-                            "BinaryValue" => {
-                                builder = builder.set_binary_value(
-                                    ::aws_smithy_json::deserialize::token::expect_blob_or_null(
-                                        tokens.next(),
-                                    )?,
-                                );
-                            }
-                            "StringListValues" => {
-                                builder = builder.set_string_list_values(
-                                    crate::protocol_serde::shape_string_list::de_string_list(
-                                        tokens,
-                                        _value,
-                                        depth + 1,
-                                    )?,
-                                );
-                            }
-                            "BinaryListValues" => {
-                                builder = builder.set_binary_list_values(
-                                    crate::protocol_serde::shape_binary_list::de_binary_list(
-                                        tokens,
-                                        _value,
-                                        depth + 1,
-                                    )?,
-                                );
-                            }
-                            "DataType" => {
-                                builder = builder.set_data_type(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
-                                );
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                            );
                         }
-                    }
+                        "BinaryValue" => {
+                            builder = builder.set_binary_value(
+                                ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?,
+                            );
+                        }
+                        "StringListValues" => {
+                            builder = builder.set_string_list_values(
+                                crate::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?,
+                            );
+                        }
+                        "BinaryListValues" => {
+                            builder = builder.set_binary_list_values(
+                                crate::protocol_serde::shape_binary_list::de_binary_list(tokens, _value, depth + 1)?,
+                            );
+                        }
+                        "DataType" => {
+                            builder = builder.set_data_type(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
@@ -136,10 +119,8 @@ where
                     })?,
             ))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

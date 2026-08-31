@@ -18,8 +18,6 @@ impl super::Client {
     pub fn describe_quota_share(
         &self,
     ) -> crate::operation::describe_quota_share::builders::DescribeQuotaShareFluentBuilder {
-        crate::operation::describe_quota_share::builders::DescribeQuotaShareFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::describe_quota_share::builders::DescribeQuotaShareFluentBuilder::new(self.handle.clone())
     }
 }

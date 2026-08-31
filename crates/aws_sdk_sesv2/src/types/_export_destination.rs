@@ -39,9 +39,7 @@ impl ExportDestination {
 }
 
 /// A builder for [`ExportDestination`](crate::types::ExportDestination).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ExportDestinationBuilder {
     pub(crate) data_format: ::std::option::Option<crate::types::DataFormat>,
@@ -67,10 +65,7 @@ impl ExportDestinationBuilder {
     /// <li>
     /// <p><code>JSON</code> - A Json file.</p></li>
     /// </ul>
-    pub fn set_data_format(
-        mut self,
-        input: ::std::option::Option<crate::types::DataFormat>,
-    ) -> Self {
+    pub fn set_data_format(mut self, input: ::std::option::Option<crate::types::DataFormat>) -> Self {
         self.data_format = input;
         self
     }
@@ -103,10 +98,7 @@ impl ExportDestinationBuilder {
     /// - [`data_format`](crate::types::builders::ExportDestinationBuilder::data_format)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::ExportDestination,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::ExportDestination, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ExportDestination {
             data_format: self.data_format.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

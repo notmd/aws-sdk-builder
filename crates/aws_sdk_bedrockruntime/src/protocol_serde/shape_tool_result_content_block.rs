@@ -31,17 +31,12 @@ pub fn ser_tool_result_content_block(
         crate::types::ToolResultContentBlock::SearchResult(inner) => {
             #[allow(unused_mut)]
             let mut object_4 = object_3.key("searchResult").start_object();
-            crate::protocol_serde::shape_search_result_block::ser_search_result_block(
-                &mut object_4,
-                inner,
-            )?;
+            crate::protocol_serde::shape_search_result_block::ser_search_result_block(&mut object_4, inner)?;
             object_4.finish();
         }
         crate::types::ToolResultContentBlock::Unknown => {
             return Err(
-                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                    "ToolResultContentBlock",
-                ),
+                ::aws_smithy_types::error::operation::SerializationError::unknown_variant("ToolResultContentBlock"),
             )
         }
     }
@@ -65,11 +60,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     let mut variant = None;
     match tokens.next().transpose()? {
@@ -91,40 +84,63 @@ where
                         continue;
                     }
                     if variant.is_some() {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                "encountered mixed variants in union",
-                            ),
-                        );
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            "encountered mixed variants in union",
+                        ));
                     }
                     variant = match key.as_ref() {
                         "json" => Some(crate::types::ToolResultContentBlock::Json(
-                            Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?)
-                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'json' cannot be null"))?,
+                            Some(::aws_smithy_json::deserialize::token::expect_document(tokens)?).ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                    "value for 'json' cannot be null",
+                                )
+                            })?,
                         )),
                         "text" => Some(crate::types::ToolResultContentBlock::Text(
                             ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                 .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                 .transpose()?
-                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                        "value for 'text' cannot be null",
+                                    )
+                                })?,
                         )),
                         "image" => Some(crate::types::ToolResultContentBlock::Image(
                             crate::protocol_serde::shape_image_block::de_image_block(tokens, _value, depth + 1)?
-                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'image' cannot be null"))?,
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                        "value for 'image' cannot be null",
+                                    )
+                                })?,
                         )),
                         "document" => Some(crate::types::ToolResultContentBlock::Document(
-                            crate::protocol_serde::shape_document_block::de_document_block(tokens, _value, depth + 1)?.ok_or_else(|| {
-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'document' cannot be null")
-                            })?,
+                            crate::protocol_serde::shape_document_block::de_document_block(tokens, _value, depth + 1)?
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                        "value for 'document' cannot be null",
+                                    )
+                                })?,
                         )),
                         "video" => Some(crate::types::ToolResultContentBlock::Video(
                             crate::protocol_serde::shape_video_block::de_video_block(tokens, _value, depth + 1)?
-                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'video' cannot be null"))?,
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                        "value for 'video' cannot be null",
+                                    )
+                                })?,
                         )),
                         "searchResult" => Some(crate::types::ToolResultContentBlock::SearchResult(
-                            crate::protocol_serde::shape_search_result_block::de_search_result_block(tokens, _value, depth + 1)?.ok_or_else(
-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'searchResult' cannot be null"),
-                            )?,
+                            crate::protocol_serde::shape_search_result_block::de_search_result_block(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                    "value for 'searchResult' cannot be null",
+                                )
+                            })?,
                         )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
@@ -133,28 +149,22 @@ where
                     };
                 }
                 other => {
-                    return Err(
-                        ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )),
-                    )
+                    return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                        format!("expected object key or end object, found: {other:?}"),
+                    ))
                 }
             }
         },
         _ => {
-            return Err(
-                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                    "expected start object or null",
-                ),
-            )
+            return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ))
         }
     }
     if variant.is_none() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "Union did not contain a valid variant.",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "Union did not contain a valid variant.",
+        ));
     }
     Ok(variant)
 }

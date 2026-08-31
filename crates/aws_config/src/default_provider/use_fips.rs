@@ -31,9 +31,7 @@ pub async fn use_fips_provider(provider_config: &ProviderConfig) -> Option<bool>
         .env(env::USE_FIPS)
         .profile(profile_key::USE_FIPS)
         .validate(&env, profiles, parse_bool)
-        .map_err(
-            |err| tracing::warn!(err = %DisplayErrorContext(&err), "invalid value for FIPS setting"),
-        )
+        .map_err(|err| tracing::warn!(err = %DisplayErrorContext(&err), "invalid value for FIPS setting"))
         .unwrap_or(None)
 }
 
@@ -49,10 +47,7 @@ mod test {
     #[tokio::test]
     #[traced_test]
     async fn log_error_on_invalid_value() {
-        let conf = ProviderConfig::empty().with_env(Env::from_slice(&[(
-            "AWS_USE_FIPS_ENDPOINT",
-            "not-a-boolean",
-        )]));
+        let conf = ProviderConfig::empty().with_env(Env::from_slice(&[("AWS_USE_FIPS_ENDPOINT", "not-a-boolean")]));
         assert_eq!(use_fips_provider(&conf).await, None);
         assert!(logs_contain("invalid value for FIPS setting"));
         assert!(logs_contain("AWS_USE_FIPS_ENDPOINT"));
@@ -76,10 +71,7 @@ mod test {
                 ),
                 None,
             )
-            .with_fs(Fs::from_slice(&[(
-                "conf",
-                "[default]\nuse_fips_endpoint = false",
-            )]));
+            .with_fs(Fs::from_slice(&[("conf", "[default]\nuse_fips_endpoint = false")]));
         assert_eq!(use_fips_provider(&conf).await, Some(true));
     }
 }

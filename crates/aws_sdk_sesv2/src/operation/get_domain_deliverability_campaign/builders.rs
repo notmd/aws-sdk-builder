@@ -43,7 +43,7 @@ impl
             crate::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignOutput,
             crate::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -57,7 +57,10 @@ impl GetDomainDeliverabilityCampaignFluentBuilder {
         }
     }
     /// Access the GetDomainDeliverabilityCampaign as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +79,7 @@ impl GetDomainDeliverabilityCampaignFluentBuilder {
             crate::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +89,11 @@ impl GetDomainDeliverabilityCampaignFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaign::orchestrate(&runtime_plugins, input).await
+        crate::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaign::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

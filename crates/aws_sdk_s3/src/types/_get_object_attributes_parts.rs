@@ -67,9 +67,7 @@ impl GetObjectAttributesParts {
 }
 
 /// A builder for [`GetObjectAttributesParts`](crate::types::GetObjectAttributesParts).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetObjectAttributesPartsBuilder {
     pub(crate) total_parts_count: ::std::option::Option<i32>,
@@ -95,18 +93,12 @@ impl GetObjectAttributesPartsBuilder {
         &self.total_parts_count
     }
     /// <p>The marker for the current part.</p>
-    pub fn part_number_marker(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn part_number_marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.part_number_marker = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The marker for the current part.</p>
-    pub fn set_part_number_marker(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_part_number_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.part_number_marker = input;
         self
     }
@@ -115,18 +107,12 @@ impl GetObjectAttributesPartsBuilder {
         &self.part_number_marker
     }
     /// <p>When a list is truncated, this element specifies the last part in the list, as well as the value to use for the <code>PartNumberMarker</code> request parameter in a subsequent request.</p>
-    pub fn next_part_number_marker(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn next_part_number_marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_part_number_marker = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>When a list is truncated, this element specifies the last part in the list, as well as the value to use for the <code>PartNumberMarker</code> request parameter in a subsequent request.</p>
-    pub fn set_next_part_number_marker(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_next_part_number_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_part_number_marker = input;
         self
     }
@@ -188,10 +174,7 @@ impl GetObjectAttributesPartsBuilder {
     /// <p><b>Directory buckets</b> - For <code>GetObjectAttributes</code>, regardless of whether an additional checksum is applied to the object specified in the request, the response returns the <code>Part</code> element.</p></li>
     /// </ul>
     /// </note>
-    pub fn set_parts(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::ObjectPart>>,
-    ) -> Self {
+    pub fn set_parts(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ObjectPart>>) -> Self {
         self.parts = input;
         self
     }

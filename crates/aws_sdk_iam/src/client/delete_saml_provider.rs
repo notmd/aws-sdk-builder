@@ -9,8 +9,6 @@ impl super::Client {
     pub fn delete_saml_provider(
         &self,
     ) -> crate::operation::delete_saml_provider::builders::DeleteSAMLProviderFluentBuilder {
-        crate::operation::delete_saml_provider::builders::DeleteSAMLProviderFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_saml_provider::builders::DeleteSAMLProviderFluentBuilder::new(self.handle.clone())
     }
 }

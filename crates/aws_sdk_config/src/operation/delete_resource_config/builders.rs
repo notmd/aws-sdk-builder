@@ -57,9 +57,7 @@ impl DeleteResourceConfigFluentBuilder {
         }
     }
     /// Access the DeleteResourceConfig as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::delete_resource_config::builders::DeleteResourceConfigInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::delete_resource_config::builders::DeleteResourceConfigInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,11 +86,7 @@ impl DeleteResourceConfigFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::delete_resource_config::DeleteResourceConfig::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::delete_resource_config::DeleteResourceConfig::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -121,18 +115,12 @@ impl DeleteResourceConfigFluentBuilder {
         self
     }
     /// <p>The type of the resource.</p>
-    pub fn resource_type(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.resource_type(input.into());
         self
     }
     /// <p>The type of the resource.</p>
-    pub fn set_resource_type(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_resource_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_resource_type(input);
         self
     }

@@ -9,9 +9,8 @@ pub struct MetricFilterMatchRecord {
     /// <p>The raw event data.</p>
     pub event_message: ::std::option::Option<::std::string::String>,
     /// <p>The values extracted from the event data by the filter.</p>
-    pub extracted_values: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub extracted_values:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl MetricFilterMatchRecord {
     /// <p>The event number.</p>
@@ -25,9 +24,7 @@ impl MetricFilterMatchRecord {
     /// <p>The values extracted from the event data by the filter.</p>
     pub fn extracted_values(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.extracted_values.as_ref()
     }
 }
@@ -39,16 +36,13 @@ impl MetricFilterMatchRecord {
 }
 
 /// A builder for [`MetricFilterMatchRecord`](crate::types::MetricFilterMatchRecord).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct MetricFilterMatchRecordBuilder {
     pub(crate) event_number: ::std::option::Option<i64>,
     pub(crate) event_message: ::std::option::Option<::std::string::String>,
-    pub(crate) extracted_values: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) extracted_values:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl MetricFilterMatchRecordBuilder {
     /// <p>The event number.</p>
@@ -66,18 +60,12 @@ impl MetricFilterMatchRecordBuilder {
         &self.event_number
     }
     /// <p>The raw event data.</p>
-    pub fn event_message(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn event_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.event_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The raw event data.</p>
-    pub fn set_event_message(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_event_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.event_message = input;
         self
     }
@@ -103,9 +91,7 @@ impl MetricFilterMatchRecordBuilder {
     /// <p>The values extracted from the event data by the filter.</p>
     pub fn set_extracted_values(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.extracted_values = input;
         self
@@ -113,9 +99,7 @@ impl MetricFilterMatchRecordBuilder {
     /// <p>The values extracted from the event data by the filter.</p>
     pub fn get_extracted_values(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.extracted_values
     }
     /// Consumes the builder and constructs a [`MetricFilterMatchRecord`](crate::types::MetricFilterMatchRecord).

@@ -21,10 +21,7 @@ pub fn ser_vector_index(
             {
                 #[allow(unused_mut)]
                 let mut object_6 = array_4.value().start_object();
-                crate::protocol_serde::shape_search_schema_element::ser_search_schema_element(
-                    &mut object_6,
-                    item_5,
-                )?;
+                crate::protocol_serde::shape_search_schema_element::ser_search_schema_element(&mut object_6, item_5)?;
                 object_6.finish();
             }
         }
@@ -43,9 +40,7 @@ pub fn ser_vector_index(
         );
     }
     {
-        object
-            .key("DistanceFunction")
-            .string(input.distance_function.as_str());
+        object.key("DistanceFunction").string(input.distance_function.as_str());
     }
     Ok(())
 }
@@ -54,10 +49,7 @@ pub(crate) fn de_vector_index<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<
-    Option<crate::types::VectorIndex>,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
->
+) -> ::std::result::Result<Option<crate::types::VectorIndex>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<
         Item = Result<
@@ -67,11 +59,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),
@@ -85,11 +75,9 @@ where
                         match key.to_unescaped()?.as_ref() {
                             "IndexName" => {
                                 builder = builder.set_index_name(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
                                 );
                             }
                             "VectorAttribute" => {
@@ -108,44 +96,33 @@ where
                             }
                             "Projection" => {
                                 builder = builder.set_projection(
-                                    crate::protocol_serde::shape_projection::de_projection(
-                                        tokens,
-                                        _value,
-                                        depth + 1,
-                                    )?,
+                                    crate::protocol_serde::shape_projection::de_projection(tokens, _value, depth + 1)?,
                                 );
                             }
                             "Dimensions" => {
                                 builder = builder.set_dimensions(
-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(i64::try_from)
-                                    .transpose()?,
+                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                        .map(i64::try_from)
+                                        .transpose()?,
                                 );
                             }
                             "DistanceFunction" => {
                                 builder = builder.set_distance_function(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                        tokens.next(),
-                                    )?
-                                    .map(|s| {
-                                        s.to_unescaped().map(|u| {
-                                            crate::types::VectorDistanceFunction::from(u.as_ref())
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| {
+                                            s.to_unescaped()
+                                                .map(|u| crate::types::VectorDistanceFunction::from(u.as_ref()))
                                         })
-                                    })
-                                    .transpose()?,
+                                        .transpose()?,
                                 );
                             }
                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
                     }
                     other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            format!("expected object key or end object, found: {other:?}"),
+                        ))
                     }
                 }
             }
@@ -160,10 +137,8 @@ where
                     })?,
             ))
         }
-        _ => Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "expected start object or null",
-            ),
-        ),
+        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "expected start object or null",
+        )),
     }
 }

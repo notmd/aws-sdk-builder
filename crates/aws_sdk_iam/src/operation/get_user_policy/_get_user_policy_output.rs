@@ -44,9 +44,7 @@ impl GetUserPolicyOutput {
 }
 
 /// A builder for [`GetUserPolicyOutput`](crate::operation::get_user_policy::GetUserPolicyOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetUserPolicyOutputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -88,19 +86,13 @@ impl GetUserPolicyOutputBuilder {
     /// <p>The policy document.</p>
     /// <p>IAM stores policies in JSON format. However, resources that were created using CloudFormation templates can be formatted in YAML. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
     /// This field is required.
-    pub fn policy_document(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.policy_document = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The policy document.</p>
     /// <p>IAM stores policies in JSON format. However, resources that were created using CloudFormation templates can be formatted in YAML. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
-    pub fn set_policy_document(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy_document = input;
         self
     }

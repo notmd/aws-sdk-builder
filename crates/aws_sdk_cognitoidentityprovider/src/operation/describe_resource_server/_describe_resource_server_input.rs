@@ -22,17 +22,13 @@ impl DescribeResourceServerInput {
 }
 impl DescribeResourceServerInput {
     /// Creates a new builder-style object to manufacture [`DescribeResourceServerInput`](crate::operation::describe_resource_server::DescribeResourceServerInput).
-    pub fn builder(
-    ) -> crate::operation::describe_resource_server::builders::DescribeResourceServerInputBuilder
-    {
+    pub fn builder() -> crate::operation::describe_resource_server::builders::DescribeResourceServerInputBuilder {
         crate::operation::describe_resource_server::builders::DescribeResourceServerInputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeResourceServerInput`](crate::operation::describe_resource_server::DescribeResourceServerInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeResourceServerInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,

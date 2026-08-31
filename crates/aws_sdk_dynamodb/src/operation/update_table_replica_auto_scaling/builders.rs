@@ -43,7 +43,7 @@ impl
             crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingOutput,
             crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -57,7 +57,9 @@ impl UpdateTableReplicaAutoScalingFluentBuilder {
         }
     }
     /// Access the UpdateTableReplicaAutoScaling as a reference.
-    pub fn as_input(&self) -> &crate::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +88,11 @@ impl UpdateTableReplicaAutoScalingFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScaling::orchestrate(&runtime_plugins, input).await
+        crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScaling::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -130,9 +136,7 @@ impl UpdateTableReplicaAutoScalingFluentBuilder {
     /// <p>Represents the auto scaling settings of the global secondary indexes of the replica to be updated.</p>
     pub fn set_global_secondary_index_updates(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GlobalSecondaryIndexAutoScalingUpdate>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexAutoScalingUpdate>>,
     ) -> Self {
         self.inner = self.inner.set_global_secondary_index_updates(input);
         self
@@ -140,8 +144,7 @@ impl UpdateTableReplicaAutoScalingFluentBuilder {
     /// <p>Represents the auto scaling settings of the global secondary indexes of the replica to be updated.</p>
     pub fn get_global_secondary_index_updates(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexAutoScalingUpdate>>
-    {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexAutoScalingUpdate>> {
         self.inner.get_global_secondary_index_updates()
     }
     /// <p>The name of the global table to be updated. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
@@ -163,9 +166,7 @@ impl UpdateTableReplicaAutoScalingFluentBuilder {
         mut self,
         input: crate::types::AutoScalingSettingsUpdate,
     ) -> Self {
-        self.inner = self
-            .inner
-            .provisioned_write_capacity_auto_scaling_update(input);
+        self.inner = self.inner.provisioned_write_capacity_auto_scaling_update(input);
         self
     }
     /// <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
@@ -173,17 +174,14 @@ impl UpdateTableReplicaAutoScalingFluentBuilder {
         mut self,
         input: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
     ) -> Self {
-        self.inner = self
-            .inner
-            .set_provisioned_write_capacity_auto_scaling_update(input);
+        self.inner = self.inner.set_provisioned_write_capacity_auto_scaling_update(input);
         self
     }
     /// <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
     pub fn get_provisioned_write_capacity_auto_scaling_update(
         &self,
     ) -> &::std::option::Option<crate::types::AutoScalingSettingsUpdate> {
-        self.inner
-            .get_provisioned_write_capacity_auto_scaling_update()
+        self.inner.get_provisioned_write_capacity_auto_scaling_update()
     }
     ///
     /// Appends an item to `ReplicaUpdates`.

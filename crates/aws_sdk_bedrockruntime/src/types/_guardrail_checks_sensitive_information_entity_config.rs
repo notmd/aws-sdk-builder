@@ -15,28 +15,21 @@ impl GuardrailChecksSensitiveInformationEntityConfig {
 }
 impl GuardrailChecksSensitiveInformationEntityConfig {
     /// Creates a new builder-style object to manufacture [`GuardrailChecksSensitiveInformationEntityConfig`](crate::types::GuardrailChecksSensitiveInformationEntityConfig).
-    pub fn builder(
-    ) -> crate::types::builders::GuardrailChecksSensitiveInformationEntityConfigBuilder {
+    pub fn builder() -> crate::types::builders::GuardrailChecksSensitiveInformationEntityConfigBuilder {
         crate::types::builders::GuardrailChecksSensitiveInformationEntityConfigBuilder::default()
     }
 }
 
 /// A builder for [`GuardrailChecksSensitiveInformationEntityConfig`](crate::types::GuardrailChecksSensitiveInformationEntityConfig).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailChecksSensitiveInformationEntityConfigBuilder {
-    pub(crate) r#type:
-        ::std::option::Option<crate::types::GuardrailChecksSensitiveInformationEntityType>,
+    pub(crate) r#type: ::std::option::Option<crate::types::GuardrailChecksSensitiveInformationEntityType>,
 }
 impl GuardrailChecksSensitiveInformationEntityConfigBuilder {
     /// <p>The PII entity type to detect.</p>
     /// This field is required.
-    pub fn r#type(
-        mut self,
-        input: crate::types::GuardrailChecksSensitiveInformationEntityType,
-    ) -> Self {
+    pub fn r#type(mut self, input: crate::types::GuardrailChecksSensitiveInformationEntityType) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
@@ -49,9 +42,7 @@ impl GuardrailChecksSensitiveInformationEntityConfigBuilder {
         self
     }
     /// <p>The PII entity type to detect.</p>
-    pub fn get_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::GuardrailChecksSensitiveInformationEntityType> {
+    pub fn get_type(&self) -> &::std::option::Option<crate::types::GuardrailChecksSensitiveInformationEntityType> {
         &self.r#type
     }
     /// Consumes the builder and constructs a [`GuardrailChecksSensitiveInformationEntityConfig`](crate::types::GuardrailChecksSensitiveInformationEntityConfig).

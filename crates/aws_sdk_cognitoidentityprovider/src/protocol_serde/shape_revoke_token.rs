@@ -9,68 +9,60 @@ pub fn de_revoke_token_http_error(
     crate::operation::revoke_token::RevokeTokenError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::revoke_token::RevokeTokenError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::revoke_token::RevokeTokenError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(crate::operation::revoke_token::RevokeTokenError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(crate::operation::revoke_token::RevokeTokenError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "ForbiddenException" => {
-            crate::operation::revoke_token::RevokeTokenError::ForbiddenException({
+        "ForbiddenException" => crate::operation::revoke_token::RevokeTokenError::ForbiddenException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ForbiddenExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_forbidden_exception::de_forbidden_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::revoke_token::RevokeTokenError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "InternalErrorException" => {
-            crate::operation::revoke_token::RevokeTokenError::InternalErrorException({
+                let mut output = crate::types::error::builders::ForbiddenExceptionBuilder::default();
+                output = crate::protocol_serde::shape_forbidden_exception::de_forbidden_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::revoke_token::RevokeTokenError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalErrorException" => crate::operation::revoke_token::RevokeTokenError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InternalErrorExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::revoke_token::RevokeTokenError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::revoke_token::RevokeTokenError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidParameterException" => {
             crate::operation::revoke_token::RevokeTokenError::InvalidParameterException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
                     output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
                     .map_err(crate::operation::revoke_token::RevokeTokenError::unhandled)?;
                     let output = output.meta(generic);
@@ -87,9 +79,7 @@ pub fn de_revoke_token_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::OperationNotEnabledExceptionBuilder::default(
-                        );
+                    let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
                     output =
                     crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
                         .map_err(crate::operation::revoke_token::RevokeTokenError::unhandled)?;
@@ -107,8 +97,7 @@ pub fn de_revoke_token_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
                     output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(crate::operation::revoke_token::RevokeTokenError::unhandled)?;
                     let output = output.meta(generic);
@@ -120,30 +109,30 @@ pub fn de_revoke_token_http_error(
                 tmp
             })
         }
-        "UnauthorizedException" => {
-            crate::operation::revoke_token::RevokeTokenError::UnauthorizedException({
+        "UnauthorizedException" => crate::operation::revoke_token::RevokeTokenError::UnauthorizedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::UnauthorizedExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_unauthorized_exception::de_unauthorized_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::revoke_token::RevokeTokenError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::UnauthorizedExceptionBuilder::default();
+                output = crate::protocol_serde::shape_unauthorized_exception::de_unauthorized_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::revoke_token::RevokeTokenError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "UnsupportedOperationException" => {
             crate::operation::revoke_token::RevokeTokenError::UnsupportedOperationException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UnsupportedOperationExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::UnsupportedOperationExceptionBuilder::default();
                     output =
                     crate::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(_response_body, output)
                         .map_err(crate::operation::revoke_token::RevokeTokenError::unhandled)?;
@@ -161,7 +150,7 @@ pub fn de_revoke_token_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UnsupportedTokenTypeExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::UnsupportedTokenTypeExceptionBuilder::default();
                     output = crate::protocol_serde::shape_unsupported_token_type_exception::de_unsupported_token_type_exception_json_err(
                     _response_body,
                     output,
@@ -191,27 +180,19 @@ pub fn de_revoke_token_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::revoke_token::builders::RevokeTokenOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::revoke_token::builders::RevokeTokenOutputBuilder::default();
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_revoke_token_input(
     input: &crate::operation::revoke_token::RevokeTokenInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_revoke_token_input::ser_revoke_token_input_input(
-        &mut object,
-        input,
-    )?;
+    crate::protocol_serde::shape_revoke_token_input::ser_revoke_token_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

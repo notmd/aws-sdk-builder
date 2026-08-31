@@ -23,9 +23,7 @@ mod profile_key {
 /// 2. The profile key `disable_request_compression=true/false`
 ///
 /// If invalid values are found, the provider will return None and an error will be logged.
-pub(crate) async fn disable_request_compression_provider(
-    provider_config: &ProviderConfig,
-) -> Option<bool> {
+pub(crate) async fn disable_request_compression_provider(provider_config: &ProviderConfig) -> Option<bool> {
     let env = provider_config.env();
     let profiles = provider_config.profile().await;
 
@@ -51,14 +49,10 @@ mod test {
     #[tokio::test]
     #[traced_test]
     async fn log_error_on_invalid_value() {
-        let conf = ProviderConfig::empty().with_env(Env::from_slice(&[(
-            "AWS_DISABLE_REQUEST_COMPRESSION",
-            "not-a-boolean",
-        )]));
+        let conf =
+            ProviderConfig::empty().with_env(Env::from_slice(&[("AWS_DISABLE_REQUEST_COMPRESSION", "not-a-boolean")]));
         assert_eq!(disable_request_compression_provider(&conf).await, None);
-        assert!(logs_contain(
-            "invalid value for `disable request compression` setting"
-        ));
+        assert!(logs_contain("invalid value for `disable request compression` setting"));
         assert!(logs_contain("AWS_DISABLE_REQUEST_COMPRESSION"));
     }
 
@@ -66,10 +60,7 @@ mod test {
     #[traced_test]
     async fn environment_priority() {
         let conf = ProviderConfig::empty()
-            .with_env(Env::from_slice(&[(
-                "AWS_DISABLE_REQUEST_COMPRESSION",
-                "TRUE",
-            )]))
+            .with_env(Env::from_slice(&[("AWS_DISABLE_REQUEST_COMPRESSION", "TRUE")]))
             .with_profile_config(
                 Some(
                     #[allow(deprecated)]
@@ -87,10 +78,7 @@ mod test {
                 "conf",
                 "[default]\ndisable_request_compression = false",
             )]));
-        assert_eq!(
-            disable_request_compression_provider(&conf).await,
-            Some(true)
-        );
+        assert_eq!(disable_request_compression_provider(&conf).await, Some(true));
     }
 
     #[tokio::test]
@@ -114,9 +102,6 @@ mod test {
                 "conf",
                 "[default]\ndisable_request_compression = true",
             )]));
-        assert_eq!(
-            disable_request_compression_provider(&conf).await,
-            Some(true)
-        );
+        assert_eq!(disable_request_compression_provider(&conf).await, Some(true));
     }
 }

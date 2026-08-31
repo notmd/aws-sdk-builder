@@ -7,10 +7,16 @@ pub fn de_set_security_token_service_preferences_http_error(
 ) -> std::result::Result<
     crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesOutput,
     crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesError,
->{
+> {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesError::unhandled)?;
+    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
+        _response_status,
+        _response_headers,
+        _response_body,
+    )
+    .map_err(
+        crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesError::unhandled,
+    )?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
@@ -49,14 +55,12 @@ pub fn de_set_security_token_service_preferences_http_response(
 ) -> std::result::Result<
     crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesOutput,
     crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesError,
->{
+> {
     Ok({
         #[allow(unused_mut)]
         let mut output =
             crate::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesOutputBuilder::default();
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }

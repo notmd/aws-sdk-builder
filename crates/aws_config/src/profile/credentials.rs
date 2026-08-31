@@ -177,12 +177,10 @@ impl ProfileFileCredentialsProvider {
                             }),
                             Err(err) => match err {
                                 ProfileFileError::NoProfilesDefined
-                                | ProfileFileError::ProfileDidNotContainCredentials { .. } => {
-                                    Ok(ChainProvider {
-                                        config: config.clone(),
-                                        chain: None,
-                                    })
-                                }
+                                | ProfileFileError::ProfileDidNotContainCredentials { .. } => Ok(ChainProvider {
+                                    config: config.clone(),
+                                    chain: None,
+                                }),
                                 ProfileFileError::MissingProfile { .. }
                                 | ProfileFileError::TokenProviderConfig { .. } => {
                                     Err(CredentialsError::not_loaded(format!("{}", &err)))
@@ -195,9 +193,7 @@ impl ProfileFileCredentialsProvider {
                         }
                     }
                 },
-                CredentialsError::unhandled(
-                    "profile file credentials provider initialization error already taken",
-                ),
+                CredentialsError::unhandled("profile file credentials provider initialization error already taken"),
             )
             .await?;
         inner_provider.provide_credentials().await.map(|mut creds| {
@@ -353,10 +349,9 @@ impl Display for ProfileFileError {
                 "profile referenced `{name}` provider but that provider is not supported",
             ),
             ProfileFileError::NoProfilesDefined => write!(f, "No profiles were defined"),
-            ProfileFileError::ProfileDidNotContainCredentials { profile } => write!(
-                f,
-                "profile `{profile}` did not contain credential information"
-            ),
+            ProfileFileError::ProfileDidNotContainCredentials { profile } => {
+                write!(f, "profile `{profile}` did not contain credential information")
+            }
             ProfileFileError::FeatureNotEnabled { feature, message } => {
                 let message = message.as_deref().unwrap_or_default();
                 write!(
@@ -364,11 +359,11 @@ impl Display for ProfileFileError {
                     "This behavior requires following cargo feature(s) enabled: {feature}. {message}",
                 )
             }
-            ProfileFileError::MissingSsoSession {
-                profile,
-                sso_session,
-            } => {
-                write!(f, "sso-session named `{sso_session}` (referenced by profile `{profile}`) was not found")
+            ProfileFileError::MissingSsoSession { profile, sso_session } => {
+                write!(
+                    f,
+                    "sso-session named `{sso_session}` (referenced by profile `{profile}`) was not found"
+                )
             }
             ProfileFileError::InvalidSsoConfig { profile, message } => {
                 write!(f, "profile `{profile}` has invalid SSO config: {message}")
@@ -446,8 +441,7 @@ impl Builder {
         name: impl Into<Cow<'static, str>>,
         provider: impl ProvideCredentials + 'static,
     ) -> Self {
-        self.custom_providers
-            .insert(name.into(), Arc::new(provider));
+        self.custom_providers.insert(name.into(), Arc::new(provider));
         self
     }
 
@@ -473,33 +467,21 @@ impl Builder {
             .unwrap_or_default()
             .with_profile_config(self.profile_files, self.profile_override);
         let mut named_providers = self.custom_providers.clone();
-        named_providers
-            .entry("Environment".into())
-            .or_insert_with(|| {
-                Arc::new(crate::environment::credentials::EnvironmentVariableCredentialsProvider::new_with_env(
-                    conf.env(),
-                ))
-            });
+        named_providers.entry("Environment".into()).or_insert_with(|| {
+            Arc::new(crate::environment::credentials::EnvironmentVariableCredentialsProvider::new_with_env(conf.env()))
+        });
 
-        named_providers
-            .entry("Ec2InstanceMetadata".into())
-            .or_insert_with(|| {
-                Arc::new(
-                    crate::imds::credentials::ImdsCredentialsProvider::builder()
-                        .configure(&conf)
-                        .build(),
-                )
-            });
+        named_providers.entry("Ec2InstanceMetadata".into()).or_insert_with(|| {
+            Arc::new(
+                crate::imds::credentials::ImdsCredentialsProvider::builder()
+                    .configure(&conf)
+                    .build(),
+            )
+        });
 
         named_providers
             .entry("EcsContainer".into())
-            .or_insert_with(|| {
-                Arc::new(
-                    crate::ecs::EcsCredentialsProvider::builder()
-                        .configure(&conf)
-                        .build(),
-                )
-            });
+            .or_insert_with(|| Arc::new(crate::ecs::EcsCredentialsProvider::builder().configure(&conf).build()));
         let factory = exec::named::NamedProviderFactory::new(named_providers);
 
         ProfileFileCredentialsProvider {
@@ -512,9 +494,7 @@ impl Builder {
     }
 }
 
-async fn build_provider_chain(
-    config: Arc<Config>,
-) -> Result<exec::ProviderChain, ProfileFileError> {
+async fn build_provider_chain(config: Arc<Config>) -> Result<exec::ProviderChain, ProfileFileError> {
     let profile_set = config
         .provider_config
         .try_profile()
@@ -562,17 +542,12 @@ impl ChainProvider {
             // directly via its builder, bypassing `ConfigLoader::load`).
             let mut sdk_config_builder = config.provider_config.client_config().into_builder();
             if config.provider_config.use_fips().is_none() {
-                sdk_config_builder.set_use_fips(
-                    crate::default_provider::use_fips::use_fips_provider(&config.provider_config)
-                        .await,
-                );
+                sdk_config_builder
+                    .set_use_fips(crate::default_provider::use_fips::use_fips_provider(&config.provider_config).await);
             }
             if config.provider_config.use_dual_stack().is_none() {
                 sdk_config_builder.set_use_dual_stack(
-                    crate::default_provider::use_dual_stack::use_dual_stack_provider(
-                        &config.provider_config,
-                    )
-                    .await,
+                    crate::default_provider::use_dual_stack::use_dual_stack_provider(&config.provider_config).await,
                 );
             }
             let sdk_config = sdk_config_builder.build();
@@ -727,10 +702,7 @@ mod sso_tests {
     use aws_credential_types::provider::ProvideCredentials;
     use aws_sdk_sso::config::RuntimeComponents;
     use aws_smithy_runtime_api::client::{
-        http::{
-            HttpClient, HttpConnector, HttpConnectorFuture, HttpConnectorSettings,
-            SharedHttpConnector,
-        },
+        http::{HttpClient, HttpConnector, HttpConnectorFuture, HttpConnectorSettings, SharedHttpConnector},
         orchestrator::{HttpRequest, HttpResponse},
     };
     use aws_smithy_types::body::SdkBody;
@@ -898,10 +870,7 @@ mod login_tests {
     use aws_credential_types::provider::ProvideCredentials;
     use aws_sdk_signin::config::RuntimeComponents;
     use aws_smithy_runtime_api::client::{
-        http::{
-            HttpClient, HttpConnector, HttpConnectorFuture, HttpConnectorSettings,
-            SharedHttpConnector,
-        },
+        http::{HttpClient, HttpConnector, HttpConnectorFuture, HttpConnectorSettings, SharedHttpConnector},
         orchestrator::{HttpRequest, HttpResponse},
     };
     use aws_smithy_types::body::SdkBody;
@@ -920,10 +889,7 @@ mod login_tests {
         fn call(&self, _request: HttpRequest) -> HttpConnectorFuture {
             self.call_count.fetch_add(1, Ordering::SeqCst);
             if let Some(response) = self.response {
-                HttpConnectorFuture::ready(Ok(HttpResponse::new(
-                    200.try_into().unwrap(),
-                    SdkBody::from(response),
-                )))
+                HttpConnectorFuture::ready(Ok(HttpResponse::new(200.try_into().unwrap(), SdkBody::from(response))))
             } else {
                 HttpConnectorFuture::ready(Ok(HttpResponse::new(
                     500.try_into().unwrap(),

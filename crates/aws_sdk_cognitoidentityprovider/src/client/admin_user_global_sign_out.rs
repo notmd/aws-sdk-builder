@@ -9,8 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<AdminUserGlobalSignOutError>`](crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOutError)
     pub fn admin_user_global_sign_out(
         &self,
-    ) -> crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutFluentBuilder
-    {
-        crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutFluentBuilder {
+        crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

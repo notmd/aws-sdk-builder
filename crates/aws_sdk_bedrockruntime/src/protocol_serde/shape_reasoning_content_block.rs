@@ -7,10 +7,7 @@ pub fn ser_reasoning_content_block(
         crate::types::ReasoningContentBlock::ReasoningText(inner) => {
             #[allow(unused_mut)]
             let mut object_1 = object_9.key("reasoningText").start_object();
-            crate::protocol_serde::shape_reasoning_text_block::ser_reasoning_text_block(
-                &mut object_1,
-                inner,
-            )?;
+            crate::protocol_serde::shape_reasoning_text_block::ser_reasoning_text_block(&mut object_1, inner)?;
             object_1.finish();
         }
         crate::types::ReasoningContentBlock::RedactedContent(inner) => {
@@ -20,9 +17,7 @@ pub fn ser_reasoning_content_block(
         }
         crate::types::ReasoningContentBlock::Unknown => {
             return Err(
-                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                    "ReasoningContentBlock",
-                ),
+                ::aws_smithy_types::error::operation::SerializationError::unknown_variant("ReasoningContentBlock"),
             )
         }
     }
@@ -46,11 +41,9 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     let mut variant = None;
     match tokens.next().transpose()? {
@@ -72,22 +65,31 @@ where
                         continue;
                     }
                     if variant.is_some() {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                "encountered mixed variants in union",
-                            ),
-                        );
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            "encountered mixed variants in union",
+                        ));
                     }
                     variant = match key.as_ref() {
                         "reasoningText" => Some(crate::types::ReasoningContentBlock::ReasoningText(
-                            crate::protocol_serde::shape_reasoning_text_block::de_reasoning_text_block(tokens, _value, depth + 1)?.ok_or_else(
-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'reasoningText' cannot be null"),
-                            )?,
+                            crate::protocol_serde::shape_reasoning_text_block::de_reasoning_text_block(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?
+                            .ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                    "value for 'reasoningText' cannot be null",
+                                )
+                            })?,
                         )),
                         "redactedContent" => Some(crate::types::ReasoningContentBlock::RedactedContent(
-                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(|| {
-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'redactedContent' cannot be null")
-                            })?,
+                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(
+                                || {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                        "value for 'redactedContent' cannot be null",
+                                    )
+                                },
+                            )?,
                         )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
@@ -96,28 +98,22 @@ where
                     };
                 }
                 other => {
-                    return Err(
-                        ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                            "expected object key or end object, found: {other:?}"
-                        )),
-                    )
+                    return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                        format!("expected object key or end object, found: {other:?}"),
+                    ))
                 }
             }
         },
         _ => {
-            return Err(
-                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                    "expected start object or null",
-                ),
-            )
+            return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ))
         }
     }
     if variant.is_none() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "Union did not contain a valid variant.",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "Union did not contain a valid variant.",
+        ));
     }
     Ok(variant)
 }

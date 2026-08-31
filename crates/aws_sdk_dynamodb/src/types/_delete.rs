@@ -11,22 +11,18 @@ pub struct Delete {
     /// <p>A condition that must be satisfied in order for a conditional delete to succeed.</p>
     pub condition_expression: ::std::option::Option<::std::string::String>,
     /// <p>One or more substitution tokens for attribute names in an expression.</p>
-    pub expression_attribute_names: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub expression_attribute_names:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>One or more values that can be substituted in an expression.</p>
-    pub expression_attribute_values: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    >,
+    pub expression_attribute_values:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     /// <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>Delete</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>
     pub return_values_on_condition_check_failure:
         ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
 }
 impl Delete {
     /// <p>The primary key of the item to be deleted. Each element consists of an attribute name and a value for that attribute.</p>
-    pub fn key(
-        &self,
-    ) -> &::std::collections::HashMap<::std::string::String, crate::types::AttributeValue> {
+    pub fn key(&self) -> &::std::collections::HashMap<::std::string::String, crate::types::AttributeValue> {
         &self.key
     }
     /// <p>Name of the table in which the item to be deleted resides. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
@@ -41,17 +37,13 @@ impl Delete {
     /// <p>One or more substitution tokens for attribute names in an expression.</p>
     pub fn expression_attribute_names(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.expression_attribute_names.as_ref()
     }
     /// <p>One or more values that can be substituted in an expression.</p>
     pub fn expression_attribute_values(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
         self.expression_attribute_values.as_ref()
     }
     /// <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>Delete</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>
@@ -69,22 +61,17 @@ impl Delete {
 }
 
 /// A builder for [`Delete`](crate::types::Delete).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteBuilder {
-    pub(crate) key: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    >,
+    pub(crate) key:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
     pub(crate) condition_expression: ::std::option::Option<::std::string::String>,
-    pub(crate) expression_attribute_names: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
-    pub(crate) expression_attribute_values: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    >,
+    pub(crate) expression_attribute_names:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    pub(crate) expression_attribute_values:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     pub(crate) return_values_on_condition_check_failure:
         ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
 }
@@ -94,11 +81,7 @@ impl DeleteBuilder {
     /// To override the contents of this collection use [`set_key`](Self::set_key).
     ///
     /// <p>The primary key of the item to be deleted. Each element consists of an attribute name and a value for that attribute.</p>
-    pub fn key(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: crate::types::AttributeValue,
-    ) -> Self {
+    pub fn key(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
         let mut hash_map = self.key.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.key = ::std::option::Option::Some(hash_map);
@@ -107,9 +90,7 @@ impl DeleteBuilder {
     /// <p>The primary key of the item to be deleted. Each element consists of an attribute name and a value for that attribute.</p>
     pub fn set_key(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     ) -> Self {
         self.key = input;
         self
@@ -117,9 +98,7 @@ impl DeleteBuilder {
     /// <p>The primary key of the item to be deleted. Each element consists of an attribute name and a value for that attribute.</p>
     pub fn get_key(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
         &self.key
     }
     /// <p>Name of the table in which the item to be deleted resides. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
@@ -138,18 +117,12 @@ impl DeleteBuilder {
         &self.table_name
     }
     /// <p>A condition that must be satisfied in order for a conditional delete to succeed.</p>
-    pub fn condition_expression(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn condition_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.condition_expression = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A condition that must be satisfied in order for a conditional delete to succeed.</p>
-    pub fn set_condition_expression(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_condition_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.condition_expression = input;
         self
     }
@@ -175,9 +148,7 @@ impl DeleteBuilder {
     /// <p>One or more substitution tokens for attribute names in an expression.</p>
     pub fn set_expression_attribute_names(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.expression_attribute_names = input;
         self
@@ -185,9 +156,7 @@ impl DeleteBuilder {
     /// <p>One or more substitution tokens for attribute names in an expression.</p>
     pub fn get_expression_attribute_names(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.expression_attribute_names
     }
     /// Adds a key-value pair to `expression_attribute_values`.
@@ -208,9 +177,7 @@ impl DeleteBuilder {
     /// <p>One or more values that can be substituted in an expression.</p>
     pub fn set_expression_attribute_values(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     ) -> Self {
         self.expression_attribute_values = input;
         self
@@ -218,9 +185,7 @@ impl DeleteBuilder {
     /// <p>One or more values that can be substituted in an expression.</p>
     pub fn get_expression_attribute_values(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
         &self.expression_attribute_values
     }
     /// <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>Delete</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>
@@ -251,8 +216,7 @@ impl DeleteBuilder {
     /// - [`table_name`](crate::types::builders::DeleteBuilder::table_name)
     pub fn build(
         self,
-    ) -> ::std::result::Result<crate::types::Delete, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<crate::types::Delete, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Delete {
             key: self.key.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

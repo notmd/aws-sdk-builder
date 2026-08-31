@@ -57,9 +57,7 @@ impl ListPackageGroupsFluentBuilder {
         }
     }
     /// Access the ListPackageGroups as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::list_package_groups::builders::ListPackageGroupsInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::list_package_groups::builders::ListPackageGroupsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,17 +81,12 @@ impl ListPackageGroupsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::list_package_groups::ListPackageGroups::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        crate::operation::list_package_groups::ListPackageGroups::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = crate::operation::list_package_groups::ListPackageGroups::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        crate::operation::list_package_groups::ListPackageGroups::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -124,13 +117,8 @@ impl ListPackageGroupsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_package_groups::paginator::ListPackageGroupsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> crate::operation::list_package_groups::paginator::ListPackageGroupsPaginator {
-        crate::operation::list_package_groups::paginator::ListPackageGroupsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> crate::operation::list_package_groups::paginator::ListPackageGroupsPaginator {
+        crate::operation::list_package_groups::paginator::ListPackageGroupsPaginator::new(self.handle, self.inner)
     }
     /// <p>The domain for which you want to list package groups.</p>
     pub fn domain(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

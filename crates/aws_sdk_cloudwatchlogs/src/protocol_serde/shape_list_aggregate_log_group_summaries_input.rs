@@ -27,10 +27,7 @@ pub fn ser_list_aggregate_log_group_summaries_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_10 = array_8.value().start_object();
-                crate::protocol_serde::shape_data_source_filter::ser_data_source_filter(
-                    &mut object_10,
-                    item_9,
-                )?;
+                crate::protocol_serde::shape_data_source_filter::ser_data_source_filter(&mut object_10, item_9)?;
                 object_10.finish();
             }
         }

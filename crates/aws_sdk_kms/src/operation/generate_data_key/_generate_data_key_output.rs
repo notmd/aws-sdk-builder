@@ -60,8 +60,7 @@ impl ::aws_types::request_id::RequestId for GenerateDataKeyOutput {
 }
 impl GenerateDataKeyOutput {
     /// Creates a new builder-style object to manufacture [`GenerateDataKeyOutput`](crate::operation::generate_data_key::GenerateDataKeyOutput).
-    pub fn builder() -> crate::operation::generate_data_key::builders::GenerateDataKeyOutputBuilder
-    {
+    pub fn builder() -> crate::operation::generate_data_key::builders::GenerateDataKeyOutputBuilder {
         crate::operation::generate_data_key::builders::GenerateDataKeyOutputBuilder::default()
     }
 }
@@ -84,10 +83,7 @@ impl GenerateDataKeyOutputBuilder {
         self
     }
     /// <p>The encrypted copy of the data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub fn set_ciphertext_blob(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::Blob>,
-    ) -> Self {
+    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.ciphertext_blob = input;
         self
     }
@@ -134,10 +130,7 @@ impl GenerateDataKeyOutputBuilder {
     }
     /// <p>The plaintext data key encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn set_ciphertext_for_recipient(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::Blob>,
-    ) -> Self {
+    pub fn set_ciphertext_for_recipient(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.ciphertext_for_recipient = input;
         self
     }
@@ -147,18 +140,12 @@ impl GenerateDataKeyOutputBuilder {
         &self.ciphertext_for_recipient
     }
     /// <p>The identifier of the key material used to encrypt the data key. This field is omitted if the request includes the <code>Recipient</code> parameter.</p>
-    pub fn key_material_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn key_material_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key_material_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The identifier of the key material used to encrypt the data key. This field is omitted if the request includes the <code>Recipient</code> parameter.</p>
-    pub fn set_key_material_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_material_id = input;
         self
     }

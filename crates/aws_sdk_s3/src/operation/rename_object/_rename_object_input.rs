@@ -58,15 +58,11 @@ impl RenameObjectInput {
         self.destination_if_none_match.as_deref()
     }
     /// <p>Renames the object if the destination exists and if it has been modified since the specified time.</p>
-    pub fn destination_if_modified_since(
-        &self,
-    ) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn destination_if_modified_since(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.destination_if_modified_since.as_ref()
     }
     /// <p>Renames the object if it hasn't been modified since the specified time.</p>
-    pub fn destination_if_unmodified_since(
-        &self,
-    ) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn destination_if_unmodified_since(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.destination_if_unmodified_since.as_ref()
     }
     /// <p>Renames the object if the source exists and if its entity tag (ETag) matches the specified ETag.</p>
@@ -82,9 +78,7 @@ impl RenameObjectInput {
         self.source_if_modified_since.as_ref()
     }
     /// <p>Renames the object if the source exists and hasn't been modified since the specified time.</p>
-    pub fn source_if_unmodified_since(
-        &self,
-    ) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+    pub fn source_if_unmodified_since(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.source_if_unmodified_since.as_ref()
     }
     /// <p>A unique string with a max of 64 ASCII characters in the ASCII range of 33 - 126.</p><note>
@@ -102,9 +96,7 @@ impl RenameObjectInput {
 }
 
 /// A builder for [`RenameObjectInput`](crate::operation::rename_object::RenameObjectInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RenameObjectInputBuilder {
     pub(crate) bucket: ::std::option::Option<::std::string::String>,
@@ -156,18 +148,12 @@ impl RenameObjectInputBuilder {
     }
     /// <p>Specifies the source for the rename operation. The value must be URL encoded.</p>
     /// This field is required.
-    pub fn rename_source(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn rename_source(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.rename_source = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Specifies the source for the rename operation. The value must be URL encoded.</p>
-    pub fn set_rename_source(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_rename_source(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.rename_source = input;
         self
     }
@@ -177,19 +163,13 @@ impl RenameObjectInputBuilder {
     }
     /// <p>Renames the object only if the ETag (entity tag) value provided during the operation matches the ETag of the object in S3. The <code>If-Match</code> header field makes the request method conditional on ETags. If the ETag values do not match, the operation returns a <code>412 Precondition Failed</code> error.</p>
     /// <p>Expects the ETag value as a string.</p>
-    pub fn destination_if_match(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn destination_if_match(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.destination_if_match = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Renames the object only if the ETag (entity tag) value provided during the operation matches the ETag of the object in S3. The <code>If-Match</code> header field makes the request method conditional on ETags. If the ETag values do not match, the operation returns a <code>412 Precondition Failed</code> error.</p>
     /// <p>Expects the ETag value as a string.</p>
-    pub fn set_destination_if_match(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_destination_if_match(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.destination_if_match = input;
         self
     }
@@ -200,19 +180,13 @@ impl RenameObjectInputBuilder {
     }
     /// <p>Renames the object only if the destination does not already exist in the specified directory bucket. If the object does exist when you send a request with <code>If-None-Match:*</code>, the S3 API will return a <code>412 Precondition Failed</code> error, preventing an overwrite. The <code>If-None-Match</code> header prevents overwrites of existing data by validating that there's not an object with the same key name already in your directory bucket.</p>
     /// <p>Expects the <code>*</code> character (asterisk).</p>
-    pub fn destination_if_none_match(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn destination_if_none_match(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.destination_if_none_match = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Renames the object only if the destination does not already exist in the specified directory bucket. If the object does exist when you send a request with <code>If-None-Match:*</code>, the S3 API will return a <code>412 Precondition Failed</code> error, preventing an overwrite. The <code>If-None-Match</code> header prevents overwrites of existing data by validating that there's not an object with the same key name already in your directory bucket.</p>
     /// <p>Expects the <code>*</code> character (asterisk).</p>
-    pub fn set_destination_if_none_match(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_destination_if_none_match(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.destination_if_none_match = input;
         self
     }
@@ -235,9 +209,7 @@ impl RenameObjectInputBuilder {
         self
     }
     /// <p>Renames the object if the destination exists and if it has been modified since the specified time.</p>
-    pub fn get_destination_if_modified_since(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_destination_if_modified_since(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.destination_if_modified_since
     }
     /// <p>Renames the object if it hasn't been modified since the specified time.</p>
@@ -254,24 +226,16 @@ impl RenameObjectInputBuilder {
         self
     }
     /// <p>Renames the object if it hasn't been modified since the specified time.</p>
-    pub fn get_destination_if_unmodified_since(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_destination_if_unmodified_since(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.destination_if_unmodified_since
     }
     /// <p>Renames the object if the source exists and if its entity tag (ETag) matches the specified ETag.</p>
-    pub fn source_if_match(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn source_if_match(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.source_if_match = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Renames the object if the source exists and if its entity tag (ETag) matches the specified ETag.</p>
-    pub fn set_source_if_match(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_source_if_match(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.source_if_match = input;
         self
     }
@@ -280,18 +244,12 @@ impl RenameObjectInputBuilder {
         &self.source_if_match
     }
     /// <p>Renames the object if the source exists and if its entity tag (ETag) is different than the specified ETag. If an asterisk (<code>*</code>) character is provided, the operation will fail and return a <code>412 Precondition Failed</code> error.</p>
-    pub fn source_if_none_match(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn source_if_none_match(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.source_if_none_match = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Renames the object if the source exists and if its entity tag (ETag) is different than the specified ETag. If an asterisk (<code>*</code>) character is provided, the operation will fail and return a <code>412 Precondition Failed</code> error.</p>
-    pub fn set_source_if_none_match(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_source_if_none_match(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.source_if_none_match = input;
         self
     }
@@ -305,17 +263,12 @@ impl RenameObjectInputBuilder {
         self
     }
     /// <p>Renames the object if the source exists and if it has been modified since the specified time.</p>
-    pub fn set_source_if_modified_since(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_source_if_modified_since(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.source_if_modified_since = input;
         self
     }
     /// <p>Renames the object if the source exists and if it has been modified since the specified time.</p>
-    pub fn get_source_if_modified_since(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_source_if_modified_since(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.source_if_modified_since
     }
     /// <p>Renames the object if the source exists and hasn't been modified since the specified time.</p>
@@ -332,9 +285,7 @@ impl RenameObjectInputBuilder {
         self
     }
     /// <p>Renames the object if the source exists and hasn't been modified since the specified time.</p>
-    pub fn get_source_if_unmodified_since(
-        &self,
-    ) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+    pub fn get_source_if_unmodified_since(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.source_if_unmodified_since
     }
     /// <p>A unique string with a max of 64 ASCII characters in the ASCII range of 33 - 126.</p><note>

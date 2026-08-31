@@ -11,8 +11,6 @@ impl super::Client {
     pub fn get_bucket_location(
         &self,
     ) -> crate::operation::get_bucket_location::builders::GetBucketLocationFluentBuilder {
-        crate::operation::get_bucket_location::builders::GetBucketLocationFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_bucket_location::builders::GetBucketLocationFluentBuilder::new(self.handle.clone())
     }
 }

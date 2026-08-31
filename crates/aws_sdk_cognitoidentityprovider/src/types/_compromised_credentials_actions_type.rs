@@ -21,21 +21,15 @@ impl CompromisedCredentialsActionsType {
 }
 
 /// A builder for [`CompromisedCredentialsActionsType`](crate::types::CompromisedCredentialsActionsType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CompromisedCredentialsActionsTypeBuilder {
-    pub(crate) event_action:
-        ::std::option::Option<crate::types::CompromisedCredentialsEventActionType>,
+    pub(crate) event_action: ::std::option::Option<crate::types::CompromisedCredentialsEventActionType>,
 }
 impl CompromisedCredentialsActionsTypeBuilder {
     /// <p>The action that Amazon Cognito takes when it detects compromised credentials.</p>
     /// This field is required.
-    pub fn event_action(
-        mut self,
-        input: crate::types::CompromisedCredentialsEventActionType,
-    ) -> Self {
+    pub fn event_action(mut self, input: crate::types::CompromisedCredentialsEventActionType) -> Self {
         self.event_action = ::std::option::Option::Some(input);
         self
     }
@@ -48,9 +42,7 @@ impl CompromisedCredentialsActionsTypeBuilder {
         self
     }
     /// <p>The action that Amazon Cognito takes when it detects compromised credentials.</p>
-    pub fn get_event_action(
-        &self,
-    ) -> &::std::option::Option<crate::types::CompromisedCredentialsEventActionType> {
+    pub fn get_event_action(&self) -> &::std::option::Option<crate::types::CompromisedCredentialsEventActionType> {
         &self.event_action
     }
     /// Consumes the builder and constructs a [`CompromisedCredentialsActionsType`](crate::types::CompromisedCredentialsActionsType).

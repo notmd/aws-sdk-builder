@@ -79,7 +79,7 @@ impl UpdateConfigurationSetEventDestinationFluentBuilder {
             crate::operation::update_configuration_set_event_destination::UpdateConfigurationSetEventDestinationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -101,7 +101,7 @@ impl UpdateConfigurationSetEventDestinationFluentBuilder {
         crate::operation::update_configuration_set_event_destination::UpdateConfigurationSetEventDestinationOutput,
         crate::operation::update_configuration_set_event_destination::UpdateConfigurationSetEventDestinationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -120,18 +120,12 @@ impl UpdateConfigurationSetEventDestinationFluentBuilder {
         self
     }
     /// <p>The name of the configuration set that contains the event destination to modify.</p>
-    pub fn configuration_set_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_set_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_set_name(input.into());
         self
     }
     /// <p>The name of the configuration set that contains the event destination to modify.</p>
-    pub fn set_configuration_set_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_set_name(input);
         self
     }
@@ -140,18 +134,12 @@ impl UpdateConfigurationSetEventDestinationFluentBuilder {
         self.inner.get_configuration_set_name()
     }
     /// <p>The name of the event destination.</p>
-    pub fn event_destination_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn event_destination_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.event_destination_name(input.into());
         self
     }
     /// <p>The name of the event destination.</p>
-    pub fn set_event_destination_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_event_destination_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_event_destination_name(input);
         self
     }
@@ -173,9 +161,7 @@ impl UpdateConfigurationSetEventDestinationFluentBuilder {
         self
     }
     /// <p>An object that defines the event destination.</p>
-    pub fn get_event_destination(
-        &self,
-    ) -> &::std::option::Option<crate::types::EventDestinationDefinition> {
+    pub fn get_event_destination(&self) -> &::std::option::Option<crate::types::EventDestinationDefinition> {
         self.inner.get_event_destination()
     }
 }

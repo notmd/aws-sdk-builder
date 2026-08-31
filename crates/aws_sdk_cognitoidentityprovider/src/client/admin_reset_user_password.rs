@@ -10,8 +10,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<AdminResetUserPasswordError>`](crate::operation::admin_reset_user_password::AdminResetUserPasswordError)
     pub fn admin_reset_user_password(
         &self,
-    ) -> crate::operation::admin_reset_user_password::builders::AdminResetUserPasswordFluentBuilder
-    {
-        crate::operation::admin_reset_user_password::builders::AdminResetUserPasswordFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::admin_reset_user_password::builders::AdminResetUserPasswordFluentBuilder {
+        crate::operation::admin_reset_user_password::builders::AdminResetUserPasswordFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

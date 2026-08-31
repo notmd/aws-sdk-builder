@@ -8,9 +8,7 @@ pub struct GetFunctionOutput {
     /// <p>The deployment package of the function or version.</p>
     pub code: ::std::option::Option<crate::types::FunctionCodeLocation>,
     /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>. Lambda returns tag data only if you have explicit allow permissions for <a href="https://docs.aws.amazon.com/lambda/latest/api/API_ListTags.html">lambda:ListTags</a>.</p>
-    pub tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>An object that contains details about an error related to retrieving tags.</p>
     pub tags_error: ::std::option::Option<crate::types::TagsError>,
     /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">reserved concurrency</a>.</p>
@@ -29,9 +27,7 @@ impl GetFunctionOutput {
     /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>. Lambda returns tag data only if you have explicit allow permissions for <a href="https://docs.aws.amazon.com/lambda/latest/api/API_ListTags.html">lambda:ListTags</a>.</p>
     pub fn tags(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
     /// <p>An object that contains details about an error related to retrieving tags.</p>
@@ -56,16 +52,12 @@ impl GetFunctionOutput {
 }
 
 /// A builder for [`GetFunctionOutput`](crate::operation::get_function::GetFunctionOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetFunctionOutputBuilder {
     pub(crate) configuration: ::std::option::Option<crate::types::FunctionConfiguration>,
     pub(crate) code: ::std::option::Option<crate::types::FunctionCodeLocation>,
-    pub(crate) tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) tags_error: ::std::option::Option<crate::types::TagsError>,
     pub(crate) concurrency: ::std::option::Option<crate::types::Concurrency>,
     _request_id: Option<String>,
@@ -77,10 +69,7 @@ impl GetFunctionOutputBuilder {
         self
     }
     /// <p>The configuration of the function or version.</p>
-    pub fn set_configuration(
-        mut self,
-        input: ::std::option::Option<crate::types::FunctionConfiguration>,
-    ) -> Self {
+    pub fn set_configuration(mut self, input: ::std::option::Option<crate::types::FunctionConfiguration>) -> Self {
         self.configuration = input;
         self
     }
@@ -94,10 +83,7 @@ impl GetFunctionOutputBuilder {
         self
     }
     /// <p>The deployment package of the function or version.</p>
-    pub fn set_code(
-        mut self,
-        input: ::std::option::Option<crate::types::FunctionCodeLocation>,
-    ) -> Self {
+    pub fn set_code(mut self, input: ::std::option::Option<crate::types::FunctionCodeLocation>) -> Self {
         self.code = input;
         self
     }
@@ -123,9 +109,7 @@ impl GetFunctionOutputBuilder {
     /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>. Lambda returns tag data only if you have explicit allow permissions for <a href="https://docs.aws.amazon.com/lambda/latest/api/API_ListTags.html">lambda:ListTags</a>.</p>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.tags = input;
         self
@@ -133,9 +117,7 @@ impl GetFunctionOutputBuilder {
     /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>. Lambda returns tag data only if you have explicit allow permissions for <a href="https://docs.aws.amazon.com/lambda/latest/api/API_ListTags.html">lambda:ListTags</a>.</p>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     /// <p>An object that contains details about an error related to retrieving tags.</p>
@@ -158,10 +140,7 @@ impl GetFunctionOutputBuilder {
         self
     }
     /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">reserved concurrency</a>.</p>
-    pub fn set_concurrency(
-        mut self,
-        input: ::std::option::Option<crate::types::Concurrency>,
-    ) -> Self {
+    pub fn set_concurrency(mut self, input: ::std::option::Option<crate::types::Concurrency>) -> Self {
         self.concurrency = input;
         self
     }

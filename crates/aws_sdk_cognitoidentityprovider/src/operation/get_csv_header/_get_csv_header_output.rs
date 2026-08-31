@@ -35,9 +35,7 @@ impl GetCsvHeaderOutput {
 }
 
 /// A builder for [`GetCsvHeaderOutput`](crate::operation::get_csv_header::GetCsvHeaderOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetCsvHeaderOutputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
@@ -71,10 +69,7 @@ impl GetCsvHeaderOutputBuilder {
         self
     }
     /// <p>A comma-separated list of attributes from your user pool. Save this output to a <code>.csv</code> file and populate it with the attributes of the users that you want to import.</p>
-    pub fn set_csv_header(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_csv_header(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.csv_header = input;
         self
     }

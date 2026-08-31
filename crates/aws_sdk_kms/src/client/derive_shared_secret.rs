@@ -19,8 +19,6 @@ impl super::Client {
     pub fn derive_shared_secret(
         &self,
     ) -> crate::operation::derive_shared_secret::builders::DeriveSharedSecretFluentBuilder {
-        crate::operation::derive_shared_secret::builders::DeriveSharedSecretFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::derive_shared_secret::builders::DeriveSharedSecretFluentBuilder::new(self.handle.clone())
     }
 }

@@ -4,8 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeDeliveryDestinationsOutput {
     /// <p>An array of structures. Each structure contains information about one delivery destination in the account.</p>
-    pub delivery_destinations:
-        ::std::option::Option<::std::vec::Vec<crate::types::DeliveryDestination>>,
+    pub delivery_destinations: ::std::option::Option<::std::vec::Vec<crate::types::DeliveryDestination>>,
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -29,19 +28,17 @@ impl ::aws_types::request_id::RequestId for DescribeDeliveryDestinationsOutput {
 }
 impl DescribeDeliveryDestinationsOutput {
     /// Creates a new builder-style object to manufacture [`DescribeDeliveryDestinationsOutput`](crate::operation::describe_delivery_destinations::DescribeDeliveryDestinationsOutput).
-    pub fn builder() -> crate::operation::describe_delivery_destinations::builders::DescribeDeliveryDestinationsOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::describe_delivery_destinations::builders::DescribeDeliveryDestinationsOutputBuilder {
         crate::operation::describe_delivery_destinations::builders::DescribeDeliveryDestinationsOutputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeDeliveryDestinationsOutput`](crate::operation::describe_delivery_destinations::DescribeDeliveryDestinationsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeDeliveryDestinationsOutputBuilder {
-    pub(crate) delivery_destinations:
-        ::std::option::Option<::std::vec::Vec<crate::types::DeliveryDestination>>,
+    pub(crate) delivery_destinations: ::std::option::Option<::std::vec::Vec<crate::types::DeliveryDestination>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -95,9 +92,7 @@ impl DescribeDeliveryDestinationsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeDeliveryDestinationsOutput`](crate::operation::describe_delivery_destinations::DescribeDeliveryDestinationsOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::describe_delivery_destinations::DescribeDeliveryDestinationsOutput {
+    pub fn build(self) -> crate::operation::describe_delivery_destinations::DescribeDeliveryDestinationsOutput {
         crate::operation::describe_delivery_destinations::DescribeDeliveryDestinationsOutput {
             delivery_destinations: self.delivery_destinations,
             next_token: self.next_token,

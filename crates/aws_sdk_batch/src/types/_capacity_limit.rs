@@ -29,9 +29,7 @@ impl CapacityLimit {
 }
 
 /// A builder for [`CapacityLimit`](crate::types::CapacityLimit).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CapacityLimitBuilder {
     pub(crate) max_capacity: ::std::option::Option<i32>,
@@ -56,18 +54,12 @@ impl CapacityLimitBuilder {
         &self.max_capacity
     }
     /// <p>The unit of measure for the capacity limit, which defines how <code>maxCapacity</code> is interpreted. For <code>SAGEMAKER_TRAINING</code> jobs in a quota management enabled service environment, specify the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceConfig.html#sagemaker-Type-ResourceConfig-InstanceType">instance type</a> (for example, <code>ml.m5.large</code>). Otherwise, use <code>NUM_INSTANCES</code>.</p>
-    pub fn capacity_unit(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn capacity_unit(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.capacity_unit = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unit of measure for the capacity limit, which defines how <code>maxCapacity</code> is interpreted. For <code>SAGEMAKER_TRAINING</code> jobs in a quota management enabled service environment, specify the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceConfig.html#sagemaker-Type-ResourceConfig-InstanceType">instance type</a> (for example, <code>ml.m5.large</code>). Otherwise, use <code>NUM_INSTANCES</code>.</p>
-    pub fn set_capacity_unit(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_capacity_unit(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.capacity_unit = input;
         self
     }

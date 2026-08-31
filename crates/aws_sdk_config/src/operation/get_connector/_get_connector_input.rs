@@ -20,9 +20,7 @@ impl GetConnectorInput {
 }
 
 /// A builder for [`GetConnectorInput`](crate::operation::get_connector::GetConnectorInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetConnectorInputBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,
@@ -50,8 +48,6 @@ impl GetConnectorInputBuilder {
         crate::operation::get_connector::GetConnectorInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::get_connector::GetConnectorInput {
-            arn: self.arn,
-        })
+        ::std::result::Result::Ok(crate::operation::get_connector::GetConnectorInput { arn: self.arn })
     }
 }

@@ -11,8 +11,6 @@ impl super::Client {
     pub fn start_user_import_job(
         &self,
     ) -> crate::operation::start_user_import_job::builders::StartUserImportJobFluentBuilder {
-        crate::operation::start_user_import_job::builders::StartUserImportJobFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::start_user_import_job::builders::StartUserImportJobFluentBuilder::new(self.handle.clone())
     }
 }

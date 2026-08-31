@@ -12,17 +12,13 @@ impl ::aws_types::request_id::RequestId for PutExternalEvaluationOutput {
 }
 impl PutExternalEvaluationOutput {
     /// Creates a new builder-style object to manufacture [`PutExternalEvaluationOutput`](crate::operation::put_external_evaluation::PutExternalEvaluationOutput).
-    pub fn builder(
-    ) -> crate::operation::put_external_evaluation::builders::PutExternalEvaluationOutputBuilder
-    {
+    pub fn builder() -> crate::operation::put_external_evaluation::builders::PutExternalEvaluationOutputBuilder {
         crate::operation::put_external_evaluation::builders::PutExternalEvaluationOutputBuilder::default()
     }
 }
 
 /// A builder for [`PutExternalEvaluationOutput`](crate::operation::put_external_evaluation::PutExternalEvaluationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutExternalEvaluationOutputBuilder {
     _request_id: Option<String>,

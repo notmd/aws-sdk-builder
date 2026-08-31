@@ -9,8 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetEmailAddressInsightsError>`](crate::operation::get_email_address_insights::GetEmailAddressInsightsError)
     pub fn get_email_address_insights(
         &self,
-    ) -> crate::operation::get_email_address_insights::builders::GetEmailAddressInsightsFluentBuilder
-    {
-        crate::operation::get_email_address_insights::builders::GetEmailAddressInsightsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::get_email_address_insights::builders::GetEmailAddressInsightsFluentBuilder {
+        crate::operation::get_email_address_insights::builders::GetEmailAddressInsightsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

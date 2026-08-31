@@ -601,9 +601,7 @@ impl GetLogObjectResponseStreamError {
     /// Creates the `GetLogObjectResponseStreamError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -625,9 +623,7 @@ impl GetLogObjectResponseStreamError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::InternalStreamingException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::InternalStreamingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -683,13 +679,9 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetLogObjectR
     }
 }
 #[cfg(feature = "op_get_log_object")]
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
-    for GetLogObjectResponseStreamError
-{
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetLogObjectResponseStreamError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -730,9 +722,7 @@ impl StartLiveTailResponseStreamError {
     /// Creates the `StartLiveTailResponseStreamError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -754,12 +744,8 @@ impl StartLiveTailResponseStreamError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::SessionTimeoutException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::SessionStreamingException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::SessionTimeoutException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::SessionStreamingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -810,9 +796,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for StartLiveTailResponseStream
     }
 }
 #[cfg(feature = "op_start_live_tail")]
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
-    for StartLiveTailResponseStreamError
-{
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for StartLiveTailResponseStreamError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::SessionTimeoutException(_inner) => {
@@ -826,13 +810,9 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
     }
 }
 #[cfg(feature = "op_start_live_tail")]
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
-    for StartLiveTailResponseStreamError
-{
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for StartLiveTailResponseStreamError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {

@@ -5,8 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct QueueSnapshotUtilizationDetail {
     /// <p>The total capacity usage for the entire job queue.</p>
-    pub total_capacity_usage:
-        ::std::option::Option<::std::vec::Vec<crate::types::QueueSnapshotCapacityUsage>>,
+    pub total_capacity_usage: ::std::option::Option<::std::vec::Vec<crate::types::QueueSnapshotCapacityUsage>>,
     /// <p>The utilization information for a fairshare scheduling job queues, including active share count and top capacity utilization by share.</p>
     pub fairshare_utilization: ::std::option::Option<crate::types::FairshareUtilizationDetail>,
     /// <p>The utilization information for a job queue with a quota share scheduling policy.</p>
@@ -22,15 +21,11 @@ impl QueueSnapshotUtilizationDetail {
         self.total_capacity_usage.as_deref().unwrap_or_default()
     }
     /// <p>The utilization information for a fairshare scheduling job queues, including active share count and top capacity utilization by share.</p>
-    pub fn fairshare_utilization(
-        &self,
-    ) -> ::std::option::Option<&crate::types::FairshareUtilizationDetail> {
+    pub fn fairshare_utilization(&self) -> ::std::option::Option<&crate::types::FairshareUtilizationDetail> {
         self.fairshare_utilization.as_ref()
     }
     /// <p>The utilization information for a job queue with a quota share scheduling policy.</p>
-    pub fn quota_share_utilization(
-        &self,
-    ) -> ::std::option::Option<&crate::types::QuotaShareUtilizationDetail> {
+    pub fn quota_share_utilization(&self) -> ::std::option::Option<&crate::types::QuotaShareUtilizationDetail> {
         self.quota_share_utilization.as_ref()
     }
     /// <p>The Unix timestamp (in milliseconds) for when the queue utilization information was last updated.</p>
@@ -46,17 +41,12 @@ impl QueueSnapshotUtilizationDetail {
 }
 
 /// A builder for [`QueueSnapshotUtilizationDetail`](crate::types::QueueSnapshotUtilizationDetail).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct QueueSnapshotUtilizationDetailBuilder {
-    pub(crate) total_capacity_usage:
-        ::std::option::Option<::std::vec::Vec<crate::types::QueueSnapshotCapacityUsage>>,
-    pub(crate) fairshare_utilization:
-        ::std::option::Option<crate::types::FairshareUtilizationDetail>,
-    pub(crate) quota_share_utilization:
-        ::std::option::Option<crate::types::QuotaShareUtilizationDetail>,
+    pub(crate) total_capacity_usage: ::std::option::Option<::std::vec::Vec<crate::types::QueueSnapshotCapacityUsage>>,
+    pub(crate) fairshare_utilization: ::std::option::Option<crate::types::FairshareUtilizationDetail>,
+    pub(crate) quota_share_utilization: ::std::option::Option<crate::types::QuotaShareUtilizationDetail>,
     pub(crate) last_updated_at: ::std::option::Option<i64>,
 }
 impl QueueSnapshotUtilizationDetailBuilder {
@@ -86,10 +76,7 @@ impl QueueSnapshotUtilizationDetailBuilder {
         &self.total_capacity_usage
     }
     /// <p>The utilization information for a fairshare scheduling job queues, including active share count and top capacity utilization by share.</p>
-    pub fn fairshare_utilization(
-        mut self,
-        input: crate::types::FairshareUtilizationDetail,
-    ) -> Self {
+    pub fn fairshare_utilization(mut self, input: crate::types::FairshareUtilizationDetail) -> Self {
         self.fairshare_utilization = ::std::option::Option::Some(input);
         self
     }
@@ -102,16 +89,11 @@ impl QueueSnapshotUtilizationDetailBuilder {
         self
     }
     /// <p>The utilization information for a fairshare scheduling job queues, including active share count and top capacity utilization by share.</p>
-    pub fn get_fairshare_utilization(
-        &self,
-    ) -> &::std::option::Option<crate::types::FairshareUtilizationDetail> {
+    pub fn get_fairshare_utilization(&self) -> &::std::option::Option<crate::types::FairshareUtilizationDetail> {
         &self.fairshare_utilization
     }
     /// <p>The utilization information for a job queue with a quota share scheduling policy.</p>
-    pub fn quota_share_utilization(
-        mut self,
-        input: crate::types::QuotaShareUtilizationDetail,
-    ) -> Self {
+    pub fn quota_share_utilization(mut self, input: crate::types::QuotaShareUtilizationDetail) -> Self {
         self.quota_share_utilization = ::std::option::Option::Some(input);
         self
     }
@@ -124,9 +106,7 @@ impl QueueSnapshotUtilizationDetailBuilder {
         self
     }
     /// <p>The utilization information for a job queue with a quota share scheduling policy.</p>
-    pub fn get_quota_share_utilization(
-        &self,
-    ) -> &::std::option::Option<crate::types::QuotaShareUtilizationDetail> {
+    pub fn get_quota_share_utilization(&self) -> &::std::option::Option<crate::types::QuotaShareUtilizationDetail> {
         &self.quota_share_utilization
     }
     /// <p>The Unix timestamp (in milliseconds) for when the queue utilization information was last updated.</p>

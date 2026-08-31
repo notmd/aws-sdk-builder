@@ -41,9 +41,7 @@ impl BatchResultErrorEntry {
 }
 
 /// A builder for [`BatchResultErrorEntry`](crate::types::BatchResultErrorEntry).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct BatchResultErrorEntryBuilder {
     pub(crate) id: ::std::option::Option<::std::string::String>,
@@ -117,10 +115,8 @@ impl BatchResultErrorEntryBuilder {
     /// - [`code`](crate::types::builders::BatchResultErrorEntryBuilder::code)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::BatchResultErrorEntry,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::BatchResultErrorEntry, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::BatchResultErrorEntry {
             id: self.id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

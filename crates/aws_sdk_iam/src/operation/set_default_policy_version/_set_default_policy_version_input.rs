@@ -24,17 +24,13 @@ impl SetDefaultPolicyVersionInput {
 }
 impl SetDefaultPolicyVersionInput {
     /// Creates a new builder-style object to manufacture [`SetDefaultPolicyVersionInput`](crate::operation::set_default_policy_version::SetDefaultPolicyVersionInput).
-    pub fn builder(
-    ) -> crate::operation::set_default_policy_version::builders::SetDefaultPolicyVersionInputBuilder
-    {
+    pub fn builder() -> crate::operation::set_default_policy_version::builders::SetDefaultPolicyVersionInputBuilder {
         crate::operation::set_default_policy_version::builders::SetDefaultPolicyVersionInputBuilder::default()
     }
 }
 
 /// A builder for [`SetDefaultPolicyVersionInput`](crate::operation::set_default_policy_version::SetDefaultPolicyVersionInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SetDefaultPolicyVersionInputBuilder {
     pub(crate) policy_arn: ::std::option::Option<::std::string::String>,

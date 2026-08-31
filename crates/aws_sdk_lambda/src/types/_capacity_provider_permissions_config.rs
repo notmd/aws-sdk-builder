@@ -22,9 +22,7 @@ impl CapacityProviderPermissionsConfig {
 }
 
 /// A builder for [`CapacityProviderPermissionsConfig`](crate::types::CapacityProviderPermissionsConfig).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CapacityProviderPermissionsConfigBuilder {
     pub(crate) capacity_provider_operator_role_arn: ::std::option::Option<::std::string::String>,
@@ -48,9 +46,7 @@ impl CapacityProviderPermissionsConfigBuilder {
         self
     }
     /// <p>The ARN of the IAM role that the capacity provider uses to manage compute instances and other Amazon Web Services resources.</p>
-    pub fn get_capacity_provider_operator_role_arn(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_capacity_provider_operator_role_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.capacity_provider_operator_role_arn
     }
     /// Consumes the builder and constructs a [`CapacityProviderPermissionsConfig`](crate::types::CapacityProviderPermissionsConfig).

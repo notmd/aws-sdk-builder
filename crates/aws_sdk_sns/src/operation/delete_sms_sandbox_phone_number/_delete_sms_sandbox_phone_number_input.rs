@@ -21,7 +21,8 @@ impl ::std::fmt::Debug for DeleteSmsSandboxPhoneNumberInput {
 }
 impl DeleteSmsSandboxPhoneNumberInput {
     /// Creates a new builder-style object to manufacture [`DeleteSmsSandboxPhoneNumberInput`](crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberInput).
-    pub fn builder() -> crate::operation::delete_sms_sandbox_phone_number::builders::DeleteSmsSandboxPhoneNumberInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::delete_sms_sandbox_phone_number::builders::DeleteSmsSandboxPhoneNumberInputBuilder {
         crate::operation::delete_sms_sandbox_phone_number::builders::DeleteSmsSandboxPhoneNumberInputBuilder::default()
     }
 }

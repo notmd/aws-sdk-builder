@@ -20,9 +20,7 @@ impl SignUpOutput {
         self.user_confirmed
     }
     /// <p>In user pools that automatically verify and confirm new users, Amazon Cognito sends users a message with a code or link that confirms ownership of the phone number or email address that they entered. The <code>CodeDeliveryDetails</code> object is information about the delivery destination for that link or code.</p>
-    pub fn code_delivery_details(
-        &self,
-    ) -> ::std::option::Option<&crate::types::CodeDeliveryDetailsType> {
+    pub fn code_delivery_details(&self) -> ::std::option::Option<&crate::types::CodeDeliveryDetailsType> {
         self.code_delivery_details.as_ref()
     }
     /// <p>The unique identifier of the new user, for example <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.</p>
@@ -98,9 +96,7 @@ impl SignUpOutputBuilder {
         self
     }
     /// <p>In user pools that automatically verify and confirm new users, Amazon Cognito sends users a message with a code or link that confirms ownership of the phone number or email address that they entered. The <code>CodeDeliveryDetails</code> object is information about the delivery destination for that link or code.</p>
-    pub fn get_code_delivery_details(
-        &self,
-    ) -> &::std::option::Option<crate::types::CodeDeliveryDetailsType> {
+    pub fn get_code_delivery_details(&self) -> &::std::option::Option<crate::types::CodeDeliveryDetailsType> {
         &self.code_delivery_details
     }
     /// <p>The unique identifier of the new user, for example <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.</p>
@@ -146,10 +142,8 @@ impl SignUpOutputBuilder {
     /// - [`user_sub`](crate::operation::sign_up::builders::SignUpOutputBuilder::user_sub)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::operation::sign_up::SignUpOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::operation::sign_up::SignUpOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::operation::sign_up::SignUpOutput {
             user_confirmed: self.user_confirmed.unwrap_or_default(),
             code_delivery_details: self.code_delivery_details,

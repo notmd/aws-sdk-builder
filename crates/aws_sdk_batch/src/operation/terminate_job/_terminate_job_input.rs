@@ -29,9 +29,7 @@ impl TerminateJobInput {
 }
 
 /// A builder for [`TerminateJobInput`](crate::operation::terminate_job::TerminateJobInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TerminateJobInputBuilder {
     pub(crate) job_id: ::std::option::Option<::std::string::String>,

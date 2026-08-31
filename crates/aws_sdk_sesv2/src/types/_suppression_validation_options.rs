@@ -9,9 +9,7 @@ pub struct SuppressionValidationOptions {
 }
 impl SuppressionValidationOptions {
     /// <p>Specifies the condition threshold settings for suppression validation.</p>
-    pub fn condition_threshold(
-        &self,
-    ) -> ::std::option::Option<&crate::types::SuppressionConditionThreshold> {
+    pub fn condition_threshold(&self) -> ::std::option::Option<&crate::types::SuppressionConditionThreshold> {
         self.condition_threshold.as_ref()
     }
 }
@@ -23,21 +21,15 @@ impl SuppressionValidationOptions {
 }
 
 /// A builder for [`SuppressionValidationOptions`](crate::types::SuppressionValidationOptions).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SuppressionValidationOptionsBuilder {
-    pub(crate) condition_threshold:
-        ::std::option::Option<crate::types::SuppressionConditionThreshold>,
+    pub(crate) condition_threshold: ::std::option::Option<crate::types::SuppressionConditionThreshold>,
 }
 impl SuppressionValidationOptionsBuilder {
     /// <p>Specifies the condition threshold settings for suppression validation.</p>
     /// This field is required.
-    pub fn condition_threshold(
-        mut self,
-        input: crate::types::SuppressionConditionThreshold,
-    ) -> Self {
+    pub fn condition_threshold(mut self, input: crate::types::SuppressionConditionThreshold) -> Self {
         self.condition_threshold = ::std::option::Option::Some(input);
         self
     }
@@ -50,9 +42,7 @@ impl SuppressionValidationOptionsBuilder {
         self
     }
     /// <p>Specifies the condition threshold settings for suppression validation.</p>
-    pub fn get_condition_threshold(
-        &self,
-    ) -> &::std::option::Option<crate::types::SuppressionConditionThreshold> {
+    pub fn get_condition_threshold(&self) -> &::std::option::Option<crate::types::SuppressionConditionThreshold> {
         &self.condition_threshold
     }
     /// Consumes the builder and constructs a [`SuppressionValidationOptions`](crate::types::SuppressionValidationOptions).

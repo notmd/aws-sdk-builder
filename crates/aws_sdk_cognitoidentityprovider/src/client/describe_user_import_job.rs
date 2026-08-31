@@ -10,8 +10,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeUserImportJobError>`](crate::operation::describe_user_import_job::DescribeUserImportJobError)
     pub fn describe_user_import_job(
         &self,
-    ) -> crate::operation::describe_user_import_job::builders::DescribeUserImportJobFluentBuilder
-    {
-        crate::operation::describe_user_import_job::builders::DescribeUserImportJobFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::describe_user_import_job::builders::DescribeUserImportJobFluentBuilder {
+        crate::operation::describe_user_import_job::builders::DescribeUserImportJobFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

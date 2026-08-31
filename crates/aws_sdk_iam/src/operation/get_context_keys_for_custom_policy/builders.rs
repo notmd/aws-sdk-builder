@@ -44,7 +44,7 @@ impl
             crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyOutput,
             crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -58,7 +58,10 @@ impl GetContextKeysForCustomPolicyFluentBuilder {
         }
     }
     /// Access the GetContextKeysForCustomPolicy as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_context_keys_for_custom_policy::builders::GetContextKeysForCustomPolicyInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_context_keys_for_custom_policy::builders::GetContextKeysForCustomPolicyInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -77,7 +80,7 @@ impl GetContextKeysForCustomPolicyFluentBuilder {
             crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -87,7 +90,11 @@ impl GetContextKeysForCustomPolicyFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicy::orchestrate(&runtime_plugins, input).await
+        crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicy::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -130,10 +137,7 @@ impl GetContextKeysForCustomPolicyFluentBuilder {
     /// <li>
     /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
     /// </ul>
-    pub fn policy_input_list(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn policy_input_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.policy_input_list(input.into());
         self
     }
@@ -164,9 +168,7 @@ impl GetContextKeysForCustomPolicyFluentBuilder {
     /// <li>
     /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
     /// </ul>
-    pub fn get_policy_input_list(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         self.inner.get_policy_input_list()
     }
 }

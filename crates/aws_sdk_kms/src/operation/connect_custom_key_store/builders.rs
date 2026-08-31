@@ -87,10 +87,7 @@ impl ConnectCustomKeyStoreFluentBuilder {
         }
     }
     /// Access the ConnectCustomKeyStore as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -114,16 +111,13 @@ impl ConnectCustomKeyStoreFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::connect_custom_key_store::ConnectCustomKeyStore::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::connect_custom_key_store::ConnectCustomKeyStore::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::connect_custom_key_store::ConnectCustomKeyStore::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::connect_custom_key_store::ConnectCustomKeyStore::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -152,18 +146,12 @@ impl ConnectCustomKeyStoreFluentBuilder {
         self
     }
     /// <p>Enter the key store ID of the custom key store that you want to connect. To find the ID of a custom key store, use the <code>DescribeCustomKeyStores</code> operation.</p>
-    pub fn custom_key_store_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn custom_key_store_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.custom_key_store_id(input.into());
         self
     }
     /// <p>Enter the key store ID of the custom key store that you want to connect. To find the ID of a custom key store, use the <code>DescribeCustomKeyStores</code> operation.</p>
-    pub fn set_custom_key_store_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_custom_key_store_id(input);
         self
     }

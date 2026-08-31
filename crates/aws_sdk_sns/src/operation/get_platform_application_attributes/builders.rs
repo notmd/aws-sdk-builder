@@ -26,7 +26,8 @@ impl crate::operation::get_platform_application_attributes::builders::GetPlatfor
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GetPlatformApplicationAttributesFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner: crate::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesInputBuilder,
+    inner:
+        crate::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -57,7 +58,10 @@ impl GetPlatformApplicationAttributesFluentBuilder {
         }
     }
     /// Access the GetPlatformApplicationAttributes as a reference.
-    pub fn as_input(&self) -> &crate::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -76,7 +80,7 @@ impl GetPlatformApplicationAttributesFluentBuilder {
             crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -86,7 +90,11 @@ impl GetPlatformApplicationAttributesFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributes::orchestrate(&runtime_plugins, input).await
+        crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributes::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -96,7 +104,7 @@ impl GetPlatformApplicationAttributesFluentBuilder {
         crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesOutput,
         crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -115,18 +123,12 @@ impl GetPlatformApplicationAttributesFluentBuilder {
         self
     }
     /// <p><code>PlatformApplicationArn</code> for GetPlatformApplicationAttributesInput.</p>
-    pub fn platform_application_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn platform_application_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.platform_application_arn(input.into());
         self
     }
     /// <p><code>PlatformApplicationArn</code> for GetPlatformApplicationAttributesInput.</p>
-    pub fn set_platform_application_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_platform_application_arn(input);
         self
     }

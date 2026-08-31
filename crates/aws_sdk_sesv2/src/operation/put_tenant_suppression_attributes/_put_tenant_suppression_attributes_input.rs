@@ -13,8 +13,7 @@ pub struct PutTenantSuppressionAttributesInput {
     /// <li>
     /// <p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list when a message sent to that address results in a hard bounce.</p></li>
     /// </ul>
-    pub suppressed_reasons:
-        ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>,
+    pub suppressed_reasons: ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>,
     /// <p>The suppression scope for the tenant. Specify <code>TENANT</code> to use the tenant's own suppression list, or <code>ACCOUNT</code> to use the account-level suppression list.</p><note>
     /// <p>If you don't specify a suppression scope, the tenant defaults to <code>ACCOUNT</code> scope and uses the account-level suppression list.</p>
     /// </note>
@@ -46,20 +45,18 @@ impl PutTenantSuppressionAttributesInput {
 }
 impl PutTenantSuppressionAttributesInput {
     /// Creates a new builder-style object to manufacture [`PutTenantSuppressionAttributesInput`](crate::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesInput).
-    pub fn builder() -> crate::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesInputBuilder {
         crate::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesInputBuilder::default()
     }
 }
 
 /// A builder for [`PutTenantSuppressionAttributesInput`](crate::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutTenantSuppressionAttributesInputBuilder {
     pub(crate) tenant_name: ::std::option::Option<::std::string::String>,
-    pub(crate) suppressed_reasons:
-        ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>,
+    pub(crate) suppressed_reasons: ::std::option::Option<::std::vec::Vec<crate::types::SuppressionListReason>>,
     pub(crate) suppression_scope: ::std::option::Option<crate::types::SuppressionListScope>,
 }
 impl PutTenantSuppressionAttributesInputBuilder {
@@ -131,19 +128,14 @@ impl PutTenantSuppressionAttributesInputBuilder {
     /// <p>The suppression scope for the tenant. Specify <code>TENANT</code> to use the tenant's own suppression list, or <code>ACCOUNT</code> to use the account-level suppression list.</p><note>
     /// <p>If you don't specify a suppression scope, the tenant defaults to <code>ACCOUNT</code> scope and uses the account-level suppression list.</p>
     /// </note>
-    pub fn set_suppression_scope(
-        mut self,
-        input: ::std::option::Option<crate::types::SuppressionListScope>,
-    ) -> Self {
+    pub fn set_suppression_scope(mut self, input: ::std::option::Option<crate::types::SuppressionListScope>) -> Self {
         self.suppression_scope = input;
         self
     }
     /// <p>The suppression scope for the tenant. Specify <code>TENANT</code> to use the tenant's own suppression list, or <code>ACCOUNT</code> to use the account-level suppression list.</p><note>
     /// <p>If you don't specify a suppression scope, the tenant defaults to <code>ACCOUNT</code> scope and uses the account-level suppression list.</p>
     /// </note>
-    pub fn get_suppression_scope(
-        &self,
-    ) -> &::std::option::Option<crate::types::SuppressionListScope> {
+    pub fn get_suppression_scope(&self) -> &::std::option::Option<crate::types::SuppressionListScope> {
         &self.suppression_scope
     }
     /// Consumes the builder and constructs a [`PutTenantSuppressionAttributesInput`](crate::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesInput).
@@ -153,10 +145,12 @@ impl PutTenantSuppressionAttributesInputBuilder {
         crate::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesInput {
-            tenant_name: self.tenant_name,
-            suppressed_reasons: self.suppressed_reasons,
-            suppression_scope: self.suppression_scope,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesInput {
+                tenant_name: self.tenant_name,
+                suppressed_reasons: self.suppressed_reasons,
+                suppression_scope: self.suppression_scope,
+            },
+        )
     }
 }

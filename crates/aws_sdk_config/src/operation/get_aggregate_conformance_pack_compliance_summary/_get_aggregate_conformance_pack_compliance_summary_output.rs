@@ -4,9 +4,8 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetAggregateConformancePackComplianceSummaryOutput {
     /// <p>Returns a list of <code>AggregateConformancePackComplianceSummary</code> object.</p>
-    pub aggregate_conformance_pack_compliance_summaries: ::std::option::Option<
-        ::std::vec::Vec<crate::types::AggregateConformancePackComplianceSummary>,
-    >,
+    pub aggregate_conformance_pack_compliance_summaries:
+        ::std::option::Option<::std::vec::Vec<crate::types::AggregateConformancePackComplianceSummary>>,
     /// <p>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</p>
     pub group_by_key: ::std::option::Option<::std::string::String>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -48,14 +47,11 @@ impl GetAggregateConformancePackComplianceSummaryOutput {
 }
 
 /// A builder for [`GetAggregateConformancePackComplianceSummaryOutput`](crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetAggregateConformancePackComplianceSummaryOutputBuilder {
-    pub(crate) aggregate_conformance_pack_compliance_summaries: ::std::option::Option<
-        ::std::vec::Vec<crate::types::AggregateConformancePackComplianceSummary>,
-    >,
+    pub(crate) aggregate_conformance_pack_compliance_summaries:
+        ::std::option::Option<::std::vec::Vec<crate::types::AggregateConformancePackComplianceSummary>>,
     pub(crate) group_by_key: ::std::option::Option<::std::string::String>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -70,9 +66,7 @@ impl GetAggregateConformancePackComplianceSummaryOutputBuilder {
         mut self,
         input: crate::types::AggregateConformancePackComplianceSummary,
     ) -> Self {
-        let mut v = self
-            .aggregate_conformance_pack_compliance_summaries
-            .unwrap_or_default();
+        let mut v = self.aggregate_conformance_pack_compliance_summaries.unwrap_or_default();
         v.push(input);
         self.aggregate_conformance_pack_compliance_summaries = ::std::option::Option::Some(v);
         self
@@ -80,9 +74,7 @@ impl GetAggregateConformancePackComplianceSummaryOutputBuilder {
     /// <p>Returns a list of <code>AggregateConformancePackComplianceSummary</code> object.</p>
     pub fn set_aggregate_conformance_pack_compliance_summaries(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::AggregateConformancePackComplianceSummary>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::AggregateConformancePackComplianceSummary>>,
     ) -> Self {
         self.aggregate_conformance_pack_compliance_summaries = input;
         self
@@ -90,9 +82,7 @@ impl GetAggregateConformancePackComplianceSummaryOutputBuilder {
     /// <p>Returns a list of <code>AggregateConformancePackComplianceSummary</code> object.</p>
     pub fn get_aggregate_conformance_pack_compliance_summaries(
         &self,
-    ) -> &::std::option::Option<
-        ::std::vec::Vec<crate::types::AggregateConformancePackComplianceSummary>,
-    > {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::AggregateConformancePackComplianceSummary>> {
         &self.aggregate_conformance_pack_compliance_summaries
     }
     /// <p>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</p>

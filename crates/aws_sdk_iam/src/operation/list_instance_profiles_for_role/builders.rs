@@ -58,7 +58,9 @@ impl ListInstanceProfilesForRoleFluentBuilder {
         }
     }
     /// Access the ListInstanceProfilesForRole as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -82,11 +84,12 @@ impl ListInstanceProfilesForRoleFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRole::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRole::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRole::orchestrate(
             &runtime_plugins,
             input,
@@ -122,8 +125,13 @@ impl ListInstanceProfilesForRoleFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_instance_profiles_for_role::paginator::ListInstanceProfilesForRolePaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> crate::operation::list_instance_profiles_for_role::paginator::ListInstanceProfilesForRolePaginator{
-        crate::operation::list_instance_profiles_for_role::paginator::ListInstanceProfilesForRolePaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> crate::operation::list_instance_profiles_for_role::paginator::ListInstanceProfilesForRolePaginator {
+        crate::operation::list_instance_profiles_for_role::paginator::ListInstanceProfilesForRolePaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The name of the role to list instance profiles for.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>

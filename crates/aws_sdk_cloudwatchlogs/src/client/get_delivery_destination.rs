@@ -9,8 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetDeliveryDestinationError>`](crate::operation::get_delivery_destination::GetDeliveryDestinationError)
     pub fn get_delivery_destination(
         &self,
-    ) -> crate::operation::get_delivery_destination::builders::GetDeliveryDestinationFluentBuilder
-    {
-        crate::operation::get_delivery_destination::builders::GetDeliveryDestinationFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::get_delivery_destination::builders::GetDeliveryDestinationFluentBuilder {
+        crate::operation::get_delivery_destination::builders::GetDeliveryDestinationFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

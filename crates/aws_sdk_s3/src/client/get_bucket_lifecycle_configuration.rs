@@ -11,7 +11,8 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetBucketLifecycleConfigurationError>`](crate::operation::get_bucket_lifecycle_configuration::GetBucketLifecycleConfigurationError)
     pub fn get_bucket_lifecycle_configuration(
         &self,
-    ) -> crate::operation::get_bucket_lifecycle_configuration::builders::GetBucketLifecycleConfigurationFluentBuilder{
+    ) -> crate::operation::get_bucket_lifecycle_configuration::builders::GetBucketLifecycleConfigurationFluentBuilder
+    {
         crate::operation::get_bucket_lifecycle_configuration::builders::GetBucketLifecycleConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

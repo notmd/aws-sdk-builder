@@ -14,7 +14,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeRemediationExceptionsError>`](crate::operation::describe_remediation_exceptions::DescribeRemediationExceptionsError)
     pub fn describe_remediation_exceptions(
         &self,
-    ) -> crate::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsFluentBuilder{
-        crate::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsFluentBuilder {
+        crate::operation::describe_remediation_exceptions::builders::DescribeRemediationExceptionsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

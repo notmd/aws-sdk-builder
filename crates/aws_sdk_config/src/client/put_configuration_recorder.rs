@@ -9,8 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutConfigurationRecorderError>`](crate::operation::put_configuration_recorder::PutConfigurationRecorderError)
     pub fn put_configuration_recorder(
         &self,
-    ) -> crate::operation::put_configuration_recorder::builders::PutConfigurationRecorderFluentBuilder
-    {
-        crate::operation::put_configuration_recorder::builders::PutConfigurationRecorderFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::put_configuration_recorder::builders::PutConfigurationRecorderFluentBuilder {
+        crate::operation::put_configuration_recorder::builders::PutConfigurationRecorderFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

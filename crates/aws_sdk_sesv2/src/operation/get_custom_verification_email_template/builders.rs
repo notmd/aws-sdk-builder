@@ -3,7 +3,9 @@ pub use crate::operation::get_custom_verification_email_template::_get_custom_ve
 
 pub use crate::operation::get_custom_verification_email_template::_get_custom_verification_email_template_output::GetCustomVerificationEmailTemplateOutputBuilder;
 
-impl crate::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateInputBuilder {
+impl
+    crate::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateInputBuilder
+{
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -78,7 +80,7 @@ impl GetCustomVerificationEmailTemplateFluentBuilder {
             crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -88,7 +90,11 @@ impl GetCustomVerificationEmailTemplateFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplate::orchestrate(&runtime_plugins, input).await
+        crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplate::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -98,7 +104,7 @@ impl GetCustomVerificationEmailTemplateFluentBuilder {
         crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateOutput,
         crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -117,18 +123,12 @@ impl GetCustomVerificationEmailTemplateFluentBuilder {
         self
     }
     /// <p>The name of the custom verification email template that you want to retrieve.</p>
-    pub fn template_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn template_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.template_name(input.into());
         self
     }
     /// <p>The name of the custom verification email template that you want to retrieve.</p>
-    pub fn set_template_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_template_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_template_name(input);
         self
     }

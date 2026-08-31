@@ -27,9 +27,7 @@ impl OpenSearchResourceStatus {
 }
 
 /// A builder for [`OpenSearchResourceStatus`](crate::types::OpenSearchResourceStatus).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct OpenSearchResourceStatusBuilder {
     pub(crate) status: ::std::option::Option<crate::types::OpenSearchResourceStatusType>,
@@ -42,10 +40,7 @@ impl OpenSearchResourceStatusBuilder {
         self
     }
     /// <p>The current status of this resource.</p>
-    pub fn set_status(
-        mut self,
-        input: ::std::option::Option<crate::types::OpenSearchResourceStatusType>,
-    ) -> Self {
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::OpenSearchResourceStatusType>) -> Self {
         self.status = input;
         self
     }
@@ -54,18 +49,12 @@ impl OpenSearchResourceStatusBuilder {
         &self.status
     }
     /// <p>A message with additional information about the status of this resource.</p>
-    pub fn status_message(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn status_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.status_message = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A message with additional information about the status of this resource.</p>
-    pub fn set_status_message(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_status_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.status_message = input;
         self
     }

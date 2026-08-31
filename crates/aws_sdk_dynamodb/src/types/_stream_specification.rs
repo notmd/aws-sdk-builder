@@ -47,9 +47,7 @@ impl StreamSpecification {
 }
 
 /// A builder for [`StreamSpecification`](crate::types::StreamSpecification).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct StreamSpecificationBuilder {
     pub(crate) stream_enabled: ::std::option::Option<bool>,
@@ -97,10 +95,7 @@ impl StreamSpecificationBuilder {
     /// <li>
     /// <p><code>NEW_AND_OLD_IMAGES</code> - Both the new and the old item images of the item are written to the stream.</p></li>
     /// </ul>
-    pub fn set_stream_view_type(
-        mut self,
-        input: ::std::option::Option<crate::types::StreamViewType>,
-    ) -> Self {
+    pub fn set_stream_view_type(mut self, input: ::std::option::Option<crate::types::StreamViewType>) -> Self {
         self.stream_view_type = input;
         self
     }
@@ -123,10 +118,8 @@ impl StreamSpecificationBuilder {
     /// - [`stream_enabled`](crate::types::builders::StreamSpecificationBuilder::stream_enabled)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::StreamSpecification,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::StreamSpecification, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(crate::types::StreamSpecification {
             stream_enabled: self.stream_enabled.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

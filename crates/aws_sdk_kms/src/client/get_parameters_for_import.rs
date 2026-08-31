@@ -14,8 +14,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetParametersForImportError>`](crate::operation::get_parameters_for_import::GetParametersForImportError)
     pub fn get_parameters_for_import(
         &self,
-    ) -> crate::operation::get_parameters_for_import::builders::GetParametersForImportFluentBuilder
-    {
-        crate::operation::get_parameters_for_import::builders::GetParametersForImportFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::get_parameters_for_import::builders::GetParametersForImportFluentBuilder {
+        crate::operation::get_parameters_for_import::builders::GetParametersForImportFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

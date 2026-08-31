@@ -9,7 +9,8 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<EnableOrganizationsRootSessionsError>`](crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError)
     pub fn enable_organizations_root_sessions(
         &self,
-    ) -> crate::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsFluentBuilder{
+    ) -> crate::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsFluentBuilder
+    {
         crate::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsFluentBuilder::new(self.handle.clone())
     }
 }

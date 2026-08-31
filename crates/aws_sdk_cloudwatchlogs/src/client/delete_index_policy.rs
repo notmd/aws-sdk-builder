@@ -9,8 +9,6 @@ impl super::Client {
     pub fn delete_index_policy(
         &self,
     ) -> crate::operation::delete_index_policy::builders::DeleteIndexPolicyFluentBuilder {
-        crate::operation::delete_index_policy::builders::DeleteIndexPolicyFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_index_policy::builders::DeleteIndexPolicyFluentBuilder::new(self.handle.clone())
     }
 }

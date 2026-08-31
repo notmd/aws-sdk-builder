@@ -28,9 +28,7 @@ impl RecoveryOptionType {
 }
 
 /// A builder for [`RecoveryOptionType`](crate::types::RecoveryOptionType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RecoveryOptionTypeBuilder {
     pub(crate) priority: ::std::option::Option<i32>,
@@ -59,10 +57,7 @@ impl RecoveryOptionTypeBuilder {
         self
     }
     /// <p>The recovery method that this object sets a recovery option for.</p>
-    pub fn set_name(
-        mut self,
-        input: ::std::option::Option<crate::types::RecoveryOptionNameType>,
-    ) -> Self {
+    pub fn set_name(mut self, input: ::std::option::Option<crate::types::RecoveryOptionNameType>) -> Self {
         self.name = input;
         self
     }
@@ -76,10 +71,7 @@ impl RecoveryOptionTypeBuilder {
     /// - [`name`](crate::types::builders::RecoveryOptionTypeBuilder::name)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::RecoveryOptionType,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::RecoveryOptionType, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::RecoveryOptionType {
             priority: self.priority.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

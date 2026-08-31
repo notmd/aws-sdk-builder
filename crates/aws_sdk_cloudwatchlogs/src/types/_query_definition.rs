@@ -61,9 +61,7 @@ impl QueryDefinition {
 }
 
 /// A builder for [`QueryDefinition`](crate::types::QueryDefinition).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct QueryDefinitionBuilder {
     pub(crate) query_language: ::std::option::Option<crate::types::QueryLanguage>,
@@ -81,10 +79,7 @@ impl QueryDefinitionBuilder {
         self
     }
     /// <p>The query language used for this query. For more information about the query languages that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported query languages</a>.</p>
-    pub fn set_query_language(
-        mut self,
-        input: ::std::option::Option<crate::types::QueryLanguage>,
-    ) -> Self {
+    pub fn set_query_language(mut self, input: ::std::option::Option<crate::types::QueryLanguage>) -> Self {
         self.query_language = input;
         self
     }
@@ -93,18 +88,12 @@ impl QueryDefinitionBuilder {
         &self.query_language
     }
     /// <p>The unique ID of the query definition.</p>
-    pub fn query_definition_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn query_definition_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.query_definition_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique ID of the query definition.</p>
-    pub fn set_query_definition_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_query_definition_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.query_definition_id = input;
         self
     }
@@ -159,27 +148,19 @@ impl QueryDefinitionBuilder {
     /// To override the contents of this collection use [`set_log_group_names`](Self::set_log_group_names).
     ///
     /// <p>If this query definition contains a list of log groups that it is limited to, that list appears here.</p>
-    pub fn log_group_names(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn log_group_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.log_group_names.unwrap_or_default();
         v.push(input.into());
         self.log_group_names = ::std::option::Option::Some(v);
         self
     }
     /// <p>If this query definition contains a list of log groups that it is limited to, that list appears here.</p>
-    pub fn set_log_group_names(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_log_group_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.log_group_names = input;
         self
     }
     /// <p>If this query definition contains a list of log groups that it is limited to, that list appears here.</p>
-    pub fn get_log_group_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_log_group_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.log_group_names
     }
     /// Appends an item to `parameters`.
@@ -202,9 +183,7 @@ impl QueryDefinitionBuilder {
         self
     }
     /// <p>If this query definition contains a list of query parameters that define placeholder variables for the query string, that list appears here.</p>
-    pub fn get_parameters(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::QueryParameter>> {
+    pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::QueryParameter>> {
         &self.parameters
     }
     /// Consumes the builder and constructs a [`QueryDefinition`](crate::types::QueryDefinition).

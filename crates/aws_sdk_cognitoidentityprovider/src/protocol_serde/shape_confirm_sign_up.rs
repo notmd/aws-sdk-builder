@@ -9,119 +9,118 @@ pub fn de_confirm_sign_up_http_error(
     crate::operation::confirm_sign_up::ConfirmSignUpError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled(generic))
+            return Err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled(
+                generic,
+            ))
         }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AliasExistsException" => {
-            crate::operation::confirm_sign_up::ConfirmSignUpError::AliasExistsException({
+        "AliasExistsException" => crate::operation::confirm_sign_up::ConfirmSignUpError::AliasExistsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::AliasExistsExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_alias_exists_exception::de_alias_exists_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "CodeMismatchException" => {
-            crate::operation::confirm_sign_up::ConfirmSignUpError::CodeMismatchException({
+                let mut output = crate::types::error::builders::AliasExistsExceptionBuilder::default();
+                output = crate::protocol_serde::shape_alias_exists_exception::de_alias_exists_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "CodeMismatchException" => crate::operation::confirm_sign_up::ConfirmSignUpError::CodeMismatchException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::CodeMismatchExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_code_mismatch_exception::de_code_mismatch_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ExpiredCodeException" => {
-            crate::operation::confirm_sign_up::ConfirmSignUpError::ExpiredCodeException({
+                let mut output = crate::types::error::builders::CodeMismatchExceptionBuilder::default();
+                output = crate::protocol_serde::shape_code_mismatch_exception::de_code_mismatch_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ExpiredCodeException" => crate::operation::confirm_sign_up::ConfirmSignUpError::ExpiredCodeException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ExpiredCodeExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_expired_code_exception::de_expired_code_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ForbiddenException" => {
-            crate::operation::confirm_sign_up::ConfirmSignUpError::ForbiddenException({
+                let mut output = crate::types::error::builders::ExpiredCodeExceptionBuilder::default();
+                output = crate::protocol_serde::shape_expired_code_exception::de_expired_code_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ForbiddenException" => crate::operation::confirm_sign_up::ConfirmSignUpError::ForbiddenException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ForbiddenExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_forbidden_exception::de_forbidden_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "InternalErrorException" => {
-            crate::operation::confirm_sign_up::ConfirmSignUpError::InternalErrorException({
+                let mut output = crate::types::error::builders::ForbiddenExceptionBuilder::default();
+                output = crate::protocol_serde::shape_forbidden_exception::de_forbidden_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InternalErrorException" => crate::operation::confirm_sign_up::ConfirmSignUpError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InternalErrorExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = crate::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidLambdaResponseException" => {
             crate::operation::confirm_sign_up::ConfirmSignUpError::InvalidLambdaResponseException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
                     output = crate::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
                     _response_body,
                     output,
@@ -141,8 +140,7 @@ pub fn de_confirm_sign_up_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::InvalidParameterExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::InvalidParameterExceptionBuilder::default();
                     output = crate::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
                     .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
                     let output = output.meta(generic);
@@ -154,50 +152,48 @@ pub fn de_confirm_sign_up_http_error(
                 tmp
             })
         }
-        "LimitExceededException" => {
-            crate::operation::confirm_sign_up::ConfirmSignUpError::LimitExceededException({
+        "LimitExceededException" => crate::operation::confirm_sign_up::ConfirmSignUpError::LimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::LimitExceededExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "NotAuthorizedException" => {
-            crate::operation::confirm_sign_up::ConfirmSignUpError::NotAuthorizedException({
+                let mut output = crate::types::error::builders::LimitExceededExceptionBuilder::default();
+                output = crate::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotAuthorizedException" => crate::operation::confirm_sign_up::ConfirmSignUpError::NotAuthorizedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::NotAuthorizedExceptionBuilder::default();
+                output = crate::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "OperationNotEnabledException" => {
             crate::operation::confirm_sign_up::ConfirmSignUpError::OperationNotEnabledException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::OperationNotEnabledExceptionBuilder::default(
-                        );
+                    let mut output = crate::types::error::builders::OperationNotEnabledExceptionBuilder::default();
                     output =
                     crate::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
                         .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
@@ -215,8 +211,7 @@ pub fn de_confirm_sign_up_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                     output = crate::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
                     let output = output.meta(generic);
@@ -233,7 +228,7 @@ pub fn de_confirm_sign_up_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::TooManyFailedAttemptsExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::TooManyFailedAttemptsExceptionBuilder::default();
                     output = crate::protocol_serde::shape_too_many_failed_attempts_exception::de_too_many_failed_attempts_exception_json_err(
                     _response_body,
                     output,
@@ -253,8 +248,7 @@ pub fn de_confirm_sign_up_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::TooManyRequestsExceptionBuilder::default();
                     output = crate::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
                     let output = output.meta(generic);
@@ -271,8 +265,7 @@ pub fn de_confirm_sign_up_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
                     output = crate::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
                     .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
                     let output = output.meta(generic);
@@ -289,7 +282,7 @@ pub fn de_confirm_sign_up_http_error(
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::UserLambdaValidationExceptionBuilder::default();
+                    let mut output = crate::types::error::builders::UserLambdaValidationExceptionBuilder::default();
                     output = crate::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
                     _response_body,
                     output,
@@ -304,24 +297,24 @@ pub fn de_confirm_sign_up_http_error(
                 tmp
             })
         }
-        "UserNotFoundException" => {
-            crate::operation::confirm_sign_up::ConfirmSignUpError::UserNotFoundException({
+        "UserNotFoundException" => crate::operation::confirm_sign_up::ConfirmSignUpError::UserNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output =
-                        crate::types::error::builders::UserNotFoundExceptionBuilder::default();
-                    output = crate::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = crate::types::error::builders::UserNotFoundExceptionBuilder::default();
+                output = crate::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => crate::operation::confirm_sign_up::ConfirmSignUpError::generic(generic),
     })
 }
@@ -337,32 +330,21 @@ pub fn de_confirm_sign_up_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            crate::operation::confirm_sign_up::builders::ConfirmSignUpOutputBuilder::default();
-        output = crate::protocol_serde::shape_confirm_sign_up::de_confirm_sign_up(
-            _response_body,
-            output,
-        )
-        .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output = crate::operation::confirm_sign_up::builders::ConfirmSignUpOutputBuilder::default();
+        output = crate::protocol_serde::shape_confirm_sign_up::de_confirm_sign_up(_response_body, output)
+            .map_err(crate::operation::confirm_sign_up::ConfirmSignUpError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_confirm_sign_up_input(
     input: &crate::operation::confirm_sign_up::ConfirmSignUpInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_confirm_sign_up_input::ser_confirm_sign_up_input_input(
-        &mut object,
-        input,
-    )?;
+    crate::protocol_serde::shape_confirm_sign_up_input::ser_confirm_sign_up_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -374,10 +356,8 @@ pub(crate) fn de_confirm_sign_up(
     crate::operation::confirm_sign_up::builders::ConfirmSignUpOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -385,35 +365,27 @@ pub(crate) fn de_confirm_sign_up(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "Session" => {
-                        builder = builder.set_session(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(
-                                tokens.next(),
-                            )?
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "Session" => {
+                    builder = builder.set_session(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                             .transpose()?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    );
                 }
-            }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

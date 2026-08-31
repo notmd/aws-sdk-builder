@@ -34,9 +34,7 @@ impl DescribeQueriesOutput {
 }
 
 /// A builder for [`DescribeQueriesOutput`](crate::operation::describe_queries::DescribeQueriesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeQueriesOutputBuilder {
     pub(crate) queries: ::std::option::Option<::std::vec::Vec<crate::types::QueryInfo>>,
@@ -56,10 +54,7 @@ impl DescribeQueriesOutputBuilder {
         self
     }
     /// <p>The list of queries that match the request.</p>
-    pub fn set_queries(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::QueryInfo>>,
-    ) -> Self {
+    pub fn set_queries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::QueryInfo>>) -> Self {
         self.queries = input;
         self
     }

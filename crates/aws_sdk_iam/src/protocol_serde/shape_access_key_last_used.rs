@@ -3,8 +3,7 @@
 pub fn de_access_key_last_used(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::AccessKeyLastUsed, ::aws_smithy_xml::decode::XmlDecodeError>
-{
+) -> ::std::result::Result<crate::types::AccessKeyLastUsed, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
             "maximum nesting depth exceeded",
@@ -57,9 +56,7 @@ pub fn de_access_key_last_used(
             _ => {}
         }
     }
-    Ok(
-        crate::serde_util::access_key_last_used_correct_errors(builder)
-            .build()
-            .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?,
-    )
+    Ok(crate::serde_util::access_key_last_used_correct_errors(builder)
+        .build()
+        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
 }

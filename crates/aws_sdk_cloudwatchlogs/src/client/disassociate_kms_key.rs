@@ -10,8 +10,6 @@ impl super::Client {
     pub fn disassociate_kms_key(
         &self,
     ) -> crate::operation::disassociate_kms_key::builders::DisassociateKmsKeyFluentBuilder {
-        crate::operation::disassociate_kms_key::builders::DisassociateKmsKeyFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::disassociate_kms_key::builders::DisassociateKmsKeyFluentBuilder::new(self.handle.clone())
     }
 }

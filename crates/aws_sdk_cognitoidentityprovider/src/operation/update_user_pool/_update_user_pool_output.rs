@@ -19,9 +19,7 @@ impl UpdateUserPoolOutput {
 }
 
 /// A builder for [`UpdateUserPoolOutput`](crate::operation::update_user_pool::UpdateUserPoolOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateUserPoolOutputBuilder {
     _request_id: Option<String>,

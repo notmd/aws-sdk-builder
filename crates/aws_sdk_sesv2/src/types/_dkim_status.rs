@@ -105,9 +105,9 @@ impl ::std::convert::From<&str> for DkimStatus {
             "PENDING" => DkimStatus::Pending,
             "SUCCESS" => DkimStatus::Success,
             "TEMPORARY_FAILURE" => DkimStatus::TemporaryFailure,
-            other => DkimStatus::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => DkimStatus::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -132,13 +132,7 @@ impl DkimStatus {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &[
-            "FAILED",
-            "NOT_STARTED",
-            "PENDING",
-            "SUCCESS",
-            "TEMPORARY_FAILURE",
-        ]
+        &["FAILED", "NOT_STARTED", "PENDING", "SUCCESS", "TEMPORARY_FAILURE"]
     }
 }
 impl ::std::convert::AsRef<str> for DkimStatus {
@@ -150,14 +144,10 @@ impl DkimStatus {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }

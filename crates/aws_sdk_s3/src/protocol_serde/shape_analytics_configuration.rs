@@ -3,10 +3,7 @@
 pub fn de_analytics_configuration(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<
-    crate::types::AnalyticsConfiguration,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<crate::types::AnalyticsConfiguration, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
             "maximum nesting depth exceeded",
@@ -52,11 +49,9 @@ pub fn de_analytics_configuration(
             _ => {}
         }
     }
-    Ok(
-        crate::serde_util::analytics_configuration_correct_errors(builder)
-            .build()
-            .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?,
-    )
+    Ok(crate::serde_util::analytics_configuration_correct_errors(builder)
+        .build()
+        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
 }
 
 pub fn ser_analytics_configuration(
@@ -75,10 +70,7 @@ pub fn ser_analytics_configuration(
     }
     if let Some(var_5) = &input.storage_class_analysis {
         let inner_writer = scope.start_el("StorageClassAnalysis");
-        crate::protocol_serde::shape_storage_class_analysis::ser_storage_class_analysis(
-            var_5,
-            inner_writer,
-        )?
+        crate::protocol_serde::shape_storage_class_analysis::ser_storage_class_analysis(var_5, inner_writer)?
     }
     scope.finish();
     Ok(())

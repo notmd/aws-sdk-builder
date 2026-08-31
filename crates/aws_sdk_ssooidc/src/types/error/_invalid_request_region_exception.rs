@@ -71,9 +71,7 @@ impl InvalidRequestRegionException {
 }
 
 /// A builder for [`InvalidRequestRegionException`](crate::types::error::InvalidRequestRegionException).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InvalidRequestRegionExceptionBuilder {
     pub(crate) error: ::std::option::Option<::std::string::String>,
@@ -99,18 +97,12 @@ impl InvalidRequestRegionExceptionBuilder {
         &self.error
     }
     /// <p>Human-readable text providing additional information, used to assist the client developer in understanding the error that occurred.</p>
-    pub fn error_description(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn error_description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.error_description = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Human-readable text providing additional information, used to assist the client developer in understanding the error that occurred.</p>
-    pub fn set_error_description(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_error_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.error_description = input;
         self
     }
@@ -167,10 +159,7 @@ impl InvalidRequestRegionExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(
-        &mut self,
-        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> &mut Self {
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
         self.meta = meta;
         self
     }

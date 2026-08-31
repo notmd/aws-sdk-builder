@@ -16,8 +16,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeMetricFiltersError>`](crate::operation::describe_metric_filters::DescribeMetricFiltersError)
     pub fn describe_metric_filters(
         &self,
-    ) -> crate::operation::describe_metric_filters::builders::DescribeMetricFiltersFluentBuilder
-    {
+    ) -> crate::operation::describe_metric_filters::builders::DescribeMetricFiltersFluentBuilder {
         crate::operation::describe_metric_filters::builders::DescribeMetricFiltersFluentBuilder::new(
             self.handle.clone(),
         )

@@ -10,8 +10,6 @@ impl super::Client {
     pub fn delete_resource_config(
         &self,
     ) -> crate::operation::delete_resource_config::builders::DeleteResourceConfigFluentBuilder {
-        crate::operation::delete_resource_config::builders::DeleteResourceConfigFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_resource_config::builders::DeleteResourceConfigFluentBuilder::new(self.handle.clone())
     }
 }

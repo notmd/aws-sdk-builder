@@ -10,8 +10,6 @@ impl super::Client {
     pub fn get_provisioned_limit(
         &self,
     ) -> crate::operation::get_provisioned_limit::builders::GetProvisionedLimitFluentBuilder {
-        crate::operation::get_provisioned_limit::builders::GetProvisionedLimitFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_provisioned_limit::builders::GetProvisionedLimitFluentBuilder::new(self.handle.clone())
     }
 }

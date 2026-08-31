@@ -16,12 +16,10 @@ pub struct MessageInsightsFilters {
     /// <p>The recipient's ISP (e.g., <code>Gmail</code>, <code>Yahoo</code>, etc.).</p>
     pub isp: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>The last delivery-related event for the email, where the ordering is as follows: <code>SEND</code> &lt; <code>BOUNCE</code> &lt; <code>DELIVERY</code> &lt; <code>COMPLAINT</code>.</p>
-    pub last_delivery_event:
-        ::std::option::Option<::std::vec::Vec<crate::types::DeliveryEventType>>,
+    pub last_delivery_event: ::std::option::Option<::std::vec::Vec<crate::types::DeliveryEventType>>,
     /// <p>The last engagement-related event for the email, where the ordering is as follows: <code>OPEN</code> &lt; <code>CLICK</code>.</p>
     /// <p>Engagement events are only available if <a href="https://docs.aws.amazon.com/ses/latest/dg/vdm-settings.html">Engagement tracking</a> is enabled.</p>
-    pub last_engagement_event:
-        ::std::option::Option<::std::vec::Vec<crate::types::EngagementEventType>>,
+    pub last_engagement_event: ::std::option::Option<::std::vec::Vec<crate::types::EngagementEventType>>,
 }
 impl MessageInsightsFilters {
     /// <p>The from address used to send the message.</p>
@@ -70,19 +68,15 @@ impl MessageInsightsFilters {
 }
 
 /// A builder for [`MessageInsightsFilters`](crate::types::MessageInsightsFilters).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct MessageInsightsFiltersBuilder {
     pub(crate) from_email_address: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) destination: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) subject: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) isp: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) last_delivery_event:
-        ::std::option::Option<::std::vec::Vec<crate::types::DeliveryEventType>>,
-    pub(crate) last_engagement_event:
-        ::std::option::Option<::std::vec::Vec<crate::types::EngagementEventType>>,
+    pub(crate) last_delivery_event: ::std::option::Option<::std::vec::Vec<crate::types::DeliveryEventType>>,
+    pub(crate) last_engagement_event: ::std::option::Option<::std::vec::Vec<crate::types::EngagementEventType>>,
 }
 impl MessageInsightsFiltersBuilder {
     /// Appends an item to `from_email_address`.
@@ -90,10 +84,7 @@ impl MessageInsightsFiltersBuilder {
     /// To override the contents of this collection use [`set_from_email_address`](Self::set_from_email_address).
     ///
     /// <p>The from address used to send the message.</p>
-    pub fn from_email_address(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn from_email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.from_email_address.unwrap_or_default();
         v.push(input.into());
         self.from_email_address = ::std::option::Option::Some(v);
@@ -108,9 +99,7 @@ impl MessageInsightsFiltersBuilder {
         self
     }
     /// <p>The from address used to send the message.</p>
-    pub fn get_from_email_address(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_from_email_address(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.from_email_address
     }
     /// Appends an item to `destination`.
@@ -125,17 +114,12 @@ impl MessageInsightsFiltersBuilder {
         self
     }
     /// <p>The recipient's email address.</p>
-    pub fn set_destination(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_destination(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.destination = input;
         self
     }
     /// <p>The recipient's email address.</p>
-    pub fn get_destination(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_destination(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.destination
     }
     /// Appends an item to `subject`.
@@ -150,10 +134,7 @@ impl MessageInsightsFiltersBuilder {
         self
     }
     /// <p>The subject line of the message.</p>
-    pub fn set_subject(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_subject(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.subject = input;
         self
     }
@@ -173,10 +154,7 @@ impl MessageInsightsFiltersBuilder {
         self
     }
     /// <p>The recipient's ISP (e.g., <code>Gmail</code>, <code>Yahoo</code>, etc.).</p>
-    pub fn set_isp(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_isp(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.isp = input;
         self
     }
@@ -204,9 +182,7 @@ impl MessageInsightsFiltersBuilder {
         self
     }
     /// <p>The last delivery-related event for the email, where the ordering is as follows: <code>SEND</code> &lt; <code>BOUNCE</code> &lt; <code>DELIVERY</code> &lt; <code>COMPLAINT</code>.</p>
-    pub fn get_last_delivery_event(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::DeliveryEventType>> {
+    pub fn get_last_delivery_event(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DeliveryEventType>> {
         &self.last_delivery_event
     }
     /// Appends an item to `last_engagement_event`.

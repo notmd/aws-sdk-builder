@@ -9,8 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DeleteBucketEncryptionError>`](crate::operation::delete_bucket_encryption::DeleteBucketEncryptionError)
     pub fn delete_bucket_encryption(
         &self,
-    ) -> crate::operation::delete_bucket_encryption::builders::DeleteBucketEncryptionFluentBuilder
-    {
-        crate::operation::delete_bucket_encryption::builders::DeleteBucketEncryptionFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::delete_bucket_encryption::builders::DeleteBucketEncryptionFluentBuilder {
+        crate::operation::delete_bucket_encryption::builders::DeleteBucketEncryptionFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

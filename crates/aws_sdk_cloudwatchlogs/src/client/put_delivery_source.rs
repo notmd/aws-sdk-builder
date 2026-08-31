@@ -14,8 +14,6 @@ impl super::Client {
     pub fn put_delivery_source(
         &self,
     ) -> crate::operation::put_delivery_source::builders::PutDeliverySourceFluentBuilder {
-        crate::operation::put_delivery_source::builders::PutDeliverySourceFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::put_delivery_source::builders::PutDeliverySourceFluentBuilder::new(self.handle.clone())
     }
 }

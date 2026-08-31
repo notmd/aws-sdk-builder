@@ -33,8 +33,7 @@ impl GuardrailAutomatedReasoningFinding {
     /// Returns `Err(&Self)` if it can't be converted.
     pub fn as_impossible(
         &self,
-    ) -> ::std::result::Result<&crate::types::GuardrailAutomatedReasoningImpossibleFinding, &Self>
-    {
+    ) -> ::std::result::Result<&crate::types::GuardrailAutomatedReasoningImpossibleFinding, &Self> {
         if let GuardrailAutomatedReasoningFinding::Impossible(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -47,10 +46,7 @@ impl GuardrailAutomatedReasoningFinding {
     }
     /// Tries to convert the enum instance into [`Invalid`](crate::types::GuardrailAutomatedReasoningFinding::Invalid), extracting the inner [`GuardrailAutomatedReasoningInvalidFinding`](crate::types::GuardrailAutomatedReasoningInvalidFinding).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_invalid(
-        &self,
-    ) -> ::std::result::Result<&crate::types::GuardrailAutomatedReasoningInvalidFinding, &Self>
-    {
+    pub fn as_invalid(&self) -> ::std::result::Result<&crate::types::GuardrailAutomatedReasoningInvalidFinding, &Self> {
         if let GuardrailAutomatedReasoningFinding::Invalid(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -65,8 +61,7 @@ impl GuardrailAutomatedReasoningFinding {
     /// Returns `Err(&Self)` if it can't be converted.
     pub fn as_no_translations(
         &self,
-    ) -> ::std::result::Result<&crate::types::GuardrailAutomatedReasoningNoTranslationsFinding, &Self>
-    {
+    ) -> ::std::result::Result<&crate::types::GuardrailAutomatedReasoningNoTranslationsFinding, &Self> {
         if let GuardrailAutomatedReasoningFinding::NoTranslations(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -81,8 +76,7 @@ impl GuardrailAutomatedReasoningFinding {
     /// Returns `Err(&Self)` if it can't be converted.
     pub fn as_satisfiable(
         &self,
-    ) -> ::std::result::Result<&crate::types::GuardrailAutomatedReasoningSatisfiableFinding, &Self>
-    {
+    ) -> ::std::result::Result<&crate::types::GuardrailAutomatedReasoningSatisfiableFinding, &Self> {
         if let GuardrailAutomatedReasoningFinding::Satisfiable(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -97,8 +91,7 @@ impl GuardrailAutomatedReasoningFinding {
     /// Returns `Err(&Self)` if it can't be converted.
     pub fn as_too_complex(
         &self,
-    ) -> ::std::result::Result<&crate::types::GuardrailAutomatedReasoningTooComplexFinding, &Self>
-    {
+    ) -> ::std::result::Result<&crate::types::GuardrailAutomatedReasoningTooComplexFinding, &Self> {
         if let GuardrailAutomatedReasoningFinding::TooComplex(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -113,10 +106,7 @@ impl GuardrailAutomatedReasoningFinding {
     /// Returns `Err(&Self)` if it can't be converted.
     pub fn as_translation_ambiguous(
         &self,
-    ) -> ::std::result::Result<
-        &crate::types::GuardrailAutomatedReasoningTranslationAmbiguousFinding,
-        &Self,
-    > {
+    ) -> ::std::result::Result<&crate::types::GuardrailAutomatedReasoningTranslationAmbiguousFinding, &Self> {
         if let GuardrailAutomatedReasoningFinding::TranslationAmbiguous(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -129,9 +119,7 @@ impl GuardrailAutomatedReasoningFinding {
     }
     /// Tries to convert the enum instance into [`Valid`](crate::types::GuardrailAutomatedReasoningFinding::Valid), extracting the inner [`GuardrailAutomatedReasoningValidFinding`](crate::types::GuardrailAutomatedReasoningValidFinding).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_valid(
-        &self,
-    ) -> ::std::result::Result<&crate::types::GuardrailAutomatedReasoningValidFinding, &Self> {
+    pub fn as_valid(&self) -> ::std::result::Result<&crate::types::GuardrailAutomatedReasoningValidFinding, &Self> {
         if let GuardrailAutomatedReasoningFinding::Valid(val) = &self {
             ::std::result::Result::Ok(val)
         } else {

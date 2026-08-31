@@ -57,7 +57,9 @@ impl SetLogDeliveryConfigurationFluentBuilder {
         }
     }
     /// Access the SetLogDeliveryConfiguration as a reference.
-    pub fn as_input(&self) -> &crate::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::set_log_delivery_configuration::builders::SetLogDeliveryConfigurationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,11 +83,12 @@ impl SetLogDeliveryConfigurationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::set_log_delivery_configuration::SetLogDeliveryConfiguration::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            crate::operation::set_log_delivery_configuration::SetLogDeliveryConfiguration::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         crate::operation::set_log_delivery_configuration::SetLogDeliveryConfiguration::orchestrate(
             &runtime_plugins,
             input,

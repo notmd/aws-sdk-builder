@@ -23,13 +23,10 @@ impl EcsPropertiesDetail {
 }
 
 /// A builder for [`EcsPropertiesDetail`](crate::types::EcsPropertiesDetail).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EcsPropertiesDetailBuilder {
-    pub(crate) task_properties:
-        ::std::option::Option<::std::vec::Vec<crate::types::EcsTaskDetails>>,
+    pub(crate) task_properties: ::std::option::Option<::std::vec::Vec<crate::types::EcsTaskDetails>>,
 }
 impl EcsPropertiesDetailBuilder {
     /// Appends an item to `task_properties`.
@@ -52,9 +49,7 @@ impl EcsPropertiesDetailBuilder {
         self
     }
     /// <p>The properties for the Amazon ECS task definition of a job.</p>
-    pub fn get_task_properties(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::EcsTaskDetails>> {
+    pub fn get_task_properties(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EcsTaskDetails>> {
         &self.task_properties
     }
     /// Consumes the builder and constructs a [`EcsPropertiesDetail`](crate::types::EcsPropertiesDetail).

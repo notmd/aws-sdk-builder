@@ -39,9 +39,7 @@ impl ListExportJobsInput {
 }
 
 /// A builder for [`ListExportJobsInput`](crate::operation::list_export_jobs::ListExportJobsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListExportJobsInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
@@ -84,10 +82,7 @@ impl ListExportJobsInputBuilder {
         self
     }
     /// <p>A value used to list export jobs that have a certain <code>ExportSourceType</code>.</p>
-    pub fn set_export_source_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ExportSourceType>,
-    ) -> Self {
+    pub fn set_export_source_type(mut self, input: ::std::option::Option<crate::types::ExportSourceType>) -> Self {
         self.export_source_type = input;
         self
     }

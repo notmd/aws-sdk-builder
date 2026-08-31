@@ -21,9 +21,7 @@ impl WaitSucceededDetails {
 }
 
 /// A builder for [`WaitSucceededDetails`](crate::types::WaitSucceededDetails).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct WaitSucceededDetailsBuilder {
     pub(crate) duration: ::std::option::Option<i32>,

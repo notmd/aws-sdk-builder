@@ -18,15 +18,13 @@ impl PutRetentionConfigurationInput {
 }
 impl PutRetentionConfigurationInput {
     /// Creates a new builder-style object to manufacture [`PutRetentionConfigurationInput`](crate::operation::put_retention_configuration::PutRetentionConfigurationInput).
-    pub fn builder() -> crate::operation::put_retention_configuration::builders::PutRetentionConfigurationInputBuilder{
+    pub fn builder() -> crate::operation::put_retention_configuration::builders::PutRetentionConfigurationInputBuilder {
         crate::operation::put_retention_configuration::builders::PutRetentionConfigurationInputBuilder::default()
     }
 }
 
 /// A builder for [`PutRetentionConfigurationInput`](crate::operation::put_retention_configuration::PutRetentionConfigurationInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutRetentionConfigurationInputBuilder {
     pub(crate) retention_period_in_days: ::std::option::Option<i32>,

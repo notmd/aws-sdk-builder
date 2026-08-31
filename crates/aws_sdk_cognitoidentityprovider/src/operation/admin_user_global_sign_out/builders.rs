@@ -45,8 +45,7 @@ impl crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSign
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct AdminUserGlobalSignOutFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutInputBuilder,
+    inner: crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -79,8 +78,7 @@ impl AdminUserGlobalSignOutFluentBuilder {
     /// Access the AdminUserGlobalSignOut as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutInputBuilder
-    {
+    ) -> &crate::operation::admin_user_global_sign_out::builders::AdminUserGlobalSignOutInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -104,16 +102,13 @@ impl AdminUserGlobalSignOutFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOut::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOut::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOut::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::admin_user_global_sign_out::AdminUserGlobalSignOut::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

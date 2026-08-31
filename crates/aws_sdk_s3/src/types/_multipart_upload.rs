@@ -71,9 +71,7 @@ impl MultipartUpload {
 }
 
 /// A builder for [`MultipartUpload`](crate::types::MultipartUpload).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct MultipartUploadBuilder {
     pub(crate) upload_id: ::std::option::Option<::std::string::String>,
@@ -120,10 +118,7 @@ impl MultipartUploadBuilder {
         self
     }
     /// <p>Date and time at which the multipart upload was initiated.</p>
-    pub fn set_initiated(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::DateTime>,
-    ) -> Self {
+    pub fn set_initiated(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.initiated = input;
         self
     }
@@ -141,10 +136,7 @@ impl MultipartUploadBuilder {
     /// <p>The class of storage used to store the object.</p><note>
     /// <p><b>Directory buckets</b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
     /// </note>
-    pub fn set_storage_class(
-        mut self,
-        input: ::std::option::Option<crate::types::StorageClass>,
-    ) -> Self {
+    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self {
         self.storage_class = input;
         self
     }
@@ -194,17 +186,12 @@ impl MultipartUploadBuilder {
         self
     }
     /// <p>The algorithm that was used to create a checksum of the object.</p>
-    pub fn set_checksum_algorithm(
-        mut self,
-        input: ::std::option::Option<crate::types::ChecksumAlgorithm>,
-    ) -> Self {
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
         self.checksum_algorithm = input;
         self
     }
     /// <p>The algorithm that was used to create a checksum of the object.</p>
-    pub fn get_checksum_algorithm(
-        &self,
-    ) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
         &self.checksum_algorithm
     }
     /// <p>The checksum type that is used to calculate the object’s checksum value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -213,10 +200,7 @@ impl MultipartUploadBuilder {
         self
     }
     /// <p>The checksum type that is used to calculate the object’s checksum value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn set_checksum_type(
-        mut self,
-        input: ::std::option::Option<crate::types::ChecksumType>,
-    ) -> Self {
+    pub fn set_checksum_type(mut self, input: ::std::option::Option<crate::types::ChecksumType>) -> Self {
         self.checksum_type = input;
         self
     }

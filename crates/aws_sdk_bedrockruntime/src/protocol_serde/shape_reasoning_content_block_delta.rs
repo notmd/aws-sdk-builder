@@ -16,57 +16,62 @@ where
     >,
 {
     if depth >= 128u32 {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "maximum nesting depth exceeded",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "maximum nesting depth exceeded",
+        ));
     }
     let mut variant = None;
     match tokens.next().transpose()? {
         Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => return Ok(None),
-        Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {
-            loop {
-                match tokens.next().transpose()? {
-                    Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        if let ::std::option::Option::Some(::std::result::Result::Ok(
-                            ::aws_smithy_json::deserialize::Token::ValueNull { .. },
-                        )) = tokens.peek()
-                        {
-                            let _ = tokens.next().expect("peek returned a token")?;
-                            continue;
-                        }
-                        let key = key.to_unescaped()?;
-                        if key == "__type" {
-                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
-                            continue;
-                        }
-                        if variant.is_some() {
-                            return Err(
-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                    "encountered mixed variants in union",
-                                ),
-                            );
-                        }
-                        variant = match key.as_ref() {
+        Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => loop {
+            match tokens.next().transpose()? {
+                Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                    if let ::std::option::Option::Some(::std::result::Result::Ok(
+                        ::aws_smithy_json::deserialize::Token::ValueNull { .. },
+                    )) = tokens.peek()
+                    {
+                        let _ = tokens.next().expect("peek returned a token")?;
+                        continue;
+                    }
+                    let key = key.to_unescaped()?;
+                    if key == "__type" {
+                        ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
+                        continue;
+                    }
+                    if variant.is_some() {
+                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                            "encountered mixed variants in union",
+                        ));
+                    }
+                    variant = match key.as_ref() {
                         "text" => Some(crate::types::ReasoningContentBlockDelta::Text(
                             ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                 .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                 .transpose()?
-                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                        "value for 'text' cannot be null",
+                                    )
+                                })?,
                         )),
                         "redactedContent" => Some(crate::types::ReasoningContentBlockDelta::RedactedContent(
-                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(|| {
-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'redactedContent' cannot be null")
-                            })?,
+                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(
+                                || {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                        "value for 'redactedContent' cannot be null",
+                                    )
+                                },
+                            )?,
                         )),
                         "signature" => Some(crate::types::ReasoningContentBlockDelta::Signature(
                             ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                                 .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                                 .transpose()?
                                 .ok_or_else(|| {
-                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'signature' cannot be null")
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                                        "value for 'signature' cannot be null",
+                                    )
                                 })?,
                         )),
                         _ => {
@@ -74,31 +79,24 @@ where
                             Some(crate::types::ReasoningContentBlockDelta::Unknown)
                         }
                     };
-                    }
-                    other => {
-                        return Err(
-                            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                                format!("expected object key or end object, found: {other:?}"),
-                            ),
-                        )
-                    }
+                }
+                other => {
+                    return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                        format!("expected object key or end object, found: {other:?}"),
+                    ))
                 }
             }
-        }
+        },
         _ => {
-            return Err(
-                ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                    "expected start object or null",
-                ),
-            )
+            return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                "expected start object or null",
+            ))
         }
     }
     if variant.is_none() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "Union did not contain a valid variant.",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "Union did not contain a valid variant.",
+        ));
     }
     Ok(variant)
 }

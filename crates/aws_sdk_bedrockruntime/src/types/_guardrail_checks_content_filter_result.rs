@@ -22,14 +22,10 @@ impl GuardrailChecksContentFilterResult {
 }
 
 /// A builder for [`GuardrailChecksContentFilterResult`](crate::types::GuardrailChecksContentFilterResult).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GuardrailChecksContentFilterResultBuilder {
-    pub(crate) results: ::std::option::Option<
-        ::std::vec::Vec<crate::types::GuardrailChecksContentFilterResultEntry>,
-    >,
+    pub(crate) results: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksContentFilterResultEntry>>,
 }
 impl GuardrailChecksContentFilterResultBuilder {
     /// Appends an item to `results`.
@@ -46,9 +42,7 @@ impl GuardrailChecksContentFilterResultBuilder {
     /// <p>The per-category content filter results.</p>
     pub fn set_results(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::GuardrailChecksContentFilterResultEntry>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksContentFilterResultEntry>>,
     ) -> Self {
         self.results = input;
         self
@@ -56,9 +50,7 @@ impl GuardrailChecksContentFilterResultBuilder {
     /// <p>The per-category content filter results.</p>
     pub fn get_results(
         &self,
-    ) -> &::std::option::Option<
-        ::std::vec::Vec<crate::types::GuardrailChecksContentFilterResultEntry>,
-    > {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::GuardrailChecksContentFilterResultEntry>> {
         &self.results
     }
     /// Consumes the builder and constructs a [`GuardrailChecksContentFilterResult`](crate::types::GuardrailChecksContentFilterResult).

@@ -51,7 +51,7 @@ impl
             crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsOutput,
             crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -65,7 +65,10 @@ impl ListServiceSpecificCredentialsFluentBuilder {
         }
     }
     /// Access the ListServiceSpecificCredentials as a reference.
-    pub fn as_input(&self) -> &crate::operation::list_service_specific_credentials::builders::ListServiceSpecificCredentialsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::list_service_specific_credentials::builders::ListServiceSpecificCredentialsInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,7 +87,7 @@ impl ListServiceSpecificCredentialsFluentBuilder {
             crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -94,7 +97,11 @@ impl ListServiceSpecificCredentialsFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::list_service_specific_credentials::ListServiceSpecificCredentials::orchestrate(&runtime_plugins, input).await
+        crate::operation::list_service_specific_credentials::ListServiceSpecificCredentials::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

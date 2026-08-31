@@ -9,7 +9,10 @@ pub fn ser_create_quota_share_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_4 = array_2.value().start_object();
-                crate::protocol_serde::shape_quota_share_capacity_limit::ser_quota_share_capacity_limit(&mut object_4, item_3)?;
+                crate::protocol_serde::shape_quota_share_capacity_limit::ser_quota_share_capacity_limit(
+                    &mut object_4,
+                    item_3,
+                )?;
                 object_4.finish();
             }
         }
@@ -21,7 +24,10 @@ pub fn ser_create_quota_share_input_input(
     if let Some(var_6) = &input.preemption_configuration {
         #[allow(unused_mut)]
         let mut object_7 = object.key("preemptionConfiguration").start_object();
-        crate::protocol_serde::shape_quota_share_preemption_configuration::ser_quota_share_preemption_configuration(&mut object_7, var_6)?;
+        crate::protocol_serde::shape_quota_share_preemption_configuration::ser_quota_share_preemption_configuration(
+            &mut object_7,
+            var_6,
+        )?;
         object_7.finish();
     }
     if let Some(var_8) = &input.quota_share_name {

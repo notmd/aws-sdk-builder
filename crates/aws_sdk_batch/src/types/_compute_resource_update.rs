@@ -112,9 +112,7 @@ pub struct ComputeResourceUpdate {
     /// <p>When updating a compute environment, changing this setting requires an infrastructure update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the <i>Batch User Guide</i>.</p><note>
     /// <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
     /// </note>
-    pub tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>The Amazon EC2 placement group to associate with your compute resources. If you intend to submit multi-node parallel jobs to your compute environment, you should consider creating a cluster placement group and associate it with your compute resources. This keeps your multi-node parallel job on a logical grouping of instances within a single Availability Zone with high network flow potential. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
     /// <p>When updating a compute environment, changing the placement group requires an infrastructure update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the <i>Batch User Guide</i>.</p><note>
     /// <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
@@ -158,12 +156,9 @@ pub struct ComputeResourceUpdate {
     /// </note>
     pub scaling_policy: ::std::option::Option<crate::types::ComputeScalingPolicy>,
     /// <p>The updated configuration for the Amazon ECS Managed Instances capacity provider. This parameter is only valid when the compute environment type is <code>ECS_MANAGED_INSTANCES</code>. You cannot change <code>capacityOptionType</code> or <code>fipsEnabled</code> on update.</p>
-    pub managed_instances_provider:
-        ::std::option::Option<crate::types::UpdateManagedInstancesProviderConfiguration>,
+    pub managed_instances_provider: ::std::option::Option<crate::types::UpdateManagedInstancesProviderConfiguration>,
     /// <p>The updated tags to apply to the Amazon ECS capacity provider and Amazon EC2 instances. This parameter is only valid for <code>ECS_MANAGED_INSTANCES</code> compute environments. You must have the <code>batch:SetCapacityTags</code> permission on the compute environment resource to use this parameter.</p>
-    pub capacity_tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub capacity_tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl ComputeResourceUpdate {
     /// <p>The minimum number of vCPUs that an environment should maintain (even if the compute environment is <code>DISABLED</code>).</p><note>
@@ -252,9 +247,7 @@ impl ComputeResourceUpdate {
     /// </dd>
     /// </dl>
     /// <p>With any allocation strategy except <code>BEST_FIT</code> using On-Demand (<code>EC2</code>) compute resources, Batch might need to exceed <code>maxvCpus</code> to meet your capacity requirements. In this event, Batch never exceeds <code>maxvCpus</code> by more than a single instance.</p>
-    pub fn allocation_strategy(
-        &self,
-    ) -> ::std::option::Option<&crate::types::CrUpdateAllocationStrategy> {
+    pub fn allocation_strategy(&self) -> ::std::option::Option<&crate::types::CrUpdateAllocationStrategy> {
         self.allocation_strategy.as_ref()
     }
     /// <p>The instances types that can be launched. You can specify instance families to launch any instance type within those families (for example, <code>c5</code> or <code>p3</code>), or you can specify specific sizes within a family (such as <code>c5.8xlarge</code>).</p>
@@ -302,9 +295,7 @@ impl ComputeResourceUpdate {
     /// </note>
     pub fn tags(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
     }
     /// <p>The Amazon EC2 placement group to associate with your compute resources. If you intend to submit multi-node parallel jobs to your compute environment, you should consider creating a cluster placement group and associate it with your compute resources. This keeps your multi-node parallel job on a logical grouping of instances within a single Availability Zone with high network flow potential. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
@@ -325,9 +316,7 @@ impl ComputeResourceUpdate {
     /// <p>When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the <i>Batch User Guide</i>.</p><note>
     /// <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
     /// </note>
-    pub fn launch_template(
-        &self,
-    ) -> ::std::option::Option<&crate::types::LaunchTemplateSpecification> {
+    pub fn launch_template(&self) -> ::std::option::Option<&crate::types::LaunchTemplateSpecification> {
         self.launch_template.as_ref()
     }
     /// <p>Provides information used to select Amazon Machine Images (AMIs) for Amazon EC2 instances in the compute environment. If <code>Ec2Configuration</code> isn't specified, the default is <code>ECS_AL2023</code> for EC2 (ECS) compute environments and <code>EKS_AL2023</code> for EKS compute environments.</p>
@@ -378,9 +367,7 @@ impl ComputeResourceUpdate {
     /// <p>The updated tags to apply to the Amazon ECS capacity provider and Amazon EC2 instances. This parameter is only valid for <code>ECS_MANAGED_INSTANCES</code> compute environments. You must have the <code>batch:SetCapacityTags</code> permission on the compute environment resource to use this parameter.</p>
     pub fn capacity_tags(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.capacity_tags.as_ref()
     }
 }
@@ -392,9 +379,7 @@ impl ComputeResourceUpdate {
 }
 
 /// A builder for [`ComputeResourceUpdate`](crate::types::ComputeResourceUpdate).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ComputeResourceUpdateBuilder {
     pub(crate) minv_cpus: ::std::option::Option<i32>,
@@ -406,23 +391,19 @@ pub struct ComputeResourceUpdateBuilder {
     pub(crate) instance_types: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) ec2_key_pair: ::std::option::Option<::std::string::String>,
     pub(crate) instance_role: ::std::option::Option<::std::string::String>,
-    pub(crate) tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) placement_group: ::std::option::Option<::std::string::String>,
     pub(crate) bid_percentage: ::std::option::Option<i32>,
     pub(crate) launch_template: ::std::option::Option<crate::types::LaunchTemplateSpecification>,
-    pub(crate) ec2_configuration:
-        ::std::option::Option<::std::vec::Vec<crate::types::Ec2Configuration>>,
+    pub(crate) ec2_configuration: ::std::option::Option<::std::vec::Vec<crate::types::Ec2Configuration>>,
     pub(crate) update_to_latest_image_version: ::std::option::Option<bool>,
     pub(crate) r#type: ::std::option::Option<crate::types::CrType>,
     pub(crate) image_id: ::std::option::Option<::std::string::String>,
     pub(crate) scaling_policy: ::std::option::Option<crate::types::ComputeScalingPolicy>,
     pub(crate) managed_instances_provider:
         ::std::option::Option<crate::types::UpdateManagedInstancesProviderConfiguration>,
-    pub(crate) capacity_tags: ::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    >,
+    pub(crate) capacity_tags:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl ComputeResourceUpdateBuilder {
     /// <p>The minimum number of vCPUs that an environment should maintain (even if the compute environment is <code>DISABLED</code>).</p><note>
@@ -520,10 +501,7 @@ impl ComputeResourceUpdateBuilder {
     /// <p>Batch on Amazon EC2 and Batch on Amazon EKS support Local Zones. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-local-zones"> Local Zones</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>, <a href="https://docs.aws.amazon.com/eks/latest/userguide/local-zones.html">Amazon EKS and Amazon Web Services Local Zones</a> in the <i>Amazon EKS User Guide</i> and <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-regions-zones.html#clusters-local-zones"> Amazon ECS clusters in Local Zones, Wavelength Zones, and Amazon Web Services Outposts</a> in the <i>Amazon ECS Developer Guide</i>.</p>
     /// <p>Batch on Fargate doesn't currently support Local Zones.</p>
     /// </note>
-    pub fn set_subnets(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_subnets(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.subnets = input;
         self
     }
@@ -541,10 +519,7 @@ impl ComputeResourceUpdateBuilder {
     ///
     /// <p>The Amazon EC2 security groups that are associated with instances launched in the compute environment. This parameter is required for Fargate compute resources, where it can contain up to 5 security groups. For Fargate compute resources, providing an empty list is handled as if this parameter wasn't specified and no change is made. For Amazon EC2 compute resources, providing an empty list removes the security groups from the compute resource.</p>
     /// <p>When updating a compute environment, changing the Amazon EC2 security groups requires an infrastructure update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the <i>Batch User Guide</i>.</p>
-    pub fn security_group_ids(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn security_group_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.security_group_ids.unwrap_or_default();
         v.push(input.into());
         self.security_group_ids = ::std::option::Option::Some(v);
@@ -561,9 +536,7 @@ impl ComputeResourceUpdateBuilder {
     }
     /// <p>The Amazon EC2 security groups that are associated with instances launched in the compute environment. This parameter is required for Fargate compute resources, where it can contain up to 5 security groups. For Fargate compute resources, providing an empty list is handled as if this parameter wasn't specified and no change is made. For Amazon EC2 compute resources, providing an empty list removes the security groups from the compute resource.</p>
     /// <p>When updating a compute environment, changing the Amazon EC2 security groups requires an infrastructure update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the <i>Batch User Guide</i>.</p>
-    pub fn get_security_group_ids(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.security_group_ids
     }
     /// <p>The allocation strategy to use for the compute resource if there's not enough instances of the best fitting instance type that can be allocated. This might be because of availability of the instance type in the Region or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon EC2 service limits</a>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html">Allocation strategies</a> in the <i>Batch User Guide</i>.</p>
@@ -715,9 +688,7 @@ impl ComputeResourceUpdateBuilder {
     /// </dd>
     /// </dl>
     /// <p>With any allocation strategy except <code>BEST_FIT</code> using On-Demand (<code>EC2</code>) compute resources, Batch might need to exceed <code>maxvCpus</code> to meet your capacity requirements. In this event, Batch never exceeds <code>maxvCpus</code> by more than a single instance.</p>
-    pub fn get_allocation_strategy(
-        &self,
-    ) -> &::std::option::Option<crate::types::CrUpdateAllocationStrategy> {
+    pub fn get_allocation_strategy(&self) -> &::std::option::Option<crate::types::CrUpdateAllocationStrategy> {
         &self.allocation_strategy
     }
     /// Appends an item to `instance_types`.
@@ -744,10 +715,7 @@ impl ComputeResourceUpdateBuilder {
     /// </note> <note>
     /// <p>When you create a compute environment, the instance types that you select for the compute environment must share the same architecture. For example, you can't mix x86 and ARM instances in the same compute environment.</p>
     /// </note>
-    pub fn instance_types(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn instance_types(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.instance_types.unwrap_or_default();
         v.push(input.into());
         self.instance_types = ::std::option::Option::Some(v);
@@ -773,10 +741,7 @@ impl ComputeResourceUpdateBuilder {
     /// </note> <note>
     /// <p>When you create a compute environment, the instance types that you select for the compute environment must share the same architecture. For example, you can't mix x86 and ARM instances in the same compute environment.</p>
     /// </note>
-    pub fn set_instance_types(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_instance_types(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.instance_types = input;
         self
     }
@@ -800,9 +765,7 @@ impl ComputeResourceUpdateBuilder {
     /// </note> <note>
     /// <p>When you create a compute environment, the instance types that you select for the compute environment must share the same architecture. For example, you can't mix x86 and ARM instances in the same compute environment.</p>
     /// </note>
-    pub fn get_instance_types(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_instance_types(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.instance_types
     }
     /// <p>The Amazon EC2 key pair that's used for instances launched in the compute environment. You can use this key pair to log in to your instances with SSH. To remove the Amazon EC2 key pair, set this value to an empty string.</p>
@@ -832,10 +795,7 @@ impl ComputeResourceUpdateBuilder {
     /// <p>When updating a compute environment, changing this setting requires an infrastructure update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the <i>Batch User Guide</i>.</p><note>
     /// <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
     /// </note>
-    pub fn instance_role(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn instance_role(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.instance_role = ::std::option::Option::Some(input.into());
         self
     }
@@ -843,10 +803,7 @@ impl ComputeResourceUpdateBuilder {
     /// <p>When updating a compute environment, changing this setting requires an infrastructure update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the <i>Batch User Guide</i>.</p><note>
     /// <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
     /// </note>
-    pub fn set_instance_role(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_instance_role(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.instance_role = input;
         self
     }
@@ -881,9 +838,7 @@ impl ComputeResourceUpdateBuilder {
     /// </note>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.tags = input;
         self
@@ -894,19 +849,14 @@ impl ComputeResourceUpdateBuilder {
     /// </note>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.tags
     }
     /// <p>The Amazon EC2 placement group to associate with your compute resources. If you intend to submit multi-node parallel jobs to your compute environment, you should consider creating a cluster placement group and associate it with your compute resources. This keeps your multi-node parallel job on a logical grouping of instances within a single Availability Zone with high network flow potential. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
     /// <p>When updating a compute environment, changing the placement group requires an infrastructure update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the <i>Batch User Guide</i>.</p><note>
     /// <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
     /// </note>
-    pub fn placement_group(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn placement_group(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.placement_group = ::std::option::Option::Some(input.into());
         self
     }
@@ -914,10 +864,7 @@ impl ComputeResourceUpdateBuilder {
     /// <p>When updating a compute environment, changing the placement group requires an infrastructure update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the <i>Batch User Guide</i>.</p><note>
     /// <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
     /// </note>
-    pub fn set_placement_group(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_placement_group(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.placement_group = input;
         self
     }
@@ -974,9 +921,7 @@ impl ComputeResourceUpdateBuilder {
     /// <p>When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the <i>Batch User Guide</i>.</p><note>
     /// <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
     /// </note>
-    pub fn get_launch_template(
-        &self,
-    ) -> &::std::option::Option<crate::types::LaunchTemplateSpecification> {
+    pub fn get_launch_template(&self) -> &::std::option::Option<crate::types::LaunchTemplateSpecification> {
         &self.launch_template
     }
     /// Appends an item to `ec2_configuration`.
@@ -1011,9 +956,7 @@ impl ComputeResourceUpdateBuilder {
     /// <p>One or two values can be provided.</p><note>
     /// <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
     /// </note>
-    pub fn get_ec2_configuration(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::Ec2Configuration>> {
+    pub fn get_ec2_configuration(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Ec2Configuration>> {
         &self.ec2_configuration
     }
     /// <p>Specifies whether the AMI ID is updated to the latest one that's supported by Batch when the compute environment has an infrastructure update. The default value is <code>false</code>.</p><note>
@@ -1028,10 +971,7 @@ impl ComputeResourceUpdateBuilder {
     /// <p>An AMI ID can either be specified in the <code>imageId</code> or <code>imageIdOverride</code> parameters or be determined by the launch template that's specified in the <code>launchTemplate</code> parameter. If an AMI ID is specified any of these ways, this parameter is ignored. For more information about to update AMI IDs during an infrastructure update, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html#updating-compute-environments-ami">Updating the AMI ID</a> in the <i>Batch User Guide</i>.</p>
     /// </note>
     /// <p>When updating a compute environment, changing this setting requires an infrastructure update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the <i>Batch User Guide</i>.</p>
-    pub fn set_update_to_latest_image_version(
-        mut self,
-        input: ::std::option::Option<bool>,
-    ) -> Self {
+    pub fn set_update_to_latest_image_version(mut self, input: ::std::option::Option<bool>) -> Self {
         self.update_to_latest_image_version = input;
         self
     }
@@ -1104,10 +1044,7 @@ impl ComputeResourceUpdateBuilder {
     /// <p>The scaling policy configuration for the compute environment.</p><note>
     /// <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
     /// </note>
-    pub fn set_scaling_policy(
-        mut self,
-        input: ::std::option::Option<crate::types::ComputeScalingPolicy>,
-    ) -> Self {
+    pub fn set_scaling_policy(mut self, input: ::std::option::Option<crate::types::ComputeScalingPolicy>) -> Self {
         self.scaling_policy = input;
         self
     }
@@ -1157,9 +1094,7 @@ impl ComputeResourceUpdateBuilder {
     /// <p>The updated tags to apply to the Amazon ECS capacity provider and Amazon EC2 instances. This parameter is only valid for <code>ECS_MANAGED_INSTANCES</code> compute environments. You must have the <code>batch:SetCapacityTags</code> permission on the compute environment resource to use this parameter.</p>
     pub fn set_capacity_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.capacity_tags = input;
         self
@@ -1167,9 +1102,7 @@ impl ComputeResourceUpdateBuilder {
     /// <p>The updated tags to apply to the Amazon ECS capacity provider and Amazon EC2 instances. This parameter is only valid for <code>ECS_MANAGED_INSTANCES</code> compute environments. You must have the <code>batch:SetCapacityTags</code> permission on the compute environment resource to use this parameter.</p>
     pub fn get_capacity_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.capacity_tags
     }
     /// Consumes the builder and constructs a [`ComputeResourceUpdate`](crate::types::ComputeResourceUpdate).

@@ -22,9 +22,7 @@ impl Details {
 }
 
 /// A builder for [`Details`](crate::types::Details).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DetailsBuilder {
     pub(crate) routes_details: ::std::option::Option<::std::vec::Vec<crate::types::RouteDetails>>,
@@ -50,9 +48,7 @@ impl DetailsBuilder {
         self
     }
     /// <p>A list of route configuration details. Must contain exactly one route configuration.</p>
-    pub fn get_routes_details(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::RouteDetails>> {
+    pub fn get_routes_details(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RouteDetails>> {
         &self.routes_details
     }
     /// Consumes the builder and constructs a [`Details`](crate::types::Details).
@@ -60,10 +56,7 @@ impl DetailsBuilder {
     /// - [`routes_details`](crate::types::builders::DetailsBuilder::routes_details)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::Details,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::Details, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Details {
             routes_details: self.routes_details.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

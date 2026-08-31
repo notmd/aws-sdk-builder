@@ -9,8 +9,6 @@ impl super::Client {
     pub fn delete_login_profile(
         &self,
     ) -> crate::operation::delete_login_profile::builders::DeleteLoginProfileFluentBuilder {
-        crate::operation::delete_login_profile::builders::DeleteLoginProfileFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_login_profile::builders::DeleteLoginProfileFluentBuilder::new(self.handle.clone())
     }
 }

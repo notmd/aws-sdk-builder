@@ -67,9 +67,9 @@ impl ::std::convert::From<&str> for RecordingStrategyType {
             "ALL_SUPPORTED_RESOURCE_TYPES" => RecordingStrategyType::AllSupportedResourceTypes,
             "EXCLUSION_BY_RESOURCE_TYPES" => RecordingStrategyType::ExclusionByResourceTypes,
             "INCLUSION_BY_RESOURCE_TYPES" => RecordingStrategyType::InclusionByResourceTypes,
-            other => RecordingStrategyType::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => RecordingStrategyType::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -108,14 +108,10 @@ impl RecordingStrategyType {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -123,15 +119,9 @@ impl RecordingStrategyType {
 impl ::std::fmt::Display for RecordingStrategyType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
-            RecordingStrategyType::AllSupportedResourceTypes => {
-                write!(f, "ALL_SUPPORTED_RESOURCE_TYPES")
-            }
-            RecordingStrategyType::ExclusionByResourceTypes => {
-                write!(f, "EXCLUSION_BY_RESOURCE_TYPES")
-            }
-            RecordingStrategyType::InclusionByResourceTypes => {
-                write!(f, "INCLUSION_BY_RESOURCE_TYPES")
-            }
+            RecordingStrategyType::AllSupportedResourceTypes => write!(f, "ALL_SUPPORTED_RESOURCE_TYPES"),
+            RecordingStrategyType::ExclusionByResourceTypes => write!(f, "EXCLUSION_BY_RESOURCE_TYPES"),
+            RecordingStrategyType::InclusionByResourceTypes => write!(f, "INCLUSION_BY_RESOURCE_TYPES"),
             RecordingStrategyType::Unknown(value) => write!(f, "{value}"),
         }
     }

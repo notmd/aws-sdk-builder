@@ -161,9 +161,7 @@ impl ConverseStreamOutputError {
     /// Creates the `ConverseStreamOutputError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -185,21 +183,11 @@ impl ConverseStreamOutputError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::InternalServerException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::ModelStreamErrorException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::ValidationException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::ThrottlingException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::ServiceUnavailableException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::InternalServerException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ModelStreamErrorException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ValidationException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ThrottlingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ServiceUnavailableException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -293,9 +281,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ConverseStrea
 #[cfg(feature = "op_converse_stream")]
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ConverseStreamOutputError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -332,9 +318,7 @@ impl InvokeModelWithBidirectionalStreamInputError {
     /// Creates the `InvokeModelWithBidirectionalStreamInputError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -394,9 +378,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for InvokeModelWithBidirectiona
     }
 }
 #[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
-    for InvokeModelWithBidirectionalStreamInputError
-{
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvokeModelWithBidirectionalStreamInputError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::Unhandled(_inner) => &_inner.meta,
@@ -404,13 +386,9 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
     }
 }
 #[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
-    for InvokeModelWithBidirectionalStreamInputError
-{
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for InvokeModelWithBidirectionalStreamInputError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -420,9 +398,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
     }
 }
 #[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
-impl ::aws_types::request_id::RequestId
-    for crate::types::error::InvokeModelWithBidirectionalStreamInputError
-{
+impl ::aws_types::request_id::RequestId for crate::types::error::InvokeModelWithBidirectionalStreamInputError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
@@ -461,9 +437,7 @@ impl InvokeModelWithBidirectionalStreamOutputError {
     /// Creates the `InvokeModelWithBidirectionalStreamOutputError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -485,24 +459,12 @@ impl InvokeModelWithBidirectionalStreamOutputError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::InternalServerException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::ModelStreamErrorException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::ValidationException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::ThrottlingException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::ModelTimeoutException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::ServiceUnavailableException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::InternalServerException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ModelStreamErrorException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ValidationException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ThrottlingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ModelTimeoutException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ServiceUnavailableException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -577,9 +539,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for InvokeModelWithBidirectiona
     }
 }
 #[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
-    for InvokeModelWithBidirectionalStreamOutputError
-{
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvokeModelWithBidirectionalStreamOutputError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::InternalServerException(_inner) => {
@@ -605,13 +565,9 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata
     }
 }
 #[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
-    for InvokeModelWithBidirectionalStreamOutputError
-{
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for InvokeModelWithBidirectionalStreamOutputError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -621,9 +577,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError
     }
 }
 #[cfg(feature = "op_invoke_model_with_bidirectional_stream")]
-impl ::aws_types::request_id::RequestId
-    for crate::types::error::InvokeModelWithBidirectionalStreamOutputError
-{
+impl ::aws_types::request_id::RequestId for crate::types::error::InvokeModelWithBidirectionalStreamOutputError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
@@ -662,9 +616,7 @@ impl ResponseStreamError {
     /// Creates the `ResponseStreamError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<
-            ::std::boxed::Box<
-                dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-            >,
+            ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         >,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
@@ -686,24 +638,12 @@ impl ResponseStreamError {
     ///
     pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
-            Self::InternalServerException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::ModelStreamErrorException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::ValidationException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::ThrottlingException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::ModelTimeoutException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
-            Self::ServiceUnavailableException(e) => {
-                ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e)
-            }
+            Self::InternalServerException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ModelStreamErrorException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ValidationException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ThrottlingException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ModelTimeoutException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
+            Self::ServiceUnavailableException(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),
             Self::Unhandled(e) => &e.meta,
         }
     }
@@ -806,9 +746,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ResponseStrea
 #[cfg(feature = "op_invoke_model_with_response_stream")]
 impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ResponseStreamError {
     fn create_unhandled_error(
-        source: ::std::boxed::Box<
-            dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,
-        >,
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
     ) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {

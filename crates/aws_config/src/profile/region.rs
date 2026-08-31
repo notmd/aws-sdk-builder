@@ -76,9 +76,7 @@ impl Builder {
             .config
             .unwrap_or_default()
             .with_profile_config(self.profile_files, self.profile_override);
-        ProfileFileRegionProvider {
-            provider_config: conf,
-        }
+        ProfileFileRegionProvider { provider_config: conf }
     }
 }
 
@@ -123,9 +121,7 @@ fn resolve_profile_chain_for_region(profile_set: &'_ ProfileSet) -> Option<Regio
         }
 
         // Attempt to get region and source_profile for current profile
-        let selected_profile_region = profile
-            .get("region")
-            .map(|region| Region::new(region.to_owned()));
+        let selected_profile_region = profile.get("region").map(|region| Region::new(region.to_owned()));
         let source_profile = profile.get("source_profile");
 
         // Check to see what we got
@@ -191,13 +187,9 @@ mod test {
     #[test]
     #[ignore = "upstream fixture data is intentionally omitted from aws-config"]
     fn load_region_env_profile_override() {
-        let conf = provider_config("region_override").with_env(Env::from_slice(&[
-            ("HOME", "/home"),
-            ("AWS_PROFILE", "base"),
-        ]));
-        let provider = ProfileFileRegionProvider::builder()
-            .configure(&conf)
-            .build();
+        let conf =
+            provider_config("region_override").with_env(Env::from_slice(&[("HOME", "/home"), ("AWS_PROFILE", "base")]));
+        let provider = ProfileFileRegionProvider::builder().configure(&conf).build();
         assert_eq!(
             provider.region().now_or_never().unwrap(),
             Some(Region::from_static("us-east-1"))
@@ -207,13 +199,9 @@ mod test {
     #[test]
     #[ignore = "upstream fixture data is intentionally omitted from aws-config"]
     fn load_region_nonexistent_profile() {
-        let conf = provider_config("region_override").with_env(Env::from_slice(&[
-            ("HOME", "/home"),
-            ("AWS_PROFILE", "doesnotexist"),
-        ]));
-        let provider = ProfileFileRegionProvider::builder()
-            .configure(&conf)
-            .build();
+        let conf = provider_config("region_override")
+            .with_env(Env::from_slice(&[("HOME", "/home"), ("AWS_PROFILE", "doesnotexist")]));
+        let provider = ProfileFileRegionProvider::builder().configure(&conf).build();
         assert_eq!(provider.region().now_or_never().unwrap(), None);
     }
 

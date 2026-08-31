@@ -58,9 +58,7 @@ impl AssumeRootInput {
 }
 
 /// A builder for [`AssumeRootInput`](crate::operation::assume_root::AssumeRootInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AssumeRootInputBuilder {
     pub(crate) target_principal: ::std::option::Option<::std::string::String>,
@@ -70,18 +68,12 @@ pub struct AssumeRootInputBuilder {
 impl AssumeRootInputBuilder {
     /// <p>The member account principal ARN or account ID.</p>
     /// This field is required.
-    pub fn target_principal(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn target_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.target_principal = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The member account principal ARN or account ID.</p>
-    pub fn set_target_principal(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_target_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.target_principal = input;
         self
     }
@@ -120,10 +112,7 @@ impl AssumeRootInputBuilder {
     /// <li>
     /// <p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/security-iam-awsmanpol.html#security-iam-awsmanpol-SQSUnlockQueuePolicy">SQSUnlockQueuePolicy</a></p></li>
     /// </ul>
-    pub fn set_task_policy_arn(
-        mut self,
-        input: ::std::option::Option<crate::types::PolicyDescriptorType>,
-    ) -> Self {
+    pub fn set_task_policy_arn(mut self, input: ::std::option::Option<crate::types::PolicyDescriptorType>) -> Self {
         self.task_policy_arn = input;
         self
     }
@@ -140,9 +129,7 @@ impl AssumeRootInputBuilder {
     /// <li>
     /// <p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/security-iam-awsmanpol.html#security-iam-awsmanpol-SQSUnlockQueuePolicy">SQSUnlockQueuePolicy</a></p></li>
     /// </ul>
-    pub fn get_task_policy_arn(
-        &self,
-    ) -> &::std::option::Option<crate::types::PolicyDescriptorType> {
+    pub fn get_task_policy_arn(&self) -> &::std::option::Option<crate::types::PolicyDescriptorType> {
         &self.task_policy_arn
     }
     /// <p>The duration, in seconds, of the privileged session. The value can range from 0 seconds up to the maximum session duration of 900 seconds (15 minutes). If you specify a value higher than this setting, the operation fails.</p>

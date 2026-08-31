@@ -135,18 +135,12 @@ impl CreateOAuth2TokenRequestBodyBuilder {
         &self.redirect_uri
     }
     /// PKCE code verifier to prove possession of the original code challenge Required only when grant_type=authorization_code
-    pub fn code_verifier(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn code_verifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.code_verifier = ::std::option::Option::Some(input.into());
         self
     }
     /// PKCE code verifier to prove possession of the original code challenge Required only when grant_type=authorization_code
-    pub fn set_code_verifier(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_code_verifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.code_verifier = input;
         self
     }
@@ -155,18 +149,12 @@ impl CreateOAuth2TokenRequestBodyBuilder {
         &self.code_verifier
     }
     /// The refresh token returned from auth_code redemption Required only when grant_type=refresh_token
-    pub fn refresh_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn refresh_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.refresh_token = ::std::option::Option::Some(input.into());
         self
     }
     /// The refresh token returned from auth_code redemption Required only when grant_type=refresh_token
-    pub fn set_refresh_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_refresh_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.refresh_token = input;
         self
     }

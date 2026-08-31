@@ -15,8 +15,6 @@ impl super::Client {
     pub fn select_resource_config(
         &self,
     ) -> crate::operation::select_resource_config::builders::SelectResourceConfigFluentBuilder {
-        crate::operation::select_resource_config::builders::SelectResourceConfigFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::select_resource_config::builders::SelectResourceConfigFluentBuilder::new(self.handle.clone())
     }
 }

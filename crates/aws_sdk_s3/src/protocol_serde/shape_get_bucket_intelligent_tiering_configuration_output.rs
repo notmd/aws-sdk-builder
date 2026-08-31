@@ -4,7 +4,7 @@ pub(crate) fn de_intelligent_tiering_configuration_payload(
 ) -> std::result::Result<
     ::std::option::Option<crate::types::IntelligentTieringConfiguration>,
     crate::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationError,
->{
+> {
     (!body.is_empty())
         .then(|| {
             crate::protocol_serde::shape_get_bucket_intelligent_tiering_configuration_output::de_intelligent_tiering_configuration(body)
@@ -15,10 +15,7 @@ pub(crate) fn de_intelligent_tiering_configuration_payload(
 
 pub fn de_intelligent_tiering_configuration(
     inp: &[u8],
-) -> std::result::Result<
-    crate::types::IntelligentTieringConfiguration,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> std::result::Result<crate::types::IntelligentTieringConfiguration, ::aws_smithy_xml::decode::XmlDecodeError> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
     #[allow(unused_mut)]
     let mut decoder = doc.root_element()?;
@@ -30,5 +27,8 @@ pub fn de_intelligent_tiering_configuration(
     }
     #[allow(unused_variables)]
     let depth = 0u32;
-    crate::protocol_serde::shape_intelligent_tiering_configuration::de_intelligent_tiering_configuration(&mut decoder, depth + 1)
+    crate::protocol_serde::shape_intelligent_tiering_configuration::de_intelligent_tiering_configuration(
+        &mut decoder,
+        depth + 1,
+    )
 }

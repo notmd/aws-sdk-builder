@@ -20,9 +20,7 @@ impl ListTopicsInput {
 }
 
 /// A builder for [`ListTopicsInput`](crate::operation::list_topics::ListTopicsInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListTopicsInputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,

@@ -83,12 +83,11 @@ impl RevokeTokenFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            crate::operation::revoke_token::RevokeToken::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = crate::operation::revoke_token::RevokeToken::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         crate::operation::revoke_token::RevokeToken::orchestrate(&runtime_plugins, input).await
     }
 
@@ -146,18 +145,12 @@ impl RevokeTokenFluentBuilder {
         self.inner.get_client_id()
     }
     /// <p>The client secret of the requested app client, if the client has a secret.</p>
-    pub fn client_secret(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn client_secret(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.client_secret(input.into());
         self
     }
     /// <p>The client secret of the requested app client, if the client has a secret.</p>
-    pub fn set_client_secret(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_client_secret(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_client_secret(input);
         self
     }

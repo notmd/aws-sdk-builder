@@ -58,9 +58,7 @@ impl GetServerCertificateFluentBuilder {
         }
     }
     /// Access the GetServerCertificate as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::get_server_certificate::builders::GetServerCertificateInputBuilder {
+    pub fn as_input(&self) -> &crate::operation::get_server_certificate::builders::GetServerCertificateInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,11 +87,7 @@ impl GetServerCertificateFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::get_server_certificate::GetServerCertificate::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        crate::operation::get_server_certificate::GetServerCertificate::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -123,19 +117,13 @@ impl GetServerCertificateFluentBuilder {
     }
     /// <p>The name of the server certificate you want to retrieve information about.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn server_certificate_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn server_certificate_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.server_certificate_name(input.into());
         self
     }
     /// <p>The name of the server certificate you want to retrieve information about.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn set_server_certificate_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_server_certificate_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_server_certificate_name(input);
         self
     }

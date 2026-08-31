@@ -16,7 +16,8 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<PutProvisionedConcurrencyConfigError>`](crate::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError)
     pub fn put_provisioned_concurrency_config(
         &self,
-    ) -> crate::operation::put_provisioned_concurrency_config::builders::PutProvisionedConcurrencyConfigFluentBuilder{
+    ) -> crate::operation::put_provisioned_concurrency_config::builders::PutProvisionedConcurrencyConfigFluentBuilder
+    {
         crate::operation::put_provisioned_concurrency_config::builders::PutProvisionedConcurrencyConfigFluentBuilder::new(self.handle.clone())
     }
 }

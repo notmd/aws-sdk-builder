@@ -59,8 +59,7 @@ impl CreateSchedulingPolicyFluentBuilder {
     /// Access the CreateSchedulingPolicy as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::create_scheduling_policy::builders::CreateSchedulingPolicyInputBuilder
-    {
+    ) -> &crate::operation::create_scheduling_policy::builders::CreateSchedulingPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +83,13 @@ impl CreateSchedulingPolicyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_scheduling_policy::CreateSchedulingPolicy::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_scheduling_policy::CreateSchedulingPolicy::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::create_scheduling_policy::CreateSchedulingPolicy::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::create_scheduling_policy::CreateSchedulingPolicy::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -141,10 +137,7 @@ impl CreateSchedulingPolicyFluentBuilder {
         self
     }
     /// <p>The quota share scheduling policy details. Only one of fairsharePolicy or quotaSharePolicy can be set. Once set, this policy type cannot be removed or changed to a fairSharePolicy.</p>
-    pub fn set_quota_share_policy(
-        mut self,
-        input: ::std::option::Option<crate::types::QuotaSharePolicy>,
-    ) -> Self {
+    pub fn set_quota_share_policy(mut self, input: ::std::option::Option<crate::types::QuotaSharePolicy>) -> Self {
         self.inner = self.inner.set_quota_share_policy(input);
         self
     }
@@ -158,10 +151,7 @@ impl CreateSchedulingPolicyFluentBuilder {
         self
     }
     /// <p>The fair-share scheduling policy details. Only one of fairsharePolicy or quotaSharePolicy can be set. Once set, this policy type cannot be removed or changed to a quotaSharePolicy.</p>
-    pub fn set_fairshare_policy(
-        mut self,
-        input: ::std::option::Option<crate::types::FairsharePolicy>,
-    ) -> Self {
+    pub fn set_fairshare_policy(mut self, input: ::std::option::Option<crate::types::FairsharePolicy>) -> Self {
         self.inner = self.inner.set_fairshare_policy(input);
         self
     }
@@ -188,9 +178,7 @@ impl CreateSchedulingPolicyFluentBuilder {
     /// <p>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a> API operations.</p>
     pub fn set_tags(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_tags(input);
         self
@@ -199,9 +187,7 @@ impl CreateSchedulingPolicyFluentBuilder {
     /// <p>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a> API operations.</p>
     pub fn get_tags(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_tags()
     }
 }

@@ -12,8 +12,6 @@ impl super::Client {
     pub fn get_bucket_versioning(
         &self,
     ) -> crate::operation::get_bucket_versioning::builders::GetBucketVersioningFluentBuilder {
-        crate::operation::get_bucket_versioning::builders::GetBucketVersioningFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::get_bucket_versioning::builders::GetBucketVersioningFluentBuilder::new(self.handle.clone())
     }
 }

@@ -34,15 +34,14 @@ impl GetOrganizationsAccessReportInput {
 }
 impl GetOrganizationsAccessReportInput {
     /// Creates a new builder-style object to manufacture [`GetOrganizationsAccessReportInput`](crate::operation::get_organizations_access_report::GetOrganizationsAccessReportInput).
-    pub fn builder() -> crate::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportInputBuilder {
         crate::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportInputBuilder::default()
     }
 }
 
 /// A builder for [`GetOrganizationsAccessReportInput`](crate::operation::get_organizations_access_report::GetOrganizationsAccessReportInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetOrganizationsAccessReportInputBuilder {
     pub(crate) job_id: ::std::option::Option<::std::string::String>,

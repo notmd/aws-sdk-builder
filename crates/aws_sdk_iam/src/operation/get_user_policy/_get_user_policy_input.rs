@@ -30,9 +30,7 @@ impl GetUserPolicyInput {
 }
 
 /// A builder for [`GetUserPolicyInput`](crate::operation::get_user_policy::GetUserPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetUserPolicyInputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,

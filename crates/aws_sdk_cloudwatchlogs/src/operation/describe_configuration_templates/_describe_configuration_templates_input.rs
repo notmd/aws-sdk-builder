@@ -10,8 +10,7 @@ pub struct DescribeConfigurationTemplatesInput {
     /// <p>Use this parameter to filter the response to include only the configuration templates that apply to the resource types that you specify here.</p>
     pub resource_types: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>Use this parameter to filter the response to include only the configuration templates that apply to the delivery destination types that you specify here.</p>
-    pub delivery_destination_types:
-        ::std::option::Option<::std::vec::Vec<crate::types::DeliveryDestinationType>>,
+    pub delivery_destination_types: ::std::option::Option<::std::vec::Vec<crate::types::DeliveryDestinationType>>,
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     /// <p>Use this parameter to limit the number of configuration templates that are returned in the response.</p>
@@ -38,9 +37,7 @@ impl DescribeConfigurationTemplatesInput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.delivery_destination_types.is_none()`.
     pub fn delivery_destination_types(&self) -> &[crate::types::DeliveryDestinationType] {
-        self.delivery_destination_types
-            .as_deref()
-            .unwrap_or_default()
+        self.delivery_destination_types.as_deref().unwrap_or_default()
     }
     /// <p>The token for the next set of items to return. The token expires after 24 hours.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -53,15 +50,14 @@ impl DescribeConfigurationTemplatesInput {
 }
 impl DescribeConfigurationTemplatesInput {
     /// Creates a new builder-style object to manufacture [`DescribeConfigurationTemplatesInput`](crate::operation::describe_configuration_templates::DescribeConfigurationTemplatesInput).
-    pub fn builder() -> crate::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesInputBuilder {
         crate::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesInputBuilder::default()
     }
 }
 
 /// A builder for [`DescribeConfigurationTemplatesInput`](crate::operation::describe_configuration_templates::DescribeConfigurationTemplatesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeConfigurationTemplatesInputBuilder {
     pub(crate) service: ::std::option::Option<::std::string::String>,
@@ -99,10 +95,7 @@ impl DescribeConfigurationTemplatesInputBuilder {
         self
     }
     /// <p>Use this parameter to filter the response to include only the configuration templates that apply to the log types that you specify here.</p>
-    pub fn set_log_types(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_log_types(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.log_types = input;
         self
     }
@@ -115,27 +108,19 @@ impl DescribeConfigurationTemplatesInputBuilder {
     /// To override the contents of this collection use [`set_resource_types`](Self::set_resource_types).
     ///
     /// <p>Use this parameter to filter the response to include only the configuration templates that apply to the resource types that you specify here.</p>
-    pub fn resource_types(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn resource_types(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.resource_types.unwrap_or_default();
         v.push(input.into());
         self.resource_types = ::std::option::Option::Some(v);
         self
     }
     /// <p>Use this parameter to filter the response to include only the configuration templates that apply to the resource types that you specify here.</p>
-    pub fn set_resource_types(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    ) -> Self {
+    pub fn set_resource_types(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.resource_types = input;
         self
     }
     /// <p>Use this parameter to filter the response to include only the configuration templates that apply to the resource types that you specify here.</p>
-    pub fn get_resource_types(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+    pub fn get_resource_types(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.resource_types
     }
     /// Appends an item to `delivery_destination_types`.
@@ -143,10 +128,7 @@ impl DescribeConfigurationTemplatesInputBuilder {
     /// To override the contents of this collection use [`set_delivery_destination_types`](Self::set_delivery_destination_types).
     ///
     /// <p>Use this parameter to filter the response to include only the configuration templates that apply to the delivery destination types that you specify here.</p>
-    pub fn delivery_destination_types(
-        mut self,
-        input: crate::types::DeliveryDestinationType,
-    ) -> Self {
+    pub fn delivery_destination_types(mut self, input: crate::types::DeliveryDestinationType) -> Self {
         let mut v = self.delivery_destination_types.unwrap_or_default();
         v.push(input);
         self.delivery_destination_types = ::std::option::Option::Some(v);
@@ -201,13 +183,15 @@ impl DescribeConfigurationTemplatesInputBuilder {
         crate::operation::describe_configuration_templates::DescribeConfigurationTemplatesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(crate::operation::describe_configuration_templates::DescribeConfigurationTemplatesInput {
-            service: self.service,
-            log_types: self.log_types,
-            resource_types: self.resource_types,
-            delivery_destination_types: self.delivery_destination_types,
-            next_token: self.next_token,
-            limit: self.limit,
-        })
+        ::std::result::Result::Ok(
+            crate::operation::describe_configuration_templates::DescribeConfigurationTemplatesInput {
+                service: self.service,
+                log_types: self.log_types,
+                resource_types: self.resource_types,
+                delivery_destination_types: self.delivery_destination_types,
+                next_token: self.next_token,
+                limit: self.limit,
+            },
+        )
     }
 }

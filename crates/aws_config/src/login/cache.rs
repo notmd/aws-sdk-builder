@@ -47,23 +47,14 @@ fn cached_token_path(cache_dir: &Path, login_session: &str) -> PathBuf {
 /// Load the token for `identifier` from `~/.aws/login/cache/<hashofidentifier>.json`
 ///
 /// The `identifier` is the `login_session` ARN to load the token for
-pub(super) async fn load_cached_token(
-    env: &Env,
-    fs: &Fs,
-    identifier: &str,
-) -> Result<LoginToken, LoginTokenError> {
+pub(super) async fn load_cached_token(env: &Env, fs: &Fs, identifier: &str) -> Result<LoginToken, LoginTokenError> {
     let cache_dir = get_cache_dir(env)?;
     let path = cached_token_path(&cache_dir, identifier);
-    let data =
-        Zeroizing::new(
-            fs.read_to_end(&path)
-                .await
-                .map_err(|source| LoginTokenError::IoError {
-                    what: "read",
-                    path,
-                    source,
-                })?,
-        );
+    let data = Zeroizing::new(fs.read_to_end(&path).await.map_err(|source| LoginTokenError::IoError {
+        what: "read",
+        path,
+        source,
+    })?);
     parse_cached_token(&data)
 }
 
@@ -97,13 +88,9 @@ pub(super) async fn save_cached_token(
     access_token
         .key("sessionToken")
         .string(token.access_token.session_token().expect("session token"));
-    access_token.key("accountId").string(
-        token
-            .access_token
-            .account_id()
-            .expect("account id")
-            .as_str(),
-    );
+    access_token
+        .key("accountId")
+        .string(token.access_token.account_id().expect("account id").as_str());
     access_token.key("expiresAt").string(&expiration);
     access_token.finish();
 
@@ -111,9 +98,7 @@ pub(super) async fn save_cached_token(
         writer.key("tokenType").string(token_type.as_str());
     }
 
-    writer
-        .key("refreshToken")
-        .string(token.refresh_token.as_str());
+    writer.key("refreshToken").string(token.refresh_token.as_str());
     if let Some(identity_token) = &token.identity_token {
         writer.key("idToken").string(identity_token);
     }
@@ -165,10 +150,7 @@ fn parse_cached_token(cached_token_file_contents: &[u8]) -> Result<LoginToken, L
 
     let mut tokens = json_token_iter(cached_token_file_contents).peekable();
     if !matches!(tokens.next().transpose()?, Some(Token::StartObject { .. })) {
-        return Err(Error::other(
-            "expected a JSON document starting with `{`",
-            None,
-        ));
+        return Err(Error::other("expected a JSON document starting with `{`", None));
     }
 
     loop {
@@ -187,15 +169,11 @@ fn parse_cached_token(cached_token_file_contents: &[u8]) -> Result<LoginToken, L
                                 match tokens.next().transpose()? {
                                     Some(Token::EndObject { offset }) => {
                                         let end = offset.0 + 1;
-                                        let access_token_json = std::str::from_utf8(
-                                            &cached_token_file_contents[start..end],
-                                        )
-                                        .map_err(|e| Error::JsonError(e.into()))?;
+                                        let access_token_json =
+                                            std::str::from_utf8(&cached_token_file_contents[start..end])
+                                                .map_err(|e| Error::JsonError(e.into()))?;
 
-                                        let creds =
-                                            crate::json_credentials::parse_json_credentials(
-                                                access_token_json,
-                                            )
+                                        let creds = crate::json_credentials::parse_json_credentials(access_token_json)
                                             .map_err(|e| Error::JsonError(Box::new(e)))?;
 
                                         match creds {
@@ -207,7 +185,9 @@ fn parse_cached_token(cached_token_file_contents: &[u8]) -> Result<LoginToken, L
                                                 expires_at = Some(c.expiration);
                                             }
                                             crate::json_credentials::JsonCredentials::Error { code, message } => {
-                                                return Err(Error::JsonError(format!("error parsing `accessToken`: {code} - {message}").into()))
+                                                return Err(Error::JsonError(
+                                                    format!("error parsing `accessToken`: {code} - {message}").into(),
+                                                ))
                                             }
                                         }
                                         break;
@@ -230,32 +210,20 @@ fn parse_cached_token(cached_token_file_contents: &[u8]) -> Result<LoginToken, L
                     }
 
                     match (key.as_ref(), token) {
-                        (k, Token::ValueString { value, .. })
-                            if k.eq_ignore_ascii_case("tokenType") =>
-                        {
+                        (k, Token::ValueString { value, .. }) if k.eq_ignore_ascii_case("tokenType") => {
                             token_type = Some(value.to_unescaped()?.into_owned());
                         }
-                        (k, Token::ValueString { value, .. })
-                            if k.eq_ignore_ascii_case("refreshToken") =>
-                        {
-                            refresh_token =
-                                Some(Zeroizing::new(value.to_unescaped()?.into_owned()));
+                        (k, Token::ValueString { value, .. }) if k.eq_ignore_ascii_case("refreshToken") => {
+                            refresh_token = Some(Zeroizing::new(value.to_unescaped()?.into_owned()));
                         }
-                        (k, Token::ValueString { value, .. })
-                            if k.eq_ignore_ascii_case("idToken") =>
-                        {
+                        (k, Token::ValueString { value, .. }) if k.eq_ignore_ascii_case("idToken") => {
                             identity_token = Some(value.to_unescaped()?.into_owned());
                         }
-                        (k, Token::ValueString { value, .. })
-                            if k.eq_ignore_ascii_case("clientId") =>
-                        {
+                        (k, Token::ValueString { value, .. }) if k.eq_ignore_ascii_case("clientId") => {
                             client_id = Some(value.to_unescaped()?.into_owned());
                         }
-                        (k, Token::ValueString { value, .. })
-                            if k.eq_ignore_ascii_case("dpopKey") =>
-                        {
-                            dpop_key =
-                                Some(Zeroizing::new(value.to_unescaped()?.replace("\\n", "\n")));
+                        (k, Token::ValueString { value, .. }) if k.eq_ignore_ascii_case("dpopKey") => {
+                            dpop_key = Some(Zeroizing::new(value.to_unescaped()?.replace("\\n", "\n")));
                         }
                         _ => {}
                     }
@@ -263,10 +231,7 @@ fn parse_cached_token(cached_token_file_contents: &[u8]) -> Result<LoginToken, L
                 skip_value(&mut tokens)?;
             }
             other => {
-                return Err(Error::other(
-                    format!("expected object key, found: {other:?}"),
-                    None,
-                ));
+                return Err(Error::other(format!("expected object key, found: {other:?}"), None));
             }
         }
     }
@@ -342,24 +307,15 @@ mod tests {
         }"#;
         let token = parse_cached_token(file_contents.as_bytes()).expect("success");
         assert_eq!("AKIAIOSFODNN7EXAMPLE", token.access_token.access_key_id());
-        assert_eq!(
-            "012345678901",
-            token.access_token.account_id().unwrap().as_str()
-        );
+        assert_eq!("012345678901", token.access_token.account_id().unwrap().as_str());
         assert_eq!(
             std::time::SystemTime::UNIX_EPOCH + Duration::from_secs(1640467800),
             token.access_token.expiry().unwrap()
         );
         assert_eq!("refresh-token-value", token.refresh_token.as_str());
-        assert_eq!(
-            Some("identity-token-value"),
-            token.identity_token.as_deref()
-        );
+        assert_eq!(Some("identity-token-value"), token.identity_token.as_deref());
 
-        assert_eq!(
-            "arn:aws:signin:::devtools/same-device",
-            token.client_id.as_str()
-        );
+        assert_eq!("arn:aws:signin:::devtools/same-device", token.client_id.as_str());
         assert_eq!(
             "-----BEGIN EC PRIVATE KEY-----\ntest\n-----END EC PRIVATE KEY-----\n",
             token.dpop_key.as_str()
@@ -440,7 +396,8 @@ mod tests {
 
         let env = Env::from_slice(&[("HOME", "/home/user")]);
         let fs = Fs::from_map(HashMap::from([(
-            "/home/user/.aws/login/cache/36db1d138ff460920374e4c3d8e01f53f9f73537e89c88d639f68393df0e2726.json".to_string(),
+            "/home/user/.aws/login/cache/36db1d138ff460920374e4c3d8e01f53f9f73537e89c88d639f68393df0e2726.json"
+                .to_string(),
             token_json.as_bytes().to_vec(),
         )]));
 
@@ -449,14 +406,8 @@ mod tests {
             .expect("success");
 
         assert_eq!("AKIAIOSFODNN7EXAMPLE", token.access_token.access_key_id());
-        assert_eq!(
-            "012345678901",
-            token.access_token.account_id().unwrap().as_str()
-        );
-        assert_eq!(
-            "arn:aws:signin:::devtools/same-device",
-            token.client_id.as_str()
-        );
+        assert_eq!("012345678901", token.access_token.account_id().unwrap().as_str());
+        assert_eq!("arn:aws:signin:::devtools/same-device", token.client_id.as_str());
     }
 
     #[tokio::test]

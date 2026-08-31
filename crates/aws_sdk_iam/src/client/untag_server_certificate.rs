@@ -9,8 +9,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UntagServerCertificateError>`](crate::operation::untag_server_certificate::UntagServerCertificateError)
     pub fn untag_server_certificate(
         &self,
-    ) -> crate::operation::untag_server_certificate::builders::UntagServerCertificateFluentBuilder
-    {
-        crate::operation::untag_server_certificate::builders::UntagServerCertificateFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::untag_server_certificate::builders::UntagServerCertificateFluentBuilder {
+        crate::operation::untag_server_certificate::builders::UntagServerCertificateFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

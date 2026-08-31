@@ -20,15 +20,14 @@ impl ::aws_types::request_id::RequestId for RestoreTableToPointInTimeOutput {
 }
 impl RestoreTableToPointInTimeOutput {
     /// Creates a new builder-style object to manufacture [`RestoreTableToPointInTimeOutput`](crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeOutput).
-    pub fn builder() -> crate::operation::restore_table_to_point_in_time::builders::RestoreTableToPointInTimeOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::restore_table_to_point_in_time::builders::RestoreTableToPointInTimeOutputBuilder {
         crate::operation::restore_table_to_point_in_time::builders::RestoreTableToPointInTimeOutputBuilder::default()
     }
 }
 
 /// A builder for [`RestoreTableToPointInTimeOutput`](crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RestoreTableToPointInTimeOutputBuilder {
     pub(crate) table_description: ::std::option::Option<crate::types::TableDescription>,
@@ -41,10 +40,7 @@ impl RestoreTableToPointInTimeOutputBuilder {
         self
     }
     /// <p>Represents the properties of a table.</p>
-    pub fn set_table_description(
-        mut self,
-        input: ::std::option::Option<crate::types::TableDescription>,
-    ) -> Self {
+    pub fn set_table_description(mut self, input: ::std::option::Option<crate::types::TableDescription>) -> Self {
         self.table_description = input;
         self
     }
@@ -62,9 +58,7 @@ impl RestoreTableToPointInTimeOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`RestoreTableToPointInTimeOutput`](crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeOutput {
+    pub fn build(self) -> crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeOutput {
         crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeOutput {
             table_description: self.table_description,
             _request_id: self._request_id,

@@ -20,16 +20,13 @@ impl ::aws_types::request_id::RequestId for GetDeliverySourceOutput {
 }
 impl GetDeliverySourceOutput {
     /// Creates a new builder-style object to manufacture [`GetDeliverySourceOutput`](crate::operation::get_delivery_source::GetDeliverySourceOutput).
-    pub fn builder(
-    ) -> crate::operation::get_delivery_source::builders::GetDeliverySourceOutputBuilder {
+    pub fn builder() -> crate::operation::get_delivery_source::builders::GetDeliverySourceOutputBuilder {
         crate::operation::get_delivery_source::builders::GetDeliverySourceOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetDeliverySourceOutput`](crate::operation::get_delivery_source::GetDeliverySourceOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetDeliverySourceOutputBuilder {
     pub(crate) delivery_source: ::std::option::Option<crate::types::DeliverySource>,
@@ -42,10 +39,7 @@ impl GetDeliverySourceOutputBuilder {
         self
     }
     /// <p>A structure containing information about the delivery source.</p>
-    pub fn set_delivery_source(
-        mut self,
-        input: ::std::option::Option<crate::types::DeliverySource>,
-    ) -> Self {
+    pub fn set_delivery_source(mut self, input: ::std::option::Option<crate::types::DeliverySource>) -> Self {
         self.delivery_source = input;
         self
     }

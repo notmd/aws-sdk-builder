@@ -39,9 +39,7 @@ impl PutEmailIdentityMailFromAttributesInput {
     }
     /// <p>The action to take if the required MX record isn't found when you send an email. When you set this value to <code>UseDefaultValue</code>, the mail is sent using <i>amazonses.com</i> as the MAIL FROM domain. When you set this value to <code>RejectMessage</code>, the Amazon SES API v2 returns a <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the email.</p>
     /// <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code> states.</p>
-    pub fn behavior_on_mx_failure(
-        &self,
-    ) -> ::std::option::Option<&crate::types::BehaviorOnMxFailure> {
+    pub fn behavior_on_mx_failure(&self) -> ::std::option::Option<&crate::types::BehaviorOnMxFailure> {
         self.behavior_on_mx_failure.as_ref()
     }
 }
@@ -53,9 +51,7 @@ impl PutEmailIdentityMailFromAttributesInput {
 }
 
 /// A builder for [`PutEmailIdentityMailFromAttributesInput`](crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PutEmailIdentityMailFromAttributesInputBuilder {
     pub(crate) email_identity: ::std::option::Option<::std::string::String>,
@@ -65,18 +61,12 @@ pub struct PutEmailIdentityMailFromAttributesInputBuilder {
 impl PutEmailIdentityMailFromAttributesInputBuilder {
     /// <p>The verified email identity.</p>
     /// This field is required.
-    pub fn email_identity(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn email_identity(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.email_identity = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The verified email identity.</p>
-    pub fn set_email_identity(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_email_identity(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.email_identity = input;
         self
     }
@@ -93,10 +83,7 @@ impl PutEmailIdentityMailFromAttributesInputBuilder {
     /// <li>
     /// <p>It can't be used in a "From" address if the MAIL FROM domain is a destination for feedback forwarding emails.</p></li>
     /// </ul>
-    pub fn mail_from_domain(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn mail_from_domain(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.mail_from_domain = ::std::option::Option::Some(input.into());
         self
     }
@@ -109,10 +96,7 @@ impl PutEmailIdentityMailFromAttributesInputBuilder {
     /// <li>
     /// <p>It can't be used in a "From" address if the MAIL FROM domain is a destination for feedback forwarding emails.</p></li>
     /// </ul>
-    pub fn set_mail_from_domain(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_mail_from_domain(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.mail_from_domain = input;
         self
     }
@@ -145,9 +129,7 @@ impl PutEmailIdentityMailFromAttributesInputBuilder {
     }
     /// <p>The action to take if the required MX record isn't found when you send an email. When you set this value to <code>UseDefaultValue</code>, the mail is sent using <i>amazonses.com</i> as the MAIL FROM domain. When you set this value to <code>RejectMessage</code>, the Amazon SES API v2 returns a <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the email.</p>
     /// <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code> states.</p>
-    pub fn get_behavior_on_mx_failure(
-        &self,
-    ) -> &::std::option::Option<crate::types::BehaviorOnMxFailure> {
+    pub fn get_behavior_on_mx_failure(&self) -> &::std::option::Option<crate::types::BehaviorOnMxFailure> {
         &self.behavior_on_mx_failure
     }
     /// Consumes the builder and constructs a [`PutEmailIdentityMailFromAttributesInput`](crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesInput).
@@ -156,7 +138,7 @@ impl PutEmailIdentityMailFromAttributesInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesInput {
                 email_identity: self.email_identity,

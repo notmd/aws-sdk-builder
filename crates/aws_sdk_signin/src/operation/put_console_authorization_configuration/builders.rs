@@ -76,7 +76,7 @@ impl PutConsoleAuthorizationConfigurationFluentBuilder {
             crate::operation::put_console_authorization_configuration::PutConsoleAuthorizationConfigurationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -87,7 +87,11 @@ impl PutConsoleAuthorizationConfigurationFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        crate::operation::put_console_authorization_configuration::PutConsoleAuthorizationConfiguration::orchestrate(&runtime_plugins, input).await
+        crate::operation::put_console_authorization_configuration::PutConsoleAuthorizationConfiguration::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -97,7 +101,7 @@ impl PutConsoleAuthorizationConfigurationFluentBuilder {
         crate::operation::put_console_authorization_configuration::PutConsoleAuthorizationConfigurationOutput,
         crate::operation::put_console_authorization_configuration::PutConsoleAuthorizationConfigurationError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(

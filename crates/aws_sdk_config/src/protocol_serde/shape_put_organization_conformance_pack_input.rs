@@ -4,9 +4,7 @@ pub fn ser_put_organization_conformance_pack_input_input(
     input: &crate::operation::put_organization_conformance_pack::PutOrganizationConformancePackInput,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     if let Some(var_1) = &input.organization_conformance_pack_name {
-        object
-            .key("OrganizationConformancePackName")
-            .string(var_1.as_str());
+        object.key("OrganizationConformancePackName").string(var_1.as_str());
     }
     if let Some(var_2) = &input.template_s3_uri {
         object.key("TemplateS3Uri").string(var_2.as_str());
@@ -26,7 +24,10 @@ pub fn ser_put_organization_conformance_pack_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_9 = array_7.value().start_object();
-                crate::protocol_serde::shape_conformance_pack_input_parameter::ser_conformance_pack_input_parameter(&mut object_9, item_8)?;
+                crate::protocol_serde::shape_conformance_pack_input_parameter::ser_conformance_pack_input_parameter(
+                    &mut object_9,
+                    item_8,
+                )?;
                 object_9.finish();
             }
         }

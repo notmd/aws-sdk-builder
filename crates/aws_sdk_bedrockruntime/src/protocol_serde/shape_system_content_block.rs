@@ -10,24 +10,20 @@ pub fn ser_system_content_block(
         crate::types::SystemContentBlock::GuardContent(inner) => {
             #[allow(unused_mut)]
             let mut object_1 = object_31.key("guardContent").start_object();
-            crate::protocol_serde::shape_guardrail_converse_content_block::ser_guardrail_converse_content_block(&mut object_1, inner)?;
+            crate::protocol_serde::shape_guardrail_converse_content_block::ser_guardrail_converse_content_block(
+                &mut object_1,
+                inner,
+            )?;
             object_1.finish();
         }
         crate::types::SystemContentBlock::CachePoint(inner) => {
             #[allow(unused_mut)]
             let mut object_2 = object_31.key("cachePoint").start_object();
-            crate::protocol_serde::shape_cache_point_block::ser_cache_point_block(
-                &mut object_2,
-                inner,
-            )?;
+            crate::protocol_serde::shape_cache_point_block::ser_cache_point_block(&mut object_2, inner)?;
             object_2.finish();
         }
         crate::types::SystemContentBlock::Unknown => {
-            return Err(
-                ::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-                    "SystemContentBlock",
-                ),
-            )
+            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("SystemContentBlock"))
         }
     }
     Ok(())

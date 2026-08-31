@@ -57,10 +57,7 @@ impl PutStorageTierPolicyFluentBuilder {
         }
     }
     /// Access the PutStorageTierPolicy as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::put_storage_tier_policy::builders::PutStorageTierPolicyInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::put_storage_tier_policy::builders::PutStorageTierPolicyInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,16 +81,13 @@ impl PutStorageTierPolicyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::put_storage_tier_policy::PutStorageTierPolicy::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::put_storage_tier_policy::PutStorageTierPolicy::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::put_storage_tier_policy::PutStorageTierPolicy::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::put_storage_tier_policy::PutStorageTierPolicy::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -127,10 +121,7 @@ impl PutStorageTierPolicyFluentBuilder {
         self
     }
     /// <p>The storage tier to set for the account. Use <code>INTELLIGENT_TIERING</code> to automatically optimize storage costs by moving log data to the appropriate tier based on access frequency.</p>
-    pub fn set_storage_tier(
-        mut self,
-        input: ::std::option::Option<crate::types::StorageTier>,
-    ) -> Self {
+    pub fn set_storage_tier(mut self, input: ::std::option::Option<crate::types::StorageTier>) -> Self {
         self.inner = self.inner.set_storage_tier(input);
         self
     }

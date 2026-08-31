@@ -16,12 +16,8 @@ impl ListServiceSpecificCredentialsOutput {
     /// <p>A list of structures that each contain details about a service-specific credential.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.service_specific_credentials.is_none()`.
-    pub fn service_specific_credentials(
-        &self,
-    ) -> &[crate::types::ServiceSpecificCredentialMetadata] {
-        self.service_specific_credentials
-            .as_deref()
-            .unwrap_or_default()
+    pub fn service_specific_credentials(&self) -> &[crate::types::ServiceSpecificCredentialMetadata] {
+        self.service_specific_credentials.as_deref().unwrap_or_default()
     }
     /// <p>When IsTruncated is true, this element is present and contains the value to use for the Marker parameter in a subsequent pagination request.</p>
     pub fn marker(&self) -> ::std::option::Option<&str> {
@@ -39,15 +35,15 @@ impl ::aws_types::request_id::RequestId for ListServiceSpecificCredentialsOutput
 }
 impl ListServiceSpecificCredentialsOutput {
     /// Creates a new builder-style object to manufacture [`ListServiceSpecificCredentialsOutput`](crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsOutput).
-    pub fn builder() -> crate::operation::list_service_specific_credentials::builders::ListServiceSpecificCredentialsOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::list_service_specific_credentials::builders::ListServiceSpecificCredentialsOutputBuilder
+    {
         crate::operation::list_service_specific_credentials::builders::ListServiceSpecificCredentialsOutputBuilder::default()
     }
 }
 
 /// A builder for [`ListServiceSpecificCredentialsOutput`](crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListServiceSpecificCredentialsOutputBuilder {
     pub(crate) service_specific_credentials:
@@ -62,10 +58,7 @@ impl ListServiceSpecificCredentialsOutputBuilder {
     /// To override the contents of this collection use [`set_service_specific_credentials`](Self::set_service_specific_credentials).
     ///
     /// <p>A list of structures that each contain details about a service-specific credential.</p>
-    pub fn service_specific_credentials(
-        mut self,
-        input: crate::types::ServiceSpecificCredentialMetadata,
-    ) -> Self {
+    pub fn service_specific_credentials(mut self, input: crate::types::ServiceSpecificCredentialMetadata) -> Self {
         let mut v = self.service_specific_credentials.unwrap_or_default();
         v.push(input);
         self.service_specific_credentials = ::std::option::Option::Some(v);
@@ -74,9 +67,7 @@ impl ListServiceSpecificCredentialsOutputBuilder {
     /// <p>A list of structures that each contain details about a service-specific credential.</p>
     pub fn set_service_specific_credentials(
         mut self,
-        input: ::std::option::Option<
-            ::std::vec::Vec<crate::types::ServiceSpecificCredentialMetadata>,
-        >,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ServiceSpecificCredentialMetadata>>,
     ) -> Self {
         self.service_specific_credentials = input;
         self
@@ -84,8 +75,7 @@ impl ListServiceSpecificCredentialsOutputBuilder {
     /// <p>A list of structures that each contain details about a service-specific credential.</p>
     pub fn get_service_specific_credentials(
         &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ServiceSpecificCredentialMetadata>>
-    {
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ServiceSpecificCredentialMetadata>> {
         &self.service_specific_credentials
     }
     /// <p>When IsTruncated is true, this element is present and contains the value to use for the Marker parameter in a subsequent pagination request.</p>
@@ -126,10 +116,7 @@ impl ListServiceSpecificCredentialsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListServiceSpecificCredentialsOutput`](crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsOutput
-    {
+    pub fn build(self) -> crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsOutput {
         crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsOutput {
             service_specific_credentials: self.service_specific_credentials,
             marker: self.marker,

@@ -147,9 +147,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -161,15 +159,21 @@ where
 impl From<crate::operation::get_role_credentials::GetRoleCredentialsError> for Error {
     fn from(err: crate::operation::get_role_credentials::GetRoleCredentialsError) -> Self {
         match err {
-            crate::operation::get_role_credentials::GetRoleCredentialsError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
+            crate::operation::get_role_credentials::GetRoleCredentialsError::InvalidRequestException(inner) => {
+                Error::InvalidRequestException(inner)
+            }
             crate::operation::get_role_credentials::GetRoleCredentialsError::ResourceNotFoundException(inner) => {
                 Error::ResourceNotFoundException(inner)
             }
             crate::operation::get_role_credentials::GetRoleCredentialsError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::get_role_credentials::GetRoleCredentialsError::UnauthorizedException(inner) => Error::UnauthorizedException(inner),
-            crate::operation::get_role_credentials::GetRoleCredentialsError::Unhandled(inner) => Error::Unhandled(inner),
+            crate::operation::get_role_credentials::GetRoleCredentialsError::UnauthorizedException(inner) => {
+                Error::UnauthorizedException(inner)
+            }
+            crate::operation::get_role_credentials::GetRoleCredentialsError::Unhandled(inner) => {
+                Error::Unhandled(inner)
+            }
         }
     }
 }
@@ -191,9 +195,7 @@ where
         >,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -205,35 +207,33 @@ where
 impl From<crate::operation::list_account_roles::ListAccountRolesError> for Error {
     fn from(err: crate::operation::list_account_roles::ListAccountRolesError) -> Self {
         match err {
-            crate::operation::list_account_roles::ListAccountRolesError::InvalidRequestException(inner) => Error::InvalidRequestException(inner),
-            crate::operation::list_account_roles::ListAccountRolesError::ResourceNotFoundException(inner) => Error::ResourceNotFoundException(inner),
-            crate::operation::list_account_roles::ListAccountRolesError::TooManyRequestsException(inner) => Error::TooManyRequestsException(inner),
-            crate::operation::list_account_roles::ListAccountRolesError::UnauthorizedException(inner) => Error::UnauthorizedException(inner),
+            crate::operation::list_account_roles::ListAccountRolesError::InvalidRequestException(inner) => {
+                Error::InvalidRequestException(inner)
+            }
+            crate::operation::list_account_roles::ListAccountRolesError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
+            crate::operation::list_account_roles::ListAccountRolesError::TooManyRequestsException(inner) => {
+                Error::TooManyRequestsException(inner)
+            }
+            crate::operation::list_account_roles::ListAccountRolesError::UnauthorizedException(inner) => {
+                Error::UnauthorizedException(inner)
+            }
             crate::operation::list_account_roles::ListAccountRolesError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_list_accounts")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_accounts::ListAccountsError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_accounts::ListAccountsError, R>>
+    for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
     fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_accounts::ListAccountsError,
-            R,
-        >,
+        err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::list_accounts::ListAccountsError, R>,
     ) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -248,42 +248,27 @@ impl From<crate::operation::list_accounts::ListAccountsError> for Error {
             crate::operation::list_accounts::ListAccountsError::InvalidRequestException(inner) => {
                 Error::InvalidRequestException(inner)
             }
-            crate::operation::list_accounts::ListAccountsError::ResourceNotFoundException(
-                inner,
-            ) => Error::ResourceNotFoundException(inner),
+            crate::operation::list_accounts::ListAccountsError::ResourceNotFoundException(inner) => {
+                Error::ResourceNotFoundException(inner)
+            }
             crate::operation::list_accounts::ListAccountsError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
             crate::operation::list_accounts::ListAccountsError::UnauthorizedException(inner) => {
                 Error::UnauthorizedException(inner)
             }
-            crate::operation::list_accounts::ListAccountsError::Unhandled(inner) => {
-                Error::Unhandled(inner)
-            }
+            crate::operation::list_accounts::ListAccountsError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }
 }
 #[cfg(feature = "op_logout")]
-impl<R>
-    From<
-        ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::logout::LogoutError,
-            R,
-        >,
-    > for Error
+impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<crate::operation::logout::LogoutError, R>> for Error
 where
     R: Send + Sync + std::fmt::Debug + 'static,
 {
-    fn from(
-        err: ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::logout::LogoutError,
-            R,
-        >,
-    ) -> Self {
+    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<crate::operation::logout::LogoutError, R>) -> Self {
         match err {
-            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => {
-                Self::from(context.into_err())
-            }
+            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),
             _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {
                 meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),
                 source: err.into(),
@@ -301,9 +286,7 @@ impl From<crate::operation::logout::LogoutError> for Error {
             crate::operation::logout::LogoutError::TooManyRequestsException(inner) => {
                 Error::TooManyRequestsException(inner)
             }
-            crate::operation::logout::LogoutError::UnauthorizedException(inner) => {
-                Error::UnauthorizedException(inner)
-            }
+            crate::operation::logout::LogoutError::UnauthorizedException(inner) => Error::UnauthorizedException(inner),
             crate::operation::logout::LogoutError::Unhandled(inner) => Error::Unhandled(inner),
         }
     }

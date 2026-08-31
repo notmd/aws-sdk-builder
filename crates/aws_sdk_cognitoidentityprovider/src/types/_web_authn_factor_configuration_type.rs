@@ -67,9 +67,7 @@ pub enum WebAuthnFactorConfigurationType {
 impl ::std::convert::From<&str> for WebAuthnFactorConfigurationType {
     fn from(s: &str) -> Self {
         match s {
-            "MULTI_FACTOR_WITH_USER_VERIFICATION" => {
-                WebAuthnFactorConfigurationType::MultiFactorWithUserVerification
-            }
+            "MULTI_FACTOR_WITH_USER_VERIFICATION" => WebAuthnFactorConfigurationType::MultiFactorWithUserVerification,
             "SINGLE_FACTOR" => WebAuthnFactorConfigurationType::SingleFactor,
             other => WebAuthnFactorConfigurationType::Unknown(
                 crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
@@ -88,9 +86,7 @@ impl WebAuthnFactorConfigurationType {
     /// Returns the `&str` value of the enum member.
     pub fn as_str(&self) -> &str {
         match self {
-            WebAuthnFactorConfigurationType::MultiFactorWithUserVerification => {
-                "MULTI_FACTOR_WITH_USER_VERIFICATION"
-            }
+            WebAuthnFactorConfigurationType::MultiFactorWithUserVerification => "MULTI_FACTOR_WITH_USER_VERIFICATION",
             WebAuthnFactorConfigurationType::SingleFactor => "SINGLE_FACTOR",
             WebAuthnFactorConfigurationType::Unknown(value) => value.as_str(),
         }
@@ -109,14 +105,10 @@ impl WebAuthnFactorConfigurationType {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }

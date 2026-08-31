@@ -36,10 +36,7 @@ pub fn ser_create_user_pool_client_input_input(
     if let Some(var_8) = &input.token_validity_units {
         #[allow(unused_mut)]
         let mut object_9 = object.key("TokenValidityUnits").start_object();
-        crate::protocol_serde::shape_token_validity_units_type::ser_token_validity_units_type(
-            &mut object_9,
-            var_8,
-        )?;
+        crate::protocol_serde::shape_token_validity_units_type::ser_token_validity_units_type(&mut object_9, var_8)?;
         object_9.finish();
     }
     if let Some(var_10) = &input.read_attributes {
@@ -118,28 +115,25 @@ pub fn ser_create_user_pool_client_input_input(
         array_33.finish();
     }
     if let Some(var_35) = &input.allowed_o_auth_flows_user_pool_client {
-        object
-            .key("AllowedOAuthFlowsUserPoolClient")
-            .boolean(*var_35);
+        object.key("AllowedOAuthFlowsUserPoolClient").boolean(*var_35);
     }
     if let Some(var_36) = &input.analytics_configuration {
         #[allow(unused_mut)]
         let mut object_37 = object.key("AnalyticsConfiguration").start_object();
-        crate::protocol_serde::shape_analytics_configuration_type::ser_analytics_configuration_type(&mut object_37, var_36)?;
+        crate::protocol_serde::shape_analytics_configuration_type::ser_analytics_configuration_type(
+            &mut object_37,
+            var_36,
+        )?;
         object_37.finish();
     }
     if let Some(var_38) = &input.prevent_user_existence_errors {
-        object
-            .key("PreventUserExistenceErrors")
-            .string(var_38.as_str());
+        object.key("PreventUserExistenceErrors").string(var_38.as_str());
     }
     if let Some(var_39) = &input.enable_token_revocation {
         object.key("EnableTokenRevocation").boolean(*var_39);
     }
     if let Some(var_40) = &input.enable_propagate_additional_user_context_data {
-        object
-            .key("EnablePropagateAdditionalUserContextData")
-            .boolean(*var_40);
+        object.key("EnablePropagateAdditionalUserContextData").boolean(*var_40);
     }
     if let Some(var_41) = &input.auth_session_validity {
         object.key("AuthSessionValidity").number(

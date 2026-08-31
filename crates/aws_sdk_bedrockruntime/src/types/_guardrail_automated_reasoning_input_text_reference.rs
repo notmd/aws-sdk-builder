@@ -22,8 +22,7 @@ impl ::std::fmt::Debug for GuardrailAutomatedReasoningInputTextReference {
 }
 impl GuardrailAutomatedReasoningInputTextReference {
     /// Creates a new builder-style object to manufacture [`GuardrailAutomatedReasoningInputTextReference`](crate::types::GuardrailAutomatedReasoningInputTextReference).
-    pub fn builder() -> crate::types::builders::GuardrailAutomatedReasoningInputTextReferenceBuilder
-    {
+    pub fn builder() -> crate::types::builders::GuardrailAutomatedReasoningInputTextReferenceBuilder {
         crate::types::builders::GuardrailAutomatedReasoningInputTextReferenceBuilder::default()
     }
 }

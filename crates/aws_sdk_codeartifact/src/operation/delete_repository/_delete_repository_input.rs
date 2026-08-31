@@ -26,16 +26,13 @@ impl DeleteRepositoryInput {
 }
 impl DeleteRepositoryInput {
     /// Creates a new builder-style object to manufacture [`DeleteRepositoryInput`](crate::operation::delete_repository::DeleteRepositoryInput).
-    pub fn builder() -> crate::operation::delete_repository::builders::DeleteRepositoryInputBuilder
-    {
+    pub fn builder() -> crate::operation::delete_repository::builders::DeleteRepositoryInputBuilder {
         crate::operation::delete_repository::builders::DeleteRepositoryInputBuilder::default()
     }
 }
 
 /// A builder for [`DeleteRepositoryInput`](crate::operation::delete_repository::DeleteRepositoryInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteRepositoryInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,

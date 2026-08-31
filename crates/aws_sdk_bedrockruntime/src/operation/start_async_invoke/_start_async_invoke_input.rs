@@ -28,9 +28,7 @@ impl StartAsyncInvokeInput {
         self.model_input.as_ref()
     }
     /// <p>Where to store the output.</p>
-    pub fn output_data_config(
-        &self,
-    ) -> ::std::option::Option<&crate::types::AsyncInvokeOutputDataConfig> {
+    pub fn output_data_config(&self) -> ::std::option::Option<&crate::types::AsyncInvokeOutputDataConfig> {
         self.output_data_config.as_ref()
     }
     /// <p>Tags to apply to the invocation.</p>
@@ -53,8 +51,7 @@ impl ::std::fmt::Debug for StartAsyncInvokeInput {
 }
 impl StartAsyncInvokeInput {
     /// Creates a new builder-style object to manufacture [`StartAsyncInvokeInput`](crate::operation::start_async_invoke::StartAsyncInvokeInput).
-    pub fn builder() -> crate::operation::start_async_invoke::builders::StartAsyncInvokeInputBuilder
-    {
+    pub fn builder() -> crate::operation::start_async_invoke::builders::StartAsyncInvokeInputBuilder {
         crate::operation::start_async_invoke::builders::StartAsyncInvokeInputBuilder::default()
     }
 }
@@ -71,18 +68,12 @@ pub struct StartAsyncInvokeInputBuilder {
 }
 impl StartAsyncInvokeInputBuilder {
     /// <p>Specify idempotency token to ensure that requests are not duplicated.</p>
-    pub fn client_request_token(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn client_request_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.client_request_token = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>Specify idempotency token to ensure that requests are not duplicated.</p>
-    pub fn set_client_request_token(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_client_request_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.client_request_token = input;
         self
     }
@@ -112,10 +103,7 @@ impl StartAsyncInvokeInputBuilder {
         self
     }
     /// <p>Input to send to the model.</p>
-    pub fn set_model_input(
-        mut self,
-        input: ::std::option::Option<::aws_smithy_types::Document>,
-    ) -> Self {
+    pub fn set_model_input(mut self, input: ::std::option::Option<::aws_smithy_types::Document>) -> Self {
         self.model_input = input;
         self
     }
@@ -138,9 +126,7 @@ impl StartAsyncInvokeInputBuilder {
         self
     }
     /// <p>Where to store the output.</p>
-    pub fn get_output_data_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::AsyncInvokeOutputDataConfig> {
+    pub fn get_output_data_config(&self) -> &::std::option::Option<crate::types::AsyncInvokeOutputDataConfig> {
         &self.output_data_config
     }
     /// Appends an item to `tags`.
@@ -155,10 +141,7 @@ impl StartAsyncInvokeInputBuilder {
         self
     }
     /// <p>Tags to apply to the invocation.</p>
-    pub fn set_tags(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-    ) -> Self {
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self
     }
@@ -173,15 +156,13 @@ impl StartAsyncInvokeInputBuilder {
         crate::operation::start_async_invoke::StartAsyncInvokeInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::start_async_invoke::StartAsyncInvokeInput {
-                client_request_token: self.client_request_token,
-                model_id: self.model_id,
-                model_input: self.model_input,
-                output_data_config: self.output_data_config,
-                tags: self.tags,
-            },
-        )
+        ::std::result::Result::Ok(crate::operation::start_async_invoke::StartAsyncInvokeInput {
+            client_request_token: self.client_request_token,
+            model_id: self.model_id,
+            model_input: self.model_input,
+            output_data_config: self.output_data_config,
+            tags: self.tags,
+        })
     }
 }
 impl ::std::fmt::Debug for StartAsyncInvokeInputBuilder {

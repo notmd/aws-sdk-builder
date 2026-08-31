@@ -10,8 +10,6 @@ impl super::Client {
     pub fn delete_bucket_tagging(
         &self,
     ) -> crate::operation::delete_bucket_tagging::builders::DeleteBucketTaggingFluentBuilder {
-        crate::operation::delete_bucket_tagging::builders::DeleteBucketTaggingFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_bucket_tagging::builders::DeleteBucketTaggingFluentBuilder::new(self.handle.clone())
     }
 }

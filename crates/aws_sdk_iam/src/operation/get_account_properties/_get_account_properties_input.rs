@@ -5,16 +5,13 @@
 pub struct GetAccountPropertiesInput {}
 impl GetAccountPropertiesInput {
     /// Creates a new builder-style object to manufacture [`GetAccountPropertiesInput`](crate::operation::get_account_properties::GetAccountPropertiesInput).
-    pub fn builder(
-    ) -> crate::operation::get_account_properties::builders::GetAccountPropertiesInputBuilder {
+    pub fn builder() -> crate::operation::get_account_properties::builders::GetAccountPropertiesInputBuilder {
         crate::operation::get_account_properties::builders::GetAccountPropertiesInputBuilder::default()
     }
 }
 
 /// A builder for [`GetAccountPropertiesInput`](crate::operation::get_account_properties::GetAccountPropertiesInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetAccountPropertiesInputBuilder {}
 impl GetAccountPropertiesInputBuilder {
@@ -25,8 +22,6 @@ impl GetAccountPropertiesInputBuilder {
         crate::operation::get_account_properties::GetAccountPropertiesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            crate::operation::get_account_properties::GetAccountPropertiesInput {},
-        )
+        ::std::result::Result::Ok(crate::operation::get_account_properties::GetAccountPropertiesInput {})
     }
 }

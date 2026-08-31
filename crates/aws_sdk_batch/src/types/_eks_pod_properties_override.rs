@@ -37,15 +37,11 @@ impl EksPodPropertiesOverride {
 }
 
 /// A builder for [`EksPodPropertiesOverride`](crate::types::EksPodPropertiesOverride).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EksPodPropertiesOverrideBuilder {
-    pub(crate) containers:
-        ::std::option::Option<::std::vec::Vec<crate::types::EksContainerOverride>>,
-    pub(crate) init_containers:
-        ::std::option::Option<::std::vec::Vec<crate::types::EksContainerOverride>>,
+    pub(crate) containers: ::std::option::Option<::std::vec::Vec<crate::types::EksContainerOverride>>,
+    pub(crate) init_containers: ::std::option::Option<::std::vec::Vec<crate::types::EksContainerOverride>>,
     pub(crate) metadata: ::std::option::Option<crate::types::EksMetadata>,
 }
 impl EksPodPropertiesOverrideBuilder {
@@ -69,9 +65,7 @@ impl EksPodPropertiesOverrideBuilder {
         self
     }
     /// <p>The overrides for the container that's used on the Amazon EKS pod.</p>
-    pub fn get_containers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::EksContainerOverride>> {
+    pub fn get_containers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EksContainerOverride>> {
         &self.containers
     }
     /// Appends an item to `init_containers`.
@@ -94,9 +88,7 @@ impl EksPodPropertiesOverrideBuilder {
         self
     }
     /// <p>The overrides for the <code>initContainers</code> defined in the Amazon EKS pod. These containers run before application containers, always run to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see <a href="https://kubernetes.io/docs/concepts/workloads/pods/init-containers/">Init Containers</a> in the <i>Kubernetes documentation</i>.</p>
-    pub fn get_init_containers(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::EksContainerOverride>> {
+    pub fn get_init_containers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EksContainerOverride>> {
         &self.init_containers
     }
     /// <p>Metadata about the overrides for the container that's used on the Amazon EKS pod.</p>

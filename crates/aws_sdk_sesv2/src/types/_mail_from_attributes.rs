@@ -56,9 +56,7 @@ impl MailFromAttributes {
 }
 
 /// A builder for [`MailFromAttributes`](crate::types::MailFromAttributes).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct MailFromAttributesBuilder {
     pub(crate) mail_from_domain: ::std::option::Option<::std::string::String>,
@@ -68,18 +66,12 @@ pub struct MailFromAttributesBuilder {
 impl MailFromAttributesBuilder {
     /// <p>The name of a domain that an email identity uses as a custom MAIL FROM domain.</p>
     /// This field is required.
-    pub fn mail_from_domain(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn mail_from_domain(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.mail_from_domain = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of a domain that an email identity uses as a custom MAIL FROM domain.</p>
-    pub fn set_mail_from_domain(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_mail_from_domain(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.mail_from_domain = input;
         self
     }
@@ -132,9 +124,7 @@ impl MailFromAttributesBuilder {
     /// <li>
     /// <p><code>TEMPORARY_FAILURE</code> – A temporary issue occurred, which prevented Amazon SES from determining the status of the MAIL FROM domain.</p></li>
     /// </ul>
-    pub fn get_mail_from_domain_status(
-        &self,
-    ) -> &::std::option::Option<crate::types::MailFromDomainStatus> {
+    pub fn get_mail_from_domain_status(&self) -> &::std::option::Option<crate::types::MailFromDomainStatus> {
         &self.mail_from_domain_status
     }
     /// <p>The action to take if the required MX record can't be found when you send an email. When you set this value to <code>USE_DEFAULT_VALUE</code>, the mail is sent using <i>amazonses.com</i> as the MAIL FROM domain. When you set this value to <code>REJECT_MESSAGE</code>, the Amazon SES API v2 returns a <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the email.</p>
@@ -155,9 +145,7 @@ impl MailFromAttributesBuilder {
     }
     /// <p>The action to take if the required MX record can't be found when you send an email. When you set this value to <code>USE_DEFAULT_VALUE</code>, the mail is sent using <i>amazonses.com</i> as the MAIL FROM domain. When you set this value to <code>REJECT_MESSAGE</code>, the Amazon SES API v2 returns a <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the email.</p>
     /// <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code> states.</p>
-    pub fn get_behavior_on_mx_failure(
-        &self,
-    ) -> &::std::option::Option<crate::types::BehaviorOnMxFailure> {
+    pub fn get_behavior_on_mx_failure(&self) -> &::std::option::Option<crate::types::BehaviorOnMxFailure> {
         &self.behavior_on_mx_failure
     }
     /// Consumes the builder and constructs a [`MailFromAttributes`](crate::types::MailFromAttributes).
@@ -167,10 +155,7 @@ impl MailFromAttributesBuilder {
     /// - [`behavior_on_mx_failure`](crate::types::builders::MailFromAttributesBuilder::behavior_on_mx_failure)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::MailFromAttributes,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::MailFromAttributes, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::MailFromAttributes {
             mail_from_domain: self.mail_from_domain.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

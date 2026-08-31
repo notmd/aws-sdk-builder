@@ -5,18 +5,16 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetQueueAttributesOutput {
     /// <p>A map of attributes to their respective values.</p>
-    pub attributes: ::std::option::Option<
-        ::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>,
-    >,
+    pub attributes:
+        ::std::option::Option<::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>>,
     _request_id: Option<String>,
 }
 impl GetQueueAttributesOutput {
     /// <p>A map of attributes to their respective values.</p>
     pub fn attributes(
         &self,
-    ) -> ::std::option::Option<
-        &::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>,
-    > {
+    ) -> ::std::option::Option<&::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>>
+    {
         self.attributes.as_ref()
     }
 }
@@ -27,21 +25,17 @@ impl ::aws_types::request_id::RequestId for GetQueueAttributesOutput {
 }
 impl GetQueueAttributesOutput {
     /// Creates a new builder-style object to manufacture [`GetQueueAttributesOutput`](crate::operation::get_queue_attributes::GetQueueAttributesOutput).
-    pub fn builder(
-    ) -> crate::operation::get_queue_attributes::builders::GetQueueAttributesOutputBuilder {
+    pub fn builder() -> crate::operation::get_queue_attributes::builders::GetQueueAttributesOutputBuilder {
         crate::operation::get_queue_attributes::builders::GetQueueAttributesOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetQueueAttributesOutput`](crate::operation::get_queue_attributes::GetQueueAttributesOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetQueueAttributesOutputBuilder {
-    pub(crate) attributes: ::std::option::Option<
-        ::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>,
-    >,
+    pub(crate) attributes:
+        ::std::option::Option<::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>>,
     _request_id: Option<String>,
 }
 impl GetQueueAttributesOutputBuilder {
@@ -73,9 +67,8 @@ impl GetQueueAttributesOutputBuilder {
     /// <p>A map of attributes to their respective values.</p>
     pub fn get_attributes(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>>
+    {
         &self.attributes
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

@@ -23,9 +23,7 @@ impl TypeConverter {
 }
 
 /// A builder for [`TypeConverter`](crate::types::TypeConverter).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct TypeConverterBuilder {
     pub(crate) entries: ::std::option::Option<::std::vec::Vec<crate::types::TypeConverterEntry>>,
@@ -51,9 +49,7 @@ impl TypeConverterBuilder {
         self
     }
     /// <p>An array of <code>TypeConverterEntry</code> objects, where each object contains the information about one field to change the type of.</p>
-    pub fn get_entries(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<crate::types::TypeConverterEntry>> {
+    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TypeConverterEntry>> {
         &self.entries
     }
     /// Consumes the builder and constructs a [`TypeConverter`](crate::types::TypeConverter).
@@ -61,10 +57,7 @@ impl TypeConverterBuilder {
     /// - [`entries`](crate::types::builders::TypeConverterBuilder::entries)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        crate::types::TypeConverter,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<crate::types::TypeConverter, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TypeConverter {
             entries: self.entries.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

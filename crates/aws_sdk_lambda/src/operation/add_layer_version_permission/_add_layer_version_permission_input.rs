@@ -50,15 +50,14 @@ impl AddLayerVersionPermissionInput {
 }
 impl AddLayerVersionPermissionInput {
     /// Creates a new builder-style object to manufacture [`AddLayerVersionPermissionInput`](crate::operation::add_layer_version_permission::AddLayerVersionPermissionInput).
-    pub fn builder() -> crate::operation::add_layer_version_permission::builders::AddLayerVersionPermissionInputBuilder{
+    pub fn builder() -> crate::operation::add_layer_version_permission::builders::AddLayerVersionPermissionInputBuilder
+    {
         crate::operation::add_layer_version_permission::builders::AddLayerVersionPermissionInputBuilder::default()
     }
 }
 
 /// A builder for [`AddLayerVersionPermissionInput`](crate::operation::add_layer_version_permission::AddLayerVersionPermissionInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AddLayerVersionPermissionInputBuilder {
     pub(crate) layer_name: ::std::option::Option<::std::string::String>,
@@ -146,18 +145,12 @@ impl AddLayerVersionPermissionInputBuilder {
         &self.principal
     }
     /// <p>With the principal set to <code>*</code>, grant permission to all accounts in the specified organization.</p>
-    pub fn organization_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn organization_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.organization_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>With the principal set to <code>*</code>, grant permission to all accounts in the specified organization.</p>
-    pub fn set_organization_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_organization_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.organization_id = input;
         self
     }

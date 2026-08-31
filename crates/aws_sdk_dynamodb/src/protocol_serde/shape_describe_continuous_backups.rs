@@ -9,72 +9,84 @@ pub fn de_describe_continuous_backups_http_error(
     crate::operation::describe_continuous_backups::DescribeContinuousBackupsError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(
-        _response_status,
-        _response_headers,
-        _response_body,
-    )
-    .map_err(
-        crate::operation::describe_continuous_backups::DescribeContinuousBackupsError::unhandled,
-    )?;
+    let mut generic_builder =
+        crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+            .map_err(crate::operation::describe_continuous_backups::DescribeContinuousBackupsError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(crate::operation::describe_continuous_backups::DescribeContinuousBackupsError::unhandled(
-                generic,
-            ))
+            return Err(
+                crate::operation::describe_continuous_backups::DescribeContinuousBackupsError::unhandled(generic),
+            )
         }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InternalServerError" => crate::operation::describe_continuous_backups::DescribeContinuousBackupsError::InternalServerError({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "InternalServerError" => {
+            crate::operation::describe_continuous_backups::DescribeContinuousBackupsError::InternalServerError({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InternalServerErrorBuilder::default();
-                output = crate::protocol_serde::shape_internal_server_error::de_internal_server_error_json_err(_response_body, output)
-                    .map_err(crate::operation::describe_continuous_backups::DescribeContinuousBackupsError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidEndpointException" => crate::operation::describe_continuous_backups::DescribeContinuousBackupsError::InvalidEndpointException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::InternalServerErrorBuilder::default();
+                    output = crate::protocol_serde::shape_internal_server_error::de_internal_server_error_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(
+                        crate::operation::describe_continuous_backups::DescribeContinuousBackupsError::unhandled,
+                    )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidEndpointException" => {
+            crate::operation::describe_continuous_backups::DescribeContinuousBackupsError::InvalidEndpointException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                output = crate::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::InvalidEndpointExceptionBuilder::default();
+                    output = crate::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
                     .map_err(crate::operation::describe_continuous_backups::DescribeContinuousBackupsError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "TableNotFoundException" => crate::operation::describe_continuous_backups::DescribeContinuousBackupsError::TableNotFoundException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "TableNotFoundException" => {
+            crate::operation::describe_continuous_backups::DescribeContinuousBackupsError::TableNotFoundException({
                 #[allow(unused_mut)]
-                let mut output = crate::types::error::builders::TableNotFoundExceptionBuilder::default();
-                output = crate::protocol_serde::shape_table_not_found_exception::de_table_not_found_exception_json_err(_response_body, output)
-                    .map_err(crate::operation::describe_continuous_backups::DescribeContinuousBackupsError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = crate::types::error::builders::TableNotFoundExceptionBuilder::default();
+                    output =
+                        crate::protocol_serde::shape_table_not_found_exception::de_table_not_found_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(
+                            crate::operation::describe_continuous_backups::DescribeContinuousBackupsError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => crate::operation::describe_continuous_backups::DescribeContinuousBackupsError::generic(generic),
     })
 }
@@ -90,25 +102,28 @@ pub fn de_describe_continuous_backups_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = crate::operation::describe_continuous_backups::builders::DescribeContinuousBackupsOutputBuilder::default();
-        output = crate::protocol_serde::shape_describe_continuous_backups::de_describe_continuous_backups(_response_body, output)
-            .map_err(crate::operation::describe_continuous_backups::DescribeContinuousBackupsError::unhandled)?;
-        output._set_request_id(
-            ::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string),
-        );
+        let mut output =
+            crate::operation::describe_continuous_backups::builders::DescribeContinuousBackupsOutputBuilder::default();
+        output = crate::protocol_serde::shape_describe_continuous_backups::de_describe_continuous_backups(
+            _response_body,
+            output,
+        )
+        .map_err(crate::operation::describe_continuous_backups::DescribeContinuousBackupsError::unhandled)?;
+        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
 pub fn ser_describe_continuous_backups_input(
     input: &crate::operation::describe_continuous_backups::DescribeContinuousBackupsInput,
-) -> ::std::result::Result<
-    ::aws_smithy_types::body::SdkBody,
-    ::aws_smithy_types::error::operation::SerializationError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError>
+{
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    crate::protocol_serde::shape_describe_continuous_backups_input::ser_describe_continuous_backups_input_input(&mut object, input)?;
+    crate::protocol_serde::shape_describe_continuous_backups_input::ser_describe_continuous_backups_input_input(
+        &mut object,
+        input,
+    )?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -120,10 +135,8 @@ pub(crate) fn de_describe_continuous_backups(
     crate::operation::describe_continuous_backups::builders::DescribeContinuousBackupsOutputBuilder,
     ::aws_smithy_json::deserialize::error::DeserializeError,
 > {
-    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(
-        crate::protocol_serde::or_empty_doc(_value),
-    )
-    .peekable();
+    let mut tokens_owned =
+        ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
     let depth = 0u32;
@@ -142,20 +155,16 @@ pub(crate) fn de_describe_continuous_backups(
                 }
             }
             other => {
-                return Err(
-                    ::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                        "expected object key or end object, found: {other:?}"
-                    )),
-                )
+                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+                    format!("expected object key or end object, found: {other:?}"),
+                ))
             }
         }
     }
     if tokens.next().is_some() {
-        return Err(
-            ::aws_smithy_json::deserialize::error::DeserializeError::custom(
-                "found more JSON tokens after completing parsing",
-            ),
-        );
+        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
+            "found more JSON tokens after completing parsing",
+        ));
     }
     Ok(builder)
 }

@@ -26,9 +26,7 @@ impl DeleteDomainInput {
 }
 
 /// A builder for [`DeleteDomainInput`](crate::operation::delete_domain::DeleteDomainInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteDomainInputBuilder {
     pub(crate) domain: ::std::option::Option<::std::string::String>,

@@ -10,8 +10,6 @@ impl super::Client {
     pub fn rotate_key_on_demand(
         &self,
     ) -> crate::operation::rotate_key_on_demand::builders::RotateKeyOnDemandFluentBuilder {
-        crate::operation::rotate_key_on_demand::builders::RotateKeyOnDemandFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::rotate_key_on_demand::builders::RotateKeyOnDemandFluentBuilder::new(self.handle.clone())
     }
 }

@@ -21,27 +21,19 @@ impl Policy {
 }
 
 /// A builder for [`Policy`](crate::types::Policy).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PolicyBuilder {
     pub(crate) delivery_destination_policy: ::std::option::Option<::std::string::String>,
 }
 impl PolicyBuilder {
     /// <p>The contents of the delivery destination policy.</p>
-    pub fn delivery_destination_policy(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn delivery_destination_policy(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.delivery_destination_policy = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The contents of the delivery destination policy.</p>
-    pub fn set_delivery_destination_policy(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_delivery_destination_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delivery_destination_policy = input;
         self
     }

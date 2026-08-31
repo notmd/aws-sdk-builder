@@ -13,8 +13,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<ListFunctionUrlConfigsError>`](crate::operation::list_function_url_configs::ListFunctionUrlConfigsError)
     pub fn list_function_url_configs(
         &self,
-    ) -> crate::operation::list_function_url_configs::builders::ListFunctionUrlConfigsFluentBuilder
-    {
-        crate::operation::list_function_url_configs::builders::ListFunctionUrlConfigsFluentBuilder::new(self.handle.clone())
+    ) -> crate::operation::list_function_url_configs::builders::ListFunctionUrlConfigsFluentBuilder {
+        crate::operation::list_function_url_configs::builders::ListFunctionUrlConfigsFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

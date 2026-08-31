@@ -35,9 +35,7 @@ impl ::std::fmt::Debug for StartDeviceAuthorizationInput {
 }
 impl StartDeviceAuthorizationInput {
     /// Creates a new builder-style object to manufacture [`StartDeviceAuthorizationInput`](crate::operation::start_device_authorization::StartDeviceAuthorizationInput).
-    pub fn builder(
-    ) -> crate::operation::start_device_authorization::builders::StartDeviceAuthorizationInputBuilder
-    {
+    pub fn builder() -> crate::operation::start_device_authorization::builders::StartDeviceAuthorizationInputBuilder {
         crate::operation::start_device_authorization::builders::StartDeviceAuthorizationInputBuilder::default()
     }
 }
@@ -68,18 +66,12 @@ impl StartDeviceAuthorizationInputBuilder {
     }
     /// <p>A secret string that is generated for the client. This value should come from the persisted result of the <code>RegisterClient</code> API operation.</p>
     /// This field is required.
-    pub fn client_secret(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn client_secret(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.client_secret = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A secret string that is generated for the client. This value should come from the persisted result of the <code>RegisterClient</code> API operation.</p>
-    pub fn set_client_secret(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_client_secret(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.client_secret = input;
         self
     }

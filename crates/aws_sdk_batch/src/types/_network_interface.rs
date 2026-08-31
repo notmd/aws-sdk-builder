@@ -33,9 +33,7 @@ impl NetworkInterface {
 }
 
 /// A builder for [`NetworkInterface`](crate::types::NetworkInterface).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct NetworkInterfaceBuilder {
     pub(crate) attachment_id: ::std::option::Option<::std::string::String>,
@@ -44,18 +42,12 @@ pub struct NetworkInterfaceBuilder {
 }
 impl NetworkInterfaceBuilder {
     /// <p>The attachment ID for the network interface.</p>
-    pub fn attachment_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn attachment_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.attachment_id = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The attachment ID for the network interface.</p>
-    pub fn set_attachment_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_attachment_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.attachment_id = input;
         self
     }
@@ -78,18 +70,12 @@ impl NetworkInterfaceBuilder {
         &self.ipv6_address
     }
     /// <p>The private IPv4 address for the network interface.</p>
-    pub fn private_ipv4_address(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn private_ipv4_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.private_ipv4_address = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The private IPv4 address for the network interface.</p>
-    pub fn set_private_ipv4_address(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_private_ipv4_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.private_ipv4_address = input;
         self
     }

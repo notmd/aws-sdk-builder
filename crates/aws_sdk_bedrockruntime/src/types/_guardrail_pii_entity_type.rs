@@ -159,9 +159,7 @@ impl ::std::convert::From<&str> for GuardrailPiiEntityType {
             "CREDIT_DEBIT_CARD_NUMBER" => GuardrailPiiEntityType::CreditDebitCardNumber,
             "DRIVER_ID" => GuardrailPiiEntityType::DriverId,
             "EMAIL" => GuardrailPiiEntityType::Email,
-            "INTERNATIONAL_BANK_ACCOUNT_NUMBER" => {
-                GuardrailPiiEntityType::InternationalBankAccountNumber
-            }
+            "INTERNATIONAL_BANK_ACCOUNT_NUMBER" => GuardrailPiiEntityType::InternationalBankAccountNumber,
             "IP_ADDRESS" => GuardrailPiiEntityType::IpAddress,
             "LICENSE_PLATE" => GuardrailPiiEntityType::LicensePlate,
             "MAC_ADDRESS" => GuardrailPiiEntityType::MacAddress,
@@ -170,26 +168,20 @@ impl ::std::convert::From<&str> for GuardrailPiiEntityType {
             "PHONE" => GuardrailPiiEntityType::Phone,
             "PIN" => GuardrailPiiEntityType::Pin,
             "SWIFT_CODE" => GuardrailPiiEntityType::SwiftCode,
-            "UK_NATIONAL_HEALTH_SERVICE_NUMBER" => {
-                GuardrailPiiEntityType::UkNationalHealthServiceNumber
-            }
+            "UK_NATIONAL_HEALTH_SERVICE_NUMBER" => GuardrailPiiEntityType::UkNationalHealthServiceNumber,
             "UK_NATIONAL_INSURANCE_NUMBER" => GuardrailPiiEntityType::UkNationalInsuranceNumber,
-            "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER" => {
-                GuardrailPiiEntityType::UkUniqueTaxpayerReferenceNumber
-            }
+            "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER" => GuardrailPiiEntityType::UkUniqueTaxpayerReferenceNumber,
             "URL" => GuardrailPiiEntityType::Url,
             "USERNAME" => GuardrailPiiEntityType::Username,
             "US_BANK_ACCOUNT_NUMBER" => GuardrailPiiEntityType::UsBankAccountNumber,
             "US_BANK_ROUTING_NUMBER" => GuardrailPiiEntityType::UsBankRoutingNumber,
-            "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER" => {
-                GuardrailPiiEntityType::UsIndividualTaxIdentificationNumber
-            }
+            "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER" => GuardrailPiiEntityType::UsIndividualTaxIdentificationNumber,
             "US_PASSPORT_NUMBER" => GuardrailPiiEntityType::UsPassportNumber,
             "US_SOCIAL_SECURITY_NUMBER" => GuardrailPiiEntityType::UsSocialSecurityNumber,
             "VEHICLE_IDENTIFICATION_NUMBER" => GuardrailPiiEntityType::VehicleIdentificationNumber,
-            other => GuardrailPiiEntityType::Unknown(
-                crate::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()),
-            ),
+            other => GuardrailPiiEntityType::Unknown(crate::primitives::sealed_enum_unknown::UnknownVariantValue(
+                other.to_owned(),
+            )),
         }
     }
 }
@@ -215,9 +207,7 @@ impl GuardrailPiiEntityType {
             GuardrailPiiEntityType::CreditDebitCardNumber => "CREDIT_DEBIT_CARD_NUMBER",
             GuardrailPiiEntityType::DriverId => "DRIVER_ID",
             GuardrailPiiEntityType::Email => "EMAIL",
-            GuardrailPiiEntityType::InternationalBankAccountNumber => {
-                "INTERNATIONAL_BANK_ACCOUNT_NUMBER"
-            }
+            GuardrailPiiEntityType::InternationalBankAccountNumber => "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
             GuardrailPiiEntityType::IpAddress => "IP_ADDRESS",
             GuardrailPiiEntityType::LicensePlate => "LICENSE_PLATE",
             GuardrailPiiEntityType::MacAddress => "MAC_ADDRESS",
@@ -226,20 +216,14 @@ impl GuardrailPiiEntityType {
             GuardrailPiiEntityType::Phone => "PHONE",
             GuardrailPiiEntityType::Pin => "PIN",
             GuardrailPiiEntityType::SwiftCode => "SWIFT_CODE",
-            GuardrailPiiEntityType::UkNationalHealthServiceNumber => {
-                "UK_NATIONAL_HEALTH_SERVICE_NUMBER"
-            }
+            GuardrailPiiEntityType::UkNationalHealthServiceNumber => "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
             GuardrailPiiEntityType::UkNationalInsuranceNumber => "UK_NATIONAL_INSURANCE_NUMBER",
-            GuardrailPiiEntityType::UkUniqueTaxpayerReferenceNumber => {
-                "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER"
-            }
+            GuardrailPiiEntityType::UkUniqueTaxpayerReferenceNumber => "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
             GuardrailPiiEntityType::Url => "URL",
             GuardrailPiiEntityType::Username => "USERNAME",
             GuardrailPiiEntityType::UsBankAccountNumber => "US_BANK_ACCOUNT_NUMBER",
             GuardrailPiiEntityType::UsBankRoutingNumber => "US_BANK_ROUTING_NUMBER",
-            GuardrailPiiEntityType::UsIndividualTaxIdentificationNumber => {
-                "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER"
-            }
+            GuardrailPiiEntityType::UsIndividualTaxIdentificationNumber => "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
             GuardrailPiiEntityType::UsPassportNumber => "US_PASSPORT_NUMBER",
             GuardrailPiiEntityType::UsSocialSecurityNumber => "US_SOCIAL_SECURITY_NUMBER",
             GuardrailPiiEntityType::VehicleIdentificationNumber => "VEHICLE_IDENTIFICATION_NUMBER",
@@ -292,14 +276,10 @@ impl GuardrailPiiEntityType {
     /// Parses the enum value while disallowing unknown variants.
     ///
     /// Unknown variants will result in an error.
-    pub fn try_parse(
-        value: &str,
-    ) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
+    pub fn try_parse(value: &str) -> ::std::result::Result<Self, crate::error::UnknownVariantError> {
         match Self::from(value) {
             #[allow(deprecated)]
-            Self::Unknown(_) => {
-                ::std::result::Result::Err(crate::error::UnknownVariantError::new(value))
-            }
+            Self::Unknown(_) => ::std::result::Result::Err(crate::error::UnknownVariantError::new(value)),
             known => Ok(known),
         }
     }
@@ -312,17 +292,13 @@ impl ::std::fmt::Display for GuardrailPiiEntityType {
             GuardrailPiiEntityType::AwsAccessKey => write!(f, "AWS_ACCESS_KEY"),
             GuardrailPiiEntityType::AwsSecretKey => write!(f, "AWS_SECRET_KEY"),
             GuardrailPiiEntityType::CaHealthNumber => write!(f, "CA_HEALTH_NUMBER"),
-            GuardrailPiiEntityType::CaSocialInsuranceNumber => {
-                write!(f, "CA_SOCIAL_INSURANCE_NUMBER")
-            }
+            GuardrailPiiEntityType::CaSocialInsuranceNumber => write!(f, "CA_SOCIAL_INSURANCE_NUMBER"),
             GuardrailPiiEntityType::CreditDebitCardCvv => write!(f, "CREDIT_DEBIT_CARD_CVV"),
             GuardrailPiiEntityType::CreditDebitCardExpiry => write!(f, "CREDIT_DEBIT_CARD_EXPIRY"),
             GuardrailPiiEntityType::CreditDebitCardNumber => write!(f, "CREDIT_DEBIT_CARD_NUMBER"),
             GuardrailPiiEntityType::DriverId => write!(f, "DRIVER_ID"),
             GuardrailPiiEntityType::Email => write!(f, "EMAIL"),
-            GuardrailPiiEntityType::InternationalBankAccountNumber => {
-                write!(f, "INTERNATIONAL_BANK_ACCOUNT_NUMBER")
-            }
+            GuardrailPiiEntityType::InternationalBankAccountNumber => write!(f, "INTERNATIONAL_BANK_ACCOUNT_NUMBER"),
             GuardrailPiiEntityType::IpAddress => write!(f, "IP_ADDRESS"),
             GuardrailPiiEntityType::LicensePlate => write!(f, "LICENSE_PLATE"),
             GuardrailPiiEntityType::MacAddress => write!(f, "MAC_ADDRESS"),
@@ -331,15 +307,9 @@ impl ::std::fmt::Display for GuardrailPiiEntityType {
             GuardrailPiiEntityType::Phone => write!(f, "PHONE"),
             GuardrailPiiEntityType::Pin => write!(f, "PIN"),
             GuardrailPiiEntityType::SwiftCode => write!(f, "SWIFT_CODE"),
-            GuardrailPiiEntityType::UkNationalHealthServiceNumber => {
-                write!(f, "UK_NATIONAL_HEALTH_SERVICE_NUMBER")
-            }
-            GuardrailPiiEntityType::UkNationalInsuranceNumber => {
-                write!(f, "UK_NATIONAL_INSURANCE_NUMBER")
-            }
-            GuardrailPiiEntityType::UkUniqueTaxpayerReferenceNumber => {
-                write!(f, "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER")
-            }
+            GuardrailPiiEntityType::UkNationalHealthServiceNumber => write!(f, "UK_NATIONAL_HEALTH_SERVICE_NUMBER"),
+            GuardrailPiiEntityType::UkNationalInsuranceNumber => write!(f, "UK_NATIONAL_INSURANCE_NUMBER"),
+            GuardrailPiiEntityType::UkUniqueTaxpayerReferenceNumber => write!(f, "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER"),
             GuardrailPiiEntityType::Url => write!(f, "URL"),
             GuardrailPiiEntityType::Username => write!(f, "USERNAME"),
             GuardrailPiiEntityType::UsBankAccountNumber => write!(f, "US_BANK_ACCOUNT_NUMBER"),
@@ -348,12 +318,8 @@ impl ::std::fmt::Display for GuardrailPiiEntityType {
                 write!(f, "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER")
             }
             GuardrailPiiEntityType::UsPassportNumber => write!(f, "US_PASSPORT_NUMBER"),
-            GuardrailPiiEntityType::UsSocialSecurityNumber => {
-                write!(f, "US_SOCIAL_SECURITY_NUMBER")
-            }
-            GuardrailPiiEntityType::VehicleIdentificationNumber => {
-                write!(f, "VEHICLE_IDENTIFICATION_NUMBER")
-            }
+            GuardrailPiiEntityType::UsSocialSecurityNumber => write!(f, "US_SOCIAL_SECURITY_NUMBER"),
+            GuardrailPiiEntityType::VehicleIdentificationNumber => write!(f, "VEHICLE_IDENTIFICATION_NUMBER"),
             GuardrailPiiEntityType::Unknown(value) => write!(f, "{value}"),
         }
     }

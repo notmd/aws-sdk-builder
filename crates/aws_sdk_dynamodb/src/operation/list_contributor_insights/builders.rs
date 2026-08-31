@@ -26,8 +26,7 @@ impl crate::operation::list_contributor_insights::builders::ListContributorInsig
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct ListContributorInsightsFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::list_contributor_insights::builders::ListContributorInsightsInputBuilder,
+    inner: crate::operation::list_contributor_insights::builders::ListContributorInsightsInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -60,8 +59,7 @@ impl ListContributorInsightsFluentBuilder {
     /// Access the ListContributorInsights as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::list_contributor_insights::builders::ListContributorInsightsInputBuilder
-    {
+    ) -> &crate::operation::list_contributor_insights::builders::ListContributorInsightsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,16 +83,13 @@ impl ListContributorInsightsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::list_contributor_insights::ListContributorInsights::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::list_contributor_insights::ListContributorInsights::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::list_contributor_insights::ListContributorInsights::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::list_contributor_insights::ListContributorInsights::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -127,9 +122,11 @@ impl ListContributorInsightsFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::list_contributor_insights::paginator::ListContributorInsightsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> crate::operation::list_contributor_insights::paginator::ListContributorInsightsPaginator
-    {
-        crate::operation::list_contributor_insights::paginator::ListContributorInsightsPaginator::new(self.handle, self.inner)
+    ) -> crate::operation::list_contributor_insights::paginator::ListContributorInsightsPaginator {
+        crate::operation::list_contributor_insights::paginator::ListContributorInsightsPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
     pub fn table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

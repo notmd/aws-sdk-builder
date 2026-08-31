@@ -4,8 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeOrganizationConformancePacksInput {
     /// <p>The name that you assign to an organization conformance pack.</p>
-    pub organization_conformance_pack_names:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub organization_conformance_pack_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>The maximum number of organization config packs returned on each page. If you do no specify a number, Config uses the default. The default is 100.</p>
     pub limit: ::std::option::Option<i32>,
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -16,9 +15,7 @@ impl DescribeOrganizationConformancePacksInput {
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.organization_conformance_pack_names.is_none()`.
     pub fn organization_conformance_pack_names(&self) -> &[::std::string::String] {
-        self.organization_conformance_pack_names
-            .as_deref()
-            .unwrap_or_default()
+        self.organization_conformance_pack_names.as_deref().unwrap_or_default()
     }
     /// <p>The maximum number of organization config packs returned on each page. If you do no specify a number, Config uses the default. The default is 100.</p>
     pub fn limit(&self) -> ::std::option::Option<i32> {
@@ -37,13 +34,10 @@ impl DescribeOrganizationConformancePacksInput {
 }
 
 /// A builder for [`DescribeOrganizationConformancePacksInput`](crate::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeOrganizationConformancePacksInputBuilder {
-    pub(crate) organization_conformance_pack_names:
-        ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) organization_conformance_pack_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) limit: ::std::option::Option<i32>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
 }
@@ -110,7 +104,7 @@ impl DescribeOrganizationConformancePacksInputBuilder {
     ) -> ::std::result::Result<
         crate::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksInput,
         ::aws_smithy_types::error::operation::BuildError,
-    >{
+    > {
         ::std::result::Result::Ok(
             crate::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksInput {
                 organization_conformance_pack_names: self.organization_conformance_pack_names,

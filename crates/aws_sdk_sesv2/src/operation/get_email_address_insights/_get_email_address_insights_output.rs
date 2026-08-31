@@ -21,17 +21,13 @@ impl ::aws_types::request_id::RequestId for GetEmailAddressInsightsOutput {
 }
 impl GetEmailAddressInsightsOutput {
     /// Creates a new builder-style object to manufacture [`GetEmailAddressInsightsOutput`](crate::operation::get_email_address_insights::GetEmailAddressInsightsOutput).
-    pub fn builder(
-    ) -> crate::operation::get_email_address_insights::builders::GetEmailAddressInsightsOutputBuilder
-    {
+    pub fn builder() -> crate::operation::get_email_address_insights::builders::GetEmailAddressInsightsOutputBuilder {
         crate::operation::get_email_address_insights::builders::GetEmailAddressInsightsOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetEmailAddressInsightsOutput`](crate::operation::get_email_address_insights::GetEmailAddressInsightsOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetEmailAddressInsightsOutputBuilder {
     pub(crate) mailbox_validation: ::std::option::Option<crate::types::MailboxValidation>,
@@ -44,17 +40,12 @@ impl GetEmailAddressInsightsOutputBuilder {
         self
     }
     /// <p>Detailed validation results for the email address.</p>
-    pub fn set_mailbox_validation(
-        mut self,
-        input: ::std::option::Option<crate::types::MailboxValidation>,
-    ) -> Self {
+    pub fn set_mailbox_validation(mut self, input: ::std::option::Option<crate::types::MailboxValidation>) -> Self {
         self.mailbox_validation = input;
         self
     }
     /// <p>Detailed validation results for the email address.</p>
-    pub fn get_mailbox_validation(
-        &self,
-    ) -> &::std::option::Option<crate::types::MailboxValidation> {
+    pub fn get_mailbox_validation(&self) -> &::std::option::Option<crate::types::MailboxValidation> {
         &self.mailbox_validation
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
@@ -67,9 +58,7 @@ impl GetEmailAddressInsightsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetEmailAddressInsightsOutput`](crate::operation::get_email_address_insights::GetEmailAddressInsightsOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::get_email_address_insights::GetEmailAddressInsightsOutput {
+    pub fn build(self) -> crate::operation::get_email_address_insights::GetEmailAddressInsightsOutput {
         crate::operation::get_email_address_insights::GetEmailAddressInsightsOutput {
             mailbox_validation: self.mailbox_validation,
             _request_id: self._request_id,

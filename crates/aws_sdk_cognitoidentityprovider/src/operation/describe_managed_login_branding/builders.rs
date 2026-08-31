@@ -57,7 +57,9 @@ impl DescribeManagedLoginBrandingFluentBuilder {
         }
     }
     /// Access the DescribeManagedLoginBranding as a reference.
-    pub fn as_input(&self) -> &crate::operation::describe_managed_login_branding::builders::DescribeManagedLoginBrandingInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::describe_managed_login_branding::builders::DescribeManagedLoginBrandingInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -81,12 +83,17 @@ impl DescribeManagedLoginBrandingFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::describe_managed_login_branding::DescribeManagedLoginBranding::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::describe_managed_login_branding::DescribeManagedLoginBranding::orchestrate(&runtime_plugins, input).await
+        let runtime_plugins =
+            crate::operation::describe_managed_login_branding::DescribeManagedLoginBranding::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::describe_managed_login_branding::DescribeManagedLoginBranding::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -129,18 +136,12 @@ impl DescribeManagedLoginBrandingFluentBuilder {
         self.inner.get_user_pool_id()
     }
     /// <p>The ID of the managed login branding style that you want to get more information about.</p>
-    pub fn managed_login_branding_id(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn managed_login_branding_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.managed_login_branding_id(input.into());
         self
     }
     /// <p>The ID of the managed login branding style that you want to get more information about.</p>
-    pub fn set_managed_login_branding_id(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_managed_login_branding_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_managed_login_branding_id(input);
         self
     }

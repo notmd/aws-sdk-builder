@@ -33,9 +33,7 @@ impl PackageGroupOriginConfiguration {
 }
 
 /// A builder for [`PackageGroupOriginConfiguration`](crate::types::PackageGroupOriginConfiguration).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PackageGroupOriginConfigurationBuilder {
     pub(crate) restrictions: ::std::option::Option<

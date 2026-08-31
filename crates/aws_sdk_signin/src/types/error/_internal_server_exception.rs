@@ -51,9 +51,7 @@ impl InternalServerException {
 }
 
 /// A builder for [`InternalServerException`](crate::types::error::InternalServerException).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InternalServerExceptionBuilder {
     pub(crate) error: ::std::option::Option<crate::types::OAuth2ErrorCode>,
@@ -68,10 +66,7 @@ impl InternalServerExceptionBuilder {
         self
     }
     /// OAuth 2.0 error code indicating server error Will be SERVER_ERROR for internal server errors
-    pub fn set_error(
-        mut self,
-        input: ::std::option::Option<crate::types::OAuth2ErrorCode>,
-    ) -> Self {
+    pub fn set_error(mut self, input: ::std::option::Option<crate::types::OAuth2ErrorCode>) -> Self {
         self.error = input;
         self
     }
@@ -101,10 +96,7 @@ impl InternalServerExceptionBuilder {
     }
 
     /// Sets error metadata
-    pub fn set_meta(
-        &mut self,
-        meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
-    ) -> &mut Self {
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
         self.meta = meta;
         self
     }

@@ -7,8 +7,7 @@ pub struct PackageGroupAllowedRepository {
     /// <p>The name of the allowed repository.</p>
     pub repository_name: ::std::option::Option<::std::string::String>,
     /// <p>The origin configuration restriction type of the allowed repository.</p>
-    pub origin_restriction_type:
-        ::std::option::Option<crate::types::PackageGroupOriginRestrictionType>,
+    pub origin_restriction_type: ::std::option::Option<crate::types::PackageGroupOriginRestrictionType>,
 }
 impl PackageGroupAllowedRepository {
     /// <p>The name of the allowed repository.</p>
@@ -16,9 +15,7 @@ impl PackageGroupAllowedRepository {
         self.repository_name.as_deref()
     }
     /// <p>The origin configuration restriction type of the allowed repository.</p>
-    pub fn origin_restriction_type(
-        &self,
-    ) -> ::std::option::Option<&crate::types::PackageGroupOriginRestrictionType> {
+    pub fn origin_restriction_type(&self) -> ::std::option::Option<&crate::types::PackageGroupOriginRestrictionType> {
         self.origin_restriction_type.as_ref()
     }
 }
@@ -30,29 +27,20 @@ impl PackageGroupAllowedRepository {
 }
 
 /// A builder for [`PackageGroupAllowedRepository`](crate::types::PackageGroupAllowedRepository).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PackageGroupAllowedRepositoryBuilder {
     pub(crate) repository_name: ::std::option::Option<::std::string::String>,
-    pub(crate) origin_restriction_type:
-        ::std::option::Option<crate::types::PackageGroupOriginRestrictionType>,
+    pub(crate) origin_restriction_type: ::std::option::Option<crate::types::PackageGroupOriginRestrictionType>,
 }
 impl PackageGroupAllowedRepositoryBuilder {
     /// <p>The name of the allowed repository.</p>
-    pub fn repository_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn repository_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.repository_name = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The name of the allowed repository.</p>
-    pub fn set_repository_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_repository_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.repository_name = input;
         self
     }
@@ -61,10 +49,7 @@ impl PackageGroupAllowedRepositoryBuilder {
         &self.repository_name
     }
     /// <p>The origin configuration restriction type of the allowed repository.</p>
-    pub fn origin_restriction_type(
-        mut self,
-        input: crate::types::PackageGroupOriginRestrictionType,
-    ) -> Self {
+    pub fn origin_restriction_type(mut self, input: crate::types::PackageGroupOriginRestrictionType) -> Self {
         self.origin_restriction_type = ::std::option::Option::Some(input);
         self
     }

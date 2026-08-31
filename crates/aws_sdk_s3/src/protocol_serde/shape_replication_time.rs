@@ -11,10 +11,7 @@ pub fn ser_replication_time(
     }
     if let Some(var_1) = &input.time {
         let inner_writer = scope.start_el("Time");
-        crate::protocol_serde::shape_replication_time_value::ser_replication_time_value(
-            var_1,
-            inner_writer,
-        )?
+        crate::protocol_serde::shape_replication_time_value::ser_replication_time_value(var_1, inner_writer)?
     }
     scope.finish();
     Ok(())
@@ -24,8 +21,7 @@ pub fn ser_replication_time(
 pub fn de_replication_time(
     decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,
     depth: u32,
-) -> ::std::result::Result<crate::types::ReplicationTime, ::aws_smithy_xml::decode::XmlDecodeError>
-{
+) -> ::std::result::Result<crate::types::ReplicationTime, ::aws_smithy_xml::decode::XmlDecodeError> {
     if depth >= 128u32 {
         return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(
             "maximum nesting depth exceeded",

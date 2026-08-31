@@ -64,7 +64,10 @@ impl BatchGetAggregateResourceConfigFluentBuilder {
         }
     }
     /// Access the BatchGetAggregateResourceConfig as a reference.
-    pub fn as_input(&self) -> &crate::operation::batch_get_aggregate_resource_config::builders::BatchGetAggregateResourceConfigInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::batch_get_aggregate_resource_config::builders::BatchGetAggregateResourceConfigInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,7 +86,7 @@ impl BatchGetAggregateResourceConfigFluentBuilder {
             crate::operation::batch_get_aggregate_resource_config::BatchGetAggregateResourceConfigError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -93,7 +96,11 @@ impl BatchGetAggregateResourceConfigFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::batch_get_aggregate_resource_config::BatchGetAggregateResourceConfig::orchestrate(&runtime_plugins, input).await
+        crate::operation::batch_get_aggregate_resource_config::BatchGetAggregateResourceConfig::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -103,7 +110,7 @@ impl BatchGetAggregateResourceConfigFluentBuilder {
         crate::operation::batch_get_aggregate_resource_config::BatchGetAggregateResourceConfigOutput,
         crate::operation::batch_get_aggregate_resource_config::BatchGetAggregateResourceConfigError,
         Self,
-    >{
+    > {
         crate::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(
@@ -122,25 +129,17 @@ impl BatchGetAggregateResourceConfigFluentBuilder {
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn configuration_aggregator_name(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.configuration_aggregator_name(input.into());
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn set_configuration_aggregator_name(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_configuration_aggregator_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_configuration_aggregator_name(input);
         self
     }
     /// <p>The name of the configuration aggregator.</p>
-    pub fn get_configuration_aggregator_name(
-        &self,
-    ) -> &::std::option::Option<::std::string::String> {
+    pub fn get_configuration_aggregator_name(&self) -> &::std::option::Option<::std::string::String> {
         self.inner.get_configuration_aggregator_name()
     }
     ///
@@ -149,10 +148,7 @@ impl BatchGetAggregateResourceConfigFluentBuilder {
     /// To override the contents of this collection use [`set_resource_identifiers`](Self::set_resource_identifiers).
     ///
     /// <p>A list of aggregate ResourceIdentifiers objects.</p>
-    pub fn resource_identifiers(
-        mut self,
-        input: crate::types::AggregateResourceIdentifier,
-    ) -> Self {
+    pub fn resource_identifiers(mut self, input: crate::types::AggregateResourceIdentifier) -> Self {
         self.inner = self.inner.resource_identifiers(input);
         self
     }

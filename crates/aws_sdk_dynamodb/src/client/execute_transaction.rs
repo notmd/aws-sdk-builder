@@ -13,8 +13,6 @@ impl super::Client {
     pub fn execute_transaction(
         &self,
     ) -> crate::operation::execute_transaction::builders::ExecuteTransactionFluentBuilder {
-        crate::operation::execute_transaction::builders::ExecuteTransactionFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::execute_transaction::builders::ExecuteTransactionFluentBuilder::new(self.handle.clone())
     }
 }

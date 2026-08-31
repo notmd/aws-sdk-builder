@@ -21,9 +21,7 @@ impl PolicyDescriptorType {
 }
 
 /// A builder for [`PolicyDescriptorType`](crate::types::PolicyDescriptorType).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PolicyDescriptorTypeBuilder {
     pub(crate) arn: ::std::option::Option<::std::string::String>,

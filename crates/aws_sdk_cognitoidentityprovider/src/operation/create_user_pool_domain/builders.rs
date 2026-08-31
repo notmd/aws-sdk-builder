@@ -68,10 +68,7 @@ impl CreateUserPoolDomainFluentBuilder {
         }
     }
     /// Access the CreateUserPoolDomain as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &crate::operation::create_user_pool_domain::builders::CreateUserPoolDomainInputBuilder
-    {
+    pub fn as_input(&self) -> &crate::operation::create_user_pool_domain::builders::CreateUserPoolDomainInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -95,16 +92,13 @@ impl CreateUserPoolDomainFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_user_pool_domain::CreateUserPoolDomain::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_user_pool_domain::CreateUserPoolDomain::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::create_user_pool_domain::CreateUserPoolDomain::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::create_user_pool_domain::CreateUserPoolDomain::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -200,9 +194,7 @@ impl CreateUserPoolDomainFluentBuilder {
     /// <p>The configuration for a custom domain. Configures your domain with an Certificate Manager certificate in the <code>us-east-1</code> Region.</p>
     /// <p>Provide this parameter only if you want to use a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">custom domain</a> for your user pool. Otherwise, you can omit this parameter and use a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain-prefix.html">prefix domain</a> instead.</p>
     /// <p>When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.</p>
-    pub fn get_custom_domain_config(
-        &self,
-    ) -> &::std::option::Option<crate::types::CustomDomainConfigType> {
+    pub fn get_custom_domain_config(&self) -> &::std::option::Option<crate::types::CustomDomainConfigType> {
         self.inner.get_custom_domain_config()
     }
     /// <p>The configuration of routing for requests to the domain for replicas of a replicated user pool. The routing configuration is currently only supported for custom domains.</p>

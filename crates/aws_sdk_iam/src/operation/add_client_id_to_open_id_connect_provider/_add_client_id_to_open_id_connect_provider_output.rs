@@ -18,9 +18,7 @@ impl AddClientIdToOpenIdConnectProviderOutput {
 }
 
 /// A builder for [`AddClientIdToOpenIdConnectProviderOutput`](crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct AddClientIdToOpenIdConnectProviderOutputBuilder {
     _request_id: Option<String>,
@@ -36,7 +34,9 @@ impl AddClientIdToOpenIdConnectProviderOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`AddClientIdToOpenIdConnectProviderOutput`](crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput).
-    pub fn build(self) -> crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput{
+    pub fn build(
+        self,
+    ) -> crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput {
         crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput {
             _request_id: self._request_id,
         }

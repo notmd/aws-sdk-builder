@@ -56,12 +56,8 @@ where
     E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,
 {
     result
-        .map(|output| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output)
-        })
-        .map_err(|error| {
-            ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error)
-        })
+        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))
+        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))
         .map_err(::std::convert::Into::into)
 }
 
@@ -113,10 +109,7 @@ pub fn parse_http_error_metadata(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     response_body: &[u8],
-) -> ::std::result::Result<
-    ::aws_smithy_types::error::metadata::Builder,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_xml::decode::XmlDecodeError> {
     crate::rest_xml_wrapped_errors::parse_error_metadata(response_body)
 }
 
@@ -732,10 +725,7 @@ pub(crate) mod shape_sms_sandbox_phone_number_list;
 #[cfg(feature = "op_get_subscription_attributes")]
 pub(crate) mod shape_subscription_attributes_map;
 
-#[cfg(any(
-    feature = "op_list_subscriptions",
-    feature = "op_list_subscriptions_by_topic"
-))]
+#[cfg(any(feature = "op_list_subscriptions", feature = "op_list_subscriptions_by_topic"))]
 pub(crate) mod shape_subscriptions_list;
 
 #[cfg(feature = "op_list_tags_for_resource")]
@@ -765,10 +755,7 @@ pub(crate) mod shape_publish_batch_result_entry;
 #[cfg(feature = "op_list_sms_sandbox_phone_numbers")]
 pub(crate) mod shape_sms_sandbox_phone_number;
 
-#[cfg(any(
-    feature = "op_list_subscriptions",
-    feature = "op_list_subscriptions_by_topic"
-))]
+#[cfg(any(feature = "op_list_subscriptions", feature = "op_list_subscriptions_by_topic"))]
 pub(crate) mod shape_subscription;
 
 #[cfg(feature = "op_list_topics")]

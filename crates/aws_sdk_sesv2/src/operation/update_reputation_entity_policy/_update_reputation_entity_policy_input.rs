@@ -13,9 +13,7 @@ pub struct UpdateReputationEntityPolicyInput {
 }
 impl UpdateReputationEntityPolicyInput {
     /// <p>The type of reputation entity. Currently, only <code>RESOURCE</code> type entities are supported.</p>
-    pub fn reputation_entity_type(
-        &self,
-    ) -> ::std::option::Option<&crate::types::ReputationEntityType> {
+    pub fn reputation_entity_type(&self) -> ::std::option::Option<&crate::types::ReputationEntityType> {
         self.reputation_entity_type.as_ref()
     }
     /// <p>The unique identifier for the reputation entity. For resource-type entities, this is the Amazon Resource Name (ARN) of the resource.</p>
@@ -29,15 +27,14 @@ impl UpdateReputationEntityPolicyInput {
 }
 impl UpdateReputationEntityPolicyInput {
     /// Creates a new builder-style object to manufacture [`UpdateReputationEntityPolicyInput`](crate::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyInput).
-    pub fn builder() -> crate::operation::update_reputation_entity_policy::builders::UpdateReputationEntityPolicyInputBuilder{
+    pub fn builder(
+    ) -> crate::operation::update_reputation_entity_policy::builders::UpdateReputationEntityPolicyInputBuilder {
         crate::operation::update_reputation_entity_policy::builders::UpdateReputationEntityPolicyInputBuilder::default()
     }
 }
 
 /// A builder for [`UpdateReputationEntityPolicyInput`](crate::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyInput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct UpdateReputationEntityPolicyInputBuilder {
     pub(crate) reputation_entity_type: ::std::option::Option<crate::types::ReputationEntityType>,
@@ -60,25 +57,17 @@ impl UpdateReputationEntityPolicyInputBuilder {
         self
     }
     /// <p>The type of reputation entity. Currently, only <code>RESOURCE</code> type entities are supported.</p>
-    pub fn get_reputation_entity_type(
-        &self,
-    ) -> &::std::option::Option<crate::types::ReputationEntityType> {
+    pub fn get_reputation_entity_type(&self) -> &::std::option::Option<crate::types::ReputationEntityType> {
         &self.reputation_entity_type
     }
     /// <p>The unique identifier for the reputation entity. For resource-type entities, this is the Amazon Resource Name (ARN) of the resource.</p>
     /// This field is required.
-    pub fn reputation_entity_reference(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn reputation_entity_reference(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.reputation_entity_reference = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The unique identifier for the reputation entity. For resource-type entities, this is the Amazon Resource Name (ARN) of the resource.</p>
-    pub fn set_reputation_entity_reference(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_reputation_entity_reference(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.reputation_entity_reference = input;
         self
     }
@@ -88,18 +77,12 @@ impl UpdateReputationEntityPolicyInputBuilder {
     }
     /// <p>The Amazon Resource Name (ARN) of the reputation management policy to apply to this entity. This is an Amazon Web Services Amazon SES-managed policy.</p>
     /// This field is required.
-    pub fn reputation_entity_policy(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn reputation_entity_policy(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.reputation_entity_policy = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>The Amazon Resource Name (ARN) of the reputation management policy to apply to this entity. This is an Amazon Web Services Amazon SES-managed policy.</p>
-    pub fn set_reputation_entity_policy(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_reputation_entity_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.reputation_entity_policy = input;
         self
     }

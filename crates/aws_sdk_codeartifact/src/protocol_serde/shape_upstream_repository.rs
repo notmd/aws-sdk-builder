@@ -4,9 +4,7 @@ pub fn ser_upstream_repository(
     input: &crate::types::UpstreamRepository,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     {
-        object
-            .key("repositoryName")
-            .string(input.repository_name.as_str());
+        object.key("repositoryName").string(input.repository_name.as_str());
     }
     Ok(())
 }

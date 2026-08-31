@@ -43,7 +43,7 @@ impl
             crate::operation::disassociate_external_connection::DisassociateExternalConnectionOutput,
             crate::operation::disassociate_external_connection::DisassociateExternalConnectionError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -57,7 +57,9 @@ impl DisassociateExternalConnectionFluentBuilder {
         }
     }
     /// Access the DisassociateExternalConnection as a reference.
-    pub fn as_input(&self) -> &crate::operation::disassociate_external_connection::builders::DisassociateExternalConnectionInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &crate::operation::disassociate_external_connection::builders::DisassociateExternalConnectionInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,7 +88,11 @@ impl DisassociateExternalConnectionFluentBuilder {
             &self.handle.conf,
             self.config_override,
         );
-        crate::operation::disassociate_external_connection::DisassociateExternalConnection::orchestrate(&runtime_plugins, input).await
+        crate::operation::disassociate_external_connection::DisassociateExternalConnection::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -157,18 +163,12 @@ impl DisassociateExternalConnectionFluentBuilder {
         self.inner.get_repository()
     }
     /// <p>The name of the external connection to be removed from the repository.</p>
-    pub fn external_connection(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn external_connection(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.external_connection(input.into());
         self
     }
     /// <p>The name of the external connection to be removed from the repository.</p>
-    pub fn set_external_connection(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_external_connection(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_external_connection(input);
         self
     }

@@ -49,18 +49,12 @@ mod test {
             substring("hello", 0, 2, false, &mut DiagnosticCollector::new()),
             Some("he")
         );
-        assert_eq!(
-            substring("hello", 0, 0, false, &mut DiagnosticCollector::new()),
-            None
-        );
+        assert_eq!(substring("hello", 0, 0, false, &mut DiagnosticCollector::new()), None);
         assert_eq!(
             substring("hello", 0, 5, false, &mut DiagnosticCollector::new()),
             Some("hello")
         );
-        assert_eq!(
-            substring("hello", 0, 6, false, &mut DiagnosticCollector::new()),
-            None
-        );
+        assert_eq!(substring("hello", 0, 6, false, &mut DiagnosticCollector::new()), None);
     }
 
     #[test]
@@ -69,10 +63,7 @@ mod test {
             substring("hello", 0, 2, true, &mut DiagnosticCollector::new()),
             Some("lo")
         );
-        assert_eq!(
-            substring("hello", 0, 0, true, &mut DiagnosticCollector::new()),
-            None
-        );
+        assert_eq!(substring("hello", 0, 0, true, &mut DiagnosticCollector::new()), None);
         assert_eq!(
             substring("hello", 0, 5, true, &mut DiagnosticCollector::new()),
             Some("hello")
@@ -85,12 +76,7 @@ mod test {
         let mut collector = DiagnosticCollector::new();
         assert_eq!(substring("a🐱b", 0, 2, false, &mut collector), None);
         assert_eq!(
-            format!(
-                "{}",
-                collector
-                    .take_last_error()
-                    .expect("last error should be set")
-            ),
+            format!("{}", collector.take_last_error().expect("last error should be set")),
             "the input to substring was not ascii"
         );
     }

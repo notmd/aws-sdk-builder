@@ -19,9 +19,7 @@ impl DeleteTenantOutput {
 }
 
 /// A builder for [`DeleteTenantOutput`](crate::operation::delete_tenant::DeleteTenantOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DeleteTenantOutputBuilder {
     _request_id: Option<String>,

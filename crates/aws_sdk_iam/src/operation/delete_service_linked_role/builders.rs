@@ -28,8 +28,7 @@ impl crate::operation::delete_service_linked_role::builders::DeleteServiceLinked
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DeleteServiceLinkedRoleFluentBuilder {
     handle: ::std::sync::Arc<crate::client::Handle>,
-    inner:
-        crate::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleInputBuilder,
+    inner: crate::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleInputBuilder,
     config_override: ::std::option::Option<crate::config::Builder>,
 }
 impl
@@ -62,8 +61,7 @@ impl DeleteServiceLinkedRoleFluentBuilder {
     /// Access the DeleteServiceLinkedRole as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleInputBuilder
-    {
+    ) -> &crate::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,16 +85,14 @@ impl DeleteServiceLinkedRoleFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::delete_service_linked_role::DeleteServiceLinkedRole::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::delete_service_linked_role::DeleteServiceLinkedRole::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::delete_service_linked_role::DeleteServiceLinkedRole::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::delete_service_linked_role::DeleteServiceLinkedRole::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

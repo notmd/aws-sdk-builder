@@ -29,15 +29,15 @@ impl ::aws_types::request_id::RequestId for GetBucketMetadataConfigurationOutput
 }
 impl GetBucketMetadataConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`GetBucketMetadataConfigurationOutput`](crate::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationOutput).
-    pub fn builder() -> crate::operation::get_bucket_metadata_configuration::builders::GetBucketMetadataConfigurationOutputBuilder{
+    pub fn builder(
+    ) -> crate::operation::get_bucket_metadata_configuration::builders::GetBucketMetadataConfigurationOutputBuilder
+    {
         crate::operation::get_bucket_metadata_configuration::builders::GetBucketMetadataConfigurationOutputBuilder::default()
     }
 }
 
 /// A builder for [`GetBucketMetadataConfigurationOutput`](crate::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationOutput).
-#[derive(
-    ::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug,
-)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketMetadataConfigurationOutputBuilder {
     pub(crate) get_bucket_metadata_configuration_result:
@@ -73,10 +73,7 @@ impl GetBucketMetadataConfigurationOutputBuilder {
         self
     }
 
-    pub(crate) fn _set_extended_request_id(
-        &mut self,
-        extended_request_id: Option<String>,
-    ) -> &mut Self {
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
         self._extended_request_id = extended_request_id;
         self
     }
@@ -90,10 +87,7 @@ impl GetBucketMetadataConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetBucketMetadataConfigurationOutput`](crate::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationOutput).
-    pub fn build(
-        self,
-    ) -> crate::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationOutput
-    {
+    pub fn build(self) -> crate::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationOutput {
         crate::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationOutput {
             get_bucket_metadata_configuration_result: self.get_bucket_metadata_configuration_result,
             _extended_request_id: self._extended_request_id,

@@ -10,8 +10,6 @@ impl super::Client {
     pub fn delete_metric_filter(
         &self,
     ) -> crate::operation::delete_metric_filter::builders::DeleteMetricFilterFluentBuilder {
-        crate::operation::delete_metric_filter::builders::DeleteMetricFilterFluentBuilder::new(
-            self.handle.clone(),
-        )
+        crate::operation::delete_metric_filter::builders::DeleteMetricFilterFluentBuilder::new(self.handle.clone())
     }
 }

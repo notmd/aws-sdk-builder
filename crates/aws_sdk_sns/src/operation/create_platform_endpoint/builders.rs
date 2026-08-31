@@ -60,8 +60,7 @@ impl CreatePlatformEndpointFluentBuilder {
     /// Access the CreatePlatformEndpoint as a reference.
     pub fn as_input(
         &self,
-    ) -> &crate::operation::create_platform_endpoint::builders::CreatePlatformEndpointInputBuilder
-    {
+    ) -> &crate::operation::create_platform_endpoint::builders::CreatePlatformEndpointInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,16 +84,13 @@ impl CreatePlatformEndpointFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = crate::operation::create_platform_endpoint::CreatePlatformEndpoint::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
-        crate::operation::create_platform_endpoint::CreatePlatformEndpoint::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            crate::operation::create_platform_endpoint::CreatePlatformEndpoint::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        crate::operation::create_platform_endpoint::CreatePlatformEndpoint::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -123,18 +119,12 @@ impl CreatePlatformEndpointFluentBuilder {
         self
     }
     /// <p><code>PlatformApplicationArn</code> returned from CreatePlatformApplication is used to create a an endpoint.</p>
-    pub fn platform_application_arn(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn platform_application_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.platform_application_arn(input.into());
         self
     }
     /// <p><code>PlatformApplicationArn</code> returned from CreatePlatformApplication is used to create a an endpoint.</p>
-    pub fn set_platform_application_arn(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_platform_application_arn(input);
         self
     }
@@ -157,18 +147,12 @@ impl CreatePlatformEndpointFluentBuilder {
         self.inner.get_token()
     }
     /// <p>Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.</p>
-    pub fn custom_user_data(
-        mut self,
-        input: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn custom_user_data(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.custom_user_data(input.into());
         self
     }
     /// <p>Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.</p>
-    pub fn set_custom_user_data(
-        mut self,
-        input: ::std::option::Option<::std::string::String>,
-    ) -> Self {
+    pub fn set_custom_user_data(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.inner = self.inner.set_custom_user_data(input);
         self
     }
@@ -193,9 +177,7 @@ impl CreatePlatformEndpointFluentBuilder {
     /// <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html"> <code>SetEndpointAttributes</code> </a>.</p>
     pub fn set_attributes(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
         self.inner = self.inner.set_attributes(input);
         self
@@ -203,9 +185,7 @@ impl CreatePlatformEndpointFluentBuilder {
     /// <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html"> <code>SetEndpointAttributes</code> </a>.</p>
     pub fn get_attributes(
         &self,
-    ) -> &::std::option::Option<
-        ::std::collections::HashMap<::std::string::String, ::std::string::String>,
-    > {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.inner.get_attributes()
     }
 }
