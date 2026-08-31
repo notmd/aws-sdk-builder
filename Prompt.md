@@ -10,7 +10,7 @@ compatibility mode.
 
 Create a Rust codemod that reads `services-manifest.json`, downloads the pinned
 official AWS SDK Rust source for every manifest entry, reads that service's
-Smithy `model.json`, and modifies the downloaded crate into a modular AWS SDK
+Smithy model from the downloaded archive, and modifies the downloaded crate into a modular AWS SDK
 crate with one Cargo feature per operation.
 
 The official AWS SDK source is the transformation baseline. This is an AST
@@ -50,7 +50,8 @@ cannot be included in the commit just created, leave it in the worktree and
 carry it into the next commit.
 
 The new Rust CLI should live in a dedicated workspace package named
-`aws-sdk-modularizer`. Its normal invocation is:
+`aws-sdk-modularizer` at the workspace root under `src/`. Its normal invocation
+is:
 
 ```text
 cargo run -p aws-sdk-modularizer -- --manifest services-manifest.json
@@ -63,7 +64,7 @@ service entry must provide:
 
 - the pinned upstream repository and immutable commit or revision;
 - the path to the service crate in the downloaded SDK;
-- the local Smithy JSON model path;
+- the archive-relative Smithy JSON model path;
 - the output directory;
 - the Cargo package name and Rust library crate name.
 

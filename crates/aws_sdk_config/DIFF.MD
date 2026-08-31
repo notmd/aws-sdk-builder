@@ -3,7 +3,7 @@
 - repository: `https://github.com/awslabs/aws-sdk-rust`
 - revision: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - service: `sdk/config`
-- model: `models/config.json`
+- model: `aws-models/config-service.json`
 - package: `aws-sdk-config`
 - library: `aws_sdk_config`
 - tests exclusion: `tests/**` is excluded from the comparison.
@@ -117,10 +117,8 @@
 
 - `Cargo.toml`
 - `src/client.rs`
-- `src/config.rs`
 - `src/error_meta.rs`
 - `src/lens.rs`
-- `src/lib.rs`
 - `src/operation.rs`
 - `src/protocol_serde.rs`
 - `src/serde_util.rs`

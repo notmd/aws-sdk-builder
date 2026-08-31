@@ -238,7 +238,7 @@ mod tests {
     fn discovers_object_operation_targets_in_model_order() {
         let model = Model::load(Path::new(concat!(
             env!("CARGO_MANIFEST_DIR"),
-            "/../../tests/fixtures/object-operation-model.json"
+            "/tests/fixtures/object-operation-model.json"
         )))
         .unwrap();
         let operations = model.operations().unwrap();

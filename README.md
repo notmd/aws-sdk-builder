@@ -5,9 +5,12 @@ with one opt-in Cargo feature per operation. The full requirements are in
 [`Prompt.md`](Prompt.md).
 
 The codemod is driven by `services-manifest.json` and each service's Smithy
-`model.json`. It downloads the pinned AWS SDK source into a temporary directory,
-uses `syn` to modify the Rust module graph, updates `Cargo.toml`, and writes
-outputs such as:
+model from the downloaded SDK archive. It downloads the pinned AWS SDK source
+into a temporary directory, uses `syn` to modify the Rust module graph, updates
+`Cargo.toml`, and writes outputs such as:
+
+The `aws-sdk-modularizer` package is the workspace root package and its CLI
+sources live under `src/`.
 
 ```text
 crates/aws_sdk_s3/

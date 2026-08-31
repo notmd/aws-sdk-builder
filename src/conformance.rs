@@ -69,9 +69,9 @@ fn run_generation(manifest: &Manifest, root: &Path) -> Result<(), ConformanceErr
     })?;
     let upstream = prepare_upstreams(manifest, workspace.path())?;
     for service in &manifest.services {
-        let staged = stage_service(service, root, &upstream, workspace.path())?;
-        let model = Model::load(&root.join(&service.model_path))?;
+        let model = load_model(service, &upstream)?;
         let operations = model.operations()?;
+        let staged = stage_service(service, &upstream, workspace.path(), &operations)?;
         write_stage_artifacts(service, &staged, &upstream, &operations)?;
         install_atomically(&staged, &root.join(&service.output_dir), workspace.path())?;
         println!(
@@ -93,9 +93,9 @@ fn run_conformance(manifest: &Manifest, root: &Path) -> Result<(), ConformanceEr
     let previous = fs::read_to_string(root.join("conformance/summary.md")).ok();
     let mut reports = Vec::new();
     for service in &manifest.services {
-        let staged = stage_service(service, root, &upstream, workspace.path())?;
-        let model = Model::load(&root.join(&service.model_path))?;
+        let model = load_model(service, &upstream)?;
         let operations = model.operations()?;
+        let staged = stage_service(service, &upstream, workspace.path(), &operations)?;
         verify_service(service, &staged, &operations)?;
         let changed_files = write_stage_artifacts(service, &staged, &upstream, &operations)?;
         verify_diff_artifacts(&staged)?;
@@ -149,9 +149,9 @@ fn write_stage_artifacts(
 
 fn stage_service(
     service: &ServiceManifest,
-    root: &Path,
     upstreams: &BTreeMap<(String, String), PathBuf>,
     workspace: &Path,
+    operations: &[Operation],
 ) -> Result<PathBuf, ConformanceError> {
     let upstream = upstreams
         .get(&(service.repository.clone(), service.revision.clone()))
@@ -167,15 +167,26 @@ fn stage_service(
     }
     let stage = workspace.join("staged").join(&service.key);
     copy_without_tests(&source, &stage)?;
-    let model = Model::load(&root.join(&service.model_path))?;
-    let operations = model.operations()?;
     transform::transform_tree(
         &stage,
         &service.package_name,
         &service.library_name,
-        &operations,
+        operations,
     )?;
     Ok(stage)
+}
+
+fn load_model(
+    service: &ServiceManifest,
+    upstreams: &BTreeMap<(String, String), PathBuf>,
+) -> Result<Model, ConformanceError> {
+    let upstream = upstreams
+        .get(&(service.repository.clone(), service.revision.clone()))
+        .ok_or_else(|| {
+            ConformanceError::Message(format!("no downloaded source for {}", service.key))
+        })?;
+    let path = safe_join(upstream, &service.model_path)?;
+    Ok(Model::load(&path)?)
 }
 
 fn prepare_upstreams(

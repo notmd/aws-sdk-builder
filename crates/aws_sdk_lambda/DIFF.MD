@@ -3,7 +3,7 @@
 - repository: `https://github.com/awslabs/aws-sdk-rust`
 - revision: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - service: `sdk/lambda`
-- model: `models/lambda.json`
+- model: `aws-models/lambda.json`
 - package: `aws-sdk-lambda`
 - library: `aws_sdk_lambda`
 - tests exclusion: `tests/**` is excluded from the comparison.
@@ -103,11 +103,9 @@
 - `src/client/create_code_signing_config.rs`
 - `src/client/create_event_source_mapping.rs`
 - `src/client/publish_version.rs`
-- `src/config.rs`
 - `src/error_meta.rs`
 - `src/event_stream_serde.rs`
 - `src/lens.rs`
-- `src/lib.rs`
 - `src/operation.rs`
 - `src/operation/create_code_signing_config.rs`
 - `src/operation/create_code_signing_config/_create_code_signing_config_input.rs`

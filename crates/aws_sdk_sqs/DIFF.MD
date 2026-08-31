@@ -3,7 +3,7 @@
 - repository: `https://github.com/awslabs/aws-sdk-rust`
 - revision: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - service: `sdk/sqs`
-- model: `models/sqs.json`
+- model: `aws-models/sqs.json`
 - package: `aws-sdk-sqs`
 - library: `aws_sdk_sqs`
 - tests exclusion: `tests/**` is excluded from the comparison.
@@ -38,10 +38,8 @@
 
 - `Cargo.toml`
 - `src/client.rs`
-- `src/config.rs`
 - `src/error_meta.rs`
 - `src/lens.rs`
-- `src/lib.rs`
 - `src/operation.rs`
 - `src/protocol_serde.rs`
 - `src/serde_util.rs`

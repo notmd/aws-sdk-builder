@@ -6,7 +6,7 @@
       "repository": "https://github.com/awslabs/aws-sdk-rust",
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/batch",
-      "model_path": "models/batch.json",
+      "model_path": "aws-models/batch.json",
       "output_dir": "crates/aws_sdk_batch",
       "package_name": "aws-sdk-batch",
       "library_name": "aws_sdk_batch"
@@ -16,7 +16,7 @@
       "repository": "https://github.com/awslabs/aws-sdk-rust",
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/bedrockruntime",
-      "model_path": "models/bedrockruntime.json",
+      "model_path": "aws-models/bedrock-runtime.json",
       "output_dir": "crates/aws_sdk_bedrockruntime",
       "package_name": "aws-sdk-bedrockruntime",
       "library_name": "aws_sdk_bedrockruntime"
@@ -26,7 +26,7 @@
       "repository": "https://github.com/awslabs/aws-sdk-rust",
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/cloudwatchlogs",
-      "model_path": "models/cloudwatchlogs.json",
+      "model_path": "aws-models/cloudwatch-logs.json",
       "output_dir": "crates/aws_sdk_cloudwatchlogs",
       "package_name": "aws-sdk-cloudwatchlogs",
       "library_name": "aws_sdk_cloudwatchlogs"
@@ -36,7 +36,7 @@
       "repository": "https://github.com/awslabs/aws-sdk-rust",
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/codeartifact",
-      "model_path": "models/codeartifact.json",
+      "model_path": "aws-models/codeartifact.json",
       "output_dir": "crates/aws_sdk_codeartifact",
       "package_name": "aws-sdk-codeartifact",
       "library_name": "aws_sdk_codeartifact"
@@ -46,7 +46,7 @@
       "repository": "https://github.com/awslabs/aws-sdk-rust",
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/cognitoidentityprovider",
-      "model_path": "models/cognitoidentityprovider.json",
+      "model_path": "aws-models/cognito-identity-provider.json",
       "output_dir": "crates/aws_sdk_cognitoidentityprovider",
       "package_name": "aws-sdk-cognitoidentityprovider",
       "library_name": "aws_sdk_cognitoidentityprovider"
@@ -56,7 +56,7 @@
       "repository": "https://github.com/awslabs/aws-sdk-rust",
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/config",
-      "model_path": "models/config.json",
+      "model_path": "aws-models/config-service.json",
       "output_dir": "crates/aws_sdk_config",
       "package_name": "aws-sdk-config",
       "library_name": "aws_sdk_config"
@@ -66,7 +66,7 @@
       "repository": "https://github.com/awslabs/aws-sdk-rust",
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/dynamodb",
-      "model_path": "models/dynamodb.json",
+      "model_path": "aws-models/dynamodb.json",
       "output_dir": "crates/aws_sdk_dynamodb",
       "package_name": "aws-sdk-dynamodb",
       "library_name": "aws_sdk_dynamodb"
@@ -76,7 +76,7 @@
       "repository": "https://github.com/awslabs/aws-sdk-rust",
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/iam",
-      "model_path": "models/iam.json",
+      "model_path": "aws-models/iam.json",
       "output_dir": "crates/aws_sdk_iam",
       "package_name": "aws-sdk-iam",
       "library_name": "aws_sdk_iam"
@@ -86,7 +86,7 @@
       "repository": "https://github.com/awslabs/aws-sdk-rust",
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/kms",
-      "model_path": "models/kms.json",
+      "model_path": "aws-models/kms.json",
       "output_dir": "crates/aws_sdk_kms",
       "package_name": "aws-sdk-kms",
       "library_name": "aws_sdk_kms"
@@ -96,7 +96,7 @@
       "repository": "https://github.com/awslabs/aws-sdk-rust",
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/lambda",
-      "model_path": "models/lambda.json",
+      "model_path": "aws-models/lambda.json",
       "output_dir": "crates/aws_sdk_lambda",
       "package_name": "aws-sdk-lambda",
       "library_name": "aws_sdk_lambda"
@@ -106,7 +106,7 @@
       "repository": "https://github.com/awslabs/aws-sdk-rust",
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/s3",
-      "model_path": "models/s3.json",
+      "model_path": "aws-models/s3.json",
       "output_dir": "crates/aws_sdk_s3",
       "package_name": "aws-sdk-s3",
       "library_name": "aws_sdk_s3"
@@ -116,7 +116,7 @@
       "repository": "https://github.com/awslabs/aws-sdk-rust",
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/sesv2",
-      "model_path": "models/sesv2.json",
+      "model_path": "aws-models/sesv2.json",
       "output_dir": "crates/aws_sdk_sesv2",
       "package_name": "aws-sdk-sesv2",
       "library_name": "aws_sdk_sesv2"
@@ -126,7 +126,7 @@
       "repository": "https://github.com/awslabs/aws-sdk-rust",
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/signin",
-      "model_path": "models/signin.json",
+      "model_path": "aws-models/signin.json",
       "output_dir": "crates/aws_sdk_signin",
       "package_name": "aws-sdk-signin",
       "library_name": "aws_sdk_signin"
@@ -136,7 +136,7 @@
       "repository": "https://github.com/awslabs/aws-sdk-rust",
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/sns",
-      "model_path": "models/sns.json",
+      "model_path": "aws-models/sns.json",
       "output_dir": "crates/aws_sdk_sns",
       "package_name": "aws-sdk-sns",
       "library_name": "aws_sdk_sns"
@@ -146,7 +146,7 @@
       "repository": "https://github.com/awslabs/aws-sdk-rust",
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/sqs",
-      "model_path": "models/sqs.json",
+      "model_path": "aws-models/sqs.json",
       "output_dir": "crates/aws_sdk_sqs",
       "package_name": "aws-sdk-sqs",
       "library_name": "aws_sdk_sqs"
@@ -156,7 +156,7 @@
       "repository": "https://github.com/awslabs/aws-sdk-rust",
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/sso",
-      "model_path": "models/sso.json",
+      "model_path": "aws-models/sso.json",
       "output_dir": "crates/aws_sdk_sso",
       "package_name": "aws-sdk-sso",
       "library_name": "aws_sdk_sso"
@@ -166,7 +166,7 @@
       "repository": "https://github.com/awslabs/aws-sdk-rust",
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/ssooidc",
-      "model_path": "models/ssooidc.json",
+      "model_path": "aws-models/sso-oidc.json",
       "output_dir": "crates/aws_sdk_ssooidc",
       "package_name": "aws-sdk-ssooidc",
       "library_name": "aws_sdk_ssooidc"
@@ -176,7 +176,7 @@
       "repository": "https://github.com/awslabs/aws-sdk-rust",
       "revision": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
       "upstream_path": "sdk/sts",
-      "model_path": "models/sts.json",
+      "model_path": "aws-models/sts.json",
       "output_dir": "crates/aws_sdk_sts",
       "package_name": "aws-sdk-sts",
       "library_name": "aws_sdk_sts"

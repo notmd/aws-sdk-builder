@@ -173,7 +173,7 @@ mod tests {
             repository: "https://github.com/example/aws-sdk-rust".to_owned(),
             revision: "0123456789abcdef0123456789abcdef01234567".to_owned(),
             upstream_path: format!("sdk/{key}"),
-            model_path: format!("models/{key}.json"),
+            model_path: format!("aws-models/{key}.json"),
             output_dir: format!("crates/{key}"),
             package_name: format!("aws-sdk-{key}"),
             library_name: format!("aws_sdk_{key}"),
